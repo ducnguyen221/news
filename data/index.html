@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Data News – bản tin Dữ liệu & AI hàng tuần bằng tiếng Việt: hạ tầng data, công cụ BI/DE, AI trong phân tích dữ liệu. Tuyển chọn bởi Duc Nguyen, kèm audio và video recap.">
+<title>Data News – Bản tin Dữ liệu &amp; AI hàng tuần</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="alternate" type="application/rss+xml" title="Data News" href="feed.xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Data News – Bản tin Dữ liệu & AI hàng tuần tiếng Việt">
+<meta property="og:description" content="Tổng hợp tin Dữ liệu & AI nổi bật mỗi tuần: lakehouse, BI, data engineering, AI trong analytics. Kèm audio giọng Việt và video recap.">
+<meta property="og:image" content="https://ducnguyen.vn/news/data/assets/og-banner.png">
+<meta property="og:url" content="https://ducnguyen.vn/news/data/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#04060a;--ink:#f8fafc;--muted:#94a3b8;--line:rgba(255,255,255,.08);
+--cyan:#34f5a4;--cyan-glow:rgba(52,245,164,.4);--purple:#38bdf8;--panel:rgba(10,15,26,.93);
+--radius:12px;--font-body:'Be Vietnam Pro',system-ui,sans-serif;--font-heading:'Plus Jakarta Sans',system-ui,sans-serif;--font-mono:'JetBrains Mono',Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);scroll-behavior:smooth}
+body{min-height:100vh;color:var(--ink);font-family:var(--font-body);line-height:1.65;letter-spacing:-.01em;
+background:radial-gradient(circle at 10% 20%,rgba(52,245,164,.05),transparent 40rem),
+radial-gradient(circle at 90% 10%,rgba(56,189,248,.04),transparent 35rem),
+linear-gradient(180deg,#04060a 0%,#080d1a 60%,#030508 100%);padding-bottom:40px}
+a{color:inherit;text-decoration:none}
+.site{position:relative;z-index:1;width:min(1100px,calc(100% - 40px));margin:0 auto}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;margin-top:14px;
+border:1px solid var(--line);border-radius:var(--radius);background:rgba(6,9,16,.92);backdrop-filter:blur(20px)}
+.brand{display:inline-flex;align-items:center;gap:13px}
+.brand-mark{width:44px;height:44px;display:grid;place-items:center;flex:0 0 auto;border:1px solid rgba(52,245,164,.4);border-radius:50%;
+background:radial-gradient(circle,rgba(52,245,164,.22),rgba(56,189,248,.06) 55%,rgba(4,6,10,.95) 78%);
+box-shadow:0 0 18px rgba(52,245,164,.35);animation:brandPulse 3.2s ease-in-out infinite;
+transition:transform .45s cubic-bezier(.175,.885,.32,1.275)}
+.brand:hover .brand-mark{transform:rotate(180deg) scale(1.06);border-color:#34f5a4}
+@keyframes brandPulse{0%,100%{box-shadow:0 0 10px rgba(52,245,164,.22)}50%{box-shadow:0 0 26px rgba(52,245,164,.55)}}
+.brand-name{font-family:var(--font-heading);font-size:1.25rem;font-weight:800;letter-spacing:-.02em}
+.brand-name b{color:var(--cyan);font-weight:800}
+.brand-sub{display:block;color:var(--muted);font-size:.68rem;font-family:var(--font-mono);letter-spacing:.12em;text-transform:uppercase}
+.nav{display:flex;gap:8px}
+.nav a{padding:8px 14px;border:1px solid var(--line);border-radius:8px;font-size:.85rem;color:var(--muted);transition:.2s}
+.nav a:hover{color:var(--cyan);border-color:var(--cyan-glow)}
+.nav .sub-cta{color:#04060a;font-weight:800;border:0;background:linear-gradient(90deg,#34f5a4,#38bdf8);animation:ctaPulse 2.2s ease-in-out infinite}
+.nav .sub-cta:hover{color:#04060a;filter:brightness(1.12)}
+.nav .hot-cta{color:#fff;border-color:rgba(255,90,60,.55);background:rgba(255,90,60,.12);font-weight:700}
+.nav .hot-cta:hover{color:#ff5a3c;border-color:#ff5a3c}
+@keyframes ctaPulse{0%,100%{box-shadow:0 0 0 0 rgba(52,245,164,.45)}55%{box-shadow:0 0 0 8px rgba(52,245,164,0)}}
+.subscribe{scroll-margin-top:20px}
+.hero{margin-top:34px}
+.label{font-family:var(--font-mono);font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
+.hero-card{display:block;position:relative;border:1px solid rgba(52,245,164,.25);border-radius:16px;padding:26px 28px;
+background:linear-gradient(135deg,rgba(52,245,164,.07),rgba(56,189,248,.05) 60%,var(--panel));transition:.25s}
+.hero-card:hover{border-color:var(--cyan);box-shadow:0 0 34px rgba(52,245,164,.12);transform:translateY(-2px)}
+.hero-week{font-family:var(--font-mono);color:var(--cyan);font-size:.85rem;letter-spacing:.08em}
+.hero-title{font-family:var(--font-heading);font-size:1.65rem;font-weight:800;margin:6px 0 4px}
+.hero-range{color:var(--muted);font-size:.92rem}
+.hero-tldr{color:#cbd5e1;font-size:.95rem;margin-top:12px;max-width:62rem}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.badge{font-family:var(--font-mono);font-size:.74rem;color:#a5f3fc;border:1px solid rgba(52,245,164,.25);border-radius:99px;padding:3px 11px;background:rgba(52,245,164,.06)}
+.cta{display:inline-block;margin-top:16px;font-weight:700;color:var(--cyan);font-size:.95rem}
+.video-panel{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:18px 20px;margin-top:16px}
+.video-panel video{width:100%;border-radius:10px;margin-top:10px;background:#000}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.stat{flex:1;min-width:140px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);padding:14px 18px;text-align:center}
+.stat .n{font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--cyan)}
+.stat .t{color:var(--muted);font-size:.78rem;font-family:var(--font-mono);letter-spacing:.08em;text-transform:uppercase}
+.subscribe{margin-top:34px}
+.sub-box{display:flex;flex-wrap:wrap;gap:10px;align-items:center;border:1px solid rgba(56,189,248,.3);border-radius:16px;
+background:linear-gradient(135deg,rgba(56,189,248,.07),var(--panel));padding:18px 20px}
+.sub-box input{flex:1;min-width:220px;background:#0a0f1c;border:1px solid var(--line);border-radius:9px;
+padding:11px 14px;color:var(--ink);font-family:var(--font-body);font-size:.95rem;outline:none}
+.sub-box input:focus{border-color:var(--cyan-glow)}
+.sub-box button{background:linear-gradient(90deg,#34f5a4,#38bdf8);color:#04060a;font-weight:800;border:0;
+border-radius:9px;padding:11px 22px;font-size:.95rem;cursor:pointer}
+.sub-box button:hover{filter:brightness(1.1)}
+#subMsg{font-size:.88rem;color:#38bdf8;font-weight:600}
+.sub-note{color:var(--muted);font-size:.82rem;margin-top:8px}
+.archive{margin-top:40px}
+.year-h{font-family:var(--font-heading);font-size:1.15rem;font-weight:800;color:#fff;margin:26px 0 12px;display:flex;align-items:center;gap:10px}
+.year-h::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{display:block;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);padding:16px 18px;transition:.2s}
+.card:hover{border-color:var(--cyan-glow);box-shadow:0 0 22px rgba(52,245,164,.08);transform:translateY(-2px)}
+.card .wk{font-family:var(--font-mono);font-size:.76rem;color:var(--purple);letter-spacing:.08em}
+.card .d{font-family:var(--font-heading);font-weight:700;font-size:1.02rem;margin-top:3px}
+.card .dow{color:var(--muted);font-size:.82rem;text-transform:capitalize}
+.card .badges{margin-top:10px}
+.footer{margin-top:52px;text-align:center;font-size:.8rem;color:#4b5563}
+.footer a{color:#818cf8}
+@media (max-width:640px){
+.topbar{flex-wrap:wrap;padding:10px 12px}
+.brand-sub{display:none}
+.nav{width:100%;justify-content:stretch}
+.nav a{flex:1 1 auto;text-align:center;white-space:nowrap;padding:8px 6px;font-size:.8rem}
+.stats{gap:8px}
+.stat{min-width:0;flex:1;padding:10px 6px}
+.stat .n{font-size:1.05rem}
+.stat .t{font-size:.62rem}
+.hero-title{font-size:1.3rem}
+.hero-card{padding:18px 16px}}
+</style></head><body>
+<div class="site"><header class="topbar"><a class="brand" href="./" title="Data News – về trang chính"><span class="brand-mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34f5a4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/><path d="M4.5 11.5v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/></svg></span><span><span class="brand-name">Data <b>News</b></span><span class="brand-sub">Bản tin Dữ liệu &amp; AI hàng tuần · by Duc Nguyen</span></span></a><nav class="nav"><a class="hot-cta" href="hot-today/" title="Tin Dữ liệu nóng nhất mỗi ngày">🔥 Hot Today</a><a href="https://ducnguyen.vn" title="Về trang chính ducnguyen.vn">ducnguyen.vn</a><a href="rss.html" title="Theo dõi qua RSS">RSS</a><a class="sub-cta" href="#subscribe">Đăng ký ✉</a></nav></header><section class="hero"><div class="stats" style="margin-top:0;margin-bottom:26px"><div class="stat"><div class="n">1</div><div class="t">bản tin</div></div><div class="stat"><div class="n">17</div><div class="t">tin đã tổng hợp</div></div><div class="stat"><div class="n">W24</div><div class="t">tuần mới nhất</div></div></div><div class="label">▍Số mới nhất</div><a class="hero-card" href="2026/06/w24.html"><div class="hero-week">2026 · TUẦN 24</div><div class="hero-title">Bản tin Dữ liệu tuần 24</div><div class="hero-range">📅 08/06 – 14/06 · phát hành 12/06/2026</div><p class="hero-tldr">Tổng quan tuần này: Tuần 08–14/06 là tuần bản lề ngay trước thềm Data + AI Summit nhưng tin tức vẫn dày đặc. Databricks tung OpenSharing — chuẩn mở thế hệ mới của Delta Sharing cho phép chia sẻ cả dữ liệu lẫn AI assets x…</p><div class="badges"><span class="badge">🗞 17 tin</span><span class="badge">🎧 audio</span><span class="badge">🎬 video</span></div><span class="cta">Đọc bản tin →</span></a><div class="video-panel"><div class="label" style="margin-bottom:0">▍🎬 Video recap tuần 24</div><div style="position:relative;width:100%;padding-top:56.25%;border-radius:10px;overflow:hidden;margin-top:10px"><iframe src="https://www.youtube.com/embed/_uYxuFUh7do" title="Data News recap" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div></section><section class="subscribe" id="subscribe"><div class="label">▍Nhận bản tin qua email</div><form id="subForm" class="sub-box"><input type="email" id="subEmail" placeholder="email-cua-ban@example.com" required autocomplete="email"><button type="submit">Đăng ký</button><span id="subMsg"></span></form><p class="sub-note">Mỗi tuần đúng 1 email: tổng quan + top 5 tin nóng + link bản tin và video. Hủy đăng ký bất cứ lúc nào bằng link trong email.</p></section><script>document.getElementById("subForm").addEventListener("submit",function(ev){ev.preventDefault();var em=document.getElementById("subEmail").value.trim();var ms=document.getElementById("subMsg");if(!em)return;ms.style.color="#94a3b8";ms.textContent="Đang gửi…";fetch("https://script.google.com/macros/s/AKfycbzqCvVG7KX1drw_kRP7W_oVJUNfueKapioitTxzWgr2xQMx2HoS3MNVgP2HG7fN3yPd/exec",{method:"POST",mode:"no-cors",body:new URLSearchParams({email:em})}).then(function(){ms.style.color="#38bdf8";ms.textContent="✓ Đã đăng ký! Hẹn thứ 6 này.";document.getElementById("subEmail").value="";}).catch(function(){ms.style.color="#ff4757";ms.textContent="Lỗi mạng, thử lại nhé.";});});</script><section class="archive"><div class="label">▍Lưu trữ</div><div class="year-h">2026</div><div class="grid"><a class="card" href="2026/06/w24.html"><div class="wk">TUẦN 24 · 08/06 – 14/06</div><div class="d">12/06/2026</div><div class="dow">Thứ Sáu</div><div class="badges"><span class="badge">🗞 17 tin</span><span class="badge">🎧 audio</span><span class="badge">🎬 video</span></div></a></div></section><div class="footer">Bản tin Dữ liệu &amp; AI hàng tuần · Tuyển chọn &amp; đọc bởi Duc Nguyen · <a href="rss.html">RSS</a> · <a href="https://ducnguyen.vn">ducnguyen.vn</a></div>
+</div><script src="assets/bg.js" defer></script></body></html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hot News – tin AI nóng nhất mỗi ngày bằng tiếng Việt: video deep-dive và short, giải thích dễ hiểu. Tuyển chọn & đọc bởi Duc Nguyen.">
+<title>Hot News – Tin AI nóng nhất mỗi ngày</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hot News – Tin AI nóng nhất mỗi ngày">
+<meta property="og:description" content="Mỗi ngày một tin AI nóng nhất: video deep-dive + short, giải thích dễ hiểu bằng tiếng Việt.">
+<meta property="og:image" content="https://ducnguyen.vn/news/ai/assets/og-banner.png">
+<meta property="og:url" content="https://ducnguyen.vn/news/ai/hot-today">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#04060a;--ink:#f8fafc;--muted:#94a3b8;--line:rgba(255,255,255,.08);
+--cyan:#00f0ff;--cyan-glow:rgba(0,240,255,.4);--purple:#bd00ff;--hot:#ff5a3c;--hot-glow:rgba(255,90,60,.4);
+--panel:rgba(10,15,26,.93);--radius:12px;--font-body:'Be Vietnam Pro',system-ui,sans-serif;
+--font-heading:'Plus Jakarta Sans',system-ui,sans-serif;--font-mono:'JetBrains Mono',Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);scroll-behavior:smooth}
+body{min-height:100vh;color:var(--ink);font-family:var(--font-body);line-height:1.65;letter-spacing:-.01em;
+background:radial-gradient(circle at 10% 20%,rgba(255,90,60,.06),transparent 40rem),
+radial-gradient(circle at 90% 10%,rgba(189,0,255,.04),transparent 35rem),
+linear-gradient(180deg,#04060a 0%,#080d1a 60%,#030508 100%);padding-bottom:40px}
+a{color:inherit;text-decoration:none}
+.site{position:relative;z-index:1;width:min(1100px,calc(100% - 40px));margin:0 auto}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:14px 20px;margin-top:14px;
+border:1px solid var(--line);border-radius:var(--radius);background:rgba(6,9,16,.92);backdrop-filter:blur(20px)}
+.brand{display:inline-flex;align-items:center;gap:13px}
+.brand-mark{width:44px;height:44px;display:grid;place-items:center;flex:0 0 auto;border:1px solid var(--hot-glow);border-radius:50%;
+background:radial-gradient(circle,rgba(255,90,60,.24),rgba(189,0,255,.06) 55%,rgba(4,6,10,.95) 78%);
+box-shadow:0 0 18px rgba(255,90,60,.35);animation:brandPulse 3.2s ease-in-out infinite}
+@keyframes brandPulse{0%,100%{box-shadow:0 0 10px rgba(255,90,60,.22)}50%{box-shadow:0 0 26px rgba(255,90,60,.55)}}
+.brand-name{font-family:var(--font-heading);font-size:1.25rem;font-weight:800;letter-spacing:-.02em}
+.brand-name b{color:var(--hot);font-weight:800}
+.brand-sub{display:block;color:var(--muted);font-size:.68rem;font-family:var(--font-mono);letter-spacing:.12em;text-transform:uppercase}
+.nav{display:flex;gap:8px;align-items:center}
+.nav a{padding:8px 14px;border:1px solid var(--line);border-radius:8px;font-size:.85rem;color:var(--muted);transition:.2s}
+.nav a:hover{color:var(--cyan);border-color:var(--cyan-glow)}
+/* ---- Video / Short toggle ---- */
+.toggle{display:inline-flex;padding:4px;gap:4px;border:1px solid var(--line);border-radius:11px;background:rgba(6,9,16,.9)}
+.toggle button{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border:0;border-radius:8px;cursor:pointer;
+font-family:var(--font-heading);font-weight:700;font-size:.86rem;color:var(--muted);background:transparent;transition:.2s}
+.toggle button svg{width:16px;height:16px}
+.toggle button:hover{color:var(--ink)}
+.toggle button.on{color:#04060a;background:linear-gradient(90deg,var(--hot),#ff8a3c);box-shadow:0 0 16px rgba(255,90,60,.4)}
+.toggle button.on.shortbtn{background:linear-gradient(90deg,#00f0ff,#39ff7a);box-shadow:0 0 16px rgba(0,240,255,.4)}
+.hero{margin-top:30px}
+.label{font-family:var(--font-mono);font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--hot);margin-bottom:10px}
+.hero h1{font-family:var(--font-heading);font-size:2rem;font-weight:800;line-height:1.15;margin-bottom:8px}
+.hero p{color:#cbd5e1;font-size:1rem;max-width:60rem}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0 6px}
+.stat{flex:1;min-width:130px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);padding:14px 18px;text-align:center}
+.stat .n{font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--hot)}
+.stat .t{color:var(--muted);font-size:.74rem;font-family:var(--font-mono);letter-spacing:.08em;text-transform:uppercase}
+.feed{margin-top:30px;display:flex;flex-direction:column;gap:22px}
+.item{border:1px solid var(--line);border-radius:16px;background:var(--panel);overflow:hidden;transition:.25s}
+.item:hover{border-color:var(--hot-glow);box-shadow:0 0 26px rgba(255,90,60,.08)}
+.item-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:0}
+.item.short-mode .item-grid{grid-template-columns:minmax(0,1fr) minmax(0,360px)}
+.embed-wrap{background:#000;position:relative;width:100%}
+.embed-wrap.v{padding-top:56.25%}
+.embed-wrap.s{padding-top:0;aspect-ratio:9/16;max-height:560px;margin:0 auto}
+.embed-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.embed-wrap.s iframe{position:static;height:100%;display:block}
+.embed-ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font-family:var(--font-mono);font-size:.8rem;text-align:center;padding:20px}
+.meta{padding:22px 24px;display:flex;flex-direction:column;justify-content:center}
+.meta .day{font-family:var(--font-mono);font-size:.78rem;color:var(--cyan);letter-spacing:.06em}
+.meta h2{font-family:var(--font-heading);font-size:1.3rem;font-weight:800;margin:6px 0 10px;line-height:1.25}
+.meta .sum{color:#cbd5e1;font-size:.95rem}
+.meta .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px}
+.badge{font-family:var(--font-mono);font-size:.72rem;color:#fda4af;border:1px solid var(--hot-glow);border-radius:99px;padding:3px 11px;background:rgba(255,90,60,.07)}
+.badge.src{color:#a5f3fc;border-color:rgba(0,240,255,.25);background:rgba(0,240,255,.06)}
+.watch{margin-left:auto;font-weight:700;color:var(--hot);font-size:.9rem}
+.watch:hover{filter:brightness(1.15)}
+.empty,.loading{text-align:center;color:var(--muted);padding:60px 20px;font-family:var(--font-mono);font-size:.9rem}
+.footer{margin-top:52px;text-align:center;font-size:.8rem;color:#4b5563}
+.footer a{color:#818cf8}
+@media (max-width:760px){
+.item-grid,.item.short-mode .item-grid{grid-template-columns:1fr}
+.embed-wrap.s{max-height:none;aspect-ratio:9/16;width:min(100%,320px)}
+.meta{padding:18px 18px}
+.hero h1{font-size:1.5rem}
+.nav{order:3;width:100%}
+.toggle{width:100%;justify-content:center}
+.toggle button{flex:1;justify-content:center}}
+</style></head><body>
+<div class="site">
+<header class="topbar">
+  <a class="brand" href="../" title="AI News – trang chính">
+    <span class="brand-mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff5a3c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c.5 3-1.5 4-1.5 6a1.5 1.5 0 0 0 3 0c0-.7-.2-1.3-.2-1.3 2 1.3 3.2 3.4 3.2 5.8a4.5 4.5 0 0 1-9 0c0-2 1-3.5 2-4.5"/></svg></span>
+    <span><span class="brand-name">Hot <b>News</b></span><span class="brand-sub">Tin AI nóng nhất mỗi ngày · by Duc Nguyen</span></span>
+  </a>
+  <div class="toggle" role="group" aria-label="Chọn định dạng video">
+    <button id="btnVideo" class="on" onclick="setMode('video')" aria-pressed="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m10 9 5 3-5 3z"/></svg>Video</button>
+    <button id="btnShort" class="shortbtn" onclick="setMode('short')" aria-pressed="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="m11 9 3 2-3 2z"/></svg>Short</button>
+  </div>
+  <nav class="nav">
+    <a href="../">← Bản tin tuần</a>
+    <a href="https://ducnguyen.vn" target="_blank" rel="noopener">ducnguyen.vn ↗</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="label">▍🔥 Hot Today</div>
+  <h1>Tin AI nóng nhất mỗi ngày</h1>
+  <p>Mỗi ngày một câu chuyện AI lớn nhất, giải thích dễ hiểu bằng tiếng Việt — chọn xem bản <b>Video</b> deep-dive hoặc bản <b>Short</b> ở nút trên cùng.</p>
+  <div class="stats">
+    <div class="stat"><div class="n" id="stCount">—</div><div class="t">tin đã đăng</div></div>
+    <div class="stat"><div class="n" id="stLatest">—</div><div class="t">mới nhất</div></div>
+    <div class="stat"><div class="n">1/ngày</div><div class="t">nhịp đăng</div></div>
+  </div>
+</section>
+
+<main class="feed" id="feed"><div class="loading">Đang tải tin nóng…</div></main>
+
+<div class="footer">Hot News · Tin AI nóng nhất mỗi ngày · Tuyển chọn &amp; đọc bởi Duc Nguyen · <a href="../">AI News</a> · <a href="https://ducnguyen.vn">ducnguyen.vn</a></div>
+</div>
+
+<script>
+var MODE = (localStorage.getItem('hotMode') === 'short') ? 'short' : 'video';
+var ENTRIES = [];
+
+function ytEmbed(id){
+  return 'https://www.youtube.com/embed/' + id + '?rel=0&modestbranding=1';
+}
+function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+function render(){
+  var feed = document.getElementById('feed');
+  if(!ENTRIES.length){ feed.innerHTML = '<div class="empty">Chưa có tin nào. Quay lại sau nhé!</div>'; return; }
+  var html = '';
+  ENTRIES.forEach(function(e){
+    var isShort = MODE === 'short';
+    var id = isShort ? e.short_id : e.video_id;
+    var day = e.display_date || e.date || '';
+    var watchUrl = id ? ('https://www.youtube.com/watch?v=' + (isShort ? e.short_id : e.video_id)) : '#';
+    var embed;
+    if(id){
+      embed = '<div class="embed-wrap ' + (isShort?'s':'v') + '">' +
+              '<iframe src="' + ytEmbed(id) + '" title="' + esc(e.title) + '" loading="lazy" ' +
+              'allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" ' +
+              'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>';
+    } else {
+      embed = '<div class="embed-wrap ' + (isShort?'s':'v') + '"><div class="embed-ph">⏳ ' +
+              (isShort?'Short':'Video') + ' đang được xử lý…</div></div>';
+    }
+    html += '<article class="item' + (isShort?' short-mode':'') + '"><div class="item-grid">' +
+      embed +
+      '<div class="meta"><div class="day">📅 ' + esc(day) + '</div>' +
+      '<h2>' + esc(e.title) + '</h2>' +
+      '<p class="sum">' + esc(e.summary) + '</p>' +
+      '<div class="row">' +
+        (e.source ? '<span class="badge src">🔗 ' + esc(e.source) + '</span>' : '') +
+        '<span class="badge">' + (isShort?'▶ Short':'▶ Deep-dive') + '</span>' +
+        (id ? '<a class="watch" href="' + watchUrl + '" target="_blank" rel="noopener">Xem trên YouTube ↗</a>' : '') +
+      '</div></div></div></article>';
+  });
+  feed.innerHTML = html;
+}
+
+function setMode(m){
+  MODE = m; localStorage.setItem('hotMode', m);
+  document.getElementById('btnVideo').classList.toggle('on', m==='video');
+  document.getElementById('btnVideo').setAttribute('aria-pressed', m==='video');
+  document.getElementById('btnShort').classList.toggle('on', m==='short');
+  document.getElementById('btnShort').setAttribute('aria-pressed', m==='short');
+  render();
+}
+
+fetch('hot-news.json?v=' + Date.now()).then(function(r){return r.json();}).then(function(d){
+  ENTRIES = (d.entries||[]).filter(function(e){return e.video_id || e.short_id;});
+  document.getElementById('stCount').textContent = ENTRIES.length || '0';
+  document.getElementById('stLatest').textContent = ENTRIES.length ? (ENTRIES[0].date||'').slice(5).split('-').reverse().join('/') : '—';
+  setMode(MODE);
+}).catch(function(){
+  document.getElementById('feed').innerHTML = '<div class="empty">Không tải được danh sách tin. Thử lại sau nhé.</div>';
+});
+</script>
+<script src="../assets/bg.js" defer></script>
+</body></html>

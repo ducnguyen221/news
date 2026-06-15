@@ -1,0 +1,297 @@
+{
+ "date": "13/06/2026",
+ "week": "W24",
+ "range": "08/06 - 14/06/2026",
+ "tldr": "Tuần 08 đến 14 tháng 6 là tuần bản lề ngay trước thềm Data + AI Summit nhưng tin tức vẫn dày đặc. Databricks tung OpenSharing, chuẩn mở thế hệ mới của Delta Sharing cho phép chia sẻ cả dữ liệu lẫn tài sản AI xuyên nền tảng, đồng thời đưa Spatial SQL lên bản chính thức. ClickHouse dồn dập ra tin: ClickHouse Agents mở public beta cho agentic analytics, bắt tay Datadog về observability và mở đường migration Postgres. Microsoft phát hành bản cập nhật tháng 6 cho Power BI và Fabric với Copilot web modeling, agent skills dựng report và Fabric Apps. AWS đổi cách tính tiền snapshot Redshift giúp giảm chi phí lưu trữ, còn cộng đồng sôi sục với thương vụ PgDog gọi vốn 5,5 triệu đô la Mỹ để shard Postgres và bài tổng kết cục diện Iceberg catalog.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "Databricks đưa Spatial SQL lên GA: 90+ hàm ST_*, bản đồ trong AI/BI Dashboards, hỗ trợ Iceberg v3",
+   "title_en": "Geospatial Unbounded: Spatial SQL GA with AI/BI Maps, Delta Sharing, and Iceberg v3",
+   "summary": "Spatial SQL chính thức GA trên Databricks với kiểu dữ liệu GEOMETRY và GEOGRAPHY, hơn 90 hàm không gian chuẩn OGC, bản đồ render trực tiếp trong AI/BI Dashboards, chia sẻ dữ liệu geospatial qua Delta Sharing và đọc ghi Iceberg v3. Trên SpatialBench, 8 trong 12 truy vấn nhanh hơn từ 20 phần trăm tới 15 lần so với bản Preview.",
+   "why": "Phân tích không gian địa lý không còn cần hệ thống GIS riêng mà gộp thẳng vào lakehouse; kiểu Geometry và Geography cũng đang được đóng góp vào Apache Spark 4.2.",
+   "url": "https://www.databricks.com/blog/geospatial-unbounded-spatial-sql-ga-aibi-maps-delta-sharing-and-iceberg-v3",
+   "domain": "databricks.com",
+   "date": "2026-06-11",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 2,
+   "title": "Databricks công bố OpenSharing: chuẩn mở chia sẻ dữ liệu và AI assets xuyên nền tảng",
+   "title_en": "Databricks Announces OpenSharing, a New Open Standard for Sharing of Data and AI Assets Across Platforms and Organizations",
+   "summary": "OpenSharing là bước tiến hóa tiếp theo của giao thức mã nguồn mở Delta Sharing cho kỷ nguyên agentic: giao thức mở trung lập vendor đầu tiên cho phép chia sẻ an toàn Agent Skills, AI model và dữ liệu phi cấu trúc, thêm hỗ trợ client Iceberg REST catalog và truy cập tài sản on-prem hoặc private cloud qua đối tác lưu trữ như MinIO, Qumulo.",
+   "why": "Chia sẻ dữ liệu xuyên tổ chức vốn là sân chơi đóng của từng vendor; OpenSharing mở rộng phạm vi sang cả tài sản AI, một đòn chiến lược tung ra ngay trước thềm Data + AI Summit.",
+   "url": "https://www.databricks.com/company/newsroom/press-releases/databricks-announces-opensharing",
+   "domain": "databricks.com",
+   "date": "2026-06-10",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 1
+  },
+  {
+   "aid": 3,
+   "title": "Amazon Redshift đổi sang billing snapshot incremental: chỉ trả tiền cho data block duy nhất",
+   "title_en": "Unlock cost savings with incremental snapshot billing for Amazon Redshift Serverless and Amazon Redshift RG",
+   "summary": "Từ ngày 8 tháng 6 năm 2026, Redshift Serverless và Redshift RG chỉ tính phí các data block duy nhất giữa các manual snapshot trong account; block trùng lặp xuất hiện ở nhiều snapshot chỉ tính một lần, snapshot hiện hữu tự động chuyển sang mô hình mới mà không cần thao tác.",
+   "why": "Đội nào giữ nhiều snapshot cho disaster recovery, test hay lưu trữ dài hạn sẽ giảm chi phí ngay lập tức, và có thể snapshot dày hơn để cải thiện RPO mà chi phí không tăng tỷ lệ thuận.",
+   "url": "https://aws.amazon.com/blogs/big-data/unlock-cost-savings-with-incremental-snapshot-billing-for-amazon-redshift-serverless-and-amazon-redshift-rg/",
+   "domain": "aws.amazon.com",
+   "date": "2026-06-08",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 4,
+   "title": "ClickHouse Cloud ra mắt Postgres-to-Postgres ClickPipes: migration Postgres fully managed, downtime thấp",
+   "title_en": "Introducing Postgres to Postgres ClickPipes in ClickHouse Cloud",
+   "summary": "ClickPipes có thêm pipeline Postgres sang Postgres giúp di chuyển database Postgres từ nơi khác về Postgres managed by ClickHouse trên ClickHouse Cloud theo cách fully managed với downtime tối thiểu.",
+   "why": "ClickHouse đang lấn mạnh sang OLTP: sau khi đưa managed Postgres vào beta, giờ mở luôn đường cao tốc migration, cạnh tranh trực diện với RDS, Neon, Supabase.",
+   "url": "https://clickhouse.com/blog/clickpipes-postgres-to-postgres",
+   "domain": "clickhouse.com",
+   "date": "2026-06-11",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 5,
+   "title": "Microsoft Fabric tháng 6/2026: AI Functions chuyển mặc định sang gpt-5-mini, mirroring qua private link mở rộng",
+   "title_en": "Fabric June 2026 Feature Summary",
+   "summary": "Bản tổng hợp tính năng tháng 6: Fabric AI Functions dùng gpt-5-mini làm model mặc định khi dòng gpt-4.1 nghỉ hưu, mirroring hỗ trợ workspace chặn public access cho Azure SQL Database, SAP, SQL Server 2016 đến 2022 và SharePoint, Git integration thêm GitHub Enterprise Cloud data residency ở bản preview.",
+   "why": "Hai nhóm khách hàng hưởng lợi rõ: doanh nghiệp bị ràng buộc network security giờ mirror được nhiều nguồn hơn, còn AI Functions rẻ và nhanh hơn với model mới.",
+   "url": "https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Fabric-June-2026-Feature-Summary/ba-p/5190690",
+   "domain": "community.fabric.microsoft.com",
+   "date": "2026-06-10",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "Power BI tháng 6/2026: Copilot vào web modeling, agent skills tự dựng report, Fabric Apps trình làng",
+   "title_en": "Power BI June 2026 Feature Summary",
+   "summary": "Bản cập nhật tháng 6 dồn lực cho AI: Copilot trong web modeling ở bản preview giúp phân tích và sửa semantic model bằng ngôn ngữ tự nhiên như đổi tên bảng cột, tạo relationship, sinh DAX measure; Report Authoring agent skills dựng report hoàn chỉnh từ canvas trắng qua hội thoại; Fabric Apps mở cách xây web app AI-first trên semantic model.",
+   "why": "Power BI là công cụ BI phổ biến nhất tại Việt Nam; khi việc modeling và dựng report được AI làm thay phần lặp lại, kỹ năng ra đề bài đúng trở thành thứ phân hóa analyst.",
+   "url": "https://community.fabric.microsoft.com/t5/Power-BI-Updates-Blog/Power-BI-June-2026-Feature-Summary/ba-p/5193264",
+   "domain": "community.fabric.microsoft.com",
+   "date": "2026-06-09",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": 3
+  },
+  {
+   "aid": 7,
+   "title": "Google Analytics liên kết Google Business Profile: gộp số liệu local business, website và app về một mối",
+   "title_en": "What's new in Google Analytics: link Google Business Profiles",
+   "summary": "Từ ngày 8 tháng 6, Google Analytics cho phép liên kết property với Google Business Profiles ngay trong Admin, import dữ liệu first-party từ GBP và thêm bộ báo cáo riêng gồm interactions, cuộc gọi, bookings, chỉ đường và website clicks.",
+   "why": "Doanh nghiệp có chuỗi cửa hàng vật lý lâu nay phải xem số GBP một nơi, web app một nẻo; giờ đo được hành trình khách hàng local trong cùng một property.",
+   "url": "https://support.google.com/analytics/answer/9164320",
+   "domain": "support.google.com",
+   "date": "2026-06-08",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "AI agent tự provision database: ClickHouse vào Stripe Projects, một lệnh CLI có ngay ClickHouse hoặc Postgres",
+   "title_en": "Agents can now provision ClickHouse and Postgres on ClickHouse Cloud",
+   "summary": "ClickHouse có mặt trong Stripe Projects, workflow Stripe CLI cho developer và AI agent: một lệnh provision service ClickHouse hoặc Postgres trên ClickHouse Cloud, credentials ghi thẳng vào file env theo định dạng agent đọc được, rồi bàn giao cho clickhousectl để agent tiếp tục build mà không cần đụng giao diện.",
+   "why": "Hạ tầng dữ liệu đang được thiết kế lại cho một người dùng mới là AI agent; provisioning không cần giao diện, không thao tác tay là mảnh ghép để agent tự dựng app từ đầu đến cuối.",
+   "url": "https://clickhouse.com/blog/stripe-projects",
+   "domain": "clickhouse.com",
+   "date": "2026-06-10",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "ClickHouse Agents mở public beta: agentic analytics no-code cho mọi khách hàng ClickHouse Cloud",
+   "title_en": "ClickHouse Agents: agentic analytics, now in public beta",
+   "summary": "Dịch vụ agentic analytics fully managed tích hợp trong ClickHouse Cloud: tạo agent no-code grounded trên dữ liệu ClickHouse trực tiếp, chat hỏi đáp không cần SQL, code interpreter sandbox chạy Bash, Python, JavaScript, có skills, memories, artifacts và multi-agent orchestration, kèm SSO, mã hóa và RBAC chuẩn enterprise.",
+   "why": "Số liệu nội bộ rất đáng nể: 80 phần trăm nhân viên ClickHouse dùng hằng ngày, agent xử lý khoảng 70 phần trăm truy vấn warehouse nội bộ và hơn 45 triệu token mỗi ngày; BI không cần dashboard đang thành sản phẩm thật.",
+   "url": "https://clickhouse.com/blog/clickhouse-agents-beta",
+   "domain": "clickhouse.com",
+   "date": "2026-06-09",
+   "section": "🤖 AI × Data",
+   "hot_rank": 2
+  },
+  {
+   "aid": 10,
+   "title": "Databricks đổi tên Genie thành Genie One, dồn dập cập nhật dashboard và Genie Space",
+   "title_en": "Databricks AI/BI release notes: Genie renamed to Genie One",
+   "summary": "Genie, trải nghiệm AI cho business user của Databricks, chính thức đổi tên thành Genie One vào ngày 9 tháng 6; kèm theo loạt cập nhật ngày 11 tháng 6: lưu visualization từ Genie Space vào dashboard, Gantt chart, custom visualization bằng Vega-Lite ở Public Preview, tùy biến màu sắc, logo và messaging theo account.",
+   "why": "Databricks đang biến Genie One thành cửa ngõ chat với dữ liệu cho mọi nhân viên, đúng tuyên bố double down on Genie của CEO Ali Ghodsi, và là vũ khí chính đấu với Copilot của Microsoft.",
+   "url": "https://docs.databricks.com/aws/en/ai-bi/release-notes/2026",
+   "domain": "docs.databricks.com",
+   "date": "2026-06-09",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "\"Đừng xây data product nữa, hãy xây data service\" — bài luận khơi lại tranh luận kiến trúc dữ liệu",
+   "title_en": "Stop building data products. Start building data services.",
+   "summary": "Bài viết lập luận kiến trúc mỗi use case một data product sẽ gãy khi AI agent tiêu thụ dữ liệu theo những cách không đoán trước; thay vào đó nên shift-left data quality về tầng ingestion, codify business context ở upstream và đo insight lag, tức khoảng trễ từ lúc dữ liệu tồn tại đến lúc dùng được, thay vì chỉ đo data freshness.",
+   "why": "Sau nhiều năm data product và data mesh làm khung tư duy chủ đạo, làn sóng agent đang buộc ngành xét lại: agent không đọc catalog như con người mà compose dữ liệu theo cách riêng.",
+   "url": "https://www.databricks.com/blog/stop-building-data-products-start-building-data-services",
+   "domain": "databricks.com",
+   "date": "2026-06-11",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "PgDog gọi vốn 5,5 triệu USD: sharding proxy mã nguồn mở cho Postgres, \"cháy\" trên Hacker News với 530 điểm",
+   "title_en": "PgDog is funded and coming to a database near you",
+   "summary": "PgDog, bộ connection pooler, load balancer và sharding proxy viết bằng Rust giúp scale Postgres theo chiều ngang mà không phải sửa ứng dụng, công bố vòng vốn 5,5 triệu đô la Mỹ từ Basis Set, Y Combinator và Pioneer Fund; hiện phục vụ hơn 2 triệu truy vấn mỗi giây ở production, đã shard hơn 20 terabyte dữ liệu và đạt 1,4 triệu lượt Docker pull.",
+   "why": "Triết lý Postgres là database duy nhất bạn cần thắng lớn về cảm tình cộng đồng: thay vì nhảy sang NoSQL khi đụng trần scale, xu hướng giờ là giữ Postgres và thêm một lớp proxy.",
+   "url": "https://pgdog.dev/blog/our-funding-announcement",
+   "domain": "pgdog.dev",
+   "date": "2026-06-10",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": 5
+  },
+  {
+   "aid": 13,
+   "title": "Cục diện Apache Iceberg catalog tháng 6/2026: format war đã xong, cuộc chiến chuyển lên tầng catalog",
+   "title_en": "The State of Apache Iceberg Catalogs in June 2026",
+   "summary": "Bài tổng kết được cộng đồng lakehouse chia sẻ mạnh: Apache Iceberg đã thắng cuộc chiến table format, cạnh tranh giờ dồn về catalog với Apache Polaris đã thành top-level project, Nessie, Gravitino, Lakekeeper, Unity Catalog, Snowflake Open Catalog, AWS Glue, S3 Tables và BigLake; governance portability vẫn là bài toán chưa giải.",
+   "why": "Catalog giờ là hạ tầng Tier-1: nó quyết định lakehouse của bạn có governed, interoperable và sẵn sàng cho AI agent hay không; lời khuyên chốt bài là bám các catalog tương thích REST.",
+   "url": "https://dev.to/alexmercedcoder/the-state-of-apache-iceberg-catalogs-in-june-2026-265e",
+   "domain": "dev.to",
+   "date": "2026-06-08",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "Datadog bắt tay ClickHouse: log full-fidelity đổ thẳng về ClickHouse, vẫn search trong Datadog",
+   "title_en": "Datadog and ClickHouse partner to bring full-fidelity data to modern observability",
+   "summary": "Datadog Observability Pipelines thêm destination ClickHouse native, còn Datadog Log Explorer có khả năng search liên bang sang dữ liệu nằm trong ClickHouse Cloud; tổ chức giữ trọn bộ telemetry với chi phí thấp mà không phải rời workflow quen thuộc. Cả hai năng lực đang ở giai đoạn Preview.",
+   "why": "Cú bắt tay bất ngờ giữa vua observability và database đang phá giá thị trường lưu trữ log, chấm dứt thế phải chọn giữa giữ đủ dữ liệu và giữ được công cụ quen tay.",
+   "url": "https://clickhouse.com/blog/datadog-and-clickhouse-partnership",
+   "domain": "clickhouse.com",
+   "date": "2026-06-10",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": 4
+  },
+  {
+   "aid": 15,
+   "title": "AWS trở lại Data + AI Summit 2026 với vai Legend Sponsor: phô diễn \"agentic stack\" Bedrock × Databricks",
+   "title_en": "AWS and Databricks at Data + AI Summit 2026: Accelerating real-world AI innovation",
+   "summary": "Trước thềm Summit từ 15 đến 18 tháng 6 tại San Francisco với hơn 30 nghìn người dự kiến tham dự, AWS công bố hiện diện mở rộng: keynote về catalog federation đa engine cùng Mastercard kết hợp Unity Catalog và AWS Glue, demo agent end-to-end với Amazon Bedrock AgentCore, Unity Catalog, Genie và Lakebase.",
+   "why": "Tuần tới là tâm điểm của cả ngành dữ liệu; việc AWS, vừa là đối tác vừa là đối thủ, đẩy mạnh agentic stack chung với Databricks báo trước chủ đề chính của Summit năm nay.",
+   "url": "https://www.databricks.com/blog/aws-and-databricks-data-ai-summit-2026-accelerating-real-world-ai-innovation",
+   "domain": "databricks.com",
+   "date": "2026-06-10",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 16,
+   "title": "ClickHouse bổ nhiệm Ed Lenta làm VP Asia Pacific & Japan, mở rộng đội ngũ go-to-market toàn cầu",
+   "title_en": "ClickHouse appoints new leader for Asia Pacific and expands global go-to-market leadership team",
+   "summary": "ClickHouse công bố mở rộng đội ngũ lãnh đạo go-to-market toàn cầu, trong đó bổ nhiệm Ed Lenta làm Vice President phụ trách khu vực Asia Pacific và Japan; động thái diễn ra ngay sau khi công ty cán mốc 250 triệu đô la Mỹ ARR và 4 nghìn khách hàng.",
+   "why": "Đông Nam Á vào tầm ngắm mở rộng của một trong những công ty hạ tầng dữ liệu tăng trưởng nóng nhất; tín hiệu tốt cho cộng đồng data Việt Nam về sự kiện, hỗ trợ và cả cơ hội việc làm khu vực.",
+   "url": "https://clickhouse.com/blog/clickhouse-appoints-apac-leader-and-expands-global-gtm-leadership",
+   "domain": "clickhouse.com",
+   "date": "2026-06-09",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "Futurum: Databricks có giữ được ngôi đầu khi agentic AI nâng mức cược tại Data + AI Summit?",
+   "title_en": "Can Databricks Maintain Its Data + AI Summit Lead as Agentic AI Raises the Stakes?",
+   "summary": "Phân tích trước thềm Summit: 51 phần trăm doanh nghiệp đang ưu tiên đầu tư generative và agentic AI; Databricks phải chứng minh agentic AI chạy production thật thay vì demo, giữ độ gắn kết của hệ sinh thái hơn 240 sponsor và đưa ra ROI đo được, trong khi Snowflake, Google và AWS đều dồn lực giải đúng các bài toán đó.",
+   "why": "Góc nhìn tỉnh táo giữa mùa hype hội nghị: hai nút thắt được nêu thẳng là độ phức tạp tích hợp và việc agent chưa ghi ngược được vào hệ thống nghiệp vụ, chính là thứ quyết định ai thắng giai đoạn tới.",
+   "url": "https://futurumgroup.com/insights/can-databricks-maintain-its-data-ai-summit-lead-as-agentic-ai-raises-the-stakes/",
+   "domain": "futurumgroup.com",
+   "date": "2026-06-08",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 2,
+ "weekly_video": {
+  "intro": "Xin chào, đây là bản tin dữ liệu tuần 24, điểm lại những chuyện đáng chú ý nhất từ ngày 8 đến 14 tháng 6 năm 2026. Tuần này là tuần bản lề ngay trước hội nghị Data + AI Summit, và chủ đề bao trùm là chuẩn mở cùng làn sóng agentic: Databricks tung chuẩn chia sẻ mới, ClickHouse mở agent phân tích cho mọi khách hàng, Microsoft đưa Copilot vào sâu hơn trong Power BI, còn cộng đồng thì sôi sục với Postgres. Bắt đầu ngay với câu chuyện nóng nhất.",
+  "outro": "Đó là năm câu chuyện nóng nhất của tuần 24. Toàn bộ 17 tin kèm phân tích chi tiết đã có trong bản tin, mời bạn xem thêm. Hẹn gặp lại bạn vào tuần sau.",
+  "segments": [
+   {
+    "aid": 2,
+    "headline": "Databricks công bố chuẩn mở OpenSharing",
+    "narration": "Câu chuyện số một tuần này đến từ Databricks. Ngày 10 tháng 6, hãng công bố OpenSharing, bước tiến hóa tiếp theo của giao thức mã nguồn mở Delta Sharing, được thiết kế cho kỷ nguyên agentic. Đây được giới thiệu là giao thức mở, trung lập với vendor, đầu tiên cho phép chia sẻ an toàn không chỉ dữ liệu mà cả tài sản AI, bao gồm Agent Skills, các AI model và dữ liệu phi cấu trúc, giữa các nền tảng và tổ chức khác nhau. OpenSharing mở rộng hệ sinh thái Delta Sharing hiện có bằng cách hỗ trợ thêm các client dùng Iceberg REST catalog, nghĩa là bên nhận dữ liệu không cần phải là khách hàng Databricks, chỉ cần engine đọc được Iceberg. Khách hàng cũng có thể truy cập tài sản nằm on-premise hoặc trong private cloud thông qua các đối tác lưu trữ như MinIO hay Qumulo. Điểm đáng chú ý là thời điểm: tin được tung ra chỉ năm ngày trước hội nghị Data + AI Summit, nơi dự kiến đón hơn 30 nghìn người tham dự. Đây rõ ràng là nước cờ định vị Databricks ở vai trò người đặt chuẩn cho nền kinh tế chia sẻ dữ liệu và tài sản AI, đối trọng trực tiếp với hướng đi interoperability mà Snowflake vừa công bố đầu tháng. Với doanh nghiệp, ý nghĩa thực tế là viễn cảnh trao đổi dữ liệu và model với đối tác mà không cần cả hai bên dùng chung một nền tảng.",
+    "bullets": [
+     "Tiến hóa từ Delta Sharing, công bố ngày 10 tháng 6",
+     "Chia sẻ cả Agent Skills, AI model, dữ liệu phi cấu trúc",
+     "Hỗ trợ client Iceberg REST catalog, không cần chung vendor",
+     "Tung ra 5 ngày trước Data + AI Summit"
+    ],
+    "images": [
+     "https://www.databricks.com/sites/default/files/2026-06/2026-06-blog-opensharing-dais-press-release-og-1200x628-2x_0.png",
+     "https://www.databricks.com/sites/default/files/2023-08/databricks-default.png"
+    ]
+   },
+   {
+    "aid": 9,
+    "headline": "ClickHouse Agents mở public beta",
+    "narration": "Câu chuyện thứ hai: ClickHouse Agents chính thức mở public beta cho toàn bộ khách hàng ClickHouse Cloud từ ngày 9 tháng 6. Đây là dịch vụ agentic analytics được quản lý hoàn toàn, tích hợp sẵn trong cloud của hãng. Người dùng tạo agent theo kiểu no-code, không cần viết SQL, agent được grounded trực tiếp trên dữ liệu ClickHouse đang chạy. Bộ tính năng khá đầy đủ: giao diện chat để hỏi đáp dữ liệu bằng ngôn ngữ tự nhiên, code interpreter chạy trong sandbox hỗ trợ Bash, Python và JavaScript, cơ chế skills, memories và artifacts để đóng gói quy trình phân tích thành thứ dùng lại được, cộng thêm khả năng điều phối nhiều agent cùng lúc và lớp bảo mật chuẩn doanh nghiệp với SSO, mã hóa và phân quyền RBAC. Bộ số liệu nội bộ mà ClickHouse công bố rất đáng suy nghĩ: 80 phần trăm nhân viên của hãng dùng công cụ này hằng ngày, các agent xử lý khoảng 70 phần trăm tổng truy vấn data warehouse nội bộ, và hệ thống tiêu thụ hơn 45 triệu token mỗi ngày. Nói cách khác, phần lớn câu hỏi dữ liệu lặp đi lặp lại đã không còn qua tay con người. Sản phẩm được công bố lần đầu tại hội nghị Open House cuối tháng 5, và chỉ hai tuần sau đã mở cho tất cả khách hàng. Với người làm BI, thông điệp rất rõ: lớp việc trả lời câu hỏi ad-hoc đang bị tự động hóa nhanh hơn dự đoán.",
+    "bullets": [
+     "Public beta cho mọi khách hàng Cloud từ 9 tháng 6",
+     "Agent no-code, chat không cần SQL, sandbox chạy code",
+     "Nội bộ: 70 phần trăm truy vấn warehouse qua agent",
+     "Hơn 45 triệu token tiêu thụ mỗi ngày"
+    ],
+    "images": [
+     "https://clickhouse.com/uploads/clickhouse_agents_jun2026_image7_e65251f928.png",
+     "https://clickhouse.com/uploads/clickhouse_agents_jun2026_image3_8315470075.png",
+     "https://clickhouse.com/uploads/clickhouse_agents_jun2026_image5_9d4230b8e1.png"
+    ]
+   },
+   {
+    "aid": 6,
+    "headline": "Power BI tháng 6: Copilot modeling, Fabric Apps",
+    "narration": "Câu chuyện thứ ba dành cho cộng đồng Power BI, công cụ BI phổ biến nhất tại Việt Nam. Bản cập nhật tháng 6 năm 2026 phát hành ngày 9 tháng 6 dồn lực rất mạnh cho AI. Thứ nhất, Copilot xuất hiện trong web modeling ở bản preview: bạn có thể phân tích và chỉnh sửa semantic model bằng ngôn ngữ tự nhiên, từ đổi tên bảng và cột, tạo relationship, cho tới sinh các DAX measure, tất cả qua hội thoại. Thứ hai, Report Authoring agent skills cho phép dựng một báo cáo hoàn chỉnh từ canvas trắng hoặc cập nhật báo cáo có sẵn chỉ bằng cách trò chuyện, với các khuyến nghị thiết kế dựa trên thực hành tốt về trực quan hóa dữ liệu. Thứ ba, Fabric Apps trình làng: một cách mới để xây web app theo hướng AI-first ngay trên semantic model, dùng Microsoft Fabric làm backend, mở đường cho developer và cả các agent lập trình tạo ứng dụng dữ liệu cấp doanh nghiệp. Ngoài ra còn các cập nhật kết nối đáng tiền: Snowflake connector hỗ trợ xác thực không cần lưu secret thông qua workspace identity, và BigQuery connector phiên bản 2 nhanh hơn. Ý nghĩa cho người làm nghề: phần việc lặp lại như dựng khung báo cáo, format, sửa model sẽ được AI gánh dần, giá trị của analyst dồn về hiểu nghiệp vụ, đặt câu hỏi đúng và kiểm soát chất lượng dữ liệu.",
+    "bullets": [
+     "Copilot sửa model, tạo relationship, sinh DAX qua hội thoại",
+     "Agent skills dựng report hoàn chỉnh từ canvas trắng",
+     "Fabric Apps: web app AI-first trên semantic model",
+     "Snowflake connector xác thực không cần secret"
+    ],
+    "images": [
+     "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/New_Power_BI_Logo.svg/960px-New_Power_BI_Logo.svg.png"
+    ]
+   },
+   {
+    "aid": 14,
+    "headline": "Datadog bắt tay ClickHouse về observability",
+    "narration": "Câu chuyện thứ tư là một cú bắt tay gây bất ngờ trong ngành observability. Ngày 10 tháng 6, Datadog và ClickHouse công bố hợp tác để đưa dữ liệu telemetry đầy đủ, full-fidelity, vào quy trình giám sát hiện đại. Cụ thể có hai năng lực mới, đều đang ở giai đoạn Preview. Một, Datadog Observability Pipelines có thêm destination ClickHouse native, cho phép route log trực tiếp về ClickHouse Cloud. Hai, Datadog Log Explorer có khả năng tìm kiếm liên bang, tức là search xuyên sang dữ liệu đang nằm trong ClickHouse mà không cần rời giao diện Datadog. Vì sao chuyện này lớn? Nhiều năm nay, các đội vận hành phải đứng trước lựa chọn khó: giữ trọn bộ log thì hóa đơn Datadog phình to, mà cắt giảm hay sampling thì mất dữ liệu khi cần điều tra sự cố. Lối thoát phổ biến là tự dựng stack lưu trữ trên ClickHouse, đồng nghĩa rời bỏ Datadog. Giờ Datadog chủ động mở đường: dữ liệu khối lượng lớn nằm ở nơi lưu trữ rẻ, còn trải nghiệm tìm kiếm và workflow quen thuộc vẫn ở Datadog. Về phía ClickHouse, được chính vua thị trường observability công nhận làm backend lưu trữ là một cú chứng thực thương mại rất lớn, trong bối cảnh công ty vừa cán mốc 250 triệu đô la Mỹ doanh thu định kỳ hằng năm. Đội nào đang trả hóa đơn log bằng đô la Mỹ nên đăng ký bản preview sớm.",
+    "bullets": [
+     "Observability Pipelines route log thẳng về ClickHouse Cloud",
+     "Log Explorer search liên bang, không rời Datadog",
+     "Giữ trọn telemetry, không phải cắt log vì chi phí",
+     "Cả hai năng lực đang ở giai đoạn Preview"
+    ],
+    "images": [
+     "https://clickhouse.com/uploads/datadog_clickhouse_partnership_38de3b8c18.jpg",
+     "https://clickhouse.com/uploads/datadog_to_clickhouse_28cf8ed604.png"
+    ]
+   },
+   {
+    "aid": 12,
+    "headline": "PgDog gọi vốn 5,5 triệu đô, cháy Hacker News",
+    "narration": "Khép lại top 5 là câu chuyện được cộng đồng yêu thích nhất tuần. Ngày 10 tháng 6, PgDog công bố vòng vốn 5,5 triệu đô la Mỹ từ Basis Set, Y Combinator và Pioneer Fund, và bài đăng leo thẳng lên đầu trang Hacker News với 530 điểm. PgDog là bộ ba trong một: connection pooler, load balancer và sharding proxy cho PostgreSQL, viết bằng Rust, mã nguồn mở. Điểm hấp dẫn nằm ở lời hứa rất thực dụng: scale Postgres theo chiều ngang mà không phải sửa ứng dụng, chỉ cần deploy bằng Docker và đổi connection string. Các con số khá thuyết phục với một startup chỉ ba người: hệ thống đang phục vụ hơn 2 triệu truy vấn mỗi giây trong môi trường production, đã shard hơn 20 terabyte dữ liệu, và bản Docker đã có hơn 1,4 triệu lượt tải. Đội sáng lập từng trực tiếp scale Postgres tại Instacart, nên họ hiểu rõ nỗi đau này. Triết lý của dự án, Postgres là database duy nhất bạn cần, đánh trúng tâm lý cộng đồng đang quay lưng với việc đẻ thêm hệ NoSQL mỗi khi đụng trần hiệu năng. Thay vì migration tốn kém sang hệ khác, xu hướng giờ là giữ Postgres và thêm một lớp hạ tầng thông minh phía trước. Với các đội kỹ thuật Việt Nam đang tự vận hành Postgres và bắt đầu nghĩ tới chuyện tách shard, đây là dự án đáng đưa vào danh sách thử nghiệm, vì chi phí thử gần như bằng không.",
+    "bullets": [
+     "5,5 triệu đô từ Basis Set, Y Combinator, Pioneer Fund",
+     "Pooler, load balancer, sharding proxy viết bằng Rust",
+     "2 triệu truy vấn mỗi giây, shard hơn 20 terabyte",
+     "530 điểm trên Hacker News"
+    ],
+    "images": [
+     "https://pgdog.dev/assets/images/logo2_wide.png?v=bb9c0ef3de"
+    ]
+   }
+  ]
+ },
+ "youtube": {
+  "recap": "_uYxuFUh7do",
+  "short": "NRDFFXQSFZc"
+ }
+}

@@ -1,0 +1,292 @@
+{
+ "date": "12/06/2026",
+ "week": "W24",
+ "range": "08/06 - 14/06/2026",
+ "tldr": "Tuần W24 là một trong những tuần dày đặc tin lớn nhất năm: Apple gây chấn động tại WWDC 2026 khi công bố Siri mới chạy trên mô hình Gemini 1,2 nghìn tỷ tham số của Google và hệ thống Extensions cho phép chọn Claude hay ChatGPT làm não cho Apple Intelligence. Anthropic phát hành Claude Fable 5, phiên bản công khai đầu tiên của dòng mô hình Mythos với ngữ cảnh 1 triệu token và lớp khóa an toàn cứng. Ở mảng tài chính, OpenAI nộp hồ sơ S-1 bảo mật chuẩn bị IPO, còn SpaceX đã sáp nhập xAI chốt giá 135 đô la mỗi cổ phiếu cho thương vụ IPO lớn nhất lịch sử, định giá 1,75 nghìn tỷ đô la. Về pháp lý, tòa án Đức ra phán quyết bước ngoặt buộc Google chịu trách nhiệm về câu trả lời sai trong AI Overviews. Mảng mã nguồn mở cũng sôi động với DiffusionGemma của Google và Nemotron 3 Ultra 550B của NVIDIA.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "DiffusionGemma — mô hình mở mới của Google sinh văn bản từ nhiễu thay vì từng từ",
+   "summary": "Google phát hành DiffusionGemma, mô hình mở 26 tỷ tham số dạng Mixture-of-Experts chỉ kích hoạt 3,8 tỷ khi suy luận, giấy phép Apache 2.0, dùng kỹ thuật text diffusion: sinh từng khối 256 token song song rồi tinh chỉnh qua nhiều lượt thay vì sinh tuần tự từng token. Tốc độ vượt 1.000 token mỗi giây trên một GPU H100 và hơn 700 token mỗi giây trên RTX 5090, chạy được trong 18GB VRAM khi nén.",
+   "why": "Đây là lần đầu một ông lớn đưa diffusion LM cỡ lớn ra open-source, hướng đi có thể thay đổi cách tối ưu tốc độ inference cho code infilling và chỉnh sửa văn bản cục bộ.",
+   "url": "https://the-decoder.com/googles-new-open-model-diffusiongemma-generates-text-from-noise-instead-of-word-by-word/",
+   "domain": "the-decoder.com",
+   "date": "2026-06-10",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null,
+   "title_en": "Google's new open model DiffusionGemma generates text from noise instead of word by word"
+  },
+  {
+   "aid": 2,
+   "title": "Anthropic ra mắt Claude Fable 5 — phiên bản public của lớp mô hình Mythos",
+   "summary": "Ngày 9 tháng 6, Anthropic ra mắt Claude Fable 5, phiên bản công khai đầu tiên của dòng mô hình Mythos, mạnh vượt trội về kỹ thuật phần mềm, knowledge work và thị giác, với cửa sổ ngữ cảnh 1 triệu token, output tối đa 128 nghìn token và chế độ adaptive thinking luôn bật. Giá 10 và 50 đô la mỗi triệu token; ở các vùng rủi ro cao như an ninh mạng, sinh hóa học và distillation, mô hình tự chặn và chuyển về Claude Opus 4.8.",
+   "why": "Lần đầu một frontier model phát hành kèm khóa an toàn cứng theo lĩnh vực, phép thử quan trọng cho việc thương mại hóa AI mạnh nhưng có kiểm soát, chỉ vài ngày sau khi Anthropic cảnh báo AI đang trở nên quá nguy hiểm.",
+   "url": "https://techcrunch.com/2026/06/09/anthropics-claude-fable-5-is-a-version-of-mythos-the-public-can-access-today/",
+   "domain": "techcrunch.com",
+   "date": "2026-06-09",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 2,
+   "title_en": "Anthropic releases Claude Fable 5, a public version of Mythos"
+  },
+  {
+   "aid": 3,
+   "title": "WWDC 2026: Apple công bố kiến trúc AI mới xây quanh các mô hình Google Gemini",
+   "summary": "Tại WWDC 2026 ngày 8 tháng 6, trong keynote cuối cùng của Tim Cook trên cương vị CEO, Apple công bố Siri hoàn toàn mới chạy trên mô hình Gemini tùy biến 1,2 nghìn tỷ tham số của Google với hợp đồng khoảng 1 tỷ đô la mỗi năm, xử lý suy luận qua Private Cloud Compute. Hệ thống AI Extensions cho phép người dùng chọn ChatGPT, Gemini hoặc Claude làm mô hình nền cho Apple Intelligence; iOS 27 Beta 1 phát hành cùng ngày.",
+   "why": "Bước ngoặt lớn nhất của Apple trong kỷ nguyên AI: từ bỏ tham vọng tự xây mô hình frontier, mở iPhone cho cả ba đối thủ, và Claude lần đầu tiếp cận 2,2 tỷ thiết bị Apple.",
+   "url": "https://www.macrumors.com/2026/06/08/apple-reveals-new-ai-architecture/",
+   "domain": "macrumors.com",
+   "date": "2026-06-08",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 1,
+   "title_en": "Apple reveals new AI architecture built around Google Gemini models (WWDC 2026)"
+  },
+  {
+   "aid": 4,
+   "title": "NVIDIA ra mắt Nemotron 3 Ultra: mô hình mở 550B MoE lai Mamba-Transformer",
+   "summary": "NVIDIA phát hành Nemotron 3 Ultra, mô hình suy luận mở 550 tỷ tham số với 55 tỷ active, kiến trúc lai Mamba-2 và Attention, ngữ cảnh 1 triệu token, mở cả trọng số, dữ liệu huấn luyện lẫn công thức theo giấy phép OpenMDW-1.1. Đạt 140 token mỗi giây theo Artificial Analysis, đứng đầu nhóm mô hình mở của Mỹ nhưng vẫn xếp sau Kimi K2.6 của Trung Quốc 6 điểm Intelligence Index.",
+   "why": "Mô hình mở mạnh nhất của Mỹ hiện tại, và việc nó vẫn thua mô hình mở Trung Quốc cho thấy cuộc đua open-weight đang nghiêng về phía nào.",
+   "url": "https://www.marktechpost.com/2026/06/04/nvidia-ai-releases-nemotron-3-ultra-an-open-550b-mixture-of-experts-hybrid-mamba-transformer-for-long-running-agents/",
+   "domain": "marktechpost.com",
+   "date": "2026-06-04",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null,
+   "title_en": "NVIDIA releases Nemotron 3 Ultra: an open 550B MoE hybrid Mamba-Transformer"
+  },
+  {
+   "aid": 5,
+   "title": "OpenAI Codex 0.139.0 thêm web search độc lập; app Codex có luồng migration từ Claude Code",
+   "summary": "Bản Codex 0.139.0 ngày 9 tháng 6 cho phép code mode gọi trực tiếp web search độc lập, cải thiện hỗ trợ schema tool MCP và marketplace plugin. Cùng ngày, Codex app 26.608 bổ sung luồng di chuyển cấu hình từ Claude Code và Cowork sang Codex cùng giao diện plugin mới có bộ lọc marketplace.",
+   "why": "OpenAI đang nhắm thẳng vào người dùng Claude Code với công cụ migration chính thức, cuộc chiến coding agent CLI ngày càng trực diện.",
+   "url": "https://releasebot.io/updates/openai",
+   "domain": "releasebot.io",
+   "date": "2026-06-09",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null,
+   "title_en": "OpenAI Codex 0.139.0 adds standalone web search; Codex app ships migration flow from Claude Code"
+  },
+  {
+   "aid": 6,
+   "title": "Claude Managed Agents có thêm chạy theo lịch, vault credentials và khả năng dùng trình duyệt",
+   "summary": "Ngày 9 tháng 6, Claude Managed Agents nhận loạt nâng cấp: chạy theo lịch cron cho tác vụ lặp lại, biến môi trường lưu trong vault để xác thực CLI và dịch vụ an toàn, cùng khả năng điều khiển trình duyệt qua tích hợp Browserbase và KERNEL. Cùng đợt, Claude Code phiên bản 2.1 hỗ trợ sub-agent lồng nhau tới 5 cấp.",
+   "why": "Agent được quản lý giờ tự chạy định kỳ với credential an toàn, đúng mảnh ghép còn thiếu để doanh nghiệp giao việc thật cho agent thay vì demo.",
+   "url": "https://releasebot.io/updates/anthropic",
+   "domain": "releasebot.io",
+   "date": "2026-06-09",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null,
+   "title_en": "Claude Managed Agents gain scheduled runs, vault credentials and browser capabilities"
+  },
+  {
+   "aid": 7,
+   "title": "Anthropic phát hành Swift package cho framework Foundation Models của Apple",
+   "summary": "Ngay sau công bố WWDC, Anthropic phát hành package Swift mới ngày 8 tháng 6, khả dụng từ ngày 10, cho phép tích hợp Claude vào Foundation Models framework gốc của Apple trên iOS 27 trở lên, cùng dashboard Connector Observability bản public beta theo dõi mức dùng, lỗi và độ trễ của MCP connector.",
+   "why": "Hạ tầng chính thức để developer iOS gọi Claude như API hệ thống, hệ quả trực tiếp đầu tiên của thỏa thuận Apple Extensions tuần này.",
+   "url": "https://releasebot.io/updates/anthropic",
+   "domain": "releasebot.io",
+   "date": "2026-06-08",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null,
+   "title_en": "Anthropic ships Swift package for Apple's Foundation Models framework"
+  },
+  {
+   "aid": 8,
+   "title": "Hai mốc deadline của Claude ngày 15/06: tách credit subscription và lịch khai tử Opus 4.1",
+   "summary": "Từ ngày 15 tháng 6, việc gọi Claude qua API bằng gói thuê bao Pro và Max chuyển sang quỹ credit hàng tháng riêng thay vì dùng chung hạn mức chat; đồng thời Claude Opus 4.1 bị deprecate với lịch khai tử trên API ngày 5 tháng 8 năm 2026. Developer cần rà soát workflow Agent SDK và pin model trước hạn.",
+   "why": "Ảnh hưởng trực tiếp đến mọi indie hacker đang tận dụng gói Max để chạy agent, chi phí automation bằng Claude sắp được tính lại từ đầu.",
+   "url": "https://enterprisedna.co/resources/news/anthropic-claude-june-15-retirements-billing-2026/",
+   "domain": "enterprisedna.co",
+   "date": "2026-06-08",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null,
+   "title_en": "Two Claude deadlines hit June 15: subscription credit split and Opus 4.1 retirement schedule"
+  },
+  {
+   "aid": 9,
+   "title": "Role-Agent: tự bồi dưỡng LLM Agent qua tiến hóa song vai (Dual-Role Evolution)",
+   "summary": "Framework mới đăng ngày 9 tháng 6 cho phép một LLM duy nhất đóng đồng thời hai vai, vừa là agent vừa là môi trường huấn luyện, hai vai cùng tiến hóa bootstrap lẫn nhau. Cách tự tập luyện này cải thiện hiệu năng agent nhờ suy luận nhận biết môi trường và luyện tập có chủ đích, không cần môi trường mô phỏng bên ngoài.",
+   "why": "Nếu agent tự sinh được môi trường luyện tập cho chính mình, chi phí xây dựng dữ liệu huấn luyện agent, nút thắt lớn nhất hiện nay, sẽ giảm mạnh.",
+   "url": "https://arxiv.org/abs/2606.10917",
+   "domain": "arxiv.org",
+   "date": "2026-06-09",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null,
+   "title_en": "Role-Agent: Bootstrapping LLM Agents via Dual-Role Evolution"
+  },
+  {
+   "aid": 10,
+   "title": "MIT Media Lab: hệ quả khi phụ thuộc AI để đọc tin tức chính xác",
+   "summary": "Nghiên cứu của MIT Media Lab công bố ngày 9 tháng 6 theo dõi 67 người trong 4 tuần: khi có AI chatbot hỗ trợ, độ chính xác phát hiện tin giả tăng 21%, nhưng khi bỏ AI đi, kỹ năng tự đánh giá của họ tụt 15,3 điểm phần trăm so với trước khi dùng. Hiện tượng được gọi là nghịch lý phụ thuộc AI, tương tự GPS làm yếu khả năng định hướng.",
+   "why": "Bằng chứng định lượng mới nhất cho làn sóng lo ngại deskilling vì AI: cách AI tương tác quyết định nó là huấn luyện viên hay cái nạng.",
+   "url": "https://news.mit.edu/2026/consequences-of-relying-on-ai-for-accurate-news-0609",
+   "domain": "news.mit.edu",
+   "date": "2026-06-09",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null,
+   "title_en": "MIT Media Lab: The consequences of relying on AI for accurate news"
+  },
+  {
+   "aid": 11,
+   "title": "'Hồi kết của Software Engineering': AI Agent đang tái cấu trúc tận gốc mô hình làm phần mềm",
+   "summary": "Bài position paper gây tranh luận đăng ngày 4 tháng 6 lập luận rằng AI agent không chỉ là công cụ hỗ trợ mà đang tái cấu trúc tận gốc mô hình phát triển phần mềm: từ viết code thủ công sang đặc tả ý định và giám sát hệ thống agent tự trị, kéo theo thay đổi về vai trò kỹ sư, quy trình và đảm bảo chất lượng.",
+   "why": "Khung lý thuyết cho điều mà cộng đồng dev đang tranh cãi hàng ngày, đáng đọc để định vị nghề nghiệp trong 3 đến 5 năm tới dù kết luận còn gây tranh cãi.",
+   "url": "https://arxiv.org/abs/2606.05608",
+   "domain": "arxiv.org",
+   "date": "2026-06-04",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null,
+   "title_en": "The End of Software Engineering: How AI Agents Are Fundamentally Restructuring the Software Paradigm"
+  },
+  {
+   "aid": 12,
+   "title": "Phán quyết lịch sử ở Đức: AI Overviews là 'lời của Google' — Google chịu trách nhiệm khi trả lời sai",
+   "summary": "Tòa án Đức ra phán quyết bước ngoặt ngày 10 tháng 6: nội dung AI Overviews là lời của chính Google, do đó Google phải chịu trách nhiệm pháp lý khi AI trả lời sai, không được nấp sau lá chắn trung gian nền tảng. Chủ đề leo thẳng lên đỉnh Hacker News với 972 điểm và hơn 500 bình luận.",
+   "why": "Tiền lệ pháp lý đầu tiên kiểu này ở châu Âu: nếu lan rộng, mọi sản phẩm AI trả lời trực tiếp sẽ phải gánh trách nhiệm xuất bản, thay đổi cuộc chơi về hallucination.",
+   "url": "https://the-decoder.com/landmark-german-ruling-declares-googles-ai-overviews-are-googles-own-words-and-makes-it-liable-for-false-answers/",
+   "domain": "the-decoder.com",
+   "date": "2026-06-10",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": 4,
+   "title_en": "Landmark German ruling declares Google's AI Overviews are Google's own words — and makes it liable for false answers"
+  },
+  {
+   "aid": 13,
+   "title": "'CEO nghĩ AI thay được nhân viên chỉ là CEO tồi'",
+   "summary": "Bài viết của Techdirt ngày 9 tháng 6 phản biện làn sóng CEO sa thải nhân sự để thay bằng AI: tác giả cho rằng AI nên là đòn bẩy năng suất, và ai coi nhân viên chỉ là chi phí cần cắt thì vốn dĩ là lãnh đạo tồi. Bài đạt 816 điểm trên Hacker News với gần 300 bình luận đồng tình lẫn phản đối.",
+   "why": "Phản ánh tâm lý cộng đồng tech giữa làn sóng layoff vì AI, lập luận đáng dùng khi tranh luận chiến lược nhân sự và AI trong doanh nghiệp.",
+   "url": "https://www.techdirt.com/2026/06/09/ceos-who-think-ai-replaces-their-employees-are-just-bad-ceos/",
+   "domain": "techdirt.com",
+   "date": "2026-06-09",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null,
+   "title_en": "CEOs who think AI replaces their employees are just bad CEOs"
+  },
+  {
+   "aid": 14,
+   "title": "WWDC 2026: Việt Nam được Apple dành vị trí đặc biệt trong hệ sinh thái AI",
+   "summary": "Trong các phần demo Apple Intelligence tại WWDC 2026, hình ảnh Hà Nội, vịnh Hạ Long và tiếng Việt liên tục xuất hiện; tiếng Việt nằm trong nhóm ngôn ngữ được Siri mới và các tính năng AI hỗ trợ sâu ngay từ iOS 27. Truyền thông trong nước đánh giá đây là tín hiệu Apple coi Việt Nam là thị trường AI trọng điểm.",
+   "why": "Người dùng Việt sẽ được dùng Siri thế hệ mới bằng tiếng Việt ngay từ đầu, hiếm khi Việt Nam vào nhóm thị trường đợt một của Apple.",
+   "url": "https://baomoi.com/wwdc-2026-viet-nam-duoc-apple-danh-vi-tri-dac-biet-trong-he-sinh-thai-ai-c55368528.epi",
+   "domain": "baomoi.com",
+   "date": "2026-06-09",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "Data center AI ngốn hơn 264 tỷ gallon nước năm 2025, giữa lúc 63% nước Mỹ hạn hán nặng",
+   "summary": "Thread bùng nổ trên r/technology ngày 7 tháng 6 với hơn 27 nghìn upvote và 1.300 bình luận: các trung tâm dữ liệu AI tại Mỹ tiêu thụ hơn 264 tỷ gallon nước trong năm 2025, đúng lúc gần 63% diện tích nước Mỹ chìm trong hạn hán nghiêm trọng. Cộng đồng tranh luận gay gắt về cái giá môi trường của cuộc đua AI.",
+   "why": "Nước đang thay điện trở thành mặt trận phản đối data center AI, yếu tố sẽ ảnh hưởng quy hoạch hạ tầng AI toàn cầu, kể cả Đông Nam Á.",
+   "url": "https://www.reddit.com/r/technology/comments/1tzgq5m/ai_data_centers_water_consumption_breaks_264/",
+   "domain": "reddit.com",
+   "date": "2026-06-07",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null,
+   "title_en": "AI Data Centers' water consumption breaks 264 billion gallons in 2025 as devastating drought hits nearly 63% of U.S."
+  },
+  {
+   "aid": 16,
+   "title": "SpaceX chốt giá IPO lớn nhất lịch sử 135 USD/cổ phiếu — xAI hưởng lợi theo, giao dịch từ 12/06",
+   "summary": "SpaceX chốt giá IPO 135 đô la mỗi cổ phiếu ngày 11 tháng 6, bán 555,6 triệu cổ phiếu để huy động 75 tỷ đô la ở mức định giá 1,75 nghìn tỷ đô la, thương vụ IPO lớn nhất lịch sử tài chính; giao dịch trên Nasdaq mã SPCX từ ngày 12. Sau sáp nhập tháng 2, xAI là một mảng của SpaceX với doanh thu khoảng 3,2 tỷ đô la năm 2025 nhưng đốt tới 14 tỷ đô la tiền mặt.",
+   "why": "Lần đầu nhà đầu tư đại chúng mua được cổ phần một phòng lab AI frontier, và quy tắc mới của Nasdaq có thể đưa SPCX vào Nasdaq-100 chỉ sau 15 phiên.",
+   "url": "https://coinpedia.org/news/spacex-ipo-2026-date-price-valuation-and-how-indian-investors-can-buy-after-june-12-listing/",
+   "domain": "coinpedia.org",
+   "date": "2026-06-11",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": 5,
+   "title_en": "SpaceX prices largest IPO in history at $135/share — xAI rides along, trading starts June 12"
+  },
+  {
+   "aid": 17,
+   "title": "OpenAI xác nhận nộp kín hồ sơ S-1 lên SEC, chuẩn bị IPO",
+   "summary": "OpenAI xác nhận đã nộp hồ sơ S-1 bảo mật lên Ủy ban Chứng khoán Mỹ ngày 8 tháng 6, chính thức khởi động lộ trình IPO dù chưa chốt thời điểm niêm yết. Reuters trước đó đưa tin OpenAI nhắm định giá tới 1.000 tỷ đô la, có thể lên sàn sớm nhất tháng 9, nối gót Anthropic vừa nộp hồ sơ IPO tuần trước.",
+   "why": "Hai phòng lab AI hàng đầu cùng tiến ra sàn chứng khoán trong một tháng: kỷ nguyên AI lab tư nhân đốt tiền sắp chuyển sang giai đoạn chịu kỷ luật thị trường công khai.",
+   "url": "https://openai.com/index/openai-submits-confidential-s-1/",
+   "domain": "openai.com",
+   "date": "2026-06-08",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": 3,
+   "title_en": "OpenAI announces confidential submission of draft S-1 to the SEC"
+  },
+  {
+   "aid": 18,
+   "title": "Standard Bots gọi vốn 200 triệu USD Series C xây nhà máy AI 'made-in-America'",
+   "summary": "Startup robotics Standard Bots gọi vốn 200 triệu đô la vòng Series C ngày 9 tháng 6 do RoboStrategy dẫn dắt, đồng dẫn General Catalyst, cùng Amazon Alexa Fund và Samsung Next, để xây nhà máy sản xuất tại Mỹ vận hành bằng AI. Cùng ngày, dòng vốn VC tập trung rõ rệt vào giao điểm AI, hạ tầng và tự động hóa.",
+   "why": "Tiền đang dịch từ chatbot sang AI vật lý: robot công nghiệp và nhà máy AI là chủ đề gọi vốn nóng nhất giữa năm 2026.",
+   "url": "https://techstartups.com/2026/06/09/venture-capital-startup-funding-roundup-june-9-2026-2/",
+   "domain": "techstartups.com",
+   "date": "2026-06-09",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null,
+   "title_en": "Standard Bots raises $200M Series C to build made-in-America AI-driven factories"
+  },
+  {
+   "aid": 19,
+   "title": "Lầu Năm Góc chạy đua thay thế Claude của Anthropic — vì mô hình 'quá an toàn' cho chiến tranh",
+   "summary": "Diễn biến mới ngày 8 tháng 6: Lầu Năm Góc đẩy nhanh đánh giá mô hình OpenAI, Google và xAI qua nhóm 25 power user để thay Claude trong các hệ thống mật gồm cả Maven Smart System, sau khi Anthropic từ chối gỡ hai lằn ranh đỏ là không giám sát đại trà công dân Mỹ và không vũ khí tự động hoàn toàn. Anthropic đang kiện việc bị gắn mác rủi ro chuỗi cung ứng, cho rằng có thể thiệt hại hàng tỷ đô la doanh thu.",
+   "why": "Cuộc đối đầu hiếm có giữa nguyên tắc an toàn AI và khách hàng quốc phòng lớn nhất thế giới, kết quả vụ kiện sẽ định hình quan hệ giữa AI lab và quân đội.",
+   "url": "https://www.techtimes.com/articles/317998/20260608/pentagon-racing-replace-anthropics-claude-because-it-was-too-safe-war.htm",
+   "domain": "techtimes.com",
+   "date": "2026-06-08",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null,
+   "title_en": "The Pentagon is racing to replace Anthropic's Claude — because it was 'too safe' for war"
+  }
+ ],
+ "hot_aid": 3,
+ "weekly_video": {
+  "intro": "Xin chào, đây là bản tin AI News tổng kết tuần W24, từ ngày 8 đến 14 tháng 6 năm 2026. Tuần này có thể gọi là tuần của những bước ngoặt: Apple chính thức mở cửa iPhone cho Gemini, Claude và ChatGPT, Anthropic tung mô hình Mythos ra công chúng dưới tên Claude Fable 5, còn OpenAI và SpaceX cùng lúc tiến ra sàn chứng khoán. Sau đây là năm câu chuyện nóng nhất tuần.",
+  "outro": "Đó là năm tin nóng nhất tuần W24. Chi tiết đầy đủ với mười chín tin tuyển chọn có trong bản tin trên ducnguyen.vn. Hẹn gặp lại bạn vào tuần sau.",
+  "segments": [
+   {
+    "aid": 3,
+    "headline": "Apple mở iPhone cho Gemini, Claude và ChatGPT",
+    "narration": "Câu chuyện lớn nhất tuần đến từ WWDC 2026 hôm 8 tháng 6, cũng là keynote cuối cùng của Tim Cook trên cương vị CEO. Apple công bố Siri hoàn toàn mới, chạy trên một mô hình Gemini tùy biến với 1,2 nghìn tỷ tham số do Google cung cấp, theo hợp đồng trị giá khoảng 1 tỷ đô la mỗi năm, và mọi suy luận được xử lý trên hạ tầng Private Cloud Compute của Apple. Đáng chú ý hơn, hệ thống Extensions mới cho phép người dùng tự chọn ChatGPT, Gemini hoặc Claude làm mô hình nền cho Apple Intelligence, nghĩa là Claude lần đầu tiên có mặt trên khoảng 2,2 tỷ thiết bị Apple. Với người Việt, tiếng Việt và hình ảnh Hà Nội, vịnh Hạ Long xuất hiện đậm nét trong demo, cho thấy Việt Nam nằm trong nhóm thị trường được hỗ trợ ngay từ iOS 27.",
+    "images": [
+     "https://images.macrumors.com/t/dUIgpIiBn2wAKhWSl0HDOLdc2LU=/1600x/article-new/2026/06/apple-intelligence-architecture.jpg",
+     "https://techcrunch.com/wp-content/uploads/2026/06/apple-siri-ai-use-cases.png?w=1186",
+     "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/4993x2809+0+260/resize/1400/quality/85/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fab%2Fa2%2F835323164d51b494c2875ec67ee9%2Fap26159614947448.jpg"
+    ]
+   },
+   {
+    "aid": 2,
+    "headline": "Anthropic ra mắt Claude Fable 5",
+    "narration": "Ngày 9 tháng 6, Anthropic phát hành Claude Fable 5, phiên bản công khai đầu tiên của dòng mô hình Mythos vốn trước đây chỉ dành cho hơn 200 tổ chức trong chương trình Project Glasswing. Fable 5 đạt trình độ hàng đầu về kỹ thuật phần mềm, công việc tri thức và thị giác, với cửa sổ ngữ cảnh 1 triệu token, output tối đa 128 nghìn token và chế độ suy nghĩ thích ứng luôn bật. Giá API là 10 đô la cho mỗi triệu token đầu vào và 50 đô la đầu ra. Điểm đặc biệt nằm ở các khóa an toàn cứng: trong những vùng rủi ro cao như an ninh mạng, sinh học, hóa học hay distillation, mô hình tự động chặn và chuyển yêu cầu về Claude Opus 4.8. Đây là phép thử lớn cho hướng đi phát hành AI mạnh nhưng có kiểm soát.",
+    "images": [
+     "https://techcrunch.com/wp-content/uploads/2026/06/GettyImages-2279025960.jpg?w=1024",
+     "https://s.yimg.com/ny/api/res/1.2/1XCbhFQYye6oH4U8k6uAlw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD02NzU-/https://media.zenfs.com/en/beincrypto_us_662/b537300b4a125367ddea021e71196edc",
+     "https://cdn.sanity.io/images/4zrzovbb/website/6d4a0d28992ade92d6fa63646fd9c9d318245c6c-2400x1260.jpg"
+    ]
+   },
+   {
+    "aid": 17,
+    "headline": "OpenAI nộp hồ sơ S-1, khởi động IPO",
+    "narration": "Ngày 8 tháng 6, OpenAI xác nhận đã nộp bản nháp hồ sơ S-1 theo diện bảo mật lên Ủy ban Chứng khoán Mỹ, bước đi chính thức đầu tiên trên lộ trình trở thành công ty đại chúng. OpenAI cho biết chưa quyết định thời điểm niêm yết và có thể còn lâu, vì một số kế hoạch dễ thực hiện hơn khi còn là công ty tư nhân. Tuy nhiên Reuters đưa tin công ty nhắm tới định giá lên đến 1.000 tỷ đô la và có thể lên sàn sớm nhất vào tháng 9. Động thái này diễn ra chỉ một tuần sau khi Anthropic cũng nộp hồ sơ IPO ở mức định giá 965 tỷ đô la. Hai phòng lab AI hàng đầu thế giới cùng tiến ra thị trường chứng khoán trong một tháng cho thấy kỷ nguyên đốt tiền bằng vốn tư nhân đang khép lại.",
+    "images": [
+     "https://images.ctfassets.net/kftzwdyauwt9/1kKjVqt4LdJo6DAWO4rklb/93d7ae2d6a5cb70b17fd5ff440552291/confidential-submission-of-draft-s-1-to-the-sec-16x9.png?w=1600&h=900&fit=fill",
+     "https://www.aljazeera.com/wp-content/uploads/2025/11/2025-10-29T100037Z_48089949_RC2UMCA4Q61F_RTRMADP_3_MICROSOFT-OPENAI-ALTMAN-1762187105.jpg?resize=1920%2C1440"
+    ]
+   },
+   {
+    "aid": 12,
+    "headline": "Tòa Đức buộc Google chịu trách nhiệm AI Overviews",
+    "narration": "Ngày 10 tháng 6, một tòa án Đức ra phán quyết mang tính bước ngoặt: nội dung do AI Overviews tạo ra được coi là lời nói của chính Google, vì vậy Google phải chịu trách nhiệm pháp lý khi câu trả lời sai sự thật. Lập luận quan trọng nhất là Google không thể nấp sau quy chế trung gian nền tảng vốn bảo vệ các công ty internet khỏi trách nhiệm về nội dung của bên thứ ba, bởi ở đây chính hệ thống của Google tự sinh ra câu trả lời. Tin này leo thẳng lên vị trí cao nhất trên Hacker News với 972 điểm và hơn 500 bình luận. Nếu tiền lệ này lan rộng ở châu Âu, mọi sản phẩm AI trả lời trực tiếp, từ search AI đến chatbot tin tức, sẽ phải gánh trách nhiệm như một nhà xuất bản, và bài toán hallucination trở thành rủi ro pháp lý thật sự.",
+    "images": [
+     "https://the-decoder.com/wp-content/uploads/2026/06/ai_overviews_hammer_law.png"
+    ]
+   },
+   {
+    "aid": 16,
+    "headline": "SpaceX và xAI chốt IPO lớn nhất lịch sử",
+    "narration": "Ngày 11 tháng 6, SpaceX chốt giá IPO ở mức 135 đô la mỗi cổ phiếu, bán ra 555,6 triệu cổ phiếu để huy động 75 tỷ đô la, đưa định giá công ty lên 1,75 nghìn tỷ đô la, trở thành thương vụ IPO lớn nhất trong lịch sử tài chính. Cổ phiếu giao dịch trên sàn Nasdaq với mã SPCX từ ngày 12 tháng 6, và 30 phần trăm lượng chào bán được dành cho nhà đầu tư cá nhân. Điểm đáng chú ý với giới AI là sau thương vụ sáp nhập hồi tháng 2, xAI giờ là một mảng kinh doanh của SpaceX, với doanh thu khoảng 3,2 tỷ đô la năm 2025 nhưng tiêu tốn tới 14 tỷ đô la tiền mặt. Đây là lần đầu tiên nhà đầu tư đại chúng có thể sở hữu cổ phần của một phòng lab AI tuyến đầu thông qua thị trường chứng khoán.",
+    "images": [
+     "https://image.coinpedia.org/wp-content/uploads/2026/03/25160646/SpaceX-IPO-Buzz-Explodes-After-Elon-Musks-Confirmation-2.jpg",
+     "https://image.cnbcfm.com/api/v1/image/108315896-1780491649482-gettyimages-1175168392-AFP_1LB3WB.jpeg?v=1781036537&w=1920&h=1080"
+    ]
+   }
+  ]
+ },
+ "youtube": {
+  "recap": "efy0kGNJkvo",
+  "short": "ozm-TdQ1hv8"
+ }
+}

@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data News – Tuần W24 · 08/06 - 14/06/2026</title>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data News – Tuần W24: OpenSharing, agentic analytics và tuần bản lề trước Data + AI Summit">
+<meta property="og:description" content="Databricks tung chuẩn mở OpenSharing, ClickHouse Agents mở public beta, Datadog bắt tay ClickHouse, Power BI tháng 6 đầy Copilot — tổng hợp tin dữ liệu tuần 24/2026.">
+<meta property="og:image" content="https://ducnguyen.vn/news/data/assets/og-banner.png">
+<meta property="og:url" content="https://ducnguyen.vn/news/data/2026/06/w24.html">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#04060a;color:#f8fafc;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6;padding:0 16px}
+.wrap{max-width:880px;margin:0 auto}
+a{color:#38bdf8}
+/* ---------- HEADER ---------- */
+.hdr{position:sticky;top:8px;z-index:60;background:rgba(6,9,16,.92);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:12px;margin:10px 0 4px;padding:12px 16px}
+.hdr-row{display:flex;align-items:center;gap:12px}
+.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:#f8fafc}
+.brand-mark{width:42px;height:42px;display:grid;place-items:center;flex:0 0 auto;border:1px solid rgba(52,245,164,.4);border-radius:50%;background:radial-gradient(circle,rgba(52,245,164,.22),rgba(56,189,248,.06) 55%,rgba(4,6,10,.95) 78%);box-shadow:0 0 18px rgba(52,245,164,.35);animation:brandPulse 3.2s ease-in-out infinite;transition:transform .45s cubic-bezier(.175,.885,.32,1.275)}
+.brand:hover .brand-mark{transform:rotate(180deg) scale(1.06);border-color:#34f5a4}
+@keyframes brandPulse{0%,100%{box-shadow:0 0 10px rgba(52,245,164,.22)}50%{box-shadow:0 0 26px rgba(52,245,164,.55)}}
+.brand-name{font-size:1.15rem;font-weight:600;letter-spacing:.3px}
+.brand-name b{color:#34f5a4}
+.brand-sub{display:inline;color:#94a3b8;font-size:.78rem;margin-left:4px}
+.hdr-row2{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-top:8px;position:relative}
+.hdr-row2 .toc{flex:1 1 auto;display:flex;gap:8px;flex-wrap:wrap}
+.toc a{display:inline-block;padding:6px 12px;border:1px solid rgba(255,255,255,.12);border-radius:999px;color:#cbd5e1;text-decoration:none;font-size:.8rem;background:rgba(10,15,26,.9);transition:.2s}
+.toc a:hover{border-color:#34f5a4;color:#34f5a4;background:rgba(52,245,164,.08)}
+.vdiv{width:1px;height:22px;background:rgba(255,255,255,.16)}
+.hdr-ctrls{display:flex;gap:8px;align-items:center}
+.ctrl{display:inline-flex;align-items:center;gap:5px;padding:8px 14px;border:1px solid rgba(255,255,255,.14);border-radius:9px;background:rgba(10,15,26,.92);color:#cbd5e1;font-size:.82rem;cursor:pointer;text-decoration:none;transition:.2s;font-family:inherit}
+.ctrl:hover{border-color:#34f5a4;color:#34f5a4}
+.ctrl-acc{background:linear-gradient(90deg,#34f5a4,#38bdf8);color:#04060a;font-weight:700;border-color:transparent}
+.ctrl-acc:hover{color:#04060a;opacity:.9}
+.ctrl-ic{width:38px;height:36px;padding:0;justify-content:center;display:inline-flex}
+.navpop-t{display:none}
+.navpop-btn{display:none}
+.navpop{display:none}
+.navpop-t:checked ~ .navpop{display:flex;flex-direction:column;gap:2px;position:absolute;top:calc(100% + 10px);left:0;right:0;z-index:80;background:rgba(8,12,20,.98);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:8px;backdrop-filter:blur(16px)}
+.navpop a{padding:11px 14px;border-radius:8px;color:#cbd5e1;text-decoration:none}
+.navpop a:hover{background:rgba(52,245,164,.1);color:#34f5a4}
+.navpop-t:checked ~ .hdr-ctrls .navpop-btn{color:#04060a;background:linear-gradient(90deg,#34f5a4,#38bdf8);border-color:transparent}
+@media(max-width:767px){
+  .brand-mark{width:36px;height:36px}
+  .hdr-row2 .toc,.vdiv{display:none}
+  .hdr-ctrls{flex:1 1 100%;display:flex;gap:8px}
+  .hdr-ctrls .ctrl{flex:1 1 auto;font-size:.78rem;padding:8px 6px;text-align:center;justify-content:center}
+  .hdr-ctrls .ctrl-ic{flex:0 0 38px;width:38px;height:36px;padding:0}
+  .navpop-btn{display:grid;place-items:center}
+}
+@media(min-width:768px){.navpop-btn{display:none!important}}
+/* ---------- RECAP / VIDEO ---------- */
+#recap{scroll-margin-top:120px}
+.hot-video{margin-top:26px}
+.hot-video .hot-label{font-weight:700;margin-bottom:12px}
+.hot-video video{width:100%;border-radius:12px}
+.vid-links{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.vbtn{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border:1px solid rgba(52,245,164,.35);border-radius:9px;color:#34f5a4;text-decoration:none;font-size:.88rem;font-weight:600;background:rgba(52,245,164,.07)}
+.vbtn:hover{background:rgba(52,245,164,.16)}
+@media(max-width:767px){.vid-links .vbtn{flex:1 1 auto;justify-content:center}}
+/* ---------- TLDR / TIMELINE ---------- */
+.tldr{background:rgba(10,15,26,.93);border:1px solid rgba(52,245,164,.25);border-left:3px solid #34f5a4;border-radius:12px;padding:18px 20px;margin:24px 0 14px;font-size:.95rem}
+.tldr b{color:#34f5a4}
+.timeline{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 8px}
+.tday{background:rgba(10,15,26,.93);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:7px 12px;font-size:.76rem;color:#cbd5e1;font-family:Consolas,monospace;display:flex;align-items:center;gap:7px}
+.tday .n{display:inline-grid;place-items:center;min-width:20px;height:20px;border-radius:6px;background:rgba(52,245,164,.16);color:#34f5a4;font-weight:700;font-size:.72rem;padding:0 5px}
+.tday.dim{opacity:.38}
+.tday.dim .n{background:rgba(255,255,255,.08);color:#94a3b8}
+/* ---------- SECTIONS & CARDS ---------- */
+.sec{margin:34px 0;scroll-margin-top:120px}
+.sec h2{font-size:1.25rem;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.08)}
+.card{display:flex;gap:16px;background:rgba(10,15,26,.93);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px;margin-bottom:14px;transition:border-color .2s}
+.card:hover{border-color:rgba(52,245,164,.35)}
+.card[data-hot="1"]{border-color:rgba(52,245,164,.55);box-shadow:0 0 22px rgba(52,245,164,.12)}
+.thumb{width:96px;height:72px;object-fit:cover;border-radius:9px;flex:0 0 auto;background:#0a0f1a;border:1px solid rgba(255,255,255,.07)}
+.thumb-fallback{object-fit:contain;padding:18px}
+.card .body{flex:1 1 auto;min-width:0}
+.rank{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.6px;color:#04060a;background:linear-gradient(90deg,#34f5a4,#38bdf8);border-radius:6px;padding:2px 9px;margin-bottom:7px}
+.title{display:block;color:#f8fafc;font-weight:600;font-size:1.02rem;text-decoration:none;margin-bottom:6px;line-height:1.45}
+.title:hover{color:#34f5a4}
+.sum{color:#cbd5e1;font-size:.88rem;margin-bottom:6px}
+.why{color:#94a3b8;font-size:.84rem;margin-bottom:10px}
+.meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.when{color:#64748b;font-size:.78rem;font-family:Consolas,monospace}
+.metabtn{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border:1px solid rgba(255,255,255,.14);border-radius:8px;color:#cbd5e1;font-size:.78rem;text-decoration:none;cursor:pointer;background:rgba(255,255,255,.03);transition:.2s}
+.metabtn:hover{border-color:#38bdf8;color:#38bdf8}
+.readbtn{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border:1px solid rgba(52,245,164,.35);border-radius:8px;color:#34f5a4;font-size:.78rem;background:rgba(52,245,164,.07);cursor:pointer;font-family:inherit;transition:.2s}
+.readbtn:hover{background:rgba(52,245,164,.16)}
+.xt{display:none}
+.more{display:none}
+.xt:checked ~ .more{display:block;margin-top:14px;border-top:1px dashed rgba(255,255,255,.12);padding-top:14px}
+.xt:checked ~ .meta .xbtn{border-color:#34f5a4;color:#04060a;background:linear-gradient(90deg,#34f5a4,#38bdf8);font-weight:700}
+.kb{list-style:none;margin-bottom:12px}
+.kb li{padding-left:18px;position:relative;color:#cbd5e1;font-size:.86rem;margin-bottom:5px}
+.kb li::before{content:"▸";position:absolute;left:2px;color:#34f5a4}
+.facts{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.fact{display:inline-flex;align-items:center;gap:6px;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.25);border-radius:8px;padding:4px 10px;font-size:.74rem;font-family:Consolas,monospace;color:#cbd5e1}
+.fact b{color:#38bdf8;font-size:.68rem;letter-spacing:.5px}
+.deep{color:#94a3b8;font-size:.86rem}
+@media(max-width:767px){.card{flex-direction:column}.thumb{width:100%;height:150px}}
+/* ---------- FOOTER ---------- */
+footer{margin:44px 0 28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);color:#64748b;font-size:.8rem;text-align:center;background:rgba(4,6,10,.92);border-radius:12px;padding:18px}
+footer a{color:#34f5a4;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hdr" id="top">
+  <div class="hdr-row">
+    <a class="brand" href="../../index.html" title="Về trang chính Data News"><span class="brand-mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34f5a4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/><path d="M4.5 11.5v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/></svg></span><span class="brand-name">Data <b>News</b></span><span class="brand-sub">Tuần W24 · 08/06 - 14/06/2026</span></a>
+  </div>
+  <div class="hdr-row2">
+    <input type="checkbox" id="navpop" class="navpop-t" hidden>
+    <nav class="toc">
+      <a href="#recap">🎬 Recap</a>
+      <a href="#sec-1">🗄️ Hạ tầng</a>
+      <a href="#sec-2">🛠️ Công cụ</a>
+      <a href="#sec-3">🤖 AI × Data</a>
+      <a href="#sec-4">📈 Trend</a>
+      <a href="#sec-5">🏢 Ngành</a>
+    </nav>
+    <span class="vdiv"></span>
+    <div class="hdr-ctrls"><button id="readAll" class="ctrl ctrl-acc">🔊<span class="btxt"> Đọc tóm tắt</span></button> <button id="readStop" class="ctrl">⏹<span class="btxt"> Dừng</span></button> <label class="ctrl ctrl-ic navpop-btn" for="navpop" title="Mục lục">☰</label> <a class="ctrl ctrl-ic" href="../../index.html" title="Quay lại Data News">←</a></div>
+    <div class="navpop">
+      <a href="#recap" onclick="document.getElementById('navpop').checked=false">🎬 Recap tuần</a>
+      <a href="#sec-1" onclick="document.getElementById('navpop').checked=false">🗄️ Hạ tầng &amp; Kiến trúc dữ liệu</a>
+      <a href="#sec-2" onclick="document.getElementById('navpop').checked=false">🛠️ Công cụ &amp; Nền tảng</a>
+      <a href="#sec-3" onclick="document.getElementById('navpop').checked=false">🤖 AI × Data</a>
+      <a href="#sec-4" onclick="document.getElementById('navpop').checked=false">📈 Hot trend &amp; Thảo luận</a>
+      <a href="#sec-5" onclick="document.getElementById('navpop').checked=false">🏢 Ngành &amp; Doanh nghiệp</a>
+    </div>
+  </div>
+</header>
+
+<div id="recap"></div>
+<div class="hot-video"><div class="hot-label">🎬 Video recap tuần — các tin nóng nhất</div><div style="position:relative;width:100%;padding-top:56.25%;border-radius:12px;overflow:hidden"><iframe src="https://www.youtube.com/embed/_uYxuFUh7do" title="AI News recap" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><div class="vid-links"><a class="vbtn" href="https://youtu.be/_uYxuFUh7do" target="_blank" rel="noopener">▶ Mở Youtube</a><a class="vbtn" href="https://www.youtube.com/shorts/NRDFFXQSFZc" target="_blank" rel="noopener">📱 Youtube Short</a></div></div>
+
+<div class="tldr">
+<b>Tổng quan tuần này:</b> Tuần 08–14/06 là tuần bản lề ngay trước thềm Data + AI Summit nhưng tin tức vẫn dày đặc. Databricks tung <b>OpenSharing</b> — chuẩn mở thế hệ mới của Delta Sharing cho phép chia sẻ cả dữ liệu lẫn AI assets xuyên nền tảng, đồng thời đưa Spatial SQL lên GA. ClickHouse dồn dập ra tin: <b>ClickHouse Agents</b> mở public beta cho agentic analytics, bắt tay Datadog về observability và mở đường migration Postgres. Microsoft phát hành bản cập nhật tháng 6 cho Power BI và Fabric với Copilot web modeling, agent skills dựng report và Fabric Apps. AWS đổi cách tính tiền snapshot Redshift giúp giảm chi phí lưu trữ, còn cộng đồng sôi sục với thương vụ PgDog gọi vốn 5,5 triệu USD để shard Postgres và bài tổng kết "cuộc chiến Iceberg catalog".
+</div>
+
+<div class="timeline">
+  <span class="tday">T2 08/06 <span class="n">4</span></span>
+  <span class="tday">T3 09/06 <span class="n">4</span></span>
+  <span class="tday">T4 10/06 <span class="n">6</span></span>
+  <span class="tday">T5 11/06 <span class="n">3</span></span>
+  <span class="tday dim">T6 12/06 <span class="n">0</span></span>
+  <span class="tday dim">T7 13/06 <span class="n">0</span></span>
+  <span class="tday dim">CN 14/06 <span class="n">0</span></span>
+</div>
+
+<!-- ============ SECTION 1 ============ -->
+<section class="sec" id="sec-1">
+<h2>🗄️ Hạ tầng &amp; Kiến trúc dữ liệu</h2>
+
+<article class="card" data-aid="1">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.databricks.com/sites/default/files/2026-06/blog-announcing-the-general-availability-of-spatial-sql-og.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-1" class="xt" hidden>
+    <a class="title" href="https://www.databricks.com/blog/geospatial-unbounded-spatial-sql-ga-aibi-maps-delta-sharing-and-iceberg-v3" target="_blank" rel="noopener">Databricks đưa Spatial SQL lên GA: 90+ hàm ST_*, bản đồ trong AI/BI Dashboards, hỗ trợ Iceberg v3</a>
+    <p class="sum">Spatial SQL chính thức GA trên Databricks với kiểu dữ liệu GEOMETRY/GEOGRAPHY, hơn 90 hàm không gian chuẩn OGC, bản đồ render trực tiếp trong AI/BI Dashboards, chia sẻ dữ liệu geospatial qua Delta Sharing và đọc/ghi Iceberg v3.</p>
+    <p class="why">💡 Phân tích không gian địa lý không còn cần hệ thống GIS riêng — gộp thẳng vào lakehouse; kiểu Geometry/Geography cũng đang được đóng góp vào Apache Spark 4.2.</p>
+    <div class="meta"><span class="when">📅 11/06</span> <a class="metabtn" href="https://www.databricks.com/blog/geospatial-unbounded-spatial-sql-ga-aibi-maps-delta-sharing-and-iceberg-v3" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-1">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="1">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Kiểu GEOMETRY/GEOGRAPHY native, hỗ trợ WKT, WKB, GeoJSON, EWKT, EWKB</li>
+        <li>Hơn 90 hàm ST_* tuân chuẩn OGC, dùng thẳng trong SQL</li>
+        <li>SpatialBench: 8/12 truy vấn nhanh hơn 20% tới 15 lần so với Preview</li>
+        <li>Genie sinh truy vấn không gian từ câu hỏi ngôn ngữ tự nhiên</li>
+        <li>Geo types đang được đóng góp vào Apache Spark 4.2 (hè 2026)</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>TRẠNG THÁI</b>GA</span>
+        <span class="fact"><b>HÀM</b>90+ ST_*</span>
+        <span class="fact"><b>HIỆU NĂNG</b>tới 15x</span>
+        <span class="fact"><b>FORMAT</b>Iceberg v3</span>
+      </div>
+      <p class="deep">Trước giờ làm geo-analytics nghiêm túc là phải vác PostGIS hoặc một nền GIS chuyên dụng đứng cạnh warehouse, rồi đồng bộ dữ liệu qua lại. Databricks gộp luôn vào một chỗ: lưu geometry trong Delta hoặc Iceberg v3, truy vấn bằng SQL, vẽ bản đồ ngay trong dashboard. Điểm đáng tiền nhất là khả năng chia sẻ bảng có cột geospatial qua Delta Sharing — dữ liệu quy hoạch, logistics, bản đồ cửa hàng giờ chia sẻ cho đối tác như bảng thường. Với doanh nghiệp Việt làm bất động sản, bán lẻ chuỗi hay giao vận, đây là cách bỏ bớt một hệ thống GIS rời. Việc đóng góp kiểu dữ liệu này vào Spark 4.2 cũng cho thấy Databricks muốn biến nó thành chuẩn chung chứ không giữ làm của riêng.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="2" data-hot="1">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.databricks.com/sites/default/files/2026-06/2026-06-blog-opensharing-dais-press-release-og-1200x628-2x_0.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-2" class="xt" hidden>
+    <span class="rank">🔥 TOP 1 TUẦN NÀY</span>
+    <a class="title" href="https://www.databricks.com/company/newsroom/press-releases/databricks-announces-opensharing" target="_blank" rel="noopener">Databricks công bố OpenSharing: chuẩn mở chia sẻ dữ liệu và AI assets xuyên nền tảng</a>
+    <p class="sum">OpenSharing là bước tiến hóa tiếp theo của giao thức mã nguồn mở Delta Sharing cho kỷ nguyên agentic: giao thức mở trung lập vendor đầu tiên cho phép chia sẻ an toàn Agent Skills, AI model và dữ liệu phi cấu trúc, thêm hỗ trợ client Iceberg REST catalog và truy cập tài sản on-prem/private cloud qua đối tác lưu trữ như MinIO, Qumulo.</p>
+    <p class="why">💡 Chia sẻ dữ liệu xuyên tổ chức vốn là sân chơi đóng của từng vendor; OpenSharing mở rộng phạm vi sang cả "tài sản AI" — đòn chiến lược tung ra ngay trước thềm Data + AI Summit.</p>
+    <div class="meta"><span class="when">📅 10/06</span> <a class="metabtn" href="https://www.databricks.com/company/newsroom/press-releases/databricks-announces-opensharing" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-2">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="2">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Giao thức mở đầu tiên chia sẻ Agent Skills, AI model, dữ liệu phi cấu trúc</li>
+        <li>Mở rộng hệ sinh thái Delta Sharing với client Iceberg REST catalog</li>
+        <li>Truy cập tài sản on-prem/private cloud qua MinIO, Qumulo, Everpure</li>
+        <li>Cho phép chia sẻ và thương mại hóa tài sản AI giữa các tổ chức</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>CHUẨN</b>open, vendor-neutral</span>
+        <span class="fact"><b>KẾ THỪA</b>Delta Sharing</span>
+        <span class="fact"><b>NGÀY</b>10/06/2026</span>
+        <span class="fact"><b>PHẠM VI</b>data + AI assets</span>
+      </div>
+      <p class="deep">Delta Sharing ra đời để chia sẻ bảng dữ liệu không cần copy; OpenSharing nâng cấp tham vọng lên một bậc: chia sẻ cả model, Agent Skills và dữ liệu phi cấu trúc theo cùng một giao thức mở. Điểm chiến lược nằm ở hỗ trợ Iceberg REST catalog — nghĩa là bên nhận không cần là khách Databricks, chỉ cần engine đọc được Iceberg. Tung tin này 5 ngày trước Data + AI Summit là nước cờ rõ ràng: đặt Databricks ở vị trí "người định chuẩn" cho nền kinh tế chia sẻ tài sản AI, đối trọng trực tiếp với hướng đi interoperability mà Snowflake vừa công bố đầu tháng. Với doanh nghiệp, câu hỏi thực dụng là: khi cần trao đổi dữ liệu và model với đối tác khác nền tảng, có dám chuẩn hóa trên giao thức này không — và lịch sử Delta Sharing cho thấy nên theo dõi nghiêm túc.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="3">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://d2908q01vomqb2.cloudfront.net/b6692ea5df920cad691c20319a6fffd7a4a766b8/2026/06/08/bdb-6004.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=aws.amazon.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-3" class="xt" hidden>
+    <a class="title" href="https://aws.amazon.com/blogs/big-data/unlock-cost-savings-with-incremental-snapshot-billing-for-amazon-redshift-serverless-and-amazon-redshift-rg/" target="_blank" rel="noopener">Amazon Redshift đổi sang billing snapshot incremental: chỉ trả tiền cho data block duy nhất</a>
+    <p class="sum">Từ 08/06/2026, Redshift Serverless và Redshift RG chỉ tính phí các data block duy nhất giữa các manual snapshot trong account — block trùng lặp xuất hiện ở nhiều snapshot chỉ tính một lần; snapshot hiện hữu tự động chuyển sang mô hình mới, không cần thao tác.</p>
+    <p class="why">💡 Đội nào giữ nhiều snapshot cho DR, test hay lưu trữ dài hạn sẽ giảm chi phí ngay lập tức — và có thể snapshot dày hơn để cải thiện RPO mà chi phí không tăng tỷ lệ thuận.</p>
+    <div class="meta"><span class="when">📅 08/06</span> <a class="metabtn" href="https://aws.amazon.com/blogs/big-data/unlock-cost-savings-with-incremental-snapshot-billing-for-amazon-redshift-serverless-and-amazon-redshift-rg/" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-3">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="3">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Áp dụng cho Redshift Serverless và Redshift RG (Graviton)</li>
+        <li>Block trùng giữa nhiều manual snapshot chỉ bị tính tiền một lần</li>
+        <li>Tự động chuyển đổi từ 08/06/2026, không cần hành động gì</li>
+        <li>RA3 giữ nguyên mô hình tiered S3 billing cũ</li>
+        <li>Automated snapshot vẫn miễn phí (35 ngày Provisioned, 1 ngày Serverless)</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>HIỆU LỰC</b>08/06/2026</span>
+        <span class="fact"><b>PHẠM VI</b>Serverless + RG</span>
+        <span class="fact"><b>HÀNH ĐỘNG</b>không cần</span>
+      </div>
+      <p class="deep">Đây là kiểu tin không hào nhoáng nhưng đụng thẳng vào hóa đơn. Logic cũ tính tiền từng snapshot như một bản sao đầy đủ, nên giữ 10 bản snapshot của một warehouse ít thay đổi là trả tiền 10 lần cho gần như cùng một đống dữ liệu. Giờ AWS chỉ tính block duy nhất — ai đang chạy chiến lược snapshot hàng ngày cho compliance hoặc trước mỗi lần migration sẽ thấy hóa đơn giảm rõ. Điều nên làm ngay: rà lại lịch snapshot, vì rào cản chi phí đã hạ, có thể tăng tần suất để RPO tốt hơn mà không phải đánh đổi. Lưu ý RA3 chưa được hưởng cơ chế này.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<!-- ============ SECTION 2 ============ -->
+<section class="sec" id="sec-2">
+<h2>🛠️ Công cụ &amp; Nền tảng</h2>
+
+<article class="card" data-aid="4">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://clickhouse.com/uploads/PG_Migration_Feature_Banner_4efe07ebce.jpg" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=clickhouse.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-4" class="xt" hidden>
+    <a class="title" href="https://clickhouse.com/blog/clickpipes-postgres-to-postgres" target="_blank" rel="noopener">ClickHouse Cloud ra mắt Postgres-to-Postgres ClickPipes: migration Postgres fully managed, downtime thấp</a>
+    <p class="sum">ClickPipes có thêm pipeline Postgres sang Postgres giúp di chuyển database Postgres từ nơi khác về Postgres managed by ClickHouse trên ClickHouse Cloud theo cách fully managed với downtime tối thiểu.</p>
+    <p class="why">💡 ClickHouse đang lấn mạnh sang OLTP: sau khi đưa managed Postgres vào beta, giờ mở luôn "đường cao tốc" migration — cạnh tranh trực diện với RDS, Neon, Supabase.</p>
+    <div class="meta"><span class="when">📅 11/06</span> <a class="metabtn" href="https://clickhouse.com/blog/clickpipes-postgres-to-postgres" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-4">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="4">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Pipeline Postgres → Postgres fully managed trong ClickPipes</li>
+        <li>Migration low-downtime về Postgres managed by ClickHouse</li>
+        <li>Bổ sung cho ClickPipes Postgres CDC đã GA trước đó</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>LOẠI</b>managed migration</span>
+        <span class="fact"><b>ĐÍCH</b>Postgres on ClickHouse Cloud</span>
+        <span class="fact"><b>NGÀY</b>11/06/2026</span>
+      </div>
+      <p class="deep">Chiến lược của ClickHouse ngày càng rõ: không chỉ làm OLAP nhanh nhất mà muốn ôm luôn cặp đôi "Postgres cho giao dịch + ClickHouse cho phân tích" trong một cloud. ClickPipes trước đây lo CDC từ Postgres sang ClickHouse; giờ thêm Postgres-to-Postgres để kéo cả database OLTP của bạn về. Với startup Việt đang chạy RDS hay Supabase mà nhu cầu analytics tăng, mô hình một nhà cung cấp lo cả hai khối là lựa chọn đáng cân nhắc — đổi lại là gắn chặt hơn vào một vendor. Điểm kỹ thuật cần soi khi thử: cách họ xử lý logical replication với extension và sequence trong giai đoạn cutover.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="5">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=community.fabric.microsoft.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-5" class="xt" hidden>
+    <a class="title" href="https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Fabric-June-2026-Feature-Summary/ba-p/5190690" target="_blank" rel="noopener">Microsoft Fabric tháng 6/2026: AI Functions chuyển mặc định sang gpt-5-mini, mirroring qua private link mở rộng</a>
+    <p class="sum">Bản tổng hợp tính năng tháng 6: Fabric AI Functions dùng gpt-5-mini làm model mặc định (dòng gpt-4.1 nghỉ hưu), mirroring hỗ trợ workspace chặn public access cho Azure SQL Database, SAP, SQL Server 2016–2022 và SharePoint, Git integration thêm GitHub Enterprise Cloud data residency (preview).</p>
+    <p class="why">💡 Hai nhóm khách hàng hưởng lợi rõ: doanh nghiệp bị ràng buộc network security giờ mirror được nhiều nguồn hơn, còn AI Functions rẻ và nhanh hơn với model mới.</p>
+    <div class="meta"><span class="when">📅 10/06</span> <a class="metabtn" href="https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Fabric-June-2026-Feature-Summary/ba-p/5190690" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-5">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="5">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>AI Functions mặc định gpt-5-mini, reasoning mức "low"</li>
+        <li>gpt-4.1 nghỉ hưu 30/05, gpt-4.1-mini nghỉ hưu 15/06 — cần migrate</li>
+        <li>Mirroring qua private link: Azure SQL DB, SAP, SQL Server 2016–2022, SharePoint</li>
+        <li>PySpark .ai chaining đơn giản hóa: summarize → classify không cần DataFrame trung gian</li>
+        <li>Git integration hỗ trợ GitHub Enterprise Cloud data residency (preview)</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>AI MODEL</b>gpt-5-mini default</span>
+        <span class="fact"><b>MIRRORING</b>+4 nguồn private link</span>
+        <span class="fact"><b>DEADLINE</b>15/06 gpt-4.1-mini</span>
+      </div>
+      <p class="deep">Bản cập nhật tháng này thiên về "enterprise-ready" hơn là tính năng hào nhoáng. Đáng chú ý nhất với đội đang dùng AI Functions trong pipeline: model mặc định đổi sang gpt-5-mini và dòng gpt-4.1 bị khai tử theo lịch rất sát — ai đang hard-code model cũ cần kiểm tra trước 15/06 kẻo job âm thầm lỗi. Phần mirroring qua private link mở rộng sang SAP và SQL Server on-prem là tin lớn cho khối ngân hàng, bảo hiểm vốn cấm public endpoint. Với cộng đồng Fabric Việt Nam, đây là tháng nên đọc kỹ changelog thay vì lướt qua.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="6">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/New_Power_BI_Logo.svg/960px-New_Power_BI_Logo.svg.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=community.fabric.microsoft.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-6" class="xt" hidden>
+    <span class="rank">🔥 TOP 3 TUẦN NÀY</span>
+    <a class="title" href="https://community.fabric.microsoft.com/t5/Power-BI-Updates-Blog/Power-BI-June-2026-Feature-Summary/ba-p/5193264" target="_blank" rel="noopener">Power BI tháng 6/2026: Copilot vào web modeling, agent skills tự dựng report, Fabric Apps trình làng</a>
+    <p class="sum">Bản cập nhật tháng 6 dồn lực cho AI: Copilot trong web modeling (preview) phân tích và sửa semantic model bằng ngôn ngữ tự nhiên — đổi tên bảng/cột, tạo relationship, sinh DAX measure; Report Authoring agent skills dựng report hoàn chỉnh từ canvas trắng qua hội thoại; Fabric Apps mở cách xây web app AI-first trên semantic model.</p>
+    <p class="why">💡 Power BI là công cụ BI phổ biến nhất tại Việt Nam — khi việc modeling và dựng report được AI làm thay phần lặp lại, kỹ năng "ra đề bài đúng" trở thành thứ phân hóa analyst.</p>
+    <div class="meta"><span class="when">📅 09/06</span> <a class="metabtn" href="https://community.fabric.microsoft.com/t5/Power-BI-Updates-Blog/Power-BI-June-2026-Feature-Summary/ba-p/5193264" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-6">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="6">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Copilot web modeling (preview): sửa schema, tạo relationship, sinh DAX bằng hội thoại</li>
+        <li>Report Authoring agent skills: dựng report từ canvas trắng, theo best practice trực quan hóa</li>
+        <li>Fabric Apps: web app AI-first chạy trên semantic model, backend là Fabric</li>
+        <li>Snowflake connector hỗ trợ secret-less auth qua Fabric workspace identity</li>
+        <li>Google BigQuery connector V2 hiệu năng cao hơn</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>09/06/2026</span>
+        <span class="fact"><b>COPILOT</b>web modeling preview</span>
+        <span class="fact"><b>MỚI</b>Fabric Apps</span>
+        <span class="fact"><b>AUTH</b>secret-less Snowflake</span>
+      </div>
+      <p class="deep">Microsoft đang đẩy Power BI theo đúng kịch bản "agentic era" công bố ở Build: con người mô tả, agent thao tác. Copilot vào tận web modeling nghĩa là việc sửa semantic model — vốn là kỹ năng "gác cổng" của data modeler — giờ ai cũng chạm được, kèm theo đó là rủi ro model bị sửa ẩu nếu thiếu quy trình review. Report Authoring agent skills thì rõ ràng nhắm vào khối lượng report khổng lồ mà các team BI Việt Nam đang gánh: phần dựng khung, format, layout sẽ nhanh hơn hẳn, người làm nghề nên dồn thời gian vào logic nghiệp vụ và data quality. Fabric Apps đáng theo dõi riêng: viết app trên semantic model mà không cần dựng backend là hướng đi có thể thay một lớp internal tool.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="7">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=support.google.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-7" class="xt" hidden>
+    <a class="title" href="https://support.google.com/analytics/answer/9164320" target="_blank" rel="noopener">Google Analytics liên kết Google Business Profile: gộp số liệu local business, website và app về một mối</a>
+    <p class="sum">Từ 08/06, Google Analytics cho phép liên kết property với Google Business Profiles ngay trong Admin, import dữ liệu first-party từ GBP và thêm bộ báo cáo riêng: interactions, cuộc gọi, bookings, chỉ đường và website clicks.</p>
+    <p class="why">💡 Doanh nghiệp có chuỗi cửa hàng vật lý lâu nay phải xem số GBP một nơi, web/app một nẻo — giờ đo được hành trình khách hàng local trong cùng một property.</p>
+    <div class="meta"><span class="when">📅 08/06</span> <a class="metabtn" href="https://support.google.com/analytics/answer/9164320" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-7">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="7">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Link GA property với Google Business Profiles trong Admin panel</li>
+        <li>Import dữ liệu GBP first-party vào GA</li>
+        <li>Bộ report mới: interactions, calls, bookings, direction requests, website clicks</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>08/06/2026</span>
+        <span class="fact"><b>NGUỒN</b>Google Business Profile</span>
+        <span class="fact"><b>NƠI</b>Admin panel</span>
+      </div>
+      <p class="deep">Tin nhỏ nhưng thực dụng với mảng retail và F&amp;B. Trước đây muốn báo cáo "khách tìm đường tới quán bao nhiêu lần, gọi điện bao nhiêu cuộc, rồi bao nhiêu người vào web đặt bàn" là phải export tay từ Business Profile rồi ghép với GA trong spreadsheet hoặc BI tool. Giờ dữ liệu này nằm chung property, đồng nghĩa các team analytics có thể dựng funnel local-to-online tử tế và đỡ một pipeline thủ công. Ai đang làm agency quản lý nhiều chuỗi tại Việt Nam nên bật liên kết này sớm để tích lũy dữ liệu lịch sử.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<!-- ============ SECTION 3 ============ -->
+<section class="sec" id="sec-3">
+<h2>🤖 AI × Data</h2>
+
+<article class="card" data-aid="8">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://clickhouse.com/uploads/FINAL_1_0d999c9df8.jpg" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=clickhouse.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-8" class="xt" hidden>
+    <a class="title" href="https://clickhouse.com/blog/stripe-projects" target="_blank" rel="noopener">AI agent tự provision database: ClickHouse vào Stripe Projects, một lệnh CLI có ngay ClickHouse hoặc Postgres</a>
+    <p class="sum">ClickHouse có mặt trong Stripe Projects — workflow Stripe CLI cho developer và AI agent: một lệnh provision service ClickHouse hoặc Postgres trên ClickHouse Cloud, credentials ghi thẳng vào .env theo định dạng agent đọc được, rồi bàn giao cho clickhousectl để agent tiếp tục build, không cần đụng UI.</p>
+    <p class="why">💡 Hạ tầng dữ liệu đang được thiết kế lại cho một "người dùng" mới là AI agent — provisioning không UI, không thao tác tay là mảnh ghép để agent tự dựng app end-to-end.</p>
+    <div class="meta"><span class="when">📅 10/06</span> <a class="metabtn" href="https://clickhouse.com/blog/stripe-projects" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-8">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="8">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Một lệnh Stripe CLI tạo service ClickHouse/Postgres trên ClickHouse Cloud</li>
+        <li>Credentials tự ghi vào .env, format agent đọc được</li>
+        <li>Bàn giao cho clickhousectl — CLI thiết kế riêng cho agent</li>
+        <li>Đang ở developer preview trong Stripe Projects</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>TRẠNG THÁI</b>developer preview</span>
+        <span class="fact"><b>CLI</b>Stripe + clickhousectl</span>
+        <span class="fact"><b>NGÀY</b>10/06/2026</span>
+      </div>
+      <p class="deep">Chi tiết đáng chú ý không phải là "thêm một cách tạo database" mà là chuỗi thiết kế cho agent từ đầu đến cuối: provision không UI, credential không cần người copy-paste, CLI có output cấu trúc cho máy đọc. Databricks từng công bố hơn 80% database mới trên nền tảng của họ do agent khởi tạo — các vendor giờ chạy đua làm "ngôn ngữ giao tiếp" cho agent thay vì cho người. Với developer Việt hay vibe-code app bằng agent, mô hình này cắt hẳn khâu vào console bấm tay. Mặt trái cần tự hỏi: agent tự tạo hạ tầng thì ai kiểm soát chi phí và quyền — nên đặt guardrail billing trước khi thả agent chạy tự do.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="9">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://clickhouse.com/uploads/clickhouse_agents_jun2026_image7_e65251f928.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=clickhouse.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-9" class="xt" hidden>
+    <span class="rank">🔥 TOP 2 TUẦN NÀY</span>
+    <a class="title" href="https://clickhouse.com/blog/clickhouse-agents-beta" target="_blank" rel="noopener">ClickHouse Agents mở public beta: agentic analytics no-code cho mọi khách hàng ClickHouse Cloud</a>
+    <p class="sum">Dịch vụ agentic analytics fully managed tích hợp trong ClickHouse Cloud: tạo agent no-code grounded trên dữ liệu ClickHouse trực tiếp, chat hỏi đáp không cần SQL, code interpreter sandbox (Bash/Python/JavaScript), skills - memories - artifacts và multi-agent orchestration, kèm SSO, mã hóa, RBAC chuẩn enterprise.</p>
+    <p class="why">💡 Số liệu nội bộ rất đáng nể: 80% nhân viên ClickHouse dùng hằng ngày, agent xử lý khoảng 70% truy vấn warehouse nội bộ và hơn 45 triệu token mỗi ngày — "BI không cần dashboard" đang thành sản phẩm thật.</p>
+    <div class="meta"><span class="when">📅 09/06</span> <a class="metabtn" href="https://clickhouse.com/blog/clickhouse-agents-beta" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-9">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="9">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Tạo agent no-code với custom instructions và skills, không cần SQL</li>
+        <li>Code interpreter sandbox: Bash, Python, JavaScript</li>
+        <li>Multi-agent orchestration, memories và artifacts đóng gói được</li>
+        <li>Nội bộ: 80% nhân viên dùng hằng ngày, ~70% truy vấn warehouse</li>
+        <li>Mở cho mọi khách hàng Cloud qua SQL console hoặc ai.clickhouse.cloud</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>TRẠNG THÁI</b>public beta</span>
+        <span class="fact"><b>TOKEN</b>45M+/ngày nội bộ</span>
+        <span class="fact"><b>TRUY VẤN</b>~70% qua agent</span>
+        <span class="fact"><b>BẢO MẬT</b>SSO + RBAC</span>
+      </div>
+      <p class="deep">Công bố tại Open House cuối tháng 5, giờ mở public beta cho toàn bộ khách hàng Cloud — tốc độ ra hàng nhanh đáng kể. Điểm khác biệt so với làn sóng text-to-SQL đời đầu: đây không phải hộp chat sinh SQL rồi thôi, mà là agent có sandbox chạy code, có memory, có skill đóng gói lại thành workflow dùng chung — tức là nhắm thay luôn lớp "analyst trả lời câu hỏi ad-hoc". Bộ số nội bộ 70% truy vấn warehouse qua agent là lời cảnh tỉnh thực tế cho nghề BI: phần truy vấn lặp lại sẽ bị tự động hóa trước tiên. ClickHouse cho biết họ chấm điểm nhiều LLM trên đúng workload agentic analytics để chọn model mặc định, thay vì tin benchmark tổng quát — cách làm mà các team Việt Nam xây bot phân tích nội bộ nên học theo.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="10">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-10" class="xt" hidden>
+    <a class="title" href="https://docs.databricks.com/aws/en/ai-bi/release-notes/2026" target="_blank" rel="noopener">Databricks đổi tên Genie thành Genie One, dồn dập cập nhật dashboard và Genie Space</a>
+    <p class="sum">Genie — trải nghiệm AI cho business user của Databricks — chính thức đổi tên thành Genie One (09/06); kèm theo loạt cập nhật ngày 11/06: lưu visualization từ Genie Space vào dashboard, Gantt chart, custom visualization bằng Vega-Lite (Public Preview), tùy biến màu sắc, logo và messaging theo account.</p>
+    <p class="why">💡 Databricks đang biến Genie One thành cửa ngõ "chat với dữ liệu" cho mọi nhân viên — đúng tuyên bố "double down on Genie" của CEO Ali Ghodsi, và là vũ khí chính đấu với Copilot của Microsoft.</p>
+    <div class="meta"><span class="when">📅 09/06</span> <a class="metabtn" href="https://docs.databricks.com/aws/en/ai-bi/release-notes/2026" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-10">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="10">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Genie đổi tên thành Genie One (09/06)</li>
+        <li>11/06: lưu visualization từ Genie Space vào dashboard</li>
+        <li>Custom visualization bằng thư viện Vega-Lite (Public Preview)</li>
+        <li>Tùy biến màu, logo, messaging cấp account cho Genie One</li>
+        <li>Trước đó: agent mode thành mặc định, Managed MCP Server (beta)</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>TÊN MỚI</b>Genie One</span>
+        <span class="fact"><b>NGÀY</b>09–11/06</span>
+        <span class="fact"><b>VIZ</b>Vega-Lite preview</span>
+      </div>
+      <p class="deep">Đổi tên sản phẩm ngay trước Summit hiếm khi là chuyện ngẫu nhiên — "Genie One" nghe như lớp giao diện hợp nhất cho mọi nhân viên, và gần như chắc chắn sẽ là nhân vật chính trên sân khấu tuần tới. Chuỗi cập nhật cho thấy hướng đi: Genie không chỉ trả lời câu hỏi mà trở thành nơi sản xuất dashboard luôn (lưu viz, Gantt, Vega-Lite), cộng thêm white-label màu và logo cho doanh nghiệp triển khai rộng. Với các công ty đã đứng trên Databricks, nên thử cho một phòng ban dùng Genie One thay vì gửi yêu cầu report — đo xem bao nhiêu phần trăm câu hỏi tự phục vụ được trước khi quyết định nhân rộng.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<!-- ============ SECTION 4 ============ -->
+<section class="sec" id="sec-4">
+<h2>📈 Hot trend &amp; Thảo luận cộng đồng</h2>
+
+<article class="card" data-aid="11">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.databricks.com/sites/default/files/blog_images/stop-building-data-products-start-building-data-blog-img-og.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-11" class="xt" hidden>
+    <a class="title" href="https://www.databricks.com/blog/stop-building-data-products-start-building-data-services" target="_blank" rel="noopener">"Đừng xây data product nữa, hãy xây data service" — bài luận khơi lại tranh luận kiến trúc dữ liệu</a>
+    <p class="sum">Bài viết lập luận kiến trúc "mỗi use case một data product" sẽ gãy khi AI agent tiêu thụ dữ liệu theo những cách không đoán trước; thay vào đó nên shift-left data quality về tầng ingestion, codify business context ở upstream và đo "insight lag" — khoảng trễ từ lúc dữ liệu tồn tại đến lúc dùng được — thay vì chỉ đo data freshness.</p>
+    <p class="why">💡 Sau nhiều năm "data product / data mesh" làm khung tư duy chủ đạo, làn sóng agent đang buộc ngành xét lại: agent không đọc catalog như con người, nó compose dữ liệu theo cách riêng.</p>
+    <div class="meta"><span class="when">📅 11/06</span> <a class="metabtn" href="https://www.databricks.com/blog/stop-building-data-products-start-building-data-services" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-11">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="11">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Data product giả định use case đoán trước được; agent thì không</li>
+        <li>Shift-left: mastering và quality check dồn về gần ingestion</li>
+        <li>Codify taxonomy + logic reconciliation ở upstream</li>
+        <li>Đo "insight lag" thay vì chỉ đo freshness</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>KHÁI NIỆM</b>data service</span>
+        <span class="fact"><b>METRIC</b>insight lag</span>
+        <span class="fact"><b>NGÀY</b>11/06/2026</span>
+      </div>
+      <p class="deep">Cần đọc với con mắt tỉnh: bài đăng trên blog Databricks nên có lợi ích thương mại phía sau, nhưng luận điểm cốt lõi thì chạm đúng chỗ đau. Nhiều team Việt Nam vừa kịp học xong "data product" với owner, SLA, catalog — giờ phải đối mặt câu hỏi mới: khi người tiêu thụ chính là agent, các bảng curated đóng gói sẵn lại thành nút cổ chai vì agent muốn ghép dữ liệu theo hướng chưa ai thiết kế. Hai việc đáng làm ngay bất kể theo trường phái nào: dồn kiểm tra chất lượng về sát nguồn thay vì vá ở downstream, và chuẩn hóa business definition ở một nơi máy đọc được. Còn chuyện đặt tên "product" hay "service" — đừng để buzzword dẫn dắt ngân sách.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="12">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://pgdog.dev/assets/images/logo2_wide.png?v=bb9c0ef3de" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=pgdog.dev&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-12" class="xt" hidden>
+    <span class="rank">🔥 TOP 5 TUẦN NÀY</span>
+    <a class="title" href="https://pgdog.dev/blog/our-funding-announcement" target="_blank" rel="noopener">PgDog gọi vốn 5,5 triệu USD: sharding proxy mã nguồn mở cho Postgres, "cháy" trên Hacker News với 530 điểm</a>
+    <p class="sum">PgDog — connection pooler, load balancer và sharding proxy viết bằng Rust giúp scale Postgres theo chiều ngang mà không phải sửa ứng dụng — công bố vòng vốn 5,5 triệu USD từ Basis Set, Y Combinator và Pioneer Fund; hiện phục vụ hơn 2 triệu queries/giây ở production, đã shard hơn 20TB dữ liệu, 1,4 triệu Docker pulls.</p>
+    <p class="why">💡 Triết lý "Postgres là database duy nhất bạn cần" thắng lớn về cảm tình cộng đồng: thay vì nhảy sang NoSQL khi đụng trần scale, xu hướng giờ là giữ Postgres và thêm một lớp proxy.</p>
+    <div class="meta"><span class="when">📅 10/06</span> <a class="metabtn" href="https://pgdog.dev/blog/our-funding-announcement" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-12">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="12">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>5,5 triệu USD từ Basis Set, Y Combinator, Pioneer Fund</li>
+        <li>2M+ queries/giây production, đã shard hơn 20TB</li>
+        <li>Mã nguồn mở, 1,4 triệu Docker pulls; bản Enterprise cho AWS</li>
+        <li>Đội 3 người, kinh nghiệm scale Postgres tại Instacart</li>
+        <li>Deploy bằng Docker, chỉ cần đổi connection string</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>VỐN</b>$5.5M</span>
+        <span class="fact"><b>QPS</b>2M+/giây</span>
+        <span class="fact"><b>HN</b>530 điểm</span>
+        <span class="fact"><b>NGÔN NGỮ</b>Rust</span>
+      </div>
+      <p class="deep">Câu chuyện được Hacker News đẩy lên đầu trang không phải vì số tiền — 5,5 triệu USD là vòng nhỏ — mà vì nó đại diện cho một niềm tin đang lên: Postgres có thể gánh mọi thứ nếu có lớp hạ tầng đúng. PgDog đứng ở vị trí pgbouncer từng đứng nhưng tham vọng hơn hẳn: multithreaded tận dụng đủ CPU, load balancing và sharding luôn ở tầng proxy, app không cần biết gì. Với các team Việt đang vận hành Postgres tự quản và bắt đầu nghĩ đến chuyện tách shard, đây là dự án nên đưa vào danh sách thử nghiệm — chi phí thử thấp vì chỉ đổi connection string. Rủi ro thường trực của startup 3 người là tính bền vững, nhưng mã nguồn mở nghĩa là tệ nhất bạn vẫn còn code trong tay.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="13">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fhe0ly61uxp76ldsmjg98.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=dev.to&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-13" class="xt" hidden>
+    <a class="title" href="https://dev.to/alexmercedcoder/the-state-of-apache-iceberg-catalogs-in-june-2026-265e" target="_blank" rel="noopener">Cục diện Apache Iceberg catalog tháng 6/2026: format war đã xong, cuộc chiến chuyển lên tầng catalog</a>
+    <p class="sum">Bài tổng kết được cộng đồng lakehouse chia sẻ mạnh: Apache Iceberg đã thắng cuộc chiến table format, cạnh tranh giờ dồn về catalog — Apache Polaris (đã thành top-level project), Nessie, Gravitino, Lakekeeper, Unity Catalog, Snowflake Open Catalog, AWS Glue/S3 Tables, BigLake; governance portability vẫn là bài toán chưa giải.</p>
+    <p class="why">💡 Catalog giờ là hạ tầng Tier-1: nó quyết định lakehouse của bạn có governed, interoperable và sẵn sàng cho AI agent hay không — lời khuyên chốt bài: bám các catalog tương thích REST.</p>
+    <div class="meta"><span class="when">📅 08/06</span> <a class="metabtn" href="https://dev.to/alexmercedcoder/the-state-of-apache-iceberg-catalogs-in-june-2026-265e" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-13">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="13">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Iceberg thắng format war; catalog là chiến trường mới</li>
+        <li>Apache Polaris graduate top-level project — "chuẩn cộng đồng"</li>
+        <li>Governance portability chưa giải: policy không mang theo được giữa catalog</li>
+        <li>Server-side scan planning + remote signing là mặt trận tính năng mới</li>
+        <li>Multi-catalog + federation là thực tế triển khai, không phải anti-pattern</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>FORMAT</b>Iceberg thắng</span>
+        <span class="fact"><b>CHUẨN API</b>REST catalog</span>
+        <span class="fact"><b>CATALOG</b>8+ lựa chọn</span>
+      </div>
+      <p class="deep">Nếu hai năm trước câu hỏi phỏng vấn data engineer là "Iceberg hay Delta", thì từ giờ là "catalog nào và vì sao". Bài viết xếp lại bàn cờ rất gọn: catalog nắm quyền resolve metadata, cấp credential, sequence commit — tức là nắm cổ họng của mọi engine truy cập dữ liệu. Điểm thấm nhất là cảnh báo governance portability: bạn có thể đổi engine thoải mái nhờ REST API, nhưng policy phân quyền thì viết lại từ đầu khi đổi catalog — đó mới là lock-in thật sự của thời lakehouse. Team Việt Nam mới dựng lakehouse nên chọn catalog nói chuẩn REST ngay từ đầu và coi uptime của catalog nghiêm túc như database production, vì catalog sập là cả bãi dữ liệu "mù".</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<!-- ============ SECTION 5 ============ -->
+<section class="sec" id="sec-5">
+<h2>🏢 Ngành &amp; Doanh nghiệp</h2>
+
+<article class="card" data-aid="14">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://clickhouse.com/uploads/datadog_clickhouse_partnership_38de3b8c18.jpg" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=clickhouse.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-14" class="xt" hidden>
+    <span class="rank">🔥 TOP 4 TUẦN NÀY</span>
+    <a class="title" href="https://clickhouse.com/blog/datadog-and-clickhouse-partnership" target="_blank" rel="noopener">Datadog bắt tay ClickHouse: log full-fidelity đổ thẳng về ClickHouse, vẫn search trong Datadog</a>
+    <p class="sum">Datadog Observability Pipelines thêm destination ClickHouse native, còn Datadog Log Explorer có khả năng search liên bang (federated) sang dữ liệu nằm trong ClickHouse Cloud — tổ chức giữ trọn bộ telemetry với chi phí thấp mà không phải rời workflow quen thuộc. Cả hai năng lực đang ở Preview.</p>
+    <p class="why">💡 Cú bắt tay bất ngờ giữa "vua observability" và database đang phá giá thị trường lưu trữ log — chấm dứt thế phải chọn giữa giữ đủ dữ liệu và giữ được công cụ quen tay.</p>
+    <div class="meta"><span class="when">📅 10/06</span> <a class="metabtn" href="https://clickhouse.com/blog/datadog-and-clickhouse-partnership" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-14">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="14">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Observability Pipelines route log thẳng về ClickHouse Cloud</li>
+        <li>Log Explorer search liên bang trên dữ liệu trong ClickHouse</li>
+        <li>Giữ full-fidelity telemetry, không phải sample/drop vì chi phí</li>
+        <li>Đang Preview — đăng ký qua chương trình preview của Datadog</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>TRẠNG THÁI</b>Preview</span>
+        <span class="fact"><b>SẢN PHẨM</b>Pipelines + Log Explorer</span>
+        <span class="fact"><b>NGÀY</b>10/06/2026</span>
+      </div>
+      <p class="deep">Đây là thương vụ "nếu không thắng được thì hợp tác" kinh điển. Nhiều năm nay khách Datadog than chi phí log, và lối thoát phổ biến là tự dựng stack ClickHouse — tức là rời hẳn Datadog. Giờ Datadog chủ động mở đường: dữ liệu rẻ nằm ở ClickHouse, trải nghiệm tìm kiếm và giao diện vẫn của Datadog — giữ được khách ở tầng giá trị cao nhất. Về phía ClickHouse, được "vua thị trường" công nhận là backend lưu trữ là cú chứng thực thương mại lớn ngay trước thềm IPO đồn đoán. Team DevOps/Data tại Việt Nam đang trả hóa đơn Datadog bằng USD nên đăng ký preview sớm: kịch bản giữ log 13 tháng cho audit mà không vỡ ngân sách giờ khả thi hơn nhiều.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="15">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.databricks.com/sites/default/files/blog_images/aws-and-databricks-at-data-ai-summit-blog-img-og.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-15" class="xt" hidden>
+    <a class="title" href="https://www.databricks.com/blog/aws-and-databricks-data-ai-summit-2026-accelerating-real-world-ai-innovation" target="_blank" rel="noopener">AWS trở lại Data + AI Summit 2026 với vai Legend Sponsor: phô diễn "agentic stack" Bedrock × Databricks</a>
+    <p class="sum">Trước thềm Summit 15–18/06 tại San Francisco (dự kiến hơn 30.000 người tham dự), AWS công bố hiện diện mở rộng: keynote về catalog federation đa engine cùng Mastercard (Unity Catalog + AWS Glue), demo agent end-to-end kết hợp Amazon Bedrock AgentCore với Unity Catalog, Genie và Lakebase.</p>
+    <p class="why">💡 Tuần tới là tâm điểm của cả ngành dữ liệu; việc AWS — vừa là đối tác vừa là đối thủ — đẩy mạnh "agentic stack" chung với Databricks báo trước chủ đề chính của Summit năm nay.</p>
+    <div class="meta"><span class="when">📅 10/06</span> <a class="metabtn" href="https://www.databricks.com/blog/aws-and-databricks-data-ai-summit-2026-accelerating-real-world-ai-innovation" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-15">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="15">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Summit 15–18/06, Moscone Center, 30.000+ người dự kiến</li>
+        <li>Keynote 16/06: multi-engine catalog federation cùng Mastercard</li>
+        <li>Stack demo: Bedrock AgentCore + Unity Catalog + Genie + Lakebase</li>
+        <li>Khách hàng chung: Mastercard, Workday, nCino, Addepar, Talkdesk</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>SỰ KIỆN</b>15–18/06</span>
+        <span class="fact"><b>QUY MÔ</b>30.000+</span>
+        <span class="fact"><b>SPONSOR</b>Legend tier</span>
+      </div>
+      <p class="deep">Quan hệ AWS–Databricks luôn là kiểu "vừa đấm vừa xoa": AWS có Redshift và SageMaker cạnh tranh trực tiếp, nhưng phần lớn workload Databricks vẫn chạy trên hạ tầng AWS nên đôi bên không thể thiếu nhau. Nội dung được chọn để phô diễn rất đáng để ý — catalog federation giữa Unity Catalog và Glue chính là câu trả lời cho nỗi đau multi-catalog mà cộng đồng đang bàn (xem bài Iceberg catalogs ở mục Trend). Ai theo dõi từ Việt Nam nên đánh dấu lịch keynote 15–18/06: các công bố lớn của Databricks năm nào cũng định hình roadmap nửa cuối năm của cả hệ sinh thái lakehouse.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="16">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://clickhouse.com/uploads/clickhouse_appoints_apac_leader_f2c3722e9c.jpg" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=clickhouse.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-16" class="xt" hidden>
+    <a class="title" href="https://clickhouse.com/blog/clickhouse-appoints-apac-leader-and-expands-global-gtm-leadership" target="_blank" rel="noopener">ClickHouse bổ nhiệm Ed Lenta làm VP Asia Pacific &amp; Japan, mở rộng đội ngũ go-to-market toàn cầu</a>
+    <p class="sum">ClickHouse công bố mở rộng đội ngũ lãnh đạo go-to-market toàn cầu, trong đó bổ nhiệm Ed Lenta làm Vice President phụ trách khu vực Asia Pacific &amp; Japan (APJ) — động thái ngay sau khi công ty cán mốc 250 triệu USD ARR và 4.000 khách hàng.</p>
+    <p class="why">💡 Đông Nam Á vào tầm ngắm mở rộng của một trong những công ty hạ tầng dữ liệu tăng trưởng nóng nhất — tín hiệu tốt cho cộng đồng data Việt Nam về sự kiện, hỗ trợ và cả cơ hội việc làm khu vực.</p>
+    <div class="meta"><span class="when">📅 09/06</span> <a class="metabtn" href="https://clickhouse.com/blog/clickhouse-appoints-apac-leader-and-expands-global-gtm-leadership" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-16">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="16">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Ed Lenta làm VP Asia Pacific &amp; Japan (APJ)</li>
+        <li>Nằm trong đợt mở rộng leadership GTM toàn cầu</li>
+        <li>Bối cảnh: ARR vượt 250 triệu USD, 4.000 khách hàng</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>VỊ TRÍ</b>VP APJ</span>
+        <span class="fact"><b>ARR</b>$250M+</span>
+        <span class="fact"><b>KHÁCH</b>4.000+</span>
+      </div>
+      <p class="deep">Tin nhân sự thường bị lướt qua, nhưng với người làm data ở Việt Nam thì đáng dừng lại vài giây: vendor chỉ bổ nhiệm VP khu vực khi đã quyết rót tiền vào thị trường đó. ARR của ClickHouse đã tăng gấp ba trong một năm và công ty đang được nhắc tới trên lộ trình IPO — APJ là mảnh tăng trưởng tiếp theo họ nhắm đến. Thực tế ClickHouse đã được nhiều công ty công nghệ Việt dùng ngầm trong stack analytics và observability từ lâu; có đội GTM khu vực nghĩa là sắp tới sẽ có support, pricing và sự kiện gần mình hơn thay vì mọi thứ dồn về giờ Mỹ.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="17">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://futurumgroup.com/wp-content/uploads/2026/06/stock_0006.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=futurumgroup.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-17" class="xt" hidden>
+    <a class="title" href="https://futurumgroup.com/insights/can-databricks-maintain-its-data-ai-summit-lead-as-agentic-ai-raises-the-stakes/" target="_blank" rel="noopener">Futurum: Databricks có giữ được ngôi đầu khi agentic AI nâng mức cược tại Data + AI Summit?</a>
+    <p class="sum">Phân tích trước thềm Summit: 51% doanh nghiệp đang ưu tiên đầu tư generative/agentic AI; Databricks phải chứng minh agentic AI chạy production thật thay vì demo, giữ độ gắn kết của hệ sinh thái 240+ sponsor và đưa ra ROI đo được — trong khi Snowflake, Google và AWS đều dồn lực giải đúng các bài toán đó.</p>
+    <p class="why">💡 Góc nhìn tỉnh táo giữa mùa hype hội nghị: hai nút thắt được nêu thẳng — độ phức tạp tích hợp và việc agent chưa ghi ngược được vào hệ thống nghiệp vụ — chính là thứ quyết định ai thắng giai đoạn tới.</p>
+    <div class="meta"><span class="when">📅 08/06</span> <a class="metabtn" href="https://futurumgroup.com/insights/can-databricks-maintain-its-data-ai-summit-lead-as-agentic-ai-raises-the-stakes/" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-17">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="17">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>51% doanh nghiệp ưu tiên đầu tư generative/agentic AI</li>
+        <li>Nút thắt: tích hợp phức tạp, agent chưa write-back vào hệ thống nghiệp vụ</li>
+        <li>42% đề cao hiệu quả workflow, 41% ưu tiên tự động hóa tác vụ</li>
+        <li>Cần theo dõi: agentic AI production-grade trước 2027</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>KHẢO SÁT</b>51% ưu tiên agentic</span>
+        <span class="fact"><b>HỆ SINH THÁI</b>240+ sponsor</span>
+        <span class="fact"><b>NGÀY</b>08/06/2026</span>
+      </div>
+      <p class="deep">Bài phân tích này đáng đọc trước khi bị ngợp bởi loạt công bố tuần tới. Lập luận trung tâm rất thực dụng: cuộc đua không còn ở chỗ ai demo agent mượt hơn, mà ở chỗ agent có được phép ghi ngược vào ERP, CRM, hệ thống vận hành hay không — và ai giải được bài toán đó ở quy mô doanh nghiệp với governance đầy đủ. Đây cũng chính là khoảng trống mà OpenSharing (Top 1 tuần này) và Bedrock AgentCore đang nhắm vào từ hai phía. Người làm data tại Việt Nam nên dùng khung này khi đánh giá vendor: hỏi thẳng về write-back, audit trail và chi phí tích hợp, thay vì xem demo chatbot trả lời đẹp.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<footer>
+  Bản tin tạo ngày 12/06/2026 · 17 tin tuyển chọn · Tuần W24 (08/06 - 14/06/2026)<br>
+  Tuyển chọn &amp; đọc bởi Duc Nguyen · <a href="https://ducnguyen.vn">ducnguyen.vn</a>
+</footer>
+
+</div>
+<script src="../../assets/bg.js" defer></script>
+<!--MEDIA_INJECTED-->
+<script>
+(function(){
+  var base="../../audio/2026-06-13/";
+  var cur=null;
+  function play(src){ if(cur){cur.pause();} cur=new Audio(src); cur.play().catch(function(){}); }
+  function stop(){ if(cur){cur.pause(); cur=null;} }
+  document.addEventListener("DOMContentLoaded",function(){
+    var ra=document.getElementById("readAll"); if(ra) ra.onclick=function(){ play(base+"all.mp3"); };
+    var rs=document.getElementById("readStop"); if(rs) rs.onclick=stop;
+    document.querySelectorAll(".readbtn").forEach(function(b){
+      b.onclick=function(){ var id=b.getAttribute("data-aid"); if(id) play(base+id+".mp3"); };
+    });
+  });
+})();
+</script>
+</body>
+</html>
