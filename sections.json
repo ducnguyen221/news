@@ -1,0 +1,23 @@
+{
+    "generated":  "2026-06-16T02:03:09",
+    "sections":  [
+                     {
+                         "slug":  "ai",
+                         "name":  "AI News",
+                         "tag":  "AI",
+                         "accent":  "cyan",
+                         "desc":  "Mô hình mới, công cụ, nghiên cứu và hot trend AI — bản tin tuần kèm audio \u0026 video, và tin AI nóng nhất mỗi ngày.",
+                         "hot":  true,
+                         "order":  1
+                     },
+                     {
+                         "slug":  "data",
+                         "name":  "Data News",
+                         "tag":  "Data",
+                         "accent":  "emerald",
+                         "desc":  "Data Engineering, BI, Data Science, lakehouse và AI×Data — bản tin tuần kèm audio \u0026 video, và tin Data nóng nhất mỗi ngày.",
+                         "hot":  true,
+                         "order":  2
+                     }
+                 ]
+}
