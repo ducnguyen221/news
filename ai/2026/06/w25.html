@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI News – Tuần W25: Agent doanh nghiệp lên ngôi, sa thải vì AI thành thùng thuốc súng</title>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI News – Tuần W25: Agent doanh nghiệp lên ngôi, làn sóng sa thải vì AI">
+<meta property="og:description" content="Tổng hợp AI tuần 15–21/06/2026: OpenAI vào y tế, Grok video rẻ hơn Sora 86%, Claude Managed Agents chạy theo lịch, Databricks Agent Bricks và mặt tối sa thải.">
+<meta property="og:image" content="https://ducnguyen.vn/ai-news/assets/og-banner.png">
+<meta property="og:url" content="https://ducnguyen.vn/news/ai/2026/06/w25.html">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#04060a;color:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:880px;margin:0 auto;padding:0 16px 60px}
+a{color:#00f0ff}
+img{max-width:100%}
+h1,h2,h3{line-height:1.25}
+
+/* HEADER */
+.hdr{position:sticky;top:8px;z-index:60;background:rgba(6,9,16,.92);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:12px;margin:10px 0 4px;padding:12px 16px}
+.hdr-row{display:flex;align-items:center}
+.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:#f8fafc}
+.brand-mark{width:42px;height:42px;display:grid;place-items:center;flex:0 0 auto;border:1px solid rgba(0,240,255,.4);border-radius:50%;background:radial-gradient(circle,rgba(0,240,255,.22),rgba(189,0,255,.06) 55%,rgba(4,6,10,.95) 78%);box-shadow:0 0 18px rgba(0,240,255,.35);animation:brandPulse 3.2s ease-in-out infinite;transition:transform .45s cubic-bezier(.175,.885,.32,1.275)}
+.brand:hover .brand-mark{transform:rotate(180deg) scale(1.06);border-color:#00f0ff}
+@keyframes brandPulse{0%,100%{box-shadow:0 0 10px rgba(0,240,255,.22)}50%{box-shadow:0 0 26px rgba(0,240,255,.55)}}
+.brand-name{font-size:1.25rem;letter-spacing:.5px}
+.brand-name b{color:#00f0ff}
+.brand-sub{display:inline;color:#94a3b8;font-size:.78rem;margin-left:4px}
+.hdr-row2{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-top:8px;position:relative}
+.hdr-row2 .toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px}
+.toc a{font-size:.8rem;color:#cbd5e1;text-decoration:none;padding:5px 11px;border:1px solid rgba(255,255,255,.1);border-radius:999px;background:rgba(255,255,255,.03);white-space:nowrap}
+.toc a:hover{color:#00f0ff;border-color:rgba(0,240,255,.4)}
+.vdiv{width:1px;height:22px;background:rgba(255,255,255,.16)}
+.hdr-ctrls{display:flex;align-items:center;gap:8px}
+.ctrl{display:inline-flex;align-items:center;justify-content:center;gap:2px;font-size:.82rem;font-weight:600;padding:8px 13px;border-radius:9px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);color:#e2e8f0;cursor:pointer;text-decoration:none}
+.ctrl:hover{border-color:rgba(0,240,255,.4);color:#00f0ff}
+.ctrl-acc{background:linear-gradient(90deg,#00f0ff,#39ff7a);color:#04060a;border-color:transparent}
+.ctrl-acc:hover{color:#04060a;filter:brightness(1.05)}
+.ctrl-ic{width:38px;height:36px;padding:0}
+.navpop-btn{display:none}
+.navpop{display:none}
+.navpop-t:checked ~ .navpop{display:flex;flex-direction:column;gap:2px;position:absolute;top:calc(100% + 10px);left:0;right:0;z-index:80;background:rgba(8,12,20,.98);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:8px;backdrop-filter:blur(16px)}
+.navpop a{padding:11px 14px;border-radius:8px;color:#cbd5e1;text-decoration:none}
+.navpop a:hover{background:rgba(0,240,255,.1);color:#00f0ff}
+.navpop-t:checked ~ .hdr-ctrls .navpop-btn{color:#04060a;background:linear-gradient(90deg,#00f0ff,#39ff7a);border-color:transparent}
+
+/* RECAP / VIDEO */
+#recap{scroll-margin-top:120px}
+.hot-video{margin-top:26px}
+.hot-video .hot-label{font-weight:700;margin-bottom:12px}
+.vid-links{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.vbtn{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border:1px solid rgba(0,240,255,.35);border-radius:9px;color:#00f0ff;text-decoration:none;font-size:.88rem;font-weight:600;background:rgba(0,240,255,.07)}
+.vbtn:hover{background:rgba(0,240,255,.16)}
+@media(max-width:767px){.vid-links .vbtn{flex:1 1 auto;justify-content:center}}
+
+/* TLDR */
+.tldr{background:rgba(10,15,26,.95);border:1px solid rgba(0,240,255,.25);border-radius:12px;padding:18px 20px;margin:22px 0 14px}
+.tldr h2{margin:0 0 8px;font-size:1.05rem;color:#00f0ff}
+.tldr p{margin:0;color:#e2e8f0;font-size:.96rem}
+
+/* TIMELINE */
+.timeline{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
+.tlday{flex:1 1 auto;min-width:96px;text-align:center;background:rgba(10,15,26,.9);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:8px 6px}
+.tlday .d{font-size:.78rem;color:#cbd5e1;font-weight:600}
+.tlday .c{font-size:.72rem;color:#00f0ff;margin-top:2px}
+.tlday.dim{opacity:.38}
+.tlday.dim .c{color:#94a3b8}
+
+/* SECTIONS */
+.sec{scroll-margin-top:120px;margin:34px 0 0}
+.sec h2{font-size:1.3rem;margin:0 0 14px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.1)}
+
+/* CARD */
+.card{display:flex;gap:14px;background:rgba(10,15,26,.93);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;margin:0 0 14px;transition:border-color .2s}
+.card:hover{border-color:rgba(0,240,255,.28)}
+.card[data-hot="1"]{border-color:rgba(189,0,255,.55);box-shadow:0 0 22px rgba(189,0,255,.18)}
+.thumb{width:96px;height:72px;flex:0 0 96px;object-fit:cover;border-radius:9px;background:#0b1220;border:1px solid rgba(255,255,255,.06)}
+.thumb-fallback{object-fit:contain;padding:18px;background:#0b1220}
+.body{flex:1 1 auto;min-width:0;display:flex;flex-direction:column}
+.rank{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.5px;color:#bd00ff;background:rgba(189,0,255,.12);border:1px solid rgba(189,0,255,.4);border-radius:999px;padding:2px 9px;margin-bottom:6px;width:fit-content}
+.title{font-size:1.06rem;font-weight:700;color:#f8fafc;text-decoration:none;line-height:1.35}
+.title:hover{color:#00f0ff}
+.sum{margin:7px 0 6px;color:#cbd5e1;font-size:.93rem}
+.why{margin:0 0 10px;color:#94a3b8;font-size:.88rem}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:auto}
+.when{font-size:.78rem;color:#94a3b8}
+.metabtn{font-size:.78rem;padding:4px 10px;border-radius:7px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:#cbd5e1;text-decoration:none;cursor:pointer}
+.metabtn:hover{border-color:rgba(0,240,255,.4);color:#00f0ff}
+.readbtn{font-size:.78rem;padding:4px 10px;border-radius:7px;border:1px solid rgba(0,240,255,.3);background:rgba(0,240,255,.07);color:#00f0ff;cursor:pointer}
+.readbtn:hover{background:rgba(0,240,255,.16)}
+.xt:checked ~ .meta .xbtn{background:rgba(0,240,255,.16);border-color:rgba(0,240,255,.5);color:#00f0ff}
+
+/* EXPANDED */
+.more{display:none}
+.xt:checked ~ .more{display:block;margin-top:14px;border-top:1px dashed rgba(255,255,255,.12);padding-top:14px}
+.kb{margin:0 0 12px;padding:0;list-style:none}
+.kb li{position:relative;padding-left:18px;margin-bottom:6px;color:#cbd5e1;font-size:.9rem}
+.kb li::before{content:"▸";position:absolute;left:0;color:#00f0ff}
+.facts{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.fact{font-size:.74rem;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:7px;padding:3px 9px;color:#e2e8f0}
+.fact b{color:#00f0ff;margin-right:5px;font-weight:700}
+.deep{color:#94a3b8;font-size:.9rem;margin:0}
+
+/* FOOTER */
+.foot{margin-top:42px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);color:#94a3b8;font-size:.84rem;text-align:center}
+.foot a{color:#00f0ff}
+
+@media(min-width:768px){.navpop-btn{display:none!important}}
+@media(max-width:767px){
+  .wrap{padding:0 12px 50px}
+  .brand-mark{width:36px;height:36px}
+  .brand-name{font-size:1.1rem}
+  .brand-sub{font-size:.7rem;display:block;margin-left:0}
+  .hdr-row2 .toc,.vdiv{display:none}
+  .hdr-ctrls{width:100%;gap:6px}
+  .hdr-ctrls .ctrl{flex:1 1 auto;font-size:.78rem;padding:8px 6px;text-align:center}
+  .hdr-ctrls .ctrl-ic{flex:0 0 38px;width:38px;height:36px;padding:0}
+  .navpop-btn{display:grid}
+  .card{flex-direction:column}
+  .thumb{width:100%;height:160px;flex:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hdr" id="top">
+  <div class="hdr-row">
+    <a class="brand" href="../../index.html" title="Về trang chính AI News"><span class="brand-mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f0ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h12v14H6a2 2 0 0 1-2-2z"/><path d="M16 8h2.5a1.5 1.5 0 0 1 1.5 1.5V17a2 2 0 0 1-2 2"/><path d="M7 9h6M7 12.5h6M7 16h4"/></svg></span><span class="brand-name">AI <b>News</b></span><span class="brand-sub">Tuần W25 · 15/06 - 21/06/2026</span></a>
+  </div>
+  <div class="hdr-row2">
+    <input type="checkbox" id="navpop" class="navpop-t" hidden>
+    <nav class="toc">
+      <a href="#recap">🎬 Recap</a>
+      <a href="#sec-1">🚀 Mô hình</a>
+      <a href="#sec-2">🛠️ Công cụ</a>
+      <a href="#sec-3">🔬 Nghiên cứu</a>
+      <a href="#sec-4">📈 Trend</a>
+      <a href="#sec-5">🏢 Ngành</a>
+    </nav>
+    <span class="vdiv"></span>
+    <div class="hdr-ctrls">
+      <button id="readAll" class="ctrl ctrl-acc">🔊<span class="btxt"> Đọc tóm tắt</span></button>
+      <button id="readStop" class="ctrl">⏹<span class="btxt"> Dừng</span></button>
+      <label class="ctrl ctrl-ic navpop-btn" for="navpop" title="Mục lục">☰</label>
+      <a class="ctrl ctrl-ic" href="../../index.html" title="Quay lại AI News">←</a>
+    </div>
+    <div class="navpop">
+      <a href="#recap" onclick="document.getElementById('navpop').checked=false">🎬 Recap</a>
+      <a href="#sec-1" onclick="document.getElementById('navpop').checked=false">🚀 Mô hình & Sản phẩm mới</a>
+      <a href="#sec-2" onclick="document.getElementById('navpop').checked=false">🛠️ Công cụ & Framework</a>
+      <a href="#sec-3" onclick="document.getElementById('navpop').checked=false">🔬 Nghiên cứu & Kỹ thuật mới</a>
+      <a href="#sec-4" onclick="document.getElementById('navpop').checked=false">📈 Hot trend & Thảo luận cộng đồng</a>
+      <a href="#sec-5" onclick="document.getElementById('navpop').checked=false">🏢 Ngành & Kinh doanh</a>
+    </div>
+  </div>
+</header>
+
+<div id="recap"></div>
+<div class="hot-video"><div class="hot-label">🎬 Video recap tuần — các tin nóng nhất</div><div style="position:relative;width:100%;padding-top:56.25%;border-radius:12px;overflow:hidden"><iframe src="https://www.youtube.com/embed/3U5cj3oBj18" title="AI News recap" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><div class="vid-links"><a class="vbtn" href="https://youtu.be/3U5cj3oBj18" target="_blank" rel="noopener">▶ Mở Youtube</a><a class="vbtn" href="https://www.youtube.com/shorts/dnCMeb1xKyE" target="_blank" rel="noopener">📱 Youtube Short</a></div></div>
+
+<div class="tldr">
+  <h2>📌 Tổng quan tuần này</h2>
+  <p>Tuần 25 là tuần của agent doanh nghiệp và những cuộc tranh luận nóng về việc làm. OpenAI mở rộng mạnh ChatGPT sang y tế với khả năng chẩn đoán bệnh di truyền hiếm ở trẻ và một nhà hóa học AI gần như tự động. Databricks Data + AI Summit biến agent từ phòng thí nghiệm thành hạ tầng sản xuất, với Agent Bricks và kiến trúc dữ liệu mới Lakebase. xAI tung Grok Imagine Video 1.5 rẻ hơn Sora tới 86% và đưa Grok 4.3 lên Amazon Bedrock. Anthropic cho phép Claude Managed Agents chạy theo lịch và tự gọi công cụ dòng lệnh. Ở mặt trái, làn sóng sa thải nhân danh AI đang trở thành thùng thuốc súng xã hội.</p>
+</div>
+
+<div class="timeline">
+  <div class="tlday"><div class="d">T2 15/06</div><div class="c">3 tin</div></div>
+  <div class="tlday"><div class="d">T3 16/06</div><div class="c">8 tin</div></div>
+  <div class="tlday"><div class="d">T4 17/06</div><div class="c">3 tin</div></div>
+  <div class="tlday"><div class="d">T5 18/06</div><div class="c">3 tin</div></div>
+  <div class="tlday dim"><div class="d">T6 19/06</div><div class="c">0 tin</div></div>
+  <div class="tlday dim"><div class="d">T7 20/06</div><div class="c">0 tin</div></div>
+  <div class="tlday dim"><div class="d">CN 21/06</div><div class="c">0 tin</div></div>
+</div>
+
+<!-- ===================== SECTION 1 ===================== -->
+<section class="sec" id="sec-1">
+  <h2>🚀 Mô hình & Sản phẩm mới</h2>
+
+  <article class="card" data-aid="1" data-hot="1">
+    <img class="thumb thumb-fallback" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=openai.com&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=openai.com&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-1" class="xt" hidden>
+      <span class="rank">🔥 TOP 1 TUẦN NÀY</span>
+      <a class="title" href="https://openai.com/news/" target="_blank" rel="noopener">OpenAI mở rộng ChatGPT cho y tế: chẩn đoán bệnh di truyền hiếm ở trẻ và "nhà hóa học AI" gần tự động</a>
+      <p class="sum">OpenAI công bố loạt nâng cấp y sinh: cải thiện trí thông minh sức khỏe trong ChatGPT, công cụ giúp bác sĩ chẩn đoán bệnh di truyền hiếm ở trẻ em, và một nhà hóa học AI gần như tự động tối ưu các phản ứng khó trong hóa dược.</p>
+      <p class="why">💡 Đây là bước đi rõ ràng đưa AI từ trợ lý chat sang công cụ chuyên môn trong y khoa và nghiên cứu thuốc, nơi sai số nhỏ cũng có hậu quả lớn.</p>
+      <div class="meta">
+        <span class="when">📅 18/06</span>
+        <a class="metabtn" href="https://openai.com/news/" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-1">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="1">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Trí thông minh sức khỏe trong ChatGPT cải thiện cho mọi người dùng.</li>
+          <li>Công cụ hỗ trợ bác sĩ chẩn đoán bệnh di truyền hiếm ở trẻ em.</li>
+          <li>Nhà hóa học AI gần tự động tối ưu phản ứng khó trong hóa dược.</li>
+          <li>Định hướng đưa AI vào quy trình nghiên cứu thuốc, không chỉ trả lời câu hỏi.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>NGÀY</b>18/06/2026</span>
+          <span class="fact"><b>LĨNH VỰC</b>Y tế & hóa dược</span>
+          <span class="fact"><b>HÃNG</b>OpenAI</span>
+          <span class="fact"><b>VAI TRÒ</b>Hỗ trợ, chưa thay bác sĩ</span>
+        </div>
+        <p class="deep">Đây là tin lớn nhất tuần vì nó cho thấy hướng tiến hóa thật của các mô hình: từ chatbot vạn năng sang công cụ chuyên ngành có trách nhiệm. Bệnh di truyền hiếm ở trẻ thường mất nhiều năm để chẩn đoán đúng; một công cụ thu hẹp được danh sách nghi ngờ có giá trị lâm sàng rõ ràng. Mảng "nhà hóa học AI" mới đáng chú ý với doanh nghiệp dược: nếu AI tự đề xuất và tối ưu phản ứng, vòng lặp từ ý tưởng tới phân tử ngắn lại đáng kể. Với Việt Nam, đây là tín hiệu nên chuẩn bị hành lang dữ liệu y tế và quy trình kiểm chứng, vì các công cụ này sẽ tới qua đối tác quốc tế trước. Cần nhớ OpenAI vẫn nhấn mạnh đây là hỗ trợ, không thay chẩn đoán y khoa — và đó là ranh giới pháp lý quan trọng.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" data-aid="2">
+    <img class="thumb thumb-fallback" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=releasebot.io&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=releasebot.io&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-2" class="xt" hidden>
+      <a class="title" href="https://releasebot.io/updates/xai" target="_blank" rel="noopener">Grok 4.3 lên Amazon Bedrock: cửa sổ ngữ cảnh 1 triệu token, dẫn đầu Omniscience, ảo giác thấp nhất</a>
+      <p class="sum">xAI đưa Grok 4.3 lên Amazon Bedrock dạng general availability ngày 17/06, với cửa sổ ngữ cảnh 1 triệu token, mức suy luận cấu hình được và tỷ lệ ảo giác thấp nhất trong nhóm mô hình frontier.</p>
+      <p class="why">💡 Có mặt trên Bedrock nghĩa là doanh nghiệp dùng AWS gọi Grok qua một endpoint quen thuộc, hạ rào cản triển khai agent và xử lý tài liệu dài.</p>
+      <div class="meta">
+        <span class="when">📅 17/06</span>
+        <a class="metabtn" href="https://releasebot.io/updates/xai" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-2">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="2">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>General availability trên Amazon Bedrock cho người dùng AWS.</li>
+          <li>Cửa sổ ngữ cảnh 1 triệu token, hợp tài liệu dài và agent.</li>
+          <li>Mức độ suy luận cấu hình được theo tác vụ.</li>
+          <li>Tỷ lệ ảo giác thấp nhất trong nhóm mô hình frontier.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>NGÀY</b>17/06/2026</span>
+          <span class="fact"><b>CONTEXT</b>1.000.000 token</span>
+          <span class="fact"><b>NỀN TẢNG</b>Amazon Bedrock</span>
+          <span class="fact"><b>XẾP HẠNG</b>#1 Omniscience</span>
+        </div>
+        <p class="deep">Điểm thực dụng ở đây không phải benchmark mà là kênh phân phối: Bedrock là nơi rất nhiều doanh nghiệp đã có hợp đồng và billing với AWS. Khi Grok nằm sẵn ở đó, đội kỹ thuật có thể thử nghiệm mà không phải mở quan hệ nhà cung cấp mới. Ngữ cảnh 1 triệu token hợp với các tác vụ đọc hồ sơ, hợp đồng, log dài — đúng nhu cầu agent doanh nghiệp. Tỷ lệ ảo giác thấp là điểm bán quan trọng cho các ngành nhạy cảm như tài chính, pháp lý. Với công ty Việt dùng AWS, đây là lựa chọn đáng đưa vào danh sách so sánh bên cạnh Claude và Gemini.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" data-aid="3">
+    <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://d.techtimes.com/en/full/467031/grok-imagine-video-15.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=techtimes.com&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-3" class="xt" hidden>
+      <span class="rank">🔥 TOP 3 TUẦN NÀY</span>
+      <a class="title" href="https://www.techtimes.com/articles/318635/20260618/grok-imagine-video-15-goes-live-xai-tops-ai-video-leaderboard-86-percent-below-sora.htm" target="_blank" rel="noopener">xAI Grok Imagine Video 1.5 chính thức GA: 4,20 USD/phút, rẻ hơn Sora 2 Pro 86%</a>
+      <p class="sum">Grok Imagine Video 1.5 chuyển từ bản xem trước sang general availability ngày 16/06, mở trên Imagine API, grok.com và app iOS/Android, giá 4,20 USD mỗi phút video.</p>
+      <p class="why">💡 Mức giá thấp hơn Sora 2 Pro tới 86% có thể định lại mặt bằng chi phí cho video AI, mở cửa cho nhà sáng tạo và marketing làm video hàng loạt.</p>
+      <div class="meta">
+        <span class="when">📅 16/06</span>
+        <a class="metabtn" href="https://www.techtimes.com/articles/318635/20260618/grok-imagine-video-15-goes-live-xai-tops-ai-video-leaderboard-86-percent-below-sora.htm" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-3">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="3">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Chuyển từ preview sang general availability ngày 16/06.</li>
+          <li>Có trên Imagine API, grok.com và app iOS/Android.</li>
+          <li>Giá 4,20 USD mỗi phút, rẻ hơn Sora 2 Pro 86%.</li>
+          <li>Dẫn đầu một bảng xếp hạng video AI tại thời điểm ra mắt.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>GIÁ</b>4,20 USD/phút</span>
+          <span class="fact"><b>SO SÁNH</b>−86% vs Sora 2 Pro</span>
+          <span class="fact"><b>KÊNH</b>API · web · mobile</span>
+          <span class="fact"><b>NGÀY</b>16/06/2026</span>
+        </div>
+        <p class="deep">Cuộc chiến video AI đang chuyển trục từ chất lượng sang giá. Khi chi phí mỗi phút giảm gần một mức độ lớn như vậy, video AI rời khỏi nhóm demo trình diễn và thành công cụ sản xuất hằng ngày. Với agency, đội marketing và nhà sáng tạo Việt, đây là cơ hội thật để làm video ngắn, mẫu quảng cáo, minh họa với ngân sách nhỏ. Mặt khác, giá rẻ kéo theo lượng video AI tràn ngập nhanh hơn, nên bài toán gắn nhãn nguồn gốc và phân biệt thật giả càng cấp thiết. Tôi khuyến nghị thử nghiệm sớm nhưng đặt quy trình duyệt nội dung trước khi đưa ra công chúng.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" data-aid="4">
+    <img class="thumb thumb-fallback" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=databricks.com&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=databricks.com&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-4" class="xt" hidden>
+      <a class="title" href="https://www.databricks.com/company/newsroom/press-releases/databricks-launches-ltap-first-lake-transactionalanalytical" target="_blank" rel="noopener">Databricks ra mắt LTAP & Lakebase: hợp nhất giao dịch và phân tích trên một bản lưu trữ</a>
+      <p class="sum">Tại Data + AI Summit, Databricks giới thiệu kiến trúc Lake Transactional/Analytical Processing (LTAP) và Lakebase, hợp nhất giao dịch, phân tích, streaming và dữ liệu vận hành trên một bản lưu trữ duy nhất trong hồ dữ liệu.</p>
+      <p class="why">💡 Bỏ bớt pipeline, bản sao và ETL nghĩa là agent có thể đọc, suy luận và hành động trên một nguồn dữ liệu thống nhất, giảm độ trễ và chi phí vận hành.</p>
+      <div class="meta">
+        <span class="when">📅 16/06</span>
+        <a class="metabtn" href="https://www.databricks.com/company/newsroom/press-releases/databricks-launches-ltap-first-lake-transactionalanalytical" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-4">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="4">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>LTAP: kiến trúc xử lý giao dịch và phân tích trên một bản lưu trữ.</li>
+          <li>Lakebase: Postgres serverless trên object storage mở, dưới một lớp governance.</li>
+          <li>Hợp nhất dữ liệu vận hành, phân tích và streaming, bỏ ETL trung gian.</li>
+          <li>Một nguồn sự thật duy nhất để agent đọc, suy luận và hành động.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>KIẾN TRÚC</b>LTAP</span>
+          <span class="fact"><b>SẢN PHẨM</b>Lakebase</span>
+          <span class="fact"><b>NỀN</b>Serverless Postgres</span>
+          <span class="fact"><b>NGÀY</b>16/06/2026</span>
+        </div>
+        <p class="deep">Bài toán muôn thuở của doanh nghiệp là dữ liệu vận hành (OLTP) và dữ liệu phân tích (OLAP) nằm hai nơi, phải đồng bộ qua pipeline tốn kém và hay lệch. LTAP gộp chúng trên một bản lưu trữ, còn Lakebase mang Postgres quen thuộc lên hồ dữ liệu mở. Với agent, lợi ích rất cụ thể: nó đọc và ghi trên cùng một nguồn, không phải chờ ETL, nên hành động gần thời gian thực hơn. Với đội dữ liệu Việt, đây là gợi ý kiến trúc đáng theo dõi nếu đang đau đầu vì quá nhiều bản sao và job đồng bộ. Cần đánh giá kỹ chi phí khóa nhà cung cấp trước khi cam kết sâu.</p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- ===================== SECTION 2 ===================== -->
+<section class="sec" id="sec-2">
+  <h2>🛠️ Công cụ & Framework</h2>
+
+  <article class="card" data-aid="5">
+    <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://cdn.thenewstack.io/media/2026/04/c2845cae-img_2726-2-scaled.jpg" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=thenewstack.io&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-5" class="xt" hidden>
+      <span class="rank">🔥 TOP 4 TUẦN NÀY</span>
+      <a class="title" href="https://thenewstack.io/with-claude-managed-agents-anthropic-wants-to-run-your-ai-agents-for-you/" target="_blank" rel="noopener">Claude Managed Agents chạy theo lịch (cron) và tự gọi CLI, dịch vụ xác thực — public beta</a>
+      <p class="sum">Anthropic bổ sung cho Claude Managed Agents khả năng chạy theo lịch và truy cập an toàn các công cụ dòng lệnh cùng dịch vụ đã xác thực, kèm biến môi trường lưu trong vault và tích hợp duyệt web, đều ở dạng public beta.</p>
+      <p class="why">💡 Đây là mảnh ghép biến agent từ "gọi một lần" thành quy trình tự động lặp lại — chạy job định kỳ, an toàn truy cập hệ thống nội bộ, đúng nhu cầu vận hành thực tế.</p>
+      <div class="meta">
+        <span class="when">📅 18/06</span>
+        <a class="metabtn" href="https://thenewstack.io/with-claude-managed-agents-anthropic-wants-to-run-your-ai-agents-for-you/" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-5">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="5">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Agent chạy theo lịch (cron), tự kích hoạt định kỳ.</li>
+          <li>Truy cập an toàn công cụ dòng lệnh và dịch vụ đã xác thực.</li>
+          <li>Biến môi trường nhạy cảm lưu trong vault.</li>
+          <li>Tích hợp khả năng duyệt web cho tác vụ thực tế.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>TRẠNG THÁI</b>Public beta</span>
+          <span class="fact"><b>LỊCH</b>Cron-based</span>
+          <span class="fact"><b>BẢO MẬT</b>Vault env vars</span>
+          <span class="fact"><b>NGÀY</b>18/06/2026</span>
+        </div>
+        <p class="deep">Cho tới gần đây, đa số agent vẫn theo mô hình một lượt: ra lệnh, làm, rồi dừng. Khả năng chạy theo lịch và tự gọi CLI biến agent thành một tiến trình nền có thể giao việc lặp lại như tổng hợp báo cáo hằng ngày, dọn dữ liệu, theo dõi hệ thống. Điểm tôi đánh giá cao là phần bảo mật: biến môi trường nằm trong vault và quyền truy cập có phạm vi, thay vì nhét key thẳng vào prompt. Với đội kỹ thuật Việt, đây là lúc nên thử thiết kế agent như một "nhân sự ảo có ca làm việc" cho các tác vụ vận hành nhàm chán. Vẫn nên bắt đầu với quyền tối thiểu và log đầy đủ trước khi mở rộng.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" data-aid="6">
+    <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.databricks.com/sites/default/files/2026-06/2026-06-blog-omnigent-managed-og-1200x628-2x.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=databricks.com&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-6" class="xt" hidden>
+      <span class="rank">🔥 TOP 5 TUẦN NÀY</span>
+      <a class="title" href="https://www.databricks.com/blog/agent-bricks-dais-2026" target="_blank" rel="noopener">Databricks Agent Bricks thành nền tảng dev agent đầy đủ: thêm Kimi & Grok, hỗ trợ Claude Code SDK, 100.000 agent</a>
+      <p class="sum">Agent Bricks mở rộng từ công cụ xây agent tập trung chất lượng thành nền tảng dev đầy đủ: thêm mô hình Kimi và Grok qua hợp tác SpaceX, hỗ trợ mọi harness như LangGraph, CrewAI, Claude Code SDK, bộ nhớ agent qua Lakebase và sandbox cô lập.</p>
+      <p class="why">💡 Hơn 100.000 agent đã được xây và Databricks xử lý hơn một triệu tỷ token mỗi năm — agent đang rời phòng thí nghiệm để vào sản xuất ở quy mô doanh nghiệp.</p>
+      <div class="meta">
+        <span class="when">📅 16/06</span>
+        <a class="metabtn" href="https://www.databricks.com/blog/agent-bricks-dais-2026" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-6">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="6">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Mở rộng lựa chọn mô hình: thêm Kimi và Grok qua hợp tác SpaceX.</li>
+          <li>Hỗ trợ mọi harness: LangGraph, CrewAI, Claude Code SDK.</li>
+          <li>Bộ nhớ agent quản lý qua Lakebase, sandbox chạy cô lập an toàn.</li>
+          <li>Hơn 100.000 agent đã xây, xử lý 1+ triệu tỷ token/năm.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>AGENT</b>100.000+</span>
+          <span class="fact"><b>TOKEN/NĂM</b>1+ triệu tỷ</span>
+          <span class="fact"><b>HARNESS</b>LangGraph · CrewAI · Claude Code SDK</span>
+          <span class="fact"><b>NGÀY</b>16/06/2026</span>
+        </div>
+        <p class="deep">Con số 100.000 agent và hơn một triệu tỷ token mỗi năm nói rõ một điều: agent doanh nghiệp đã thành khối lượng công việc sản xuất thật, không còn là thử nghiệm. Chiến lược của Databricks là đặt agent ngay cạnh dữ liệu trong Lakehouse, thay vì kéo dữ liệu ra ngoài — giảm rò rỉ, giảm độ trễ, cắt chi phí pipeline. Việc mở cửa cho nhiều mô hình và mọi harness là nước đi khôn ngoan để không khóa khách vào một nhà cung cấp LLM. Với doanh nghiệp Việt đang dùng nền tảng dữ liệu hiện đại, thông điệp rất rõ: xây agent trên lớp dữ liệu của bạn, đừng ghép nối rời rạc. Bài toán cần tính kỹ là chi phí token ở quy mô lớn.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" data-aid="7">
+    <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://d.techtimes.com/en/full/466776/databricks-data-ai-summit.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=techtimes.com&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-7" class="xt" hidden>
+      <a class="title" href="https://www.techtimes.com/articles/318450/20260616/databricks-summit-2026-day-2-agentic-ai-catalog-federation-move-lab-enterprise.htm" target="_blank" rel="noopener">Databricks Unity AI Gateway: governance thống nhất cho mô hình, agent, tool và MCP</a>
+      <p class="sum">Tại Summit, Databricks ra Unity AI Gateway đưa mô hình, agent, công cụ và MCP về một lớp runtime governance, cùng Glossary/Domains và governance xuyên cloud, xuyên vùng dưới một catalog duy nhất.</p>
+      <p class="why">💡 Khi agent tự gọi công cụ và dữ liệu, quản trị tập trung và nhất quán là điều kiện bắt buộc để doanh nghiệp dám triển khai thật.</p>
+      <div class="meta">
+        <span class="when">📅 16/06</span>
+        <a class="metabtn" href="https://www.techtimes.com/articles/318450/20260616/databricks-summit-2026-day-2-agentic-ai-catalog-federation-move-lab-enterprise.htm" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-7">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="7">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Unity AI Gateway: một lớp governance cho model, agent, tool, MCP.</li>
+          <li>Glossary và Domains tạo nguồn nghĩa chung cho người và agent.</li>
+          <li>Governance xuyên cloud, xuyên vùng dưới một catalog.</li>
+          <li>Catalog federation chuyển từ phòng lab vào doanh nghiệp.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>SẢN PHẨM</b>Unity AI Gateway</span>
+          <span class="fact"><b>PHẠM VI</b>Model · Agent · Tool · MCP</span>
+          <span class="fact"><b>GOVERNANCE</b>Xuyên cloud/vùng</span>
+          <span class="fact"><b>NGÀY</b>16/06/2026</span>
+        </div>
+        <p class="deep">Phần ít hào nhoáng nhưng quyết định chuyện agent có lên sản xuất được hay không chính là governance. Khi agent tự gọi công cụ, đọc dữ liệu và kết nối MCP, doanh nghiệp cần một điểm kiểm soát thống nhất về quyền, nguồn gốc và chính sách. Unity AI Gateway đặt tất cả dưới một catalog, kèm Glossary/Domains để người và agent hiểu cùng một ngôn ngữ nghiệp vụ. Đây là thứ giúp đội bảo mật và tuân thủ gật đầu cho dự án agent. Với doanh nghiệp Việt trong ngành tài chính, y tế, đây là tiêu chí nên đưa vào checklist trước khi mở rộng agent.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" data-aid="8">
+    <img class="thumb thumb-fallback" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=marktechpost.com&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=marktechpost.com&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-8" class="xt" hidden>
+      <a class="title" href="https://www.marktechpost.com/2026/06/10/ai-coding-agents-development-platforms-2026/" target="_blank" rel="noopener">OpenCode bùng nổ: coding agent mã nguồn mở model-agnostic, 160.000 sao, 7,5 triệu dev</a>
+      <p class="sum">OpenCode được nhắc đến như cú dịch chuyển lớn nhất của mảng công cụ lập trình AI trong tháng: coding agent mã nguồn mở, truy cập 75+ nhà cung cấp mô hình, tích hợp LSP đẩy chẩn đoán compiler trở lại cho mô hình.</p>
+      <p class="why">💡 Với 160.000 sao GitHub và 7,5 triệu dev hoạt động hằng tháng, OpenCode cho thấy nhu cầu công cụ lập trình AI mở, không khóa nhà cung cấp đang lên rất nhanh.</p>
+      <div class="meta">
+        <span class="when">📅 16/06</span>
+        <a class="metabtn" href="https://www.marktechpost.com/2026/06/10/ai-coding-agents-development-platforms-2026/" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-8">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="8">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Coding agent mã nguồn mở, model-agnostic với 75+ nhà cung cấp.</li>
+          <li>Tích hợp LSP, đưa chẩn đoán compiler trở lại cho mô hình.</li>
+          <li>160.000 sao GitHub, 7,5 triệu dev hoạt động hằng tháng.</li>
+          <li>Được xem là cú dịch chuyển lớn nhất của mảng công cụ kể từ Cursor.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>SAO</b>160.000+</span>
+          <span class="fact"><b>DEV/THÁNG</b>7,5 triệu</span>
+          <span class="fact"><b>MÔ HÌNH</b>75+ nhà cung cấp</span>
+          <span class="fact"><b>LICENSE</b>Mã nguồn mở</span>
+        </div>
+        <p class="deep">Xu hướng đáng chú ý là dev không muốn bị khóa vào một nhà cung cấp LLM duy nhất. OpenCode đánh đúng tâm lý đó: mở, chạy được với 75+ nhà cung cấp, và tích hợp LSP để mô hình thấy chính xác lỗi compiler thay vì đoán mò. Quy mô 7,5 triệu dev mỗi tháng cho thấy đây không phải dự án ngách. Với lập trình viên và công ty phần mềm Việt, công cụ mở giúp kiểm soát chi phí và dữ liệu tốt hơn so với SaaS đóng. Tôi khuyên thử nó song song công cụ hiện có để so chất lượng và chi phí thực tế trên codebase của bạn.</p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- ===================== SECTION 3 ===================== -->
+<section class="sec" id="sec-3">
+  <h2>🔬 Nghiên cứu & Kỹ thuật mới</h2>
+
+  <article class="card" data-aid="9">
+    <img class="thumb thumb-fallback" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=huggingface.co&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-9" class="xt" hidden>
+      <a class="title" href="https://huggingface.co/papers/trending" target="_blank" rel="noopener">RNG-Bench: đánh giá MLLM trong game phi-Markov, kiểm tra khả năng dựng lại trí nhớ</a>
+      <p class="sum">Nhóm Intern Large Models công bố RNG-Bench (17/06) đánh giá mô hình ngôn ngữ đa phương thức trong các trò chơi phi-Markov có thể điều khiển, đo khả năng dựng lại trí nhớ thay vì chỉ phản ứng với quan sát hiện tại.</p>
+      <p class="why">💡 Agent thật sự hữu ích phải nhớ và suy luận qua nhiều bước; benchmark này phơi bày điểm yếu trí nhớ mà các bài test một lượt không thấy được.</p>
+      <div class="meta">
+        <span class="when">📅 17/06</span>
+        <a class="metabtn" href="https://huggingface.co/papers/trending" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-9">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="9">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Đánh giá MLLM trong game phi-Markov có thể điều khiển.</li>
+          <li>Đo khả năng dựng lại trí nhớ qua nhiều bước, không chỉ quan sát hiện tại.</li>
+          <li>Phơi bày điểm yếu mà bài test một lượt che giấu.</li>
+          <li>Đến từ nhóm Intern Large Models, đang trending trên Hugging Face.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>BENCHMARK</b>RNG-Bench</span>
+          <span class="fact"><b>LĨNH VỰC</b>Đa phương thức · trí nhớ</span>
+          <span class="fact"><b>NGÀY</b>17/06/2026</span>
+        </div>
+        <p class="deep">Phần lớn benchmark cũ đo phản xạ một lượt, nên mô hình có thể giỏi giả tạo nhờ "nhìn là đoán". Game phi-Markov buộc mô hình nhớ trạng thái quá khứ để hành động đúng, đúng với cách agent thực phải làm việc. Đây là loại nghiên cứu hữu ích cho người xây sản phẩm: nó cho biết mô hình của bạn có thực sự duy trì ngữ cảnh dài hay chỉ diễn. Với đội làm agent ở Việt Nam, bài học là đừng tin con số benchmark một lượt; hãy test trí nhớ nhiều bước trên kịch bản thật của mình.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" data-aid="10">
+    <img class="thumb thumb-fallback" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=huggingface.co&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-10" class="xt" hidden>
+      <a class="title" href="https://huggingface.co/papers/trending" target="_blank" rel="noopener">AI-Trader: benchmark "live" đầu tiên đánh giá LLM ra quyết định tài chính đa thị trường</a>
+      <p class="sum">AI-Trader (Đại học Trung Văn Hong Kong, Thâm Quyến, 16/06) là benchmark tự động hoàn toàn, chạy trực tiếp để đánh giá khả năng ra quyết định tài chính của các mô hình ngôn ngữ lớn trên nhiều thị trường.</p>
+      <p class="why">💡 Đánh giá "live" trên thị trường thật khắc nghiệt hơn nhiều so với bài test tĩnh, cho biết LLM thực sự đáng tin tới đâu khi đụng tiền và rủi ro.</p>
+      <div class="meta">
+        <span class="when">📅 16/06</span>
+        <a class="metabtn" href="https://huggingface.co/papers/trending" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-10">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="10">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Benchmark tự động hoàn toàn, chạy "live" theo thời gian thực.</li>
+          <li>Đánh giá LLM ra quyết định tài chính trên nhiều thị trường.</li>
+          <li>Khắc nghiệt hơn các bài test tĩnh, gần thực tế đầu tư.</li>
+          <li>Trending trên Hugging Face giữa tháng 6.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>BENCHMARK</b>AI-Trader</span>
+          <span class="fact"><b>KIỂU</b>Live, đa thị trường</span>
+          <span class="fact"><b>NGÀY</b>16/06/2026</span>
+        </div>
+        <p class="deep">Benchmark tĩnh dễ bị mô hình "học thuộc"; chạy live trên dữ liệu thị trường mới buộc mô hình đối mặt với bất định thật. Đây là tín hiệu lành mạnh cho cộng đồng: đo AI bằng kết quả trong môi trường động thay vì điểm số đẹp trên tập cố định. Tuy nhiên cần cẩn trọng diễn giải: thắng một giai đoạn thị trường không có nghĩa là chiến lược bền vững. Với fintech và quỹ ở Việt Nam, thông điệp là dùng LLM như công cụ hỗ trợ phân tích, kèm kiểm soát rủi ro chặt, chứ chưa nên giao quyền quyết định tự động.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" data-aid="11">
+    <img class="thumb thumb-fallback" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=huggingface.co&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-11" class="xt" hidden>
+      <a class="title" href="https://huggingface.co/papers/trending" target="_blank" rel="noopener">DreamX-World 1.0: world model tương tác đa năng từ văn bản và ảnh, điều khiển camera</a>
+      <p class="sum">AMAP-ML giới thiệu DreamX-World 1.0 (15/06), một world model tương tác đa năng sinh video từ văn bản/ảnh, hỗ trợ điều khiển camera và giữ cảnh nhất quán theo thời gian.</p>
+      <p class="why">💡 World model là hướng then chốt cho robot, mô phỏng và game; khả năng giữ cảnh nhất quán mở đường cho môi trường ảo tương tác lâu dài.</p>
+      <div class="meta">
+        <span class="when">📅 15/06</span>
+        <a class="metabtn" href="https://huggingface.co/papers/trending" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-11">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="11">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>World model tương tác đa năng, sinh video từ văn bản và ảnh.</li>
+          <li>Hỗ trợ điều khiển camera và giữ cảnh nhất quán theo thời gian.</li>
+          <li>Hướng tới môi trường ảo tương tác lâu dài.</li>
+          <li>Đến từ AMAP-ML, công bố ngày 15/06.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>MÔ HÌNH</b>DreamX-World 1.0</span>
+          <span class="fact"><b>ĐẦU VÀO</b>Text · ảnh</span>
+          <span class="fact"><b>ĐIỂM MẠNH</b>Cảnh nhất quán</span>
+          <span class="fact"><b>NGÀY</b>15/06/2026</span>
+        </div>
+        <p class="deep">World model là nền cho robot và tác nhân học cách hành động trong không gian, vì chúng "tưởng tượng" được hệ quả của hành động. Giữ cảnh nhất quán theo thời gian là bài toán khó: nhiều mô hình sinh video bị "trôi" sau vài giây. Nếu DreamX-World làm tốt điểm này, nó hữu ích cho mô phỏng huấn luyện robot, dựng game và tiền sản xuất phim. Với startup Việt mảng robot hay nội dung số, đây là hướng nghiên cứu đáng bám theo dù còn sớm để đưa vào sản phẩm.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" data-aid="12">
+    <img class="thumb thumb-fallback" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=huggingface.co&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=huggingface.co&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-12" class="xt" hidden>
+      <a class="title" href="https://huggingface.co/papers/trending" target="_blank" rel="noopener">VibeThinker-3B: mô hình 3B đẩy biên giới reasoning có kiểm chứng, vượt nhiều model lớn hơn</a>
+      <p class="sum">WeiboAI công bố VibeThinker-3B (15/06), chứng minh mô hình nhỏ chỉ 3 tỷ tham số vẫn đạt hiệu năng hàng đầu ở các bài suy luận nhờ huấn luyện chuyên biệt cho reasoning có thể kiểm chứng.</p>
+      <p class="why">💡 Nếu mô hình 3B làm được việc của model lớn, chi phí suy luận và khả năng chạy trên thiết bị biên sẽ thay đổi cuộc chơi cho ứng dụng thực tế.</p>
+      <div class="meta">
+        <span class="when">📅 15/06</span>
+        <a class="metabtn" href="https://huggingface.co/papers/trending" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-12">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="12">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Mô hình chỉ 3 tỷ tham số nhưng mạnh ở các bài suy luận.</li>
+          <li>Huấn luyện chuyên biệt cho reasoning có thể kiểm chứng.</li>
+          <li>Vượt nhiều mô hình lớn hơn ở tác vụ lý luận.</li>
+          <li>Đến từ WeiboAI, công bố ngày 15/06.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>THAM SỐ</b>3 tỷ</span>
+          <span class="fact"><b>THẾ MẠNH</b>Reasoning kiểm chứng</span>
+          <span class="fact"><b>NHÓM</b>WeiboAI</span>
+          <span class="fact"><b>NGÀY</b>15/06/2026</span>
+        </div>
+        <p class="deep">Câu chuyện "nhỏ mà có võ" tiếp tục là chủ đề nóng nhất của nghiên cứu mở. Một mô hình 3B chạy được trên phần cứng khiêm tốn, thậm chí thiết bị biên, mà vẫn lý luận tốt sẽ mở ra ứng dụng nhúng AI vào sản phẩm với chi phí thấp. Bí quyết nằm ở dữ liệu và phương pháp huấn luyện hướng tới lời giải có thể kiểm chứng, không chỉ phình tham số. Với startup và doanh nghiệp Việt ngân sách hạn chế, đây là hướng rất thực tế: dùng mô hình nhỏ chuyên biệt thay vì luôn gọi API model khổng lồ. Tất nhiên cần kiểm chứng trên đúng tác vụ của bạn trước khi tin con số.</p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- ===================== SECTION 4 ===================== -->
+<section class="sec" id="sec-4">
+  <h2>📈 Hot trend & Thảo luận cộng đồng</h2>
+
+  <article class="card" data-aid="13">
+    <img class="thumb thumb-fallback" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=ibtimes.co.uk&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=ibtimes.co.uk&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-13" class="xt" hidden>
+      <a class="title" href="https://www.ibtimes.co.uk/ai-layoffs-trend-following-vs-necessity-1803751" target="_blank" rel="noopener">Demis Hassabis: phần lớn sa thải nhân danh AI thực ra là "hành vi bắt chước" lẫn nhau</a>
+      <p class="sum">CEO Google DeepMind Demis Hassabis lập luận rằng nhiều đợt cắt giảm nhân sự gắn mác AI thực chất đến từ việc các công ty bắt chước nhau, hơn là do AI thật sự thay thế công việc.</p>
+      <p class="why">💡 Góc nhìn này tách bạch "AI thay người" khỏi "cắt giảm theo phong trào" — quan trọng để doanh nghiệp và người lao động không hoảng loạn sai chỗ.</p>
+      <div class="meta">
+        <span class="when">📅 16/06</span>
+        <a class="metabtn" href="https://www.ibtimes.co.uk/ai-layoffs-trend-following-vs-necessity-1803751" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-13">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="13">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Hassabis: nhiều đợt sa thải là "bắt chước" giữa các công ty.</li>
+          <li>AI bị dùng làm cái cớ cho quyết định cắt giảm đã định sẵn.</li>
+          <li>Tách bạch tác động thật của AI khỏi tâm lý đám đông.</li>
+          <li>Phản biện trực tiếp luồng tin "AI cướp việc" đang lan rộng.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>NGƯỜI NÓI</b>Demis Hassabis</span>
+          <span class="fact"><b>VỊ TRÍ</b>CEO Google DeepMind</span>
+          <span class="fact"><b>LUẬN ĐIỂM</b>Imitative behavior</span>
+        </div>
+        <p class="deep">Phát biểu này đáng giá vì đến từ một trong những người hiểu năng lực AI rõ nhất, và nó đi ngược dòng truyền thông quen thuộc. Khi một công ty lớn tuyên bố cắt giảm "nhờ AI", các công ty khác có động cơ làm theo để chiều nhà đầu tư, dù năng suất chưa thật sự đổi. Hệ quả là người lao động bị sa thải vì lý do tài chính, nhưng được dán nhãn AI. Với người làm nghề ở Việt Nam, thông điệp thực dụng là: đừng hoảng vì tiêu đề, hãy nhìn xem công việc của bạn có thật sự bị tự động hóa hay không, rồi đầu tư kỹ năng đúng chỗ.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" data-aid="14">
+    <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://techcrunch.com/wp-content/uploads/2026/06/Powder-Keg.png?resize=1200,960" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=techcrunch.com&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-14" class="xt" hidden>
+      <span class="rank">🔥 TOP 2 TUẦN NÀY</span>
+      <a class="title" href="https://techcrunch.com/2026/06/15/the-ai-layoff-wave-is-becoming-a-powder-keg/" target="_blank" rel="noopener">Làn sóng sa thải nhân danh AI thành "thùng thuốc súng": 113.000 việc làm tech bị cắt</a>
+      <p class="sum">TechCrunch cảnh báo làn sóng sa thải gắn mác AI đang thành thùng thuốc súng xã hội: hơn 113.000 việc làm tech bị cắt qua gần 180 sự kiện trong năm, nhiều công ty báo lãi kỷ lục nhưng vẫn thu hẹp đội ngũ truyền thống để dồn cho AI.</p>
+      <p class="why">💡 Bất bình lan rộng khi giới AI hưởng tài sản thế hệ trong lúc người mất việc đối mặt chi phí sống đắt đỏ — rủi ro xã hội và chính trị đang tích tụ.</p>
+      <div class="meta">
+        <span class="when">📅 15/06</span>
+        <a class="metabtn" href="https://techcrunch.com/2026/06/15/the-ai-layoff-wave-is-becoming-a-powder-keg/" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-14">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="14">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Hơn 113.000 việc làm tech bị cắt qua gần 180 sự kiện trong năm.</li>
+          <li>Nhiều công ty lãi kỷ lục vẫn thu hẹp đội ngũ để dồn cho AI.</li>
+          <li>Gần 75% người mất việc không nộp đơn xin trợ cấp thất nghiệp.</li>
+          <li>Khoảng cách giàu nghèo trong kỷ nguyên AI giãn nhanh.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>VIỆC LÀM</b>113.000+ bị cắt</span>
+          <span class="fact"><b>SỰ KIỆN</b>~180</span>
+          <span class="fact"><b>TRỢ CẤP</b>~75% không xin</span>
+          <span class="fact"><b>NGÀY</b>15/06/2026</span>
+        </div>
+        <p class="deep">Đây là mặt tối ít được tô vẽ của cơn sốt AI, và là câu chuyện được bàn nhiều nhất tuần. Điều gây phẫn nộ không phải sa thải vì thua lỗ, mà là cắt giảm trong lúc báo lãi kỷ lục, dùng AI làm cái cớ. Khi gần ba phần tư người mất việc không xin trợ cấp, con số thống kê chính thức còn che bớt mức độ tổn thương thật. Với thị trường Việt Nam, nơi gia công và dịch vụ số là trụ cột, đây là cảnh báo sớm: nâng kỹ năng, dịch chuyển sang việc khó tự động hóa và đa dạng nguồn thu nhập. Áp lực chính trị quanh chủ đề này, gồm cả các đề xuất đánh thuế hay sở hữu công với công ty AI, sẽ còn nóng lên.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" data-aid="15">
+    <img class="thumb thumb-fallback" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=reddit.com&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=reddit.com&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-15" class="xt" hidden>
+      <a class="title" href="https://www.reddit.com/r/worldnews/comments/1u26lni/fully_autonomous_aicontrolled_drones_have_killed/" target="_blank" rel="noopener">Lần đầu drone AI hoàn toàn tự động giết binh sĩ — cộng đồng dậy sóng</a>
+      <p class="sum">Theo một lãnh đạo cấp cao ngành quốc phòng Ukraine, drone do AI điều khiển hoàn toàn tự động đã lần đầu tiên giết binh sĩ, làm bùng nổ tranh luận lớn nhất tuần trên các diễn đàn công nghệ.</p>
+      <p class="why">💡 Ranh giới "con người trong vòng quyết định" đang bị vượt qua trên chiến trường thật, đặt ra câu hỏi đạo đức và pháp lý cấp bách về vũ khí tự hành.</p>
+      <div class="meta">
+        <span class="when">📅 10/06</span>
+        <a class="metabtn" href="https://www.reddit.com/r/worldnews/comments/1u26lni/fully_autonomous_aicontrolled_drones_have_killed/" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-15">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="15">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Nguồn là lãnh đạo cấp cao ngành quốc phòng Ukraine.</li>
+          <li>Drone AI tự động hoàn toàn lần đầu giết binh sĩ.</li>
+          <li>Vượt qua ranh giới "human-in-the-loop" trên chiến trường.</li>
+          <li>Chủ đề được bàn nhiều nhất tuần trên các diễn đàn công nghệ.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>BỐI CẢNH</b>Chiến sự Ukraine</span>
+          <span class="fact"><b>VẤN ĐỀ</b>Vũ khí tự hành</span>
+          <span class="fact"><b>NGÀY</b>10/06/2026</span>
+        </div>
+        <p class="deep">Đây là loại tin khiến cả giới công nghệ lẫn chính sách phải dừng lại. Ranh giới đạo đức quan trọng nhất của vũ khí AI là có giữ con người trong vòng ra quyết định hay không; nếu drone tự chọn và hạ mục tiêu, ranh giới đó đã bị vượt qua. Thông tin đến từ một bên trong cuộc nên cần thận trọng kiểm chứng, nhưng mức độ lan truyền và lo ngại là có thật. Nó thúc đẩy lại các lời kêu gọi về khung pháp lý quốc tế cho vũ khí tự hành. Với Việt Nam và khu vực, đây là lời nhắc rằng quản trị AI không chỉ là chuyện chatbot, mà còn là an ninh và nhân đạo.</p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- ===================== SECTION 5 ===================== -->
+<section class="sec" id="sec-5">
+  <h2>🏢 Ngành & Kinh doanh</h2>
+
+  <article class="card" data-aid="16">
+    <img class="thumb thumb-fallback" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=basenor.com&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=basenor.com&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-16" class="xt" hidden>
+      <a class="title" href="https://www.basenor.com/blogs/news/xai-grok-lands-on-databricks-at-the-2026-data-ai-summit" target="_blank" rel="noopener">xAI bắt tay SpaceX đưa Grok vào Databricks Agent Bricks cho doanh nghiệp</a>
+      <p class="sum">Tại Data + AI Summit (18/06), Grok trở thành mô hình có sẵn ngay trong Databricks Agent Bricks qua hợp tác với SpaceX, nối thẳng mô hình xAI với dữ liệu trong Lakehouse của doanh nghiệp.</p>
+      <p class="why">💡 Agent có thể suy luận trên dữ liệu có cấu trúc lẫn phi cấu trúc của công ty mà không phải đẩy ra pipeline ngoài — giảm rò rỉ và độ trễ.</p>
+      <div class="meta">
+        <span class="when">📅 18/06</span>
+        <a class="metabtn" href="https://www.basenor.com/blogs/news/xai-grok-lands-on-databricks-at-the-2026-data-ai-summit" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-16">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="16">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Grok có sẵn natively trong Databricks Agent Bricks.</li>
+          <li>Hợp tác đi qua mối quan hệ với SpaceX.</li>
+          <li>Nối mô hình xAI thẳng với dữ liệu trong Lakehouse.</li>
+          <li>Agent suy luận trên dữ liệu công ty không cần pipeline ngoài.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>MÔ HÌNH</b>Grok (xAI)</span>
+          <span class="fact"><b>NỀN TẢNG</b>Databricks Agent Bricks</span>
+          <span class="fact"><b>QUA</b>Hợp tác SpaceX</span>
+          <span class="fact"><b>NGÀY</b>18/06/2026</span>
+        </div>
+        <p class="deep">Đây là một nước cờ phân phối hơn là kỹ thuật: xAI cần kênh doanh nghiệp, còn Databricks cần đa dạng mô hình cho khách. Việc Grok nằm cạnh dữ liệu trong Lakehouse giúp doanh nghiệp thử mô hình mới mà không xây lại hạ tầng. Mối liên hệ qua SpaceX cũng cho thấy hệ sinh thái của Elon Musk đang được dệt vào nhau. Với công ty Việt đã dùng Databricks, đây là lựa chọn để so sánh Grok với các mô hình sẵn có ngay trên dữ liệu thật, thay vì chỉ đọc benchmark.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" data-aid="17">
+    <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://cdn.sanity.io/images/4zrzovbb/website/6d4a0d28992ade92d6fa63646fd9c9d318245c6c-2400x1260.jpg" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=anthropic.com&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-17" class="xt" hidden>
+      <a class="title" href="https://www.anthropic.com/news" target="_blank" rel="noopener">Anthropic mở văn phòng Seoul, mở rộng sang hệ sinh thái AI Hàn Quốc</a>
+      <p class="sum">Ngày 17/06, Anthropic công bố mở văn phòng tại Seoul cùng loạt quan hệ đối tác mới trong hệ sinh thái AI Hàn Quốc.</p>
+      <p class="why">💡 Hàn Quốc là thị trường công nghệ và sản xuất lớn; bước đi này cho thấy Anthropic tăng tốc hiện diện châu Á để cạnh tranh doanh nghiệp với OpenAI và Google.</p>
+      <div class="meta">
+        <span class="when">📅 17/06</span>
+        <a class="metabtn" href="https://www.anthropic.com/news" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-17">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="17">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Mở văn phòng tại Seoul, Hàn Quốc.</li>
+          <li>Công bố loạt quan hệ đối tác trong hệ sinh thái AI Hàn Quốc.</li>
+          <li>Một phần chiến lược mở rộng hiện diện châu Á.</li>
+          <li>Tăng cạnh tranh doanh nghiệp với OpenAI và Google trong khu vực.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>THÀNH PHỐ</b>Seoul</span>
+          <span class="fact"><b>HÃNG</b>Anthropic</span>
+          <span class="fact"><b>NGÀY</b>17/06/2026</span>
+        </div>
+        <p class="deep">Mở văn phòng địa phương là tín hiệu nghiêm túc về thị trường doanh nghiệp, không chỉ marketing. Hàn Quốc có các tập đoàn lớn trong bán dẫn, sản xuất và game, đều là khách hàng tiềm năng cho agent và mô hình an toàn của Anthropic. Việc đặt chân tại đây giúp hỗ trợ khách bản địa, tuân thủ quy định và cạnh tranh sát hơn với đối thủ. Với góc nhìn khu vực, Đông Nam Á trong đó có Việt Nam thường là bước mở rộng tiếp theo sau Đông Bắc Á, nên đây là chỉ dấu đáng theo dõi.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" data-aid="18">
+    <img class="thumb thumb-fallback" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=techtimes.com&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=techtimes.com&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-18" class="xt" hidden>
+      <a class="title" href="https://www.techtimes.com/articles/318450/20260616/databricks-summit-2026-day-2-agentic-ai-catalog-federation-move-lab-enterprise.htm" target="_blank" rel="noopener">Databricks Data + AI Summit 2026: 30.000 người dự, agent xử lý hơn 1 triệu tỷ token/năm</a>
+      <p class="sum">Data + AI Summit 2026 (15-18/06 tại Moscone Center) quy tụ hơn 30.000 chuyên gia, đánh dấu agentic AI và catalog federation chuyển từ phòng lab vào doanh nghiệp, với hơn một triệu tỷ token agent được xử lý mỗi năm.</p>
+      <p class="why">💡 Quy mô này cho thấy hạ tầng dữ liệu cho agent đã thành một thị trường thật, nơi quản trị và chi phí token trở thành bài toán trung tâm.</p>
+      <div class="meta">
+        <span class="when">📅 16/06</span>
+        <a class="metabtn" href="https://www.techtimes.com/articles/318450/20260616/databricks-summit-2026-day-2-agentic-ai-catalog-federation-move-lab-enterprise.htm" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-18">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="18">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Hơn 30.000 chuyên gia dự tại Moscone Center, San Francisco.</li>
+          <li>Agentic AI và catalog federation vào sản xuất doanh nghiệp.</li>
+          <li>Hơn một triệu tỷ token agent được xử lý mỗi năm.</li>
+          <li>Diễn ra từ 15 đến 18/06/2026.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>NGƯỜI DỰ</b>30.000+</span>
+          <span class="fact"><b>TOKEN/NĂM</b>1+ triệu tỷ</span>
+          <span class="fact"><b>ĐỊA ĐIỂM</b>Moscone Center</span>
+          <span class="fact"><b>NGÀY</b>15-18/06/2026</span>
+        </div>
+        <p class="deep">Quy mô sự kiện là chỉ dấu thị trường rõ ràng: khi 30.000 người tới một hội nghị dữ liệu, agent không còn là chủ đề bên lề. Con số hơn một triệu tỷ token mỗi năm cho thấy chi phí token đã thành khoản mục ngân sách lớn của doanh nghiệp, nên tối ưu chi phí và chọn mô hình phù hợp là kỹ năng cần thiết. Sự dịch chuyển sang catalog federation và governance cho thấy giai đoạn "đồ chơi" đã qua, giờ là chuyện vận hành nghiêm túc. Với lãnh đạo công nghệ Việt, thông điệp là chuẩn bị nền dữ liệu và quản trị trước, vì đó mới là nút thắt khi đưa agent vào thật.</p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<footer class="foot">
+  <p>Bản tin tạo lúc 19/06/2026 · Tổng cộng 18 tin trong tuần W25 (15/06 - 21/06/2026)</p>
+  <p>Tuyển chọn &amp; đọc bởi Duc Nguyen · <a href="https://ducnguyen.vn" target="_blank" rel="noopener">ducnguyen.vn</a></p>
+</footer>
+
+</div>
+<script src="../../assets/bg.js" defer></script>
+<!--MEDIA_INJECTED-->
+<script>
+(function(){
+  var base="../../audio/2026-06-19/";
+  var cur=null;
+  function play(src){ if(cur){cur.pause();} cur=new Audio(src); cur.play().catch(function(){}); }
+  function stop(){ if(cur){cur.pause(); cur=null;} }
+  document.addEventListener("DOMContentLoaded",function(){
+    var ra=document.getElementById("readAll"); if(ra) ra.onclick=function(){ play(base+"all.mp3"); };
+    var rs=document.getElementById("readStop"); if(rs) rs.onclick=stop;
+    document.querySelectorAll(".readbtn").forEach(function(b){
+      b.onclick=function(){ var id=b.getAttribute("data-aid"); if(id) play(base+id+".mp3"); };
+    });
+  });
+})();
+</script>
+</body>
+</html>

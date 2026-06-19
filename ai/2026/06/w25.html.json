@@ -1,0 +1,399 @@
+{
+ "date": "19/06/2026",
+ "week": "W25",
+ "range": "15/06 - 21/06/2026",
+ "tldr": "Tuần 25 là tuần của agent doanh nghiệp và những cuộc tranh luận nóng về việc làm. OpenAI mở rộng mạnh ChatGPT sang y tế với khả năng chẩn đoán bệnh di truyền hiếm ở trẻ và một nhà hóa học AI gần như tự động. Databricks Data + AI Summit biến agent từ phòng thí nghiệm thành hạ tầng sản xuất, với Agent Bricks và kiến trúc dữ liệu mới Lakebase. xAI tung Grok Imagine Video 1.5 rẻ hơn Sora tới 86 phần trăm và đưa Grok 4.3 lên Amazon Bedrock. Anthropic cho phép Claude Managed Agents chạy theo lịch và tự gọi công cụ dòng lệnh. Ở mặt trái, làn sóng sa thải nhân danh AI đang trở thành thùng thuốc súng xã hội.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "OpenAI mở rộng ChatGPT cho y tế: chẩn đoán bệnh di truyền hiếm ở trẻ và 'nhà hóa học AI' gần tự động",
+   "title_en": "OpenAI expands ChatGPT health: diagnosing rare childhood genetic diseases and a near-autonomous AI chemist",
+   "summary": "OpenAI công bố loạt nâng cấp y sinh: cải thiện trí thông minh sức khỏe trong ChatGPT, công cụ giúp bác sĩ chẩn đoán bệnh di truyền hiếm ở trẻ em, và một nhà hóa học AI gần như tự động tối ưu các phản ứng khó trong hóa dược.",
+   "why": "Đây là bước đi rõ ràng đưa AI từ trợ lý chat sang công cụ chuyên môn trong y khoa và nghiên cứu thuốc, nơi sai số nhỏ cũng có hậu quả lớn.",
+   "url": "https://openai.com/news/",
+   "domain": "openai.com",
+   "date": "2026-06-18",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 1
+  },
+  {
+   "aid": 2,
+   "title": "Grok 4.3 lên Amazon Bedrock: cửa sổ ngữ cảnh 1 triệu token, dẫn đầu Omniscience, ảo giác thấp nhất",
+   "title_en": "Grok 4.3 lands on Amazon Bedrock with 1M-token context and lowest hallucination rate",
+   "summary": "xAI đưa Grok 4.3 lên Amazon Bedrock dạng general availability ngày 17/06, với cửa sổ ngữ cảnh 1 triệu token, mức độ suy luận cấu hình được và tỷ lệ ảo giác thấp nhất trong nhóm mô hình frontier.",
+   "why": "Có mặt trên Bedrock nghĩa là doanh nghiệp dùng AWS có thể gọi Grok qua một endpoint quen thuộc, hạ rào cản triển khai agent và xử lý tài liệu dài.",
+   "url": "https://releasebot.io/updates/xai",
+   "domain": "releasebot.io",
+   "date": "2026-06-17",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 3,
+   "title": "xAI Grok Imagine Video 1.5 chính thức GA: 4,20 USD/phút, rẻ hơn Sora 2 Pro 86%",
+   "title_en": "xAI Grok Imagine Video 1.5 goes GA at $4.20/minute, 86% below Sora 2 Pro",
+   "summary": "Grok Imagine Video 1.5 chuyển từ bản xem trước sang general availability ngày 16/06, mở trên Imagine API, grok.com và app iOS/Android, giá 4,20 USD mỗi phút video.",
+   "why": "Mức giá thấp hơn Sora 2 Pro tới 86% có thể định lại mặt bằng chi phí cho video AI, mở cửa cho nhà sáng tạo và marketing làm video hàng loạt.",
+   "url": "https://www.techtimes.com/articles/318635/20260618/grok-imagine-video-15-goes-live-xai-tops-ai-video-leaderboard-86-percent-below-sora.htm",
+   "domain": "techtimes.com",
+   "date": "2026-06-16",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 3
+  },
+  {
+   "aid": 4,
+   "title": "Databricks ra mắt LTAP & Lakebase: hợp nhất giao dịch và phân tích trên một bản lưu trữ",
+   "title_en": "Databricks launches LTAP and Lakebase, unifying transactions and analytics on one copy of data",
+   "summary": "Tại Data + AI Summit, Databricks giới thiệu kiến trúc Lake Transactional/Analytical Processing (LTAP) và Lakebase, hợp nhất giao dịch, phân tích, streaming và dữ liệu vận hành trên một bản lưu trữ duy nhất trong hồ dữ liệu.",
+   "why": "Bỏ bớt pipeline, bản sao và ETL nghĩa là agent có thể đọc, suy luận và hành động trên một nguồn dữ liệu thống nhất, giảm độ trễ và chi phí vận hành.",
+   "url": "https://www.databricks.com/company/newsroom/press-releases/databricks-launches-ltap-first-lake-transactionalanalytical",
+   "domain": "databricks.com",
+   "date": "2026-06-16",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 5,
+   "title": "Claude Managed Agents chạy theo lịch (cron) và tự gọi CLI, dịch vụ xác thực — public beta",
+   "title_en": "Anthropic adds scheduled runs and CLI/tool access to Claude Managed Agents in public beta",
+   "summary": "Anthropic bổ sung cho Claude Managed Agents khả năng chạy theo lịch và truy cập an toàn các công cụ dòng lệnh cùng dịch vụ đã xác thực, kèm biến môi trường lưu trong vault và tích hợp duyệt web, đều ở dạng public beta.",
+   "why": "Đây là mảnh ghép biến agent từ 'gọi một lần' thành quy trình tự động lặp lại — chạy job định kỳ, an toàn truy cập hệ thống nội bộ, đúng nhu cầu vận hành thực tế.",
+   "url": "https://thenewstack.io/with-claude-managed-agents-anthropic-wants-to-run-your-ai-agents-for-you/",
+   "domain": "thenewstack.io",
+   "date": "2026-06-18",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": 4
+  },
+  {
+   "aid": 6,
+   "title": "Databricks Agent Bricks thành nền tảng dev agent đầy đủ: thêm Kimi & Grok, hỗ trợ Claude Code SDK, 100.000 agent",
+   "title_en": "Databricks Agent Bricks expands into a full developer agent platform",
+   "summary": "Agent Bricks mở rộng từ công cụ xây agent tập trung chất lượng thành nền tảng dev đầy đủ: thêm lựa chọn mô hình Kimi và Grok qua hợp tác SpaceX, hỗ trợ mọi harness như LangGraph, CrewAI, Claude Code SDK, bộ nhớ agent qua Lakebase và sandbox cô lập.",
+   "why": "Hơn 100.000 agent đã được xây và Databricks xử lý hơn một triệu tỷ token mỗi năm — agent đang rời phòng thí nghiệm để vào sản xuất ở quy mô doanh nghiệp.",
+   "url": "https://www.databricks.com/blog/agent-bricks-dais-2026",
+   "domain": "databricks.com",
+   "date": "2026-06-16",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": 5
+  },
+  {
+   "aid": 7,
+   "title": "Databricks Unity AI Gateway: governance thống nhất cho mô hình, agent, tool và MCP",
+   "title_en": "Databricks Unity AI Gateway brings models, agents, tools and MCPs under one governance layer",
+   "summary": "Tại Summit, Databricks ra Unity AI Gateway đưa mô hình, agent, công cụ và MCP về một lớp runtime governance, cùng Glossary/Domains và governance xuyên cloud, xuyên vùng dưới một catalog duy nhất.",
+   "why": "Khi agent tự gọi công cụ và dữ liệu, quản trị tập trung và nhất quán là điều kiện bắt buộc để doanh nghiệp dám triển khai thật.",
+   "url": "https://www.techtimes.com/articles/318450/20260616/databricks-summit-2026-day-2-agentic-ai-catalog-federation-move-lab-enterprise.htm",
+   "domain": "techtimes.com",
+   "date": "2026-06-16",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "OpenCode bùng nổ: coding agent mã nguồn mở model-agnostic, 160.000 sao, 7,5 triệu dev",
+   "title_en": "OpenCode emerges as the most-adopted open-source coding agent",
+   "summary": "OpenCode được nhắc đến như cú dịch chuyển lớn nhất của mảng công cụ lập trình AI trong tháng 6: coding agent mã nguồn mở, truy cập 75+ nhà cung cấp mô hình, tích hợp LSP đẩy chẩn đoán compiler trở lại cho mô hình.",
+   "why": "Với 160.000 sao GitHub và 7,5 triệu dev hoạt động hằng tháng, OpenCode cho thấy nhu cầu công cụ lập trình AI mở, không khóa nhà cung cấp đang lên rất nhanh.",
+   "url": "https://www.marktechpost.com/2026/06/10/ai-coding-agents-development-platforms-2026/",
+   "domain": "marktechpost.com",
+   "date": "2026-06-16",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "RNG-Bench: đánh giá MLLM trong game phi-Markov, kiểm tra khả năng dựng lại trí nhớ",
+   "title_en": "Beyond the Current Observation: evaluating multimodal LLMs in controllable non-Markov games",
+   "summary": "Nhóm Intern Large Models công bố RNG-Bench (15/06-17/06) đánh giá mô hình ngôn ngữ đa phương thức trong các trò chơi phi-Markov có thể điều khiển, đo khả năng dựng lại trí nhớ thay vì chỉ phản ứng với quan sát hiện tại.",
+   "why": "Agent thật sự hữu ích phải nhớ và suy luận qua nhiều bước; benchmark này phơi bày điểm yếu trí nhớ mà các bài test một-lượt không thấy được.",
+   "url": "https://huggingface.co/papers/trending",
+   "domain": "huggingface.co",
+   "date": "2026-06-17",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "AI-Trader: benchmark 'live' đầu tiên đánh giá LLM ra quyết định tài chính đa thị trường",
+   "title_en": "AI-Trader: the first fully automated live benchmark for LLM financial decision-making",
+   "summary": "AI-Trader (Đại học Trung Văn Hong Kong, Thâm Quyến, 16/06) là benchmark tự động hoàn toàn, chạy trực tiếp để đánh giá khả năng ra quyết định tài chính của các mô hình ngôn ngữ lớn trên nhiều thị trường.",
+   "why": "Đánh giá 'live' trên thị trường thật khắc nghiệt hơn nhiều so với bài test tĩnh, cho biết LLM thực sự đáng tin tới đâu khi đụng tiền và rủi ro.",
+   "url": "https://huggingface.co/papers/trending",
+   "domain": "huggingface.co",
+   "date": "2026-06-16",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "DreamX-World 1.0: world model tương tác đa năng từ văn bản và ảnh, điều khiển camera",
+   "title_en": "DreamX-World 1.0: a general-purpose interactive world model",
+   "summary": "AMAP-ML giới thiệu DreamX-World 1.0 (15/06), một world model tương tác đa năng sinh video từ văn bản/ảnh, hỗ trợ điều khiển camera và giữ cảnh nhất quán theo thời gian.",
+   "why": "World model là hướng then chốt cho robot, mô phỏng và game; khả năng giữ cảnh nhất quán mở đường cho môi trường ảo tương tác lâu dài.",
+   "url": "https://huggingface.co/papers/trending",
+   "domain": "huggingface.co",
+   "date": "2026-06-15",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "VibeThinker-3B: mô hình 3B đẩy biên giới reasoning có kiểm chứng, vượt nhiều model lớn hơn",
+   "title_en": "VibeThinker-3B: exploring verifiable reasoning in small language models",
+   "summary": "WeiboAI công bố VibeThinker-3B (15/06), chứng minh mô hình nhỏ chỉ 3 tỷ tham số vẫn đạt hiệu năng hàng đầu ở các bài suy luận nhờ huấn luyện chuyên biệt cho reasoning có thể kiểm chứng.",
+   "why": "Nếu mô hình 3B làm được việc của model lớn, chi phí suy luận và khả năng chạy trên thiết bị biên sẽ thay đổi cuộc chơi cho ứng dụng thực tế.",
+   "url": "https://huggingface.co/papers/trending",
+   "domain": "huggingface.co",
+   "date": "2026-06-15",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "Demis Hassabis: phần lớn sa thải nhân danh AI thực ra là 'hành vi bắt chước' lẫn nhau",
+   "title_en": "Demis Hassabis says many AI layoffs are really 'imitative behavior'",
+   "summary": "CEO Google DeepMind Demis Hassabis lập luận rằng nhiều đợt cắt giảm nhân sự gắn mác AI thực chất đến từ việc các công ty bắt chước nhau, hơn là do AI thật sự thay thế công việc.",
+   "why": "Góc nhìn này tách bạch 'AI thay người' khỏi 'cắt giảm theo phong trào' — quan trọng để doanh nghiệp và người lao động không hoảng loạn sai chỗ.",
+   "url": "https://www.ibtimes.co.uk/ai-layoffs-trend-following-vs-necessity-1803751",
+   "domain": "ibtimes.co.uk",
+   "date": "2026-06-16",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "Làn sóng sa thải nhân danh AI thành 'thùng thuốc súng': 113.000 việc làm tech bị cắt",
+   "title_en": "The AI layoff wave is becoming a powder keg",
+   "summary": "TechCrunch cảnh báo làn sóng sa thải gắn mác AI đang thành thùng thuốc súng xã hội: hơn 113.000 việc làm tech bị cắt qua gần 180 sự kiện trong năm, nhiều công ty báo lãi kỷ lục nhưng vẫn thu hẹp đội ngũ truyền thống để dồn cho AI.",
+   "why": "Bất bình lan rộng khi giới AI hưởng tài sản thế hệ trong lúc người mất việc đối mặt chi phí sống đắt đỏ — rủi ro xã hội và chính trị đang tích tụ.",
+   "url": "https://techcrunch.com/2026/06/15/the-ai-layoff-wave-is-becoming-a-powder-keg/",
+   "domain": "techcrunch.com",
+   "date": "2026-06-15",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": 2
+  },
+  {
+   "aid": 15,
+   "title": "Lần đầu drone AI hoàn toàn tự động giết binh sĩ — cộng đồng dậy sóng",
+   "title_en": "Fully autonomous AI-controlled drones have killed human soldiers for the first time",
+   "summary": "Theo một lãnh đạo cấp cao ngành quốc phòng Ukraine, drone do AI điều khiển hoàn toàn tự động đã lần đầu tiên giết binh sĩ, làm bùng nổ tranh luận lớn nhất tuần trên các diễn đàn công nghệ.",
+   "why": "Ranh giới 'con người trong vòng quyết định' đang bị vượt qua trên chiến trường thật, đặt ra câu hỏi đạo đức và pháp lý cấp bách về vũ khí tự hành.",
+   "url": "https://www.reddit.com/r/worldnews/comments/1u26lni/fully_autonomous_aicontrolled_drones_have_killed/",
+   "domain": "reddit.com",
+   "date": "2026-06-10",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 16,
+   "title": "xAI bắt tay SpaceX đưa Grok vào Databricks Agent Bricks cho doanh nghiệp",
+   "title_en": "xAI Grok lands on Databricks Agent Bricks via SpaceX partnership",
+   "summary": "Tại Data + AI Summit (18/06), Grok trở thành mô hình có sẵn ngay trong Databricks Agent Bricks qua hợp tác với SpaceX, nối thẳng mô hình xAI với dữ liệu trong Lakehouse của doanh nghiệp.",
+   "why": "Agent có thể suy luận trên dữ liệu có cấu trúc lẫn phi cấu trúc của công ty mà không phải đẩy ra pipeline ngoài — giảm rò rỉ và độ trễ.",
+   "url": "https://www.basenor.com/blogs/news/xai-grok-lands-on-databricks-at-the-2026-data-ai-summit",
+   "domain": "basenor.com",
+   "date": "2026-06-18",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "Anthropic mở văn phòng Seoul, mở rộng sang hệ sinh thái AI Hàn Quốc",
+   "title_en": "Anthropic opens Seoul office and expands Korean AI partnerships",
+   "summary": "Ngày 17/06, Anthropic công bố mở văn phòng tại Seoul cùng loạt quan hệ đối tác mới trong hệ sinh thái AI Hàn Quốc.",
+   "why": "Hàn Quốc là thị trường công nghệ và sản xuất lớn; bước đi này cho thấy Anthropic tăng tốc hiện diện châu Á để cạnh tranh doanh nghiệp với OpenAI và Google.",
+   "url": "https://www.anthropic.com/news",
+   "domain": "anthropic.com",
+   "date": "2026-06-17",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  },
+  {
+   "aid": 18,
+   "title": "Databricks Data + AI Summit 2026: 30.000 người dự, agent xử lý hơn 1 triệu tỷ token/năm",
+   "title_en": "Databricks Data + AI Summit 2026 draws 30,000 as agentic AI moves to enterprise",
+   "summary": "Data + AI Summit 2026 (15-18/06 tại Moscone Center) quy tụ hơn 30.000 chuyên gia, đánh dấu agentic AI và catalog federation chuyển từ phòng lab vào doanh nghiệp, với hơn một triệu tỷ token agent được xử lý mỗi năm.",
+   "why": "Quy mô này cho thấy hạ tầng dữ liệu cho agent đã thành một thị trường thật, nơi quản trị và chi phí token trở thành bài toán trung tâm.",
+   "url": "https://www.techtimes.com/articles/318450/20260616/databricks-summit-2026-day-2-agentic-ai-catalog-federation-move-lab-enterprise.htm",
+   "domain": "techtimes.com",
+   "date": "2026-06-16",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 1,
+ "weekly_video": {
+  "intro": "Xin chào, đây là bản tin AI tuần 25, từ ngày 15 đến 21 tháng 6 năm 2026. Tuần này có một chủ đề xuyên suốt: agent doanh nghiệp bước ra sản xuất thật, trong khi xã hội bắt đầu trả giá vì làn sóng sa thải nhân danh AI. Tôi sẽ điểm qua năm câu chuyện nóng nhất, từ y tế, video AI, agent tự động cho tới cuộc tranh luận việc làm.",
+  "outro": "Đó là năm câu chuyện nóng nhất tuần 25. Chi tiết từng tin, nguồn và phân tích sâu hơn đều có trong bản tin đầy đủ. Cảm ơn các bạn đã theo dõi, hẹn gặp lại tuần sau.",
+  "segments": [
+   {
+    "aid": 1,
+    "headline": "OpenAI đưa ChatGPT sâu vào y tế",
+    "narration": "Câu chuyện nóng nhất tuần 25 đến từ OpenAI. Ngày 18 tháng 6, công ty công bố một loạt nâng cấp đưa ChatGPT đi sâu vào y sinh. Thứ nhất, trí thông minh sức khỏe trong ChatGPT được cải thiện cho toàn bộ người dùng. Thứ hai, OpenAI giới thiệu công cụ giúp bác sĩ chẩn đoán các bệnh di truyền hiếm ảnh hưởng tới trẻ em, nhóm bệnh mà ngay cả chuyên gia cũng mất nhiều năm mới tìm ra. Thứ ba, và đáng chú ý nhất với giới nghiên cứu, là một nhà hóa học AI gần như tự động, có thể cải thiện những phản ứng khó trong hóa dược. Điều này nghĩa là gì? AI đang rời khỏi vai trò trợ lý trò chuyện để bước vào những lĩnh vực chuyên môn cao, nơi một sai số nhỏ cũng có thể trả giá bằng sức khỏe con người. Với người dùng Việt, đây là tín hiệu cho thấy chăm sóc sức khỏe có hỗ trợ AI đang tới gần hơn, nhưng cũng là lời nhắc rằng những công cụ này hỗ trợ bác sĩ chứ chưa thay thế chẩn đoán y khoa. Với doanh nghiệp dược và y tế, hướng đi của OpenAI mở ra cơ hội tự động hóa nghiên cứu, rút ngắn thời gian từ ý tưởng tới phân tử. Đây là bước chuyển đáng theo dõi của cả năm.",
+    "bullets": [
+     "Chẩn đoán bệnh di truyền hiếm ở trẻ em",
+     "Nhà hóa học AI gần như tự động",
+     "Trí thông minh sức khỏe cho mọi người dùng"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Ba mũi nhọn y sinh mới",
+     "items": [
+      {
+       "t": "Sức khỏe",
+       "d": "Trí thông minh y tế trong ChatGPT"
+      },
+      {
+       "t": "Chẩn đoán",
+       "d": "Bệnh di truyền hiếm ở trẻ"
+      },
+      {
+       "t": "Nghiên cứu",
+       "d": "Nhà hóa học AI gần tự động"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 14,
+    "headline": "Sa thải vì AI thành thùng thuốc súng",
+    "narration": "Câu chuyện nóng thứ hai là mặt trái của cơn sốt AI. TechCrunch ngày 15 tháng 6 cảnh báo làn sóng sa thải nhân danh AI đang trở thành một thùng thuốc súng xã hội. Con số rất đáng suy nghĩ: hơn 113 nghìn việc làm trong ngành công nghệ đã bị cắt qua gần 180 sự kiện chỉ trong năm nay. Điều gây phẫn nộ là nhiều công ty không hề thua lỗ. Họ báo lãi kỷ lục, nhưng vẫn thu hẹp các đội ngũ truyền thống để dồn nguồn lực cho AI. Trong khi đó, một thực tế ít được nói tới là gần ba phần tư người mất việc không nộp đơn xin trợ cấp thất nghiệp, khiến bức tranh khó khăn còn bị che giấu. Điều này nghĩa là gì? Khoảng cách giàu nghèo trong kỷ nguyên AI đang giãn rất nhanh: giới đầu tư và nhân sự AI hưởng tài sản thế hệ, còn người lao động bị thay thế lại đối mặt chi phí sống đắt đỏ. Với thị trường Việt Nam, nơi gia công phần mềm và dịch vụ số là trụ cột, đây là lời cảnh báo sớm để nâng kỹ năng và dịch chuyển sang công việc khó tự động hóa. Sức ép xã hội và chính trị quanh chủ đề này sẽ còn tăng nhiệt trong các tháng tới.",
+    "bullets": [
+     "Hơn 113 nghìn việc làm tech bị cắt",
+     "Công ty lãi kỷ lục vẫn sa thải",
+     "Bất bình xã hội đang tích tụ"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Quy mô sa thải năm nay",
+     "items": [
+      {
+       "v": "113K+",
+       "l": "việc làm bị cắt"
+      },
+      {
+       "v": "180",
+       "l": "sự kiện sa thải"
+      },
+      {
+       "v": "~75%",
+       "l": "không xin trợ cấp"
+      }
+     ]
+    },
+    "images": [
+     "https://techcrunch.com/wp-content/uploads/2026/06/Powder-Keg.png?resize=1200,960"
+    ]
+   },
+   {
+    "aid": 3,
+    "headline": "Grok Imagine Video 1.5 rẻ hơn Sora 86%",
+    "narration": "Câu chuyện thứ ba thuộc về video AI. Ngày 16 tháng 6, xAI chính thức đưa Grok Imagine Video 1.5 từ bản xem trước lên general availability, tức mở rộng rãi cho tất cả người dùng. Bạn có thể gọi nó qua Imagine API, qua trang grok chấm com, và qua ứng dụng trên cả iOS lẫn Android. Điểm gây sốc nằm ở giá: chỉ 4 đô 20 cho mỗi phút video. xAI tuyên bố mức này rẻ hơn Sora 2 Pro của OpenAI tới 86 phần trăm, đồng thời dẫn đầu một bảng xếp hạng video AI. Điều này nghĩa là gì? Cuộc chiến video AI đang chuyển từ đua chất lượng sang đua chi phí. Khi giá mỗi phút video giảm gần một mức độ lớn như vậy, làm video bằng AI không còn là trò chơi của phòng lab mà thành công cụ sản xuất hàng loạt. Với nhà sáng tạo nội dung, agency quảng cáo và đội marketing ở Việt Nam, đây là cơ hội thật để thử nghiệm video ngắn, mẫu quảng cáo và minh họa với ngân sách nhỏ. Tất nhiên, giá rẻ cũng đồng nghĩa nội dung video tạo bằng AI sẽ tràn ngập nhanh hơn, và bài toán phân biệt thật giả lại càng cấp thiết.",
+    "bullets": [
+     "Giá chỉ 4,20 USD mỗi phút video",
+     "Rẻ hơn Sora 2 Pro 86 phần trăm",
+     "Có trên API, web và app di động"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Grok Imagine vs Sora 2 Pro",
+     "left": {
+      "h": "Grok Imagine 1.5",
+      "items": [
+       "4,20 USD mỗi phút",
+       "Có trên API và app",
+       "Dẫn đầu bảng video"
+      ]
+     },
+     "right": {
+      "h": "Sora 2 Pro",
+      "items": [
+       "Đắt hơn khoảng 7 lần",
+       "Chuẩn chất lượng cũ",
+       "Giá tham chiếu thị trường"
+      ]
+     }
+    },
+    "images": [
+     "https://d.techtimes.com/en/full/467031/grok-imagine-video-15.png"
+    ]
+   },
+   {
+    "aid": 5,
+    "headline": "Claude Managed Agents chạy theo lịch",
+    "narration": "Câu chuyện thứ tư là về tự động hóa agent. Ngày 18 tháng 6, Anthropic bổ sung cho Claude Managed Agents hai khả năng quan trọng, đều ở dạng public beta. Thứ nhất, agent có thể chạy theo lịch, tức là theo kiểu cron, tự động kích hoạt vào thời điểm định sẵn mà không cần người bấm nút. Thứ hai, agent có thể truy cập an toàn các công cụ dòng lệnh và những dịch vụ đã được xác thực, với biến môi trường nhạy cảm được lưu trong một vault và khả năng duyệt web tích hợp. Điều này nghĩa là gì? Cho tới gần đây, phần lớn agent vẫn hoạt động theo kiểu gọi một lần rồi thôi: bạn ra lệnh, nó làm, hết. Với cập nhật này, agent trở thành một quy trình tự động lặp lại, chạy nền, biết tự gọi công cụ nội bộ một cách có kiểm soát. Đây chính xác là thứ mà các đội kỹ thuật cần để giao cho AI những việc lặp đi lặp lại như tổng hợp báo cáo hằng ngày, dọn dữ liệu, hay theo dõi hệ thống. Với doanh nghiệp Việt, đây là tín hiệu nên bắt đầu nghĩ về agent như một nhân sự ảo có lịch làm việc, chứ không chỉ là một chatbot trả lời câu hỏi.",
+    "bullets": [
+     "Agent chạy theo lịch kiểu cron",
+     "Tự gọi công cụ dòng lệnh an toàn",
+     "Biến môi trường lưu trong vault"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Vòng tự động của agent",
+     "items": [
+      {
+       "t": "Lịch cron",
+       "d": "Tự kích hoạt định kỳ"
+      },
+      {
+       "t": "Gọi công cụ",
+       "d": "CLI và dịch vụ xác thực"
+      },
+      {
+       "t": "Vault",
+       "d": "Giữ bí mật an toàn"
+      },
+      {
+       "t": "Kết quả",
+       "d": "Tự động lặp lại"
+      }
+     ]
+    },
+    "images": [
+     "https://cdn.thenewstack.io/media/2026/04/c2845cae-img_2726-2-scaled.jpg"
+    ]
+   },
+   {
+    "aid": 6,
+    "headline": "Databricks Agent Bricks lên nền tảng đầy đủ",
+    "narration": "Câu chuyện thứ năm khép lại tuần 25 với Databricks. Tại Data và AI Summit, Agent Bricks được nâng cấp từ một công cụ xây agent tập trung vào chất lượng thành một nền tảng phát triển agent đầy đủ. Có ba điểm đáng chú ý. Một, nền tảng mở rộng lựa chọn mô hình, bổ sung Kimi và Grok thông qua hợp tác với SpaceX, bên cạnh OpenAI, Anthropic và Gemini. Hai, nó hỗ trợ gần như mọi harness phổ biến như LangGraph, CrewAI và cả Claude Code SDK, cộng thêm bộ nhớ agent quản lý qua Lakebase và một sandbox để chạy agent cô lập an toàn. Ba, và đây là con số gây choáng: hơn 100 nghìn agent đã được xây dựng, và Databricks cho biết đang xử lý hơn một triệu tỷ token agent mỗi năm. Điều này nghĩa là gì? Agent doanh nghiệp không còn là thử nghiệm, mà đã thành khối lượng công việc sản xuất khổng lồ. Khi mọi dữ liệu công ty nằm sẵn trong Lakehouse, đặt agent ngay cạnh dữ liệu giúp giảm rò rỉ, giảm độ trễ và cắt chi phí pipeline. Với các doanh nghiệp Việt đang dùng nền tảng dữ liệu hiện đại, đây là gợi ý rõ về hướng đi: xây agent ngay trên lớp dữ liệu, thay vì ghép nối rời rạc bên ngoài.",
+    "bullets": [
+     "Hơn 100 nghìn agent đã được xây",
+     "Hỗ trợ Claude Code SDK, LangGraph, CrewAI",
+     "Thêm mô hình Kimi và Grok"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Các tầng nền tảng Agent Bricks",
+     "items": [
+      {
+       "t": "Mô hình",
+       "d": "OpenAI, Anthropic, Gemini, Kimi, Grok"
+      },
+      {
+       "t": "Harness",
+       "d": "LangGraph, CrewAI, Claude Code SDK"
+      },
+      {
+       "t": "Bộ nhớ",
+       "d": "Quản lý qua Lakebase"
+      },
+      {
+       "t": "Sandbox",
+       "d": "Chạy agent cô lập an toàn"
+      }
+     ]
+    },
+    "images": [
+     "https://www.databricks.com/sites/default/files/2026-06/2026-06-blog-omnigent-managed-og-1200x628-2x.png"
+    ]
+   }
+  ]
+ },
+ "facebook_post": "Tuần 25 này AI vừa cho thấy mặt sáng lẫn mặt tối, và cả hai đều đáng để dừng lại suy nghĩ.\n\n🩺 OpenAI đẩy ChatGPT sâu vào y tế: chẩn đoán bệnh di truyền hiếm ở trẻ em và ra mắt một \"nhà hóa học AI\" gần như tự động cho hóa dược. AI đang bước vào những lĩnh vực mà sai một li là đi cả dặm.\n\n🎬 xAI tung Grok Imagine Video 1.5, giá chỉ 4,20 USD/phút video, rẻ hơn Sora tới 86%. Làm video AI hàng loạt giờ nằm trong tầm tay người làm nội dung.\n\n🤖 Anthropic cho Claude Managed Agents chạy theo lịch và tự gọi công cụ dòng lệnh. Agent giờ giống một nhân sự ảo có lịch làm việc, không còn là chatbot trả lời một lần.\n\n📊 Databricks Summit gây choáng: hơn 100 nghìn agent đã được xây, xử lý hơn 1 triệu tỷ token mỗi năm. Agent doanh nghiệp chính thức rời phòng lab.\n\n⚠️ Mặt tối: làn sóng sa thải nhân danh AI đang thành \"thùng thuốc súng\". Hơn 113 nghìn việc làm tech bị cắt, nhiều công ty lãi kỷ lục vẫn thu hẹp đội ngũ. Demis Hassabis còn cho rằng phần lớn là cắt giảm theo phong trào chứ không hẳn do AI.\n\nMột tuần mà công nghệ tiến nhanh còn con người thì phải chạy theo. Mình tổng hợp đầy đủ cùng video recap 5 phút, xem để không bỏ lỡ tin nào nhé. 👇",
+ "youtube": {
+  "recap": "3U5cj3oBj18",
+  "short": "dnCMeb1xKyE"
+ }
+}
