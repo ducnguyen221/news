@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-06-20",
+      "display_date": "20/06/2026",
+      "title": "Databricks Lakehouse//RT: dữ liệu lakehouse trả lời trong mili-giây",
+      "summary": "Databricks ra mắt Lakehouse//RT, trả lời truy vấn dưới 100 mili-giây ngay trên lakehouse, xóa bỏ đường ống dữ liệu làm chậm AI agent.",
+      "source": "databricks.com",
+      "video_id": "Y-LeIod38OI",
+      "short_id": "JlwVMuK8nUc",
+      "published_at": "2026-06-20T19:12:34"
+    },
+    {
       "date": "2026-06-18",
       "display_date": "18/06/2026",
       "title": "dbt Core v2.0: viết lại bằng Rust, mở nguồn, nhanh 30 lần",
