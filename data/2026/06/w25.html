@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data News – Tuần W25 · 15/06 - 21/06/2026</title>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data News – Tuần W25: Data + AI Summit 2026 và kỷ nguyên lakehouse cho agent">
+<meta property="og:description" content="LTAP, Lakeflow GA, Agent Bricks tỉ tỉ token, Genie One + Genie Ontology, thương vụ Panther — tuần Data + AI Summit 2026 biến lakehouse thành tầng vận hành cho AI agent.">
+<meta property="og:image" content="https://ducnguyen.vn/news/data/assets/og-banner.png">
+<meta property="og:url" content="https://ducnguyen.vn/news/data/2026/06/w25.html">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#04060a;color:#f8fafc;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6;padding:0 16px}
+.wrap{max-width:880px;margin:0 auto}
+a{color:#38bdf8}
+/* ---------- HEADER ---------- */
+.hdr{position:sticky;top:8px;z-index:60;background:rgba(6,9,16,.92);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:12px;margin:10px 0 4px;padding:12px 16px}
+.hdr-row{display:flex;align-items:center;gap:12px}
+.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:#f8fafc}
+.brand-mark{width:42px;height:42px;display:grid;place-items:center;flex:0 0 auto;border:1px solid rgba(52,245,164,.4);border-radius:50%;background:radial-gradient(circle,rgba(52,245,164,.22),rgba(56,189,248,.06) 55%,rgba(4,6,10,.95) 78%);box-shadow:0 0 18px rgba(52,245,164,.35);animation:brandPulse 3.2s ease-in-out infinite;transition:transform .45s cubic-bezier(.175,.885,.32,1.275)}
+.brand:hover .brand-mark{transform:rotate(180deg) scale(1.06);border-color:#34f5a4}
+@keyframes brandPulse{0%,100%{box-shadow:0 0 10px rgba(52,245,164,.22)}50%{box-shadow:0 0 26px rgba(52,245,164,.55)}}
+.brand-name{font-size:1.15rem;font-weight:600;letter-spacing:.3px}
+.brand-name b{color:#34f5a4}
+.brand-sub{display:inline;color:#94a3b8;font-size:.78rem;margin-left:4px}
+.hdr-row2{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-top:8px;position:relative}
+.hdr-row2 .toc{flex:1 1 auto;display:flex;gap:8px;flex-wrap:wrap}
+.toc a{display:inline-block;padding:6px 12px;border:1px solid rgba(255,255,255,.12);border-radius:999px;color:#cbd5e1;text-decoration:none;font-size:.8rem;background:rgba(10,15,26,.9);transition:.2s}
+.toc a:hover{border-color:#34f5a4;color:#34f5a4;background:rgba(52,245,164,.08)}
+.vdiv{width:1px;height:22px;background:rgba(255,255,255,.16)}
+.hdr-ctrls{display:flex;gap:8px;align-items:center}
+.ctrl{display:inline-flex;align-items:center;gap:5px;padding:8px 14px;border:1px solid rgba(255,255,255,.14);border-radius:9px;background:rgba(10,15,26,.92);color:#cbd5e1;font-size:.82rem;cursor:pointer;text-decoration:none;transition:.2s;font-family:inherit}
+.ctrl:hover{border-color:#34f5a4;color:#34f5a4}
+.ctrl-acc{background:linear-gradient(90deg,#34f5a4,#38bdf8);color:#04060a;font-weight:700;border-color:transparent}
+.ctrl-acc:hover{color:#04060a;opacity:.9}
+.ctrl-ic{width:38px;height:36px;padding:0;justify-content:center;display:inline-flex}
+.navpop-t{display:none}
+.navpop-btn{display:none}
+.navpop{display:none}
+.navpop-t:checked ~ .navpop{display:flex;flex-direction:column;gap:2px;position:absolute;top:calc(100% + 10px);left:0;right:0;z-index:80;background:rgba(8,12,20,.98);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:8px;backdrop-filter:blur(16px)}
+.navpop a{padding:11px 14px;border-radius:8px;color:#cbd5e1;text-decoration:none}
+.navpop a:hover{background:rgba(52,245,164,.1);color:#34f5a4}
+.navpop-t:checked ~ .hdr-ctrls .navpop-btn{color:#04060a;background:linear-gradient(90deg,#34f5a4,#38bdf8);border-color:transparent}
+@media(max-width:767px){
+  .brand-mark{width:36px;height:36px}
+  .hdr-row2 .toc,.vdiv{display:none}
+  .hdr-ctrls{flex:1 1 100%;display:flex;gap:8px}
+  .hdr-ctrls .ctrl{flex:1 1 auto;font-size:.78rem;padding:8px 6px;text-align:center;justify-content:center}
+  .hdr-ctrls .ctrl-ic{flex:0 0 38px;width:38px;height:36px;padding:0}
+  .navpop-btn{display:grid;place-items:center}
+}
+@media(min-width:768px){.navpop-btn{display:none!important}}
+/* ---------- RECAP / VIDEO ---------- */
+#recap{scroll-margin-top:120px}
+.hot-video{margin-top:26px}
+.hot-video .hot-label{font-weight:700;margin-bottom:12px}
+.hot-video video{width:100%;border-radius:12px}
+.vid-links{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.vbtn{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border:1px solid rgba(52,245,164,.35);border-radius:9px;color:#34f5a4;text-decoration:none;font-size:.88rem;font-weight:600;background:rgba(52,245,164,.07)}
+.vbtn:hover{background:rgba(52,245,164,.16)}
+@media(max-width:767px){.vid-links .vbtn{flex:1 1 auto;justify-content:center}}
+/* ---------- TLDR / TIMELINE ---------- */
+.tldr{background:rgba(10,15,26,.93);border:1px solid rgba(52,245,164,.25);border-left:3px solid #34f5a4;border-radius:12px;padding:18px 20px;margin:24px 0 14px;font-size:.95rem}
+.tldr b{color:#34f5a4}
+.timeline{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 8px}
+.tday{background:rgba(10,15,26,.93);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:7px 12px;font-size:.76rem;color:#cbd5e1;font-family:Consolas,monospace;display:flex;align-items:center;gap:7px}
+.tday .n{display:inline-grid;place-items:center;min-width:20px;height:20px;border-radius:6px;background:rgba(52,245,164,.16);color:#34f5a4;font-weight:700;font-size:.72rem;padding:0 5px}
+.tday.dim{opacity:.38}
+.tday.dim .n{background:rgba(255,255,255,.08);color:#94a3b8}
+/* ---------- SECTIONS & CARDS ---------- */
+.sec{margin:34px 0;scroll-margin-top:120px}
+.sec h2{font-size:1.25rem;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.08)}
+.card{display:flex;gap:16px;background:rgba(10,15,26,.93);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px;margin-bottom:14px;transition:border-color .2s}
+.card:hover{border-color:rgba(52,245,164,.35)}
+.card[data-hot="1"]{border-color:rgba(52,245,164,.55);box-shadow:0 0 22px rgba(52,245,164,.12)}
+.thumb{width:96px;height:72px;object-fit:cover;border-radius:9px;flex:0 0 auto;background:#0a0f1a;border:1px solid rgba(255,255,255,.07)}
+.thumb-fallback{object-fit:contain;padding:18px}
+.card .body{flex:1 1 auto;min-width:0}
+.rank{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.6px;color:#04060a;background:linear-gradient(90deg,#34f5a4,#38bdf8);border-radius:6px;padding:2px 9px;margin-bottom:7px}
+.title{display:block;color:#f8fafc;font-weight:600;font-size:1.02rem;text-decoration:none;margin-bottom:6px;line-height:1.45}
+.title:hover{color:#34f5a4}
+.sum{color:#cbd5e1;font-size:.88rem;margin-bottom:6px}
+.why{color:#94a3b8;font-size:.84rem;margin-bottom:10px}
+.meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.when{color:#64748b;font-size:.78rem;font-family:Consolas,monospace}
+.metabtn{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border:1px solid rgba(255,255,255,.14);border-radius:8px;color:#cbd5e1;font-size:.78rem;text-decoration:none;cursor:pointer;background:rgba(255,255,255,.03);transition:.2s}
+.metabtn:hover{border-color:#38bdf8;color:#38bdf8}
+.readbtn{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border:1px solid rgba(52,245,164,.35);border-radius:8px;color:#34f5a4;font-size:.78rem;background:rgba(52,245,164,.07);cursor:pointer;font-family:inherit;transition:.2s}
+.readbtn:hover{background:rgba(52,245,164,.16)}
+.xt{display:none}
+.more{display:none}
+.xt:checked ~ .more{display:block;margin-top:14px;border-top:1px dashed rgba(255,255,255,.12);padding-top:14px}
+.xt:checked ~ .meta .xbtn{border-color:#34f5a4;color:#04060a;background:linear-gradient(90deg,#34f5a4,#38bdf8);font-weight:700}
+.kb{list-style:none;margin-bottom:12px}
+.kb li{padding-left:18px;position:relative;color:#cbd5e1;font-size:.86rem;margin-bottom:5px}
+.kb li::before{content:"▸";position:absolute;left:2px;color:#34f5a4}
+.facts{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.fact{display:inline-flex;align-items:center;gap:6px;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.25);border-radius:8px;padding:4px 10px;font-size:.74rem;font-family:Consolas,monospace;color:#cbd5e1}
+.fact b{color:#38bdf8;font-size:.68rem;letter-spacing:.5px}
+.deep{color:#94a3b8;font-size:.86rem}
+@media(max-width:767px){.card{flex-direction:column}.thumb{width:100%;height:150px}}
+/* ---------- FOOTER ---------- */
+footer{margin:44px 0 28px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);color:#64748b;font-size:.8rem;text-align:center;background:rgba(4,6,10,.92);border-radius:12px;padding:18px}
+footer a{color:#34f5a4;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hdr" id="top">
+  <div class="hdr-row">
+    <a class="brand" href="../../index.html" title="Về trang chính Data News"><span class="brand-mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34f5a4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/><path d="M4.5 11.5v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/></svg></span><span class="brand-name">Data <b>News</b></span><span class="brand-sub">Tuần W25 · 15/06 - 21/06/2026</span></a>
+  </div>
+  <div class="hdr-row2">
+    <input type="checkbox" id="navpop" class="navpop-t" hidden>
+    <nav class="toc">
+      <a href="#recap">🎬 Recap</a>
+      <a href="#sec-1">🗄️ Hạ tầng</a>
+      <a href="#sec-2">🛠️ Công cụ</a>
+      <a href="#sec-3">🤖 AI × Data</a>
+      <a href="#sec-4">📈 Trend</a>
+      <a href="#sec-5">🏢 Ngành</a>
+    </nav>
+    <span class="vdiv"></span>
+    <div class="hdr-ctrls"><button id="readAll" class="ctrl ctrl-acc">🔊<span class="btxt"> Đọc tóm tắt</span></button> <button id="readStop" class="ctrl">⏹<span class="btxt"> Dừng</span></button> <label class="ctrl ctrl-ic navpop-btn" for="navpop" title="Mục lục">☰</label> <a class="ctrl ctrl-ic" href="../../index.html" title="Quay lại Data News">←</a></div>
+    <div class="navpop">
+      <a href="#recap" onclick="document.getElementById('navpop').checked=false">🎬 Recap tuần</a>
+      <a href="#sec-1" onclick="document.getElementById('navpop').checked=false">🗄️ Hạ tầng &amp; Kiến trúc dữ liệu</a>
+      <a href="#sec-2" onclick="document.getElementById('navpop').checked=false">🛠️ Công cụ &amp; Nền tảng</a>
+      <a href="#sec-3" onclick="document.getElementById('navpop').checked=false">🤖 AI × Data</a>
+      <a href="#sec-4" onclick="document.getElementById('navpop').checked=false">📈 Hot trend &amp; Thảo luận</a>
+      <a href="#sec-5" onclick="document.getElementById('navpop').checked=false">🏢 Ngành &amp; Doanh nghiệp</a>
+    </div>
+  </div>
+</header>
+
+<div id="recap"></div>
+<div class="hot-video"><div class="hot-label">🎬 Video recap tuần — các tin nóng nhất</div><div style="position:relative;width:100%;padding-top:56.25%;border-radius:12px;overflow:hidden"><iframe src="https://www.youtube.com/embed/_VtKOqQPuIA" title="AI News recap" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><div class="vid-links"><a class="vbtn" href="https://youtu.be/_VtKOqQPuIA" target="_blank" rel="noopener">▶ Mở Youtube</a><a class="vbtn" href="https://www.youtube.com/shorts/H-x1s6U7a3I" target="_blank" rel="noopener">📱 Youtube Short</a></div></div>
+
+<div class="tldr">
+<b>Tổng quan tuần này:</b> Tuần 15–21/06 gần như chỉ có một tâm điểm: <b>Data + AI Summit 2026</b> của Databricks tại San Francisco (15–18/06, hơn 30.000 người tham dự). Databricks tung dồn dập: kiến trúc <b>LTAP</b> hợp nhất giao dịch và phân tích trên một bản copy duy nhất, <b>Lakeflow</b> GA cho "agentic data engineering" với độ trễ tới 5 mili-giây, <b>Agent Bricks</b> chạm quy mô sản xuất với hơn 100.000 agent và hơn một triệu tỉ token mỗi năm, <b>Genie One + Genie Ontology</b> làm "đồng nghiệp AI" trả lời đúng 84,5% câu hỏi nội bộ. Hãng còn thâu tóm <b>Panther</b> để dựng "security lakehouse", trao <b>OpenSharing</b> cho Linux Foundation và mở rộng Free Edition. Giới phân tích (theCUBE, Moor Insights) chốt một thông điệp: lakehouse đang trở thành tầng vận hành cho AI agent, và cuộc đua với Snowflake nóng hơn bao giờ hết.
+</div>
+
+<div class="timeline">
+  <span class="tday dim">T2 15/06 <span class="n">0</span></span>
+  <span class="tday">T3 16/06 <span class="n">10</span></span>
+  <span class="tday">T4 17/06 <span class="n">5</span></span>
+  <span class="tday">T5 18/06 <span class="n">2</span></span>
+  <span class="tday dim">T6 19/06 <span class="n">0</span></span>
+  <span class="tday dim">T7 20/06 <span class="n">0</span></span>
+  <span class="tday dim">CN 21/06 <span class="n">0</span></span>
+</div>
+
+<!-- ============ SECTION 1 ============ -->
+<section class="sec" id="sec-1">
+<h2>🗄️ Hạ tầng &amp; Kiến trúc dữ liệu</h2>
+
+<article class="card" data-aid="1" data-hot="1">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.databricks.com/sites/default/files/2026-06/2026-06-blog-lakebase-dais-press-release-og-1200x628-2x.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-1" class="xt" hidden>
+    <span class="rank">🔥 TOP 1 TUẦN NÀY</span>
+    <a class="title" href="https://www.databricks.com/company/newsroom/press-releases/databricks-launches-ltap-first-lake-transactionalanalytical" target="_blank" rel="noopener">Databricks ra mắt LTAP: kiến trúc đầu tiên hợp nhất giao dịch và phân tích trên một bản copy dữ liệu</a>
+    <p class="sum">LTAP (Lake Transactional/Analytical Processing) gộp Lakebase — Postgres serverless trên object storage mở — với lakehouse dưới cùng một mô hình quản trị, một nguồn sự thật và một lớp lưu trữ cho mọi dữ liệu giao dịch, phân tích, streaming và vận hành, loại bỏ luôn pipeline CDC giữa OLTP và OLAP.</p>
+    <p class="why">💡 Suốt 40 năm ngành dữ liệu mặc định phải tách OLTP và OLAP rồi nối bằng ETL/CDC; LTAP đặt cược rằng AI agent — vốn vừa đọc lịch sử vừa cập nhật trạng thái app theo thời gian thực — cần một kho duy nhất, không độ trễ đồng bộ.</p>
+    <div class="meta"><span class="when">📅 18/06</span> <a class="metabtn" href="https://www.databricks.com/company/newsroom/press-releases/databricks-launches-ltap-first-lake-transactionalanalytical" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-1">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="1">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Một bản copy duy nhất phục vụ cả giao dịch lẫn phân tích, định dạng mở</li>
+        <li>Loại bỏ pipeline CDC sao chép dữ liệu giữa OLTP và OLAP</li>
+        <li>Lakebase xử lý 12 triệu lượt khởi tạo database mỗi ngày</li>
+        <li>Thêm DR xuyên cloud/region, snapshot và branching kiểu git dưới 1 giây</li>
+        <li>Lakebase Search (beta): vector + full-text, nén 32x cho 1 tỉ+ vector index</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>KIẾN TRÚC</b>OLTP + OLAP một copy</span>
+        <span class="fact"><b>QUY MÔ</b>12 triệu launch/ngày</span>
+        <span class="fact"><b>SEARCH</b>nén 32x, 1B+ vector</span>
+        <span class="fact"><b>NGÀY</b>18/06/2026</span>
+      </div>
+      <p class="deep">Đây là tuyên bố kiến trúc táo bạo nhất Summit. Cả ngành lâu nay sống chung với một sự thật khó chịu: cơ sở dữ liệu giao dịch và kho phân tích là hai thế giới, nối với nhau bằng một mớ CDC và ETL luôn trễ vài phút tới vài giờ. LTAP nói: gộp luôn, một bản dữ liệu, một quyền quản trị. Với agent thì điều này rất quan trọng — agent không chỉ đọc báo cáo cũ, nó ghi trạng thái, đặt đơn, cập nhật hồ sơ ngay lúc đó, nên độ trễ đồng bộ là kẻ thù. Lakebase nền tảng phía dưới đã chạy 12 triệu lượt khởi tạo mỗi ngày, kèm branching kiểu git dưới một giây — nghĩa là tạo bản sao môi trường để thử nghiệm gần như tức thì. Với doanh nghiệp Việt, đừng vội thay stack: hãy theo dõi LTAP như tín hiệu hướng đi, vì nếu mô hình "một copy" chứng minh được ở quy mô lớn, ranh giới giữa kỹ sư backend và kỹ sư dữ liệu sẽ mờ dần.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="2">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.databricks.com/sites/default/files/2026-06/2026-06-blog-lakeflow-dais-blog-og-1200x628-1.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-2" class="xt" hidden>
+    <span class="rank">🔥 TOP 5 TUẦN NÀY</span>
+    <a class="title" href="https://www.databricks.com/blog/lakeflow-new-era-agentic-data-engineering" target="_blank" rel="noopener">Lakeflow GA: kỷ nguyên "agentic data engineering" với độ trễ thấp tới 5 mili-giây</a>
+    <p class="sum">Lakeflow hợp nhất ingestion, transformation và orchestration dưới Unity Catalog: Lakeflow Connect vượt 100 connector quản lý, Lakeflow Designer (GA) cho phép dựng pipeline kéo-thả no-code chạy trên Spark Declarative Pipelines, Zerobus ghi gần realtime dưới 5 giây và Real-Time Mode đạt độ trễ end-to-end thấp tới 5 mili-giây.</p>
+    <p class="why">💡 Tooling rời rạc lâu nay là nỗi đau kinh điển của kỹ sư dữ liệu; Lakeflow gom về một mối và bổ sung Genie ZeroOps — agent nền tự phân tích nguyên nhân lỗi và đề xuất bản vá trong sandbox.</p>
+    <div class="meta"><span class="when">📅 16/06</span> <a class="metabtn" href="https://www.databricks.com/blog/lakeflow-new-era-agentic-data-engineering" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-2">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="2">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Lakeflow Connect: hơn 100 connector quản lý cho app, DB, file, cloud storage</li>
+        <li>Lakeflow Designer GA: kéo-thả no-code + ngôn ngữ tự nhiên, sinh code chuẩn</li>
+        <li>Zerobus: ghi gần realtime &lt;5s, throughput tới 100MB/s, hơn 10GB/s mỗi bảng</li>
+        <li>Real-Time Mode (preview): độ trễ end-to-end thấp tới 5 mili-giây</li>
+        <li>Free Tier Connect: 100 DBU/ngày, xử lý tới 100 triệu bản ghi</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>TRẠNG THÁI</b>GA</span>
+        <span class="fact"><b>CONNECTOR</b>100+</span>
+        <span class="fact"><b>ĐỘ TRỄ</b>tới 5ms</span>
+        <span class="fact"><b>NGÀY</b>16/06/2026</span>
+      </div>
+      <p class="deep">Lakeflow Designer GA là tin đáng chú ý nhất với analyst: kéo-thả dựng pipeline nhưng phía sau là code sản xuất do Unity Catalog quản trị, tức là analyst làm được việc của data engineer mà không sinh ra "shadow pipeline" mất kiểm soát. Con số 5 mili-giây cho Real-Time Mode đẩy Spark vào sân chơi vốn là của Flink — streaming độ trễ siêu thấp. Điểm thực dụng: ai đang gánh một rừng tool ingestion (Fivetran chỗ này, Airflow chỗ kia, script chỗ nọ) thì đây là lời mời gộp lại. Nhưng cũng nên tỉnh táo — gộp về một vendor đổi lấy sự tiện lợi luôn kèm cái giá khóa chân. Genie ZeroOps là mảnh đáng thử trước: để agent tự dò nguyên nhân job lỗi và đề xuất fix trong sandbox, đỡ những đêm trực pipeline.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="3">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-3" class="xt" hidden>
+    <a class="title" href="https://thecuberesearch.com/databricks-data-ai-summit-2026-wrap-up-the-lakehouse-becomes-the-operating-layer-for-agentic-ai/" target="_blank" rel="noopener">Lakebase nâng cấp tại Summit: branching kiểu git dưới giây, DR xuyên cloud và Lakebase Search</a>
+    <p class="sum">Lakebase — lớp database vận hành Postgres serverless cho AI agent — được bổ sung disaster recovery xuyên cloud/region, snapshot và branching kiểu git dưới một giây, vận hành tự động (ZeroOps) và Lakebase Search beta: truy hồi lai vector + full-text dựng thẳng trong Postgres với nén 32x cho 1 tỉ+ vector index.</p>
+    <p class="why">💡 Branching dưới một giây biến database thành thứ "fork như code" — agent hay developer có thể tạo môi trường thử nghiệm tức thì rồi bỏ đi, đúng tinh thần dev-loop của kỷ nguyên agent.</p>
+    <div class="meta"><span class="when">📅 16/06</span> <a class="metabtn" href="https://thecuberesearch.com/databricks-data-ai-summit-2026-wrap-up-the-lakehouse-becomes-the-operating-layer-for-agentic-ai/" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-3">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="3">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Postgres serverless trên object storage mở, gắn chặt với lakehouse</li>
+        <li>Branching và snapshot kiểu git, thao tác dưới một giây</li>
+        <li>Disaster recovery xuyên cloud và xuyên region</li>
+        <li>Lakebase Search (beta): vector + full-text, nén 32x, 1 tỉ+ vector index</li>
+        <li>Quy mô 12 triệu lượt khởi tạo database mỗi ngày</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>LOẠI</b>serverless Postgres</span>
+        <span class="fact"><b>BRANCHING</b>&lt;1 giây</span>
+        <span class="fact"><b>SEARCH</b>vector + full-text</span>
+        <span class="fact"><b>NGÀY</b>16/06/2026</span>
+      </div>
+      <p class="deep">Lakebase là viên gạch nền cho cả câu chuyện LTAP, nên loạt nâng cấp này không chỉ là tính năng lẻ. Lakebase Search đặc biệt đáng để ý: thay vì dựng thêm một vector database riêng (Pinecone, Weaviate…) cạnh Postgres, giờ retrieval lai nằm ngay trong DB vận hành — đỡ một hệ thống, đỡ một pipeline đồng bộ embedding. Nén 32x cho hơn một tỉ vector là con số nhắm thẳng vào bài toán RAG quy mô doanh nghiệp với chi phí thấp. Branching dưới một giây thì giải đúng nỗi đau muôn thuở: muốn test trên dữ liệu thật mà không dám đụng production. Với team Việt đang xây app có RAG, mô hình "Postgres lo cả giao dịch lẫn tìm kiếm ngữ nghĩa" đáng đưa vào danh sách đánh giá thử.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="4">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.databricks.com/sites/default/files/2026-06/2026-06-blog-what-s-new-in-unity-catalog-og-1200x628-2x-1.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-4" class="xt" hidden>
+    <a class="title" href="https://www.databricks.com/blog/whats-new-unity-catalog-data-ai-summit-2026" target="_blank" rel="noopener">Databricks xóa "table format lock", trao OpenSharing cho Linux Foundation và mở interop Iceberg</a>
+    <p class="sum">Tại Summit, Databricks đẩy mạnh khả năng tương tác mở: managed table đọc/ghi được cả Delta lẫn Iceberg, và OpenSharing — bước tiến hóa của Delta Sharing — được đưa thành dự án của Linux Foundation, thêm interoperability với Iceberg REST catalog (client như Snowflake hay OSS Spark đọc share qua OIDC), SecureConnect và Global Distribution tự nhân bản xuyên region.</p>
+    <p class="why">💡 Đây là điểm mới so với lần công bố OpenSharing trước: chuyển từ "chuẩn của Databricks" sang dự án quản trị trung lập tại Linux Foundation — nước cờ giành vai người định chuẩn cho chia sẻ dữ liệu và tài sản AI.</p>
+    <div class="meta"><span class="when">📅 16/06</span> <a class="metabtn" href="https://www.databricks.com/blog/whats-new-unity-catalog-data-ai-summit-2026" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-4">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="4">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Managed table đọc/ghi cả Delta lẫn Iceberg, bỏ khóa định dạng bảng</li>
+        <li>OpenSharing trở thành dự án Linux Foundation, quản trị trung lập</li>
+        <li>Iceberg REST catalog đọc share OpenSharing qua OIDC federation</li>
+        <li>SecureConnect và Global Distribution nhân bản xuyên region tự động</li>
+        <li>Mở rộng chia sẻ cả model, agent skill và Genie Agents</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>FORMAT</b>Delta + Iceberg</span>
+        <span class="fact"><b>QUẢN TRỊ</b>Linux Foundation</span>
+        <span class="fact"><b>INTEROP</b>Iceberg REST + OIDC</span>
+        <span class="fact"><b>NGÀY</b>16/06/2026</span>
+      </div>
+      <p class="deep">Cuộc chiến định dạng bảng (Delta vs Iceberg) về cơ bản đã ngã ngũ theo hướng "cả hai cùng tồn tại", và Databricks chọn cách thực dụng: để managed table nói được cả hai thứ tiếng. Quan trọng hơn là việc trao OpenSharing cho Linux Foundation — bài học từ lịch sử mở mã nguồn cho thấy chuẩn nào được quản trị trung lập thì dễ được đối thủ và khách hàng chấp nhận hơn. Với interoperability qua Iceberg REST + OIDC, bên nhận dữ liệu không cần là khách Databricks, chỉ cần engine đọc được Iceberg. Với doanh nghiệp Việt trao đổi dữ liệu giữa các nền tảng khác nhau, đây là tín hiệu nên chuẩn hóa quanh Iceberg REST catalog thay vì khóa cứng vào một vendor — và theo dõi xem Snowflake phản ứng thế nào ở mảng chia sẻ.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<!-- ============ SECTION 2 ============ -->
+<section class="sec" id="sec-2">
+<h2>🛠️ Công cụ &amp; Nền tảng</h2>
+
+<article class="card" data-aid="5">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.databricks.com/sites/default/files/2026-06/2026-06-blog-what-s-new-in-unity-catalog-og-1200x628-2x-1.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-5" class="xt" hidden>
+    <a class="title" href="https://www.databricks.com/blog/whats-new-unity-catalog-data-ai-summit-2026" target="_blank" rel="noopener">Unity Catalog nâng cấp: Metrics làm semantic layer, Business Glossary và Domains</a>
+    <p class="sum">Metrics trong Unity Catalog cho phép định nghĩa KPI (doanh thu, churn, active users, margin) một lần thành object quản trị, dùng lại nhất quán từ SQL, BI, API và agent; kèm semantic modeling đa fact, tính toán level-of-detail, metric tham số hóa, cùng Business Glossary (preview) và Domains (public preview).</p>
+    <p class="why">💡 Semantic layer thống nhất là nền móng để agent trả lời "doanh thu là gì" giống hệt nhau ở mọi nơi — chính lớp ngữ nghĩa này nuôi Genie Ontology, và cũng là chiến trường nóng với Cortex Sense của Snowflake.</p>
+    <div class="meta"><span class="when">📅 16/06</span> <a class="metabtn" href="https://www.databricks.com/blog/whats-new-unity-catalog-data-ai-summit-2026" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-5">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="5">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Metrics: định nghĩa KPI một lần, dùng từ SQL, BI, API và agent</li>
+        <li>Semantic modeling đa fact, tính toán level-of-detail (LOD)</li>
+        <li>Metric tham số hóa, window measure cho phân tích kỳ-so-kỳ dễ hơn</li>
+        <li>Business Glossary (preview) và Domains (public preview)</li>
+        <li>Lớp ngữ nghĩa người dùng định nghĩa nuôi trực tiếp Genie Ontology</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>MỚI</b>Metrics semantic layer</span>
+        <span class="fact"><b>MODEL</b>multi-fact + LOD</span>
+        <span class="fact"><b>GOV</b>Glossary + Domains</span>
+        <span class="fact"><b>NGÀY</b>16/06/2026</span>
+      </div>
+      <p class="deep">Bài học đắt giá của mọi tổ chức làm BI là "mỗi phòng một định nghĩa doanh thu". Metrics trong Unity Catalog đưa định nghĩa lên tầng quản trị trung tâm, để con người và agent đều lấy cùng một con số — điều kiện tiên quyết để tin được câu trả lời của một agent phân tích. Multi-fact và LOD nghe khô khan nhưng là thứ analyst cần để mô hình hóa nghiệp vụ thật (ví dụ doanh thu theo đơn nhưng chi phí theo dòng sản phẩm). Đáng chú ý là mối nối Metrics → Genie Ontology: lớp ngữ nghĩa do người định nghĩa làm "khung xương", còn Ontology tự học làm "phần thịt". Với team Việt, lời khuyên thực tế: đầu tư semantic layer trước khi thả agent vào dữ liệu, vì agent thông minh đến mấy cũng trả lời sai nếu định nghĩa nghiệp vụ còn loạn.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="6">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-6" class="xt" hidden>
+    <a class="title" href="https://www.databricks.com/blog/whats-new-unity-catalog-data-ai-summit-2026" target="_blank" rel="noopener">Unity AI Gateway: lớp quản trị runtime cho agent với chặn PII, prompt injection và kiểm soát chi phí</a>
+    <p class="sum">Unity AI Gateway là lớp quản trị thời gian chạy cho agent: kiểm soát chi phí, smart routing, chính sách theo ngữ cảnh, guardrail chặn PII và prompt injection, cùng tracing thống nhất; hệ sinh thái đối tác gồm CrowdStrike, Palo Alto Networks, Okta, Zscaler, Netskope.</p>
+    <p class="why">💡 Khi agent tự gọi model và tiêu token, câu hỏi sống còn của doanh nghiệp là "ai kiểm soát chi phí và bảo mật" — AI Gateway đặt một cổng chặn ngay giữa agent và LLM.</p>
+    <div class="meta"><span class="when">📅 16/06</span> <a class="metabtn" href="https://www.databricks.com/blog/whats-new-unity-catalog-data-ai-summit-2026" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-6">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="6">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Kiểm soát chi phí và smart routing giữa các model</li>
+        <li>Guardrail chặn PII và prompt injection ở tầng runtime</li>
+        <li>Chính sách dịch vụ theo ngữ cảnh, tracing thống nhất</li>
+        <li>Đối tác: CrowdStrike, Palo Alto Networks, Okta, Zscaler, Netskope</li>
+        <li>Đi kèm các nâng cấp bảo mật AIM, Okta, Context-Based Ingress</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>VAI TRÒ</b>governance runtime</span>
+        <span class="fact"><b>CHẶN</b>PII + prompt injection</span>
+        <span class="fact"><b>COST</b>kiểm soát + routing</span>
+        <span class="fact"><b>NGÀY</b>16/06/2026</span>
+      </div>
+      <p class="deep">Đây là mảnh ghép ít hào nhoáng nhưng quyết định việc agent có được lên production hay không. Một agent tự do gọi LLM mà không có cổng kiểm soát là cơn ác mộng vừa về hóa đơn vừa về rò rỉ dữ liệu. AI Gateway đứng giữa, làm ba việc: routing để chọn model rẻ/khỏe phù hợp, guardrail để không cho PII lọt ra hay prompt injection lọt vào, và tracing để truy vết khi có sự cố. Việc kéo theo CrowdStrike, Palo Alto, Okta cho thấy Databricks muốn nói chuyện được với đội bảo mật doanh nghiệp lớn. Với CIO/CISO Việt đang lo "thả agent vào dữ liệu nội bộ thì kiểm soát kiểu gì", đây chính là loại lớp hạ tầng cần dựng trước khi nhân rộng, dù dùng vendor nào đi nữa.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="7">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.databricks.com/sites/default/files/2026-06/dais26-genie-one-agentic-coworker-press-release-og.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-7" class="xt" hidden>
+    <a class="title" href="https://www.databricks.com/blog/introducing-genie-one-genie-ontology-and-genie-agents" target="_blank" rel="noopener">AI/BI và Genie Code nâng cấp lớn: nhập report từ Tableau/Power BI, choropleth map, cross-filter</a>
+    <p class="sum">Bộ AI/BI thêm theme workspace, hơn 20 font, Gantt chart, choropleth map, cross-filtering, drill-through, metric tham số hóa và subscription qua Slack/Teams; Genie Code có quản lý luồng song song, tích hợp MLflow/Model Serving, tác vụ nền theo lịch và import report Tableau/Power BI sang AI/BI dashboard (beta).</p>
+    <p class="why">💡 Tính năng import từ Tableau/Power BI là đòn nhắm thẳng vào nền khách hàng BI hiện có — hạ rào cản chuyển nhà cho những team muốn gom dashboard về lakehouse.</p>
+    <div class="meta"><span class="when">📅 17/06</span> <a class="metabtn" href="https://www.databricks.com/blog/introducing-genie-one-genie-ontology-and-genie-agents" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-7">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="7">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>AI/BI: theme, 20+ font, Gantt, choropleth map, cross-filter, drill-through</li>
+        <li>Subscription dashboard qua Slack và Teams</li>
+        <li>Genie Code: quản lý thread song song, tích hợp MLflow/Model Serving</li>
+        <li>Tác vụ nền theo lịch, chạy ngầm cho phân tích lặp lại</li>
+        <li>Import report Tableau/Power BI sang AI/BI dashboard (beta)</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>BI</b>+choropleth, cross-filter</span>
+        <span class="fact"><b>MIGRATE</b>Tableau/Power BI (beta)</span>
+        <span class="fact"><b>CODE</b>thread song song</span>
+        <span class="fact"><b>NGÀY</b>17/06/2026</span>
+      </div>
+      <p class="deep">Databricks đang tấn công vào sân nhà của Tableau và Power BI bằng hai mũi: làm AI/BI đủ tính năng để không thua kém về trực quan hóa (choropleth, cross-filter, drill-through là những thứ analyst đòi hỏi), rồi mở luôn đường nhập khẩu dashboard cũ sang. Đây là chiến thuật kinh điển khi muốn chiếm thị phần: giảm chi phí chuyển đổi xuống gần bằng không. Với Genie Code, việc chạy nhiều thread song song và đặt tác vụ nền theo lịch biến nó từ "trợ lý hỏi-đáp" thành "công nhân chạy ngầm". Tại Việt Nam nơi Power BI thống trị, đừng kỳ vọng migrate ồ ạt ngay — nhưng nếu tổ chức đã đứng trên Databricks, thử nhập một vài dashboard quan trọng sang để đo công sức thực tế là bước đi hợp lý.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<!-- ============ SECTION 3 ============ -->
+<section class="sec" id="sec-3">
+<h2>🤖 AI × Data</h2>
+
+<article class="card" data-aid="8">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.databricks.com/sites/default/files/2026-06/2026-06-blog-omnigent-managed-og-1200x628-2x.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-8" class="xt" hidden>
+    <span class="rank">🔥 TOP 3 TUẦN NÀY</span>
+    <a class="title" href="https://www.databricks.com/blog/agent-bricks-dais-2026" target="_blank" rel="noopener">Agent Bricks chạm quy mô sản xuất: 100.000+ agent, hơn một triệu tỉ token mỗi năm</a>
+    <p class="sum">Agent Bricks mở rộng thành nền tảng agent cho developer: đã có hơn 100.000 agent được dựng, xử lý hơn một triệu tỉ (1+ quadrillion) token mỗi năm; thêm lựa chọn model (OpenAI, Anthropic, Gemini, Kimi, Grok qua hợp tác SpaceX), hỗ trợ mọi harness (LangGraph, CrewAI, Claude Code SDK), managed memory trên Lakebase, Document Intelligence SQL (GA) và Databricks Sandbox thực thi cô lập.</p>
+    <p class="why">💡 Con số "một triệu tỉ token/năm" cho thấy agent đã rời giai đoạn thử nghiệm sang sản xuất thật; kèm theo là Omnigent — meta-harness mã nguồn mở Apache 2.0 để phối hợp agent xuyên framework.</p>
+    <div class="meta"><span class="when">📅 16/06</span> <a class="metabtn" href="https://www.databricks.com/blog/agent-bricks-dais-2026" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-8">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="8">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>100.000+ agent đã dựng, hơn một triệu tỉ token mỗi năm</li>
+        <li>Model: OpenAI, Anthropic, Gemini, Kimi, Grok (hợp tác SpaceX)</li>
+        <li>Hỗ trợ mọi harness: LangGraph, CrewAI, Claude Code SDK</li>
+        <li>Managed memory trên Lakebase: agent tự giữ ngữ cảnh, lịch sử phiên</li>
+        <li>Omnigent: meta-harness mã nguồn mở Apache 2.0, đặt ngân sách chi phí</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>AGENT</b>100.000+</span>
+        <span class="fact"><b>TOKEN</b>1+ quadrillion/năm</span>
+        <span class="fact"><b>MEMORY</b>Lakebase managed</span>
+        <span class="fact"><b>NGÀY</b>16/06/2026</span>
+      </div>
+      <p class="deep">Đằng sau những con số khổng lồ là một thay đổi tư duy: Databricks không ép bạn dùng framework của họ mà chấp nhận mọi harness và mọi model, kể cả Grok và Kimi. Đây là canh bạc "làm tầng nền, đừng làm tù ngục" — họ muốn là nơi agent chạy, giữ memory và bị quản trị, còn bạn tự do chọn não. Managed memory trên Lakebase là mảnh quan trọng nhất: vấn đề lớn nhất của agent production không phải model mà là ngữ cảnh — nhớ gì, qua phiên nào, ai được thấy. Omnigent mã nguồn mở Apache 2.0 cho phép đặt ngân sách chi phí và chính sách theo ngữ cảnh, gãi đúng nỗi lo "agent đốt tiền không phanh". Với đội kỹ thuật Việt xây agent nội bộ, bài học là: đừng tự dựng lớp memory và governance từ đầu, hãy tách phần "não" (model) khỏi phần "hạ tầng" (memory, sandbox, cost control).</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="9">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.databricks.com/sites/default/files/2026-06/blog-genie-dais-launch-blog-og.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-9" class="xt" hidden>
+    <span class="rank">🔥 TOP 2 TUẦN NÀY</span>
+    <a class="title" href="https://www.databricks.com/blog/introducing-genie-one-genie-ontology-and-genie-agents" target="_blank" rel="noopener">Databricks ra mắt Genie One + Genie Ontology: "đồng nghiệp AI" trả lời đúng 84,5% câu hỏi nội bộ</a>
+    <p class="sum">Genie One là đồng nghiệp AI agentic cho mọi phòng ban, hoạt động trên web, iOS, Android, Slack và Teams; vận hành bởi Genie Ontology — knowledge graph tự cải thiện, học ngữ cảnh nghiệp vụ từ bảng, dashboard, query và hơn 50 app kết nối, trả lời đúng 84,5% câu hỏi thực tế của nhân viên ngay lần đầu, so với 52,4% của agent code đa dụng.</p>
+    <p class="why">💡 Bước nhảy từ 52,4% lên 84,5% chính là khác biệt giữa "AI đoán mò" và "AI đáng tin để ra quyết định" — chìa khóa nằm ở lớp ngữ cảnh Ontology chứ không phải model mạnh hơn.</p>
+    <div class="meta"><span class="when">📅 16/06</span> <a class="metabtn" href="https://www.databricks.com/blog/introducing-genie-one-genie-ontology-and-genie-agents" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-9">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="9">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Genie One: đồng nghiệp AI trên web, iOS, Android, Slack, Teams</li>
+        <li>Genie Ontology: knowledge graph tự học từ bảng, dashboard, query, 50+ app</li>
+        <li>Đúng 84,5% câu hỏi nhân viên lần đầu, so với 52,4% agent code thường</li>
+        <li>Genie Agents: suy luận trên dữ liệu phi cấu trúc, gọi tool ngoài, chia sẻ qua OpenSharing</li>
+        <li>Pay-as-you-go; từ 06/07 tặng 150 DBU miễn phí mỗi user/tháng</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>ĐỘ CHÍNH XÁC</b>84,5% lần đầu</span>
+        <span class="fact"><b>SO SÁNH</b>52,4% agent thường</span>
+        <span class="fact"><b>KÊNH</b>web/iOS/Android/Slack/Teams</span>
+        <span class="fact"><b>NGÀY</b>16/06/2026</span>
+      </div>
+      <p class="deep">Đây là sản phẩm flagship của Summit và là thông điệp rõ nhất về chiến lược Databricks: cuộc đua giờ không phải model nào thông minh nhất, mà nền tảng nào hiểu nghiệp vụ của bạn nhất. Genie Ontology là câu trả lời — một knowledge graph tự cải thiện, hút ngữ cảnh từ bảng, dashboard, query và hơn 50 app công sở để biết "doanh thu" trong công ty bạn nghĩa là gì. Con số 84,5% so với 52,4% là bằng chứng cho luận điểm "context layer ăn đứt model thuần" — cùng một model nhưng có ngữ cảnh đúng thì độ tin cậy nhảy vọt. Đây là vũ khí trực diện đấu Copilot của Microsoft và Cortex của Snowflake. Với doanh nghiệp Việt, bài học áp dụng được ngay kể cả khi không dùng Databricks: muốn agent trả lời đáng tin, đầu tư vào việc codify ngữ cảnh nghiệp vụ quan trọng hơn là săn model mới nhất.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="10">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-10" class="xt" hidden>
+    <a class="title" href="https://qubika.com/blog/everything-databricks-announced-dais-data-ai-summit-2026/" target="_blank" rel="noopener">CustomerLake: nền CDP đầu tiên nhúng thẳng trong lakehouse với Profile và Campaign Agent tự động</a>
+    <p class="sum">CustomerLake là Customer Data Platform đầu tiên nhúng ngay trong lakehouse, với Profile Agent và Campaign Agent tự động cho cá nhân hóa 1:1, toàn bộ được Unity Catalog quản trị — đưa hoạt động marketing activation lên thẳng dữ liệu gốc thay vì copy sang một CDP riêng.</p>
+    <p class="why">💡 CDP truyền thống là một silo nữa phải đồng bộ; đặt nó ngay trong lakehouse xóa khâu sao chép dữ liệu khách hàng và để agent kích hoạt chiến dịch trên dữ liệu được quản trị.</p>
+    <div class="meta"><span class="when">📅 17/06</span> <a class="metabtn" href="https://qubika.com/blog/everything-databricks-announced-dais-data-ai-summit-2026/" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-10">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="10">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>CDP đầu tiên nhúng thẳng trong lakehouse, không cần copy dữ liệu</li>
+        <li>Profile Agent dựng và làm giàu hồ sơ khách hàng tự động</li>
+        <li>Campaign Agent kích hoạt chiến dịch cá nhân hóa 1:1</li>
+        <li>Toàn bộ được Unity Catalog quản trị, đồng nhất quyền và dòng dõi dữ liệu</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>LOẠI</b>lakehouse-native CDP</span>
+        <span class="fact"><b>AGENT</b>Profile + Campaign</span>
+        <span class="fact"><b>GOV</b>Unity Catalog</span>
+        <span class="fact"><b>NGÀY</b>17/06/2026</span>
+      </div>
+      <p class="deep">CustomerLake cho thấy tham vọng của Databricks lan sang cả lớp ứng dụng nghiệp vụ, không chỉ hạ tầng. Logic rất hợp lý: dữ liệu khách hàng vốn đã nằm trong lakehouse, vậy tại sao phải copy sang một CDP như Segment hay Adobe rồi đồng bộ ngược? Đặt CDP ngay tại chỗ, agent kích hoạt chiến dịch trên dữ liệu gốc được Unity Catalog quản trị — đỡ một silo, đỡ rủi ro lệch dữ liệu giữa nơi phân tích và nơi kích hoạt. Đây là tin đáng chú ý cho team martech và growth tại Việt Nam đang vật lộn với việc dữ liệu khách hàng rải rác. Tuy nhiên cần thực tế: thay một CDP đã chạy không đơn giản, nên xem CustomerLake như lựa chọn cho dự án mới hoặc khi đang tính dựng CDP đầu tiên trên nền lakehouse.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<!-- ============ SECTION 4 ============ -->
+<section class="sec" id="sec-4">
+<h2>📈 Hot trend &amp; Thảo luận cộng đồng</h2>
+
+<article class="card" data-aid="11">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://thecuberesearch.com/wp-content/uploads/ChatGPT-Image-Jun-18-2026-11_07_51-AM.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=thecuberesearch.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-11" class="xt" hidden>
+    <a class="title" href="https://thecuberesearch.com/databricks-data-ai-summit-2026-wrap-up-the-lakehouse-becomes-the-operating-layer-for-agentic-ai/" target="_blank" rel="noopener">theCUBE chốt Summit: lakehouse trở thành "tầng vận hành" cho AI agent</a>
+    <p class="sum">Bài tổng kết của theCUBE Research lập luận rằng qua loạt công bố — Unity AI Gateway, LTAP, Lakehouse//RT, Genie One, Genie Code, CustomerLake — Databricks đang định vị lakehouse thành lớp vận hành có quản trị cho agentic AI: tổ chức cần ngữ cảnh được quản trị, truy cập realtime, nhất quán giao dịch, kiểm soát runtime và thực thi đáng tin cho cả người lẫn agent.</p>
+    <p class="why">💡 Khung tư duy "lakehouse = operating layer" gói gọn cả tuần Summit thành một luận điểm và là cách hữu ích để đọc động thái của mọi vendor dữ liệu trong 12 tháng tới.</p>
+    <div class="meta"><span class="when">📅 18/06</span> <a class="metabtn" href="https://thecuberesearch.com/databricks-data-ai-summit-2026-wrap-up-the-lakehouse-becomes-the-operating-layer-for-agentic-ai/" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-11">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="11">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Luận điểm trung tâm: lakehouse là tầng vận hành có quản trị cho agent</li>
+        <li>Sáu nhu cầu: ngữ cảnh quản trị, realtime, nhất quán giao dịch, kiểm soát runtime, chi phí minh bạch, thực thi tin cậy</li>
+        <li>Gắn kết các mảnh: Gateway, LTAP, Lakehouse//RT, Genie, CustomerLake</li>
+        <li>Databricks mở rộng vai trò sang surface vận hành quanh enterprise AI</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGUỒN</b>theCUBE Research</span>
+        <span class="fact"><b>LUẬN ĐIỂM</b>lakehouse = operating layer</span>
+        <span class="fact"><b>NGÀY</b>18/06/2026</span>
+      </div>
+      <p class="deep">Giá trị của bài này nằm ở việc nó kéo hàng chục công bố rời rạc về một câu chuyện duy nhất: lakehouse không còn chỉ để phân tích, nó đang biến thành nơi agent sống và làm việc. Nếu khung này đúng, mọi quyết định kiến trúc dữ liệu trong năm tới sẽ phải trả lời câu hỏi "lớp này có phục vụ được agent realtime, có quản trị được, có kiểm soát chi phí không". Đó cũng là lăng kính để đọc Snowflake, Microsoft Fabric hay BigQuery — ai cũng đang chạy về cùng một đích. Với người làm dữ liệu Việt, đừng đọc Summit như danh sách tính năng mà như bản đồ hướng đi: kỹ năng quản trị ngữ cảnh, semantic layer và governance đang trở thành phần giá trị nhất của nghề, hơn cả việc viết pipeline.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="12">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://moorinsightsstrategy.com/wp-content/uploads/2026/06/IMG_4973-1-scaled.webp" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=moorinsightsstrategy.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-12" class="xt" hidden>
+    <a class="title" href="https://moorinsightsstrategy.com/field-notes/databricks-bets-on-owning-the-agentic-data-stack-at-data-ai-summit-2026/" target="_blank" rel="noopener">Moor Insights: Databricks đặt cược "sở hữu trọn agentic data stack"</a>
+    <p class="sum">Phân tích của Moor Insights &amp; Strategy nhìn nhận Databricks đang mở rộng từ nền tảng dữ liệu sang ôm trọn ngăn xếp agentic — từ database vận hành, real-time serving, transaction, đồng nghiệp AI, coding agent đến marketing activation và ZeroOps — nhằm chiếm phần vận hành quanh enterprise AI.</p>
+    <p class="why">💡 Góc nhìn analyst độc lập giúp cân lại marketing của vendor: cùng dữ kiện nhưng đặt câu hỏi liệu "ôm trọn stack" là sức mạnh hợp nhất hay rủi ro khóa chân khách hàng.</p>
+    <div class="meta"><span class="when">📅 16/06</span> <a class="metabtn" href="https://moorinsightsstrategy.com/field-notes/databricks-bets-on-owning-the-agentic-data-stack-at-data-ai-summit-2026/" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-12">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="12">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Databricks mở rộng từ nền tảng dữ liệu sang trọn agentic stack</li>
+        <li>Bao gồm OLTP, real-time serving, AI coworker, coding agent, CDP, ZeroOps</li>
+        <li>Mục tiêu: chiếm phần "surface vận hành" quanh enterprise AI</li>
+        <li>Đặt ra câu hỏi hợp nhất sức mạnh vs rủi ro khóa chân vendor</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGUỒN</b>Moor Insights</span>
+        <span class="fact"><b>GÓC NHÌN</b>own the stack</span>
+        <span class="fact"><b>NGÀY</b>16/06/2026</span>
+      </div>
+      <p class="deep">Điểm hay của Moor Insights là không bị cuốn theo hào quang sân khấu. "Sở hữu trọn stack" nghe tuyệt vời với Databricks nhưng với khách hàng nó là con dao hai lưỡi: tích hợp liền mạch đổi lấy phụ thuộc sâu. Một tổ chức để LTAP làm DB, Genie làm BI, Agent Bricks làm agent, CustomerLake làm CDP thì sau ba năm gần như không thể rời đi. Bài học cho lãnh đạo dữ liệu Việt: tận dụng sự tiện lợi nhưng giữ vài điểm thoát — chuẩn hóa quanh định dạng mở (Iceberg), tách logic nghiệp vụ khỏi công cụ, và đừng để mọi lớp đều thuộc một nhà cung cấp. Hợp nhất là xu hướng tất yếu của thị trường năm nay, nhưng "hợp nhất khôn ngoan" khác với "khóa chân tự nguyện".</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="13">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=techtimes.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-13" class="xt" hidden>
+    <a class="title" href="https://www.techtimes.com/articles/318450/20260616/databricks-summit-2026-day-2-agentic-ai-catalog-federation-move-lab-enterprise.htm" target="_blank" rel="noopener">TechTimes: Summit Day 2 — agentic AI và catalog federation bước từ phòng lab ra doanh nghiệp</a>
+    <p class="sum">Bản tin ngày thứ hai của Summit ghi nhận chủ đề lớn: agentic AI và catalog federation không còn là khái niệm thử nghiệm mà đã chín để triển khai diện rộng, với các năng lực quản trị, liên thông catalog và agent production trở thành tâm điểm bàn luận của giới doanh nghiệp.</p>
+    <p class="why">💡 "Từ lab ra enterprise" là cụm từ then chốt của cả tuần: 2025 là năm thử nghiệm agent, 2026 là năm đưa agent và governance vào vận hành thật.</p>
+    <div class="meta"><span class="when">📅 16/06</span> <a class="metabtn" href="https://www.techtimes.com/articles/318450/20260616/databricks-summit-2026-day-2-agentic-ai-catalog-federation-move-lab-enterprise.htm" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-13">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="13">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Chủ đề Day 2: agentic AI và catalog federation lên mức enterprise</li>
+        <li>Governance và liên thông catalog thành điều kiện triển khai diện rộng</li>
+        <li>Agent chuyển từ demo sang workload sản xuất</li>
+        <li>Doanh nghiệp quan tâm độ tin cậy, quản trị và chi phí hơn là tính năng</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGUỒN</b>TechTimes</span>
+        <span class="fact"><b>CHỦ ĐỀ</b>lab → enterprise</span>
+        <span class="fact"><b>NGÀY</b>16/06/2026</span>
+      </div>
+      <p class="deep">Điểm đáng nhớ trong tường thuật này là sự dịch chuyển trọng tâm câu hỏi của doanh nghiệp. Năm ngoái người ta hỏi "agent làm được gì"; năm nay câu hỏi là "làm sao tin được, quản trị thế nào, tốn bao nhiêu". Catalog federation — khả năng liên thông nhiều catalog mà không phải gom hết về một chỗ — nổi lên vì thực tế doanh nghiệp lớn không bao giờ có một catalog duy nhất. Với team dữ liệu Việt, tín hiệu thực tế là: nếu đang định thử agent phân tích nội bộ, 2026 là thời điểm hợp lý để chuyển từ POC sang triển khai có kiểm soát, nhưng phải dựng governance và semantic layer trước, đừng thả agent vào dữ liệu loạn.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="14">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://startupfortune.com/wp-content/uploads/2026/06/sf-13900-1781614074008.jpg" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=startupfortune.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-14" class="xt" hidden>
+    <a class="title" href="https://startupfortune.com/databricks-is-closing-in-on-snowflake-and-the-numbers-make-that-case-plainly/" target="_blank" rel="noopener">"Databricks đang bám sát Snowflake" — và các con số nói rõ điều đó</a>
+    <p class="sum">Giữa mùa Summit của cả hai bên, giới phân tích so sánh đà tăng trưởng: Databricks đặt cược vào nhóm data science và AI-native, Snowflake cược vào chuẩn hóa do IT dẫn dắt; chỉ dấu sớm cho thấy mô hình triển khai lai (dùng cả hai) ngày càng phổ biến trong doanh nghiệp lớn.</p>
+    <p class="why">💡 Cuộc đua hai ông lớn định hình lựa chọn của cả thị trường; hiểu chiến lược mỗi bên giúp doanh nghiệp Việt chọn nền tảng đúng theo điểm mạnh tổ chức mình.</p>
+    <div class="meta"><span class="when">📅 17/06</span> <a class="metabtn" href="https://startupfortune.com/databricks-is-closing-in-on-snowflake-and-the-numbers-make-that-case-plainly/" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-14">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="14">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Databricks cược vào data science và AI-native adoption</li>
+        <li>Snowflake cược vào chuẩn hóa do IT dẫn dắt</li>
+        <li>Triển khai lai (dùng cả hai) ngày càng phổ biến ở doanh nghiệp lớn</li>
+        <li>Cả hai đều dồn lực vào agentic AI và semantic layer mùa Summit</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>DATABRICKS</b>AI-native, data science</span>
+        <span class="fact"><b>SNOWFLAKE</b>IT-driven chuẩn hóa</span>
+        <span class="fact"><b>XU HƯỚNG</b>triển khai lai</span>
+      </div>
+      <p class="deep">Thực tế ít ai nói thẳng: phần lớn doanh nghiệp lớn cuối cùng dùng cả hai, mỗi nền cho một thế mạnh. Snowflake mạnh ở trải nghiệm SQL warehouse mượt và quản trị do IT dẫn dắt; Databricks mạnh ở data engineering, ML và giờ là agentic stack. Với doanh nghiệp Việt, đừng sa vào tranh luận "ai thắng" mà hỏi tổ chức mình nghiêng về đâu: nếu mạnh đội data science và muốn AI-native, Databricks hợp hơn; nếu cần chuẩn hóa, governance do IT kiểm soát chặt, Snowflake dễ vào hơn. Điểm chung quan trọng nhất: cả hai đang hội tụ về Iceberg và semantic layer, nên đầu tư vào kỹ năng và chuẩn mở sẽ dùng được dù chọn nền nào.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<!-- ============ SECTION 5 ============ -->
+<section class="sec" id="sec-5">
+<h2>🏢 Ngành &amp; Doanh nghiệp</h2>
+
+<article class="card" data-aid="15">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.databricks.com/sites/default/files/2026-06/unnamed-22.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-15" class="xt" hidden>
+    <span class="rank">🔥 TOP 4 TUẦN NÀY</span>
+    <a class="title" href="https://www.databricks.com/company/newsroom/press-releases/databricks-agrees-acquire-panther-further-establishing-security" target="_blank" rel="noopener">Databricks thâu tóm Panther, dựng "security lakehouse" và ra mắt LakeWatch SIEM agentic</a>
+    <p class="sum">Databricks công bố mua lại Panther — nền tảng AI SOC với hơn 100 tích hợp dựng sẵn, detection-as-code và workflow SOC agentic — để củng cố danh mục security lakehouse; đi kèm LakeWatch, SIEM agentic dựng trên Unity Catalog và Open Cybersecurity Schema Framework, hứa giảm tới 80% TCO so với SIEM truyền thống.</p>
+    <p class="why">💡 An ninh mạng là một trong những nguồn dữ liệu lớn và đắt đỏ nhất; đưa SIEM vào lakehouse và gắn AI agent là đòn tấn công trực diện vào Splunk và các SIEM cũ.</p>
+    <div class="meta"><span class="when">📅 16/06</span> <a class="metabtn" href="https://www.databricks.com/company/newsroom/press-releases/databricks-agrees-acquire-panther-further-establishing-security" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-15">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="15">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Mua lại Panther: AI SOC, 100+ tích hợp sẵn, detection-as-code</li>
+        <li>LakeWatch: SIEM agentic trên Unity Catalog và OCSF</li>
+        <li>Agent tự triage cảnh báo, gom ngữ cảnh, đề xuất bước xử lý</li>
+        <li>Hứa giảm tới 80% TCO so với SIEM truyền thống</li>
+        <li>Panther vốn được các đội bảo mật hàng đầu, gồm cả Anthropic, tin dùng</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>THƯƠNG VỤ</b>mua Panther</span>
+        <span class="fact"><b>SẢN PHẨM</b>LakeWatch SIEM</span>
+        <span class="fact"><b>TCO</b>giảm tới 80%</span>
+        <span class="fact"><b>NGÀY</b>16/06/2026</span>
+      </div>
+      <p class="deep">Đây là thương vụ M&amp;A đáng chú ý nhất tuần và mở ra một mặt trận mới: "security lakehouse". Logic kinh tế rất rõ — log bảo mật là khối dữ liệu khổng lồ, và SIEM truyền thống như Splunk tính tiền theo lượng nuốt vào nên đắt khủng khiếp. Đổ log thẳng vào lakehouse, dùng compute rẻ và để agent tự triage là công thức giảm chi phí mạnh, con số 80% TCO tuy là tuyên bố vendor nhưng hướng đi hợp lý. Việc Panther được chính Anthropic tin dùng là tín hiệu uy tín. Với CISO và đội SOC Việt Nam đang đau đầu vì hóa đơn SIEM, đây là lựa chọn cần theo dõi — nhất là khi muốn gắn AI agent vào quy trình điều tra. Mặt cần soi: chuyển SIEM là việc lớn, và detection-as-code đòi kỹ năng kỹ sư chứ không chỉ analyst bảo mật.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="16">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-16" class="xt" hidden>
+    <a class="title" href="https://qubika.com/blog/everything-databricks-announced-dais-data-ai-summit-2026/" target="_blank" rel="noopener">Databricks Free Edition mở rộng: thêm Genie Code, serverless GPU, Lakebase, Agent Bricks, Lakeflow Designer</a>
+    <p class="sum">Databricks Free Edition (hơn 500.000 người dùng) được bổ sung năm sản phẩm: Genie Code, serverless GPU, Lakebase, Agent Bricks và Lakeflow Designer — cho phép học và thử nghiệm gần như toàn bộ ngăn xếp agentic miễn phí, một nước cờ thu hút developer rõ rệt.</p>
+    <p class="why">💡 Cho dùng miễn phí cả serverless GPU và Agent Bricks là cách rẻ nhất để xây thế hệ developer "lớn lên" trên nền tảng — chiến lược tăng trưởng từ dưới lên kinh điển.</p>
+    <div class="meta"><span class="when">📅 17/06</span> <a class="metabtn" href="https://qubika.com/blog/everything-databricks-announced-dais-data-ai-summit-2026/" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-16">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="16">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>Free Edition đã có hơn 500.000 người dùng</li>
+        <li>Thêm: Genie Code, serverless GPU, Lakebase, Agent Bricks, Lakeflow Designer</li>
+        <li>Thử nghiệm gần trọn ngăn xếp agentic mà không tốn phí</li>
+        <li>Chiến lược bottom-up: nuôi developer làm quen nền tảng từ sớm</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGƯỜI DÙNG</b>500.000+</span>
+        <span class="fact"><b>THÊM</b>5 sản phẩm</span>
+        <span class="fact"><b>GPU</b>serverless miễn phí</span>
+        <span class="fact"><b>NGÀY</b>17/06/2026</span>
+      </div>
+      <p class="deep">Đừng xem nhẹ tin "miễn phí" này — nó là vũ khí tăng trưởng. Cho sinh viên, developer và startup dùng serverless GPU cùng Agent Bricks không tốn tiền nghĩa là vài năm nữa cả một thế hệ kỹ sư sẽ thành thạo Databricks trước khi vào doanh nghiệp. Đây đúng kịch bản mà Snowflake, MongoDB hay Postgres từng làm. Với cộng đồng dữ liệu Việt Nam — nơi chi phí cloud luôn là rào cản học tập — Free Edition mở rộng là cơ hội thật để thực hành agentic data engineering, RAG trên Lakebase và thử model trên serverless GPU mà không phải xin ngân sách. Lời khuyên: tận dụng để học và dựng portfolio, nhưng khi lên production hãy tính kỹ chi phí thật và bài toán khóa chân.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="17">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=qubika.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-17" class="xt" hidden>
+    <a class="title" href="https://qubika.com/blog/everything-databricks-announced-dais-data-ai-summit-2026/" target="_blank" rel="noopener">Databricks Marketplace cho phân phối app tới 20.000+ khách hàng, mở mua sản phẩm đối tác bằng Universal Commits</a>
+    <p class="sum">Tại Summit, Databricks Marketplace mở cho phép phân phối app tới hơn 20.000 khách hàng với IP được bảo vệ; đồng thời khách hàng có thể dùng tới 10% Universal Commits để mua sản phẩm đối tác bên thứ ba đủ điều kiện qua Marketplace.</p>
+    <p class="why">💡 Cho phép tiêu cam kết chi tiêu (commit) vào sản phẩm đối tác biến Marketplace thành kênh phân phối thật — đòn bẩy hệ sinh thái mà mọi nền tảng đều thèm muốn.</p>
+    <div class="meta"><span class="when">📅 17/06</span> <a class="metabtn" href="https://qubika.com/blog/everything-databricks-announced-dais-data-ai-summit-2026/" target="_blank" rel="noopener">🔗 Website</a> <label class="metabtn xbtn" for="x-17">📖 Mở rộng</label> <button class="readbtn" type="button" data-aid="17">▶ Audio</button></div>
+    <div class="more">
+      <ul class="kb">
+        <li>App phân phối tới hơn 20.000 khách hàng, IP được bảo vệ</li>
+        <li>Dùng tới 10% Universal Commits mua sản phẩm đối tác đủ điều kiện</li>
+        <li>App Spaces làm ranh giới quản trị quyền và bảo mật</li>
+        <li>Serverless Micro Apps: runtime nhẹ, tự scale về 0 khi rảnh</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>TIẾP CẬN</b>20.000+ khách hàng</span>
+        <span class="fact"><b>COMMIT</b>tới 10% cho đối tác</span>
+        <span class="fact"><b>APP</b>Micro Apps scale-to-zero</span>
+        <span class="fact"><b>NGÀY</b>17/06/2026</span>
+      </div>
+      <p class="deep">Tin này dành cho các công ty phần mềm và ISV hơn là người dùng cuối, nhưng tác động dài hạn lớn. Khi khách hàng được dùng ngân sách cam kết sẵn để mua app đối tác ngay trong Marketplace, rào cản bán hàng giảm hẳn — đối tác bán được hàng mà khách không phải mở quy trình mua sắm mới. Đây là cách Databricks biến nền tảng thành một nền kinh tế, giống AWS Marketplace từng làm. Với startup và công ty phần mềm dữ liệu Việt Nam muốn tiếp cận thị trường quốc tế, xây sản phẩm chạy trên Databricks và lên Marketplace là một kênh phân phối đáng cân nhắc nghiêm túc — tiếp cận hơn 20.000 khách hàng doanh nghiệp là con số không nhỏ.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<footer>
+  Bản tin tạo lúc 21:00 ngày 20/06/2026 · Tổng cộng 17 tin trong tuần W25 · Tuyển chọn &amp; đọc bởi Duc Nguyen · <a href="https://ducnguyen.vn" target="_blank" rel="noopener">ducnguyen.vn</a>
+</footer>
+
+</div>
+<script src="../../assets/bg.js" defer></script>
+<!--MEDIA_INJECTED-->
+<script>
+(function(){
+  var base="../../audio/2026-06-20/";
+  var cur=null;
+  function play(src){ if(cur){cur.pause();} cur=new Audio(src); cur.play().catch(function(){}); }
+  function stop(){ if(cur){cur.pause(); cur=null;} }
+  document.addEventListener("DOMContentLoaded",function(){
+    var ra=document.getElementById("readAll"); if(ra) ra.onclick=function(){ play(base+"all.mp3"); };
+    var rs=document.getElementById("readStop"); if(rs) rs.onclick=stop;
+    document.querySelectorAll(".readbtn").forEach(function(b){
+      b.onclick=function(){ var id=b.getAttribute("data-aid"); if(id) play(base+id+".mp3"); };
+    });
+  });
+})();
+</script>
+</body>
+</html>

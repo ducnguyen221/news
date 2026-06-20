@@ -1,0 +1,399 @@
+{
+ "date": "20/06/2026",
+ "week": "W25",
+ "range": "15/06 - 21/06/2026",
+ "tldr": "Tuần 15 đến 21 tháng 6 gần như chỉ có một tâm điểm: Data + AI Summit 2026 của Databricks tại San Francisco, diễn ra từ 15 đến 18 tháng 6 với hơn 30.000 người tham dự. Databricks tung dồn dập: kiến trúc LTAP hợp nhất giao dịch và phân tích trên một bản copy duy nhất, Lakeflow lên GA cho agentic data engineering với độ trễ thấp tới 5 mili-giây, Agent Bricks chạm quy mô sản xuất với hơn 100.000 agent và hơn một triệu tỉ token mỗi năm, Genie One cùng Genie Ontology làm đồng nghiệp AI trả lời đúng 84,5% câu hỏi nội bộ. Hãng còn thâu tóm Panther để dựng security lakehouse, trao OpenSharing cho Linux Foundation và mở rộng Free Edition. Giới phân tích như theCUBE và Moor Insights chốt một thông điệp: lakehouse đang trở thành tầng vận hành cho AI agent, và cuộc đua với Snowflake nóng hơn bao giờ hết.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "Databricks ra mắt LTAP: kiến trúc đầu tiên hợp nhất giao dịch và phân tích trên một bản copy dữ liệu",
+   "title_en": "Databricks Launches LTAP: The First Lake Transactional/Analytical Processing Architecture",
+   "summary": "LTAP gộp Lakebase Postgres serverless trên object storage mở với lakehouse dưới cùng một mô hình quản trị, một nguồn sự thật và một lớp lưu trữ cho mọi dữ liệu giao dịch, phân tích, streaming và vận hành, loại bỏ luôn pipeline CDC giữa OLTP và OLAP.",
+   "why": "Suốt 40 năm ngành dữ liệu mặc định phải tách OLTP và OLAP rồi nối bằng ETL và CDC; LTAP đặt cược rằng AI agent vừa đọc lịch sử vừa cập nhật trạng thái app theo thời gian thực nên cần một kho duy nhất, không độ trễ đồng bộ.",
+   "url": "https://www.databricks.com/company/newsroom/press-releases/databricks-launches-ltap-first-lake-transactionalanalytical",
+   "domain": "databricks.com",
+   "date": "2026-06-18",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 1
+  },
+  {
+   "aid": 2,
+   "title": "Lakeflow GA: kỷ nguyên \"agentic data engineering\" với độ trễ thấp tới 5 mili-giây",
+   "title_en": "Lakeflow: A new era of agentic data engineering",
+   "summary": "Lakeflow hợp nhất ingestion, transformation và orchestration dưới Unity Catalog: Lakeflow Connect vượt 100 connector quản lý, Lakeflow Designer GA dựng pipeline kéo-thả no-code, Zerobus ghi gần realtime dưới 5 giây và Real-Time Mode đạt độ trễ end-to-end thấp tới 5 mili-giây.",
+   "why": "Tooling rời rạc lâu nay là nỗi đau kinh điển của kỹ sư dữ liệu; Lakeflow gom về một mối và bổ sung Genie ZeroOps, agent nền tự phân tích nguyên nhân lỗi và đề xuất bản vá trong sandbox.",
+   "url": "https://www.databricks.com/blog/lakeflow-new-era-agentic-data-engineering",
+   "domain": "databricks.com",
+   "date": "2026-06-16",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 5
+  },
+  {
+   "aid": 3,
+   "title": "Lakebase nâng cấp tại Summit: branching kiểu git dưới giây, DR xuyên cloud và Lakebase Search",
+   "title_en": "Lakebase updates at Data + AI Summit 2026",
+   "summary": "Lakebase, lớp database vận hành Postgres serverless cho AI agent, được bổ sung disaster recovery xuyên cloud và region, snapshot và branching kiểu git dưới một giây, vận hành tự động và Lakebase Search beta: truy hồi lai vector và full-text dựng thẳng trong Postgres với nén 32x cho hơn một tỉ vector index.",
+   "why": "Branching dưới một giây biến database thành thứ fork như code; agent hay developer có thể tạo môi trường thử nghiệm tức thì rồi bỏ đi, đúng tinh thần dev-loop của kỷ nguyên agent.",
+   "url": "https://thecuberesearch.com/databricks-data-ai-summit-2026-wrap-up-the-lakehouse-becomes-the-operating-layer-for-agentic-ai/",
+   "domain": "thecuberesearch.com",
+   "date": "2026-06-16",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 4,
+   "title": "Databricks xóa \"table format lock\", trao OpenSharing cho Linux Foundation và mở interop Iceberg",
+   "title_en": "What's new with Unity Catalog at Data + AI Summit 2026",
+   "summary": "Databricks đẩy mạnh tương tác mở: managed table đọc/ghi được cả Delta lẫn Iceberg, và OpenSharing được đưa thành dự án Linux Foundation, thêm interoperability với Iceberg REST catalog qua OIDC, SecureConnect và Global Distribution tự nhân bản xuyên region.",
+   "why": "Đây là điểm mới so với lần công bố OpenSharing trước: chuyển từ chuẩn của Databricks sang dự án quản trị trung lập tại Linux Foundation, nước cờ giành vai người định chuẩn cho chia sẻ dữ liệu và tài sản AI.",
+   "url": "https://www.databricks.com/blog/whats-new-unity-catalog-data-ai-summit-2026",
+   "domain": "databricks.com",
+   "date": "2026-06-16",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 5,
+   "title": "Unity Catalog nâng cấp: Metrics làm semantic layer, Business Glossary và Domains",
+   "title_en": "Metrics, Business Glossary and Domains in Unity Catalog",
+   "summary": "Metrics trong Unity Catalog cho phép định nghĩa KPI một lần thành object quản trị, dùng lại nhất quán từ SQL, BI, API và agent; kèm semantic modeling đa fact, tính toán level-of-detail, metric tham số hóa, cùng Business Glossary preview và Domains public preview.",
+   "why": "Semantic layer thống nhất là nền móng để agent trả lời doanh thu là gì giống hệt nhau ở mọi nơi; chính lớp ngữ nghĩa này nuôi Genie Ontology và cũng là chiến trường nóng với Cortex Sense của Snowflake.",
+   "url": "https://www.databricks.com/blog/whats-new-unity-catalog-data-ai-summit-2026",
+   "domain": "databricks.com",
+   "date": "2026-06-16",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "Unity AI Gateway: lớp quản trị runtime cho agent với chặn PII, prompt injection và kiểm soát chi phí",
+   "title_en": "Unity AI Gateway for agent governance",
+   "summary": "Unity AI Gateway là lớp quản trị thời gian chạy cho agent: kiểm soát chi phí, smart routing, chính sách theo ngữ cảnh, guardrail chặn PII và prompt injection, cùng tracing thống nhất; hệ sinh thái đối tác gồm CrowdStrike, Palo Alto Networks, Okta, Zscaler, Netskope.",
+   "why": "Khi agent tự gọi model và tiêu token, câu hỏi sống còn của doanh nghiệp là ai kiểm soát chi phí và bảo mật; AI Gateway đặt một cổng chặn ngay giữa agent và LLM.",
+   "url": "https://www.databricks.com/blog/whats-new-unity-catalog-data-ai-summit-2026",
+   "domain": "databricks.com",
+   "date": "2026-06-16",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "AI/BI và Genie Code nâng cấp lớn: nhập report từ Tableau/Power BI, choropleth map, cross-filter",
+   "title_en": "AI/BI and Genie Code updates at DAIS 2026",
+   "summary": "Bộ AI/BI thêm theme workspace, hơn 20 font, Gantt chart, choropleth map, cross-filtering, drill-through và subscription qua Slack/Teams; Genie Code có quản lý luồng song song, tích hợp MLflow và Model Serving, tác vụ nền theo lịch và import report Tableau/Power BI sang AI/BI dashboard ở bản beta.",
+   "why": "Tính năng import từ Tableau và Power BI là đòn nhắm thẳng vào nền khách hàng BI hiện có, hạ rào cản chuyển nhà cho những team muốn gom dashboard về lakehouse.",
+   "url": "https://www.databricks.com/blog/introducing-genie-one-genie-ontology-and-genie-agents",
+   "domain": "databricks.com",
+   "date": "2026-06-17",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "Agent Bricks chạm quy mô sản xuất: 100.000+ agent, hơn một triệu tỉ token mỗi năm",
+   "title_en": "Agent Bricks: Data + AI Summit 2026",
+   "summary": "Agent Bricks mở rộng thành nền tảng agent cho developer: hơn 100.000 agent được dựng, xử lý hơn một triệu tỉ token mỗi năm; thêm lựa chọn model OpenAI, Anthropic, Gemini, Kimi, Grok, hỗ trợ mọi harness, managed memory trên Lakebase, Document Intelligence SQL GA và Databricks Sandbox thực thi cô lập.",
+   "why": "Con số một triệu tỉ token mỗi năm cho thấy agent đã rời giai đoạn thử nghiệm sang sản xuất thật; kèm theo là Omnigent, meta-harness mã nguồn mở Apache 2.0 để phối hợp agent xuyên framework.",
+   "url": "https://www.databricks.com/blog/agent-bricks-dais-2026",
+   "domain": "databricks.com",
+   "date": "2026-06-16",
+   "section": "🤖 AI × Data",
+   "hot_rank": 3
+  },
+  {
+   "aid": 9,
+   "title": "Databricks ra mắt Genie One + Genie Ontology: \"đồng nghiệp AI\" trả lời đúng 84,5% câu hỏi nội bộ",
+   "title_en": "Introducing Genie One, Genie Ontology, and Genie Agents",
+   "summary": "Genie One là đồng nghiệp AI agentic cho mọi phòng ban, hoạt động trên web, iOS, Android, Slack và Teams; vận hành bởi Genie Ontology, knowledge graph tự cải thiện, học ngữ cảnh nghiệp vụ từ bảng, dashboard, query và hơn 50 app kết nối, trả lời đúng 84,5% câu hỏi nhân viên ngay lần đầu so với 52,4% của agent code đa dụng.",
+   "why": "Bước nhảy từ 52,4% lên 84,5% chính là khác biệt giữa AI đoán mò và AI đáng tin để ra quyết định; chìa khóa nằm ở lớp ngữ cảnh Ontology chứ không phải model mạnh hơn.",
+   "url": "https://www.databricks.com/blog/introducing-genie-one-genie-ontology-and-genie-agents",
+   "domain": "databricks.com",
+   "date": "2026-06-16",
+   "section": "🤖 AI × Data",
+   "hot_rank": 2
+  },
+  {
+   "aid": 10,
+   "title": "CustomerLake: nền CDP đầu tiên nhúng thẳng trong lakehouse với Profile và Campaign Agent tự động",
+   "title_en": "CustomerLake: the first lakehouse-embedded CDP",
+   "summary": "CustomerLake là Customer Data Platform đầu tiên nhúng ngay trong lakehouse, với Profile Agent và Campaign Agent tự động cho cá nhân hóa 1:1, toàn bộ được Unity Catalog quản trị, đưa marketing activation lên thẳng dữ liệu gốc thay vì copy sang một CDP riêng.",
+   "why": "CDP truyền thống là một silo nữa phải đồng bộ; đặt nó ngay trong lakehouse xóa khâu sao chép dữ liệu khách hàng và để agent kích hoạt chiến dịch trên dữ liệu được quản trị.",
+   "url": "https://qubika.com/blog/everything-databricks-announced-dais-data-ai-summit-2026/",
+   "domain": "qubika.com",
+   "date": "2026-06-17",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "theCUBE chốt Summit: lakehouse trở thành \"tầng vận hành\" cho AI agent",
+   "title_en": "Databricks Data + AI Summit 2026 Wrap-Up: The Lakehouse Becomes the Operating Layer for Agentic AI",
+   "summary": "Bài tổng kết của theCUBE Research lập luận qua loạt công bố như Unity AI Gateway, LTAP, Lakehouse RT, Genie One, Genie Code và CustomerLake, Databricks đang định vị lakehouse thành lớp vận hành có quản trị cho agentic AI: tổ chức cần ngữ cảnh được quản trị, realtime, nhất quán giao dịch, kiểm soát runtime và thực thi đáng tin cho cả người lẫn agent.",
+   "why": "Khung tư duy lakehouse là tầng vận hành gói gọn cả tuần Summit thành một luận điểm và là cách hữu ích để đọc động thái của mọi vendor dữ liệu trong 12 tháng tới.",
+   "url": "https://thecuberesearch.com/databricks-data-ai-summit-2026-wrap-up-the-lakehouse-becomes-the-operating-layer-for-agentic-ai/",
+   "domain": "thecuberesearch.com",
+   "date": "2026-06-18",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "Moor Insights: Databricks đặt cược \"sở hữu trọn agentic data stack\"",
+   "title_en": "Databricks Bets on Owning the Agentic Data Stack at Data + AI Summit 2026",
+   "summary": "Phân tích của Moor Insights & Strategy nhìn nhận Databricks đang mở rộng từ nền tảng dữ liệu sang ôm trọn ngăn xếp agentic, từ database vận hành, real-time serving, transaction, đồng nghiệp AI, coding agent đến marketing activation và ZeroOps, nhằm chiếm phần vận hành quanh enterprise AI.",
+   "why": "Góc nhìn analyst độc lập giúp cân lại marketing của vendor: cùng dữ kiện nhưng đặt câu hỏi liệu ôm trọn stack là sức mạnh hợp nhất hay rủi ro khóa chân khách hàng.",
+   "url": "https://moorinsightsstrategy.com/field-notes/databricks-bets-on-owning-the-agentic-data-stack-at-data-ai-summit-2026/",
+   "domain": "moorinsightsstrategy.com",
+   "date": "2026-06-16",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "TechTimes: Summit Day 2 — agentic AI và catalog federation bước từ phòng lab ra doanh nghiệp",
+   "title_en": "Databricks Summit 2026 Day 2: Agentic AI and Catalog Federation Move From Lab to Enterprise",
+   "summary": "Bản tin ngày thứ hai của Summit ghi nhận chủ đề lớn: agentic AI và catalog federation không còn là khái niệm thử nghiệm mà đã chín để triển khai diện rộng, với quản trị, liên thông catalog và agent production trở thành tâm điểm bàn luận của giới doanh nghiệp.",
+   "why": "Từ lab ra enterprise là cụm từ then chốt của cả tuần: 2025 là năm thử nghiệm agent, 2026 là năm đưa agent và governance vào vận hành thật.",
+   "url": "https://www.techtimes.com/articles/318450/20260616/databricks-summit-2026-day-2-agentic-ai-catalog-federation-move-lab-enterprise.htm",
+   "domain": "techtimes.com",
+   "date": "2026-06-16",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "\"Databricks đang bám sát Snowflake\" — và các con số nói rõ điều đó",
+   "title_en": "Databricks is closing in on Snowflake and the numbers make that case plainly",
+   "summary": "Giữa mùa Summit của cả hai bên, giới phân tích so sánh đà tăng trưởng: Databricks đặt cược vào nhóm data science và AI-native, Snowflake cược vào chuẩn hóa do IT dẫn dắt; chỉ dấu sớm cho thấy mô hình triển khai lai dùng cả hai ngày càng phổ biến trong doanh nghiệp lớn.",
+   "why": "Cuộc đua hai ông lớn định hình lựa chọn của cả thị trường; hiểu chiến lược mỗi bên giúp doanh nghiệp Việt chọn nền tảng đúng theo điểm mạnh tổ chức mình.",
+   "url": "https://startupfortune.com/databricks-is-closing-in-on-snowflake-and-the-numbers-make-that-case-plainly/",
+   "domain": "startupfortune.com",
+   "date": "2026-06-17",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "Databricks thâu tóm Panther, dựng \"security lakehouse\" và ra mắt LakeWatch SIEM agentic",
+   "title_en": "Databricks Agrees to Acquire Panther, Further Establishing the Security Lakehouse Category",
+   "summary": "Databricks công bố mua lại Panther, nền tảng AI SOC với hơn 100 tích hợp dựng sẵn, detection-as-code và workflow SOC agentic, để củng cố security lakehouse; đi kèm LakeWatch, SIEM agentic dựng trên Unity Catalog và Open Cybersecurity Schema Framework, hứa giảm tới 80% TCO so với SIEM truyền thống.",
+   "why": "An ninh mạng là một trong những nguồn dữ liệu lớn và đắt đỏ nhất; đưa SIEM vào lakehouse và gắn AI agent là đòn tấn công trực diện vào Splunk và các SIEM cũ.",
+   "url": "https://www.databricks.com/company/newsroom/press-releases/databricks-agrees-acquire-panther-further-establishing-security",
+   "domain": "databricks.com",
+   "date": "2026-06-16",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": 4
+  },
+  {
+   "aid": 16,
+   "title": "Databricks Free Edition mở rộng: thêm Genie Code, serverless GPU, Lakebase, Agent Bricks, Lakeflow Designer",
+   "title_en": "Databricks Free Edition adds five new products",
+   "summary": "Databricks Free Edition với hơn 500.000 người dùng được bổ sung năm sản phẩm: Genie Code, serverless GPU, Lakebase, Agent Bricks và Lakeflow Designer, cho phép học và thử nghiệm gần như toàn bộ ngăn xếp agentic miễn phí, một nước cờ thu hút developer rõ rệt.",
+   "why": "Cho dùng miễn phí cả serverless GPU và Agent Bricks là cách rẻ nhất để xây thế hệ developer lớn lên trên nền tảng, chiến lược tăng trưởng từ dưới lên kinh điển.",
+   "url": "https://qubika.com/blog/everything-databricks-announced-dais-data-ai-summit-2026/",
+   "domain": "qubika.com",
+   "date": "2026-06-17",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "Databricks Marketplace cho phân phối app tới 20.000+ khách hàng, mở mua sản phẩm đối tác bằng Universal Commits",
+   "title_en": "Databricks Marketplace app distribution and Universal Commits",
+   "summary": "Tại Summit, Databricks Marketplace mở cho phép phân phối app tới hơn 20.000 khách hàng với IP được bảo vệ; đồng thời khách hàng có thể dùng tới 10% Universal Commits để mua sản phẩm đối tác bên thứ ba đủ điều kiện qua Marketplace.",
+   "why": "Cho phép tiêu cam kết chi tiêu vào sản phẩm đối tác biến Marketplace thành kênh phân phối thật, đòn bẩy hệ sinh thái mà mọi nền tảng đều thèm muốn.",
+   "url": "https://qubika.com/blog/everything-databricks-announced-dais-data-ai-summit-2026/",
+   "domain": "qubika.com",
+   "date": "2026-06-17",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 1,
+ "weekly_video": {
+  "intro": "Xin chào và chào mừng các bạn đến với bản tin Data News tuần 25, từ ngày 15 đến 21 tháng 6 năm 2026. Tuần này gần như chỉ có một câu chuyện duy nhất: Data + AI Summit 2026 của Databricks tại San Francisco, sự kiện dữ liệu lớn nhất hành tinh với hơn 30.000 người tham dự. Chủ đề xuyên suốt rất rõ ràng: lakehouse đang biến thành tầng vận hành cho AI agent. Hãy cùng mình điểm qua năm tin nóng nhất tuần.",
+  "outro": "Đó là năm câu chuyện lớn nhất của tuần 25, một tuần mà ngành dữ liệu xoay quanh một ý tưởng: đưa AI agent vào vận hành thật trên lakehouse được quản trị. Mời các bạn đọc chi tiết từng tin trong bản tin đầy đủ, và hẹn gặp lại trong số tuần sau của Data News.",
+  "segments": [
+   {
+    "aid": 1,
+    "headline": "LTAP: hợp nhất giao dịch và phân tích một bản copy",
+    "narration": "Tin nóng nhất tuần là LTAP, viết tắt của Lake Transactional Analytical Processing, kiến trúc mà Databricks gọi là đầu tiên hợp nhất giao dịch và phân tích trên cùng một bản copy dữ liệu. Suốt 40 năm, ngành dữ liệu mặc định phải tách hai thế giới: cơ sở dữ liệu giao dịch lo việc ghi đơn hàng, cập nhật hồ sơ, còn kho phân tích lo báo cáo và dashboard. Hai thế giới này được nối với nhau bằng một mớ pipeline CDC và ETL luôn trễ vài phút tới vài giờ. LTAP nói: gộp luôn, một bản dữ liệu, một quyền quản trị, định dạng mở. Nền tảng phía dưới là Lakebase, Postgres serverless đang xử lý 12 triệu lượt khởi tạo database mỗi ngày, kèm tính năng branching kiểu git thao tác dưới một giây và disaster recovery xuyên cloud. Tại sao điều này quan trọng? Vì AI agent không chỉ đọc báo cáo cũ, nó ghi trạng thái, đặt đơn, cập nhật hồ sơ ngay tại thời điểm đó, nên độ trễ đồng bộ là kẻ thù. Với doanh nghiệp Việt, đừng vội thay stack, nhưng hãy theo dõi LTAP như một tín hiệu hướng đi. Nếu mô hình một copy chứng minh được ở quy mô lớn, ranh giới giữa kỹ sư backend và kỹ sư dữ liệu sẽ mờ dần.",
+    "bullets": [
+     "Một bản copy cho cả OLTP và OLAP",
+     "Loại bỏ pipeline CDC giữa hai khối",
+     "Lakebase: 12 triệu launch mỗi ngày"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Trước và sau LTAP",
+     "left": {
+      "h": "Trước LTAP",
+      "items": [
+       "OLTP riêng một hệ",
+       "OLAP riêng một kho",
+       "Nối bằng CDC và ETL",
+       "Nhiều bản copy, luôn trễ"
+      ]
+     },
+     "right": {
+      "h": "Với LTAP",
+      "items": [
+       "Một bản copy duy nhất",
+       "Giao dịch và phân tích chung",
+       "Không cần CDC",
+       "Một quyền quản trị"
+      ]
+     }
+    },
+    "images": [
+     "https://www.databricks.com/sites/default/files/2026-06/2026-06-blog-lakebase-dais-press-release-og-1200x628-2x.png"
+    ]
+   },
+   {
+    "aid": 9,
+    "headline": "Genie One và Ontology: đồng nghiệp AI đúng 84,5%",
+    "narration": "Tin nóng thứ hai là sản phẩm flagship của Summit: Genie One cùng Genie Ontology. Genie One là một đồng nghiệp AI cho mọi phòng ban, hoạt động trên web, iOS, Android, Slack và Teams. Nhưng ngôi sao thật sự là Genie Ontology phía sau, một knowledge graph tự cải thiện, liên tục học ngữ cảnh nghiệp vụ từ bảng dữ liệu, dashboard, các câu query và hơn 50 ứng dụng công sở kết nối. Con số gây chú ý: Genie One trả lời đúng 84,5% câu hỏi thực tế của nhân viên ngay lần đầu, so với chỉ 52,4% của một agent code đa dụng. Bước nhảy này chính là khác biệt giữa AI đoán mò và AI đáng tin để ra quyết định. Và điều quan trọng nhất: khác biệt đến từ lớp ngữ cảnh, không phải từ model mạnh hơn. Cùng một model, nhưng khi biết doanh thu trong công ty bạn nghĩa là gì, độ tin cậy nhảy vọt. Đây là vũ khí trực diện đấu với Copilot của Microsoft và Cortex của Snowflake. Bài học áp dụng được ngay cho doanh nghiệp Việt, kể cả khi không dùng Databricks: muốn agent trả lời đáng tin, hãy đầu tư vào việc hệ thống hóa ngữ cảnh nghiệp vụ, quan trọng hơn nhiều so với việc chạy theo model mới nhất.",
+    "bullets": [
+     "Đúng 84,5% câu hỏi lần đầu",
+     "Lớp ngữ cảnh ăn đứt model thuần",
+     "Có mặt trên web, mobile, Slack, Teams"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Genie One qua những con số",
+     "items": [
+      {
+       "v": "84,5%",
+       "l": "đúng ngay lần đầu"
+      },
+      {
+       "v": "52,4%",
+       "l": "agent code thường"
+      },
+      {
+       "v": "50+",
+       "l": "app kết nối"
+      },
+      {
+       "v": "5",
+       "l": "kênh: web, iOS, Android, Slack, Teams"
+      }
+     ]
+    },
+    "images": [
+     "https://www.databricks.com/sites/default/files/2026-06/blog-genie-dais-launch-blog-og.png"
+    ]
+   },
+   {
+    "aid": 8,
+    "headline": "Agent Bricks: hơn một triệu tỉ token mỗi năm",
+    "narration": "Tin nóng thứ ba cho thấy agent đã thật sự bước vào sản xuất. Agent Bricks, nền tảng agent cho developer của Databricks, công bố những con số gây choáng: hơn 100.000 agent đã được dựng, xử lý hơn một triệu tỉ, tức một quadrillion, token mỗi năm. Nhưng đằng sau con số là một thay đổi tư duy quan trọng. Databricks không ép bạn dùng framework của họ. Họ chấp nhận mọi model, từ OpenAI, Anthropic, Gemini cho tới Kimi và Grok thông qua hợp tác với SpaceX. Họ chấp nhận mọi harness, từ LangGraph, CrewAI cho tới Claude Code SDK. Đây là canh bạc làm tầng nền, đừng làm nhà tù. Họ muốn là nơi agent chạy, giữ bộ nhớ và bị quản trị, còn bạn tự do chọn não. Mảnh quan trọng nhất là managed memory trên Lakebase, bởi vấn đề lớn nhất của agent production không phải là model mà là ngữ cảnh: nhớ gì, qua phiên nào, ai được phép thấy. Databricks còn ra mắt Omnigent, một meta-harness mã nguồn mở giấy phép Apache 2.0, cho phép đặt ngân sách chi phí và chính sách theo ngữ cảnh. Với đội kỹ thuật Việt đang xây agent nội bộ, bài học rất rõ: đừng tự dựng lại lớp bộ nhớ và quản trị từ đầu, hãy tách phần não là model khỏi phần hạ tầng là memory, sandbox và kiểm soát chi phí.",
+    "bullets": [
+     "Hơn 100.000 agent đã dựng",
+     "Một triệu tỉ token mỗi năm",
+     "Mọi model, mọi harness, memory trên Lakebase"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Ngăn xếp Agent Bricks",
+     "items": [
+      {
+       "t": "Model choice",
+       "d": "OpenAI, Anthropic, Gemini, Kimi, Grok"
+      },
+      {
+       "t": "Harness",
+       "d": "LangGraph, CrewAI, Claude SDK"
+      },
+      {
+       "t": "Bộ nhớ",
+       "d": "Managed memory trên Lakebase"
+      },
+      {
+       "t": "Sandbox",
+       "d": "Thực thi cô lập an toàn"
+      }
+     ]
+    },
+    "images": [
+     "https://www.databricks.com/sites/default/files/2026-06/2026-06-blog-omnigent-managed-og-1200x628-2x.png"
+    ]
+   },
+   {
+    "aid": 15,
+    "headline": "Databricks mua Panther, dựng security lakehouse",
+    "narration": "Tin nóng thứ tư là thương vụ mua bán đáng chú ý nhất tuần. Databricks công bố thâu tóm Panther, một nền tảng AI SOC với hơn 100 tích hợp dựng sẵn, khả năng detection-as-code và các workflow điều tra an ninh mạng tự động. Cùng với đó, hãng ra mắt LakeWatch, một SIEM agentic dựng trên Unity Catalog và chuẩn Open Cybersecurity Schema Framework, hứa hẹn giảm tới 80% tổng chi phí sở hữu so với SIEM truyền thống. Logic kinh tế ở đây rất rõ ràng. Log bảo mật là một trong những khối dữ liệu khổng lồ và đắt đỏ nhất, trong khi các SIEM truyền thống như Splunk tính tiền theo lượng dữ liệu nuốt vào, nên hóa đơn đội lên khủng khiếp. Đổ log thẳng vào lakehouse, dùng compute giá rẻ và để AI agent tự phân loại cảnh báo, gom ngữ cảnh và đề xuất bước xử lý, đó là công thức cắt giảm chi phí mạnh. Một chi tiết tạo uy tín: Panther vốn được chính các đội bảo mật hàng đầu, trong đó có cả Anthropic, tin dùng. Với giám đốc an ninh thông tin và đội SOC tại Việt Nam đang đau đầu vì hóa đơn SIEM, đây là hướng đi đáng theo dõi. Nhưng cần thực tế: chuyển đổi SIEM là việc lớn, và detection-as-code đòi hỏi kỹ năng kỹ sư chứ không chỉ analyst bảo mật thuần túy.",
+    "bullets": [
+     "Mua Panther, 100+ tích hợp sẵn",
+     "LakeWatch SIEM agentic trên lakehouse",
+     "Hứa giảm tới 80% TCO"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Security lakehouse",
+     "items": [
+      {
+       "v": "100+",
+       "l": "tích hợp dựng sẵn"
+      },
+      {
+       "v": "80%",
+       "l": "giảm TCO so SIEM cũ"
+      },
+      {
+       "v": "AI SOC",
+       "l": "agent tự triage"
+      },
+      {
+       "v": "OCSF",
+       "l": "chuẩn schema mở"
+      }
+     ]
+    },
+    "images": [
+     "https://www.databricks.com/sites/default/files/2026-06/unnamed-22.png"
+    ]
+   },
+   {
+    "aid": 2,
+    "headline": "Lakeflow GA: data engineering độ trễ 5 mili-giây",
+    "narration": "Tin nóng thứ năm là Lakeflow chính thức lên bản GA, mở ra cái mà Databricks gọi là kỷ nguyên agentic data engineering. Lakeflow hợp nhất ba khâu kinh điển của kỹ sư dữ liệu là ingestion, transformation và orchestration dưới cùng một mái Unity Catalog. Cụ thể, Lakeflow Connect đã vượt 100 connector quản lý cho ứng dụng, database, file và cloud storage. Lakeflow Designer lên GA, cho phép kéo thả dựng pipeline theo kiểu no-code hoặc bằng ngôn ngữ tự nhiên, nhưng phía sau là code sản xuất do Unity Catalog quản trị, tức là analyst làm được việc của data engineer mà không sinh ra shadow pipeline mất kiểm soát. Zerobus cho phép ghi gần thời gian thực dưới 5 giây với throughput rất cao. Và đáng nể nhất, Real-Time Mode đạt độ trễ end-to-end thấp tới 5 mili-giây, đẩy Spark vào sân chơi vốn là của Flink. Điểm thực dụng cho người làm nghề: nếu bạn đang gánh một rừng công cụ ingestion rời rạc, đây là lời mời gộp lại một mối. Nhưng cũng nên tỉnh táo, gộp về một vendor đổi lấy sự tiện lợi luôn kèm cái giá khóa chân. Mảnh đáng thử trước là Genie ZeroOps, một agent nền tự dò nguyên nhân job lỗi và đề xuất bản vá trong sandbox, giúp giảm bớt những đêm trực pipeline.",
+    "bullets": [
+     "Hợp nhất ingest, transform, orchestrate",
+     "Designer no-code, code chuẩn phía sau",
+     "Real-Time Mode độ trễ tới 5ms"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Pipeline Lakeflow",
+     "items": [
+      {
+       "t": "Connect",
+       "d": "100+ connector quản lý"
+      },
+      {
+       "t": "Designer",
+       "d": "kéo-thả no-code + AI"
+      },
+      {
+       "t": "Zerobus",
+       "d": "ghi gần realtime dưới 5s"
+      },
+      {
+       "t": "Real-Time Mode",
+       "d": "độ trễ tới 5ms"
+      }
+     ]
+    },
+    "images": [
+     "https://www.databricks.com/sites/default/files/2026-06/2026-06-blog-lakeflow-dais-blog-og-1200x628-1.png"
+    ]
+   }
+  ]
+ },
+ "facebook_post": "DATA + AI SUMMIT 2026: TUẦN LAKEHOUSE TRỞ THÀNH NHÀ CHO AI AGENT\n\nChào cả nhà, Đức đây. Tuần này mình gần như chỉ phải theo dõi một sự kiện duy nhất, vì nó nuốt trọn tin tức ngành dữ liệu: Data + AI Summit 2026 của Databricks tại San Francisco, hơn 30.000 người tham dự. Ngồi đọc hết loạt công bố mà cảm giác như ngành dữ liệu vừa sang trang: mọi thứ giờ đều xoay quanh một câu hỏi, làm sao đưa AI agent vào vận hành thật. Mình chọn ra mấy tin nóng nhất.\n\n1️⃣ LTAP, kiến trúc hợp nhất giao dịch và phân tích trên MỘT bản copy dữ liệu. Suốt 40 năm ta luôn phải tách database giao dịch và kho phân tích rồi nối bằng CDC luôn trễ. Databricks nói: gộp luôn. Nền tảng Lakebase phía dưới đang chạy 12 triệu lượt khởi tạo database mỗi ngày, branching kiểu git dưới một giây. Nghĩa là với người làm dữ liệu, ranh giới giữa kỹ sư backend và kỹ sư data sẽ mờ dần.\n\n2️⃣ Genie One và Genie Ontology, đồng nghiệp AI trả lời đúng 84,5% câu hỏi nội bộ ngay lần đầu, so với 52,4% của agent thường. Điều mình tâm đắc nhất: khác biệt đến từ LỚP NGỮ CẢNH chứ không phải model mạnh hơn. Bài học cho doanh nghiệp Việt: muốn agent đáng tin, hãy đầu tư hệ thống hóa ngữ cảnh nghiệp vụ trước, đừng chạy theo model mới.\n\n3️⃣ Agent Bricks chạm quy mô sản xuất: hơn 100.000 agent, hơn một triệu tỉ token mỗi năm. Databricks chấp nhận mọi model (kể cả Grok, Kimi) và mọi harness, chỉ giữ phần memory với governance. Triết lý hay: tách phần não là model khỏi phần hạ tầng là bộ nhớ và kiểm soát chi phí.\n\n4️⃣ Databricks mua Panther, dựng security lakehouse với LakeWatch, hứa giảm tới 80% chi phí so với SIEM cũ. Log bảo mật vốn là khối dữ liệu đắt nhất, đổ thẳng vào lakehouse và để agent tự điều tra là hướng đi đánh trực diện vào Splunk.\n\n5️⃣ Lakeflow lên GA: ingestion, transformation, orchestration về một mối, Real-Time Mode độ trễ chỉ 5 mili-giây, Designer kéo thả no-code nhưng sinh code chuẩn. Đỡ cho kỹ sư dữ liệu một rừng công cụ rời rạc.\n\nBài học chung của tuần, theo góc nhìn của mình: 2025 là năm thử nghiệm agent, 2026 là năm đưa agent vào vận hành thật, và ai sở hữu lớp ngữ cảnh cùng governance sẽ thắng. Nhưng nhớ một điều: hợp nhất khôn ngoan khác với khóa chân tự nguyện. Hãy tận dụng tiện lợi nhưng giữ điểm thoát bằng chuẩn mở như Iceberg. Cuộc đua Databricks và Snowflake giờ thực ra là cuộc đua xem ai hiểu nghiệp vụ của bạn nhất.\n\nGhé AI News và Data News của mình để xem bản tin đầy đủ và video recap nhé, nhớ subscribe để không bỏ lỡ số tuần sau. Bạn ấn tượng tin nào nhất tuần này?\n\n#Data #DataEngineering #Databricks #DataAISummit #Lakehouse #Iceberg #AIAgents #Lakebase #Snowflake #DataAnalytics #BI #DataNews #DucNguyenAI",
+ "youtube": {
+  "recap": "_VtKOqQPuIA",
+  "short": "H-x1s6U7a3I"
+ }
+}
