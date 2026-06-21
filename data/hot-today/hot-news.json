@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-06-21",
+      "display_date": "21/06/2026",
+      "title": "DuckDB lớn lên: con vịt nhỏ thành hạ tầng dữ liệu",
+      "summary": "DuckDB vừa ra bản kép ngày 17/6 và sắp lên 2.0 — cùng xem vì sao con database tí hon này đang gây sốt.",
+      "source": "duckdb.org",
+      "video_id": "J6U0D4Ty24I",
+      "short_id": "tvNdQilarLQ",
+      "published_at": "2026-06-21T19:18:54"
+    },
+    {
       "date": "2026-06-20",
       "display_date": "20/06/2026",
       "title": "Databricks Lakehouse//RT: dữ liệu lakehouse trả lời trong mili-giây",
