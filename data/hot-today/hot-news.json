@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-06-22",
+      "display_date": "22/06/2026",
+      "title": "Flink Agents 0.3: AI agent sống trong dòng dữ liệu",
+      "summary": "Apache vừa ra Flink Agents 0.3.0: đưa AI agent vào thẳng dòng dữ liệu real-time, tự phản ứng với từng sự kiện thay vì chờ người hỏi.",
+      "source": "flink.apache.org",
+      "video_id": "Q6MsGQhpSBE",
+      "short_id": "LFJcmvk3BJc",
+      "published_at": "2026-06-22T19:16:42"
+    },
+    {
       "date": "2026-06-21",
       "display_date": "21/06/2026",
       "title": "DuckDB lớn lên: con vịt nhỏ thành hạ tầng dữ liệu",
