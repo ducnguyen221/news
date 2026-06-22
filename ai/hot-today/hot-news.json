@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-06-22",
+      "display_date": "22/06/2026",
+      "title": "Agentjacking: Báo lỗi giả chiếm quyền trợ lý AI lập trình",
+      "summary": "Agentjacking: chỉ một báo lỗi giả cũng đủ sai khiến trợ lý AI lập trình tự chạy lệnh độc và rò rỉ bí mật cả công ty.",
+      "source": "thehackernews.com",
+      "video_id": "zgKR_th0zho",
+      "short_id": "IOJ9LAnL-0w",
+      "published_at": "2026-06-22T18:20:21"
+    },
+    {
       "date": "2026-06-20",
       "display_date": "20/06/2026",
       "title": "Cha đẻ AlphaFold rời Google DeepMind sang Anthropic",
