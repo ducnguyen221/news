@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-06-23",
+      "display_date": "23/06/2026",
+      "title": "Arrow ADBC: đường ống mới đưa Power BI sang BigQuery",
+      "summary": "Microsoft Fabric đưa Power BI kết nối BigQuery qua chuẩn mở Arrow ADBC — đường ống dữ liệu mới, nhanh và ổn định hơn hẳn.",
+      "source": "community.fabric.microsoft.com",
+      "video_id": "JmtjoeGGtzM",
+      "short_id": "vncXhoN5u9o",
+      "published_at": "2026-06-23T19:23:34"
+    },
+    {
       "date": "2026-06-22",
       "display_date": "22/06/2026",
       "title": "Flink Agents 0.3: AI agent sống trong dòng dữ liệu",
