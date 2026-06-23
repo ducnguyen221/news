@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-06-23",
+      "display_date": "23/06/2026",
+      "title": "Gemini 3.5 Pro: AI đọc trọn 2 triệu chữ một lần",
+      "summary": "Google vừa mở rộng rãi Gemini 3.5 Pro — AI đọc trọn 2 triệu token, tương đương cả một tủ hồ sơ, trong một lần hỏi.",
+      "source": "blog.google",
+      "video_id": "dctl_LUDLxw",
+      "short_id": "ydPZUCrISuw",
+      "published_at": "2026-06-23T18:18:54"
+    },
+    {
       "date": "2026-06-22",
       "display_date": "22/06/2026",
       "title": "Agentjacking: Báo lỗi giả chiếm quyền trợ lý AI lập trình",
