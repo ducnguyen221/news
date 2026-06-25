@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-06-25",
+      "display_date": "25/06/2026",
+      "title": "OpenAI thả AI tự đi vá lỗ hổng cho mã nguồn mở",
+      "summary": "OpenAI vừa ra mắt GPT-5.5-Cyber: một AI chuyên đi săn và tự vá lỗ hổng bảo mật cho phần mềm mã nguồn mở.",
+      "source": "openai.com",
+      "video_id": "eWXJizkfHlI",
+      "short_id": "Vv0kyKb0D4A",
+      "published_at": "2026-06-25T18:21:41"
+    },
+    {
       "date": "2026-06-24",
       "display_date": "24/06/2026",
       "title": "Seedance 2.5: AI dựng video 30 giây liền một mạch",
