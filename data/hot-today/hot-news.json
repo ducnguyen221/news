@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-06-25",
+      "display_date": "25/06/2026",
+      "title": "Graviton5 ra mắt: con chip làm rẻ mọi truy vấn dữ liệu",
+      "summary": "AWS vừa ra mắt chính thức chip Graviton5 — và ClickHouse chạy nhanh hơn 36% mà không sửa một dòng code.",
+      "source": "aws.amazon.com",
+      "video_id": "YSPRSfzx_Rw",
+      "short_id": "KlISiLo10WQ",
+      "published_at": "2026-06-25T19:25:36"
+    },
+    {
       "date": "2026-06-24",
       "display_date": "24/06/2026",
       "title": "Databricks Discover: tấm bản đồ tìm dữ liệu đáng tin",
