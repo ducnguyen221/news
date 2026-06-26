@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-06-26",
+      "display_date": "26/06/2026",
+      "title": "OpenAI tự làm chip đầu tiên: con ớt Jalapeño",
+      "summary": "OpenAI vừa công bố Jalapeño — con chip AI tự thiết kế đầu tiên, làm cùng Broadcom, để chạy ChatGPT rẻ và đỡ phụ thuộc Nvidia.",
+      "source": "openai.com",
+      "video_id": "RULuHC_ZrW8",
+      "short_id": "GHxoFyI5VJ8",
+      "published_at": "2026-06-26T18:21:53"
+    },
+    {
       "date": "2026-06-25",
       "display_date": "25/06/2026",
       "title": "OpenAI thả AI tự đi vá lỗ hổng cho mã nguồn mở",
