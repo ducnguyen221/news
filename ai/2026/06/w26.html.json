@@ -1,0 +1,421 @@
+{
+ "date": "26/06/2026",
+ "week": "W26",
+ "range": "22/06 - 28/06/2026",
+ "tldr": "Tuần 26 là tuần của những cú dịch chuyển nền móng thay vì màn ra mắt model hào nhoáng: cả GPT-5.6 lẫn Gemini 3.5 Pro đều lỡ hẹn và bị đẩy sang tháng 7, khiến đỉnh frontier tạm khựng. Sức nóng dồn về phần hạ tầng và con người, nơi Anthropic có một tuần áp đảo: ký thỏa thuận chiến lược kèm rót vốn Series H với Micron, tuyển được loạt nhân tài chủ chốt từ Google trong đó có nhà khoa học Nobel John Jumper, đồng thời công khai tố Alibaba và phòng thí nghiệm Qwen dùng 25.000 tài khoản giả để chưng cất Claude. Ở mảng chip, Qualcomm chi gần 4 tỷ USD mua Modular để thách thức thế độc quyền CUDA của NVIDIA, còn SpaceX ký hợp đồng tính toán 6,3 tỷ USD với Reflection AI. Cộng đồng thì dậy sóng với làn sóng phản đối AI và những câu chuyện sếp lệ thuộc chatbot.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "GPT-5.6 và Gemini 3.5 Pro cùng lỡ hẹn, dời sang tháng 7 — frontier tạm khựng",
+   "title_en": "GPT-5.6 launch window slips and Gemini 3.5 Pro misses June GA — both pushed to July",
+   "summary": "Cửa sổ ra mắt GPT-5.6 mà giới phát triển ngóng đợi (đồn có context khoảng 1,5 triệu token và bản vá alignment) đã trôi qua tháng 6 mà không có model; Gemini 3.5 Pro cũng lỡ cam kết GA trong tháng và bị Google dời sang tháng 7. Tuần này gần như không có model frontier lớn nào thực sự ra mắt.",
+   "why": "Lần đầu sau nhiều tháng, hai phòng thí nghiệm dẫn đầu cùng chững lại trong một tuần — tín hiệu cho thấy việc đẩy năng lực và độ an toàn lên mức cao hơn đang khó dần, và lịch ra mắt không còn là thứ chắc chắn.",
+   "url": "https://www.techtimes.com/articles/318799/20260621/gpt-56-launch-window-starts-monday-alignment-fix-15m-token-context-inside.htm",
+   "domain": "techtimes.com",
+   "date": "2026-06-26",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 5
+  },
+  {
+   "aid": 2,
+   "title": "Mô hình mở Trung Quốc áp đảo bảng xếp hạng tải về Hugging Face",
+   "title_en": "Chinese open-weight models dominate Hugging Face download charts",
+   "summary": "Sau làn sóng frontier đầu tháng, DeepSeek V4.1, Qwen 3.7, GLM-6, Llama 4.5 và Gemma 4 thống trị lượt tải; riêng các model mở từ Trung Quốc chiếm 5 trong 10 vị trí dẫn đầu — mức tập trung cao nhất từ trước tới nay.",
+   "why": "Trọng tâm sức mạnh mã nguồn mở đang dịch về phía Trung Quốc, đặt áp lực giá và năng lực lên các phòng thí nghiệm phương Tây, đồng thời mở thêm lựa chọn rẻ, tự chủ cho doanh nghiệp.",
+   "url": "https://presenc.ai/research/huggingface-trending-models-june-2026",
+   "domain": "presenc.ai",
+   "date": "2026-06-24",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 3,
+   "title": "DeepSeek chốt giảm giá V4-Pro 75% vĩnh viễn, châm ngòi cuộc chiến giá API",
+   "title_en": "DeepSeek makes its 75% V4-Pro price cut permanent, escalating the API price war",
+   "summary": "DeepSeek biến đợt khuyến mãi giảm 75% thành biểu giá chính thức: V4-Pro còn 0,435 USD/triệu token đầu vào và 0,87 USD/triệu token đầu ra, rẻ hơn nhiều lần so với GPT-5.5 và Claude Opus trên token đầu ra. Diễn biến lan tỏa cả tuần khi các bên buộc phải so kè lại giá.",
+   "why": "Khi giá token frontier rơi mạnh, bài toán chi phí AI của doanh nghiệp thay đổi căn bản — nhưng đi kèm là rủi ro phụ thuộc và câu hỏi về biên lợi nhuận của cả ngành.",
+   "url": "https://www.infoworld.com/article/4176709/deepseeks-steep-v4-pro-price-cut-escalates-ai-pricing-war.html",
+   "domain": "infoworld.com",
+   "date": "2026-06-23",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 4,
+   "title": "Claude Code tung bản nâng cấp lớn về độ ổn định và bảo mật",
+   "title_en": "Claude Code ships a broad quality, reliability and security update",
+   "summary": "Bản cập nhật bổ sung lệnh /rewind để quay lại trạng thái trước, cải thiện hành vi agent và phân quyền, tăng độ bền của MCP và xử lý OAuth, nhắc sandbox thông minh hơn, đồng thời giảm đáng kể CPU và bộ nhớ khi chạy phiên dài.",
+   "why": "Với người dùng coding agent ở Việt Nam, độ ổn định và khả năng quay lui là yếu tố quyết định có dám giao việc dài hơi cho agent hay không — đây là nâng cấp đúng chỗ đau.",
+   "url": "https://releasebot.io/updates/anthropic/claude-code",
+   "domain": "releasebot.io",
+   "date": "2026-06-24",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 5,
+   "title": "Claude Tag lên Slack: gõ @Claude để gọi agent vào kênh làm việc",
+   "title_en": "Anthropic launches Claude Tag for Slack — summon an agent by typing @Claude",
+   "summary": "Claude Tag là không gian làm việc nhóm (beta) cho phép tag @Claude vào kênh Slack để giao việc, kết nối công cụ, dữ liệu và codebase; mang theo cộng tác đa người, bộ nhớ ngữ cảnh, cập nhật chủ động và xử lý tác vụ bất đồng bộ cho khách hàng Enterprise và Team.",
+   "why": "Đưa agent vào ngay nơi đội nhóm đang trao đổi (Slack) là cách hạ rào cản adoption — yếu tố quyết định AI có thực sự đổi hành vi làm việc hay chỉ là demo.",
+   "url": "https://releasebot.io/updates/anthropic/claude",
+   "domain": "releasebot.io",
+   "date": "2026-06-23",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "Anthropic Platform thêm Workload Identity Federation và service accounts",
+   "title_en": "Anthropic Platform adds Workload Identity Federation and service accounts",
+   "summary": "Với WIF, không còn API key tĩnh phải tạo, xoay vòng hay lo rò rỉ — workload xác thực bằng danh tính sẵn có như AWS IAM role hay GitHub Actions token; thêm service accounts để mỗi workload có danh tính, quyền và audit trail riêng thay vì dùng chung một key.",
+   "why": "Đây là hạ tầng quản trị mà doanh nghiệp cần để đưa agent vào sản xuất an toàn — đúng tầng governance mà nhiều đội bỏ qua cho tới khi bị sự cố rò rỉ.",
+   "url": "https://releasebot.io/updates/anthropic",
+   "domain": "releasebot.io",
+   "date": "2026-06-23",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "Qwen-AgentWorld: 'Language World Models' cho agent đa năng",
+   "title_en": "Qwen-AgentWorld: Language World Models for General Agents",
+   "summary": "Bài nghiên cứu dẫn đầu lượt vote trên Hugging Face tuần này đề xuất dùng mô hình thế giới bằng ngôn ngữ để agent có thể mô phỏng, dự đoán hệ quả hành động và lập kế hoạch tốt hơn trong môi trường tổng quát.",
+   "why": "Hướng 'world model bằng ngôn ngữ' là một trong những cách hứa hẹn để agent bớt mò mẫm và biết suy nghĩ trước khi hành động — nền tảng cho agent đáng tin hơn.",
+   "url": "https://huggingface.co/papers/date/2026-06-24",
+   "domain": "huggingface.co",
+   "date": "2026-06-24",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "NatureBench: agent code có tái lập nổi kết quả SOTA từ các bài báo Nature?",
+   "title_en": "NatureBench: can coding agents replicate state-of-the-art results from Nature-family papers?",
+   "summary": "Benchmark mới kiểm tra liệu các coding agent có thể tự đọc rồi tái dựng kết quả nghiên cứu đỉnh cao từ họ tạp chí Nature — một thước đo khắc nghiệt cho năng lực khoa học thực thụ chứ không chỉ giải bài toán đóng.",
+   "why": "Nếu agent thật sự tái lập được nghiên cứu khoa học, đó là bước nhảy về 'AI for science'; còn nếu trượt, nó phơi bày khoảng cách giữa benchmark đẹp và công việc nghiên cứu thật.",
+   "url": "https://huggingface.co/papers/date/2026-06-24",
+   "domain": "huggingface.co",
+   "date": "2026-06-24",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "Cognition ra FrontierCode: benchmark coding 'chuẩn production'",
+   "title_en": "Cognition introduces FrontierCode, a production-grade coding benchmark",
+   "summary": "FrontierCode chấm xem model có vượt qua các tác vụ code khó mà vẫn đạt chuẩn codebase thực tế. Ở phần khó nhất (Diamond), Claude Fable 5 đạt 29,3% — hơn gấp đôi Opus 4.8 (13,4%) và bỏ xa GPT-5.5 (5,7%); ở phần Main là 46,3% so với 25,5% của GPT-5.5.",
+   "why": "Benchmark 'chuẩn production' phản ánh sát công việc kỹ sư hơn các bài toán đóng — và cho thấy khoảng cách lớn giữa các model trên đúng thứ doanh nghiệp trả tiền.",
+   "url": "https://cognition.com/blog/frontier-code",
+   "domain": "cognition.com",
+   "date": "2026-06-24",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "Holistic Data Scheduler: chọn dữ liệu pretrain bằng RL đa mục tiêu",
+   "title_en": "Holistic Data Scheduler: multi-objective RL for pre-training data selection",
+   "summary": "Nghiên cứu được vote cao trên Hugging Face đề xuất dùng học tăng cường đa mục tiêu để tự động lựa chọn và lập lịch dữ liệu trong quá trình pretrain LLM, thay cho các heuristic thủ công.",
+   "why": "Chất lượng dữ liệu pretrain quyết định trần năng lực của model — tự động hóa khâu chọn dữ liệu có thể giúp huấn luyện rẻ và hiệu quả hơn, điều rất hợp với đội ít tài nguyên.",
+   "url": "https://huggingface.co/papers/date/2026-06-24",
+   "domain": "huggingface.co",
+   "date": "2026-06-24",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "Thị trường công cụ coding-AI đạt 9,3 tỷ USD, Anthropic dẫn đầu ~40% thị phần",
+   "title_en": "AI coding tools market hits $9.3B growing 26% a year, Anthropic leads at ~40% share",
+   "summary": "Theo số liệu được dẫn lại tuần này, thị trường công cụ coding bằng AI đạt khoảng 9,3 tỷ USD và tăng 26% mỗi năm, với Anthropic nắm khoảng 40% thị phần — vượt lên trong mảng mà Claude được giới kỹ sư ưa dùng.",
+   "why": "Coding là mảng AI thương mại hóa rõ nét và sinh tiền nhanh nhất; vị thế dẫn đầu của Anthropic định hình lựa chọn công cụ cho hàng triệu lập trình viên, kể cả ở Việt Nam.",
+   "url": "https://www.mordorintelligence.com/industry-reports/ai-code-tools-market",
+   "domain": "mordorintelligence.com",
+   "date": "2026-06-24",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "Anthropic nói Claude 'có thể yêu cầu xem ID' của bạn",
+   "title_en": "Anthropic says Claude may want to see your ID",
+   "summary": "Anthropic cập nhật điều khoản cho biết họ được phép yêu cầu người dùng tải lên giấy tờ tùy thân trong một số trường hợp — như xác minh để tạo và quản trị tài khoản Claude hay thực thi điều khoản dịch vụ.",
+   "why": "Câu chuyện chạm vào căng thẳng giữa chống lạm dụng/gian lận và quyền riêng tư; với người dùng và doanh nghiệp, đây là tín hiệu các nền tảng AI sẽ siết định danh mạnh hơn.",
+   "url": "https://techcrunch.com/2026/06/22/anthropic-says-claude-may-want-to-see-your-id/",
+   "domain": "techcrunch.com",
+   "date": "2026-06-22",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "'Sếp tôi mắc AI psychosis và chúng tôi tiêu rồi' — bài viết viral trên Reddit",
+   "title_en": "'My boss has AI psychosis and we're fucked' — viral r/antiwork post",
+   "summary": "Một bài trên r/antiwork (hơn 21.000 upvote, 1.500 bình luận) kể chuyện sếp coi các dự báo của chatbot như chân lý, ép cả nhóm 'làm vừa lòng' AI dù model không hiểu khách hàng, rồi nổi giận khi thực tế lệch dự báo.",
+   "why": "Phía sau câu chuyện hài hước là rủi ro quản trị thật: lệ thuộc mù quáng vào đầu ra AI để ra quyết định kinh doanh có thể gây hại — bài học về 'human-in-the-loop'.",
+   "url": "https://www.reddit.com/r/antiwork/comments/1ucmycc/my_boss_has_ai_psychosis_and_were_fucked/",
+   "domain": "reddit.com",
+   "date": "2026-06-22",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "'Người Mỹ quay lưng với AI với tốc độ khó tin' — chủ đề nóng nhất cộng đồng",
+   "title_en": "'Americans Have Turned Against AI in Incredible Numbers' — top community thread",
+   "summary": "Bài đăng trên r/technology thu hơn 43.000 upvote và gần 2.800 bình luận, phản ánh tâm lý phản đối AI đang dâng cao trong công chúng Mỹ — chủ đề được bàn luận sôi nổi xuyên suốt tuần.",
+   "why": "Tâm lý xã hội quay lưng là một biến số thật với ngành: nó ảnh hưởng tới chính sách, adoption và cách doanh nghiệp truyền thông về AI — không thể bỏ qua giữa cơn hưng phấn công nghệ.",
+   "url": "https://www.reddit.com/r/technology/comments/1ubsugh/americans_have_turned_against_ai_in_incredible/",
+   "domain": "reddit.com",
+   "date": "2026-06-21",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "Anthropic tố Alibaba và Qwen 'chưng cất' Claude bằng 25.000 tài khoản giả",
+   "title_en": "Anthropic accuses Alibaba-linked Qwen lab of distilling Claude via 25,000 fake accounts",
+   "summary": "Trong thư gửi Ủy ban Ngân hàng Thượng viện Mỹ, Anthropic cáo buộc các bên liên quan tới phòng thí nghiệm Qwen của Alibaba dùng gần 25.000 tài khoản gian lận để thực hiện khoảng 28,8 triệu lượt trao đổi với Claude trong giai đoạn 22/4 - 5/6, nhằm chưng cất năng lực model.",
+   "why": "Vụ việc đẩy căng thẳng IP và địa chính trị AI Mỹ - Trung lên một nấc mới, đồng thời phơi bày 'distillation' như một mặt trận cạnh tranh khốc liệt giữa các phòng thí nghiệm.",
+   "url": "https://mezha.net/eng/bukvy/5264cac0_anthropic_accuses_alibaba/",
+   "domain": "mezha.net",
+   "date": "2026-06-25",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": 3
+  },
+  {
+   "aid": 16,
+   "title": "Google chảy máu chất xám sang Anthropic: mất cả nhà khoa học Nobel John Jumper",
+   "title_en": "Google's AI talent exodus to Anthropic deepens, including Nobel laureate John Jumper",
+   "summary": "Hai nhà nghiên cứu chủ chốt của Gemini là Jonas Adler (mảng AI coding) và Alexander Pritzel (pretraining) chuẩn bị rời Google sang Anthropic, nối tiếp việc John Jumper — đồng tác giả AlphaFold, chủ nhân giải Nobel — đã chuyển sang Anthropic; trước đó Noam Shazeer rời Google về OpenAI. Bốn lãnh đạo cấp cao rời đi trong sáu ngày.",
+   "why": "Trong cuộc đua AI, nhân tài chủ chốt còn quý hơn cả model; làn sóng ra đi này gặm vào lợi thế nghiên cứu của Google và cho thấy Anthropic đang thắng lớn ở mặt trận con người.",
+   "url": "https://techcrunch.com/2026/06/24/ai-researchers-continue-to-leave-google-for-its-rivals/",
+   "domain": "techcrunch.com",
+   "date": "2026-06-24",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": 1
+  },
+  {
+   "aid": 17,
+   "title": "Qualcomm chi gần 4 tỷ USD mua Modular, nhắm phá thế độc quyền CUDA của NVIDIA",
+   "title_en": "Qualcomm acquires AI startup Modular for ~$4B to challenge NVIDIA's CUDA dominance",
+   "summary": "Qualcomm mua Modular trong thương vụ toàn cổ phiếu trị giá khoảng 3,9 tỷ USD (phát hành tới 19,2 triệu cổ phiếu). Modular sở hữu nền tảng MAX và ngôn ngữ Mojo giúp model AI chạy hiệu quả trên nhiều loại phần cứng NVIDIA, AMD, Intel — một lớp phần mềm nhắm thẳng vào thế khóa của CUDA.",
+   "why": "Đây là canh bạc phần mềm chứ không phải chip: nếu thành công, nó hạ rào cản chuyển đổi phần cứng và làm lung lay 'con hào' lớn nhất của NVIDIA, mở đường cho hạ tầng AI rẻ hơn.",
+   "url": "https://techstartups.com/2026/06/24/qualcomm-acquires-ai-startup-modular-in-4-billion-deal-to-challenge-nvidias-cuda-dominance/",
+   "domain": "techstartups.com",
+   "date": "2026-06-24",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": 2
+  },
+  {
+   "aid": 18,
+   "title": "SpaceX ký thỏa thuận tính toán 6,3 tỷ USD với Reflection AI",
+   "title_en": "SpaceX signs up to $6.3B compute deal with open-source startup Reflection AI",
+   "summary": "Reflection AI — phòng thí nghiệm mã nguồn mở do cựu nhân sự Google DeepMind sáng lập, định giá khoảng 25 tỷ USD — ký hợp đồng ba năm thuê hạ tầng tính toán của SpaceX, trả 150 triệu USD/tháng từ 1/7 tới 2029 để truy cập GPU NVIDIA GB300.",
+   "why": "Thương vụ cho thấy compute đang trở thành tài sản chiến lược được giao dịch tỷ đô, và phe 'open-weight kiểu Mỹ' đang gom đủ năng lực để cạnh tranh frontier với OpenAI, Anthropic, Google.",
+   "url": "https://www.cnbc.com/2026/06/22/spacex-ai-colossus-data-center-reflection.html",
+   "domain": "cnbc.com",
+   "date": "2026-06-22",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  },
+  {
+   "aid": 19,
+   "title": "Micron bắt tay Anthropic và rót vốn vào vòng Series H",
+   "title_en": "Micron and Anthropic announce strategic agreement, with a Series H investment",
+   "summary": "Thỏa thuận gồm bốn trụ cột: đồng thiết kế kiến trúc bộ nhớ/lưu trữ cho AI; Micron cung ứng HBM, DRAM, SSD cho data center của Anthropic; triển khai Claude trong kỹ thuật và sản xuất của Micron; và Micron đầu tư chiến lược vào vòng Series H (65 tỷ USD, định giá 965 tỷ USD). Cổ phiếu Micron tăng ~5,5%.",
+   "why": "Đây là kiểu liên minh dọc 'chip - bộ nhớ - mô hình' định hình cuộc đua hạ tầng AI; bộ nhớ băng thông cao đang là nút thắt thật, và ai chốt được nguồn cung sẽ có lợi thế mở rộng.",
+   "url": "https://www.globenewswire.com/news-release/2026/06/22/3315307/14450/en/micron-and-anthropic-announce-strategic-agreement-to-scale-next-generation-ai-infrastructure.html",
+   "domain": "globenewswire.com",
+   "date": "2026-06-22",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": 4
+  }
+ ],
+ "hot_aid": 16,
+ "weekly_video": {
+  "intro": "Xin chào, đây là bản tin AI tuần 26, từ ngày 22 đến 28 tháng 6 năm 2026. Tuần này thị trường mua sắm model mới khá im ắng, nhưng phía dưới bề mặt lại là những cú dịch chuyển nền móng: nhân tài chảy mạnh giữa các phòng thí nghiệm, các thương vụ chip và bộ nhớ tỷ đô, và một cáo buộc chấn động về việc sao chép năng lực mô hình. Mời bạn cùng mình điểm qua năm câu chuyện nóng nhất.",
+  "outro": "Đó là năm câu chuyện đáng chú ý nhất tuần 26. Bạn xem chi tiết từng tin, nguồn dẫn và góc nhìn của mình trong bản tin đầy đủ phía dưới. Cảm ơn bạn đã theo dõi, và hẹn gặp lại trong bản tin tuần sau.",
+  "segments": [
+   {
+    "aid": 16,
+    "headline": "Google chảy máu chất xám sang Anthropic",
+    "narration": "Câu chuyện nóng nhất tuần không phải là một model, mà là con người. Theo Bloomberg và TechCrunch, hai nhà nghiên cứu chủ chốt của Gemini là Jonas Adler, phụ trách mảng AI coding, và Alexander Pritzel, làm về pretraining, đang chuẩn bị rời Google để sang Anthropic. Hai người này từng góp công trong nghiên cứu AlphaFold cùng với John Jumper. Đáng chú ý hơn, chính John Jumper, nhà khoa học đoạt giải Nobel và đồng tác giả AlphaFold, cũng vừa rời Google DeepMind để gia nhập Anthropic. Trước đó, Noam Shazeer, một trong những người dẫn dắt Gemini, đã rời Google về OpenAI. Tính ra chỉ trong sáu ngày, Google mất tới bốn nhân sự cấp cao. Vì sao điều này quan trọng? Trong cuộc đua AI hiện nay, nhân tài chủ chốt còn quý hơn cả model, bởi vì chính họ là người tạo ra model thế hệ sau. Làn sóng ra đi này gặm thẳng vào lợi thế nghiên cứu lâu năm của Google, và cho thấy Anthropic đang thắng lớn ở mặt trận con người, đúng vào lúc họ cũng vừa huy động được nguồn vốn khổng lồ. Với người làm công nghệ, đây là lời nhắc rằng giá trị cốt lõi nằm ở đội ngũ biết làm việc rõ ràng, chứ không chỉ ở công cụ.",
+    "bullets": [
+     "Adler và Pritzel rời Gemini sang Anthropic",
+     "Nobel John Jumper cũng về Anthropic",
+     "Bốn lãnh đạo rời Google trong sáu ngày"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Chảy máu chất xám khỏi Google",
+     "left": {
+      "h": "Google / DeepMind mất",
+      "items": [
+       "John Jumper – Nobel, AlphaFold",
+       "Jonas Adler – AI coding",
+       "Alexander Pritzel – pretraining Gemini"
+      ]
+     },
+     "right": {
+      "h": "Bên tuyển được",
+      "items": [
+       "Anthropic: Jumper, Adler, Pritzel",
+       "OpenAI: Noam Shazeer (trước đó)",
+       "4 lãnh đạo rời trong 6 ngày"
+      ]
+     }
+    },
+    "images": [
+     "https://techcrunch.com/wp-content/uploads/2023/02/glitched-google-logo.jpg?resize=1200,645"
+    ]
+   },
+   {
+    "aid": 17,
+    "headline": "Qualcomm mua Modular gần 4 tỷ USD",
+    "narration": "Câu chuyện thứ hai là một canh bạc lớn ở mảng chip. Qualcomm thông báo mua lại startup AI Modular trong một thương vụ toàn cổ phiếu trị giá khoảng 3,9 tỷ đô la, phát hành tới 19,2 triệu cổ phiếu, dự kiến hoàn tất trong nửa cuối năm 2026. Điều thú vị là Modular không làm chip. Họ làm phần mềm: nền tảng MAX và ngôn ngữ lập trình Mojo, giúp các model AI chạy hiệu quả trên nhiều loại phần cứng khác nhau, từ NVIDIA tới AMD, Intel. Nói cách khác, đây là một lớp phần mềm nhắm thẳng vào thế khóa của CUDA, bộ công cụ độc quyền đã giúp NVIDIA thống trị thị trường suốt nhiều năm. Vì sao đáng chú ý? Lâu nay, con hào lớn nhất của NVIDIA không phải là phần cứng, mà chính là CUDA, thứ trói buộc lập trình viên ở lại. Nếu một lớp phần mềm trung gian giúp model chạy mượt trên mọi phần cứng, thì rào cản chuyển đổi sẽ hạ xuống, và thế độc quyền bắt đầu lung lay. Theo mình, với doanh nghiệp và đội data, đây là tín hiệu tích cực về dài hạn: cạnh tranh phần cứng nhiều hơn nghĩa là chi phí hạ tầng AI có cơ hội rẻ hơn, dù cuộc chơi này sẽ còn kéo dài nhiều năm.",
+    "bullets": [
+     "Thương vụ toàn cổ phiếu khoảng 3,9 tỷ USD",
+     "Modular sở hữu nền tảng MAX và Mojo",
+     "Nhắm phá thế độc quyền CUDA của NVIDIA"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Qualcomm thâu tóm Modular",
+     "items": [
+      {
+       "v": "~3,9 tỷ USD",
+       "l": "giá thương vụ, toàn cổ phiếu"
+      },
+      {
+       "v": "19,2 triệu",
+       "l": "cổ phiếu Qualcomm phát hành"
+      },
+      {
+       "v": "MAX + Mojo",
+       "l": "nền tảng và ngôn ngữ thâu tóm"
+      },
+      {
+       "v": "CUDA",
+       "l": "thế độc quyền bị nhắm tới"
+      }
+     ]
+    },
+    "images": [
+     "https://techstartups.com/wp-content/uploads/2018/11/Qualcomm-launches-AI-fund-invest-in-AnyVision-960x549.jpg"
+    ]
+   },
+   {
+    "aid": 15,
+    "headline": "Anthropic tố Alibaba chưng cất Claude",
+    "narration": "Câu chuyện thứ ba mang màu sắc địa chính trị. Anthropic đã gửi một lá thư tới Ủy ban Ngân hàng Thượng viện Mỹ, cáo buộc các bên liên quan tới phòng thí nghiệm Qwen của Alibaba đã tiến hành một cuộc tấn công chưng cất quy mô lớn nhằm vào Claude. Theo Anthropic, nhóm này dùng gần 25.000 tài khoản gian lận để thực hiện khoảng 28,8 triệu lượt trao đổi với Claude, trong giai đoạn từ 22 tháng 4 đến 5 tháng 6. Chưng cất, hay distillation, là kỹ thuật cho một model mới học theo đầu ra của một model mạnh hơn để sao chép năng lực mà tốn ít chi phí huấn luyện. Nói nôm na, giống như cho hàng chục nghìn học trò ngồi chép bài của thầy giỏi suốt nhiều tuần, rồi dùng đống bài chép đó để dạy một học trò mới. Vì sao đáng chú ý? Vụ việc đẩy căng thẳng về sở hữu trí tuệ và cạnh tranh AI giữa Mỹ và Trung Quốc lên một nấc mới, đồng thời phơi bày distillation như một mặt trận ngầm khốc liệt giữa các phòng thí nghiệm. Theo mình, đây cũng là lời cảnh báo cho mọi đơn vị vận hành sản phẩm AI: cần giám sát hành vi lạm dụng API một cách nghiêm túc, vì dữ liệu đầu ra của bạn cũng là tài sản.",
+    "bullets": [
+     "Gần 25.000 tài khoản giả nhắm vào Claude",
+     "Khoảng 28,8 triệu lượt trao đổi trong sáu tuần",
+     "Căng thẳng IP và AI Mỹ - Trung leo thang"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Cáo buộc tấn công chưng cất",
+     "items": [
+      {
+       "t": "25.000 tài khoản giả",
+       "d": "lập trên nền Claude"
+      },
+      {
+       "t": "28,8 triệu lượt trao đổi",
+       "d": "gọi Claude liên tục 22/4 - 5/6"
+      },
+      {
+       "t": "Chưng cất năng lực",
+       "d": "hút hành vi của Claude"
+      },
+      {
+       "t": "Huấn luyện model riêng",
+       "d": "cáo buộc né bản quyền"
+      }
+     ]
+    },
+    "images": [
+     "https://mezha.net/eng/kd_image_generate/5264cac0_anthropic_accuses_alibaba/2753915.jpg?ver=2.0.15"
+    ]
+   },
+   {
+    "aid": 19,
+    "headline": "Micron bắt tay Anthropic và rót vốn Series H",
+    "narration": "Câu chuyện thứ tư cho thấy cuộc đua AI giờ là cuộc đua hạ tầng. Ngày 22 tháng 6, hãng bộ nhớ Micron công bố một thỏa thuận chiến lược với Anthropic, gồm bốn trụ cột. Thứ nhất, hai bên cùng đồng thiết kế kiến trúc bộ nhớ và lưu trữ tối ưu cho khối lượng công việc AI. Thứ hai, Micron cung ứng các sản phẩm data center cốt lõi là bộ nhớ băng thông cao HBM, DRAM và ổ SSD cho Anthropic. Thứ ba, Micron triển khai chính Claude vào các quy trình kỹ thuật và sản xuất nội bộ. Và thứ tư, Micron rót vốn đầu tư chiến lược vào vòng gọi vốn Series H của Anthropic, vòng có quy mô tới 65 tỷ đô la với định giá 965 tỷ đô la. Ngay sau thông báo, cổ phiếu Micron tăng khoảng 5,5%. Vì sao đáng chú ý? Bộ nhớ băng thông cao đang là nút thắt thật sự của việc mở rộng AI, khan hiếm và đắt đỏ. Khi một hãng mô hình và một hãng bộ nhớ liên minh dọc theo kiểu này, họ vừa chốt được nguồn cung, vừa cùng nhau thiết kế phần cứng cho thế hệ model tiếp theo. Theo mình, đây là dấu hiệu rõ ràng rằng giá trị đang dịch từ phần mềm thuần túy sang việc làm chủ cả chuỗi cung ứng phần cứng.",
+    "bullets": [
+     "Bốn trụ cột: đồng thiết kế, cung ứng, dùng Claude, đầu tư",
+     "Micron cấp HBM, DRAM, SSD cho Anthropic",
+     "Rót vốn vào vòng Series H 65 tỷ USD"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "4 trụ cột thỏa thuận Micron – Anthropic",
+     "items": [
+      {
+       "t": "Đồng thiết kế",
+       "d": "kiến trúc bộ nhớ và lưu trữ cho AI"
+      },
+      {
+       "t": "Cung ứng",
+       "d": "HBM, DRAM, SSD cho data center"
+      },
+      {
+       "t": "Triển khai Claude",
+       "d": "vào kỹ thuật và sản xuất Micron"
+      },
+      {
+       "t": "Đầu tư Series H",
+       "d": "góp vốn vòng 65 tỷ USD"
+      }
+     ]
+    },
+    "images": [
+     "https://ml.globenewswire.com/Resource/Download/7b41b567-5fa9-4dee-8bcb-9ea728ca57ee"
+    ]
+   },
+   {
+    "aid": 1,
+    "headline": "GPT-5.6 và Gemini cùng lỡ hẹn",
+    "narration": "Câu chuyện thứ năm khép lại tuần bằng một sự im lặng đáng chú ý. Cửa sổ ra mắt GPT-5.6 mà giới phát triển ngóng đợi cả tuần, với tin đồn về cửa sổ ngữ cảnh khoảng 1,5 triệu token và một bản vá về căn chỉnh an toàn, đã trôi qua hết tháng 6 mà OpenAI không phát hành. Không có thông báo chính thức, không có system card, không có trang model API. Cùng lúc đó, Google cũng lỡ cam kết đưa Gemini 3.5 Pro lên bản chính thức trong tháng, và đẩy lịch sang tháng 7. Nói cách khác, tuần này gần như không có model frontier lớn nào thực sự ra mắt. Vì sao điều này lại đáng nói? Bởi vì lần đầu tiên sau nhiều tháng, hai phòng thí nghiệm dẫn đầu cùng chững lại trong một tuần. Đó có thể là tín hiệu cho thấy việc đẩy năng lực và độ an toàn lên mức cao hơn đang ngày càng khó, và lịch ra mắt không còn là thứ chắc chắn như trước. Theo mình, với doanh nghiệp Việt, đây thật ra là tin tốt để thở: thay vì chạy theo từng model mới, hãy dành thời gian khai thác cho hết những model đã rất mạnh đang có trong tay, và đầu tư vào quy trình, dữ liệu và cách con người sử dụng chúng.",
+    "bullets": [
+     "GPT-5.6 trôi qua tháng 6, dời sang tháng 7",
+     "Gemini 3.5 Pro lỡ hẹn bản chính thức",
+     "Gần như không model frontier lớn ra tuần này"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Đỉnh frontier tạm khựng",
+     "items": [
+      {
+       "v": "Tháng 7",
+       "l": "GPT-5.6 dời lịch"
+      },
+      {
+       "v": "Tháng 7",
+       "l": "Gemini 3.5 Pro dời GA"
+      },
+      {
+       "v": "~1,5 triệu",
+       "l": "token context GPT-5.6 (tin đồn)"
+      },
+      {
+       "v": "0",
+       "l": "model frontier lớn ra tuần này"
+      }
+     ]
+    },
+    "images": [
+     "https://d.techtimes.com/en/full/466817/gpt-56.png"
+    ]
+   }
+  ]
+ },
+ "facebook_post": "Tuần AI im tiếng model mới, nhưng lại ồn ào chuyện người và tiền\n\nMình là Đức đây. Tuần 26 này (22 đến 28/6) có một điều lạ: gần như không có model frontier lớn nào ra mắt. GPT-5.6 thì giới dev ngóng cả tuần mà OpenAI không thả, Gemini 3.5 Pro của Google cũng lỡ hẹn, cả hai đều dời sang tháng 7. Vậy mà tuần lại chẳng hề buồn tẻ, vì sức nóng dồn hết về phần móng: con người, chip và những lá đơn kiện. Mình ghi lại mấy tin đáng nhớ nhất.\n\n1️⃣ Google chảy máu chất xám sang Anthropic. Theo Bloomberg và TechCrunch, hai nhà nghiên cứu Gemini chủ chốt là Jonas Adler và Alexander Pritzel chuẩn bị rời Google sang Anthropic, nối tiếp việc nhà khoa học Nobel John Jumper, đồng tác giả AlphaFold, cũng vừa chuyển sang đây. Trước đó Noam Shazeer rời Google về OpenAI. Bốn lãnh đạo cấp cao rời đi trong sáu ngày. Nghĩa là gì? Trong cuộc đua này, người giỏi còn quý hơn model, vì chính họ làm ra model thế hệ sau.\n\n2️⃣ Qualcomm chi gần 4 tỷ USD mua Modular. Modular không làm chip, họ làm phần mềm: nền tảng MAX và ngôn ngữ Mojo giúp model chạy mượt trên mọi phần cứng. Đây là đòn nhắm thẳng vào CUDA, con hào lớn nhất của NVIDIA.\n\n3️⃣ Anthropic tố Alibaba. Trong thư gửi Thượng viện Mỹ, Anthropic cáo buộc nhóm liên quan tới phòng thí nghiệm Qwen dùng gần 25.000 tài khoản giả, thực hiện 28,8 triệu lượt trao đổi với Claude để chưng cất năng lực. Câu chuyện IP Mỹ - Trung lại nóng thêm một nấc.\n\n4️⃣ Micron bắt tay Anthropic và rót vốn Series H. Thỏa thuận bốn trụ cột: đồng thiết kế bộ nhớ cho AI, cung ứng HBM, DRAM, SSD, triển khai Claude nội bộ, và đầu tư vào vòng 65 tỷ USD. Bộ nhớ băng thông cao đang là nút thắt thật của việc mở rộng AI.\n\n5️⃣ Bên lề, DeepSeek chốt giảm giá V4-Pro 75% vĩnh viễn, châm ngòi cuộc chiến giá token; còn cộng đồng thì dậy sóng với bài viết hơn 43.000 lượt vote về việc người Mỹ đang quay lưng với AI.\n\n💭 Góc nhìn của mình về tuần này\n\nĐiều mình thấy thú vị nhất không phải tin nào riêng lẻ, mà là cái khoảng lặng model. Nó nói lên rằng giai đoạn dễ, cứ vài tuần lại có model mạnh hơn, đang chậm lại. Giá trị đang dịch từ phần mềm thuần túy sang ba thứ khó sao chép: con người giỏi, nguồn cung phần cứng, và quan hệ hạ tầng. Nhìn loạt tin Micron, Qualcomm, vụ nhân tài Google, mình thấy rõ điều đó.\n\nVậy doanh nghiệp Việt và team data nhỏ nên làm gì? Theo mình, đừng sốt ruột chờ GPT-5.6. Những model đang có trong tay đã thừa mạnh cho 95% bài toán thực tế; cái thiếu thường là quy trình, chất lượng dữ liệu và cách con người dùng. Gần đây mình học và thi chứng chỉ Databricks, làm thực hành RAG trên lakehouse, và càng tin một điều: AI chỉ tạo ra giá trị khi gắn được vào dữ liệu sạch, có governance và đúng người dùng. Vụ sếp lệ thuộc chatbot tới mức ép cả nhóm chiều theo dự báo của nó, viral trên Reddit tuần này, là minh họa đắt cho mặt trái: bỏ con người ra khỏi vòng quyết định thì AI thông minh tới đâu cũng thành rủi ro.\n\nCái cốt lõi cần nhớ: đừng biến AI thành phong trào, hãy biến nó thành hệ thống. Công cụ chỉ là một nửa, nửa còn lại là workflow và dữ liệu bạn thiết kế quanh nó.\n\nGhé AI News và Data News của mình để xem bản tin đầy đủ, có nguồn dẫn từng tin, và đăng ký nhận bản tin mỗi tuần nhé. Tuần sau gặp lại!\n\n#AI #ArtificialIntelligence #Anthropic #Claude #Qualcomm #NVIDIA #Micron #OpenAI #Gemini #DeepSeek #RAG #DataEngineering #Databricks #AINews #DucNguyenAI",
+ "youtube": {
+  "recap": "FB-y8QF_f9c",
+  "short": "G1YTbXEGm0Y"
+ }
+}
