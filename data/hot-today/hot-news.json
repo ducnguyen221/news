@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-06-27",
+      "display_date": "27/06/2026",
+      "title": "Apache Polaris: catalog mở giành quyền kiểm soát hồ Iceberg",
+      "summary": "Iceberg thắng cuộc chiến định dạng; giờ trận đấu mới nằm ở catalog — và Apache Polaris 1.6 vừa tăng tốc.",
+      "source": "polaris.apache.org",
+      "video_id": "kf_Ik_NSeCM",
+      "short_id": "mX55V7iH5fg",
+      "published_at": "2026-06-27T19:21:53"
+    },
+    {
       "date": "2026-06-25",
       "display_date": "25/06/2026",
       "title": "Graviton5 ra mắt: con chip làm rẻ mọi truy vấn dữ liệu",
