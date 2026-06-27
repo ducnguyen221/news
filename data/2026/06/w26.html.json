@@ -1,0 +1,385 @@
+{
+ "date": "27/06/2026",
+ "week": "W26",
+ "range": "22/06 - 28/06/2026",
+ "tldr": "Tuần 22 đến 28 tháng 6 là tuần lắng lại sau mùa hội nghị lớn, nhưng phần lõi của ngành dữ liệu lại sôi động ngay ở tầng kiến trúc. Cộng đồng Apache Iceberg dồn sức vào ba đề xuất nền tảng: đọc nhất quán nhiều bảng cùng một thời điểm với Global Snapshot Consistency, đưa primary key thành công dân hạng nhất của table format, và ra mắt Iceberg Doctor để chẩn đoán sức khỏe bảng. Song song, tranh luận lớn nhất tuần là catalog đang biến từ danh bạ bảng thành control plane phục vụ cả AI agent, BI lẫn query engine. Ở tầng sản phẩm, Dataiku đưa Cobuild lên GA, Alteryx dựng trust layer với Alteryx One và Agent Studio, còn ThoughtSpot và WisdomAI tiếp tục kéo analytics sang hướng agentic. Tựu trung, tuần này khẳng định: muốn AI agent dùng dữ liệu đáng tin, nền móng phải là tính nhất quán, ngữ cảnh và quản trị, chứ không chỉ thêm hạ tầng.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "Apache Iceberg đề xuất Global Snapshot Consistency: đọc nhất quán nhiều bảng cùng một thời điểm",
+   "title_en": "Apache Iceberg Global Snapshot Consistency proposal",
+   "summary": "Đề xuất của Xiening Dai bổ sung cho Iceberg khả năng đọc nhiều bảng như tại cùng một thời điểm logic, qua hai hướng bổ trợ nhau: một API LoadTables theo lô trả về metadata của nhiều bảng cùng lúc, và một commit sequence number đơn điệu để ghim một lát cắt nhất quán xuyên bảng. Hiện Iceberg mới chỉ định nghĩa cô lập ở mức một thao tác ghi đơn lẻ trên một bảng.",
+   "why": "Một AI agent hay dashboard BI join năm bảng cần cả năm phản ánh đúng một khoảnh khắc, không phải năm snapshot lệch nhau; đây là lúc cộng đồng coi multi-table atomicity là mối lo hạng nhất.",
+   "url": "https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-june-7bd",
+   "domain": "amdatalakehouse.substack.com",
+   "date": "2026-06-25",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 1
+  },
+  {
+   "aid": 2,
+   "title": "Iceberg bàn đưa Primary Key thành công dân hạng nhất của table format",
+   "title_en": "First-Class Primary Key Tables in Apache Iceberg",
+   "summary": "Đề xuất của Chandra Sekhar muốn primary key được hỗ trợ ngay trong table format thay vì để mỗi compute engine tự dựng lại, mở đường cho các mẫu vận hành và change-data nơi khóa mang ngữ nghĩa thật. Phần khó nằm ở chi phí cưỡng chế khóa, hành vi merge-on-read và tương tác với equality delete.",
+   "why": "Một khái niệm khóa native sẽ định hình lại cách engine lập kế hoạch upsert và cách hệ tiêu thụ phía sau suy luận về danh tính từng dòng dữ liệu.",
+   "url": "https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-june-7bd",
+   "domain": "amdatalakehouse.substack.com",
+   "date": "2026-06-25",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 4
+  },
+  {
+   "aid": 3,
+   "title": "Iceberg Doctor: bộ công cụ forensics chẩn đoán sức khỏe bảng Iceberg",
+   "title_en": "Iceberg Doctor: forensics and visualization toolchain",
+   "summary": "Sarthak Singh giới thiệu Iceberg Doctor, bộ công cụ forensics và trực quan hóa để chẩn đoán sức khỏe bảng Iceberg, đúc kết từ kinh nghiệm vận hành bảng ở Confluent. Nó nhắm tới các trạng thái xấu quen thuộc: quá nhiều file nhỏ, dữ liệu mồ côi, metadata phình to và lịch sử snapshot tăng vô hạn.",
+   "why": "Iceberg đã đạt mức mà vận hành nó tốt, chứ không chỉ ghi vào nó, mới là thách thức hằng ngày của đội nền tảng; công cụ kiểu này biến sự cố ngầm thành thứ nhìn thấy được.",
+   "url": "https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-june-7bd",
+   "domain": "amdatalakehouse.substack.com",
+   "date": "2026-06-25",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 4,
+   "title": "Iceberg tối ưu read-path: gộp GET call cho Parquet và thêm quantile sketch trong Puffin",
+   "title_en": "Iceberg read-path optimizations: combined GETs and Puffin quantile sketches",
+   "summary": "Varun Lakhyani và Steve Loughran bàn cách gộp ba lệnh GET khi đọc Parquet (root manifest, data file và nén file nhỏ) để cắt số round-trip tới object storage, vốn là thứ chi phối độ trễ và hóa đơn cho workload nhiều file nhỏ. Cùng tuần, Tamás Máté đề xuất lưu quantile sketch ở mức bảng trong Puffin để planner Spark ước lượng phân phối giá trị tốt hơn.",
+   "why": "Ít round-trip hơn nghĩa là truy vấn nhanh hơn và rẻ hơn cho streaming ingest và commit liên tục; thống kê phân phối tốt hơn cho join và filter nhanh hơn mà không đụng tới dữ liệu.",
+   "url": "https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-june-7bd",
+   "domain": "amdatalakehouse.substack.com",
+   "date": "2026-06-25",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 5,
+   "title": "DuckDB ra mắt 1.5.4 (Variegata) và bản LTS 1.4.5 (Andium)",
+   "title_en": "DuckDB 1.5.4 (Variegata) and 1.4.5 LTS (Andium) released",
+   "summary": "DuckDB phát hành đồng thời bản 1.5.4 Variegata và bản hỗ trợ dài hạn 1.4.5 Andium, tiếp nối dòng LTS vốn đã mang AES-256, lệnh MERGE và khả năng ghi Iceberg, với mức tăng hiệu năng quanh 20% so với trước. Đây là nhịp release ổn định củng cố vị thế DuckDB như hạ tầng phân tích thật sự, không chỉ là công cụ trong notebook.",
+   "why": "Bản LTS cho các đội sản xuất một mốc ổn định để bám vào; DuckDB ngày càng là engine phân tích chạy từ laptop tới Lambda, hạ rào cản cho team nhỏ.",
+   "url": "https://duckdb.org/news/",
+   "domain": "duckdb.org",
+   "date": "2026-06-17",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "Alteryx dựng \"trust layer\" cho AI với Alteryx One và Agent Studio",
+   "title_en": "Alteryx Builds the Trust Layer for Enterprise AI",
+   "summary": "Alteryx gom danh mục sản phẩm về một nền Alteryx One, thêm governed shared workspace và Live Query để chạy phân tích ngay trong nền tảng của khách hàng, rồi mở rộng workflow ra agent ngoài qua Agent Studio và một MCP server. Hãng dẫn nghiên cứu cho thấy khách có thể tự động hóa 75 đến 100% việc phân tích lặp lại và rút ngắn timeline data science hơn 40% khi vào cuộc với dữ liệu đã quản trị và logic nghiệp vụ chuẩn hóa.",
+   "why": "Định vị mình là lớp phần mềm khiến output của AI nhất quán, chính xác và kiểm toán được là nước đi đúng pain point lớn nhất khi đưa AI vào doanh nghiệp: lòng tin.",
+   "url": "https://solutionsreview.com/business-intelligence/analytics-and-data-science-news-for-the-week-of-june-26-updates-from-databricks-dataiku-wisdomai-more/",
+   "domain": "solutionsreview.com",
+   "date": "2026-06-26",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": 5
+  },
+  {
+   "aid": 7,
+   "title": "ThoughtSpot đào sâu search analytics bằng AI trên các nền cloud data",
+   "title_en": "ThoughtSpot Deepens AI-Driven Search Analytics",
+   "summary": "ThoughtSpot tiếp tục đầu tư vào search và Liveboard chạy bằng AI, cho người dùng nghiệp vụ hỏi dữ liệu trên warehouse và lakehouse bằng ngôn ngữ tự nhiên. Với tích hợp sâu hơn và việc dùng agent để gợi ý insight cũng như tự đặt câu hỏi nối tiếp, hãng định vị giao diện search-first như cách dân chủ hóa phân tích mà không bắt người dùng học SQL.",
+   "why": "Bỏ rào cản SQL là cách nhanh nhất mở rộng số người thật sự tự ra quyết định bằng dữ liệu; agentic follow-up biến phân tích từ tra cứu thành hội thoại.",
+   "url": "https://solutionsreview.com/business-intelligence/analytics-and-data-science-news-for-the-week-of-june-26-updates-from-databricks-dataiku-wisdomai-more/",
+   "domain": "solutionsreview.com",
+   "date": "2026-06-26",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "Dataiku đưa Cobuild lên GA: AI agent biến ý định ngôn ngữ tự nhiên thành dự án AI có quản trị",
+   "title_en": "Dataiku Makes Cobuild Generally Available",
+   "summary": "Dataiku công bố Cobuild chính thức GA, một AI building agent biến ý định nghiệp vụ viết bằng ngôn ngữ tự nhiên thành dự án AI sẵn sàng sản xuất mà không cần code và không phá vỡ kiểm soát doanh nghiệp. Đặt trên nền Platform for AI Success, Cobuild tự lắp ráp workflow kiểm tra được, kết nối dữ liệu và model trong một môi trường quản trị duy nhất, điều phối analytics, machine learning và agent xuyên nhiều nhà cung cấp.",
+   "why": "Đây là phát súng đáng chú ý nhất ở tầng sản phẩm tuần này: thu hẹp khoảng cách kinh điển giữa dựng nhanh và quản trị chặt, để người nghiệp vụ tự dựng AI mà vẫn nằm trong vòng kiểm soát.",
+   "url": "https://www.businesswire.com/news/home/20260611199693/en/Dataiku-Makes-Cobuild-Generally-Available-the-AI-Building-Agent-That-Closes-the-Build-Govern-Gap",
+   "domain": "businesswire.com",
+   "date": "2026-06-16",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": 3
+  },
+  {
+   "aid": 9,
+   "title": "WisdomAI dùng agentic workflow biến output phân tích thành quyết định vận hành",
+   "title_en": "WisdomAI Turns Analytics Outputs Into Operational Decisions",
+   "summary": "WisdomAI tập trung dùng AI agent để chuyển output phân tích thành quyết định và hành động vận hành cụ thể. Bằng cách nối agent vào dashboard, chỉ số và dự báo rồi đề xuất hoặc thực thi workflow dưới sự quản trị, hãng muốn lấp khoảng trống giữa insight và thực thi, nhất là ở môi trường người vận hành đang quá tải.",
+   "why": "Bài toán đáng giá của phân tích không dừng ở biểu đồ đẹp mà ở việc dữ liệu giúp hành động; đây đúng làn sóng đẩy BI từ báo cáo sang ra quyết định.",
+   "url": "https://solutionsreview.com/business-intelligence/analytics-and-data-science-news-for-the-week-of-june-26-updates-from-databricks-dataiku-wisdomai-more/",
+   "domain": "solutionsreview.com",
+   "date": "2026-06-26",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "ScienceLogic nâng cấp Skylar AI, được vinh danh Leader trong IDC MarketScape AIOps 2026",
+   "title_en": "ScienceLogic Announces New Skylar AI Updates and IDC MarketScape Leader Recognition",
+   "summary": "ScienceLogic công bố loạt cập nhật cho Skylar AI và được xếp vị trí Leader trong báo cáo IDC MarketScape Worldwide AIOps 2026. Trọng tâm là dùng AI agent trên dữ liệu vận hành và quan sát hệ thống để tự phát hiện bất thường, phân tích nguyên nhân và rút ngắn thời gian xử lý sự cố.",
+   "why": "AIOps là một trong những mảng data-for-AI thực dụng nhất: log và metric vận hành là khối dữ liệu khổng lồ, và agent tự triage đúng là nơi AI trả về giá trị đo được ngay.",
+   "url": "https://www.hpcwire.com/aiwire/2026/06/24/sciencelogic-announces-new-skylar-ai-updates-and-recognition-as-a-leader-in-idc-marketscape-reports/",
+   "domain": "hpcwire.com",
+   "date": "2026-06-24",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "Uber thiết kế cách lan truyền \"agent identity\" xuyên các workflow đa agent",
+   "title_en": "AI Agent Identity and Permission Challenges: How Uber and Auth0 Are Rethinking Access Control",
+   "summary": "Uber mô tả kiến trúc nội bộ để lan truyền danh tính agent qua các workflow AI nhiều agent, sao cho giữ được ngữ cảnh người dùng gốc, nguồn gốc của từng agent và quyền truy cập theo phạm vi khi agent ủy thác công việc và gọi công cụ nội bộ. Bài viết phân tích cùng góc nhìn của Auth0 về kiểm soát truy cập trong kỷ nguyên agent.",
+   "why": "Khi agent tự gọi dữ liệu và công cụ thay con người, câu hỏi ai đang hành động, với quyền của ai trở thành vấn đề quản trị sống còn cho mọi nền tảng dữ liệu.",
+   "url": "https://www.infoq.com/news/2026/06/ai-agent-identity-uber-auth0/",
+   "domain": "infoq.com",
+   "date": "2026-06-17",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "Solutions Review điểm tuần và góc nhìn: AI cần nhiều hơn chỉ hạ tầng lakehouse",
+   "title_en": "Analytics and Data Science News for the Week of June 26; Editor's Lens on Lakehouse Layers",
+   "summary": "Bản điểm tin tuần 26 của Solutions Review gom các động thái Alteryx, Dataiku, Domino, Reveal, ThoughtSpot và WisdomAI, kèm bài Editor's Lens lập luận rằng kiến trúc lakehouse dù mạnh vẫn chưa đủ cho AI. Thông điệp: tổ chức đã đổ nhiều tiền vào lake và warehouse, nhưng AI còn cần lớp ngữ cảnh, ngữ nghĩa và quản trị nằm trên hạ tầng đó.",
+   "why": "Đây là khung đọc gọn cả tuần: cuộc chơi đã dịch từ xây hạ tầng sang xây lớp ngữ cảnh và quản trị, đúng chủ đề xuyên suốt các đề xuất Iceberg và catalog tuần này.",
+   "url": "https://solutionsreview.com/business-intelligence/analytics-and-data-science-news-for-the-week-of-june-26-updates-from-databricks-dataiku-wisdomai-more/",
+   "domain": "solutionsreview.com",
+   "date": "2026-06-26",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "Tranh luận nóng nhất tuần: catalog đang biến từ \"danh bạ bảng\" thành control plane cho AI agent",
+   "title_en": "The catalog grows from a table directory into a control plane",
+   "summary": "Tuần này cộng đồng lakehouse dồn năng lượng vào câu hỏi catalog phải tiến hóa thế nào để phục vụ một chỗ cho agent, BI tool và query engine. Dự án Apache Polaris đẩy mạnh tranh luận về endpoint REST cho định dạng không phải Iceberg, datasource kích hoạt lúc runtime và một semantic layer sống ngay trong catalog.",
+   "why": "Format war coi như đã ngã ngũ; chiến trường giờ là catalog, và ai sở hữu lớp này nắm khả năng kiểm soát quản trị, liên thông và ngữ nghĩa cho cả làn sóng AI agent truy vấn không cần người.",
+   "url": "https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-june-7bd",
+   "domain": "amdatalakehouse.substack.com",
+   "date": "2026-06-25",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": 2
+  },
+  {
+   "aid": 14,
+   "title": "Cộng đồng r/dataengineering: nghề data engineer vẫn khát người nhưng người mới rất khó vào",
+   "title_en": "r/dataengineering: high demand for data engineers, but hard for freshers in 2026",
+   "summary": "Các thảo luận sôi nổi trên r/dataengineering tuần qua xoay quanh nghịch lý: nhu cầu kỹ sư dữ liệu vẫn cao do khủng hoảng nền tảng kiểu infrastructure-first, nhưng người mới rất khó vào nghề vì ít vị trí entry, lối đi phổ biến là làm data analyst rồi chuyển sang data engineer. Một luồng khác tranh cãi có nên trả tiền học khóa data engineering hay tự học với mentor.",
+   "why": "Tín hiệu thị trường lao động đáng đọc cho người Việt định vào ngành: cầu thật nhưng cửa hẹp, nền tảng SQL và Python vẫn là gốc, và kinh nghiệm thực chiến quan trọng hơn chứng chỉ.",
+   "url": "https://www.reddit.com/r/analyticsengineerjobs/comments/1tx7690/why_data_engineering_jobs_are_in_high_demand/",
+   "domain": "reddit.com",
+   "date": "2026-06-05",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "Domino Data Lab đẩy mạnh MLOps cho phân tích và AI trong ngành bị quản chặt",
+   "title_en": "Domino Data Lab Advances Enterprise MLOps for Regulated Use Cases",
+   "summary": "Domino Data Lab tiếp tục tập trung MLOps cho các ngành bị quản lý chặt, cung cấp theo dõi thí nghiệm tập trung, quản trị model và pipeline tái lập được cho dự án data science. Nền tảng được định vị là nơi tổ chức chuẩn hóa cách xây, kiểm định, triển khai và giám sát model để đáp ứng rủi ro, tuân thủ và kiểm toán mà vẫn ship nhanh.",
+   "why": "Với ngân hàng, bảo hiểm, y tế ở Việt Nam, rào cản lớn nhất khi đưa AI vào sản xuất là tuân thủ và kiểm toán; reproducibility và governance là điều kiện cần, không phải tính năng cho vui.",
+   "url": "https://solutionsreview.com/business-intelligence/analytics-and-data-science-news-for-the-week-of-june-26-updates-from-databricks-dataiku-wisdomai-more/",
+   "domain": "solutionsreview.com",
+   "date": "2026-06-26",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 16,
+   "title": "Reveal BI mở rộng embedded analytics và workflow AI ngay trong ứng dụng SaaS",
+   "title_en": "Reveal BI Brings Embedded Analytics and AI Workflows Inside SaaS Applications",
+   "summary": "Reveal BI mở rộng năng lực embedded analytics để đội SaaS nhúng dashboard tương tác, tự khám phá dữ liệu và insight chạy bằng AI ngay trong ứng dụng của mình thay vì đẩy người dùng sang công cụ riêng. Thông qua SDK và mẫu tích hợp low-code, hãng đưa phân tích thành phần tự nhiên của luồng sản phẩm.",
+   "why": "Embedded analytics là cách biến dữ liệu thành giá trị tại điểm ra quyết định; với nhà làm SaaS Việt, đây là hướng tăng giữ chân người dùng mà không phải tự xây BI từ đầu.",
+   "url": "https://solutionsreview.com/business-intelligence/analytics-and-data-science-news-for-the-week-of-june-26-updates-from-databricks-dataiku-wisdomai-more/",
+   "domain": "solutionsreview.com",
+   "date": "2026-06-26",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 1,
+ "weekly_video": {
+  "intro": "Xin chào và chào mừng các bạn đến với Data News tuần 26, từ ngày 22 đến 28 tháng 6 năm 2026. Sau mùa hội nghị dồn dập, tuần này ngành dữ liệu lắng lại nhưng phần gốc rễ lại nóng: cộng đồng Apache Iceberg bàn về tính nhất quán nhiều bảng, catalog đang biến thành control plane cho AI agent, và loạt công cụ phân tích chuyển hẳn sang hướng agentic. Hãy cùng mình điểm qua năm câu chuyện đáng chú ý nhất tuần.",
+  "outro": "Đó là năm câu chuyện lớn nhất của tuần 26, một tuần cho thấy tương lai của dữ liệu nằm ở tính nhất quán, ngữ cảnh và quản trị, chứ không chỉ thêm hạ tầng. Mời các bạn đọc chi tiết trong bản tin đầy đủ, và hẹn gặp lại trong số tuần sau của Data News.",
+  "segments": [
+   {
+    "aid": 1,
+    "headline": "Iceberg muốn đọc nhất quán nhiều bảng cùng lúc",
+    "narration": "Tin nóng nhất tuần đến từ một nơi ít ai để ý: danh sách thư của cộng đồng Apache Iceberg. Đề xuất tên là Global Snapshot Consistency, do Xiening Dai khởi xướng, giải một bài toán nghe kỹ thuật nhưng cực kỳ thực tế. Hôm nay Iceberg chỉ đảm bảo cô lập ở mức một thao tác ghi trên một bảng. Nó không nói gì về việc đọc nhiều bảng như tại cùng một thời điểm. Vấn đề là workload hiện đại không còn đọc một bảng. Một AI agent hay một dashboard join năm bảng cần cả năm phản ánh đúng một khoảnh khắc logic, chứ không phải năm snapshot lệch nhau vài giây. Đề xuất đưa ra hai hướng bổ trợ. Một là API LoadTables theo lô, trả về metadata của nhiều bảng cùng lúc tại một thời điểm chung. Hai là một commit sequence number, một con số đơn điệu cho phép người đọc ghim một lát cắt nhất quán xuyên nhiều bảng. Cuộc thảo luận kéo theo những tên tuổi như Russell Spitzer và Andrei Tserakhau, và điều thú vị là họ coi hai hướng này không loại trừ nhau. Tại sao điều này quan trọng? Vì nó buộc cộng đồng phải quyết định bao nhiêu logic nhất quán nên nằm ở catalog, bao nhiêu ở table format, bao nhiêu ở engine. Với người làm dữ liệu Việt, bài học là: trước khi mơ tới agent tự truy vấn, hãy hiểu rằng tính đúng đắn khi đọc nhiều bảng là nền móng, và nền móng đó đang được xây ngay lúc này.",
+    "bullets": [
+     "Iceberg nay chỉ cô lập từng bảng",
+     "Agent join nhiều bảng cần một thời điểm",
+     "Hai hướng: LoadTables lô và commit sequence"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Đọc bảng: trước và sau đề xuất",
+     "left": {
+      "h": "Hiện tại",
+      "items": [
+       "Cô lập ở mức một bảng",
+       "Mỗi bảng một snapshot",
+       "Join nhiều bảng có thể lệch",
+       "Agent thấy dữ liệu nửa vời"
+      ]
+     },
+     "right": {
+      "h": "Với Global Snapshot",
+      "items": [
+       "Đọc nhiều bảng một thời điểm",
+       "LoadTables lô atomic",
+       "Commit sequence number xuyên bảng",
+       "Một lát cắt nhất quán"
+      ]
+     }
+    },
+    "images": [
+     "https://substackcdn.com/image/fetch/$s_!RaxU!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd9e82cd9-aa0b-4b6f-a45d-3e6224aa9372_1672x941.png"
+    ]
+   },
+   {
+    "aid": 13,
+    "headline": "Catalog biến thành control plane cho AI agent",
+    "narration": "Tin nóng thứ hai là chủ đề xuyên suốt cả tuần, và nó tóm gọn hướng đi của ngành. Cuộc chiến định dạng bảng coi như đã xong: Iceberg gần như là chuẩn mặc định mà ai cũng đọc ghi được. Chiến trường mới là catalog. Và tuần này, cộng đồng tranh luận sôi nổi về việc catalog phải tiến hóa từ một danh bạ bảng đơn thuần thành một control plane, tức một lớp điều khiển phục vụ một chỗ cho cả agent, công cụ BI lẫn query engine. Dự án Apache Polaris đẩy mạnh ba hướng đáng chú ý. Thứ nhất là endpoint REST cho cả những định dạng không phải Iceberg, để catalog không bị khóa vào một format. Thứ hai là datasource kích hoạt lúc runtime, cho phép gắn nguồn dữ liệu linh hoạt. Thứ ba, và quan trọng nhất, là một semantic layer sống ngay trong catalog, nơi định nghĩa nghiệp vụ như doanh thu là gì được lưu một lần và dùng lại nhất quán ở mọi nơi. Đây chính là mảnh ghép mà mọi vendor lớn đang giành nhau. Vì sao đáng chú ý? Vì ai kiểm soát catalog là kiểm soát quản trị, liên thông và ngữ nghĩa cho toàn bộ làn sóng AI agent muốn truy vấn dữ liệu mà không cần con người ở giữa. Với doanh nghiệp Việt, lời khuyên của mình là khi chọn nền dữ liệu, đừng chỉ nhìn engine chạy nhanh cỡ nào, hãy hỏi catalog mở tới đâu, vì đó mới là thứ quyết định optionality của bạn trong cả thập kỷ tới.",
+    "bullets": [
+     "Format war đã xong, catalog là chiến trường",
+     "Polaris: REST mở, datasource runtime",
+     "Semantic layer sống trong catalog"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Catalog như control plane",
+     "items": [
+      {
+       "t": "Semantic layer",
+       "d": "định nghĩa nghiệp vụ dùng chung"
+      },
+      {
+       "t": "Quản trị và bảo mật",
+       "d": "quyền, kiểm toán xuyên engine"
+      },
+      {
+       "t": "REST mở",
+       "d": "cả định dạng không phải Iceberg"
+      },
+      {
+       "t": "Engine và agent",
+       "d": "BI, query engine, AI agent"
+      }
+     ]
+    },
+    "images": [
+     "https://substackcdn.com/image/fetch/$s_!RaxU!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd9e82cd9-aa0b-4b6f-a45d-3e6224aa9372_1672x941.png"
+    ]
+   },
+   {
+    "aid": 8,
+    "headline": "Dataiku đưa Cobuild lên GA",
+    "narration": "Tin nóng thứ ba là động thái sản phẩm rõ rệt nhất tuần. Dataiku công bố Cobuild chính thức lên bản GA. Cobuild là một AI building agent, biến ý định nghiệp vụ viết bằng ngôn ngữ tự nhiên thành một dự án AI sẵn sàng sản xuất, mà không cần viết code và quan trọng là không phá vỡ kiểm soát của doanh nghiệp. Cụ thể, người nghiệp vụ mô tả mục tiêu bằng lời, Cobuild tự lắp ráp các workflow có thể kiểm tra được, tự kết nối dữ liệu và dựng model, tất cả nằm trong một môi trường được quản trị duy nhất, điều phối cả analytics, machine learning lẫn agent xuyên nhiều nhà cung cấp. Nó đặt trên nền tảng mà Dataiku gọi là Platform for AI Success ra mắt đầu năm. Vì sao đáng chú ý? Vì nó nhắm thẳng vào nỗi đau kinh điển của AI doanh nghiệp: hoặc bạn cho người dùng tự do dựng nhanh và mất kiểm soát, hoặc bạn siết quản trị và mọi thứ ì ạch. Cobuild hứa thu hẹp khoảng cách đó. Theo mình, đây là xu hướng đáng theo dõi nhất cho doanh nghiệp Việt: thay vì tuyển thật nhiều người biết code, hãy đầu tư vào nền tảng cho người hiểu nghiệp vụ tự dựng giải pháp trong một khung quản trị. Nhưng cũng cần tỉnh táo, agent dựng nhanh chỉ tốt khi dữ liệu phía dưới sạch và định nghĩa nghiệp vụ rõ; nếu không, nó chỉ giúp bạn sai nhanh hơn.",
+    "bullets": [
+     "Ngôn ngữ tự nhiên thành dự án AI",
+     "Không cần code, vẫn trong vòng quản trị",
+     "Điều phối analytics, ML và agent"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Cobuild biến ý định thành dự án",
+     "items": [
+      {
+       "t": "Mô tả mục tiêu",
+       "d": "người nghiệp vụ viết bằng lời"
+      },
+      {
+       "t": "Lắp ráp workflow",
+       "d": "kiểm tra được, kết nối dữ liệu"
+      },
+      {
+       "t": "Dựng model",
+       "d": "trong môi trường quản trị"
+      },
+      {
+       "t": "Sản xuất",
+       "d": "không phá kiểm soát doanh nghiệp"
+      }
+     ]
+    },
+    "images": [
+     "https://images.ctfassets.net/5nvgvgqbpp73/4qgezwkLeYdnhfgVC7mlnS/3f128749b4a330bdfe10e583d6020fb1/Cobuild-GA-web-2.png"
+    ]
+   },
+   {
+    "aid": 2,
+    "headline": "Iceberg bàn đưa primary key vào format",
+    "narration": "Tin nóng thứ tư tiếp tục từ cộng đồng Iceberg, và nó cho thấy table format này đang trưởng thành tới đâu. Đề xuất của Chandra Sekhar muốn đưa primary key, tức khóa chính, thành công dân hạng nhất ngay trong table format, thay vì để mỗi compute engine tự dựng lại theo cách riêng. Nghe đơn giản nhưng ý nghĩa rất lớn. Iceberg vốn sinh ra cho phân tích, nơi người ta ghi rồi đọc theo lô. Nhưng càng ngày nó càng bị kéo về các mẫu vận hành và change-data, nơi một khóa được khai báo mang ngữ nghĩa thật: dòng này là duy nhất, cập nhật thì ghi đè đúng nó. Khi khóa nằm trong format, mọi engine đọc Iceberg đều hiểu giống nhau về danh tính từng dòng, thay vì mỗi nơi diễn giải một kiểu. Phần khó, như thường lệ, nằm đúng chỗ ai cũng đoán được: chi phí để cưỡng chế tính duy nhất của khóa, cách nó hành xử với merge-on-read, và tương tác với cơ chế equality delete. Cuộc thảo luận còn sớm, chưa thành thay đổi spec. Nhưng nó đáng theo dõi vì một khái niệm khóa native sẽ định hình lại cách engine lập kế hoạch upsert và cách hệ thống phía sau suy luận về dữ liệu. Với mình, đây là tín hiệu rõ: ranh giới giữa kho phân tích và cơ sở dữ liệu vận hành đang mờ dần, đúng hướng mà cả ngành đang đi.",
+    "bullets": [
+     "Khóa chính nằm ngay trong table format",
+     "Mọi engine hiểu danh tính dòng giống nhau",
+     "Khó ở enforcement và equality delete"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Vì sao primary key quan trọng",
+     "items": [
+      {
+       "v": "1 lần",
+       "l": "định nghĩa khóa trong format"
+      },
+      {
+       "v": "mọi engine",
+       "l": "hiểu danh tính dòng như nhau"
+      },
+      {
+       "v": "upsert",
+       "l": "engine lập kế hoạch tốt hơn"
+      },
+      {
+       "v": "CDC",
+       "l": "mở đường cho change-data"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 6,
+    "headline": "Alteryx dựng trust layer với Alteryx One",
+    "narration": "Tin nóng thứ năm là động thái của Alteryx, một tên tuổi quen thuộc trong giới phân tích. Tuần này Alteryx định vị lại mình quanh một ý tưởng: trở thành trust layer, tức lớp phần mềm khiến output của AI nhất quán, chính xác và kiểm toán được. Cụ thể, hãng gom danh mục sản phẩm rời rạc về một nền duy nhất tên Alteryx One. Hãng thêm governed shared workspace và một tính năng tên Live Query, cho phép chạy phân tích ngay bên trong nền tảng dữ liệu của khách hàng thay vì phải kéo dữ liệu ra. Rồi hãng mở rộng các workflow đó ra cả agent bên ngoài, thông qua Agent Studio và một MCP server, đúng chuẩn kết nối agent đang phổ biến. Con số Alteryx đưa ra khá ấn tượng: khách hàng có thể tự động hóa từ 75 đến 100% công việc phân tích lặp lại, và rút ngắn timeline data science hơn 40%, với điều kiện họ vào cuộc với dữ liệu đã được quản trị và logic nghiệp vụ đã chuẩn hóa. Chính cái điều kiện đó mới là mấu chốt. Theo mình, thông điệp thật sự của tuần không phải là thêm một công cụ AI nữa, mà là: AI chỉ tạo giá trị khi đặt trên dữ liệu sạch và quy tắc nghiệp vụ rõ ràng. Tự động hóa mà không có quản trị thì chỉ là nhân bản sự hỗn loạn nhanh hơn. Đây là bài học mình lặp đi lặp lại với khách hàng: đừng biến nó thành phong trào, hãy biến nó thành hệ thống.",
+    "bullets": [
+     "Gom sản phẩm về một nền Alteryx One",
+     "Live Query và Agent Studio kèm MCP",
+     "Tự động hóa tới 75 đến 100% việc lặp"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Alteryx One qua những con số",
+     "items": [
+      {
+       "v": "75-100%",
+       "l": "việc phân tích lặp tự động hóa"
+      },
+      {
+       "v": "40%+",
+       "l": "rút ngắn timeline data science"
+      },
+      {
+       "v": "1 nền",
+       "l": "gom danh mục về Alteryx One"
+      },
+      {
+       "v": "MCP",
+       "l": "mở workflow ra agent ngoài"
+      }
+     ]
+    },
+    "images": [
+     "https://enterprisedna.co/resources/news-imagery/optimized/edna-news-81-section-lg.webp"
+    ]
+   }
+  ]
+ },
+ "facebook_post": "TUẦN 26 CỦA DATA: KHI NGÀNH DỮ LIỆU LẶNG LẼ XÂY LẠI MÓNG CHO AI AGENT\n\nChào cả nhà, Đức đây. Sau mấy tuần hội nghị dồn dập, tuần này ngành dữ liệu lắng xuống, nhưng mình lại thích kiểu tuần này: ít sân khấu, nhiều việc gốc rễ. Đọc mailing list của cộng đồng Apache Iceberg mà thấy rõ, người ta đang âm thầm xây lại nền móng để AI agent dùng dữ liệu một cách đáng tin. Mình điểm vài tin nóng nhất rồi nói thẳng góc nhìn ở cuối.\n\n1️⃣ Iceberg đề xuất Global Snapshot Consistency, tức đọc nhất quán nhiều bảng cùng một thời điểm. Hiện Iceberg chỉ đảm bảo cô lập ở mức một bảng. Nhưng một agent hay một dashboard join năm bảng thì cần cả năm phản ánh đúng một khoảnh khắc, không lệch nhau. Đây là bài toán nền tảng, và nó đang được giải ngay lúc này.\n\n2️⃣ Cũng từ Iceberg, đề xuất đưa primary key thành công dân hạng nhất của table format, thay vì để mỗi engine tự dựng lại. Nghĩa là ranh giới giữa kho phân tích và database vận hành đang mờ dần.\n\n3️⃣ Tranh luận lớn nhất tuần: catalog đang biến từ danh bạ bảng thành control plane cho cả agent, BI và query engine. Apache Polaris bàn về REST mở cho định dạng ngoài Iceberg và một semantic layer sống ngay trong catalog. Format war đã xong, chiến trường giờ là catalog.\n\n4️⃣ Dataiku đưa Cobuild lên GA: một AI agent biến ý định viết bằng ngôn ngữ tự nhiên thành dự án AI sẵn sàng sản xuất, không cần code, không phá vỡ quản trị doanh nghiệp.\n\n5️⃣ Alteryx dựng trust layer với Alteryx One, Agent Studio và MCP server, công bố con số tự động hóa 75 đến 100% việc phân tích lặp lại, với điều kiện dữ liệu đã được quản trị. Chính cái điều kiện đó mới đáng nói.\n\n💭 Góc nhìn của mình về tuần này\n\nPhần trên là dữ kiện; phần này là quan điểm cá nhân, anh em cân nhắc.\n\nCái gì THẬT SỰ mới ở tuần này? Theo mình, không phải một sản phẩm cụ thể, mà là một sự dịch chuyển trọng tâm. Cả năm qua ai cũng nói về model mạnh hơn, agent xịn hơn. Tuần này ngành quay về câu hỏi cũ mà cốt lõi: làm sao để dữ liệu đủ nhất quán, đủ ngữ cảnh và đủ quản trị để agent dám dùng. Iceberg lo tính nhất quán nhiều bảng, catalog lo ngữ nghĩa và governance. Ghép lại, thông điệp rất rõ: AI cần nhiều hơn chỉ hạ tầng, đúng như bài Editor's Lens của Solutions Review tuần này nói.\n\nCốt lõi phải hiểu, và cái này mình thấm khi vừa thi chứng chỉ Databricks và làm tay một bài RAG trên nền lakehouse: chất lượng của agent đến từ lớp dữ liệu và ngữ cảnh, không phải từ model. Khi làm RAG, 80% công sức nằm ở dữ liệu sạch, định nghĩa nghiệp vụ rõ và retrieval đúng. Mấy đề xuất Iceberg tuần này, nghe rất kỹ thuật, thực ra là đang vá đúng chỗ đó ở tầng nền.\n\nTốt hay xấu thì tùy bạn đứng đâu. Với đội nền tảng lớn, tin Iceberg và catalog là cực tốt, vì nó chuẩn hóa thứ lâu nay mỗi nơi tự xử. Với team nhỏ và doanh nghiệp Việt, mình thấy hai mặt: công cụ agentic như Cobuild hay Alteryx One hạ rào cản thật, nhưng nó chỉ phát huy khi dữ liệu phía dưới đã sạch và có quản trị. Nếu không, bạn chỉ đang tự động hóa sự hỗn loạn, sai nhanh hơn mà thôi.\n\nNên làm gì và không nên. Nên đầu tư trước vào semantic layer và quản trị dữ liệu, chuẩn hóa định nghĩa KPI dùng chung cho cả BI lẫn agent, trước khi mua thêm công cụ AI. Nên thử các bản miễn phí hoặc community như DuckDB, vốn vừa ra bản LTS mới, để cả đội lên tay mà không tốn kém. Không nên chạy theo mỗi model mới hàng tháng và bỏ bê chất lượng dữ liệu, đó là cái bẫy phổ biến nhất mình thấy.\n\nMột câu mình hay nói với khách hàng: dashboard đẹp không có nghĩa là đang ra quyết định tốt, và data không chỉ để báo cáo, data phải giúp hành động. Tuần này cả ngành đang lặng lẽ xây lại cái móng để điều đó thành hiện thực với AI agent. Anh em nào đang xây nền dữ liệu thì đây là lúc nên để mắt tới catalog và tính nhất quán, đừng chỉ nhìn engine nào chạy nhanh.\n\nGhé AI News và Data News của mình để xem bản tin đầy đủ và video recap nhé, nhớ subscribe để không bỏ lỡ số tuần sau. Bạn ấn tượng tin nào nhất tuần này?\n\n#Data #DataEngineering #ApacheIceberg #Lakehouse #DataCatalog #Polaris #Dataiku #Alteryx #DuckDB #SemanticLayer #DataGovernance #AIAgents #RAG #DataAnalytics #BI #DataNews #DucNguyenAI",
+ "youtube": {
+  "recap": "L0uc5JNWofM",
+  "short": "2QirDYt1EkI"
+ }
+}

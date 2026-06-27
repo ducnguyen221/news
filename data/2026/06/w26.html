@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data News – Tuần W26 (22/06 - 28/06/2026)</title>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data News – Tuần W26: Iceberg xây lại móng, catalog thành control plane cho AI agent">
+<meta property="og:description" content="Tuần 22-28/06/2026: Iceberg bàn nhất quán nhiều bảng và primary key, catalog biến thành control plane, Dataiku Cobuild GA, Alteryx One dựng trust layer cho AI.">
+<meta property="og:image" content="https://ducnguyen.vn/news/data/assets/og-banner.png">
+<meta property="og:url" content="https://ducnguyen.vn/news/data/2026/06/w26.html">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#04060a;color:#f8fafc;line-height:1.65;-webkit-font-smoothing:antialiased;position:relative}
+.wrap{max-width:920px;margin:0 auto;padding:0 16px 60px}
+a{color:#34f5a4}
+/* HEADER */
+.hdr{position:sticky;top:8px;z-index:60;background:rgba(6,9,16,.92);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:12px;margin:10px 0 4px;padding:12px 16px}
+.hdr-row{display:flex;align-items:center;gap:12px}
+.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:#f8fafc}
+.brand-mark{width:42px;height:42px;display:grid;place-items:center;flex:0 0 auto;border:1px solid rgba(52,245,164,.4);border-radius:50%;background:radial-gradient(circle,rgba(52,245,164,.22),rgba(56,189,248,.06) 55%,rgba(4,6,10,.95) 78%);box-shadow:0 0 18px rgba(52,245,164,.35);animation:brandPulse 3.2s ease-in-out infinite;transition:transform .45s cubic-bezier(.175,.885,.32,1.275)}
+.brand:hover .brand-mark{transform:rotate(180deg) scale(1.06);border-color:#34f5a4}
+@keyframes brandPulse{0%,100%{box-shadow:0 0 10px rgba(52,245,164,.22)}50%{box-shadow:0 0 26px rgba(52,245,164,.55)}}
+.brand-name{font-size:1.18rem;font-weight:600}
+.brand-name b{color:#34f5a4}
+.brand-sub{display:inline;color:#94a3b8;font-size:.78rem;margin-left:4px}
+.hdr-row2{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-top:8px;position:relative}
+.hdr-row2 .toc{flex:1 1 auto}
+.toc{display:flex;gap:7px;flex-wrap:wrap}
+.toc a{font-size:.8rem;color:#cbd5e1;text-decoration:none;padding:5px 11px;border:1px solid rgba(255,255,255,.1);border-radius:999px;background:rgba(255,255,255,.03);white-space:nowrap}
+.toc a:hover{border-color:#34f5a4;color:#34f5a4}
+.vdiv{width:1px;height:22px;background:rgba(255,255,255,.16)}
+.hdr-ctrls{display:flex;align-items:center;gap:8px}
+.ctrl{display:inline-flex;align-items:center;justify-content:center;gap:2px;font-size:.82rem;font-weight:600;color:#e2e8f0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:9px;padding:8px 12px;cursor:pointer;text-decoration:none;transition:.18s}
+.ctrl:hover{border-color:#34f5a4;color:#34f5a4}
+.ctrl-acc{color:#04060a;background:linear-gradient(90deg,#34f5a4,#38bdf8);border-color:transparent}
+.ctrl-acc:hover{color:#04060a;opacity:.92}
+.ctrl-ic{padding:8px 11px}
+.navpop-btn{display:none}
+.navpop{display:none}
+.navpop-t:checked ~ .navpop{display:flex;flex-direction:column;gap:2px;position:absolute;top:calc(100% + 10px);left:0;right:0;z-index:80;background:rgba(8,12,20,.98);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:8px;backdrop-filter:blur(16px)}
+.navpop a{padding:11px 14px;border-radius:8px;color:#cbd5e1;text-decoration:none}
+.navpop a:hover{background:rgba(52,245,164,.1);color:#34f5a4}
+.navpop-t:checked ~ .hdr-ctrls .navpop-btn{color:#04060a;background:linear-gradient(90deg,#34f5a4,#38bdf8);border-color:transparent}
+/* HERO/RECAP */
+#recap{scroll-margin-top:120px}
+.hot-video{margin-top:26px}
+.hot-video .hot-label{font-weight:700;margin-bottom:12px}
+.vid-links{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.vbtn{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border:1px solid rgba(52,245,164,.35);border-radius:9px;color:#34f5a4;text-decoration:none;font-size:.88rem;font-weight:600;background:rgba(52,245,164,.07)}
+.vbtn:hover{background:rgba(52,245,164,.16)}
+/* TLDR */
+.tldr{margin-top:22px;background:rgba(10,15,26,.94);border:1px solid rgba(52,245,164,.22);border-left:3px solid #34f5a4;border-radius:12px;padding:18px 20px}
+.tldr h2{font-size:1rem;color:#34f5a4;margin-bottom:8px;letter-spacing:.3px}
+.tldr p{color:#e2e8f0;font-size:.96rem}
+/* TIMELINE */
+.timeline{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 4px}
+.tl-chip{flex:1 1 auto;min-width:78px;text-align:center;background:rgba(10,15,26,.9);border:1px solid rgba(255,255,255,.08);border-radius:9px;padding:8px 6px}
+.tl-chip .d{font-size:.74rem;color:#94a3b8}
+.tl-chip .n{font-size:1.05rem;font-weight:700;color:#38bdf8;margin-top:2px}
+.tl-chip.dim{opacity:.4}
+.tl-chip.dim .n{color:#64748b}
+/* SECTIONS */
+.sec{margin-top:34px;scroll-margin-top:120px}
+.sec h2{font-size:1.28rem;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.1)}
+/* CARD */
+.card{display:flex;gap:14px;background:rgba(10,15,26,.93);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;margin-bottom:14px;transition:border-color .2s}
+.card:hover{border-color:rgba(52,245,164,.3)}
+.card[data-hot="1"]{border-color:rgba(52,245,164,.5);box-shadow:0 0 22px rgba(52,245,164,.12)}
+.thumb{width:96px;height:72px;flex:0 0 auto;object-fit:cover;border-radius:9px;background:#0b1220;border:1px solid rgba(255,255,255,.06)}
+.thumb-fallback{object-fit:contain;padding:18px;background:#0b1220}
+.body{flex:1 1 auto;min-width:0}
+.xt{display:none}
+.rank{display:inline-block;font-size:.72rem;font-weight:700;color:#04060a;background:linear-gradient(90deg,#fbbf24,#f97316);padding:3px 10px;border-radius:999px;margin-bottom:6px}
+.title{display:block;font-size:1.06rem;font-weight:600;color:#f8fafc;text-decoration:none;line-height:1.4}
+.title:hover{color:#34f5a4}
+.sum{color:#cbd5e1;font-size:.93rem;margin-top:6px}
+.why{color:#94a3b8;font-size:.88rem;margin-top:7px;font-style:italic}
+.why::first-line{font-style:normal}
+.meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px}
+.when{font-size:.8rem;color:#94a3b8}
+.metabtn{font-size:.8rem;color:#cbd5e1;text-decoration:none;padding:5px 10px;border:1px solid rgba(255,255,255,.12);border-radius:7px;cursor:pointer;background:rgba(255,255,255,.03)}
+.metabtn:hover{border-color:#34f5a4;color:#34f5a4}
+.xbtn{user-select:none}
+.xt:checked ~ .meta .xbtn{color:#04060a;background:linear-gradient(90deg,#34f5a4,#38bdf8);border-color:transparent}
+.readbtn{font-size:.8rem;color:#cbd5e1;padding:5px 10px;border:1px solid rgba(255,255,255,.12);border-radius:7px;cursor:pointer;background:rgba(255,255,255,.03)}
+.readbtn:hover{border-color:#38bdf8;color:#38bdf8}
+.more{display:none}
+.xt:checked ~ .more{display:block;margin-top:14px;border-top:1px dashed rgba(255,255,255,.12);padding-top:14px}
+.kb{list-style:none;margin:0 0 12px}
+.kb li{position:relative;padding-left:18px;margin-bottom:6px;font-size:.9rem;color:#d6deeb}
+.kb li::before{content:"▸";position:absolute;left:0;color:#34f5a4}
+.facts{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.fact{font-size:.76rem;font-family:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;color:#cbd5e1;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.2);border-radius:7px;padding:4px 9px}
+.fact b{color:#38bdf8;margin-right:5px;font-weight:700}
+.deep{color:#9fb0c4;font-size:.9rem}
+/* FOOTER */
+.foot{margin-top:46px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);color:#94a3b8;font-size:.85rem;text-align:center}
+.foot a{color:#34f5a4}
+@media(max-width:767px){
+ .hdr-row2 .toc,.vdiv{display:none}
+ .hdr-ctrls{width:100%;gap:8px}
+ .hdr-ctrls .ctrl{flex:1 1 auto;font-size:.78rem;padding:8px 6px;text-align:center}
+ .hdr-ctrls .navpop-btn{display:grid}
+ .hdr-ctrls .ctrl-ic{flex:0 0 38px;width:38px;height:36px;padding:0}
+ .brand-mark{width:36px;height:36px}
+ .brand-name{font-size:1.05rem}
+ .brand-sub{font-size:.72rem}
+ .vid-links .vbtn{flex:1 1 auto;justify-content:center}
+ .card{flex-direction:column}
+ .thumb{width:100%;height:150px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hdr" id="top">
+ <div class="hdr-row">
+  <a class="brand" href="../../index.html" title="Về trang chính Data News"><span class="brand-mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34f5a4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/><path d="M4.5 11.5v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/></svg></span><span class="brand-name">Data <b>News</b></span><span class="brand-sub">Tuần W26 · 22/06 - 28/06/2026</span></a>
+ </div>
+ <div class="hdr-row2">
+  <input type="checkbox" id="navpop" class="navpop-t" hidden>
+  <nav class="toc">
+   <a href="#recap">🎬 Recap</a>
+   <a href="#sec-1">🗄️ Hạ tầng</a>
+   <a href="#sec-2">🛠️ Công cụ</a>
+   <a href="#sec-3">🤖 AI × Data</a>
+   <a href="#sec-4">📈 Trend</a>
+   <a href="#sec-5">🏢 Ngành</a>
+  </nav>
+  <span class="vdiv"></span>
+  <div class="hdr-ctrls">
+   <button id="readAll" class="ctrl ctrl-acc">🔊<span class="btxt"> Đọc tóm tắt</span></button>
+   <button id="readStop" class="ctrl">⏹<span class="btxt"> Dừng</span></button>
+   <label class="ctrl ctrl-ic navpop-btn" for="navpop" title="Mục lục">☰</label>
+   <a class="ctrl ctrl-ic" href="../../index.html" title="Quay lại Data News">←</a>
+  </div>
+  <div class="navpop">
+   <a href="#recap" onclick="document.getElementById('navpop').checked=false">🎬 Recap</a>
+   <a href="#sec-1" onclick="document.getElementById('navpop').checked=false">🗄️ Hạ tầng & Kiến trúc dữ liệu</a>
+   <a href="#sec-2" onclick="document.getElementById('navpop').checked=false">🛠️ Công cụ & Nền tảng</a>
+   <a href="#sec-3" onclick="document.getElementById('navpop').checked=false">🤖 AI × Data</a>
+   <a href="#sec-4" onclick="document.getElementById('navpop').checked=false">📈 Hot trend & Thảo luận</a>
+   <a href="#sec-5" onclick="document.getElementById('navpop').checked=false">🏢 Ngành & Doanh nghiệp</a>
+  </div>
+ </div>
+</header>
+
+<div id="recap"></div>
+<div class="hot-video"><div class="hot-label">🎬 Video recap tuần — các tin nóng nhất</div><div style="position:relative;width:100%;padding-top:56.25%;border-radius:12px;overflow:hidden"><iframe src="https://www.youtube.com/embed/L0uc5JNWofM" title="AI News recap" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><div class="vid-links"><a class="vbtn" href="https://youtu.be/L0uc5JNWofM" target="_blank" rel="noopener">▶ Mở Youtube</a><a class="vbtn" href="https://www.youtube.com/shorts/2QirDYt1EkI" target="_blank" rel="noopener">📱 Youtube Short</a></div></div>
+
+<div class="tldr">
+ <h2>📌 Tổng quan tuần này</h2>
+ <p>Tuần 22 đến 28 tháng 6 là tuần lắng lại sau mùa hội nghị lớn, nhưng phần lõi của ngành dữ liệu lại sôi động ngay ở tầng kiến trúc. Cộng đồng Apache Iceberg dồn sức vào ba đề xuất nền tảng: đọc nhất quán nhiều bảng cùng một thời điểm với Global Snapshot Consistency, đưa primary key thành công dân hạng nhất của table format, và ra mắt Iceberg Doctor để chẩn đoán sức khỏe bảng. Song song, tranh luận lớn nhất tuần là catalog đang biến từ danh bạ bảng thành control plane phục vụ cả AI agent, BI lẫn query engine. Ở tầng sản phẩm, Dataiku đưa Cobuild lên GA, Alteryx dựng trust layer với Alteryx One và Agent Studio, còn ThoughtSpot và WisdomAI tiếp tục kéo analytics sang hướng agentic. Tựu trung, tuần này khẳng định: muốn AI agent dùng dữ liệu đáng tin, nền móng phải là tính nhất quán, ngữ cảnh và quản trị, chứ không chỉ thêm hạ tầng.</p>
+</div>
+
+<div class="timeline">
+ <div class="tl-chip dim"><div class="d">T2 22/06</div><div class="n">0</div></div>
+ <div class="tl-chip dim"><div class="d">T3 23/06</div><div class="n">0</div></div>
+ <div class="tl-chip"><div class="d">T4 24/06</div><div class="n">1</div></div>
+ <div class="tl-chip"><div class="d">T5 25/06</div><div class="n">5</div></div>
+ <div class="tl-chip"><div class="d">T6 26/06</div><div class="n">6</div></div>
+ <div class="tl-chip dim"><div class="d">T7 27/06</div><div class="n">0</div></div>
+ <div class="tl-chip dim"><div class="d">CN 28/06</div><div class="n">0</div></div>
+</div>
+
+<!-- SECTION 1 -->
+<section class="sec" id="sec-1">
+ <h2>🗄️ Hạ tầng & Kiến trúc dữ liệu</h2>
+
+ <article class="card" data-aid="1" data-hot="1">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://substackcdn.com/image/fetch/$s_!RaxU!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd9e82cd9-aa0b-4b6f-a45d-3e6224aa9372_1672x941.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=amdatalakehouse.substack.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+   <input type="checkbox" id="x-1" class="xt" hidden>
+   <span class="rank">🔥 TOP 1 TUẦN NÀY</span>
+   <a class="title" href="https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-june-7bd" target="_blank" rel="noopener">Apache Iceberg đề xuất Global Snapshot Consistency: đọc nhất quán nhiều bảng cùng một thời điểm</a>
+   <p class="sum">Đề xuất của Xiening Dai bổ sung cho Iceberg khả năng đọc nhiều bảng như tại cùng một thời điểm logic, qua hai hướng bổ trợ nhau: một API LoadTables theo lô trả về metadata của nhiều bảng cùng lúc, và một commit sequence number đơn điệu để ghim một lát cắt nhất quán xuyên bảng. Hiện Iceberg mới chỉ định nghĩa cô lập ở mức một thao tác ghi đơn lẻ trên một bảng.</p>
+   <p class="why">💡 Một AI agent hay dashboard BI join năm bảng cần cả năm phản ánh đúng một khoảnh khắc, không phải năm snapshot lệch nhau; đây là lúc cộng đồng coi multi-table atomicity là mối lo hạng nhất.</p>
+   <div class="meta">
+    <span class="when">📅 25/06</span>
+    <a class="metabtn" href="https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-june-7bd" target="_blank" rel="noopener">🔗 Website</a>
+    <label class="metabtn xbtn" for="x-1">📖 Mở rộng</label>
+    <button class="readbtn" type="button" data-aid="1">▶ Audio</button>
+   </div>
+   <div class="more">
+    <ul class="kb">
+     <li>Iceberg nay chỉ định nghĩa cô lập ở mức một thao tác ghi trên một bảng.</li>
+     <li>Hướng 1: API LoadTables theo lô trả về metadata nhiều bảng atomic tại một thời điểm.</li>
+     <li>Hướng 2: commit sequence number đơn điệu để ghim lát cắt nhất quán xuyên bảng.</li>
+     <li>Russell Spitzer, Andrei Tserakhau, Maninder Parmar tham gia, coi hai hướng bổ trợ.</li>
+    </ul>
+    <div class="facts">
+     <span class="fact"><b>ĐỀ XUẤT</b>Global Snapshot Consistency</span>
+     <span class="fact"><b>TÁC GIẢ</b>Xiening Dai</span>
+     <span class="fact"><b>HIỆN TẠI</b>cô lập 1 bảng</span>
+     <span class="fact"><b>MỤC TIÊU</b>multi-table atomicity</span>
+    </div>
+    <p class="deep">Nói thẳng: đây là thứ kỹ thuật nhưng cốt lõi cho kỷ nguyên agent. Lâu nay Iceberg chỉ lo một bảng, nên khi agent join năm bảng, nó có thể thấy dữ liệu nửa vời, một phần đã ghi, một phần chưa. Với pipeline đọc bảng fact và mấy bảng dimension, sai một nhịp là ra số sai mà không ai biết. Hai hướng đề xuất không đá nhau: batch load lo phần đọc, sequence number cho đảm bảo mạnh hơn về thứ tự xuyên bảng. Điều đáng giá nhất là cuộc tranh luận buộc cộng đồng quyết định logic nhất quán nên nằm ở catalog, ở format hay ở engine, và câu trả lời sẽ định hình cả semantic layer lẫn scan-planning sau này. Với người Việt làm nền dữ liệu, đừng vội nhưng hãy theo dõi: nền móng cho agent đáng tin đang được đổ ngay lúc này.</p>
+   </div>
+  </div>
+ </article>
+
+ <article class="card" data-aid="2">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://substackcdn.com/image/fetch/$s_!RaxU!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd9e82cd9-aa0b-4b6f-a45d-3e6224aa9372_1672x941.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=amdatalakehouse.substack.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+   <input type="checkbox" id="x-2" class="xt" hidden>
+   <span class="rank">🔥 TOP 4 TUẦN NÀY</span>
+   <a class="title" href="https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-june-7bd" target="_blank" rel="noopener">Iceberg bàn đưa Primary Key thành công dân hạng nhất của table format</a>
+   <p class="sum">Đề xuất của Chandra Sekhar muốn primary key được hỗ trợ ngay trong table format thay vì để mỗi compute engine tự dựng lại, mở đường cho các mẫu vận hành và change-data nơi khóa mang ngữ nghĩa thật. Phần khó nằm ở chi phí cưỡng chế khóa, hành vi merge-on-read và tương tác với equality delete.</p>
+   <p class="why">💡 Một khái niệm khóa native sẽ định hình lại cách engine lập kế hoạch upsert và cách hệ tiêu thụ phía sau suy luận về danh tính từng dòng dữ liệu.</p>
+   <div class="meta">
+    <span class="when">📅 25/06</span>
+    <a class="metabtn" href="https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-june-7bd" target="_blank" rel="noopener">🔗 Website</a>
+    <label class="metabtn xbtn" for="x-2">📖 Mở rộng</label>
+    <button class="readbtn" type="button" data-aid="2">▶ Audio</button>
+   </div>
+   <div class="more">
+    <ul class="kb">
+     <li>Đưa primary key vào table format thay vì để mỗi engine tự dựng lại.</li>
+     <li>Phục vụ mẫu vận hành và change-data, nơi khóa mang ngữ nghĩa thật.</li>
+     <li>Khó: chi phí enforcement, merge-on-read, tương tác equality delete.</li>
+     <li>Thảo luận còn sớm, chưa thành thay đổi spec.</li>
+    </ul>
+    <div class="facts">
+     <span class="fact"><b>ĐỀ XUẤT</b>First-Class Primary Key</span>
+     <span class="fact"><b>TÁC GIẢ</b>Chandra Sekhar</span>
+     <span class="fact"><b>GIÁ TRỊ</b>danh tính dòng thống nhất</span>
+     <span class="fact"><b>TRẠNG THÁI</b>thảo luận sớm</span>
+    </div>
+    <p class="deep">Đây là tín hiệu Iceberg đang bị kéo từ kho phân tích về phía cơ sở dữ liệu vận hành. Khi khóa nằm trong format, mọi engine đọc Iceberg đều hiểu giống nhau về danh tính từng dòng, thay vì mỗi nơi diễn giải một kiểu, dễ sinh lỗi khi upsert. Lợi ích rõ cho change-data capture và các bài toán trộn OLTP với OLAP, đúng hướng cả ngành đang đi với LTAP và lakehouse vận hành. Nhưng đừng kỳ vọng nhanh: cưỡng chế tính duy nhất của khóa trên dữ liệu phân tán cực tốn, và phải hòa hợp với cơ chế xóa hiện có. Với team Việt, chưa cần làm gì ngay, nhưng nếu bạn đang thiết kế pipeline CDC trên Iceberg, hãy thiết kế sao cho dễ tận dụng khóa native khi nó chín.</p>
+   </div>
+  </div>
+ </article>
+
+ <article class="card" data-aid="3">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://substackcdn.com/image/fetch/$s_!RaxU!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd9e82cd9-aa0b-4b6f-a45d-3e6224aa9372_1672x941.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=amdatalakehouse.substack.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+   <input type="checkbox" id="x-3" class="xt" hidden>
+   <a class="title" href="https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-june-7bd" target="_blank" rel="noopener">Iceberg Doctor: bộ công cụ forensics chẩn đoán sức khỏe bảng Iceberg</a>
+   <p class="sum">Sarthak Singh giới thiệu Iceberg Doctor, bộ công cụ forensics và trực quan hóa để chẩn đoán sức khỏe bảng Iceberg, đúc kết từ kinh nghiệm vận hành bảng ở Confluent. Nó nhắm tới các trạng thái xấu quen thuộc: quá nhiều file nhỏ, dữ liệu mồ côi, metadata phình to và lịch sử snapshot tăng vô hạn.</p>
+   <p class="why">💡 Iceberg đã đạt mức mà vận hành nó tốt, chứ không chỉ ghi vào nó, mới là thách thức hằng ngày của đội nền tảng; công cụ kiểu này biến sự cố ngầm thành thứ nhìn thấy được.</p>
+   <div class="meta">
+    <span class="when">📅 25/06</span>
+    <a class="metabtn" href="https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-june-7bd" target="_blank" rel="noopener">🔗 Website</a>
+    <label class="metabtn xbtn" for="x-3">📖 Mở rộng</label>
+    <button class="readbtn" type="button" data-aid="3">▶ Audio</button>
+   </div>
+   <div class="more">
+    <ul class="kb">
+     <li>Forensics và trực quan hóa sức khỏe bảng Iceberg.</li>
+     <li>Đúc kết từ vận hành Iceberg ở quy mô lớn tại Confluent.</li>
+     <li>Phát hiện file nhỏ, dữ liệu mồ côi, metadata phình, snapshot vô hạn.</li>
+     <li>Cộng đồng đánh giá là hướng đi hữu ích cho đội nền tảng.</li>
+    </ul>
+    <div class="facts">
+     <span class="fact"><b>CÔNG CỤ</b>Iceberg Doctor</span>
+     <span class="fact"><b>TÁC GIẢ</b>Sarthak Singh</span>
+     <span class="fact"><b>GỐC</b>kinh nghiệm Confluent</span>
+     <span class="fact"><b>VẤN ĐỀ</b>small files, orphan data</span>
+    </div>
+    <p class="deep">Ai vận hành Iceberg ở quy mô đều thấm: bảng trôi vào trạng thái xấu vì quá nhiều file nhỏ, dữ liệu mồ côi sau khi rewrite, metadata phình và lịch sử snapshot không bao giờ được dọn. Những thứ này âm thầm làm chậm truy vấn và đội hóa đơn object storage. Iceberg Doctor làm cho các bệnh đó nhìn thấy được, đó là bước trưởng thành cần thiết: format đã đủ phổ biến để việc chăm sóc nó, chứ không chỉ ghi vào, trở thành công việc hằng ngày. Với đội data Việt đang chạy lakehouse, đây là gợi ý thực tế: lên lịch maintenance, compaction và expire snapshot ngay từ đầu, đừng đợi tới khi truy vấn chậm mới đi tìm nguyên nhân.</p>
+   </div>
+  </div>
+ </article>
+
+ <article class="card" data-aid="4">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://substackcdn.com/image/fetch/$s_!RaxU!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd9e82cd9-aa0b-4b6f-a45d-3e6224aa9372_1672x941.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=amdatalakehouse.substack.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+   <input type="checkbox" id="x-4" class="xt" hidden>
+   <a class="title" href="https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-june-7bd" target="_blank" rel="noopener">Iceberg tối ưu read-path: gộp GET call cho Parquet và thêm quantile sketch trong Puffin</a>
+   <p class="sum">Varun Lakhyani và Steve Loughran bàn cách gộp ba lệnh GET khi đọc Parquet (root manifest, data file và nén file nhỏ) để cắt số round-trip tới object storage, vốn là thứ chi phối độ trễ và hóa đơn cho workload nhiều file nhỏ. Cùng tuần, Tamás Máté đề xuất lưu quantile sketch ở mức bảng trong Puffin để planner Spark ước lượng phân phối giá trị tốt hơn.</p>
+   <p class="why">💡 Ít round-trip hơn nghĩa là truy vấn nhanh hơn và rẻ hơn cho streaming ingest và commit liên tục; thống kê phân phối tốt hơn cho join và filter nhanh hơn mà không đụng tới dữ liệu.</p>
+   <div class="meta">
+    <span class="when">📅 25/06</span>
+    <a class="metabtn" href="https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-june-7bd" target="_blank" rel="noopener">🔗 Website</a>
+    <label class="metabtn xbtn" for="x-4">📖 Mở rộng</label>
+    <button class="readbtn" type="button" data-aid="4">▶ Audio</button>
+   </div>
+   <div class="more">
+    <ul class="kb">
+     <li>Gộp ba GET (root manifest, data file, nén file nhỏ) khi đọc Parquet.</li>
+     <li>Mục tiêu: cắt số round-trip tới object storage cho workload file nhỏ.</li>
+     <li>Quantile sketch ở mức bảng lưu trong Puffin cho Spark CBO.</li>
+     <li>Phân phối giá trị tốt hơn giúp join và filter nhanh hơn.</li>
+    </ul>
+    <div class="facts">
+     <span class="fact"><b>READ-PATH</b>gộp 3 GET → ít round-trip</span>
+     <span class="fact"><b>NGƯỜI ĐẨY</b>Varun Lakhyani, Steve Loughran</span>
+     <span class="fact"><b>STATS</b>quantile sketch trong Puffin</span>
+     <span class="fact"><b>ĐÍCH</b>small-file, Spark planner</span>
+    </div>
+    <p class="deep">Hai chuyện nhỏ nhưng chạm đúng ví tiền. Với workload streaming ingest và commit liên tục, số file nhỏ bùng nổ, và mỗi lần đọc lại tốn nhiều lệnh GET riêng lẻ tới S3, độ trễ và chi phí phần lớn nằm ở đó chứ không phải ở compute. Gộp các GET lại là cách trực tiếp giảm cả độ trễ lẫn hóa đơn. Còn quantile sketch trong Puffin giúp planner Spark hiểu phân phối dữ liệu để chọn kế hoạch join, filter tốt hơn, nhanh hơn mà không cần đổi gì ở dữ liệu. Đây là loại tối ưu ít ai để ý nhưng cộng dồn lại tiết kiệm thật. Bài học cho team Việt: trước khi nâng cấp cluster, hãy nhìn lại số file nhỏ và cách đọc, nhiều khi đó mới là thủ phạm làm chậm và đắt.</p>
+   </div>
+  </div>
+ </article>
+
+ <article class="card" data-aid="5">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=duckdb.org&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+   <input type="checkbox" id="x-5" class="xt" hidden>
+   <a class="title" href="https://duckdb.org/news/" target="_blank" rel="noopener">DuckDB ra mắt 1.5.4 (Variegata) và bản LTS 1.4.5 (Andium)</a>
+   <p class="sum">DuckDB phát hành đồng thời bản 1.5.4 Variegata và bản hỗ trợ dài hạn 1.4.5 Andium, tiếp nối dòng LTS vốn đã mang AES-256, lệnh MERGE và khả năng ghi Iceberg, với mức tăng hiệu năng quanh 20% so với trước. Đây là nhịp release ổn định củng cố vị thế DuckDB như hạ tầng phân tích thật sự, không chỉ là công cụ trong notebook.</p>
+   <p class="why">💡 Bản LTS cho các đội sản xuất một mốc ổn định để bám vào; DuckDB ngày càng là engine phân tích chạy từ laptop tới Lambda, hạ rào cản cho team nhỏ.</p>
+   <div class="meta">
+    <span class="when">📅 17/06</span>
+    <a class="metabtn" href="https://duckdb.org/news/" target="_blank" rel="noopener">🔗 Website</a>
+    <label class="metabtn xbtn" for="x-5">📖 Mở rộng</label>
+    <button class="readbtn" type="button" data-aid="5">▶ Audio</button>
+   </div>
+   <div class="more">
+    <ul class="kb">
+     <li>Phát hành đồng thời 1.5.4 (Variegata) và LTS 1.4.5 (Andium).</li>
+     <li>Dòng LTS đã mang AES-256, lệnh MERGE, ghi Iceberg.</li>
+     <li>Mức tăng hiệu năng quanh 20% so với trước.</li>
+     <li>Chạy từ laptop, edge, browser tới Lambda và Workers.</li>
+    </ul>
+    <div class="facts">
+     <span class="fact"><b>BẢN</b>1.5.4 Variegata</span>
+     <span class="fact"><b>LTS</b>1.4.5 Andium</span>
+     <span class="fact"><b>HIỆU NĂNG</b>~20% nhanh hơn</span>
+     <span class="fact"><b>NGÀY</b>17/06/2026</span>
+    </div>
+    <p class="deep">DuckDB đã rời hẳn vai công cụ notebook để thành hạ tầng phân tích thật. Bản LTS quan trọng với doanh nghiệp vì cho một mốc ổn định, được vá lâu dài, để bám vào mà không phải chạy theo mỗi bản minor. Với team data nhỏ ở Việt Nam, đây là tin vui thực tế: bạn xử lý hàng chục đến hàng trăm GB ngay trên một máy, đọc thẳng Parquet và Iceberg trên S3, mà không cần dựng cluster Spark tốn kém. Lời khuyên của mình: với khối lượng vừa, hãy thử DuckDB trước, chỉ leo lên engine phân tán khi thật sự chạm trần. Tiết kiệm tiền và đơn giản hóa vận hành thường quan trọng hơn là chọn công nghệ nghe oách.</p>
+   </div>
+  </div>
+ </article>
+</section>
+
+<!-- SECTION 2 -->
+<section class="sec" id="sec-2">
+ <h2>🛠️ Công cụ & Nền tảng</h2>
+
+ <article class="card" data-aid="6">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://enterprisedna.co/resources/news-imagery/optimized/edna-news-81-section-lg.webp" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=solutionsreview.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+   <input type="checkbox" id="x-6" class="xt" hidden>
+   <span class="rank">🔥 TOP 5 TUẦN NÀY</span>
+   <a class="title" href="https://solutionsreview.com/business-intelligence/analytics-and-data-science-news-for-the-week-of-june-26-updates-from-databricks-dataiku-wisdomai-more/" target="_blank" rel="noopener">Alteryx dựng "trust layer" cho AI với Alteryx One và Agent Studio</a>
+   <p class="sum">Alteryx gom danh mục sản phẩm về một nền Alteryx One, thêm governed shared workspace và Live Query để chạy phân tích ngay trong nền tảng của khách hàng, rồi mở rộng workflow ra agent ngoài qua Agent Studio và một MCP server. Hãng dẫn nghiên cứu cho thấy khách có thể tự động hóa 75 đến 100% việc phân tích lặp lại và rút ngắn timeline data science hơn 40% khi vào cuộc với dữ liệu đã quản trị.</p>
+   <p class="why">💡 Định vị mình là lớp phần mềm khiến output của AI nhất quán, chính xác và kiểm toán được là nước đi đúng pain point lớn nhất khi đưa AI vào doanh nghiệp: lòng tin.</p>
+   <div class="meta">
+    <span class="when">📅 26/06</span>
+    <a class="metabtn" href="https://solutionsreview.com/business-intelligence/analytics-and-data-science-news-for-the-week-of-june-26-updates-from-databricks-dataiku-wisdomai-more/" target="_blank" rel="noopener">🔗 Website</a>
+    <label class="metabtn xbtn" for="x-6">📖 Mở rộng</label>
+    <button class="readbtn" type="button" data-aid="6">▶ Audio</button>
+   </div>
+   <div class="more">
+    <ul class="kb">
+     <li>Gom danh mục về một nền duy nhất: Alteryx One.</li>
+     <li>Governed shared workspace + Live Query chạy trong nền khách hàng.</li>
+     <li>Agent Studio và MCP server mở workflow ra agent ngoài.</li>
+     <li>Nghiên cứu: tự động 75-100% việc lặp, rút timeline DS hơn 40%.</li>
+    </ul>
+    <div class="facts">
+     <span class="fact"><b>NỀN</b>Alteryx One</span>
+     <span class="fact"><b>TỰ ĐỘNG</b>75-100% việc lặp</span>
+     <span class="fact"><b>TĂNG TỐC</b>40%+ timeline DS</span>
+     <span class="fact"><b>AGENT</b>Agent Studio + MCP</span>
+    </div>
+    <p class="deep">Thông điệp thật của Alteryx không phải thêm một công cụ AI nữa, mà là làm lớp lòng tin cho output AI. Cái hay nằm ở điều kiện in chữ nhỏ: con số tự động hóa 75 đến 100% chỉ đạt được khi khách vào cuộc với dữ liệu đã quản trị và logic nghiệp vụ chuẩn hóa. Đó chính là bài học mình lặp lại với khách hàng: AI chỉ tạo giá trị khi đặt trên dữ liệu sạch và quy tắc rõ ràng, tự động hóa mà không có quản trị chỉ là nhân bản hỗn loạn nhanh hơn. Live Query chạy phân tích ngay trong nền dữ liệu của khách cũng là xu hướng đúng: đưa tính toán tới dữ liệu thay vì kéo dữ liệu ra. Với doanh nghiệp Việt, đừng mua công cụ trước, hãy chuẩn hóa định nghĩa nghiệp vụ và quản trị trước, rồi công cụ mới phát huy.</p>
+   </div>
+  </div>
+ </article>
+
+ <article class="card" data-aid="7">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=solutionsreview.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+   <input type="checkbox" id="x-7" class="xt" hidden>
+   <a class="title" href="https://solutionsreview.com/business-intelligence/analytics-and-data-science-news-for-the-week-of-june-26-updates-from-databricks-dataiku-wisdomai-more/" target="_blank" rel="noopener">ThoughtSpot đào sâu search analytics bằng AI trên các nền cloud data</a>
+   <p class="sum">ThoughtSpot tiếp tục đầu tư vào search và Liveboard chạy bằng AI, cho người dùng nghiệp vụ hỏi dữ liệu trên warehouse và lakehouse bằng ngôn ngữ tự nhiên. Với tích hợp sâu hơn và việc dùng agent để gợi ý insight cũng như tự đặt câu hỏi nối tiếp, hãng định vị giao diện search-first như cách dân chủ hóa phân tích mà không bắt người dùng học SQL.</p>
+   <p class="why">💡 Bỏ rào cản SQL là cách nhanh nhất mở rộng số người thật sự tự ra quyết định bằng dữ liệu; agentic follow-up biến phân tích từ tra cứu thành hội thoại.</p>
+   <div class="meta">
+    <span class="when">📅 26/06</span>
+    <a class="metabtn" href="https://solutionsreview.com/business-intelligence/analytics-and-data-science-news-for-the-week-of-june-26-updates-from-databricks-dataiku-wisdomai-more/" target="_blank" rel="noopener">🔗 Website</a>
+    <label class="metabtn xbtn" for="x-7">📖 Mở rộng</label>
+    <button class="readbtn" type="button" data-aid="7">▶ Audio</button>
+   </div>
+   <div class="more">
+    <ul class="kb">
+     <li>Search và Liveboard chạy bằng AI trên warehouse và lakehouse.</li>
+     <li>Hỏi dữ liệu bằng ngôn ngữ tự nhiên, không cần SQL.</li>
+     <li>Agent gợi ý insight và tự đặt câu hỏi nối tiếp.</li>
+     <li>Định vị giao diện search-first để dân chủ hóa phân tích.</li>
+    </ul>
+    <div class="facts">
+     <span class="fact"><b>GIAO DIỆN</b>search-first + Liveboard</span>
+     <span class="fact"><b>NỀN</b>warehouse, lakehouse</span>
+     <span class="fact"><b>AGENT</b>gợi ý + follow-up</span>
+     <span class="fact"><b>ĐÍCH</b>người dùng không rành SQL</span>
+    </div>
+    <p class="deep">Hướng đi của ThoughtSpot đúng nhu cầu thật: phần lớn người ra quyết định trong doanh nghiệp không viết SQL, và mỗi câu hỏi phải qua đội data là một nút thắt. Đưa agent vào để tự gợi ý và đặt câu hỏi nối tiếp biến phân tích thành hội thoại, gần với cách con người tư duy hơn. Nhưng theo mình, điểm yếu muôn thuở của text-to-search vẫn là độ tin cậy: nếu lớp ngữ nghĩa phía dưới không chuẩn, agent có thể trả lời nghe hợp lý nhưng sai, và sai kiểu này nguy hiểm vì người dùng tin ngay. Vì vậy lời khuyên của mình không đổi: muốn agentic BI dùng được, hãy đầu tư semantic layer và định nghĩa metric dùng chung trước, công cụ search chỉ là phần nổi.</p>
+   </div>
+  </div>
+ </article>
+
+ <article class="card" data-aid="8">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://images.ctfassets.net/5nvgvgqbpp73/4qgezwkLeYdnhfgVC7mlnS/3f128749b4a330bdfe10e583d6020fb1/Cobuild-GA-web-2.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=businesswire.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+   <input type="checkbox" id="x-8" class="xt" hidden>
+   <span class="rank">🔥 TOP 3 TUẦN NÀY</span>
+   <a class="title" href="https://www.businesswire.com/news/home/20260611199693/en/Dataiku-Makes-Cobuild-Generally-Available-the-AI-Building-Agent-That-Closes-the-Build-Govern-Gap" target="_blank" rel="noopener">Dataiku đưa Cobuild lên GA: AI agent biến ý định ngôn ngữ tự nhiên thành dự án AI có quản trị</a>
+   <p class="sum">Dataiku công bố Cobuild chính thức GA, một AI building agent biến ý định nghiệp vụ viết bằng ngôn ngữ tự nhiên thành dự án AI sẵn sàng sản xuất mà không cần code và không phá vỡ kiểm soát doanh nghiệp. Đặt trên nền Platform for AI Success, Cobuild tự lắp ráp workflow kiểm tra được, kết nối dữ liệu và model trong một môi trường quản trị duy nhất, điều phối analytics, machine learning và agent xuyên nhiều nhà cung cấp.</p>
+   <p class="why">💡 Đây là phát súng đáng chú ý nhất ở tầng sản phẩm tuần này: thu hẹp khoảng cách kinh điển giữa dựng nhanh và quản trị chặt, để người nghiệp vụ tự dựng AI mà vẫn nằm trong vòng kiểm soát.</p>
+   <div class="meta">
+    <span class="when">📅 16/06</span>
+    <a class="metabtn" href="https://www.businesswire.com/news/home/20260611199693/en/Dataiku-Makes-Cobuild-Generally-Available-the-AI-Building-Agent-That-Closes-the-Build-Govern-Gap" target="_blank" rel="noopener">🔗 Website</a>
+    <label class="metabtn xbtn" for="x-8">📖 Mở rộng</label>
+    <button class="readbtn" type="button" data-aid="8">▶ Audio</button>
+   </div>
+   <div class="more">
+    <ul class="kb">
+     <li>Cobuild chính thức GA cho khách hàng.</li>
+     <li>Ngôn ngữ tự nhiên thành dự án AI sẵn sàng sản xuất, không cần code.</li>
+     <li>Tự lắp workflow kiểm tra được, kết nối dữ liệu và model.</li>
+     <li>Điều phối analytics, ML, agent xuyên nhiều nhà cung cấp.</li>
+    </ul>
+    <div class="facts">
+     <span class="fact"><b>SẢN PHẨM</b>Cobuild GA</span>
+     <span class="fact"><b>NỀN</b>Platform for AI Success</span>
+     <span class="fact"><b>ĐẦU VÀO</b>ý định ngôn ngữ tự nhiên</span>
+     <span class="fact"><b>ĐẦU RA</b>dự án AI có quản trị</span>
+    </div>
+    <p class="deep">Cobuild nhắm thẳng vào nỗi đau kinh điển của AI doanh nghiệp: hoặc cho người dùng tự do dựng nhanh và mất kiểm soát, hoặc siết quản trị và mọi thứ ì ạch. Cách Dataiku giải là để agent dựng nhanh nhưng mọi thứ vẫn nằm trong một môi trường quản trị duy nhất, workflow kiểm tra được chứ không phải hộp đen. Theo mình, đây là xu hướng đáng theo dõi nhất cho doanh nghiệp Việt: thay vì tuyển thật nhiều người biết code, hãy đầu tư nền tảng cho người hiểu nghiệp vụ tự dựng giải pháp trong khung quản trị. Nhưng cần tỉnh táo, agent dựng nhanh chỉ tốt khi dữ liệu phía dưới sạch và định nghĩa nghiệp vụ rõ, nếu không nó chỉ giúp bạn sai nhanh hơn. Đừng biến nó thành phong trào, hãy biến nó thành hệ thống.</p>
+   </div>
+  </div>
+ </article>
+</section>
+
+<!-- SECTION 3 -->
+<section class="sec" id="sec-3">
+ <h2>🤖 AI × Data</h2>
+
+ <article class="card" data-aid="9">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=solutionsreview.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+   <input type="checkbox" id="x-9" class="xt" hidden>
+   <a class="title" href="https://solutionsreview.com/business-intelligence/analytics-and-data-science-news-for-the-week-of-june-26-updates-from-databricks-dataiku-wisdomai-more/" target="_blank" rel="noopener">WisdomAI dùng agentic workflow biến output phân tích thành quyết định vận hành</a>
+   <p class="sum">WisdomAI tập trung dùng AI agent để chuyển output phân tích thành quyết định và hành động vận hành cụ thể. Bằng cách nối agent vào dashboard, chỉ số và dự báo rồi đề xuất hoặc thực thi workflow dưới sự quản trị, hãng muốn lấp khoảng trống giữa insight và thực thi, nhất là ở môi trường người vận hành đang quá tải.</p>
+   <p class="why">💡 Bài toán đáng giá của phân tích không dừng ở biểu đồ đẹp mà ở việc dữ liệu giúp hành động; đây đúng làn sóng đẩy BI từ báo cáo sang ra quyết định.</p>
+   <div class="meta">
+    <span class="when">📅 26/06</span>
+    <a class="metabtn" href="https://solutionsreview.com/business-intelligence/analytics-and-data-science-news-for-the-week-of-june-26-updates-from-databricks-dataiku-wisdomai-more/" target="_blank" rel="noopener">🔗 Website</a>
+    <label class="metabtn xbtn" for="x-9">📖 Mở rộng</label>
+    <button class="readbtn" type="button" data-aid="9">▶ Audio</button>
+   </div>
+   <div class="more">
+    <ul class="kb">
+     <li>AI agent biến output phân tích thành hành động vận hành.</li>
+     <li>Nối agent vào dashboard, chỉ số và dự báo.</li>
+     <li>Đề xuất hoặc thực thi workflow dưới sự quản trị.</li>
+     <li>Nhắm môi trường người vận hành quá tải.</li>
+    </ul>
+    <div class="facts">
+     <span class="fact"><b>HƯỚNG</b>insight → action</span>
+     <span class="fact"><b>ĐẦU VÀO</b>dashboard, metric, forecast</span>
+     <span class="fact"><b>CƠ CHẾ</b>agent đề xuất/thực thi</span>
+     <span class="fact"><b>RÀNG BUỘC</b>dưới governance</span>
+    </div>
+    <p class="deep">Đây là mảnh ghép mà mình thấy đa số doanh nghiệp Việt còn thiếu: phân tích dừng ở dashboard, rồi nằm đó. Data không chỉ để báo cáo, data phải giúp hành động. Hướng của WisdomAI, nối agent từ chỉ số sang đề xuất và thực thi workflow, đúng tinh thần đó. Nhưng có một lằn ranh phải cẩn thận: để agent đề xuất thì tốt, để agent tự thực thi hành động vận hành thì phải có quản trị và human-in-the-loop ở những quyết định rủi ro cao. Mình khuyên bắt đầu nhỏ: chọn một quy trình lặp lại, rủi ro thấp, đo được giá trị, cho agent đề xuất trước, con người duyệt, rồi mới nới dần quyền tự động. Tự động hóa quyết định mà không có lan can là rước rủi ro vào nhà.</p>
+   </div>
+  </div>
+ </article>
+
+ <article class="card" data-aid="10">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=hpcwire.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+   <input type="checkbox" id="x-10" class="xt" hidden>
+   <a class="title" href="https://www.hpcwire.com/aiwire/2026/06/24/sciencelogic-announces-new-skylar-ai-updates-and-recognition-as-a-leader-in-idc-marketscape-reports/" target="_blank" rel="noopener">ScienceLogic nâng cấp Skylar AI, được vinh danh Leader trong IDC MarketScape AIOps 2026</a>
+   <p class="sum">ScienceLogic công bố loạt cập nhật cho Skylar AI và được xếp vị trí Leader trong báo cáo IDC MarketScape Worldwide AIOps 2026. Trọng tâm là dùng AI agent trên dữ liệu vận hành và quan sát hệ thống để tự phát hiện bất thường, phân tích nguyên nhân và rút ngắn thời gian xử lý sự cố.</p>
+   <p class="why">💡 AIOps là một trong những mảng data-for-AI thực dụng nhất: log và metric vận hành là khối dữ liệu khổng lồ, và agent tự triage đúng là nơi AI trả về giá trị đo được ngay.</p>
+   <div class="meta">
+    <span class="when">📅 24/06</span>
+    <a class="metabtn" href="https://www.hpcwire.com/aiwire/2026/06/24/sciencelogic-announces-new-skylar-ai-updates-and-recognition-as-a-leader-in-idc-marketscape-reports/" target="_blank" rel="noopener">🔗 Website</a>
+    <label class="metabtn xbtn" for="x-10">📖 Mở rộng</label>
+    <button class="readbtn" type="button" data-aid="10">▶ Audio</button>
+   </div>
+   <div class="more">
+    <ul class="kb">
+     <li>Loạt cập nhật mới cho Skylar AI.</li>
+     <li>Xếp Leader trong IDC MarketScape Worldwide AIOps 2026.</li>
+     <li>AI agent trên dữ liệu vận hành và quan sát hệ thống.</li>
+     <li>Tự phát hiện bất thường, phân tích nguyên nhân, rút ngắn xử lý sự cố.</li>
+    </ul>
+    <div class="facts">
+     <span class="fact"><b>SẢN PHẨM</b>Skylar AI</span>
+     <span class="fact"><b>GHI NHẬN</b>Leader IDC MarketScape AIOps 2026</span>
+     <span class="fact"><b>DỮ LIỆU</b>log, metric vận hành</span>
+     <span class="fact"><b>GIÁ TRỊ</b>triage tự động</span>
+    </div>
+    <p class="deep">AIOps là minh chứng rõ cho luận điểm data-for-AI: khối dữ liệu vận hành, log và metric, vừa khổng lồ vừa đắt, và là nơi AI agent tạo giá trị đo được ngay, giảm thời gian xử lý sự cố. Việc một hãng được xếp Leader trong IDC MarketScape là tín hiệu thị trường này đã chín, không còn là thử nghiệm. Với đội vận hành ở Việt Nam, bài học rút ra không nhất thiết là mua Skylar, mà là cách tiếp cận: gom dữ liệu quan sát về một chỗ có cấu trúc, rồi để agent gánh phần phân loại cảnh báo và gom ngữ cảnh, phần mà con người làm vừa chậm vừa dễ bỏ sót khi quá tải. Đây là dạng tự động hóa an toàn để bắt đầu, vì rủi ro thấp và lợi ích thấy ngay.</p>
+   </div>
+  </div>
+ </article>
+
+ <article class="card" data-aid="11">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://res.infoq.com/news/2026/06/ai-agent-identity-uber-auth0/en/headerimage/Auth0-Header-1781600533444.jpeg" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=infoq.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+   <input type="checkbox" id="x-11" class="xt" hidden>
+   <a class="title" href="https://www.infoq.com/news/2026/06/ai-agent-identity-uber-auth0/" target="_blank" rel="noopener">Uber thiết kế cách lan truyền "agent identity" xuyên các workflow đa agent</a>
+   <p class="sum">Uber mô tả kiến trúc nội bộ để lan truyền danh tính agent qua các workflow AI nhiều agent, sao cho giữ được ngữ cảnh người dùng gốc, nguồn gốc của từng agent và quyền truy cập theo phạm vi khi agent ủy thác công việc và gọi công cụ nội bộ. Bài viết phân tích cùng góc nhìn của Auth0 về kiểm soát truy cập trong kỷ nguyên agent.</p>
+   <p class="why">💡 Khi agent tự gọi dữ liệu và công cụ thay con người, câu hỏi ai đang hành động, với quyền của ai trở thành vấn đề quản trị sống còn cho mọi nền tảng dữ liệu.</p>
+   <div class="meta">
+    <span class="when">📅 17/06</span>
+    <a class="metabtn" href="https://www.infoq.com/news/2026/06/ai-agent-identity-uber-auth0/" target="_blank" rel="noopener">🔗 Website</a>
+    <label class="metabtn xbtn" for="x-11">📖 Mở rộng</label>
+    <button class="readbtn" type="button" data-aid="11">▶ Audio</button>
+   </div>
+   <div class="more">
+    <ul class="kb">
+     <li>Kiến trúc lan truyền danh tính agent xuyên workflow đa agent.</li>
+     <li>Giữ ngữ cảnh người dùng gốc và nguồn gốc từng agent.</li>
+     <li>Quyền truy cập theo phạm vi khi agent ủy thác và gọi tool.</li>
+     <li>Phân tích kèm góc nhìn Auth0 về access control.</li>
+    </ul>
+    <div class="facts">
+     <span class="fact"><b>VẤN ĐỀ</b>agent identity</span>
+     <span class="fact"><b>BỐI CẢNH</b>workflow đa agent</span>
+     <span class="fact"><b>GIỮ</b>user context + provenance</span>
+     <span class="fact"><b>QUYỀN</b>scoped access</span>
+    </div>
+    <p class="deep">Đây là chủ đề ít hào nhoáng nhưng sẽ quyết định agentic AI có vào được doanh nghiệp thật hay không. Khi một agent gọi agent khác, rồi agent đó truy vấn dữ liệu nhạy cảm, câu hỏi ai đang hành động và với quyền của ai trở nên sống còn. Nếu mất ngữ cảnh người dùng gốc, bạn có hai rủi ro: agent làm việc vượt quyền, hoặc không truy vết được khi có sự cố. Cách Uber giữ provenance và scoped access xuyên chuỗi ủy thác chính là nền cho audit và compliance. Với doanh nghiệp Việt định triển khai agent trên dữ liệu nội bộ, đừng để phần identity và phân quyền tới sau cùng, hãy thiết kế nó ngay từ đầu, vì vá bảo mật sau khi agent đã chạy là việc rất đắt.</p>
+   </div>
+  </div>
+ </article>
+</section>
+
+<!-- SECTION 4 -->
+<section class="sec" id="sec-4">
+ <h2>📈 Hot trend & Thảo luận cộng đồng</h2>
+
+ <article class="card" data-aid="12">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=solutionsreview.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+   <input type="checkbox" id="x-12" class="xt" hidden>
+   <a class="title" href="https://solutionsreview.com/business-intelligence/analytics-and-data-science-news-for-the-week-of-june-26-updates-from-databricks-dataiku-wisdomai-more/" target="_blank" rel="noopener">Solutions Review điểm tuần và góc nhìn: AI cần nhiều hơn chỉ hạ tầng lakehouse</a>
+   <p class="sum">Bản điểm tin tuần 26 của Solutions Review gom các động thái Alteryx, Dataiku, Domino, Reveal, ThoughtSpot và WisdomAI, kèm bài Editor's Lens lập luận rằng kiến trúc lakehouse dù mạnh vẫn chưa đủ cho AI. Thông điệp: tổ chức đã đổ nhiều tiền vào lake và warehouse, nhưng AI còn cần lớp ngữ cảnh, ngữ nghĩa và quản trị nằm trên hạ tầng đó.</p>
+   <p class="why">💡 Đây là khung đọc gọn cả tuần: cuộc chơi đã dịch từ xây hạ tầng sang xây lớp ngữ cảnh và quản trị, đúng chủ đề xuyên suốt các đề xuất Iceberg và catalog tuần này.</p>
+   <div class="meta">
+    <span class="when">📅 26/06</span>
+    <a class="metabtn" href="https://solutionsreview.com/business-intelligence/analytics-and-data-science-news-for-the-week-of-june-26-updates-from-databricks-dataiku-wisdomai-more/" target="_blank" rel="noopener">🔗 Website</a>
+    <label class="metabtn xbtn" for="x-12">📖 Mở rộng</label>
+    <button class="readbtn" type="button" data-aid="12">▶ Audio</button>
+   </div>
+   <div class="more">
+    <ul class="kb">
+     <li>Điểm động thái Alteryx, Dataiku, Domino, Reveal, ThoughtSpot, WisdomAI.</li>
+     <li>Editor's Lens: lakehouse mạnh nhưng AI cần nhiều hơn hạ tầng.</li>
+     <li>Tổ chức đã đổ tiền vào lake và warehouse nhiều năm.</li>
+     <li>AI cần thêm lớp ngữ cảnh, ngữ nghĩa và quản trị.</li>
+    </ul>
+    <div class="facts">
+     <span class="fact"><b>DẠNG</b>điểm tin tuần + bình luận</span>
+     <span class="fact"><b>LUẬN ĐIỂM</b>AI cần hơn hạ tầng</span>
+     <span class="fact"><b>THIẾU</b>context, semantic, governance</span>
+     <span class="fact"><b>TUẦN</b>26/2026</span>
+    </div>
+    <p class="deep">Bài Editor's Lens chốt đúng tinh thần cả tuần, và mình hoàn toàn đồng ý. Nhiều doanh nghiệp nghĩ chỉ cần dựng được lakehouse là sẵn sàng cho AI, nhưng thực tế hạ tầng chỉ là điều kiện cần. Cái thiếu là lớp ngữ cảnh: định nghĩa nghiệp vụ, semantic layer, quản trị và chất lượng dữ liệu, đó mới là thứ làm agent trả lời đáng tin. Đây cũng là sợi chỉ nối các đề xuất Iceberg và tranh luận catalog tuần này. Với người Việt làm dữ liệu, thông điệp thực dụng: nếu đã có lakehouse mà AI vẫn chưa tạo giá trị, đừng vội đổ thêm tiền vào hạ tầng, hãy soi lại lớp ngữ cảnh và quản trị phía trên, phần lớn vấn đề nằm ở đó.</p>
+   </div>
+  </div>
+ </article>
+
+ <article class="card" data-aid="13">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://substackcdn.com/image/fetch/$s_!RaxU!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd9e82cd9-aa0b-4b6f-a45d-3e6224aa9372_1672x941.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=amdatalakehouse.substack.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+   <input type="checkbox" id="x-13" class="xt" hidden>
+   <span class="rank">🔥 TOP 2 TUẦN NÀY</span>
+   <a class="title" href="https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-june-7bd" target="_blank" rel="noopener">Tranh luận nóng nhất tuần: catalog đang biến từ "danh bạ bảng" thành control plane cho AI agent</a>
+   <p class="sum">Tuần này cộng đồng lakehouse dồn năng lượng vào câu hỏi catalog phải tiến hóa thế nào để phục vụ một chỗ cho agent, BI tool và query engine. Dự án Apache Polaris đẩy mạnh tranh luận về endpoint REST cho định dạng không phải Iceberg, datasource kích hoạt lúc runtime và một semantic layer sống ngay trong catalog.</p>
+   <p class="why">💡 Format war coi như đã ngã ngũ; chiến trường giờ là catalog, và ai sở hữu lớp này nắm khả năng kiểm soát quản trị, liên thông và ngữ nghĩa cho cả làn sóng AI agent truy vấn không cần người.</p>
+   <div class="meta">
+    <span class="when">📅 25/06</span>
+    <a class="metabtn" href="https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-june-7bd" target="_blank" rel="noopener">🔗 Website</a>
+    <label class="metabtn xbtn" for="x-13">📖 Mở rộng</label>
+    <button class="readbtn" type="button" data-aid="13">▶ Audio</button>
+   </div>
+   <div class="more">
+    <ul class="kb">
+     <li>Catalog tiến hóa từ danh bạ bảng thành control plane.</li>
+     <li>Phục vụ một chỗ cho agent, BI tool và query engine.</li>
+     <li>Polaris bàn REST cho định dạng ngoài Iceberg, datasource runtime.</li>
+     <li>Semantic layer sống ngay trong catalog.</li>
+    </ul>
+    <div class="facts">
+     <span class="fact"><b>CHỦ ĐỀ</b>catalog as control plane</span>
+     <span class="fact"><b>DỰ ÁN</b>Apache Polaris</span>
+     <span class="fact"><b>MỞ</b>REST cho format ngoài Iceberg</span>
+     <span class="fact"><b>LÕI</b>semantic layer trong catalog</span>
+    </div>
+    <p class="deep">Cuộc chiến định dạng bảng coi như đã xong, Iceberg gần như là chuẩn mặc định. Chiến trường mới là catalog, và đây là điều mọi người ra quyết định kiến trúc cần hiểu. Khi catalog ôm cả semantic layer, quản trị, bảo mật và liên thông, ai sở hữu nó là kiểm soát optionality của bạn trong cả thập kỷ. Ba hướng Polaris đẩy đều quan trọng: REST mở cho format ngoài Iceberg để không bị khóa, datasource runtime cho linh hoạt, và semantic layer trong catalog để định nghĩa nghiệp vụ dùng chung. Lời khuyên thẳng của mình cho doanh nghiệp Việt: khi chọn nền dữ liệu, đừng chỉ hỏi engine chạy nhanh cỡ nào, hãy hỏi catalog mở tới đâu và có tránh được lock-in không. Đó mới là quyết định khó đảo ngược.</p>
+   </div>
+  </div>
+ </article>
+
+ <article class="card" data-aid="14">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=reddit.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+   <input type="checkbox" id="x-14" class="xt" hidden>
+   <a class="title" href="https://www.reddit.com/r/analyticsengineerjobs/comments/1tx7690/why_data_engineering_jobs_are_in_high_demand/" target="_blank" rel="noopener">Cộng đồng r/dataengineering: nghề data engineer vẫn khát người nhưng người mới rất khó vào</a>
+   <p class="sum">Các thảo luận sôi nổi trên r/dataengineering tuần qua xoay quanh nghịch lý: nhu cầu kỹ sư dữ liệu vẫn cao do khủng hoảng nền tảng kiểu infrastructure-first, nhưng người mới rất khó vào nghề vì ít vị trí entry, lối đi phổ biến là làm data analyst rồi chuyển sang data engineer. Một luồng khác tranh cãi có nên trả tiền học khóa data engineering hay tự học với mentor.</p>
+   <p class="why">💡 Tín hiệu thị trường lao động đáng đọc cho người Việt định vào ngành: cầu thật nhưng cửa hẹp, nền tảng SQL và Python vẫn là gốc, và kinh nghiệm thực chiến quan trọng hơn chứng chỉ.</p>
+   <div class="meta">
+    <span class="when">📅 05/06</span>
+    <a class="metabtn" href="https://www.reddit.com/r/analyticsengineerjobs/comments/1tx7690/why_data_engineering_jobs_are_in_high_demand/" target="_blank" rel="noopener">🔗 Website</a>
+    <label class="metabtn xbtn" for="x-14">📖 Mở rộng</label>
+    <button class="readbtn" type="button" data-aid="14">▶ Audio</button>
+   </div>
+   <div class="more">
+    <ul class="kb">
+     <li>Cầu kỹ sư dữ liệu cao do nhu cầu nền tảng infrastructure-first.</li>
+     <li>Người mới khó vào: ít vị trí entry, cạnh tranh gắt.</li>
+     <li>Lối đi phổ biến: data analyst rồi chuyển sang data engineer.</li>
+     <li>Tranh cãi: trả tiền học khóa hay tự học với mentor.</li>
+    </ul>
+    <div class="facts">
+     <span class="fact"><b>NGHỊCH LÝ</b>cầu cao, cửa entry hẹp</span>
+     <span class="fact"><b>LỐI VÀO</b>DA → DE</span>
+     <span class="fact"><b>NỀN TẢNG</b>SQL + Python</span>
+     <span class="fact"><b>CỘNG ĐỒNG</b>r/dataengineering</span>
+    </div>
+    <p class="deep">Tín hiệu từ cộng đồng rất thực tế cho người Việt đang nhắm ngành dữ liệu. Cầu là thật, nhưng cửa cho người mới hẹp, nên kỳ vọng nhảy thẳng vào vị trí data engineer entry thường vỡ mộng. Lối đi bền hơn là vào bằng data analyst, vững SQL và Python, làm việc thật với dữ liệu rồi chuyển dần sang data engineer. Về chuyện học, mình nghiêng về quan điểm trong thread: tài nguyên miễn phí thừa thãi, cái thiếu là người dẫn và dự án thật, nên có mentor và làm dự án end-to-end quan trọng hơn một tấm chứng chỉ. Và trong thời agent, kỹ năng đáng giá nhất không phải gõ pipeline tay, mà là hiểu kiến trúc, biết kiểm định output của AI và gắn dữ liệu với quyết định nghiệp vụ.</p>
+   </div>
+  </div>
+ </article>
+</section>
+
+<!-- SECTION 5 -->
+<section class="sec" id="sec-5">
+ <h2>🏢 Ngành & Doanh nghiệp</h2>
+
+ <article class="card" data-aid="15">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=solutionsreview.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+   <input type="checkbox" id="x-15" class="xt" hidden>
+   <a class="title" href="https://solutionsreview.com/business-intelligence/analytics-and-data-science-news-for-the-week-of-june-26-updates-from-databricks-dataiku-wisdomai-more/" target="_blank" rel="noopener">Domino Data Lab đẩy mạnh MLOps cho phân tích và AI trong ngành bị quản chặt</a>
+   <p class="sum">Domino Data Lab tiếp tục tập trung MLOps cho các ngành bị quản lý chặt, cung cấp theo dõi thí nghiệm tập trung, quản trị model và pipeline tái lập được cho dự án data science. Nền tảng được định vị là nơi tổ chức chuẩn hóa cách xây, kiểm định, triển khai và giám sát model để đáp ứng rủi ro, tuân thủ và kiểm toán mà vẫn ship nhanh.</p>
+   <p class="why">💡 Với ngân hàng, bảo hiểm, y tế ở Việt Nam, rào cản lớn nhất khi đưa AI vào sản xuất là tuân thủ và kiểm toán; reproducibility và governance là điều kiện cần, không phải tính năng cho vui.</p>
+   <div class="meta">
+    <span class="when">📅 26/06</span>
+    <a class="metabtn" href="https://solutionsreview.com/business-intelligence/analytics-and-data-science-news-for-the-week-of-june-26-updates-from-databricks-dataiku-wisdomai-more/" target="_blank" rel="noopener">🔗 Website</a>
+    <label class="metabtn xbtn" for="x-15">📖 Mở rộng</label>
+    <button class="readbtn" type="button" data-aid="15">▶ Audio</button>
+   </div>
+   <div class="more">
+    <ul class="kb">
+     <li>MLOps cho ngành bị quản lý chặt (tài chính, y tế...).</li>
+     <li>Theo dõi thí nghiệm tập trung, quản trị model.</li>
+     <li>Pipeline tái lập được cho dự án data science.</li>
+     <li>Đáp ứng rủi ro, tuân thủ và kiểm toán mà vẫn ship nhanh.</li>
+    </ul>
+    <div class="facts">
+     <span class="fact"><b>MẢNG</b>enterprise MLOps</span>
+     <span class="fact"><b>ĐÍCH</b>ngành regulated</span>
+     <span class="fact"><b>LÕI</b>governance + reproducibility</span>
+     <span class="fact"><b>MỤC TIÊU</b>tuân thủ + tốc độ</span>
+    </div>
+    <p class="deep">Với doanh nghiệp Việt trong ngành bị quản chặt như ngân hàng, bảo hiểm, y tế, rào cản đưa AI vào sản xuất hiếm khi là model giỏi tới đâu, mà là chứng minh được model được xây thế nào, dữ liệu nào, ai duyệt, có tái lập được không khi thanh tra hỏi. Đó đúng là chỗ Domino nhắm tới: experiment tracking tập trung, model governance và pipeline reproducible. Theo mình, đây là phần kém hào nhoáng nhưng quyết định AI có ở lại sản xuất hay chết yểu sau pilot. Lời khuyên thực dụng: ngay cả khi chưa mua nền tảng chuyên dụng, hãy thiết lập kỷ luật version hóa dữ liệu, model và code, ghi lại quyết định, vì khi cần audit mà không có vết là rất rủi ro.</p>
+   </div>
+  </div>
+ </article>
+
+ <article class="card" data-aid="16">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=solutionsreview.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+   <input type="checkbox" id="x-16" class="xt" hidden>
+   <a class="title" href="https://solutionsreview.com/business-intelligence/analytics-and-data-science-news-for-the-week-of-june-26-updates-from-databricks-dataiku-wisdomai-more/" target="_blank" rel="noopener">Reveal BI mở rộng embedded analytics và workflow AI ngay trong ứng dụng SaaS</a>
+   <p class="sum">Reveal BI mở rộng năng lực embedded analytics để đội SaaS nhúng dashboard tương tác, tự khám phá dữ liệu và insight chạy bằng AI ngay trong ứng dụng của mình thay vì đẩy người dùng sang công cụ riêng. Thông qua SDK và mẫu tích hợp low-code, hãng đưa phân tích thành phần tự nhiên của luồng sản phẩm.</p>
+   <p class="why">💡 Embedded analytics là cách biến dữ liệu thành giá trị tại điểm ra quyết định; với nhà làm SaaS Việt, đây là hướng tăng giữ chân người dùng mà không phải tự xây BI từ đầu.</p>
+   <div class="meta">
+    <span class="when">📅 26/06</span>
+    <a class="metabtn" href="https://solutionsreview.com/business-intelligence/analytics-and-data-science-news-for-the-week-of-june-26-updates-from-databricks-dataiku-wisdomai-more/" target="_blank" rel="noopener">🔗 Website</a>
+    <label class="metabtn xbtn" for="x-16">📖 Mở rộng</label>
+    <button class="readbtn" type="button" data-aid="16">▶ Audio</button>
+   </div>
+   <div class="more">
+    <ul class="kb">
+     <li>Nhúng dashboard tương tác và tự khám phá dữ liệu trong app SaaS.</li>
+     <li>Insight chạy bằng AI ngay trong sản phẩm.</li>
+     <li>Tích hợp qua SDK và mẫu low-code.</li>
+     <li>Biến phân tích thành phần tự nhiên của luồng sản phẩm.</li>
+    </ul>
+    <div class="facts">
+     <span class="fact"><b>MẢNG</b>embedded analytics</span>
+     <span class="fact"><b>CÁCH</b>SDK + low-code</span>
+     <span class="fact"><b>ĐÍCH</b>đội SaaS</span>
+     <span class="fact"><b>GIÁ TRỊ</b>insight tại điểm quyết định</span>
+    </div>
+    <p class="deep">Embedded analytics là một trong những cách thực dụng nhất để dữ liệu tạo giá trị: thay vì bắt người dùng rời sản phẩm sang một công cụ BI riêng, bạn đưa dashboard và insight ngay vào nơi họ đang làm việc. Với nhà làm SaaS Việt, đây là hướng vừa tăng giá trị sản phẩm vừa giữ chân người dùng, mà không phải tự xây nền BI từ đầu, một việc tốn kém và dễ sa lầy. Theo mình, mấu chốt không phải chọn SDK nào, mà là thiết kế đúng câu hỏi: người dùng cần quyết định gì tại màn hình này, rồi mới đưa đúng số liệu vào đó. Nhồi biểu đồ cho đẹp không giúp ai cả, dashboard đẹp không có nghĩa là đang ra quyết định tốt.</p>
+   </div>
+  </div>
+ </article>
+</section>
+
+<div class="foot">
+ <p>Bản tin tạo lúc 27/06/2026 · Tổng cộng 16 tin trong tuần W26 (22/06 - 28/06/2026)</p>
+ <p>Tuyển chọn &amp; đọc bởi Duc Nguyen · <a href="https://ducnguyen.vn" target="_blank" rel="noopener">ducnguyen.vn</a></p>
+</div>
+
+</div>
+<script src="../../assets/bg.js" defer></script>
+<!--MEDIA_INJECTED-->
+<script>
+(function(){
+  var base="../../audio/2026-06-27/";
+  var cur=null;
+  function play(src){ if(cur){cur.pause();} cur=new Audio(src); cur.play().catch(function(){}); }
+  function stop(){ if(cur){cur.pause(); cur=null;} }
+  document.addEventListener("DOMContentLoaded",function(){
+    var ra=document.getElementById("readAll"); if(ra) ra.onclick=function(){ play(base+"all.mp3"); };
+    var rs=document.getElementById("readStop"); if(rs) rs.onclick=stop;
+    document.querySelectorAll(".readbtn").forEach(function(b){
+      b.onclick=function(){ var id=b.getAttribute("data-aid"); if(id) play(base+id+".mp3"); };
+    });
+  });
+})();
+</script>
+</body>
+</html>
