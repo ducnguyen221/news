@@ -1,0 +1,374 @@
+{
+ "date": "03/07/2026",
+ "week": "W27",
+ "range": "29/06 - 05/07/2026",
+ "tldr": "Tuần 27 (29/6 - 5/7/2026) là tuần model trở lại sau quãng lặng: Anthropic ra Claude Sonnet 5 mạnh gần Opus 4.8 mà giá chỉ bằng nửa, rồi ngay hôm sau mở Claude Science, chính thức nhảy vào cuộc đua khám phá thuốc bằng AI. xAI khoe Grok 4.5 chạy nền V9 khoảng 1.500 tỷ tham số nhưng mới ở beta kín tại SpaceX và Tesla, còn GPT-5.6 của OpenAI thì bị khóa sau danh sách khoảng 20 tổ chức do chính phủ Mỹ duyệt. Dòng tiền và hạ tầng tiếp tục nóng: Together AI gọi 800 triệu USD ở định giá 8,3 tỷ nhờ sóng model mở, California cho toàn bộ cơ quan bang dùng Claude giảm 50%, và Blackstone rót 30 tỷ USD xây data center AI tại Nhật. Ở tầng kỹ thuật và xã hội, Claude Mythos phát hiện hơn 10.000 lỗ hổng gồm Squidbleed 29 năm tuổi, trong khi cộng đồng dậy sóng với nỗi lo khoảnh khắc Chernobyl và làn sóng phản đối AI ngày càng lớn.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "Anthropic ra mắt Claude Sonnet 5: model agentic mạnh gần Opus 4.8, giá bằng nửa",
+   "title_en": "Anthropic launches Claude Sonnet 5 as a cheaper way to run agents",
+   "summary": "Ngày 30/6, Anthropic phát hành Claude Sonnet 5, model Sonnet agentic nhất từ trước tới nay: tự lập kế hoạch, dùng trình duyệt và terminal, chạy tự động ở mức trước đây chỉ model lớn đắt tiền làm được. Điểm agentic coding đạt 63,2% (Opus 4.8 là 69,2%), OSWorld 81,2% và Terminal-Bench 80,4%; giá giới thiệu 2 USD đầu vào và 10 USD đầu ra mỗi triệu token đến 31/8.",
+   "why": "Đây là cú kéo năng lực gần Opus, giá gần Sonnet, thay đổi trực tiếp bài toán chi phí khi doanh nghiệp muốn chạy agent quy mô lớn; Sonnet 5 thành model mặc định cho cả gói Free và Pro.",
+   "url": "https://www.anthropic.com/news/claude-sonnet-5",
+   "domain": "anthropic.com",
+   "date": "2026-06-30",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 1
+  },
+  {
+   "aid": 2,
+   "title": "Anthropic ra mắt Claude Science, nhảy vào cuộc đua khám phá thuốc bằng AI",
+   "title_en": "Claude Science is Anthropic's newest flagship product for drug discovery",
+   "summary": "Ngày 30/6, Anthropic ra Claude Science, nền tảng gộp hơn 60 cơ sở dữ liệu và công cụ tính toán khoa học vào một chỗ, nhắm khám phá thuốc, phân tích cấu trúc protein, genomics và sinh học tính toán. Công ty đồng thời khởi động chương trình tìm thuốc nội bộ cho các bệnh bị bỏ quên, dựa trên thương vụ mua Coefficient Bio khoảng 400 triệu USD và việc chiêu mộ nhà khoa học Nobel John Jumper.",
+   "why": "Anthropic chuyển từ trợ lý code sang nền tảng làm khoa học, đấu trực tiếp với GPT-Rosalind của OpenAI và Google, dấu hiệu AI đang tiến vào R&D thật nơi giá trị và rủi ro đều lớn hơn chatbot.",
+   "url": "https://www.technologyreview.com/2026/06/30/1139987/claude-science-is-anthropics-newest-flagship-product/",
+   "domain": "technologyreview.com",
+   "date": "2026-06-30",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 2
+  },
+  {
+   "aid": 3,
+   "title": "xAI công bố Grok 4.5 chạy nền V9 1.500 tỷ tham số, vào private beta ở SpaceX và Tesla",
+   "title_en": "Grok 4.5 enters private beta at SpaceX and Tesla with 1.5 trillion parameters",
+   "summary": "Elon Musk cho biết Grok 4.5 dựng trên nền mô hình V9 mới với khoảng 1.500 tỷ tham số (gấp khoảng 3 lần V8-small của Grok 4), pretrain xong ngày 26/5, bổ sung dữ liệu Cursor để mạnh về coding. Model đang thử nghiệm kín tại SpaceX và Tesla, chưa mở công khai và chưa qua benchmark độc lập nào.",
+   "why": "xAI tự tuyên bố Grok 4.5 ngang hoặc hơn Claude Opus nhưng nội bộ tự chấm, minh họa rõ mặt trận model đang chạy nước rút hằng tháng và cả cách các hãng khoe năng lực trước khi có ai kiểm chứng.",
+   "url": "https://www.techtimes.com/articles/319314/20260629/grok-45-enters-private-beta-spacex-tesla-no-public-access-no-independent-benchmark.htm",
+   "domain": "techtimes.com",
+   "date": "2026-06-29",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 5
+  },
+  {
+   "aid": 4,
+   "title": "GPT-5.6 ra mắt nhưng bị khóa sau danh sách ~20 tổ chức do chính phủ Mỹ duyệt; Gemini 3.5 Pro chốt lịch tháng 7",
+   "title_en": "GPT-5.6 stays locked behind US-government access list as Gemini 3.5 Pro is cleared for July",
+   "summary": "OpenAI đã preview họ GPT-5.6 (Sol, Terra, Luna) nhưng theo yêu cầu chính phủ Mỹ chỉ mở cho khoảng 20 tổ chức đối tác qua một vòng rà soát an toàn, hứa mở rộng trong vài tuần; bản Sol chạy trên Cerebras nhắm tốc độ tới 750 token mỗi giây. Cùng lúc, Gemini 3.5 Pro với cửa sổ 2 triệu token và chế độ Deep Think được xác nhận sẽ chính thức phát hành trong tháng 7.",
+   "why": "Lần đầu một model frontier lớn bị chính phủ Mỹ gác cổng truy cập, tín hiệu quản trị và địa chính trị mới với AI biên giới, và là lý do người dùng phổ thông vẫn phải chờ dù model đã có.",
+   "url": "https://www.techtimes.com/articles/319318/20260629/gemini-35-pro-cleared-july-launch-fable-5-nears-return-gpt-56-stays-locked.htm",
+   "domain": "techtimes.com",
+   "date": "2026-06-29",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 5,
+   "title": "Claude in Chrome lên bản chính thức; Claude Code thêm bàn giao PR nháp và skill /dataviz",
+   "title_en": "Claude in Chrome hits general availability as Claude Code expands agent workflows",
+   "summary": "Anthropic đưa Claude in Chrome ra GA và mở rộng luồng agent trong Claude Code: agent nền tự bắn thông báo khi xong việc, tự mở PR nháp sau khi hoàn tất code, failover tốt hơn, thêm model mặc định cấp tổ chức, tên phiên dễ đọc và skill /dataviz để dựng biểu đồ, dashboard.",
+   "why": "Những chi tiết nhỏ mà thật như bàn giao PR nháp, thông báo nền, độ ổn định phiên dài mới là thứ quyết định có dám giao việc dài hơi cho agent hay không, đúng nỗi đau của đội kỹ sư.",
+   "url": "https://releasebot.io/updates/anthropic/claude-code",
+   "domain": "releasebot.io",
+   "date": "2026-07-01",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "OpenAI Codex Remote lên GA: điều khiển agent coding từ điện thoại qua ghép nối QR",
+   "title_en": "OpenAI Codex Remote goes live for all plans with QR-secured phone control",
+   "summary": "Codex Remote mở cho mọi gói trả phí: từ app ChatGPT trên iOS và Android, người dùng khởi động hoặc tiếp tục phiên code chạy trên máy Mac hoặc Windows đã kết nối, xem tiến độ và duyệt hành động. Cơ chế mới dùng ghép nối QR một-một và kiến trúc relay để máy dev không lộ ra internet công cộng.",
+   "why": "Coding agent đang thoát khỏi màn hình laptop: bạn có thể giao việc rồi đi, duyệt PR từ điện thoại, nhưng cũng đặt ra câu hỏi mới về kiểm soát và bảo mật khi agent chạy dài hạn ngoài tầm mắt.",
+   "url": "https://www.techtimes.com/articles/319201/20260627/openai-codex-remote-goes-live-all-plans-phone-control-now-secured-qr-relay.htm",
+   "domain": "techtimes.com",
+   "date": "2026-06-27",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "Claude Mythos phát hiện hơn 10.000 lỗ hổng nghiêm trọng; lộ Squidbleed 29 năm tuổi",
+   "title_en": "Project Glasswing: Claude Mythos finds 10,000+ critical flaws, uncovers 29-year-old Squidbleed bug",
+   "summary": "Trong dự án Project Glasswing, Anthropic cùng khoảng 50 đối tác dùng Claude Mythos Preview tìm ra hơn 10.000 lỗ hổng mức cao và nghiêm trọng trong phần mềm trọng yếu, gồm cả hệ điều hành và trình duyệt lớn. Nổi bật là Squidbleed (CVE-2026-47729), lỗi parser có từ năm 1997 trong proxy Squid, cho phép kẻ tấn công đọc lén request HTTP dạng thô như mật khẩu, token phiên của người dùng khác.",
+   "why": "AI đã đủ giỏi để tự săn lỗ hổng ở quy mô con người không theo kịp, con dao hai lưỡi: vá được núi nợ bảo mật cũ, nhưng cùng công cụ đó trong tay kẻ xấu là một mặt trận tấn công mới.",
+   "url": "https://thehackernews.com/2026/06/29-year-old-squid-proxy-bug-squidbleed.html",
+   "domain": "thehackernews.com",
+   "date": "2026-06-30",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": 4
+  },
+  {
+   "aid": 8,
+   "title": "Nghiên cứu nổi bật: In-Context World Modeling dạy robot học mô hình thế giới ngay trong ngữ cảnh",
+   "title_en": "In-Context World Modeling for Robotic Control",
+   "summary": "Một trong các bài được vote cao trên Hugging Face tuần này đề xuất để tác nhân điều khiển robot học mô hình thế giới trực tiếp trong ngữ cảnh (in-context) thay vì huấn luyện lại từ đầu, giúp dự đoán hệ quả hành động và thích ứng nhanh với môi trường mới.",
+   "why": "World model kết hợp in-context learning là hướng giúp robot và agent bớt mò mẫm, tổng quát hóa tốt hơn, nền tảng cho các hệ điều khiển thực tế cần thích nghi liên tục.",
+   "url": "https://huggingface.co/papers/trending",
+   "domain": "huggingface.co",
+   "date": "2026-06-30",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "OPID: chưng cất kỹ năng on-policy cho agent học tăng cường",
+   "title_en": "OPID: On-Policy Skill Distillation for Agentic Reinforcement Learning",
+   "summary": "Bài nghiên cứu trending khác đề xuất chưng cất kỹ năng theo hướng on-policy để agent học tăng cường tiếp thu năng lực hiệu quả hơn, giảm chi phí và tăng ổn định khi huấn luyện tác nhân giải nhiệm vụ dài.",
+   "why": "Huấn luyện agent RL vốn tốn kém và bấp bênh; các kỹ thuật chưng cất on-policy hứa hẹn giúp đội ít tài nguyên vẫn tạo được agent giỏi mà không cần cụm tính toán khổng lồ.",
+   "url": "https://huggingface.co/papers/trending",
+   "domain": "huggingface.co",
+   "date": "2026-06-30",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "Giới nghiên cứu AI lo khoảnh khắc Chernobyl: một thảm họa có thể khiến thế giới quay lưng với AI mãi mãi",
+   "title_en": "Top AI researchers terrified of a 'Chernobyl moment' for AI",
+   "summary": "Nhiều nhà nghiên cứu và lãnh đạo AI ở cả Mỹ và Trung Quốc cảnh báo nguy cơ một sự cố quy mô lớn, như tấn công mạng do agent gây ra, hỗ trợ chế tạo vũ khí sinh học hay phát tán malware, có thể vừa gây thiệt hại thật vừa đóng băng niềm tin công chúng với AI giống cách Chernobyl phủ bóng lên điện hạt nhân. Họ kêu gọi hợp tác toàn cầu.",
+   "why": "Đây là rủi ro danh tiếng mang tính hệ thống của cả ngành: một cú sốc lớn có thể kéo theo siết chính sách và làn sóng phản đối, ảnh hưởng tới mọi doanh nghiệp đang đặt cược vào AI.",
+   "url": "https://futurism.com/artificial-intelligence/ai-chernobyl-moment",
+   "domain": "futurism.com",
+   "date": "2026-06-30",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "Làn sóng phản đối AI chỉ mới bắt đầu, chủ đề nóng bậc nhất cộng đồng công nghệ tuần qua",
+   "title_en": "'The AI backlash is only getting started' — top r/technology thread",
+   "summary": "Bài đăng trên r/technology thu hơn 26.000 upvote và 2.600 bình luận, phản ánh sự mệt mỏi và phản ứng ngày càng mạnh với việc AI bị nhồi vào mọi sản phẩm; nhiều bình luận nói tại nơi làm việc, hóa đơn token thật đã khiến các dự án AI bị cắt.",
+   "why": "Tâm lý phản đối không còn là bên lề: nó tác động tới adoption, cách doanh nghiệp truyền thông về AI và cả chi tiêu, một biến số thật cần đọc đúng giữa cơn hưng phấn công nghệ.",
+   "url": "https://www.reddit.com/r/technology/comments/1ug4lut/the_ai_backlash_is_only_getting_started/",
+   "domain": "reddit.com",
+   "date": "2026-06-26",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "Lỗi AskUserQuestion tự chạy tiếp sau 60 giây của Claude Code gây tranh luận trên GitHub",
+   "title_en": "[BUG] Claude Code AskUserQuestion: 'No response after 60s — continued without an answer'",
+   "summary": "Một issue trên repo Claude Code với hơn 340 lượt react và gần 100 bình luận báo agent tự động chạy tiếp mà không có câu trả lời khi câu hỏi cho người dùng hết 60 giây không phản hồi, khiến agent tự quyết thay vì chờ.",
+   "why": "Chi tiết tưởng nhỏ nhưng chạm đúng vấn đề lớn của agent: khi nào được tự quyết, khi nào phải dừng chờ người. Human-in-the-loop phải là mặc định, nhất là với tác vụ có hệ quả.",
+   "url": "https://github.com/anthropics/claude-code/issues/73125",
+   "domain": "github.com",
+   "date": "2026-07-02",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "Together AI gọi 800 triệu USD Series C, định giá vọt lên 8,3 tỷ USD khi doanh nghiệp bỏ model đóng",
+   "title_en": "Neocloud Together AI raises $800M, leaps to $8.3B valuation",
+   "summary": "Together AI công bố vòng Series C 800 triệu USD, định giá sau đầu tư 8,3 tỷ USD, hơn gấp đôi so với 16 tháng trước, do Aramco Ventures dẫn dắt cùng Nvidia, Vista, General Catalyst. Nền tảng chạy các model mở như DeepSeek, MiniMax, Kimi, tuyên bố giúp khách hàng cắt tới 60 lần chi phí suy luận so với model đóng; booking năm vượt 1,15 tỷ USD.",
+   "why": "Đây là bằng chứng bằng tiền cho làn sóng doanh nghiệp chuyển từ model đóng sang hạ tầng mở để tối ưu chi phí, xu hướng hợp túi tiền và khẩu vị tự chủ của nhiều đội ở Việt Nam.",
+   "url": "https://techcrunch.com/2026/07/01/neocloud-together-ai-raises-800m-leaps-to-8-3b-valuation/",
+   "domain": "techcrunch.com",
+   "date": "2026-07-01",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": 3
+  },
+  {
+   "aid": 14,
+   "title": "California bắt tay Anthropic: toàn bộ cơ quan bang và địa phương dùng Claude giảm 50%",
+   "title_en": "Anthropic and Gov. Newsom forge deal for California government to use Claude at half price",
+   "summary": "Thống đốc Gavin Newsom công bố thỏa thuận đầu tiên thuộc loại này ngày 29/6: các cơ quan bang California và cả chính quyền địa phương được dùng Claude giảm 50%, kèm đào tạo miễn phí và hỗ trợ kỹ thuật từ Anthropic. Claude là công cụ AI đầu tiên lên cổng dịch vụ dùng chung SITeS của bang; DMV đã dùng cho chăm sóc khách hàng và an ninh mạng.",
+   "why": "Khu vực công là thị trường khổng lồ và bảo thủ; một bang lớn chuẩn hóa quanh Claude đặt tiền lệ mua sắm AI và củng cố vị thế AI cho doanh nghiệp và chính phủ của Anthropic.",
+   "url": "https://techcrunch.com/2026/06/29/anthropic-and-gov-newsom-forge-deal-allowing-california-government-to-use-claude-at-half-price/",
+   "domain": "techcrunch.com",
+   "date": "2026-06-29",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "Blackstone rót 30 tỷ USD xây data center AI tại Nhật Bản",
+   "title_en": "Blackstone to invest $30bn in Japan AI data centers",
+   "summary": "Chủ tịch Blackstone Jonathan Gray cho biết hãng sẽ đầu tư 30 tỷ USD vào các trung tâm dữ liệu AI ở Nhật trong 3 đến 5 năm tới, coi rủi ro không xây đủ hạ tầng tính toán còn lớn hơn nỗi lo bong bóng AI. Blackstone đã có hơn 500 MW công suất và đang đàm phán các cơ sở vượt 1 GW, xây cùng AirTrunk.",
+   "why": "Dòng vốn tổ chức tỷ đô đang đổ vào điện và data center, nút thắt thật của AI. Địa điểm dịch sang châu Á cho thấy cuộc đua hạ tầng AI đang toàn cầu hóa chứ không chỉ ở Mỹ.",
+   "url": "https://asia.nikkei.com/editor-s-picks/interview/blackstone-to-invest-30bn-in-japan-ai-data-centers-president",
+   "domain": "asia.nikkei.com",
+   "date": "2026-06-30",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 1,
+ "weekly_video": {
+  "intro": "Xin chào, đây là bản tin AI tuần 27, từ ngày 29 tháng 6 đến 5 tháng 7 năm 2026. Sau một quãng lặng model, tuần này sôi động trở lại: Anthropic tung liền Claude Sonnet 5 và Claude Science, xAI khoe Grok 4.5, dòng tiền đổ mạnh vào hạ tầng mở, còn giới nghiên cứu thì cảnh báo về rủi ro lớn của AI. Mời bạn cùng mình điểm qua năm câu chuyện nóng nhất tuần.",
+  "outro": "Đó là năm câu chuyện nổi bật nhất tuần 27. Bạn xem chi tiết từng tin, nguồn dẫn và góc nhìn của mình trong bản tin đầy đủ phía dưới. Cảm ơn bạn đã theo dõi, và hẹn gặp lại trong bản tin tuần sau.",
+  "segments": [
+   {
+    "aid": 1,
+    "headline": "Claude Sonnet 5 mạnh gần Opus, giá bằng nửa",
+    "narration": "Câu chuyện lớn nhất tuần là màn trở lại của model. Ngày 30 tháng 6, Anthropic phát hành Claude Sonnet 5, mà họ gọi là model Sonnet có khả năng tự hành động, hay agentic, mạnh nhất từ trước tới nay. Điểm đáng chú ý không chỉ là nó thông minh hơn, mà là nó biết tự lập kế hoạch, tự dùng công cụ như trình duyệt và cửa sổ dòng lệnh, rồi chạy tự động ở mức mà chỉ vài tháng trước còn phải cần tới những model lớn và đắt hơn nhiều. Về số liệu, trên bài kiểm tra coding kiểu agentic, Sonnet 5 đạt 63,2 phần trăm, so với 69,2 phần trăm của Opus 4.8, tức là đã rất gần đàn anh đắt tiền. Nó cũng đạt hơn 80 phần trăm trên hai bài đo thao tác máy tính và terminal. Nhưng cú hích thật nằm ở giá: chỉ 2 đô la cho mỗi triệu token đầu vào và 10 đô la cho đầu ra trong giai đoạn giới thiệu, và Sonnet 5 trở thành model mặc định cho cả người dùng miễn phí lẫn trả phí. Vì sao đáng chú ý? Với ai muốn chạy agent ở quy mô lớn, phương trình chi phí vừa thay đổi. Theo mình, đây là lời nhắc quen thuộc: đừng chỉ chọn model mạnh nhất, hãy chọn model đủ mạnh với mức giá chạy được cả hệ thống.",
+    "bullets": [
+     "Agentic coding 63,2%, gần Opus 4.8",
+     "Giá giới thiệu 2 và 10 USD mỗi triệu token",
+     "Model mặc định cho cả Free và Pro"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Claude Sonnet 5 so với đàn anh",
+     "items": [
+      {
+       "v": "63,2%",
+       "l": "agentic coding (Opus 4.8: 69,2%)"
+      },
+      {
+       "v": "80%+",
+       "l": "OSWorld & Terminal-Bench"
+      },
+      {
+       "v": "2$ / 10$",
+       "l": "mỗi triệu token vào / ra"
+      },
+      {
+       "v": "Free + Pro",
+       "l": "model mặc định mới"
+      }
+     ]
+    },
+    "images": [
+     "https://cdn.sanity.io/images/4zrzovbb/website/458ea645ef6b729f6847cba16932716e6b547f2f-2880x1620.png"
+    ]
+   },
+   {
+    "aid": 2,
+    "headline": "Claude Science lấn sân khám phá thuốc",
+    "narration": "Chỉ một ngày sau Sonnet 5, Anthropic tung tiếp Claude Science, và đây mới là bước đi tham vọng. Đây là một nền tảng gộp hơn 60 cơ sở dữ liệu và công cụ tính toán khoa học vào cùng một nơi làm việc, nhắm thẳng vào khám phá thuốc, phân tích cấu trúc protein, genomics và sinh học tính toán. Đáng nói hơn, Anthropic không chỉ bán công cụ cho ngành dược, mà còn tự khởi động một chương trình tìm thuốc nội bộ, tập trung vào những căn bệnh bị bỏ quên mà các hãng dược lớn thường thấy không đủ hấp dẫn về lợi nhuận. Nền tảng này dựa trên thương vụ mua lại Coefficient Bio hồi tháng 4 với khoảng 400 triệu đô la, cùng việc chiêu mộ nhà khoa học đoạt giải Nobel John Jumper, cha đẻ của AlphaFold. Với động thái này, Anthropic bước vào một cuộc đua ba bên với OpenAI và Google trong mảng AI cho khoa học. Vì sao đáng chú ý? AI đang dịch chuyển từ chỗ trợ giúp viết code và soạn văn bản sang chỗ trực tiếp làm khoa học thật, nơi giá trị lớn hơn nhưng rủi ro và trách nhiệm cũng nặng hơn nhiều. Theo mình, đây là tín hiệu rõ rằng lằn ranh giữa công ty AI và công ty nghiên cứu đang mờ dần, và ngành dược sẽ là chiến trường lớn tiếp theo.",
+    "bullets": [
+     "Gộp hơn 60 cơ sở dữ liệu khoa học",
+     "Khởi động chương trình tìm thuốc nội bộ",
+     "Dựa trên Coefficient Bio và John Jumper"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Claude Science hoạt động thế nào",
+     "items": [
+      {
+       "t": "Hơn 60 CSDL và công cụ",
+       "d": "tích hợp vào một nơi làm việc"
+      },
+      {
+       "t": "Claude Science",
+       "d": "phân tích protein, genomics, thuốc"
+      },
+      {
+       "t": "Coefficient Bio + John Jumper",
+       "d": "nền tảng và nhân tài"
+      },
+      {
+       "t": "Chương trình thuốc nội bộ",
+       "d": "nhắm các bệnh bị bỏ quên"
+      }
+     ]
+    },
+    "images": [
+     "https://wp.technologyreview.com/wp-content/uploads/2026/06/claude-science3a.jpg?resize=1200,600"
+    ]
+   },
+   {
+    "aid": 13,
+    "headline": "Together AI gọi 800 triệu USD, định giá 8,3 tỷ",
+    "narration": "Câu chuyện thứ ba nói về tiền và về một xu hướng lớn. Ngày 1 tháng 7, Together AI công bố vòng gọi vốn Series C trị giá 800 triệu đô la, đưa định giá công ty lên 8,3 tỷ đô la, hơn gấp đôi so với chỉ 16 tháng trước. Vòng này do Aramco Ventures dẫn dắt, với sự tham gia của Nvidia, Vista, General Catalyst và nhiều tên tuổi khác. Điều thú vị là Together AI không tự huấn luyện model đóng khổng lồ. Thay vào đó, họ vận hành hạ tầng để doanh nghiệp chạy các model mở như DeepSeek, MiniMax hay Kimi, và tuyên bố giúp khách hàng cắt giảm chi phí suy luận tới 60 lần so với việc dùng model đóng. Doanh thu đặt trước của công ty đã vượt 1,15 tỷ đô la mỗi năm. Vì sao đáng chú ý? Đây là bằng chứng bằng tiền cho làn sóng doanh nghiệp rời bỏ model đóng để chuyển sang hạ tầng mở, khi hóa đơn AI thật bắt đầu về. Theo mình, với các đội data ở Việt Nam, đây là hướng rất đáng để tâm: model mở cộng hạ tầng tối ưu thường vừa rẻ hơn, vừa cho bạn quyền tự chủ về dữ liệu và triển khai. Cái khó không nằm ở model, mà ở việc thiết kế đúng workflow và quản trị quanh nó.",
+    "bullets": [
+     "Series C 800 triệu USD, định giá 8,3 tỷ",
+     "Cắt tới 60 lần chi phí suy luận",
+     "Chạy model mở: DeepSeek, MiniMax, Kimi"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Model đóng so với hạ tầng mở",
+     "left": {
+      "h": "Model đóng",
+      "items": [
+       "OpenAI, Anthropic",
+       "Chi phí suy luận cao",
+       "Ít quyền tự chủ dữ liệu"
+      ]
+     },
+     "right": {
+      "h": "Together AI (mở)",
+      "items": [
+       "DeepSeek, MiniMax, Kimi",
+       "Rẻ tới 60 lần",
+       "Booking vượt 1,15 tỷ USD mỗi năm"
+      ]
+     }
+    },
+    "images": [
+     "https://techcrunch.com/wp-content/uploads/2026/07/Together-AI-founders-Percy-Liang-CEO-Vipul-Ved-Prakash-CTO-Ce-Zhang.jpg?resize=1200,800"
+    ]
+   },
+   {
+    "aid": 7,
+    "headline": "Claude Mythos tìm hơn 10.000 lỗ hổng",
+    "narration": "Câu chuyện thứ tư ở tầng kỹ thuật nhưng hệ quả rất đời thực. Trong dự án mang tên Project Glasswing, Anthropic cùng khoảng 50 đối tác đã dùng model Claude Mythos để tự động rà quét và tìm ra hơn 10.000 lỗ hổng ở mức cao và nghiêm trọng, trong những phần mềm trọng yếu, bao gồm cả các hệ điều hành và trình duyệt lớn. Nổi bật nhất là một lỗ hổng được đặt tên Squidbleed, mã CVE 2026-47729. Đây là một lỗi trong bộ phân tích cú pháp của proxy Squid, được cài vào từ tận năm 1997, tức là đã tồn tại âm thầm gần 29 năm. Lỗi này cho phép kẻ tấn công dùng chung proxy đọc lén được request HTTP dạng thô của người khác, bao gồm cả mật khẩu và token phiên. Vì sao đáng chú ý? Điều này cho thấy AI đã đủ giỏi để săn lỗ hổng ở quy mô mà con người không thể theo kịp. Đó là con dao hai lưỡi: một mặt giúp vá núi nợ bảo mật tích tụ hàng chục năm, mặt khác chính công cụ ấy trong tay kẻ xấu sẽ mở ra một mặt trận tấn công hoàn toàn mới. Theo mình, mọi doanh nghiệp nên coi đây là lời nhắc: hãy rà soát lại phần mềm cũ và các thư viện phụ thuộc của mình, vì thời gian để một lỗ hổng bị phát hiện và khai thác đang ngắn lại rất nhanh.",
+    "bullets": [
+     "Hơn 10.000 lỗ hổng cao và nghiêm trọng",
+     "Squidbleed ẩn từ năm 1997, gần 29 năm",
+     "Lộ mật khẩu, token qua proxy Squid"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Cách Claude Mythos săn lỗ hổng",
+     "items": [
+      {
+       "t": "Rà quét tự động",
+       "d": "Mythos quét phần mềm trọng yếu"
+      },
+      {
+       "t": "Hơn 10.000 lỗ hổng",
+       "d": "mức cao và nghiêm trọng"
+      },
+      {
+       "t": "Phát hiện Squidbleed",
+       "d": "lỗi proxy Squid từ 1997"
+      },
+      {
+       "t": "Cấp CVE và vá",
+       "d": "mã CVE-2026-47729"
+      }
+     ]
+    },
+    "images": [
+     "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiA4IfKMjQxVhpOYdrcCC4ty0vlGBDg_qCZuuvSTvyVWXYPXQlli7qyCZkPdHHuGJp-HVH1s-HGmf_Zqn97o2Qz5JOHaZ-Mk1mecm4W4yUBiCaejJL5guczISx2Q8ZH7RvS_4fXiNdHemr1aWKwz0CcyBJI_4_jFjQhY5JedBz_-pSiSQ1eQCF_BPYEbRs/s1600/sq.jpg"
+    ]
+   },
+   {
+    "aid": 3,
+    "headline": "Grok 4.5 nền V9 1.500 tỷ tham số, beta kín",
+    "narration": "Câu chuyện thứ năm khép lại phần model. Elon Musk cho biết xAI đã có Grok 4.5, dựng trên một nền mô hình mới gọi là V9, với khoảng 1.500 tỷ tham số, tức là lớn gấp khoảng ba lần kiến trúc từng chạy các bản Grok 4. Nền V9 này hoàn tất pretrain vào ngày 26 tháng 5, và được bổ sung thêm dữ liệu từ Cursor để mạnh hơn về lập trình. Tuy nhiên, có một chữ nhưng rất lớn: Grok 4.5 hiện chỉ chạy thử nghiệm kín trong nội bộ SpaceX và Tesla, chưa mở cho công chúng và chưa qua bất kỳ benchmark độc lập nào. xAI tự tuyên bố nó ngang hoặc thậm chí vượt Claude Opus, nhưng đó hoàn toàn là đánh giá nội bộ. Vì sao đáng chú ý? Nó cho thấy mặt trận model đang chạy nước rút theo nhịp hằng tháng, với những con số tham số ngày càng khổng lồ. Nhưng nó cũng cho thấy một thói quen cần cảnh giác trong ngành: khoe năng lực trước khi có ai kiểm chứng được. Theo mình, với người dùng và doanh nghiệp, hãy nghe những tuyên bố kiểu này bằng thái độ điềm tĩnh. Con số tham số lớn không tự động thành giá trị; thứ đáng tin là kết quả trên bài kiểm tra công khai và trải nghiệm thực tế của chính bạn.",
+    "bullets": [
+     "Nền V9 khoảng 1.500 tỷ tham số",
+     "Mới ở beta kín tại SpaceX, Tesla",
+     "Chưa có benchmark độc lập nào"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Grok 4.5 và nền V9",
+     "items": [
+      {
+       "v": "1.500 tỷ",
+       "l": "tham số nền V9"
+      },
+      {
+       "v": "~3 lần",
+       "l": "lớn hơn kiến trúc Grok 4"
+      },
+      {
+       "v": "26/5",
+       "l": "ngày hoàn tất pretrain"
+      },
+      {
+       "v": "0",
+       "l": "benchmark độc lập công khai"
+      }
+     ]
+    },
+    "images": [
+     "https://d.techtimes.com/en/full/466980/grok.jpg"
+    ]
+   }
+  ]
+ },
+ "facebook_post": "Tuần AI sôi động trở lại: model đổ bộ, tiền chảy vào hạ tầng mở, và một nỗi sợ mang tên Chernobyl\n\nMình là Đức đây. Tuần 27 (29/6 đến 5/7) khác hẳn tuần trước im ắng: model đổ bộ dồn dập, tiền chảy mạnh vào hạ tầng, và cộng đồng thì vừa hào hứng vừa lo. Mình ghi lại mấy tin đáng nhớ nhất.\n\n1️⃣ Anthropic ra Claude Sonnet 5. Model Sonnet agentic nhất từ trước tới nay, biết tự lập kế hoạch, tự dùng trình duyệt và terminal. Điểm agentic coding 63,2 phần trăm, đã rất gần Opus 4.8 là 69,2 phần trăm, nhưng giá giới thiệu chỉ 2 và 10 đô la mỗi triệu token, và thành model mặc định cho cả gói miễn phí. Nghĩa là gì? Chạy agent quy mô lớn vừa rẻ đi một bậc.\n\n2️⃣ Ngay hôm sau, Anthropic mở Claude Science, nhảy vào khám phá thuốc bằng AI. Nền tảng gộp hơn 60 cơ sở dữ liệu khoa học, kèm chương trình tìm thuốc nội bộ, dựa trên vụ mua Coefficient Bio khoảng 400 triệu đô la và nhà khoa học Nobel John Jumper. AI đang bước từ chatbot sang làm khoa học thật.\n\n3️⃣ Together AI gọi 800 triệu đô la, định giá vọt lên 8,3 tỷ. Họ không làm model đóng, mà chạy hạ tầng cho các model mở như DeepSeek, MiniMax, Kimi, tuyên bố rẻ hơn tới 60 lần so với model đóng. Đây là tiền thật đặt cược vào làn sóng mở.\n\n4️⃣ Ở mảng bảo mật, model Claude Mythos trong dự án Project Glasswing đã tìm ra hơn 10.000 lỗ hổng nghiêm trọng, gồm Squidbleed, một lỗi proxy Squid ẩn từ năm 1997, gần 29 năm. AI giờ săn lỗ hổng ở quy mô con người không theo kịp.\n\n5️⃣ Bên lề, xAI khoe Grok 4.5 nền V9 khoảng 1.500 tỷ tham số nhưng mới beta kín, chưa benchmark độc lập; còn GPT-5.6 của OpenAI thì bị khóa sau danh sách khoảng 20 tổ chức do chính phủ Mỹ duyệt. Ở tầng hạ tầng, Blackstone rót 30 tỷ đô la xây data center AI tại Nhật, và California cho toàn bộ cơ quan bang dùng Claude giảm 50 phần trăm.\n\n💭 Góc nhìn của mình về tuần này\n\nĐiều mình thấy rõ nhất: cuộc chơi đang tách làm hai lớp. Lớp trên là frontier với những tuyên bố nghìn tỷ tham số như Grok 4.5, nghe kêu nhưng chưa ai kiểm chứng được, nên mình khuyên nghe bằng thái độ điềm tĩnh, con số tham số lớn không tự thành giá trị. Lớp dưới, nơi thật sự thay đổi cách làm việc, lại là mấy tin có vẻ ít giật gân hơn: Sonnet 5 hạ giá agent, Together AI chứng minh hạ tầng mở rẻ hơn nhiều lần, California chuẩn hóa Claude cho khu vực công. Theo mình, đây mới là thứ team data và doanh nghiệp Việt nên bám.\n\nGần đây mình học và thi chứng chỉ Databricks, làm thực hành RAG trên lakehouse, và càng tin rằng giá trị nằm ở chỗ gắn model vào dữ liệu sạch, có governance, đúng người dùng, chứ không phải chạy theo model mới nhất. Với đa số bài toán, một model như Sonnet 5 cộng hạ tầng mở kiểu Together là quá đủ, phần còn lại là workflow bạn thiết kế.\n\nNhưng tuần này cũng có mặt tối phải nhìn thẳng. Việc Claude Mythos tìm ra 10.000 lỗ hổng nhắc rằng cùng một AI vá được lỗ hổng thì cũng khai thác được nó, nên hãy rà soát lại phần mềm cũ của mình ngay. Và nỗi sợ khoảnh khắc Chernobyl, cùng làn sóng phản đối AI đang lớn dần, không phải chuyện để gạt đi: nếu bỏ con người ra khỏi vòng quyết định, AI càng mạnh càng rủi ro.\n\nCái cốt lõi cần nhớ: đừng biến AI thành phong trào, hãy biến nó thành hệ thống. Chọn model đủ mạnh với giá chạy được, thiết kế dữ liệu và workflow tử tế, và luôn giữ con người ở khâu quyết định.\n\nGhé AI News và Data News của mình để xem bản tin đầy đủ, có nguồn dẫn từng tin, và đăng ký nhận bản tin mỗi tuần nhé. Tuần sau gặp lại!\n\n#AI #ArtificialIntelligence #Anthropic #ClaudeSonnet5 #ClaudeScience #TogetherAI #OpenAI #xAI #Grok #RAG #DataEngineering #Databricks #AISecurity #AINews #DucNguyenAI",
+ "bgm": "tech-pulse",
+ "youtube": {
+  "recap": "wHks48QodbM",
+  "short": "k_aii2qsH-Q"
+ }
+}
