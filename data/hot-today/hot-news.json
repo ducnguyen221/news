@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-07-03",
+      "display_date": "03/07/2026",
+      "title": "pg_lake biến Postgres thành lakehouse mở, đọc-ghi Iceberg",
+      "summary": "Chiếc database Postgres quen thuộc vừa được trao khả năng đọc và ghi thẳng vào hồ dữ liệu Iceberg, trở thành một lakehouse mở.",
+      "source": "snowflake.com",
+      "video_id": "ly7p3eD-y30",
+      "short_id": "N6x48Y_3URU",
+      "published_at": "2026-07-03T19:26:54"
+    },
+    {
       "date": "2026-07-01",
       "display_date": "01/07/2026",
       "title": "Couchbase ra mắt AI Data Plane: bộ nhớ cho AI agent",
