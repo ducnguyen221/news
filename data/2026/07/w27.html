@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data News – Tuần W27: Coding agent vào nền tảng dữ liệu, cả ngành quay về "làm đúng"</title>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data News – Tuần W27: Coding agent vào nền tảng dữ liệu, cả ngành quay về làm đúng">
+<meta property="og:description" content="Tuần 29/06 - 05/07/2026: Snowflake Cortex Sense đẩy độ chính xác agent 24% lên 86%, Hopsworks 5.0 nhúng Claude Code & Codex, Iceberg khóa spec, Hardwood 1.0 và làn sóng forward-deployed engineering.">
+<meta property="og:image" content="https://ducnguyen.vn/news/data/assets/og-banner.png">
+<meta property="og:url" content="https://ducnguyen.vn/news/data/2026/07/w27.html">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#04060a;color:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding:0 16px 60px}
+a{color:#34f5a4}
+img{max-width:100%}
+
+/* HEADER */
+.hdr{position:sticky;top:8px;z-index:60;background:rgba(6,9,16,.92);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:12px;margin:10px 0 4px;padding:12px 16px}
+.hdr-row{display:flex;align-items:center}
+.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:#f8fafc}
+.brand-mark{width:42px;height:42px;display:grid;place-items:center;flex:0 0 auto;border:1px solid rgba(52,245,164,.4);border-radius:50%;background:radial-gradient(circle,rgba(52,245,164,.22),rgba(56,189,248,.06) 55%,rgba(4,6,10,.95) 78%);box-shadow:0 0 18px rgba(52,245,164,.35);animation:brandPulse 3.2s ease-in-out infinite;transition:transform .45s cubic-bezier(.175,.885,.32,1.275)}
+.brand:hover .brand-mark{transform:rotate(180deg) scale(1.06);border-color:#34f5a4}
+@keyframes brandPulse{0%,100%{box-shadow:0 0 10px rgba(52,245,164,.22)}50%{box-shadow:0 0 26px rgba(52,245,164,.55)}}
+.brand-name{font-size:1.24rem;font-weight:700}
+.brand-name b{color:#34f5a4}
+.brand-sub{display:inline;color:#94a3b8;font-size:.78rem;margin-left:4px}
+.hdr-row2{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-top:8px;position:relative}
+.hdr-row2 .toc{flex:1 1 auto;display:flex;flex-wrap:wrap;gap:7px}
+.toc a{font-size:.8rem;color:#cbd5e1;text-decoration:none;padding:5px 11px;border:1px solid rgba(255,255,255,.1);border-radius:999px;background:rgba(255,255,255,.03);white-space:nowrap}
+.toc a:hover{border-color:#34f5a4;color:#34f5a4}
+.vdiv{width:1px;height:22px;background:rgba(255,255,255,.16)}
+.hdr-ctrls{display:flex;align-items:center;gap:8px}
+.ctrl{display:inline-flex;align-items:center;justify-content:center;gap:2px;font-size:.82rem;font-weight:600;padding:8px 13px;border-radius:9px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:#e2e8f0;cursor:pointer;text-decoration:none;transition:.2s}
+.ctrl:hover{border-color:#34f5a4;color:#34f5a4}
+.ctrl-acc{background:linear-gradient(90deg,#34f5a4,#38bdf8);color:#04060a;border-color:transparent}
+.ctrl-acc:hover{color:#04060a;filter:brightness(1.08)}
+.ctrl-ic{width:38px;height:36px;padding:0;flex:0 0 auto}
+.navpop-btn{display:none}
+.navpop{display:none}
+.navpop-t:checked ~ .navpop{display:flex;flex-direction:column;gap:2px;position:absolute;top:calc(100% + 10px);left:0;right:0;z-index:80;background:rgba(8,12,20,.98);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:8px;backdrop-filter:blur(16px)}
+.navpop a{padding:11px 14px;border-radius:8px;color:#cbd5e1;text-decoration:none}
+.navpop a:hover{background:rgba(52,245,164,.1);color:#34f5a4}
+.navpop-t:checked ~ .hdr-ctrls .navpop-btn{color:#04060a;background:linear-gradient(90deg,#34f5a4,#38bdf8);border-color:transparent}
+
+/* RECAP + VIDEO */
+#recap{scroll-margin-top:120px}
+.hot-video{margin-top:26px}
+.hot-video .hot-label{font-weight:700;margin-bottom:12px}
+.vid-links{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.vbtn{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border:1px solid rgba(52,245,164,.35);border-radius:9px;color:#34f5a4;text-decoration:none;font-size:.88rem;font-weight:600;background:rgba(52,245,164,.07)}
+.vbtn:hover{background:rgba(52,245,164,.16)}
+
+/* TLDR */
+.tldr{margin-top:22px;background:rgba(10,15,26,.95);border:1px solid rgba(52,245,164,.22);border-left:3px solid #34f5a4;border-radius:12px;padding:18px 20px}
+.tldr h2{font-size:1.02rem;color:#34f5a4;margin-bottom:8px}
+.tldr p{color:#e2e8f0;font-size:.96rem}
+
+/* TIMELINE */
+.timeline{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 4px}
+.tl-chip{flex:1 1 auto;min-width:96px;text-align:center;background:rgba(10,15,26,.93);border:1px solid rgba(255,255,255,.08);border-radius:9px;padding:8px 6px}
+.tl-chip .d{font-size:.74rem;color:#94a3b8}
+.tl-chip .n{font-size:.95rem;font-weight:700;color:#38bdf8;margin-top:2px}
+.tl-chip.dim{opacity:.4}
+.tl-chip.dim .n{color:#64748b}
+
+/* SECTIONS */
+.sec{margin-top:38px;scroll-margin-top:120px}
+.sec h2{font-size:1.28rem;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.1)}
+
+/* CARD */
+.card{display:flex;gap:14px;background:rgba(10,15,26,.93);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;margin-bottom:14px;transition:border-color .2s}
+.card:hover{border-color:rgba(52,245,164,.35)}
+.card[data-hot="1"]{border-color:rgba(52,245,164,.55);box-shadow:0 0 22px rgba(52,245,164,.14)}
+.thumb{width:96px;height:72px;object-fit:cover;border-radius:9px;flex:0 0 auto;background:#0d1524;border:1px solid rgba(255,255,255,.07)}
+.thumb-fallback{object-fit:contain;padding:14px;background:#0d1524}
+.body{flex:1 1 auto;min-width:0;display:flex;flex-direction:column}
+.rank{display:inline-block;font-size:.72rem;font-weight:700;color:#04060a;background:linear-gradient(90deg,#34f5a4,#38bdf8);padding:3px 9px;border-radius:999px;margin-bottom:6px;width:fit-content;letter-spacing:.3px}
+.title{font-size:1.05rem;font-weight:700;color:#f1f5f9;text-decoration:none;line-height:1.35}
+.title:hover{color:#34f5a4}
+.sum{color:#cbd5e1;font-size:.92rem;margin-top:6px}
+.why{color:#a5b4c8;font-size:.88rem;margin-top:7px;background:rgba(56,189,248,.06);border-radius:7px;padding:7px 10px}
+.meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px}
+.when{font-size:.8rem;color:#94a3b8}
+.metabtn{font-size:.8rem;color:#cbd5e1;text-decoration:none;padding:4px 10px;border:1px solid rgba(255,255,255,.12);border-radius:7px;background:rgba(255,255,255,.03);cursor:pointer}
+.metabtn:hover{border-color:#34f5a4;color:#34f5a4}
+.readbtn{font-size:.8rem;color:#cbd5e1;padding:4px 10px;border:1px solid rgba(255,255,255,.12);border-radius:7px;background:rgba(255,255,255,.03);cursor:pointer}
+.readbtn:hover{border-color:#34f5a4;color:#34f5a4}
+.xt{display:none}
+.xt:checked ~ .meta .xbtn{background:rgba(52,245,164,.16);border-color:#34f5a4;color:#34f5a4}
+.more{display:none}
+.xt:checked ~ .more{display:block;margin-top:14px;border-top:1px dashed rgba(255,255,255,.12);padding-top:14px}
+.kb{list-style:none;margin:0 0 12px}
+.kb li{position:relative;padding-left:20px;margin-bottom:6px;font-size:.9rem;color:#d7e0ec}
+.kb li:before{content:"▸";position:absolute;left:0;color:#34f5a4;font-weight:700}
+.facts{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.fact{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.74rem;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.22);border-radius:7px;padding:4px 9px;color:#cbd5e1}
+.fact b{color:#38bdf8;margin-right:5px;font-weight:700}
+.deep{font-size:.9rem;color:#a5b4c8;line-height:1.7}
+
+/* FOOTER */
+footer{margin-top:44px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);color:#94a3b8;font-size:.84rem;text-align:center}
+footer a{color:#34f5a4}
+
+@media(max-width:767px){
+  .hdr{padding:10px 12px}
+  .brand-mark{width:36px;height:36px}
+  .brand-name{font-size:1.08rem}
+  .hdr-row2 .toc,.vdiv{display:none}
+  .hdr-ctrls{width:100%;gap:6px}
+  .hdr-ctrls .ctrl{flex:1 1 auto;font-size:.78rem;padding:8px 6px;text-align:center}
+  .hdr-ctrls .ctrl-ic{flex:0 0 38px;width:38px;height:36px;padding:0}
+  .navpop-btn{display:grid}
+  .card{flex-direction:row}
+  .thumb{width:74px;height:60px}
+  .vid-links .vbtn{flex:1 1 auto;justify-content:center}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hdr" id="top">
+  <div class="hdr-row">
+    <a class="brand" href="../../index.html" title="Về trang chính Data News"><span class="brand-mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34f5a4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/><path d="M4.5 11.5v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/></svg></span><span class="brand-name">Data <b>News</b></span><span class="brand-sub">Tuần W27 · 29/06 - 05/07/2026</span></a>
+  </div>
+  <div class="hdr-row2">
+    <input type="checkbox" id="navpop" class="navpop-t" hidden>
+    <nav class="toc">
+      <a href="#recap">🎬 Recap</a>
+      <a href="#sec-1">🗄️ Hạ tầng</a>
+      <a href="#sec-2">🛠️ Công cụ</a>
+      <a href="#sec-3">🤖 AI × Data</a>
+      <a href="#sec-4">📈 Trend</a>
+      <a href="#sec-5">🏢 Ngành</a>
+    </nav>
+    <span class="vdiv"></span>
+    <div class="hdr-ctrls">
+      <button id="readAll" class="ctrl ctrl-acc">🔊<span class="btxt"> Đọc tóm tắt</span></button>
+      <button id="readStop" class="ctrl">⏹<span class="btxt"> Dừng</span></button>
+      <label class="ctrl ctrl-ic navpop-btn" for="navpop" title="Mục lục">☰</label>
+      <a class="ctrl ctrl-ic" href="../../index.html" title="Quay lại Data News">←</a>
+    </div>
+    <div class="navpop">
+      <a href="#recap" onclick="document.getElementById('navpop').checked=false">🎬 Recap tuần</a>
+      <a href="#sec-1" onclick="document.getElementById('navpop').checked=false">🗄️ Hạ tầng & Kiến trúc dữ liệu</a>
+      <a href="#sec-2" onclick="document.getElementById('navpop').checked=false">🛠️ Công cụ & Nền tảng</a>
+      <a href="#sec-3" onclick="document.getElementById('navpop').checked=false">🤖 AI × Data</a>
+      <a href="#sec-4" onclick="document.getElementById('navpop').checked=false">📈 Hot trend & Cộng đồng</a>
+      <a href="#sec-5" onclick="document.getElementById('navpop').checked=false">🏢 Ngành & Doanh nghiệp</a>
+    </div>
+  </div>
+</header>
+
+<div id="recap"></div>
+<div class="hot-video"><div class="hot-label">🎬 Video recap tuần — các tin nóng nhất</div><div style="position:relative;width:100%;padding-top:56.25%;border-radius:12px;overflow:hidden"><iframe src="https://www.youtube.com/embed/G21V6q6unaA" title="AI News recap" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><div class="vid-links"><a class="vbtn" href="https://youtu.be/G21V6q6unaA" target="_blank" rel="noopener">▶ Mở Youtube</a><a class="vbtn" href="https://www.youtube.com/shorts/oGHf_nq4ZVc" target="_blank" rel="noopener">📱 Youtube Short</a></div></div>
+
+<div class="tldr">
+  <h2>📌 Tổng quan tuần này</h2>
+  <p>Tuần 27 (29/06 - 05/07/2026) là tuần của <b>coding agent nhúng thẳng vào nền tảng dữ liệu</b> và cả ngành quay về triết lý "làm đúng thay vì làm nhanh". Snowflake ra <b>Cortex Sense</b>, lớp ngữ cảnh giúp AI agent nhảy từ 24% lên 86% độ chính xác và rẻ hơn ba lần mỗi truy vấn; <b>Hopsworks 5.0</b> nhúng sẵn Claude Code và Codex vào nền tảng. Ở tầng nền, <b>Apache Iceberg</b> khóa đặc tả và kiểm thử chéo 5 ngôn ngữ, còn Gunnar Morling phát hành <b>Hardwood 1.0</b> — trình đọc Parquet siêu nhẹ cho JVM. Cùng lúc, AWS, Microsoft và Palantir đồng loạt đặt cược vào mô hình <b>forward-deployed engineering</b>. Thông điệp chung: giá trị nằm ở ngữ cảnh, quản trị và triển khai — không phải ở model hay cú pháp SQL.</p>
+</div>
+
+<div class="timeline">
+  <div class="tl-chip dim"><div class="d">T2 29/06</div><div class="n">0</div></div>
+  <div class="tl-chip"><div class="d">T3 30/06</div><div class="n">5</div></div>
+  <div class="tl-chip"><div class="d">T4 01/07</div><div class="n">7</div></div>
+  <div class="tl-chip"><div class="d">T5 02/07</div><div class="n">1</div></div>
+  <div class="tl-chip dim"><div class="d">T6 03/07</div><div class="n">0</div></div>
+  <div class="tl-chip dim"><div class="d">T7 04/07</div><div class="n">0</div></div>
+  <div class="tl-chip dim"><div class="d">CN 05/07</div><div class="n">0</div></div>
+</div>
+
+<!-- SECTION 1 -->
+<section class="sec" id="sec-1">
+  <h2>🗄️ Hạ tầng & Kiến trúc dữ liệu</h2>
+
+  <article class="card" data-aid="1">
+    <img class="thumb thumb-fallback" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=infoq.com&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=infoq.com&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-1" class="xt" hidden>
+      <span class="rank">🔥 TOP 3 TUẦN NÀY</span>
+      <a class="title" href="https://www.infoq.com/news/2026/07/hardwood-java-parquet/" target="_blank" rel="noopener">Hardwood 1.0 ra mắt: trình đọc Apache Parquet siêu nhẹ, đa luồng cho JVM</a>
+      <p class="sum">Gunnar Morling phát hành Hardwood 1.0 — thư viện đọc Parquet viết mới hoàn toàn cho JVM, đa luồng mặc định và không phụ thuộc bắt buộc, sau năm bản preview từ đầu năm. Nhắm Java 21 trở lên, giấy phép Apache 2.0, đã có trên Maven Central.</p>
+      <p class="why">💡 Trình đọc Parquet Java chính chủ của Apache vốn nặng và nhiều dependency; Hardwood mở ra lựa chọn gọn, nhanh, dễ nhúng cho pipeline và engine truy vấn — đúng nhu cầu tối ưu chi phí đọc lakehouse.</p>
+      <div class="meta">
+        <span class="when">📅 01/07</span>
+        <a class="metabtn" href="https://www.infoq.com/news/2026/07/hardwood-java-parquet/" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-1">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="1">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Viết mới hoàn toàn cho JVM, chỉ làm một việc: đọc Parquet thật nhanh.</li>
+          <li>Đa luồng ngay từ lõi, trải giải mã trang ra mọi nhân CPU mặc định.</li>
+          <li>Không có phụ thuộc bắt buộc — dễ nhúng, ít xung đột thư viện.</li>
+          <li>Trải qua 5 bản preview (Alpha1, Beta1/2, CR1/2) trước khi lên 1.0.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>PHIÊN BẢN</b>Hardwood 1.0</span>
+          <span class="fact"><b>JAVA</b>21+</span>
+          <span class="fact"><b>LICENSE</b>Apache 2.0</span>
+          <span class="fact"><b>PHÂN PHỐI</b>Maven Central</span>
+        </div>
+        <p class="deep">Chi phí đọc file là nút cổ chai âm thầm của mọi lakehouse — bạn có thể tối ưu query engine bao nhiêu tùy thích, nhưng nếu lớp đọc Parquet chậm thì cả pipeline chậm theo. Hardwood đánh đúng chỗ đó: đa luồng, không dependency, dễ nhúng vào Flink, Trino, hay job Spark tùy biến. Điểm mình thích nhất là triết lý phát triển: "built with AI, but not by AI" — mọi thay đổi lớn bắt đầu từ design doc, con người sở hữu kiến trúc, agent chỉ tăng tốc. Với team data JVM tại Việt Nam, đây là thứ nên thử benchmark ngay: nếu job đọc Parquet nặng, thay lớp reader có thể cắt được cả giờ CPU mỗi ngày. Đừng vội thay production, nhưng nên đưa vào danh sách đánh giá.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" data-aid="2">
+    <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fx5jauyia2v209ht7lhy8.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=dev.to&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-2" class="xt" hidden>
+      <span class="rank">🔥 TOP 4 TUẦN NÀY</span>
+      <a class="title" href="https://dev.to/alexmercedcoder/apache-data-lakehouse-weekly-june-24-to-july-1-2026-2oej" target="_blank" rel="noopener">Apache Iceberg khóa spec Expressions và kiểm thử chéo 5 ngôn ngữ, cắt bản Rust 0.10.0 RC1</a>
+      <p class="sum">Cộng đồng Iceberg bỏ phiếu thông qua đặc tả Expressions và trường tên định danh cho UDF, đồng thời khởi động kiểm thử tính nhất quán giữa năm bản cài (Java, Python, Rust, Go, C++); bản Iceberg Rust 0.10.0 RC1 cũng được đưa ra bỏ phiếu.</p>
+      <p class="why">💡 Format war đã hạ nhiệt, giờ trọng tâm là "tính đúng đắn" — đảm bảo mọi engine đọc/ghi Iceberg cho ra cùng kết quả. Đây là nền móng để lakehouse mở thật sự interoperable.</p>
+      <div class="meta">
+        <span class="when">📅 01/07</span>
+        <a class="metabtn" href="https://dev.to/alexmercedcoder/apache-data-lakehouse-weekly-june-24-to-july-1-2026-2oej" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-2">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="2">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Vote thông qua đặc tả Expressions: chốt hành vi lọc/biến đổi dữ liệu.</li>
+          <li>Thêm trường specific-name cho UDF để định danh phiên bản hàm.</li>
+          <li>Đề xuất kho iceberg-testing dùng chung cho 5 bản cài đặt.</li>
+          <li>Iceberg Rust 0.10.0 RC1 được đưa ra bỏ phiếu.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>NGÔN NGỮ</b>Java·Python·Rust·Go·C++</span>
+          <span class="fact"><b>RUST</b>0.10.0 RC1</span>
+          <span class="fact"><b>SPEC</b>Expressions + UDF</span>
+        </div>
+        <p class="deep">Đây nghe khô khan nhưng lại là tin nền tảng nhất tuần. Khi Iceberg có 5 bản cài (Java, Python, Rust, Go, C++), rủi ro lớn nhất là mỗi bản hiểu spec một kiểu — bạn ghi bằng Spark, đọc bằng Trino mà ra kết quả lệch. Việc chốt đặc tả Expressions và dựng bộ test conformance chung chính là "keo dán" giữ cho hệ sinh thái không phân mảnh. Với doanh nghiệp: đây là lý do bạn có thể yên tâm đặt Iceberg làm format lõi, dùng nhiều engine trên cùng bảng mà không sợ vendor lock hay sai số. Cuộc chiến format đã xong; giờ ai chuẩn hóa và governance tốt hơn sẽ thắng ở tầng catalog và semantic.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" data-aid="3">
+    <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://motherduck-com-web-prod.s3.us-east-1.amazonaws.com/assets/img/Three_items_Duck_DB_Ecosystem_1_11729bf691.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=motherduck.com&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-3" class="xt" hidden>
+      <a class="title" href="https://motherduck.com/blog/duckdb-ecosystem-newsletter-june-2026/" target="_blank" rel="noopener">DuckDB Ecosystem tháng 6: DuckLake inlining, đọc-ghi Lance cho vector search, MotherDuck Flights</a>
+      <p class="sum">Bản tin hệ sinh thái DuckDB điểm loạt cập nhật: DuckLake inlining gộp commit nhỏ vào catalog thay vì đẻ file Parquet tí hon, hỗ trợ đọc/ghi format Lance với lance_vector_search, lance_fts, lance_hybrid_search ngay trong SQL, và MotherDuck Flights cho ingest kiểu agent-native.</p>
+      <p class="why">💡 DuckDB đang thành "dao Thụy Sĩ" cho phân tích cục bộ lẫn AI: truy vấn vector/hybrid search bằng SQL quen thuộc, giảm số file rác — rất hợp team data nhỏ và ứng dụng RAG.</p>
+      <div class="meta">
+        <span class="when">📅 30/06</span>
+        <a class="metabtn" href="https://motherduck.com/blog/duckdb-ecosystem-newsletter-june-2026/" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-3">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="3">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>DuckLake inlining: commit nhỏ nằm trong catalog, tránh đẻ file Parquet tí hon.</li>
+          <li>Extension Lance: lance_vector_search, lance_fts, lance_hybrid_search bằng SQL.</li>
+          <li>MotherDuck Flights: ingest kiểu agent-native.</li>
+          <li>Quack — giao thức client-server mới, kèm lớp OAuth.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>FORMAT</b>Lance + DuckLake</span>
+          <span class="fact"><b>SEARCH</b>vector·fts·hybrid</span>
+          <span class="fact"><b>KỲ</b>Newsletter 06/2026</span>
+        </div>
+        <p class="deep">Điều thú vị là DuckDB đang lặng lẽ trở thành backend cho cả phân tích lẫn RAG. Với extension Lance, bạn làm vector search và hybrid search ngay trong SQL, không cần dựng riêng một vector DB — cực hợp cho prototype RAG và ứng dụng nhỏ. DuckLake inlining giải quyết bài toán "small files" kinh điển của lakehouse: hàng nghìn file Parquet tí hon làm chậm query và đắt storage; giờ commit nhỏ nằm trong catalog SQL. Lời khuyên của mình cho team Việt: nếu dữ liệu dưới vài trăm GB và cần rẻ-nhanh, đừng vội lên warehouse đắt tiền — DuckDB/MotherDuck + Lance đủ để chạy phân tích và RAG production nhỏ.</p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- SECTION 2 -->
+<section class="sec" id="sec-2">
+  <h2>🛠️ Công cụ & Nền tảng</h2>
+
+  <article class="card" data-aid="4" data-hot="1">
+    <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://ml.globenewswire.com/Resource/Download/6850db62-0cb0-4063-85ba-38ddf9727ccd" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=hopsworks.ai&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-4" class="xt" hidden>
+      <span class="rank">🔥 TOP 2 TUẦN NÀY</span>
+      <a class="title" href="https://www.globenewswire.com/news-release/2026/06/30/3319457/0/en/releasing-hopsworks-5-0-introducing-the-coding-data-and-ai-stack.html" target="_blank" rel="noopener">Hopsworks 5.0 ra mắt Coding Data & AI Stack: nhúng Claude Code và Codex thẳng vào nền tảng dữ liệu</a>
+      <p class="sum">Hopsworks 5.0 (30/06) đưa coding agent và terminal vào thẳng nền tảng, cài sẵn Claude Code và Codex chạy song song nhiều phiên; bổ sung SQL qua Trino, dashboard qua Apache Superset, mount external table không copy và ingest bằng DLTHub theo lịch — tất cả trên nền AI Lakehouse có feature store, model registry và vector DB.</p>
+      <p class="why">💡 Đây là bước cụ thể hóa "agentic data engineering": mô tả bằng lời, agent tự viết pipeline từ ingest tới deploy. Điểm cộng lớn là tính chủ quyền dữ liệu (sovereign) — quan trọng cho khu vực công và doanh nghiệp châu Âu, Việt Nam.</p>
+      <div class="meta">
+        <span class="when">📅 30/06</span>
+        <a class="metabtn" href="https://www.globenewswire.com/news-release/2026/06/30/3319457/0/en/releasing-hopsworks-5-0-introducing-the-coding-data-and-ai-stack.html" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-4">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="4">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Coding agent + terminal nhúng thẳng trong nền tảng, cài sẵn Claude Code & Codex.</li>
+          <li>Nhiều phiên agent chạy song song; mô tả bằng lời, agent viết-chạy-lặp code.</li>
+          <li>SQL qua Trino, dashboard qua Apache Superset, xuất PDF/PNG.</li>
+          <li>Mount external table không copy; ingest bằng DLTHub theo lịch.</li>
+          <li>Lõi AI Lakehouse: feature store + model registry + vector database.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>PHIÊN BẢN</b>Hopsworks 5.0</span>
+          <span class="fact"><b>AGENT</b>Claude Code + Codex</span>
+          <span class="fact"><b>SQL/BI</b>Trino + Superset</span>
+          <span class="fact"><b>NGÀY</b>30/06/2026</span>
+        </div>
+        <p class="deep">Đây là tin mình tâm đắc nhất tuần, vì nó biến "agentic data engineering" từ khẩu hiệu thành sản phẩm. Điểm mạnh: không còn nhảy giữa chục công cụ — ingest, feature store, SQL, dashboard, inference nằm trong một nơi, và agent làm phần khung. Điểm mình đánh giá cao hơn cả tính năng là hướng "sovereign": dữ liệu và cả coding agent chạy trong hạ tầng của bạn, không đẩy hết lên cloud bên thứ ba. Với khu vực công và doanh nghiệp Việt có yêu cầu chủ quyền dữ liệu, đây là điểm cộng thật. Nhưng cảnh báo: agent nhúng sẵn không cứu được dữ liệu bẩn hay thiếu semantic layer. Nên coi Hopsworks 5.0 là chỗ tăng tốc cho team đã có nền tảng dữ liệu tử tế, đừng kỳ vọng nó tự dọn "bãi rác" giúp bạn.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" data-aid="5">
+    <img class="thumb thumb-fallback" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=amdatalakehouse.substack.com&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=substack.com&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-5" class="xt" hidden>
+      <a class="title" href="https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-june-f9b" target="_blank" rel="noopener">Apache Polaris chấp nhận OSI Semantic Model API, tiến tới đổi datasource lúc chạy</a>
+      <p class="sum">Cộng đồng Polaris bỏ phiếu chấp nhận đặc tả OSI Semantic Model API — khung lưu định nghĩa nghiệp vụ (semantic layer) ngay trong catalog, đồng thời bàn hỗ trợ chuyển database backend (PostgreSQL sang MySQL) lúc chạy mà không phải build lại.</p>
+      <p class="why">💡 Semantic layer ngay trong catalog mở đường cho BI và AI agent hiểu "ý nghĩa nghiệp vụ" của dữ liệu, không chỉ bảng cột — mảnh ghép then chốt để text-to-SQL trả lời đúng.</p>
+      <div class="meta">
+        <span class="when">📅 01/07</span>
+        <a class="metabtn" href="https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-june-f9b" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-5">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="5">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Vote chấp nhận đặc tả OSI Semantic Model API vào Polaris.</li>
+          <li>Khung lưu định nghĩa nghiệp vụ (semantic layer) ngay trong catalog.</li>
+          <li>Bàn hỗ trợ đổi backend DB (Postgres → MySQL) lúc chạy, không build lại.</li>
+          <li>Có committer mới (Nandor Kollar); rc0 1.6.0 bị vote trượt vì thiếu artifact.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>DỰ ÁN</b>Apache Polaris</span>
+          <span class="fact"><b>CHUẨN</b>OSI Semantic Model API</span>
+          <span class="fact"><b>MỤC TIÊU</b>semantic trong catalog</span>
+        </div>
+        <p class="deep">Đây là mảnh ghép ít người để ý nhưng cực quan trọng cho làn sóng agentic. AI agent trả lời sai text-to-SQL phần lớn vì không hiểu "doanh thu thuần" hay "khách active" nghĩa là gì trong ngữ cảnh doanh nghiệp — đó là việc của semantic layer. Đưa semantic model thành chuẩn ngay trong catalog mở (Polaris) nghĩa là định nghĩa nghiệp vụ trở thành tài sản dùng chung cho mọi engine và agent, thay vì bị nhốt trong từng công cụ BI. Nối thẳng với tin Cortex Sense của Snowflake: cả ngành đang hội tụ về một sự thật — muốn agent trả lời đúng, phải chuẩn hóa ngữ nghĩa trước. Team nào đầu tư semantic layer sớm sẽ đỡ đau khi bật agent.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" data-aid="6">
+    <img class="thumb thumb-fallback" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=github.com&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=github.com&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-6" class="xt" hidden>
+      <a class="title" href="https://github.com/apache/datafusion-python/releases" target="_blank" rel="noopener">Apache DataFusion Python 54.0.0 phát hành; Arrow đưa ADBC thành extension cho DuckDB</a>
+      <p class="sum">DataFusion công bố bản Python bindings 54.0.0 (RC2 được thông qua, kiểm chứng trên Mac M3/M4), trong khi hệ Arrow đưa ADBC (Arrow Database Connectivity) thành extension cho DuckDB — di chuyển dữ liệu Arrow dạng cột mà không cần chuyển đổi từng dòng.</p>
+      <p class="why">💡 Engine truy vấn Rust-native (DataFusion) và chuẩn kết nối cột (ADBC/Arrow) đang trưởng thành nhanh, giúp pipeline Python đọc/ghi dữ liệu nhanh hơn và bớt "thuế" chuyển đổi định dạng.</p>
+      <div class="meta">
+        <span class="when">📅 01/07</span>
+        <a class="metabtn" href="https://github.com/apache/datafusion-python/releases" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-6">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="6">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>DataFusion Python bindings 54.0.0 (RC2 được vote thông qua).</li>
+          <li>Kiểm chứng trên nhiều kiến trúc Mac (M3, M4).</li>
+          <li>Arrow đưa ADBC thành extension cho DuckDB.</li>
+          <li>Di chuyển dữ liệu Arrow dạng cột, tránh chuyển đổi từng dòng.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>PHIÊN BẢN</b>DataFusion Python 54.0.0</span>
+          <span class="fact"><b>CHUẨN</b>ADBC / Arrow</span>
+          <span class="fact"><b>NỀN</b>Rust-native</span>
+        </div>
+        <p class="deep">Tin cho dân engine và pipeline: hệ Rust + Arrow đang lớn nhanh và trở thành lớp lõi cho phân tích hiện đại. DataFusion cho bạn một query engine nhúng được, viết bằng Rust, gọi từ Python — nhẹ và nhanh hơn nhiều so với kéo cả Spark cho việc nhỏ. ADBC thì giải quyết "thuế chuyển đổi": lâu nay dữ liệu qua ODBC/JDBC phải serialize từng dòng, giờ Arrow đi thẳng dạng cột, giảm chi phí đáng kể khi đổ dữ liệu giữa DuckDB, Postgres và các engine. Với team Python-heavy, đây là hướng nên theo dõi: ít phụ thuộc JVM hơn, hiệu năng cao hơn cho các job vừa và nhỏ.</p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- SECTION 3 -->
+<section class="sec" id="sec-3">
+  <h2>🤖 AI × Data</h2>
+
+  <article class="card" data-aid="7" data-hot="1">
+    <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.snowflake.com/content/dam/snowflake-site/blog/ai/20-ai.jpg" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=snowflake.com&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-7" class="xt" hidden>
+      <span class="rank">🔥 TOP 1 TUẦN NÀY</span>
+      <a class="title" href="https://www.snowflake.com/en/blog/enterprise-ai-agents-grounded-context/" target="_blank" rel="noopener">Snowflake ra Cortex Sense: lớp ngữ cảnh runtime nâng độ chính xác AI agent từ 24% lên 86%</a>
+      <p class="sum">Snowflake giới thiệu Cortex Sense (30/06) — lớp ngữ cảnh runtime gom metadata, lịch sử truy vấn và semantic view để AI agent trả lời trúng hơn: độ chính xác tăng từ 24,1% lên 86,3% trên benchmark nội bộ, đồng thời giảm chi phí từ 1,76 USD xuống 0,59 USD mỗi truy vấn.</p>
+      <p class="why">💡 Đây là câu trả lời của Snowflake cho bài toán "grounding" của agent: không có ngữ cảnh, LLM đoán mò và đắt đỏ. Con số 24 lên 86% cho thấy vì sao semantic layer và context engineering là chìa khóa để text-to-SQL dùng được trong doanh nghiệp.</p>
+      <div class="meta">
+        <span class="when">📅 30/06</span>
+        <a class="metabtn" href="https://www.snowflake.com/en/blog/enterprise-ai-agents-grounded-context/" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-7">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="7">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Lớp ngữ cảnh runtime: gom metadata, lịch sử truy vấn, semantic view.</li>
+          <li>Độ chính xác benchmark nội bộ: 24,1% → 86,3%.</li>
+          <li>Chi phí mỗi truy vấn: 1,76 USD → 0,59 USD.</li>
+          <li>Chạy cùng semantic view (chuẩn vàng), tự xây hiểu biết cho phần còn lại.</li>
+          <li>Hoạt động trong CoWork/CoCo, có sẵn plugin và MCP connector.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>ĐỘ CHÍNH XÁC</b>24,1% → 86,3%</span>
+          <span class="fact"><b>CHI PHÍ</b>$1.76 → $0.59/query</span>
+          <span class="fact"><b>NGÀY</b>30/06/2026</span>
+          <span class="fact"><b>TÍCH HỢP</b>CoWork · MCP</span>
+        </div>
+        <p class="deep">Đây là tin "hot nhất tuần" theo mình, và không phải vì marketing. Con số 24% lên 86% nói toẹt ra điều mà nhiều dự án AI đang vấp: agent không sai vì model kém, mà vì không có ngữ cảnh — nó không biết bảng nào là bảng thật, cột nào là doanh thu, định nghĩa "khách active" ra sao. Cortex Sense về bản chất là "context engineering đóng gói": gom metadata + lịch sử truy vấn + semantic view để agent bớt đoán mò. Cái hay là nó không thay semantic view mà bổ trợ — ở chỗ cần chuẩn thì semantic view là gold standard. Với doanh nghiệp Việt: bài học không phải "mua Cortex Sense", mà là "đầu tư ngữ cảnh và semantic layer trước khi bật agent". Rẻ hơn ba lần mỗi truy vấn cũng là con số thực dụng — grounding tốt giúp agent bớt gọi LLM lung tung, giảm hóa đơn token thấy rõ.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" data-aid="8">
+    <img class="thumb thumb-fallback" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=amdatalakehouse.substack.com&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=substack.com&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-8" class="xt" hidden>
+      <a class="title" href="https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-june-f9b" target="_blank" rel="noopener">AI agent bước vào chính hạ tầng dữ liệu mở: conbench dựng lại bằng Codex, Parquet soạn "chính sách công cụ AI"</a>
+      <p class="sum">Tuần này Wes McKinney công khai dùng Codex dựng lại dịch vụ benchmark conbench của Arrow, Parquet bắt đầu soạn chính sách dùng công cụ AI, còn Hardwood tuyên bố "built with AI, but not by AI". Cộng đồng lakehouse mở nằm trong nhóm đầu định hình chuẩn mực đóng góp mã có agent hỗ trợ.</p>
+      <p class="why">💡 Không còn là "AI thay dev", mà là "AI khuếch đại dev giỏi": giữ con người sở hữu kiến trúc và review từng diff. Đây là mô hình đáng học cho mọi team data đang đưa agent vào quy trình thật.</p>
+      <div class="meta">
+        <span class="when">📅 01/07</span>
+        <a class="metabtn" href="https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-june-f9b" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-8">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="8">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Wes McKinney dựng lại dịch vụ benchmark conbench của Arrow bằng Codex, nói công khai.</li>
+          <li>Parquet bắt đầu soạn chính sách dùng công cụ AI trong dự án.</li>
+          <li>Hardwood: "built with AI, but not by AI" — con người sở hữu kiến trúc.</li>
+          <li>Cộng đồng lakehouse nằm trong nhóm đầu định hình chuẩn đóng góp có agent.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>DỰ ÁN</b>Arrow · Parquet</span>
+          <span class="fact"><b>AGENT</b>Codex · Claude Code</span>
+          <span class="fact"><b>NGUYÊN TẮC</b>human-in-the-loop</span>
+        </div>
+        <p class="deep">Đây là góc mình thấy đáng suy ngẫm nhất: không phải một sản phẩm, mà là một chuẩn mực đang hình thành. Các dự án dữ liệu mề nghiêm túc nhất — Arrow, Parquet, Iceberg — không cấm AI, cũng không "vibe coding" bừa. Họ dùng agent để tăng tốc nhưng giữ con người sở hữu kiến trúc, review từng diff, và bắt đầu viết chính sách rõ ràng. Đó chính là mô hình mọi team data nên copy khi đưa agent vào quy trình: agent viết bản nháp, con người quyết định thiết kế và chịu trách nhiệm cuối. Câu "AI khuếch đại người biết làm việc rõ ràng" đúng ở đây — dự án càng có kỷ luật kỹ thuật, agent càng phát huy; dự án lỏng lẻo thì agent chỉ nhân bản mớ hỗn độn nhanh hơn.</p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- SECTION 4 -->
+<section class="sec" id="sec-4">
+  <h2>📈 Hot trend & Thảo luận cộng đồng</h2>
+
+  <article class="card" data-aid="9">
+    <img class="thumb thumb-fallback" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=practicallogix.com&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=practicallogix.com&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-9" class="xt" hidden>
+      <span class="rank">🔥 TOP 5 TUẦN NÀY</span>
+      <a class="title" href="https://www.practicallogix.com/the-agentic-data-platform-reset-what-databricks-data-ai-summit-2026-told-every-enterprise-data-leader/" target="_blank" rel="noopener">Làn sóng "Coding Data & AI Stack": coding agent được nhúng thẳng vào nền tảng dữ liệu</a>
+      <p class="sum">Chỉ trong một tuần, Hopsworks nhúng Claude Code/Codex vào nền tảng, Snowflake ra Cortex Sense và Cortex Code, Databricks đẩy Genie sang pay-as-you-go — tất cả hội tụ về một ý: coding agent trở thành giao diện mặc định để xây pipeline và phân tích.</p>
+      <p class="why">💡 Vai trò data engineer đang dịch từ "viết từng dòng ETL" sang "thiết kế ngữ cảnh, quản trị và review agent". Ai làm chủ semantic layer và governance sẽ thắng, không phải ai gõ SQL nhanh nhất.</p>
+      <div class="meta">
+        <span class="when">📅 01/07</span>
+        <a class="metabtn" href="https://www.practicallogix.com/the-agentic-data-platform-reset-what-databricks-data-ai-summit-2026-told-every-enterprise-data-leader/" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-9">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="9">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Hopsworks nhúng Claude Code/Codex; Snowflake ra Cortex Sense & Cortex Code.</li>
+          <li>Databricks đưa Genie sang pay-as-you-go, mỗi user có 150 DBU LLM/tháng miễn phí.</li>
+          <li>Coding agent thành giao diện mặc định để xây pipeline và phân tích.</li>
+          <li>Vai trò DE dịch sang thiết kế ngữ cảnh, semantic, governance.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>XU HƯỚNG</b>Coding Data & AI Stack</span>
+          <span class="fact"><b>VENDOR</b>Hopsworks·Snowflake·Databricks</span>
+          <span class="fact"><b>ĐIỂM CHUNG</b>agent-native</span>
+        </div>
+        <p class="deep">Ba ông lớn khác nhau, cùng một tuần, cùng một hướng — đó không phải trùng hợp mà là dịch chuyển ngành. Với mình, câu hỏi thật cho data engineer không phải "agent có thay tôi không" mà "phần giá trị của tôi dịch đi đâu". Câu trả lời: dịch từ gõ ETL sang thiết kế ngữ cảnh, dựng semantic layer, đặt governance và review đầu ra của agent. Kỹ năng gõ SQL nhanh sẽ mất giá; kỹ năng hiểu nghiệp vụ, mô hình hóa dữ liệu và kiểm soát chất lượng sẽ lên giá. Cảnh báo thực tế: đừng biến agent thành phong trào. Bật agent trên dữ liệu bẩn và không có semantic layer chỉ tạo ra "rác nhanh hơn". Hãy biến nó thành hệ thống có kỷ luật — có ngữ cảnh chuẩn, có người review, có governance.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" data-aid="10">
+    <img class="thumb thumb-fallback" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=algeriatech.news&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=algeriatech.news&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-10" class="xt" hidden>
+      <a class="title" href="https://algeriatech.news/clickhouse-duckdb-olap-disruption-2026/" target="_blank" rel="noopener">OLAP Renaissance: cuộc tranh luận ClickHouse vs DuckDB nóng lại trong cộng đồng phân tích</a>
+      <p class="sum">Loạt bài phân tích và benchmark 2026 khơi lại tranh luận "embedded vs distributed": DuckDB thắng ở phân tích cục bộ/nhúng và chi phí thấp, ClickHouse mạnh ở quy mô lớn và real-time — kèm cảnh báo về các "điểm mù" khi so benchmark.</p>
+      <p class="why">💡 Không có "engine tốt nhất", chỉ có engine hợp workload. Với team Việt: DuckDB/MotherDuck cho phân tích nhanh-rẻ, ClickHouse khi cần real-time quy mô lớn — đừng chọn theo phong trào.</p>
+      <div class="meta">
+        <span class="when">📅 30/06</span>
+        <a class="metabtn" href="https://algeriatech.news/clickhouse-duckdb-olap-disruption-2026/" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-10">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="10">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>DuckDB: mạnh ở phân tích cục bộ/nhúng, chi phí thấp, dễ triển khai.</li>
+          <li>ClickHouse: mạnh ở quy mô lớn, real-time, workload nặng.</li>
+          <li>Cảnh báo "benchmark blindspots": số đẹp không phản ánh workload thật.</li>
+          <li>PostHog và nhiều team dùng cả hai cho mục đích khác nhau.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>EMBEDDED</b>DuckDB</span>
+          <span class="fact"><b>DISTRIBUTED</b>ClickHouse</span>
+          <span class="fact"><b>BÀI HỌC</b>hợp workload</span>
+        </div>
+        <p class="deep">Tranh luận này quay lại đều đặn, và câu trả lời vẫn vậy: chọn engine theo workload, không theo hype. DuckDB tuyệt vời cho phân tích cục bộ, prototype, RAG nhỏ, và những việc "một máy là đủ" — rẻ, nhanh, không cần vận hành cụm. ClickHouse là lựa chọn khi bạn cần nuốt hàng tỉ dòng, truy vấn real-time, phục vụ dashboard tải cao. Điểm mình muốn nhấn: cẩn thận với benchmark — số liệu đẹp thường đến từ workload được chọn khéo. Cách đúng là benchmark trên chính dữ liệu và câu truy vấn của bạn. Với đa số team Việt quy mô vừa, bắt đầu bằng DuckDB/MotherDuck để tiết kiệm, chỉ lên ClickHouse khi thật sự chạm trần về quy mô hoặc yêu cầu real-time.</p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- SECTION 5 -->
+<section class="sec" id="sec-5">
+  <h2>🏢 Ngành & Doanh nghiệp</h2>
+
+  <article class="card" data-aid="11">
+    <img class="thumb thumb-fallback" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=digitalapplied.com&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=digitalapplied.com&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-11" class="xt" hidden>
+      <a class="title" href="https://www.digitalapplied.com/blog/alex-karp-palantir-tokens-weights-alpha-cnbc-2026" target="_blank" rel="noopener">Alex Karp (Palantir): "AI đang bị bán sai cách", tung tuyên ngôn 9 điểm về AI sovereignty</a>
+      <p class="sum">Ngày 1/7, CEO Palantir Alex Karp lên CNBC nói "có gì đó đã sai hoàn toàn" trong cách AI được bán, kèm tuyên ngôn 9 điểm về "AI sovereignty" đăng trên X hôm trước — phê phán việc bán token và model thay vì kết quả thực.</p>
+      <p class="why">💡 Giữa cơn sốt agentic, Karp nhắc lại điều team data hay quên: công nghệ chỉ có giá trị khi tạo ra kết quả nghiệp vụ đo được. Đây là góc phản biện lành mạnh cho làn sóng "mua AI cho có".</p>
+      <div class="meta">
+        <span class="when">📅 01/07</span>
+        <a class="metabtn" href="https://www.digitalapplied.com/blog/alex-karp-palantir-tokens-weights-alpha-cnbc-2026" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-11">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="11">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Karp lên CNBC Squawk Box (1/7): "something has gone completely wrong".</li>
+          <li>Phê phán bán "token/weights" thay vì kết quả kinh doanh thực.</li>
+          <li>Tuyên ngôn 9 điểm về "AI sovereignty" đăng trên X.</li>
+          <li>Đặt lại câu hỏi giá trị giữa cơn sốt agentic.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>NGƯỜI</b>Alex Karp (Palantir)</span>
+          <span class="fact"><b>KÊNH</b>CNBC · X</span>
+          <span class="fact"><b>NGÀY</b>01/07/2026</span>
+        </div>
+        <p class="deep">Karp nói lớn tiếng, đôi khi quá đà, nhưng luận điểm cốt lõi thì đúng và hợp thời: đừng bán "token" hay "model", hãy bán kết quả. Với người làm data, đây là lời nhắc thực dụng — dashboard đẹp hay agent xịn không phải mục tiêu; mục tiêu là quyết định tốt hơn, tiết kiệm thật, rủi ro giảm thật. Mình đồng ý phần này, nhưng cẩn trọng ở chỗ: "AI sovereignty" cũng là chiến lược bán hàng của chính Palantir. Cách đọc tin lành mạnh: lấy phần phản biện (đo giá trị nghiệp vụ, đừng chạy theo hype token) và bỏ phần khẩu hiệu. Câu hỏi bạn nên hỏi mọi dự án AI/data: nó thay đổi được con số nào của doanh nghiệp?</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" data-aid="12">
+    <img class="thumb thumb-fallback" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=techtimes.com&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=techtimes.com&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-12" class="xt" hidden>
+      <a class="title" href="https://www.techtimes.com/articles/319642/20260703/microsoft-frontier-company-25b-6000-engineers-target-ai-pilot-failures.htm" target="_blank" rel="noopener">Microsoft lập "Frontier Company": 2,5 tỷ USD và 6.000 kỹ sư nhúng vào khách hàng để "bán kết quả AI"</a>
+      <p class="sum">Ngày 2/7, Microsoft công bố Frontier Company — đơn vị vận hành mới với 2,5 tỷ USD và khoảng 6.000 kỹ sư, chuyên gia nhúng vào tổ chức khách hàng để đồng thiết kế, triển khai và cải tiến hệ thống AI gắn với kết quả kinh doanh đo được.</p>
+      <p class="why">💡 Mô hình "forward-deployed engineering" (do Palantir phổ biến) đang thành chuẩn của các ông lớn. Với data leader: kỷ nguyên "pilot AI cho vui" đã hết, nhà cung cấp giờ cam kết outcome — vừa áp lực vừa cơ hội cho team dữ liệu nội bộ.</p>
+      <div class="meta">
+        <span class="when">📅 02/07</span>
+        <a class="metabtn" href="https://www.techtimes.com/articles/319642/20260703/microsoft-frontier-company-25b-6000-engineers-target-ai-pilot-failures.htm" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-12">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="12">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>Frontier Company: đơn vị vận hành mới, ngân sách 2,5 tỷ USD.</li>
+          <li>Khoảng 6.000 kỹ sư/chuyên gia nhúng vào tổ chức khách hàng.</li>
+          <li>Đồng thiết kế, triển khai, cải tiến AI gắn kết quả đo được.</li>
+          <li>Nhắm thẳng vào tỉ lệ "pilot AI thất bại" của doanh nghiệp.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>NGÂN SÁCH</b>2,5 tỷ USD</span>
+          <span class="fact"><b>NHÂN SỰ</b>~6.000 kỹ sư</span>
+          <span class="fact"><b>MÔ HÌNH</b>forward-deployed</span>
+        </div>
+        <p class="deep">Con số biết nói: 2,5 tỷ USD và 6.000 người nhúng vào khách hàng nghĩa là Microsoft thừa nhận nút thắt AI doanh nghiệp không nằm ở model, mà ở triển khai và dữ liệu tại chỗ. Đây là tin data nhiều hơn vẻ ngoài: muốn AI ra kết quả, phải chạm được dữ liệu thật, quy trình thật, con người thật của khách hàng. Với data leader Việt Nam, mình đọc theo hai chiều: (1) áp lực — sếp sẽ hỏi "AI của mình tạo ra kết quả gì?", pilot cho vui hết thời; (2) cơ hội — team dữ liệu nội bộ chính là người hiểu dữ liệu và nghiệp vụ tại chỗ, tức là chỗ tạo ra giá trị mà vendor phải thuê ngoài. Ai làm chủ dữ liệu nội bộ và semantic sẽ có ghế ở bàn quyết định.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="card" data-aid="13">
+    <img class="thumb thumb-fallback" loading="lazy" referrerpolicy="no-referrer" src="https://www.google.com/s2/favicons?domain=beri.net&sz=128" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=beri.net&sz=128';this.classList.add('thumb-fallback')">
+    <div class="body">
+      <input type="checkbox" id="x-13" class="xt" hidden>
+      <a class="title" href="https://www.beri.net/article/microsoft-frontier-company-ai-outcomes-enterprise-2026" target="_blank" rel="noopener">AWS lập tổ chức triển khai AI 1 tỷ USD nội bộ, ôm mô hình forward-deployed engineering</a>
+      <p class="sum">Ngày 30/6, AWS lập tổ chức triển khai AI trị giá 1 tỷ USD, công khai áp dụng mô hình Forward Deployed Engineering (FDE) — kỹ sư "nằm vùng" tại khách hàng để đưa AI vào sản xuất, chỉ hai ngày trước công bố tương tự của Microsoft.</p>
+      <p class="why">💡 Ba ông lớn AWS, Microsoft, Palantir cùng đặt cược vào FDE trong một tuần cho thấy nút thắt của AI doanh nghiệp không phải model, mà là triển khai và dữ liệu tại chỗ — đúng chỗ team data tạo giá trị.</p>
+      <div class="meta">
+        <span class="when">📅 30/06</span>
+        <a class="metabtn" href="https://www.beri.net/article/microsoft-frontier-company-ai-outcomes-enterprise-2026" target="_blank" rel="noopener">🔗 Website</a>
+        <label class="metabtn xbtn" for="x-13">📖 Mở rộng</label>
+        <button class="readbtn" type="button" data-aid="13">▶ Audio</button>
+      </div>
+      <div class="more">
+        <ul class="kb">
+          <li>AWS lập tổ chức triển khai AI nội bộ trị giá 1 tỷ USD (30/6).</li>
+          <li>Công khai ôm mô hình Forward Deployed Engineering (FDE).</li>
+          <li>Đi trước công bố Frontier Company của Microsoft đúng hai ngày.</li>
+          <li>Cả ngành hội tụ về "bán triển khai và kết quả", không chỉ bán hạ tầng.</li>
+        </ul>
+        <div class="facts">
+          <span class="fact"><b>NGÂN SÁCH</b>1 tỷ USD</span>
+          <span class="fact"><b>MÔ HÌNH</b>FDE</span>
+          <span class="fact"><b>NGÀY</b>30/06/2026</span>
+        </div>
+        <p class="deep">Cùng một tuần, AWS, Microsoft và Palantir đều đặt cược vào forward-deployed engineering — kỹ sư sống cùng khách hàng để đưa AI chạm sản xuất. Đây là tín hiệu chiến lược rõ: bán hạ tầng và model là chưa đủ, phải bán cả năng lực triển khai. Với team data, thông điệp thực dụng là: giá trị dịch về nơi dữ liệu và nghiệp vụ sống. Đừng lo bị thay thế bởi vendor FDE — ngược lại, hãy trở thành "người bản địa" hiểu dữ liệu nội bộ mà bất kỳ kỹ sư nằm vùng nào cũng phải dựa vào. Muốn vậy, đầu tư vào catalog, semantic layer, governance và tài liệu dữ liệu ngay từ bây giờ.</p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<footer>
+  <p>Tạo lúc 04/07/2026 · Tổng cộng 13 tin trong tuần W27 (29/06 - 05/07/2026)</p>
+  <p>Tuyển chọn &amp; đọc bởi Duc Nguyen · <a href="https://ducnguyen.vn" target="_blank" rel="noopener">ducnguyen.vn</a></p>
+</footer>
+
+</div>
+<script src="../../assets/bg.js" defer></script>
+<!--MEDIA_INJECTED-->
+<script>
+(function(){
+  var base="../../audio/2026-07-04/";
+  var cur=null;
+  function play(src){ if(cur){cur.pause();} cur=new Audio(src); cur.play().catch(function(){}); }
+  function stop(){ if(cur){cur.pause(); cur=null;} }
+  document.addEventListener("DOMContentLoaded",function(){
+    var ra=document.getElementById("readAll"); if(ra) ra.onclick=function(){ play(base+"all.mp3"); };
+    var rs=document.getElementById("readStop"); if(rs) rs.onclick=stop;
+    document.querySelectorAll(".readbtn").forEach(function(b){
+      b.onclick=function(){ var id=b.getAttribute("data-aid"); if(id) play(base+id+".mp3"); };
+    });
+  });
+})();
+</script>
+</body>
+</html>

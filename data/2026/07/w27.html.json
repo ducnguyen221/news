@@ -1,0 +1,340 @@
+{
+ "date": "04/07/2026",
+ "week": "W27",
+ "range": "29/06 - 05/07/2026",
+ "tldr": "Tuần 27 (29/06 - 05/07/2026) là tuần của coding agent nhúng thẳng vào nền tảng dữ liệu và cả ngành quay về triết lý làm đúng thay vì làm nhanh. Snowflake ra Cortex Sense, lớp ngữ cảnh giúp AI agent nhảy từ 24 phần trăm lên 86 phần trăm độ chính xác và rẻ hơn ba lần mỗi truy vấn; Hopsworks 5.0 nhúng sẵn Claude Code và Codex vào nền tảng dữ liệu. Ở tầng nền, Apache Iceberg khóa đặc tả và kiểm thử chéo năm ngôn ngữ, còn Gunnar Morling phát hành Hardwood 1.0, trình đọc Parquet siêu nhẹ cho JVM. Cùng lúc, AWS, Microsoft và Palantir đồng loạt đặt cược vào mô hình forward-deployed engineering để biến AI thành kết quả kinh doanh thực. Thông điệp chung: giá trị nằm ở ngữ cảnh, quản trị và triển khai, không phải ở model hay cú pháp SQL.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "Hardwood 1.0 ra mắt: trình đọc Apache Parquet siêu nhẹ, đa luồng cho JVM",
+   "title_en": "Hardwood 1.0: A Fast, Lightweight Apache Parquet Reader for the JVM",
+   "summary": "Gunnar Morling phát hành Hardwood 1.0 — thư viện đọc Parquet viết mới hoàn toàn cho JVM, đa luồng mặc định và không phụ thuộc bắt buộc, sau năm bản preview từ đầu năm. Nhắm Java 21 trở lên, giấy phép Apache 2.0, đã có trên Maven Central.",
+   "why": "Trình đọc Parquet Java chính chủ của Apache vốn nặng và nhiều dependency; Hardwood mở ra lựa chọn gọn, nhanh, dễ nhúng cho pipeline và engine truy vấn — đúng nhu cầu tối ưu chi phí đọc lakehouse.",
+   "url": "https://www.infoq.com/news/2026/07/hardwood-java-parquet/",
+   "domain": "infoq.com",
+   "date": "2026-07-01",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 3
+  },
+  {
+   "aid": 2,
+   "title": "Apache Iceberg khóa spec Expressions và kiểm thử chéo 5 ngôn ngữ, cắt bản Rust 0.10.0 RC1",
+   "title_en": "Apache Data Lakehouse Weekly: Iceberg locks expressions spec, cross-implementation conformance",
+   "summary": "Cộng đồng Iceberg bỏ phiếu thông qua đặc tả Expressions và trường tên định danh cho UDF, đồng thời khởi động kiểm thử tính nhất quán giữa năm bản cài (Java, Python, Rust, Go, C++); bản Iceberg Rust 0.10.0 RC1 cũng được đưa ra bỏ phiếu.",
+   "why": "Format war đã hạ nhiệt, giờ trọng tâm là tính đúng đắn — đảm bảo mọi engine đọc/ghi Iceberg cho ra cùng kết quả. Đây là nền móng để lakehouse mở thật sự interoperable.",
+   "url": "https://dev.to/alexmercedcoder/apache-data-lakehouse-weekly-june-24-to-july-1-2026-2oej",
+   "domain": "dev.to",
+   "date": "2026-07-01",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 4
+  },
+  {
+   "aid": 3,
+   "title": "DuckDB Ecosystem tháng 6: DuckLake inlining, đọc-ghi Lance cho vector search, MotherDuck Flights",
+   "title_en": "DuckDB Ecosystem Newsletter: June 2026",
+   "summary": "Bản tin hệ sinh thái DuckDB điểm loạt cập nhật: DuckLake inlining gộp commit nhỏ vào catalog thay vì đẻ file Parquet tí hon, hỗ trợ đọc/ghi format Lance với lance_vector_search, lance_fts, lance_hybrid_search ngay trong SQL, và MotherDuck Flights cho ingest kiểu agent-native.",
+   "why": "DuckDB đang thành dao Thụy Sĩ cho phân tích cục bộ lẫn AI: truy vấn vector/hybrid search bằng SQL quen thuộc, giảm số file rác — rất hợp team data nhỏ và ứng dụng RAG.",
+   "url": "https://motherduck.com/blog/duckdb-ecosystem-newsletter-june-2026/",
+   "domain": "motherduck.com",
+   "date": "2026-06-30",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 4,
+   "title": "Hopsworks 5.0 ra mắt Coding Data & AI Stack: nhúng Claude Code và Codex thẳng vào nền tảng dữ liệu",
+   "title_en": "Releasing Hopsworks 5.0 - Introducing the Coding Data and AI Stack",
+   "summary": "Hopsworks 5.0 (30/06) đưa coding agent và terminal vào thẳng nền tảng, cài sẵn Claude Code và Codex chạy song song nhiều phiên; bổ sung SQL qua Trino, dashboard qua Apache Superset, mount external table không copy và ingest bằng DLTHub theo lịch — tất cả trên nền AI Lakehouse có feature store, model registry và vector DB.",
+   "why": "Đây là bước cụ thể hóa agentic data engineering: mô tả bằng lời, agent tự viết pipeline từ ingest tới deploy. Điểm cộng lớn là tính chủ quyền dữ liệu (sovereign) — quan trọng cho khu vực công và doanh nghiệp châu Âu, Việt Nam.",
+   "url": "https://www.globenewswire.com/news-release/2026/06/30/3319457/0/en/releasing-hopsworks-5-0-introducing-the-coding-data-and-ai-stack.html",
+   "domain": "globenewswire.com",
+   "date": "2026-06-30",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": 2
+  },
+  {
+   "aid": 5,
+   "title": "Apache Polaris chấp nhận OSI Semantic Model API, tiến tới đổi datasource lúc chạy",
+   "title_en": "Apache Polaris: Semantic Model API vote, multiple datasources support",
+   "summary": "Cộng đồng Polaris bỏ phiếu chấp nhận đặc tả OSI Semantic Model API — khung lưu định nghĩa nghiệp vụ (semantic layer) ngay trong catalog, đồng thời bàn hỗ trợ chuyển database backend (PostgreSQL sang MySQL) lúc chạy mà không phải build lại.",
+   "why": "Semantic layer ngay trong catalog mở đường cho BI và AI agent hiểu ý nghĩa nghiệp vụ của dữ liệu, không chỉ bảng cột — mảnh ghép then chốt để text-to-SQL trả lời đúng.",
+   "url": "https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-june-f9b",
+   "domain": "amdatalakehouse.substack.com",
+   "date": "2026-07-01",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "Apache DataFusion Python 54.0.0 phát hành; Arrow đưa ADBC thành extension cho DuckDB",
+   "title_en": "Apache DataFusion Python bindings 54.0.0; ADBC extension for DuckDB",
+   "summary": "DataFusion công bố bản Python bindings 54.0.0 (RC2 được thông qua, kiểm chứng trên Mac M3/M4), trong khi hệ Arrow đưa ADBC (Arrow Database Connectivity) thành extension cho DuckDB — di chuyển dữ liệu Arrow dạng cột mà không cần chuyển đổi từng dòng.",
+   "why": "Engine truy vấn Rust-native (DataFusion) và chuẩn kết nối cột (ADBC/Arrow) đang trưởng thành nhanh, giúp pipeline Python đọc/ghi dữ liệu nhanh hơn và bớt thuế chuyển đổi định dạng.",
+   "url": "https://github.com/apache/datafusion-python/releases",
+   "domain": "github.com",
+   "date": "2026-07-01",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "Snowflake ra Cortex Sense: lớp ngữ cảnh runtime nâng độ chính xác AI agent từ 24% lên 86%",
+   "title_en": "Cortex Sense for Enterprise AI Agents",
+   "summary": "Snowflake giới thiệu Cortex Sense (30/06) — lớp ngữ cảnh runtime gom metadata, lịch sử truy vấn và semantic view để AI agent trả lời trúng hơn: độ chính xác tăng từ 24,1% lên 86,3% trên benchmark nội bộ, đồng thời giảm chi phí từ 1,76 USD xuống 0,59 USD mỗi truy vấn.",
+   "why": "Đây là câu trả lời của Snowflake cho bài toán grounding của agent: không có ngữ cảnh, LLM đoán mò và đắt đỏ. Con số 24 lên 86 phần trăm cho thấy vì sao semantic layer và context engineering là chìa khóa để text-to-SQL dùng được trong doanh nghiệp.",
+   "url": "https://www.snowflake.com/en/blog/enterprise-ai-agents-grounded-context/",
+   "domain": "snowflake.com",
+   "date": "2026-06-30",
+   "section": "🤖 AI × Data",
+   "hot_rank": 1
+  },
+  {
+   "aid": 8,
+   "title": "AI agent bước vào chính hạ tầng dữ liệu mở: conbench dựng lại bằng Codex, Parquet soạn chính sách công cụ AI",
+   "title_en": "Working engineers fold agents into real maintenance of open lakehouse projects",
+   "summary": "Tuần này Wes McKinney công khai dùng Codex dựng lại dịch vụ benchmark conbench của Arrow, Parquet bắt đầu soạn chính sách dùng công cụ AI, còn Hardwood tuyên bố built with AI, but not by AI. Cộng đồng lakehouse mở nằm trong nhóm đầu định hình chuẩn mực đóng góp mã có agent hỗ trợ.",
+   "why": "Không còn là AI thay dev, mà là AI khuếch đại dev giỏi: giữ con người sở hữu kiến trúc và review từng diff. Đây là mô hình đáng học cho mọi team data đang đưa agent vào quy trình thật.",
+   "url": "https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-june-f9b",
+   "domain": "amdatalakehouse.substack.com",
+   "date": "2026-07-01",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "Làn sóng Coding Data & AI Stack: coding agent được nhúng thẳng vào nền tảng dữ liệu",
+   "title_en": "The Agentic Data Platform Reset",
+   "summary": "Chỉ trong một tuần, Hopsworks nhúng Claude Code/Codex vào nền tảng, Snowflake ra Cortex Sense và Cortex Code, Databricks đẩy Genie sang pay-as-you-go — tất cả hội tụ về một ý: coding agent trở thành giao diện mặc định để xây pipeline và phân tích.",
+   "why": "Vai trò data engineer đang dịch từ viết từng dòng ETL sang thiết kế ngữ cảnh, quản trị và review agent. Ai làm chủ semantic layer và governance sẽ thắng, không phải ai gõ SQL nhanh nhất.",
+   "url": "https://www.practicallogix.com/the-agentic-data-platform-reset-what-databricks-data-ai-summit-2026-told-every-enterprise-data-leader/",
+   "domain": "practicallogix.com",
+   "date": "2026-07-01",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": 5
+  },
+  {
+   "aid": 10,
+   "title": "OLAP Renaissance: cuộc tranh luận ClickHouse vs DuckDB nóng lại trong cộng đồng phân tích",
+   "title_en": "The OLAP Renaissance: ClickHouse, DuckDB, and the disruption of 2026",
+   "summary": "Loạt bài phân tích và benchmark 2026 khơi lại tranh luận embedded vs distributed: DuckDB thắng ở phân tích cục bộ/nhúng và chi phí thấp, ClickHouse mạnh ở quy mô lớn và real-time — kèm cảnh báo về các điểm mù khi so benchmark.",
+   "why": "Không có engine tốt nhất, chỉ có engine hợp workload. Với team Việt: DuckDB/MotherDuck cho phân tích nhanh-rẻ, ClickHouse khi cần real-time quy mô lớn — đừng chọn theo phong trào.",
+   "url": "https://algeriatech.news/clickhouse-duckdb-olap-disruption-2026/",
+   "domain": "algeriatech.news",
+   "date": "2026-06-30",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "Alex Karp (Palantir): AI đang bị bán sai cách, tung tuyên ngôn 9 điểm về AI sovereignty",
+   "title_en": "Alex Karp: 'Something has gone completely wrong' with how AI is sold",
+   "summary": "Ngày 1/7, CEO Palantir Alex Karp lên CNBC nói có gì đó đã sai hoàn toàn trong cách AI được bán, kèm tuyên ngôn 9 điểm về AI sovereignty đăng trên X hôm trước — phê phán việc bán token và model thay vì kết quả thực.",
+   "why": "Giữa cơn sốt agentic, Karp nhắc lại điều team data hay quên: công nghệ chỉ có giá trị khi tạo ra kết quả nghiệp vụ đo được. Đây là góc phản biện lành mạnh cho làn sóng mua AI cho có.",
+   "url": "https://www.digitalapplied.com/blog/alex-karp-palantir-tokens-weights-alpha-cnbc-2026",
+   "domain": "digitalapplied.com",
+   "date": "2026-07-01",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "Microsoft lập Frontier Company: 2,5 tỷ USD và 6.000 kỹ sư nhúng vào khách hàng để bán kết quả AI",
+   "title_en": "Microsoft Frontier Company: $2.5B and 6,000 engineers target AI pilot failures",
+   "summary": "Ngày 2/7, Microsoft công bố Frontier Company — đơn vị vận hành mới với 2,5 tỷ USD và khoảng 6.000 kỹ sư, chuyên gia nhúng vào tổ chức khách hàng để đồng thiết kế, triển khai và cải tiến hệ thống AI gắn với kết quả kinh doanh đo được.",
+   "why": "Mô hình forward-deployed engineering (do Palantir phổ biến) đang thành chuẩn của các ông lớn. Với data leader: kỷ nguyên pilot AI cho vui đã hết, nhà cung cấp giờ cam kết outcome — vừa áp lực vừa cơ hội cho team dữ liệu nội bộ.",
+   "url": "https://www.techtimes.com/articles/319642/20260703/microsoft-frontier-company-25b-6000-engineers-target-ai-pilot-failures.htm",
+   "domain": "techtimes.com",
+   "date": "2026-07-02",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "AWS lập tổ chức triển khai AI 1 tỷ USD nội bộ, ôm mô hình forward-deployed engineering",
+   "title_en": "AWS launches $1B internal AI deployment organization embracing FDE model",
+   "summary": "Ngày 30/6, AWS lập tổ chức triển khai AI trị giá 1 tỷ USD, công khai áp dụng mô hình Forward Deployed Engineering (FDE) — kỹ sư nằm vùng tại khách hàng để đưa AI vào sản xuất, chỉ hai ngày trước công bố tương tự của Microsoft.",
+   "why": "Ba ông lớn AWS, Microsoft, Palantir cùng đặt cược vào FDE trong một tuần cho thấy nút thắt của AI doanh nghiệp không phải model, mà là triển khai và dữ liệu tại chỗ — đúng chỗ team data tạo giá trị.",
+   "url": "https://www.beri.net/article/microsoft-frontier-company-ai-outcomes-enterprise-2026",
+   "domain": "beri.net",
+   "date": "2026-06-30",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 7,
+ "weekly_video": {
+  "intro": "Xin chào, đây là bản tin Data News tuần 27, điểm lại những gì nóng nhất của thế giới dữ liệu từ 29 tháng 6 đến 5 tháng 7 năm 2026. Chủ đề xuyên suốt tuần này là coding agent bước thẳng vào nền tảng dữ liệu, và cả ngành chuyển trọng tâm sang tính đúng đắn, ngữ cảnh và triển khai thực tế. Cùng mình đi qua năm câu chuyện đáng chú ý nhất nhé.",
+  "outro": "Đó là năm câu chuyện dữ liệu nổi bật của tuần 27. Chi tiết từng tin, nguồn và phân tích sâu hơn đều có trong bản tin. Cảm ơn bạn đã theo dõi, hẹn gặp lại trong bản tin tuần sau.",
+  "segments": [
+   {
+    "aid": 7,
+    "headline": "Cortex Sense: độ chính xác agent nhảy từ 24 lên 86 phần trăm",
+    "narration": "Câu chuyện nóng nhất tuần 27 đến từ Snowflake với Cortex Sense, ra mắt ngày 30 tháng 6. Đây là một lớp ngữ cảnh chạy ở thời gian thực, gom lại metadata, lịch sử truy vấn và các semantic view để AI agent hiểu dữ liệu doanh nghiệp trước khi trả lời. Con số Snowflake công bố rất ấn tượng: trên bộ benchmark nội bộ, độ chính xác của agent tăng từ 24 phẩy 1 phần trăm lên 86 phẩy 3 phần trăm. Không chỉ đúng hơn, nó còn rẻ hơn: chi phí mỗi truy vấn giảm từ 1 đô 76 xuống còn 59 xu, vì agent không phải mò mẫm kiểm tra từng bảng nữa. Cortex Sense hoạt động cùng semantic view chứ không thay thế: ở nơi cần câu trả lời chuẩn, semantic view vẫn là chuẩn vàng, còn phần còn lại của kho dữ liệu thì Cortex Sense tự xây hiểu biết. Vì sao đáng chú ý? Vì nó chỉ thẳng ra vấn đề cốt lõi của mọi dự án agent: nếu không có ngữ cảnh, mô hình ngôn ngữ sẽ đoán mò, vừa sai vừa tốn tiền. Bước nhảy từ 24 lên 86 phần trăm cho thấy semantic layer và context engineering mới là chìa khóa, chứ không phải chọn mô hình nào to hơn. Đây là hướng đi mà bất kỳ ai làm text-to-SQL trong doanh nghiệp đều nên để ý.",
+    "bullets": [
+     "Độ chính xác agent: 24,1% lên 86,3%",
+     "Chi phí truy vấn: 1,76 USD xuống 0,59 USD",
+     "Ngữ cảnh, không phải model, là chìa khóa"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Cortex Sense: bước nhảy nhờ ngữ cảnh",
+     "items": [
+      {
+       "v": "24%→86%",
+       "l": "độ chính xác agent"
+      },
+      {
+       "v": "$1.76→$0.59",
+       "l": "chi phí mỗi truy vấn"
+      },
+      {
+       "v": "30/06",
+       "l": "ngày ra mắt"
+      }
+     ]
+    },
+    "images": [
+     "https://www.snowflake.com/content/dam/snowflake-site/blog/ai/20-ai.jpg"
+    ]
+   },
+   {
+    "aid": 4,
+    "headline": "Hopsworks 5.0 nhúng coding agent vào nền tảng dữ liệu",
+    "narration": "Câu chuyện thứ hai là Hopsworks 5.0, ra mắt ngày 30 tháng 6, với một khái niệm gọi là Coding Data and AI Stack. Ý tưởng là gì? Lần đầu tiên, một coding agent cùng terminal được nhúng thẳng vào bên trong nền tảng dữ liệu, cài sẵn Claude Code và Codex, chạy song song nhiều phiên. Bạn mô tả điều mình muốn xây bằng ngôn ngữ tự nhiên, còn agent tự viết, chạy và lặp lại code, từ khâu nạp dữ liệu thô cho tới triển khai dashboard và pipeline suy luận. Hopsworks 5.0 cũng bổ sung truy vấn SQL qua Trino, lớp dashboard qua Apache Superset, khả năng mount bảng ngoài mà không cần copy, và nạp dữ liệu bằng DLTHub theo lịch. Tất cả đứng trên một AI Lakehouse gồm feature store, model registry và vector database. Vì sao đáng chú ý? Đây là hiện thân cụ thể của agentic data engineering: thay vì nhảy qua lại giữa chục công cụ, kỹ sư mô tả mục tiêu và để agent làm phần khung. Đáng nói hơn, Hopsworks nhấn mạnh tính chủ quyền dữ liệu, sovereign, rất phù hợp cho khu vực công và doanh nghiệp châu Âu, cũng như những tổ chức Việt Nam muốn kiểm soát dữ liệu tại chỗ. Với mình, đây là tín hiệu rõ ràng rằng nền tảng dữ liệu tương lai sẽ mặc định có agent bên trong.",
+    "bullets": [
+     "Claude Code và Codex nhúng sẵn, chạy song song",
+     "SQL qua Trino, dashboard qua Superset",
+     "AI Lakehouse có chủ quyền dữ liệu"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Hopsworks 5.0 Coding Data & AI Stack",
+     "items": [
+      {
+       "t": "Coding agent",
+       "d": "Claude Code + Codex nhúng sẵn"
+      },
+      {
+       "t": "SQL & BI",
+       "d": "Trino + Apache Superset"
+      },
+      {
+       "t": "AI Lakehouse",
+       "d": "feature store, model registry, vector DB"
+      },
+      {
+       "t": "Ingest",
+       "d": "external tables + DLTHub theo lịch"
+      }
+     ]
+    },
+    "images": [
+     "https://ml.globenewswire.com/Resource/Download/6850db62-0cb0-4063-85ba-38ddf9727ccd"
+    ]
+   },
+   {
+    "aid": 1,
+    "headline": "Hardwood 1.0: trình đọc Parquet siêu nhẹ cho JVM",
+    "narration": "Câu chuyện thứ ba dành cho những người làm nền tảng: Hardwood 1.0, do Gunnar Morling phát hành đầu tháng 7. Đây là một thư viện đọc file Apache Parquet viết mới hoàn toàn cho JVM, sau năm bản preview từ đầu năm. Điểm đặc biệt: nó đa luồng ngay từ lõi, tự động trải việc giải mã trang ra tất cả các nhân CPU, và không có phụ thuộc bắt buộc nào. Nó nhắm Java 21 trở lên, mã nguồn mở theo giấy phép Apache 2.0, và đã có sẵn trên Maven Central. So với trình đọc Parquet Java chính chủ của Apache vốn nặng và kéo theo nhiều thư viện, Hardwood hứa hẹn một lựa chọn gọn, nhanh và dễ nhúng hơn. Có một chi tiết thú vị về cách nó được xây: nhóm phát triển nói Hardwood được làm với sự trợ giúp của AI, nhưng không phải do AI làm thay. Mọi thay đổi lớn đều bắt đầu từ một tài liệu thiết kế, kiến trúc và bất biến do con người sở hữu, và mọi diff đều được đọc và review trước khi vào. Vì sao đáng chú ý? Chi phí đọc file là nút cổ chai âm thầm của mọi lakehouse. Một trình đọc nhanh và nhẹ giúp engine truy vấn và pipeline tiết kiệm cả thời gian lẫn tiền bạc, đặc biệt khi bạn xử lý hàng terabyte Parquet mỗi ngày.",
+    "bullets": [
+     "Đa luồng mặc định, không dependency bắt buộc",
+     "Java 21+, Apache 2.0, trên Maven Central",
+     "Built with AI, but not by AI"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Hardwood 1.0 vs trình đọc Parquet Java cũ",
+     "left": {
+      "h": "Hardwood 1.0",
+      "items": [
+       "Đa luồng mặc định",
+       "Không dependency bắt buộc",
+       "Java 21+, Apache 2.0"
+      ]
+     },
+     "right": {
+      "h": "Parquet-Java cũ",
+      "items": [
+       "Nặng, nhiều dependency",
+       "Mặc định đơn luồng",
+       "Khó nhúng"
+      ]
+     }
+    },
+    "images": []
+   },
+   {
+    "aid": 2,
+    "headline": "Iceberg khóa spec và kiểm thử chéo 5 ngôn ngữ",
+    "narration": "Câu chuyện thứ tư đến từ thế giới lakehouse mở, và nó nói lên tinh thần của cả tuần: làm đúng thay vì làm nhanh. Cộng đồng Apache Iceberg đã bỏ phiếu thông qua đặc tả Expressions, tức là chốt lại cấu trúc và hành vi tối thiểu cho việc lọc và biến đổi dữ liệu, đồng thời bổ sung trường tên định danh cho đặc tả UDF để nhận diện chính xác phiên bản hàm. Quan trọng hơn, họ khởi động một nỗ lực kiểm thử tính nhất quán giữa năm bản cài đặt khác nhau: Java, Python, Rust, Go và C plus plus, với đề xuất lập một kho test dùng chung để chứng minh cả năm cùng cho ra một kết quả. Song song, bản Iceberg Rust 0.10.0 RC1 cũng được đưa ra bỏ phiếu. Vì sao đáng chú ý? Cuộc chiến định dạng bảng, format war, về cơ bản đã kết thúc. Giờ giá trị nằm ở chỗ đảm bảo mọi engine đọc và ghi Iceberg đều hiểu dữ liệu giống hệt nhau. Đó chính là nền móng để một lakehouse mở thật sự interoperable, để bạn có thể dùng Spark, Trino, DuckDB hay bất cứ engine nào trên cùng một bảng mà không lo sai lệch. Nghe có vẻ khô khan, nhưng đây mới là thứ giữ cho hệ sinh thái dữ liệu mở không vỡ vụn.",
+    "bullets": [
+     "Chốt spec Expressions và định danh UDF",
+     "Kiểm thử chéo Java, Python, Rust, Go, C++",
+     "Iceberg Rust 0.10.0 RC1"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Iceberg: chuẩn hóa để interoperable",
+     "items": [
+      {
+       "t": "Spec Expressions",
+       "d": "khóa hành vi lọc/biến đổi"
+      },
+      {
+       "t": "UDF specific-name",
+       "d": "định danh phiên bản hàm"
+      },
+      {
+       "t": "Kiểm thử chéo",
+       "d": "Java/Python/Rust/Go/C++"
+      },
+      {
+       "t": "Rust 0.10.0 RC1",
+       "d": "bản ứng viên mới"
+      }
+     ]
+    },
+    "images": [
+     "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fx5jauyia2v209ht7lhy8.png"
+    ]
+   },
+   {
+    "aid": 9,
+    "headline": "Vai trò data engineer đang dịch chuyển",
+    "narration": "Và câu chuyện thứ năm là bức tranh lớn kết nối cả tuần: làn sóng Coding Data and AI Stack. Chỉ trong vài ngày, chúng ta thấy Hopsworks nhúng Claude Code và Codex vào nền tảng, Snowflake ra Cortex Sense và trước đó là Cortex Code, còn Databricks chuyển sản phẩm Genie sang mô hình trả tiền theo mức dùng. Tất cả hội tụ về một ý tưởng: coding agent đang trở thành giao diện mặc định để xây pipeline và làm phân tích. Điều này có nghĩa gì với người làm dữ liệu? Theo mình, vai trò của data engineer đang dịch chuyển. Từ việc viết từng dòng ETL và tối ưu pipeline bằng tay, công việc chuyển sang thiết kế ngữ cảnh, xây semantic layer, quản trị và review những gì agent tạo ra. Ai làm chủ được semantic layer và governance sẽ là người thắng, chứ không phải người gõ SQL nhanh nhất. Nhưng cũng cần tỉnh táo: agent chỉ mạnh khi dữ liệu sạch, ngữ cảnh rõ và có người kiểm soát chất lượng. Công nghệ không tự tạo ra giá trị nếu không chạm được vào lớp nghiệp vụ và con người. Tuần 27 này, thông điệp rất rõ: đừng biến agent thành phong trào, hãy biến nó thành một hệ thống có kỷ luật.",
+    "bullets": [
+     "Agent thành giao diện mặc định để xây pipeline",
+     "DE dịch từ viết ETL sang thiết kế ngữ cảnh",
+     "Ai làm chủ semantic layer và governance sẽ thắng"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Data Engineer: kiểu cũ vs kiểu mới",
+     "left": {
+      "h": "DE kiểu cũ",
+      "items": [
+       "Viết từng dòng ETL",
+       "Gõ SQL thủ công",
+       "Tối ưu pipeline bằng tay"
+      ]
+     },
+     "right": {
+      "h": "DE kiểu mới",
+      "items": [
+       "Thiết kế ngữ cảnh & semantic",
+       "Review và quản trị agent",
+       "Governance là lợi thế"
+      ]
+     }
+    },
+    "images": []
+   }
+  ]
+ },
+ "facebook_post": "Tuần 27: Coding agent bước thẳng vào nền tảng dữ liệu, cả ngành quay về làm đúng\n\nTuần này mình có cảm giác thế giới dữ liệu đang bước qua một lằn ranh: không còn hỏi AI có làm được không, mà hỏi làm sao cho agent trả lời ĐÚNG và RẺ. Vừa học và thi mấy chứng chỉ Databricks, làm thực hành RAG trên nền lakehouse xong, mình càng thấy rõ mấy tin tuần này ăn khớp với những gì đang diễn ra thật trong dự án. Điểm nhanh những tin nóng nhất nhé:\n\n1️⃣ Snowflake ra Cortex Sense (30/06) — lớp ngữ cảnh runtime giúp AI agent nhảy từ 24,1% lên 86,3% độ chính xác, đồng thời giảm chi phí mỗi truy vấn từ 1,76 USD xuống 0,59 USD. Nghĩa là gì? Không có ngữ cảnh, LLM đoán mò, vừa sai vừa đốt tiền. Semantic layer cộng context mới là vua.\n\n2️⃣ Hopsworks 5.0 (30/06) nhúng thẳng Claude Code và Codex vào nền tảng dữ liệu, thêm SQL qua Trino và dashboard qua Superset. Bạn mô tả bằng lời, agent dựng pipeline từ ingest tới deploy. Đây là agentic data engineering bằng xương bằng thịt.\n\n3️⃣ Gunnar Morling phát hành Hardwood 1.0 — trình đọc Parquet siêu nhẹ, đa luồng, không dependency bắt buộc cho JVM. Nghe khô khan nhưng chi phí đọc file là nút cổ chai âm thầm của mọi lakehouse.\n\n4️⃣ Apache Iceberg khóa spec Expressions và kiểm thử chéo 5 ngôn ngữ (Java, Python, Rust, Go, C++). Format war đã xong, giờ là cuộc chiến tính đúng đắn: mọi engine phải hiểu dữ liệu giống hệt nhau.\n\n5️⃣ AWS, Microsoft, Palantir cùng đặt cược vào forward-deployed engineering trong một tuần (Microsoft lập Frontier Company 2,5 tỷ USD, 6.000 kỹ sư). Kỷ nguyên pilot AI cho vui đã hết, nhà cung cấp giờ cam kết kết quả.\n\n💭 Góc nhìn của mình về tuần này\nTheo mình, sợi chỉ đỏ của tuần 27 không phải là thêm một model to hơn, mà là NGỮ CẢNH và QUẢN TRỊ. Cortex Sense với con số 24% lên 86% nói toẹt ra điều mà team data hay lờ đi: dashboard đẹp hay agent xịn cũng vô nghĩa nếu dữ liệu không có ngữ cảnh nghiệp vụ rõ ràng. Cái cốt lõi phải nhớ: semantic layer cộng governance mới là tài sản, không phải cú pháp SQL.\n\nTốt cho ai? Rất tốt cho doanh nghiệp đã đầu tư data model và semantic view tử tế, họ bật agent lên là ăn ngay. Khó cho ai? Team nhỏ, dữ liệu còn lộn xộn: nhúng agent lúc này dễ rác vào, rác ra. Lời khuyên thẳng của mình: đừng lao theo phong trào nhúng agent. Hãy dọn dữ liệu, dựng semantic layer, đặt governance trước, rồi agent mới khuếch đại được năng lực. Và như Hardwood đã làm gương: dùng AI để tăng tốc, nhưng con người vẫn sở hữu kiến trúc và review từng thay đổi. AI không thay người giỏi; nó khuếch đại người biết thiết kế công việc rõ ràng.\n\nData không chỉ để báo cáo, data phải giúp agent hành động đúng. Tuần 27 cho thấy cả ngành đang đi đúng hướng đó. Ghé AI News và Data News của mình để xem chi tiết cùng video recap nhé, và subscribe để không bỏ lỡ tuần sau!\n\n#Data #DataEngineering #DataAnalytics #Lakehouse #Iceberg #DuckDB #Snowflake #Hopsworks #AIAgents #Databricks #SemanticLayer #DataGovernance #DataNews #DucNguyenAI",
+ "bgm": "minimal-tech",
+ "youtube": {
+  "recap": "G21V6q6unaA",
+  "short": "oGHf_nq4ZVc"
+ }
+}
