@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-07-07",
+      "display_date": "07/07/2026",
+      "title": "Databricks bật đồng hồ tính tiền cho Genie hỏi-đáp dữ liệu",
+      "summary": "Từ hôm nay, Databricks bắt đầu tính tiền Genie — trợ lý hỏi-đáp dữ liệu bằng tiếng người — theo mức dùng.",
+      "source": "databricks.com",
+      "video_id": "k9zfIt5iVx4",
+      "short_id": "RW_TZeCHcZ8",
+      "published_at": "2026-07-07T19:17:06"
+    },
+    {
       "date": "2026-07-05",
       "display_date": "05/07/2026",
       "title": "ClickHouse 26.6: bản kỷ lục thêm truy vấn dòng chảy",
