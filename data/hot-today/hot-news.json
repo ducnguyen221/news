@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-07-09",
+      "display_date": "09/07/2026",
+      "title": "Apache Ossie: chuẩn mở khai tử cảnh mỗi công cụ hiểu một kiểu",
+      "summary": "Chuẩn mở Apache Ossie vừa vào lò ươm Apache, hứa hẹn chấm dứt cảnh mỗi công cụ hiểu \"người dùng hoạt động\" một kiểu.",
+      "source": "dremio.com",
+      "video_id": "6iLPwTklsDY",
+      "short_id": "zkJzIa_7U9w",
+      "published_at": "2026-07-09T19:23:55"
+    },
+    {
       "date": "2026-07-07",
       "display_date": "07/07/2026",
       "title": "Databricks bật đồng hồ tính tiền cho Genie hỏi-đáp dữ liệu",
