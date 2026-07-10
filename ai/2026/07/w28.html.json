@@ -1,0 +1,424 @@
+{
+  "date": "10/07/2026",
+  "week": "W28",
+  "range": "06/07 - 12/07/2026",
+  "tldr": "Tuần 28 là tuần các phòng thí nghiệm lớn đồng loạt mở cửa. OpenAI đưa GPT-5.6 với ba tầng Sol, Terra, Luna ra công chúng ngày 9 tháng 7 sau 12 ngày bị cổng duyệt của Nhà Trắng giữ lại, đồng thời gộp Codex vào ứng dụng ChatGPT desktop và ra mắt agent ChatGPT Work. SpaceXAI phản đòn bằng Grok 4.5 giá 2 đô la input và 6 đô la output mỗi triệu token, cắt chi phí coding agent tới 80 phần trăm. Ở phía dưới, model mã nguồn mở GLM-5.2 châm ngòi bài phân tích về sụp đổ biên lợi nhuận gây bão Hacker News, còn Anthropic lặng lẽ vượt OpenAI về doanh thu với run-rate hơn 30 tỷ đô la nhờ nhóm khách hàng doanh nghiệp. Cộng đồng thì đang cãi nhau về hóa đơn AI phình to, gian lận thi cử bằng AI và lỗ hổng GitLost khiến agent của GitHub rò rỉ repo riêng tư. Nói gọn: giá xuống, agent tràn ra khỏi phòng code, và câu hỏi ai thật sự kiếm được tiền bắt đầu nóng.",
+  "items": [
+    {
+      "aid": 1,
+      "title": "GPT-5.6 mở cửa cho tất cả: bộ ba Sol, Terra, Luna lên GA sau 12 ngày bị chính phủ Mỹ giữ lại",
+      "title_en": "GPT-5.6 Goes Public Today: Sol, Terra, Luna and the Return of Base Model Wars",
+      "summary": "Ngày 9 tháng 7, OpenAI đưa GPT-5.6 lên GA đầy đủ trên ChatGPT, API và Codex với ba tầng: Sol giá 5 đô la input và 30 đô la output mỗi triệu token, Terra 2,5 và 15, Luna 1 và 6. Trước đó model chỉ mở cho một nhóm tổ chức được chính phủ Mỹ duyệt trong 12 ngày.",
+      "why": "Đây là lần đầu một model frontier của Mỹ đi qua cổng review trước phát hành rồi mới ra công chúng, tạo tiền lệ cho mọi lần ra mắt sau. Với developer, tầng Terra cho hiệu năng ngang GPT-5.5 ở nửa giá, còn Luna đủ rẻ để chạy agent khối lượng lớn.",
+      "url": "https://www.techtimes.com/articles/320037/20260709/gpt-56-goes-public-today-sol-terra-luna-return-base-model-wars.htm",
+      "domain": "techtimes.com",
+      "date": "2026-07-09",
+      "section": "🚀 Mô hình & Sản phẩm mới",
+      "hot_rank": 1
+    },
+    {
+      "aid": 2,
+      "title": "OpenAI ra mắt ChatGPT Work và gộp Codex vào một app desktop duy nhất",
+      "title_en": "ChatGPT is now a partner for your most ambitious work",
+      "summary": "Cùng ngày GPT-5.6 lên GA, OpenAI giới thiệu ChatGPT Work, một agent có thể bám một dự án hàng giờ, thao tác qua file và ứng dụng, xuất ra bảng tính, slide, tài liệu và web app. Codex không còn là app riêng mà nằm trong ứng dụng ChatGPT desktop hợp nhất, kèm trình duyệt tích hợp và khả năng Computer Use.",
+      "why": "OpenAI đang chuyển từ chatbot trả lời sang nhân viên làm xong việc. Việc gộp Codex vào ChatGPT cho thấy ranh giới giữa coding agent và office agent đang biến mất.",
+      "url": "https://openai.com/index/chatgpt-for-your-most-ambitious-work/",
+      "domain": "openai.com",
+      "date": "2026-07-09",
+      "section": "🚀 Mô hình & Sản phẩm mới",
+      "hot_rank": 2
+    },
+    {
+      "aid": 3,
+      "title": "SpaceXAI phát hành Grok 4.5: gần frontier, giá 2 USD/1M token input, cắt chi phí coding-agent 80%",
+      "title_en": "SpaceXAI Releases Grok 4.5, a Cursor-Trained Model for Coding, Agentic Tasks, and Knowledge Work at $2/M Input",
+      "summary": "Grok 4.5 ra mắt công khai ngày 8 tháng 7 với giá 2 đô la input và 6 đô la output mỗi triệu token. Model đạt 54 điểm trên Artificial Analysis Intelligence Index, đứng thứ tư sau Fable 5, Opus 4.8 và GPT-5.5, nhưng dẫn đầu AutomationBench-AA với 51,4 phần trăm.",
+      "why": "Khoảng cách benchmark 6 điểm không đáng gì khi giá rẻ hơn nhiều lần. Với workload agentic khối lượng lớn, phép tính chi phí vừa bị viết lại.",
+      "url": "https://www.marktechpost.com/2026/07/08/spacexai-releases-grok-4-5/",
+      "domain": "marktechpost.com",
+      "date": "2026-07-08",
+      "section": "🚀 Mô hình & Sản phẩm mới",
+      "hot_rank": 3
+    },
+    {
+      "aid": 4,
+      "title": "Gemini 3.5 Pro lùi tiếp sang 17/07, Google DeepMind bỏ hẳn kiến trúc nền cũ",
+      "title_en": "Gemini 3.5 Pro Targets July 17 as DeepSeek's July 24 Deadline Hits Developers Now",
+      "summary": "Google dời Gemini 3.5 Pro sang ngày 17 tháng 7 và từ bỏ kiến trúc Gemini 2.5 Pro để xây lại từ đầu, do trần hiệu năng ở lập luận toán nhiều bước và sinh cảnh SVG. Tính đến ngày 7 tháng 7, API công khai vẫn chỉ có gemini-3.5-flash và gemini-3.1-pro-preview.",
+      "why": "Trong tuần OpenAI và SpaceXAI cùng ra hàng, Google trễ hẹn lần thứ hai. Đội nào đã lỡ hứa với khách rằng chờ Gemini 3.5 thì nên có kế hoạch B.",
+      "url": "https://www.techtimes.com/articles/319877/20260708/gemini-35-pro-targets-july-17-deepseeks-july-24-deadline-hits-developers-now.htm",
+      "domain": "techtimes.com",
+      "date": "2026-07-08",
+      "section": "🚀 Mô hình & Sản phẩm mới",
+      "hot_rank": null
+    },
+    {
+      "aid": 5,
+      "title": "Meta ra mắt Muse Image, model sinh ảnh đầu tiên của Superintelligence Labs — và vấp phản ứng ngay",
+      "title_en": "Meta just launched a new AI generator, Muse Image, and users are already pushing back over use of their photos",
+      "summary": "Ngày 7 tháng 7 Meta công bố Muse Image, model sinh ảnh tự xây đầu tiên của Meta Superintelligence Labs, chạy trong Meta AI, Instagram Stories và WhatsApp. Nó xếp thứ hai ở text-to-image và chỉnh sửa ảnh, chỉ sau GPT Image 2, nhưng bị phản đối vì cho phép chỉnh ảnh của tài khoản Instagram công khai và bật sẵn mặc định.",
+      "why": "Meta lần đầu không đi mượn model sinh ảnh. Nhưng cài đặt bật sẵn cho phép người lạ chỉnh ảnh của bạn là kiểu quyết định sản phẩm sẽ còn gây kiện tụng.",
+      "url": "https://techcrunch.com/2026/07/07/meta-rolls-out-muse-a-new-ai-image-generator/",
+      "domain": "techcrunch.com",
+      "date": "2026-07-07",
+      "section": "🚀 Mô hình & Sản phẩm mới",
+      "hot_rank": null
+    },
+    {
+      "aid": 6,
+      "title": "Cowork lên mobile và web: dữ liệu cho thấy chỉ 8,7% người dùng agent để lập trình",
+      "title_en": "The coding agent wars are spilling into the rest of the office: Claude Cowork expands to mobile and web",
+      "summary": "Từ ngày 7 tháng 7, Cowork rời khỏi desktop để chạy trên web và điện thoại cho người dùng gói Max, cho phép giao việc ở laptop rồi theo dõi và nhận kết quả trên di động dù máy đã tắt. Dữ liệu sử dụng công bố kèm cho thấy nhóm việc lớn nhất là vận hành quy trình kinh doanh với 33,4 phần trăm, còn lập trình chỉ chiếm 8,7 phần trăm.",
+      "why": "Con số 8,7 phần trăm đảo ngược định kiến rằng agent chủ yếu để code. Thị trường thật nằm ở tài chính, nhân sự và hành chính, nơi hàng triệu giờ đang bị đốt vào việc gộp báo cáo và đối soát bảng tính.",
+      "url": "https://techcrunch.com/2026/07/07/the-coding-agent-wars-are-spilling-into-the-rest-of-the-office-claude-cowork/",
+      "domain": "techcrunch.com",
+      "date": "2026-07-07",
+      "section": "🚀 Mô hình & Sản phẩm mới",
+      "hot_rank": 5
+    },
+    {
+      "aid": 7,
+      "title": "Trung Quốc phát cảnh báo backdoor nhắm vào Claude Code, Anthropic nói đó là cơ chế chống lạm dụng",
+      "title_en": "China Issues 'Backdoor' Security Alert Over Anthropic's Claude Code",
+      "summary": "Ngày 8 tháng 7, nền tảng an ninh mạng thuộc bộ công nghiệp Trung Quốc cảnh báo Claude Code phiên bản 2.1.91 đến 2.1.196 chứa cơ chế giám sát có thể gửi vị trí địa lý và định danh người dùng về máy chủ từ xa. Anthropic phản hồi rằng đó là cơ chế thử nghiệm chống lạm dụng, và công cụ này vốn không được phép dùng tại Trung Quốc.",
+      "why": "Bất kể ai đúng, đây là lần đầu một công cụ coding agent trở thành đề tài an ninh quốc gia. Các đội dùng CLI agent nên biết chính xác công cụ của mình gửi telemetry gì.",
+      "url": "https://money.usnews.com/investing/news/articles/2026-07-08/china-issues-backdoor-security-alert-over-anthropics-claude-code",
+      "domain": "usnews.com",
+      "date": "2026-07-08",
+      "section": "🛠️ Công cụ & Framework",
+      "hot_rank": null
+    },
+    {
+      "aid": 8,
+      "title": "Từ 8/7, mọi truy cập Fable 5 đều phải trả credit — hết thời bao gồm trong gói",
+      "title_en": "Fable 5 access now requires usage credits for every subscription tier",
+      "summary": "Ngày 8 tháng 7 là ngày đầu tiên tất cả các tầng thuê bao muốn dùng Fable 5 đều phải mua credit sử dụng, thay vì được bao một phần trong gói như trước. Giá tính thêm là 10 đô la mỗi triệu token input và 50 đô la mỗi triệu token output, cộng trên phí thuê bao.",
+      "why": "Mô hình thuê bao cố định dùng model mạnh nhất đang chết dần. Chi phí suy luận thật đang được đẩy về phía người dùng, đúng lúc GLM-5.2 chào giá bằng một phần mười.",
+      "url": "https://releasebot.io/updates/anthropic/claude",
+      "domain": "releasebot.io",
+      "date": "2026-07-08",
+      "section": "🛠️ Công cụ & Framework",
+      "hot_rank": null
+    },
+    {
+      "aid": 9,
+      "title": "GitLost: một issue công khai đủ để lừa agent của GitHub rò rỉ repo riêng tư",
+      "title_en": "GitLost: How We Tricked GitHub's AI Agent into Leaking Private Repos",
+      "summary": "Noma Labs công bố lỗ hổng prompt injection trong GitHub Agentic Workflows: kẻ tấn công không cần đăng nhập, chỉ cần mở một issue công khai chứa chỉ dẫn ẩn, agent sẽ đọc file trong repo riêng tư của cùng tổ chức rồi dán nội dung ra comment công khai. Thêm từ additionally trước yêu cầu là đủ để vượt guardrail.",
+      "why": "Đây là minh họa sạch nhất cho rủi ro agent tự chủ. Không có exploit nhị phân, không có lỗ hổng thư viện, chỉ là tiếng Anh viết khéo.",
+      "url": "https://noma.security/blog/gitlost-how-we-tricked-githubs-ai-agent-into-leaking-private-repos/",
+      "domain": "noma.security",
+      "date": "2026-07-07",
+      "section": "🛠️ Công cụ & Framework",
+      "hot_rank": null
+    },
+    {
+      "aid": 10,
+      "title": "Workspace Agent của OpenAI chuyển sang tính tiền theo token từ 6/7",
+      "title_en": "Workspace Agent runs now use token-based pricing",
+      "summary": "Từ ngày 6 tháng 7, mỗi lần chạy Workspace Agent được tính credit dựa trên token input, token input đã cache và token output, thay cho cách tính theo lượt chạy trước đây. Người dùng nặng phải theo dõi mức tiêu thụ token thay vì đếm số lần gọi.",
+      "why": "Cùng với thay đổi credit của Fable 5, cả ngành đang đồng loạt chuyển sang tính đúng chi phí suy luận. Agent chạy nền lâu giờ có giá thật, và giá đó tăng theo độ dài ngữ cảnh.",
+      "url": "https://releasebot.io/updates/openai",
+      "domain": "releasebot.io",
+      "date": "2026-07-06",
+      "section": "🛠️ Công cụ & Framework",
+      "hot_rank": null
+    },
+    {
+      "aid": 11,
+      "title": "The Mirage of Optimizing Training Policies: bài báo dẫn đầu Hugging Face tuần này chỉ ra RL post-training đang tối ưu nhầm mục tiêu",
+      "title_en": "The Mirage of Optimizing Training Policies: Monotonic Inference Policies as the Real Objective for LLM Reinforcement Learning",
+      "summary": "Đứng đầu bảng trending Hugging Face ngày 7 tháng 7, bài báo lập luận rằng reinforcement learning cho post-training của mô hình ngôn ngữ vẫn mong manh, dễ mất ổn định hoặc sụp đổ, vì cộng đồng đang tối ưu training policy thay vì mục tiêu thật là monotonic inference policy.",
+      "why": "RL post-training là công đoạn tốn kém và khó tái lập nhất trong việc huấn luyện model hiện đại. Nếu mục tiêu tối ưu bị đặt sai từ đầu, phần lớn công sức tinh chỉnh đang lãng phí.",
+      "url": "https://huggingface.co/papers/trending",
+      "domain": "huggingface.co",
+      "date": "2026-07-07",
+      "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+      "hot_rank": null
+    },
+    {
+      "aid": 12,
+      "title": "Embodied.cpp: runtime suy luận di động cho model AI nhúng trên robot đa dạng phần cứng",
+      "title_en": "Embodied.cpp: A Portable Inference Runtime of Embodied AI Models on Heterogeneous Robots",
+      "summary": "Cũng nằm trong nhóm trending Hugging Face tuần này, Embodied.cpp giới thiệu một runtime suy luận nhẹ và có thể mang đi, cho phép chạy model AI nhúng trên các nền tảng robot khác nhau mà không cần viết lại theo từng phần cứng.",
+      "why": "Robot học đang thiếu một tầng runtime dùng chung giống như llama.cpp từng làm cho mô hình ngôn ngữ. Chuẩn hóa lớp này là điều kiện để mô hình embodied thoát khỏi phòng lab.",
+      "url": "https://huggingface.co/papers/trending",
+      "domain": "huggingface.co",
+      "date": "2026-07-07",
+      "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+      "hot_rank": null
+    },
+    {
+      "aid": 13,
+      "title": "PixWorld: hợp nhất tái dựng và sinh cảnh 3D ngay trong không gian pixel",
+      "title_en": "PixWorld: Unifying 3D Scene Generation and Reconstruction in Pixel Space",
+      "summary": "PixWorld đề xuất cách tiếp cận diffusion thống nhất trong không gian pixel cho cả tái dựng lẫn sinh cảnh ba chiều, nhằm vượt qua giới hạn của các phương pháp làm việc trong không gian latent.",
+      "why": "Tách tái dựng và sinh thành hai pipeline luôn gây mất chi tiết ở chỗ nối. Làm chung một không gian là hướng đi sạch hơn cho world model và cả nội dung ba chiều thương mại.",
+      "url": "https://huggingface.co/papers/trending",
+      "domain": "huggingface.co",
+      "date": "2026-07-07",
+      "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+      "hot_rank": null
+    },
+    {
+      "aid": 14,
+      "title": "Google DeepMind công bố The Case for Globally Beneficial Technology",
+      "title_en": "The Case for Globally Beneficial Technology",
+      "summary": "Ngày 6 tháng 7, DeepMind đăng bài nghiên cứu The Case for Globally Beneficial Technology, tiếp nối loạt bài định hướng gần đây của phòng lab về chuyển tiếp từ AGI sang siêu trí tuệ và về chính trị của ý thức máy.",
+      "why": "DeepMind đang dành nhiều nguồn lực cho nghiên cứu định hướng chứ không chỉ cho model. Đó là tín hiệu về cách một phòng lab hàng đầu tự định vị khi cuộc đua sản phẩm nóng lên.",
+      "url": "https://deepmind.google/research/publications/",
+      "domain": "deepmind.google",
+      "date": "2026-07-06",
+      "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+      "hot_rank": null
+    },
+    {
+      "aid": 15,
+      "title": "Nghi gian lận bằng AI, giáo sư Ivy League bắt thi trực tiếp: điểm rơi 50%",
+      "title_en": "Suspecting AI cheating, Ivy League prof ordered an in-person final; scores fell 50%",
+      "summary": "Bài đăng kể chuyện một giáo sư trường Ivy League nghi sinh viên dùng AI làm bài nên chuyển sang thi trực tiếp trên giấy, và điểm trung bình giảm một nửa. Chủ đề thu hơn 33 nghìn lượt ủng hộ và hơn 2.200 bình luận.",
+      "why": "Đây là bằng chứng thực nghiệm thô nhưng khó chối về khoảng cách giữa điểm số và năng lực thật trong thời AI. Giáo dục toàn cầu, kể cả Việt Nam, chưa có câu trả lời.",
+      "url": "https://www.reddit.com/r/technology/comments/1urt4kz/suspecting_ai_cheating_ivy_league_prof_ordered_an/",
+      "domain": "reddit.com",
+      "date": "2026-07-09",
+      "section": "📈 Hot trend & Thảo luận cộng đồng",
+      "hot_rank": null
+    },
+    {
+      "aid": 16,
+      "title": "Sếp choáng váng vì hóa đơn AI khổng lồ sau khi tưởng có thể thay người miễn phí",
+      "title_en": "Execs Confused and Horrified by the Huge AI Bills After Thinking They Could Replace Workers for Free",
+      "summary": "Chủ đề bùng nổ trên cộng đồng công nghệ với hơn 32 nghìn lượt ủng hộ: nhiều lãnh đạo doanh nghiệp cắt giảm nhân sự vì tin AI rẻ, rồi hoảng khi nhận hóa đơn tiêu thụ token. Nó xuất hiện đúng tuần Fable 5 chuyển sang tính credit và Workspace Agent tính tiền theo token.",
+      "why": "Giai đoạn trợ giá đã hết. Bài toán hiệu quả đầu tư của AI đang chuyển từ slide sang bảng cân đối kế toán, và nhiều nơi mới phát hiện mình chưa từng tính.",
+      "url": "https://www.reddit.com/r/technology/comments/1urdny4/execs_confused_and_horrified_by_the_huge_ai_bills/",
+      "domain": "reddit.com",
+      "date": "2026-07-09",
+      "section": "📈 Hot trend & Thảo luận cộng đồng",
+      "hot_rank": null
+    },
+    {
+      "aid": 17,
+      "title": "Trộm bắt đầu nhắm vào công trường data center AI để lấy đồng và thiết bị đắt tiền",
+      "title_en": "Thieves Are Now Targeting AI Data Center Construction Sites for Copper and Expensive Equipment",
+      "summary": "Với hơn 54 nghìn lượt ủng hộ, đây là chủ đề AI nóng nhất cộng đồng tuần này: các công trường xây data center AI trở thành mục tiêu trộm cắp dây đồng và thiết bị giá trị cao, phản ánh quy mô vật chất khổng lồ của cơn bùng nổ hạ tầng.",
+      "why": "Cuộc đua AI không còn trừu tượng. Nó đang tạo ra hàng nghìn công trường, hàng triệu tấn thiết bị, và cả một hệ quả xã hội rất đời thường ở địa phương.",
+      "url": "https://www.reddit.com/r/technology/comments/1uq558s/thieves_are_now_targeting_ai_data_center/",
+      "domain": "reddit.com",
+      "date": "2026-07-07",
+      "section": "📈 Hot trend & Thảo luận cộng đồng",
+      "hot_rank": null
+    },
+    {
+      "aid": 18,
+      "title": "Sau khi sa thải 8.000 người, Zuckerberg thừa nhận AI của Meta chưa tăng tốc như kỳ vọng",
+      "title_en": "After Laying Off 8,000 Employees, Zuckerberg Admits Meta's AI 'Hasn't Really Accelerated' As Expected",
+      "summary": "Tại buổi họp nội bộ ngày 2 tháng 7, Mark Zuckerberg nói với nhân viên rằng việc phát triển AI agent trong bốn tháng qua chưa thật sự tăng tốc theo cách công ty kỳ vọng, sau khi Meta cắt 8.000 việc làm và điều chuyển 7.000 người sang các đội AI. Công ty cắt tiếp 1.400 vị trí ở bang Washington từ ngày 22 tháng 7.",
+      "why": "Meta cam kết 125 đến 145 tỷ đô la chi tiêu vốn năm 2026, gấp đôi năm trước. Lời thừa nhận này là dữ liệu hiếm hoi về khoảng cách giữa chi tiêu và kết quả.",
+      "url": "https://247wallst.com/investing/2026/07/07/after-laying-off-8000-employees-zuckerberg-admits-metas-ai-hasnt-really-accelerated-as-expected/",
+      "domain": "247wallst.com",
+      "date": "2026-07-07",
+      "section": "📈 Hot trend & Thảo luận cộng đồng",
+      "hot_rank": null
+    },
+    {
+      "aid": 19,
+      "title": "GLM-5.2 và cuộc sụp đổ biên lợi nhuận sắp tới — bài viết nổ tung Hacker News",
+      "title_en": "GLM 5.2 and the coming AI margin collapse (part 1)",
+      "summary": "Bài phân tích của Martin Alderson đạt 688 điểm và 468 bình luận trên Hacker News, lập luận GLM-5.2 là model open-weights đầu tiên thật sự đấu ngang các model đóng đầu bảng cho việc agentic, với giá chỉ 15 đến 20 phần trăm của họ. Tác giả cho rằng cú sốc này lớn hơn khoảnh khắc DeepSeek, vì nó đánh vào biên lợi nhuận suy luận chứ không phải chi phí huấn luyện.",
+      "why": "Nếu biên gộp suy luận của các phòng lab thật sự quanh 90 phần trăm và model mở đủ tốt ở một phần năm giá, cả mô hình kinh doanh của ngành phải viết lại. Các nhà cung cấp đều đã có endpoint tương thích nên việc chuyển sang rất dễ.",
+      "url": "https://martinalderson.com/posts/the-upcoming-ai-margin-collapse-part-1-glm-5-2/",
+      "domain": "martinalderson.com",
+      "date": "2026-07-06",
+      "section": "📈 Hot trend & Thảo luận cộng đồng",
+      "hot_rank": 4
+    },
+    {
+      "aid": 20,
+      "title": "Nhà Trắng thử nghiệm khung tự nguyện review model trước phát hành — GPT-5.6 là ca đầu tiên",
+      "title_en": "GPT-5.6 Goes Public After 12-Day White House Gate Tests Voluntary AI Framework",
+      "summary": "Theo Sắc lệnh 14409 ký ngày 2 tháng 6, chính phủ Mỹ có tối đa 30 ngày để đánh giá rủi ro an ninh quốc gia của một model frontier trước khi phát hành. GPT-5.6 phải chờ 12 ngày trong chế độ preview giới hạn cho đối tác được duyệt, trước khi ra công chúng ngày 9 tháng 7.",
+      "why": "Khung này mang tính tư vấn và không có quyền chặn, nhưng nó vừa tạo tiền lệ vận hành. Từ nay, lịch ra mắt model frontier ở Mỹ có thêm một biến số nằm ngoài tay phòng lab.",
+      "url": "https://www.techtimes.com/articles/319979/20260709/gpt-56-goes-public-after-12-day-white-house-gate-tests-voluntary-ai-framework.htm",
+      "domain": "techtimes.com",
+      "date": "2026-07-09",
+      "section": "🏢 Ngành & Kinh doanh",
+      "hot_rank": null
+    },
+    {
+      "aid": 21,
+      "title": "SambaNova gọi 1 tỷ USD ở định giá 11 tỷ, JPMorganChase chọn làm đối tác hạ tầng suy luận",
+      "title_en": "AI chip maker SambaNova raises $1B at $11B valuation, 5 months after last mega round",
+      "summary": "Ngày 8 tháng 7, hãng chip AI SambaNova hoàn tất đợt đóng đầu tiên của vòng Series F trị giá 1 tỷ đô la do General Atlantic dẫn dắt, định giá 11 tỷ đô la sau đầu tư. Cùng lúc, JPMorganChase chọn SambaNova làm đối tác hạ tầng suy luận với hệ thống SN40L và SN50 chạy tại chỗ.",
+      "why": "Nhà đầu tư đang rót tiền vào các đối thủ của NVIDIA ở mảng suy luận, và một ngân hàng lớn chọn chạy suy luận tại chỗ thay vì trên cloud. Cả hai đều là tín hiệu về hướng đi của hạ tầng doanh nghiệp.",
+      "url": "https://techcrunch.com/2026/07/08/sambanova-draws-1b-at-11b-valuation-in-series-f-first-close/",
+      "domain": "techcrunch.com",
+      "date": "2026-07-08",
+      "section": "🏢 Ngành & Kinh doanh",
+      "hot_rank": null
+    },
+    {
+      "aid": 22,
+      "title": "Đầu tư startup toàn cầu đạt kỷ lục 510 tỷ USD nửa đầu 2026, AI hút phần lớn",
+      "title_en": "Global Startup Investment Hit Record $510B In H1 2026 As AI Boom Accelerates Funding And Exits",
+      "summary": "Dữ liệu Crunchbase cho thấy vốn đầu tư startup toàn cầu chạm 510 tỷ đô la trong nửa đầu năm 2026. Riêng quý hai, 16 công ty gọi vốn tỷ đô với tổng cộng 108,6 tỷ đô la, chiếm 53 phần trăm toàn bộ vốn của quý. Gần 40 startup AI đạt trạng thái unicorn trong sáu tháng.",
+      "why": "Hơn một nửa tiền của cả quý chảy vào 16 công ty. Đó không phải thị trường vốn phân tán, đó là một cuộc đặt cược tập trung cực đoan vào vài cái tên.",
+      "url": "https://news.crunchbase.com/venture/global-startup-exits-ipo-ma-soar-ai-q2-h1-2026/",
+      "domain": "crunchbase.com",
+      "date": "2026-07-08",
+      "section": "🏢 Ngành & Kinh doanh",
+      "hot_rank": null
+    },
+    {
+      "aid": 23,
+      "title": "Liên Hợp Quốc khai mạc Global Dialogue on AI Governance tại Geneva, cảnh báo về robot sát thủ",
+      "title_en": "From AI to 'killer robots': UN chief issues urgent governance call",
+      "summary": "Phiên đầu tiên của Global Dialogue on AI Governance diễn ra ngày 6 và 7 tháng 7 tại Palexpo, Geneva, quy tụ toàn bộ 193 quốc gia thành viên cùng khu vực tư nhân, học giới và xã hội dân sự. Tổng thư ký Liên Hợp Quốc phát lời kêu gọi khẩn cấp về quản trị AI, đặc biệt với vũ khí tự động.",
+      "why": "Đây là lần đầu có một diễn đàn AI toàn cầu do Đại hội đồng Liên Hợp Quốc lập ra, nơi các nước không phải cường quốc công nghệ cũng có tiếng nói. Phiên kế tiếp diễn ra tại New York vào tháng 5 năm 2027.",
+      "url": "https://news.un.org/en/story/2026/07/1167873",
+      "domain": "un.org",
+      "date": "2026-07-06",
+      "section": "🏢 Ngành & Kinh doanh",
+      "hot_rank": null
+    },
+    {
+      "aid": 24,
+      "title": "Anthropic vượt OpenAI về doanh thu: run-rate hơn 30 tỷ USD nhờ 85% đến từ doanh nghiệp",
+      "title_en": "Anthropic Overtakes OpenAI in Revenue, Hitting $30 Billion Run Rate",
+      "summary": "Anthropic báo cáo doanh thu quy năm vượt 30 tỷ đô la, trong khi OpenAI ở mức khoảng 24 đến 25 tỷ đô la. Khác biệt nằm ở cấu trúc: khoảng 85 phần trăm doanh thu Anthropic đến từ khách hàng doanh nghiệp và developer, còn khoảng 85 phần trăm doanh thu OpenAI đến từ thuê bao ChatGPT của người tiêu dùng.",
+      "why": "Hai mô hình kinh doanh đang tách hẳn hướng. Bán cho doanh nghiệp cho doanh thu bền và biên tốt hơn, nhưng bán cho người tiêu dùng cho quy mô người dùng và dữ liệu hành vi.",
+      "url": "https://www.trendingtopics.eu/anthropic-overtakes-openai-in-revenue-hitting-30-billion-run-rate/",
+      "domain": "trendingtopics.eu",
+      "date": "2026-07-06",
+      "section": "🏢 Ngành & Kinh doanh",
+      "hot_rank": null
+    },
+    {
+      "aid": 25,
+      "title": "Doubao và Qwen tắt tính năng agent từ 15/7 khi luật AI đồng hành của Trung Quốc có hiệu lực",
+      "title_en": "ByteDance's Doubao and Alibaba's Qwen to shut down AI agent features on July 15",
+      "summary": "ByteDance thông báo tính năng agent trên Doubao sẽ ngừng hoạt động từ ngày 15 tháng 7, còn Alibaba đã tắt agent do người dùng tạo trên Qwen từ ngày 10 tháng 7. Nguyên nhân là bộ quy định tạm thời về dịch vụ tương tác nhân hóa bằng AI, do Cục Quản lý không gian mạng Trung Quốc cùng bốn bộ ngành ban hành từ tháng 4 năm 2026.",
+      "why": "Bắc Kinh vạch ranh giới rõ ràng: agent làm việc thì được, agent làm bạn thì không. Cấu hình và lịch sử hội thoại sẽ bị xóa vĩnh viễn, và Qwen chưa công bố lộ trình di chuyển dữ liệu.",
+      "url": "https://technode.com/2026/07/06/bytedances-doubao-and-alibabas-qwen-to-shut-down-ai-agent-features-on-july-15/",
+      "domain": "technode.com",
+      "date": "2026-07-06",
+      "section": "🏢 Ngành & Kinh doanh",
+      "hot_rank": null
+    }
+  ],
+  "hot_aid": 1,
+  "weekly_video": {
+    "intro": "Chào các bạn, đây là bản tin AI tuần 28, từ ngày 6 đến ngày 12 tháng 7 năm 2026. Đây là tuần các phòng thí nghiệm lớn đồng loạt mở cửa: model frontier ra công chúng, agent tràn ra khỏi phòng code, và giá token thì rơi nhanh hơn bao giờ hết. Nhưng phía sau những bản ra mắt hào nhoáng là một câu hỏi ngày càng khó né: ai thật sự kiếm được tiền từ cuộc chơi này? Mời các bạn cùng đi qua năm câu chuyện nóng nhất tuần.",
+    "outro": "Đó là năm câu chuyện lớn nhất của tuần 28. Chi tiết đầy đủ hai mươi lăm tin, cùng phân tích sâu từng mục, các bạn xem trong bản tin trên trang web. Hẹn gặp lại các bạn tuần sau.",
+    "segments": [
+      {
+        "aid": 1,
+        "headline": "GPT-5.6 ra công chúng với ba tầng Sol, Terra, Luna",
+        "narration": "Câu chuyện lớn nhất tuần này là ngày 9 tháng 7, OpenAI chính thức đưa GPT-5.6 ra công chúng trên ChatGPT, trên API và trong Codex. Model không ra một bản duy nhất mà chia làm ba tầng. Sol là bản mạnh nhất, dành cho những tác vụ agentic dài hơi như lập trình nhiều bước, nghiên cứu an ninh mạng và các quy trình sinh học, giá 5 đô la cho một triệu token đầu vào và 30 đô la cho một triệu token đầu ra. Terra là bản cân bằng, hiệu năng xấp xỉ GPT-5.5 nhưng chỉ tốn một nửa tiền, giá 2 đô rưỡi và 15 đô. Luna là bản nhanh và rẻ nhất, một đô đầu vào và sáu đô đầu ra, và thú vị là chính Luna lại dẫn đầu ở Terminal-Bench với 84,3 phần trăm cho những tác vụ coding thường ngày. Nhưng điều đáng chú ý hơn cả bảng giá là con đường model này phải đi để tới tay người dùng. Nó đã bị giữ lại 12 ngày trong một chế độ preview chỉ mở cho các tổ chức được chính phủ Mỹ duyệt trước. Đây là lần đầu tiên một model frontier của Mỹ phải đi qua một cổng review an ninh quốc gia rồi mới được phát hành rộng rãi. Với những ai đang xây sản phẩm trên nền các model này, bài học rất thực dụng: đừng gọi model mạnh nhất cho mọi tác vụ. Hãy phân loại công việc trước, đẩy phần lớn lưu lượng xuống tầng rẻ, và chỉ dùng tầng đắt cho bước lập luận thật sự khó. Chênh lệch năm lần giá là tiền thật trong hóa đơn cuối tháng.",
+        "bullets": [
+          "Ba tầng Sol, Terra, Luna lên GA ngày 9 tháng 7",
+          "Terra ngang GPT-5.5 với nửa giá",
+          "Chờ 12 ngày qua cổng duyệt chính phủ Mỹ"
+        ],
+        "diagram": {
+          "type": "stats",
+          "title": "GPT-5.6: ba tầng, ba mức giá",
+          "items": [
+            { "v": "$5 / $30", "l": "Sol – tác vụ khó" },
+            { "v": "$2.5 / $15", "l": "Terra – cân bằng" },
+            { "v": "$1 / $6", "l": "Luna – khối lượng lớn" },
+            { "v": "12 ngày", "l": "Cổng duyệt trước phát hành" }
+          ]
+        },
+        "images": ["https://d.techtimes.com/en/full/466817/gpt-56.png"]
+      },
+      {
+        "aid": 2,
+        "headline": "ChatGPT Work và cuộc gộp Codex vào một app",
+        "narration": "Cùng ngày, OpenAI công bố ChatGPT Work, và đây mới là thứ thay đổi cách chúng ta làm việc. ChatGPT Work không phải một chatbot trả lời câu hỏi. Nó là một agent có thể bám theo một dự án suốt nhiều giờ, đọc file, thao tác qua các ứng dụng, rồi giao ra sản phẩm hoàn chỉnh: một bảng tính, một bộ slide, một tài liệu, thậm chí một ứng dụng web chạy được. Nó kết nối tới khoảng mười lăm công cụ doanh nghiệp phổ biến như Slack, Microsoft Teams, Google Drive, SharePoint, email, lịch, hệ thống quản lý khách hàng và công cụ theo dõi dự án, tất cả gọi ra bằng cách gõ ký hiệu a còng. Song song với đó, OpenAI xóa bỏ ranh giới giữa công cụ lập trình và công cụ văn phòng: ứng dụng Codex không còn tồn tại riêng, nó được gộp thẳng vào ứng dụng ChatGPT trên máy tính, giờ đã miễn phí cho mọi người dùng trên cả Mac và Windows. Bản desktop này có trình duyệt tích hợp sẵn và khả năng điều khiển máy tính, nghĩa là nó thao tác được trên file cục bộ, trên ứng dụng và trên website. Theo tôi, đây là dấu hiệu rõ nhất cho thấy cuộc chiến coding agent đã tràn ra khỏi phòng kỹ thuật. Nhưng hãy cẩn thận: cho một agent chạy hàng giờ, kết nối vào SharePoint và hệ thống khách hàng, cũng có nghĩa là bạn vừa mở ra một bề mặt tấn công mới. Hãy bật cho một phòng ban trước, giới hạn quyền chỉ đọc, và ghi log mọi hành động.",
+        "bullets": [
+          "Agent bám dự án nhiều giờ, xuất sản phẩm hoàn chỉnh",
+          "Codex gộp vào app ChatGPT desktop",
+          "Kết nối Slack, Drive, SharePoint, CRM"
+        ],
+        "diagram": {
+          "type": "flow",
+          "title": "ChatGPT Work: từ mục tiêu tới sản phẩm",
+          "items": [
+            { "t": "Nhận mục tiêu", "d": "Người giao việc, không giao lệnh" },
+            { "t": "Gom dữ liệu", "d": "Drive, Slack, email, CRM" },
+            { "t": "Chạy nền nhiều giờ", "d": "Computer Use, trình duyệt tích hợp" },
+            { "t": "Xuất artifact", "d": "Bảng tính, slide, web app" }
+          ]
+        },
+        "images": []
+      },
+      {
+        "aid": 3,
+        "headline": "Grok 4.5 phá giá thị trường coding agent",
+        "narration": "Chỉ một ngày trước đó, SpaceXAI tung Grok 4.5, và đòn của họ không nhắm vào bảng xếp hạng mà nhắm thẳng vào ví tiền. Giá công bố là 2 đô la cho một triệu token đầu vào và 6 đô la cho một triệu token đầu ra. Về năng lực, Grok 4.5 đạt 54 điểm trên bảng Artificial Analysis Intelligence Index, đứng thứ tư, sau Fable 5 với 60 điểm, Opus 4.8 với 56 và GPT-5.5 với 55. Nhưng ở bài kiểm tra AutomationBench, đo khả năng tự động hóa công việc thật, Grok 4.5 đạt 51,4 phần trăm, vượt qua cả Fable 5 với 48,6 và Opus 4.8 với 48,5. Nói cách khác, nó thua vài điểm ở bài thi tổng quát nhưng thắng ở bài thi thực chiến, trong khi giá rẻ hơn nhiều lần. Với những workload agentic chạy hàng triệu token mỗi ngày, chênh lệch giá đó quyết định dự án sống hay chết. Tuy nhiên có một cảnh báo phải nói rõ. Tỷ lệ ảo giác của Grok 4.5 cao hơn nhóm dẫn đầu, và tệ hơn, nó tự tin ngay cả khi sai. Nghĩa là phần tiền bạn tiết kiệm được ở token sẽ phải trả lại cho lớp kiểm chứng đầu ra. Đừng dùng nó ở khâu ra quyết định cuối trong tài chính hay pháp lý. Chỗ nó tỏa sáng là tiền xử lý dữ liệu, phân loại, sinh code nháp và quét log, những việc mà lỗi rẻ và kiểm tra được tự động.",
+        "bullets": [
+          "Giá 2 đô input, 6 đô output mỗi triệu token",
+          "Hạng tư Intelligence Index, hạng nhất AutomationBench",
+          "Ảo giác cao hơn, cần lớp kiểm chứng"
+        ],
+        "diagram": {
+          "type": "versus",
+          "title": "Grok 4.5 so với nhóm dẫn đầu",
+          "left": {
+            "h": "Grok 4.5",
+            "items": ["Giá 2 / 6 mỗi triệu token", "AutomationBench 51,4%", "Intelligence Index 54, hạng tư", "Ảo giác cao hơn"]
+          },
+          "right": {
+            "h": "Model đầu bảng",
+            "items": ["Giá cao gấp nhiều lần", "AutomationBench 48,6%", "Intelligence Index 56 đến 60", "Ổn định hơn khi lập luận"]
+          }
+        },
+        "images": []
+      },
+      {
+        "aid": 19,
+        "headline": "GLM-5.2 và cảnh báo sụp đổ biên lợi nhuận",
+        "narration": "Câu chuyện thứ tư không phải một bản ra mắt, mà là một bài viết. Ngày 6 tháng 7, Martin Alderson đăng bài phân tích mang tên GLM-5.2 và cuộc sụp đổ biên lợi nhuận sắp tới. Nó lập tức leo lên đầu Hacker News với 688 điểm và 468 bình luận. Luận điểm của tác giả rất sắc. Ông cho rằng GLM-5.2 là model open-weights đầu tiên thật sự đấu ngang các model đóng đầu bảng ở công việc agentic, trong khi giá chỉ bằng mười lăm đến hai mươi phần trăm. Trên nền tảng chính thức, GLM-5.2 có giá 1,40 đô la đầu vào và 4,40 đô la đầu ra cho một triệu token. Các nhà cung cấp bên thứ ba còn rẻ hơn nữa. Alderson nói cú sốc này lớn hơn khoảnh khắc DeepSeek năm ngoái, vì DeepSeek đánh vào chi phí huấn luyện, còn lần này đánh thẳng vào biên lợi nhuận suy luận, nơi các phòng lab đang lãi khoảng chín mươi phần trăm. Cần công bằng: con số chín mươi phần trăm ấy đang bị tranh cãi, có ước tính chỉ bảy mươi tới tám mươi. Nhưng phần không thể phản bác là chi phí chuyển đổi. Khi các nhà cung cấp model mở đều cung cấp endpoint tương thích, đổi nhà cung cấp chỉ là đổi một dòng địa chỉ. Theo tôi, hành động đúng không phải chuyển hết sang model mở, mà là bảo đảm bạn có thể chuyển bất cứ lúc nào. Đòn bẩy đàm phán đến từ khả năng rời đi, không đến từ lòng trung thành.",
+        "bullets": [
+          "688 điểm, 468 bình luận trên Hacker News",
+          "GLM-5.2 giá bằng 15 đến 20 phần trăm model đóng",
+          "Endpoint tương thích khiến chi phí đổi gần bằng không"
+        ],
+        "diagram": {
+          "type": "stats",
+          "title": "Vì sao GLM-5.2 gây sốc",
+          "items": [
+            { "v": "$1.40 / $4.40", "l": "Giá mỗi triệu token" },
+            { "v": "15–20%", "l": "So với model đóng" },
+            { "v": "~90%", "l": "Biên gộp suy luận bị đe dọa" },
+            { "v": "688", "l": "Điểm trên Hacker News" }
+          ]
+        },
+        "images": ["https://martinalderson.com/img/og/glm-5-2-and-the-coming-ai-margin-collapse-part-1.png"]
+      },
+      {
+        "aid": 6,
+        "headline": "Agent rời phòng code: chỉ 8,7 phần trăm dùng để lập trình",
+        "narration": "Và câu chuyện cuối cùng, theo tôi là quan trọng nhất về mặt thị trường dù ít ồn ào nhất. Ngày 7 tháng 7, Anthropic đưa Cowork, công cụ agent vốn chỉ chạy trên máy tính để bàn, lên web và điện thoại cho người dùng gói cao cấp. Bạn giao việc từ laptop, nhận cập nhật trạng thái trên điện thoại, và lấy kết quả về sau, kể cả khi máy tính đã đóng. Nhưng thứ đáng nói không phải tính năng, mà là dữ liệu sử dụng công bố kèm theo. Nhóm công việc lớn nhất giao cho agent là vận hành quy trình kinh doanh, chiếm 33,4 phần trăm: gom các cập nhật rải rác thành một báo cáo, dựng checklist onboarding, đối soát bảng tính. Trong khi đó, lập trình phần mềm chỉ chiếm 8,7 phần trăm. Con số này đảo ngược định kiến rằng agent chủ yếu là công cụ cho lập trình viên. Thị trường thật nằm ở tài chính, nhân sự và hành chính, chính xác là những nơi mà ở doanh nghiệp Việt Nam đang có hàng nghìn giờ mỗi tháng bị đốt vào việc thủ công. Cơ hội rất rõ, nhưng đừng vội mừng. Một agent chạy nền hàng giờ buộc bạn phải trả lời ba câu hỏi trước khi triển khai: nó đọc dữ liệu nào, nó ghi vào đâu, và ai duyệt trước khi kết quả đi ra ngoài. Không có ba câu trả lời đó thì bạn không triển khai agent, bạn đang triển khai rủi ro.",
+        "bullets": [
+          "Vận hành quy trình chiếm 33,4 phần trăm",
+          "Lập trình chỉ chiếm 8,7 phần trăm",
+          "Agent chạy nền, xem kết quả trên điện thoại"
+        ],
+        "diagram": {
+          "type": "stack",
+          "title": "Agent thật sự làm gì trong công ty",
+          "items": [
+            { "t": "Vận hành quy trình", "d": "33,4 phần trăm, cao nhất" },
+            { "t": "Tài chính, nhân sự, hành chính", "d": "Đối soát, báo cáo, checklist" },
+            { "t": "Lập trình phần mềm", "d": "Chỉ 8,7 phần trăm" },
+            { "t": "Điều kiện triển khai", "d": "Đọc gì, ghi đâu, ai duyệt" }
+          ]
+        },
+        "images": ["https://techcrunch.com/wp-content/uploads/2026/07/Cowork-Web-Mobile-Press-alt-Claude-logo-1920x1080-1.png?resize=1200,675"]
+      }
+    ]
+  },
+  "facebook_post": "Tuần AI đông đúc nhất từ đầu năm: model mở cửa, giá rơi, và hóa đơn thì phình to\n\nMình vừa đóng lại tuần thứ 28 của năm và cảm giác như xem ba trận chung kết trong bốn ngày. Thứ Ba thì Meta ra model sinh ảnh đầu tay, thứ Tư SpaceXAI phá giá, thứ Năm OpenAI mở cửa model mạnh nhất cho cả thiên hạ. Còn cộng đồng thì đang bận cãi nhau về một chuyện rất trần trụi: ai trả tiền cho tất cả những thứ này.\n\n1️⃣ GPT-5.6 ra công chúng, chia làm ba tầng\nNgày 9/7, OpenAI đưa GPT-5.6 lên GA với ba bản: Sol (5 USD input / 30 USD output mỗi triệu token) cho việc khó, Terra (2,5 / 15) ngang GPT-5.5 nhưng nửa giá, và Luna (1 / 6) cho khối lượng lớn. Điều lạ là model này đã bị giữ lại 12 ngày, chỉ mở cho các tổ chức được chính phủ Mỹ duyệt, theo một khung review tự nguyện. Nghĩa là gì? Từ nay lịch ra mắt model frontier ở Mỹ có thêm một biến số nằm ngoài tay phòng lab.\n\n2️⃣ ChatGPT Work và cú gộp Codex\nCùng ngày, OpenAI ra ChatGPT Work: agent bám một dự án hàng giờ, gom dữ liệu từ Slack, Drive, SharePoint, CRM, rồi giao ra bảng tính, slide, tài liệu, web app. Codex không còn app riêng, nó nằm trong app ChatGPT desktop, kèm trình duyệt tích hợp. Nghĩa là gì? Ranh giới giữa coding agent và office agent vừa biến mất.\n\n3️⃣ Grok 4.5 phá giá, nhưng có giá phải trả\nNgày 8/7, Grok 4.5 ra mắt với 2 USD input và 6 USD output mỗi triệu token. Xếp hạng tư trên Artificial Analysis với 54 điểm, nhưng lại dẫn đầu AutomationBench với 51,4% — trên cả Fable 5 (48,6%) và Opus 4.8 (48,5%). Đổi lại, tỷ lệ ảo giác cao hơn và nó tự tin cả khi sai. Nghĩa là gì? Rẻ ở token, tốn ở khâu kiểm chứng.\n\n4️⃣ GLM-5.2 và bài viết nổ tung Hacker News\nBài của Martin Alderson (688 điểm, 468 bình luận) lập luận: GLM-5.2 là model open-weights đầu tiên đấu ngang model đóng cho việc agentic, giá chỉ 15-20% (1,40 / 4,40 USD mỗi triệu token). Ông gọi đây là cú đánh vào biên lợi nhuận suy luận, mạnh hơn khoảnh khắc DeepSeek. Nghĩa là gì? Bán token sắp hết béo bở.\n\n5️⃣ Chỉ 8,7% người dùng agent để lập trình\nAnthropic đưa Cowork lên web và mobile ngày 7/7, kèm dữ liệu sử dụng gây bất ngờ: 33,4% công việc giao cho agent là vận hành quy trình kinh doanh, còn lập trình chỉ 8,7%. Cùng lúc, một chủ đề Reddit hơn 32 nghìn upvote kể chuyện các sếp choáng váng vì hóa đơn AI sau khi tưởng thay người là miễn phí.\n\n💭 Góc nhìn của mình về tuần này\n\nCái THẬT SỰ mới tuần này không phải GPT-5.6. Model mới thì tháng nào chẳng có. Cái mới là hai con số đứng cạnh nhau: 8,7% agent dùng để code, và một loạt thay đổi giá đẩy chi phí suy luận về phía người dùng (Fable 5 từ 8/7 mọi tầng đều phải trả credit, Workspace Agent chuyển tính tiền theo token từ 6/7).\n\nGhép hai con số ấy lại, bức tranh hiện ra khá rõ. Agent đã rời khỏi phòng kỹ thuật, đi thẳng vào phòng tài chính và nhân sự — đúng chỗ mình gặp mỗi ngày khi tư vấn Data/BI: đối soát bảng tính, gom báo cáo rải rác, dựng checklist. Đồng thời, thời trợ giá đã hết. Theo mình, đó là lý do các sếp bắt đầu hoảng: họ mua AI như mua phần mềm (chi phí cố định), nhưng AI vận hành như điện (chi phí biến đổi theo lưu lượng).\n\nCốt lõi phải nhớ: chi phí AI là hàm của thiết kế workflow, không phải của bảng giá nhà cung cấp. Mình vừa học và thi chứng chỉ Databricks, làm thực hành RAG trên lakehouse với Unity Catalog và vector search. Điều thấy rõ nhất không phải model nào giỏi hơn, mà là: nếu dữ liệu sạch, phân quyền rõ, ngữ cảnh được thiết kế tử tế, thì một model rẻ cũng chạy tốt; còn dữ liệu bẩn thì model đắt nhất cũng chỉ trả lời sai một cách trôi chảy hơn.\n\nTốt hay xấu? Tùy góc nhìn. Với doanh nghiệp lớn có đội governance, tuần này là tin tốt: nhiều lựa chọn, giá cạnh tranh, model mở đủ dùng. Với team nhỏ đã lỡ khóa kiến trúc vào một nhà cung cấp và chạy mọi request qua model mạnh nhất, đây là lời cảnh báo — hóa đơn sẽ tìm đến bạn.\n\nNên làm: dựng router model để phần lớn lưu lượng chạy tầng rẻ, chỉ giữ tầng đắt cho bước lập luận cuối; viết lớp trừu tượng provider ngay hôm nay vì endpoint tương thích khiến đổi nhà cung cấp chỉ là đổi base URL; và rà quyền cross-repo cho agent — lỗ hổng GitLost tuần này cho thấy chỉ cần một issue công khai viết khéo là agent GitHub dán nội dung repo riêng tư ra ngoài.\n\nKHÔNG nên làm: sa thải người trước rồi mong agent lấp chỗ trống. Zuckerberg vừa thừa nhận ngay trong tuần này rằng sau khi cắt 8.000 việc làm, AI agent của Meta \"chưa thật sự tăng tốc như kỳ vọng\" — dù capex 2026 cam kết 125-145 tỷ USD. Nếu Meta với ngân sách đó còn chưa tăng tốc, thì kỳ vọng chuyển đổi AI xong trong một quý ở công ty vài trăm người là ảo tưởng.\n\nAI không thay người giỏi; nó khuếch đại người biết thiết kế workflow rõ ràng. Tuần này giá token rơi, nhưng cái đắt nhất vẫn là một quy trình được nghĩ cẩu thả.\n\nChi tiết 25 tin của tuần cùng phân tích từng mục, mời các bạn ghé AI News và Data News. Ai muốn nhận bản tin hàng tuần thì subscribe nhé.\n\n#AI #ArtificialIntelligence #GPT5 #Grok #OpenAI #Anthropic #OpenSourceAI #AIAgent #DataEngineering #Databricks #RAG #MachineLearning #AINews #DucNguyenAI #ChuyenDoiSo",
+  "bgm": "tech-pulse"
+}
