@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-07-11",
+      "display_date": "11/07/2026",
+      "title": "AI viết lại Postgres bằng Rust, pass 100% regression test",
+      "summary": "Một dự án cá nhân dùng AI viết lại Postgres bằng Rust, và nó vừa pass toàn bộ bài kiểm tra của Postgres. Hacker News cãi nhau nảy lửa.",
+      "source": "malisper.me",
+      "video_id": "sowGzikkL90",
+      "short_id": "WcGXLKrsAvY",
+      "published_at": "2026-07-11T19:24:31"
+    },
+    {
       "date": "2026-07-09",
       "display_date": "09/07/2026",
       "title": "Apache Ossie: chuẩn mở khai tử cảnh mỗi công cụ hiểu một kiểu",
