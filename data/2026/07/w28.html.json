@@ -1,0 +1,452 @@
+{
+ "date": "11/07/2026",
+ "week": "W28",
+ "range": "06/07 - 12/07/2026",
+ "tldr": "Tuần 28 (06/07 - 12/07/2026) là tuần thế giới dữ liệu vừa bị AI viết lại phần móng, vừa bắt đầu tính tiền phần ngọn. Cú sốc lớn nhất: pgrust, bản viết lại Postgres bằng Rust do tám AI agent sinh hơn 450 nghìn dòng code, chạy sạch hơn 46 nghìn truy vấn regression mà không lỗi một câu. Trên tầng sản phẩm, Snowflake đưa Deep Research trong CoWork lên GA, còn Databricks đổi tên Genie Spaces thành Genie Agents và bật đồng hồ tính tiền pay-as-you-go từ ngày 8 tháng 7. Ở tầng chuẩn mở, Apache Ossie mở dev list và website để thống nhất semantic model cho toàn ngành, trong khi Apache Parquet bỏ phiếu đánh số phiên bản và bàn kiểu FIXED_SIZE_LIST để lưu vector AI nhanh hơn 2,3 lần. Thông điệp của tuần rất rõ: AI đã đủ sức đụng vào hạ tầng lõi, nhưng ai muốn dùng AI trên dữ liệu thì từ nay phải trả tiền và phải có chuẩn ngữ nghĩa tử tế.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "pgrust: Postgres viết lại bằng Rust nhờ 8 AI agent, pass 100% regression test",
+   "title_en": "pgrust: Rebuilding Postgres in Rust with AI",
+   "summary": "Malcolm Matis công bố pgrust ngày 9/7 — bản viết lại PostgreSQL bằng Rust, dùng tám coding agent chạy song song sinh hơn 450.000 dòng code, và vượt toàn bộ hơn 46.000 truy vấn trong bộ regression test của Postgres mà không sai câu nào. Kiến trúc đổi từ process-per-connection sang thread-per-connection, tương thích định dạng đĩa gốc.",
+   "why": "Đây là lần đầu một AI-generated rewrite chạm được vào loại phần mềm khó nhất: database engine hai mươi năm tuổi, và pass đủ bộ test đúng đắn của nó. Tác giả nói rõ v0.1 chưa production-ready, nhưng ranh giới việc gì AI làm được ở tầng hạ tầng lõi vừa dịch chuyển thật sự.",
+   "url": "https://malisper.me/pgrust-rebuilding-postgres-in-rust-with-ai/",
+   "domain": "malisper.me",
+   "date": "2026-07-09",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 1
+  },
+  {
+   "aid": 2,
+   "title": "Apache Parquet dọn đường cho AI: bỏ phiếu versioned releases, thêm FIXED_SIZE_LIST và mã hoá ALP",
+   "title_en": "Apache Parquet moves to versioned releases; FIXED_SIZE_LIST and ALP float encoding advance",
+   "summary": "Ryan Blue đưa ra bỏ phiếu việc dùng số phiên bản cho các thay đổi phá vỡ tương thích của Parquet, mượn đúng mô hình quản trị mà Iceberg đã mài nhiều năm; một vote khác chốt ngữ nghĩa sắp xếp cho kiểu INT96 cũ. Song song, thread 24 tin bàn kiểu FIXED_SIZE_LIST để lưu vector độ dài cố định, đo được giải nén nhanh hơn 2,3 lần trên mảng float, cộng đề xuất mã hoá ALP cho embedding.",
+   "why": "Parquet là định dạng cột mà gần như mọi lakehouse đang nằm trên. Việc nó vừa mở khoá quản trị phiên bản vừa thêm kiểu dữ liệu chuyên cho vector nghĩa là tầng lưu trữ đang được thiết kế lại cho workload AI, chứ không còn chỉ cho báo cáo BI.",
+   "url": "https://dev.to/alexmercedcoder/apache-data-lakehouse-weekly-july-1-to-july-8-2026-3non",
+   "domain": "dev.to",
+   "date": "2026-07-08",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 5
+  },
+  {
+   "aid": 3,
+   "title": "Sóng release Rust của lakehouse: Iceberg Rust 0.10.0 RC3, Arrow 25.0.0 RC1, Polaris 1.6.0",
+   "title_en": "Apache Data Lakehouse Weekly: Rust releases dominate; Polaris 1.6.0 passes",
+   "summary": "Tuần này Iceberg Rust bỏ phiếu RC3 sau khi RC2 lộ lỗi lúc verify, Arrow 25.0.0 mở vote RC1 và Arrow Rust 59.1.0 RC1 đã pass, còn Apache Polaris 1.6.0 thông qua vote phát hành. iceberg-rust đang thành tầng nền cho thế hệ công cụ lakehouse thứ hai: pyiceberg-core bind vào Python, DataFusion dùng để xử lý truy vấn, nhiều service đọc-ghi Iceberg mà không cần dựng JVM.",
+   "why": "Bỏ được JVM khỏi đường đọc-ghi lakehouse là bỏ được cả gánh nặng bộ nhớ, thời gian khởi động và chi phí. Đây là lý do các engine nhẹ đang mọc lên nhanh — và là tin tốt cho team data nhỏ chạy trên máy đơn.",
+   "url": "https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-july",
+   "domain": "amdatalakehouse.substack.com",
+   "date": "2026-07-08",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 4,
+   "title": "Iceberg v4 dần thành hình: single-file commits, snapshot offloading, cập nhật theo cột",
+   "title_en": "The State of Apache Iceberg v4 in July 2026",
+   "summary": "Alex Merced tổng hợp trạng thái Iceberg v4 tính tới tháng 7: bản ổn định vẫn là v1.11 thuộc kỷ nguyên v3, nhưng nhiều mảnh v4 đã được vote thông qua như relative paths và content stats. Đang bàn tiếp: single-file commits với cây metadata thích ứng, snapshot offloading để metadata.json không phình, và cập nhật cột riêng lẻ mà không phải viết lại cả dòng.",
+   "why": "Ba hướng của v4 nhắm đúng ba nỗi đau thật: kinh tế của streaming, bảng siêu rộng cho AI, và vận hành đa vùng. Nếu bạn đang chọn table format cho ba năm tới, đây là bản đồ nên đọc trước khi ký hợp đồng.",
+   "url": "https://datalakehousehub.com/blog/iceberg-v4-state-july-2026/",
+   "domain": "datalakehousehub.com",
+   "date": "2026-07-07",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 5,
+   "title": "Streaming vào Apache Iceberg tháng 7/2026: mọi đường đi, độ trễ và lối thoát khi giây là quá chậm",
+   "title_en": "The State of Streaming to Apache Iceberg in July 2026: Every Path, Its Latency, and What to Do When Seconds Are Not Fast Enough",
+   "summary": "Bài khảo sát đối chiếu toàn bộ các con đường đưa dữ liệu streaming vào Iceberg cùng độ trễ thực tế của từng đường, và chỉ ra phải làm gì khi yêu cầu nghiệp vụ xuống dưới ngưỡng vài giây mà commit của table format không theo kịp.",
+   "why": "Đây là câu hỏi nhức nhất của mọi kiến trúc lakehouse thời gian thực: Iceberg tuyệt vời cho phân tích nhưng commit theo snapshot vốn không sinh ra để phục vụ độ trễ mili-giây. Biết rõ trần của từng đường giúp bạn khỏi hứa sai với business.",
+   "url": "https://dev.to/alexmercedcoder/the-state-of-streaming-to-apache-iceberg-in-july-2026-every-path-its-latency-and-what-to-do-when-i6p",
+   "domain": "dev.to",
+   "date": "2026-07-06",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "Rippling ra mắt Data Cloud: gắn BI vào danh tính nhân sự",
+   "title_en": "Rippling launches AI-powered Data Cloud to bridge business intelligence and employee identity",
+   "summary": "Rippling giới thiệu Data Cloud, bộ BI kéo dữ liệu từ CRM, POS, helpdesk và tài chính về một chỗ rồi nối thẳng vào danh tính nhân viên, với sơ đồ tổ chức và phân quyền dựng sẵn. Rippling AI có thể trả lời các câu hỏi kiểu chi phí nhân sự chiếm bao nhiêu phần trăm doanh thu, hay đội nào đang tiêu quá tay cho công cụ so với sản lượng.",
+   "why": "Hầu hết dashboard chết vì thiếu ngữ cảnh con người: con số biết đội nào tiêu tiền nhưng không biết đội đó là ai, báo cáo cho ai. Nối BI vào org chart và permission ngay từ tầng nền là cách giải bài toán đó mà nhiều data team Việt vẫn đang vá thủ công.",
+   "url": "https://ffnews.com/news/rippling-launches-ai-powered-data-cloud-to-bridge-business-intelligence-and-employee-identity",
+   "domain": "ffnews.com",
+   "date": "2026-07-10",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "Databricks đổi Genie Spaces thành Genie Agents và bật đồng hồ tính tiền pay-as-you-go",
+   "title_en": "Databricks July 2026 release notes: Genie Spaces renamed Genie Agents, pay-as-you-go pricing",
+   "summary": "Từ 00:00 UTC ngày 8/7/2026, toàn bộ nhóm sản phẩm Genie gồm Genie Spaces, Genie Code và Genie One chuyển sang mô hình tính tiền pay-as-you-go, kèm 150 DBU dùng LLM miễn phí mỗi tháng, tương đương khoảng 10,5 đô la ở vùng US East; Genie Spaces đồng thời được đổi tên thành Genie Agents. Cùng tuần, Databricks đưa REPLACE WHERE flows lên GA, bật hỗ trợ file Excel mặc định cho mọi workspace và mở preview managed Iceberg materialized views.",
+   "why": "Giai đoạn dùng thử miễn phí của text-to-SQL đã hết. 150 DBU cháy rất nhanh nếu cả phòng kinh doanh cùng hỏi dữ liệu, nên từ giờ mỗi câu hỏi hồn nhiên của người dùng cuối đều có giá — và data team phải thiết kế quota, cache, semantic model cho tử tế thay vì thả cửa.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/july",
+   "domain": "docs.databricks.com",
+   "date": "2026-07-08",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": 3
+  },
+  {
+   "aid": 8,
+   "title": "Apache Ossie mở dev list và website: chuẩn semantic mở chính thức về nhà ASF",
+   "title_en": "Apache Ossie (Incubating) launches dev list and website",
+   "summary": "Ngày 8/7, Apache Ossie — hậu thân của Open Semantic Interchange, vào Incubator từ 22/6 — chính thức mở dev list và bật website tại ossie.apache.org, kèm kế hoạch họp cộng đồng hai tuần một lần. Ossie định nghĩa một đặc tả YAML và JSON trung lập nhà cung cấp để mô tả metric, dimension và quan hệ, cho mọi công cụ BI, analytics và AI cùng đọc-ghi.",
+   "why": "Ossie đánh thẳng vào semantic drift: cùng một chỉ số Monthly Active Users nhưng mỗi hệ thống định nghĩa một kiểu. Sức nặng thật của nó nằm ở chỗ Apache Polaris đã huỷ vote semantic model API của mình để chờ Ossie — dấu hiệu chuẩn này đang được coi là thật, chứ không phải một đặc tả nữa cho vui.",
+   "url": "https://ossie.apache.org/",
+   "domain": "ossie.apache.org",
+   "date": "2026-07-08",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": 4
+  },
+  {
+   "aid": 9,
+   "title": "Snowflake AI_TRANSLATE dịch được tài liệu dài tới 100.000 token",
+   "title_en": "AI_TRANSLATE now supports long-document translation",
+   "summary": "Snowflake Cortex nâng hàm AI_TRANSLATE lên mức xử lý tối đa 100.000 token đầu vào, cho phép dịch tài liệu dài và văn bản dạng dài ngay bên trong Snowflake mà không phải cắt nhỏ rồi ghép lại thủ công.",
+   "why": "Với doanh nghiệp Việt phải xử lý hợp đồng, báo cáo, tài liệu kỹ thuật song ngữ, dịch ngay trong kho dữ liệu nghĩa là không phải bê dữ liệu nhạy cảm ra ngoài. Đây là kiểu tính năng nhỏ nhưng xoá được cả một đoạn pipeline lắt nhắt.",
+   "url": "https://docs.snowflake.com/en/release-notes/2026/other/2026-07-06-ai-translate-long-document-translation",
+   "domain": "docs.snowflake.com",
+   "date": "2026-07-06",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "Dun & Bradstreet đưa AI agent vào D&B Risk Analytics, cắt 70-90% quy trình compliance",
+   "title_en": "Dun & Bradstreet brings agentic AI to D&B Risk Analytics",
+   "summary": "Dun & Bradstreet bổ sung năng lực agentic AI cho nền tảng D&B Risk Analytics, cho phép agent hành động trực tiếp trên dữ liệu rủi ro và tuân thủ đã được kiểm chứng để tự động hoá onboarding và các bước KYC, KYB. Agent kết nối qua Model Context Protocol, hỗ trợ các trợ lý AI phổ biến và dự kiến mở rộng sang Microsoft Copilot cùng hệ sinh thái Google, giúp giảm 70 đến 90 phần trăm công đoạn thủ công.",
+   "why": "Đây là ví dụ sạch của data-for-AI làm đúng: agent không tự bịa, nó hành động trên Commercial Graph đã được xác thực. Với ngân hàng và fintech Việt đang ngập trong KYC thủ công, mô hình dữ liệu đã kiểm chứng cộng MCP là con đường đáng học nhất tuần này.",
+   "url": "https://solutionsreview.com/business-intelligence/analytics-and-data-science-news-for-the-week-of-july-10-updates-from-actian-dun-bradstreet-gartner-more/",
+   "domain": "solutionsreview.com",
+   "date": "2026-07-10",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "Databricks host GPT-5.6 (Sol, Terra, Luna) và siết quyền AI Functions trong Unity Catalog",
+   "title_en": "Databricks hosts OpenAI GPT-5.6 models; AI Functions Unity Catalog permissions in Public Preview",
+   "summary": "Ngày 9/7, bộ mô hình OpenAI GPT-5.6 gồm Sol, Terra và Luna trở thành mô hình do Databricks tự host qua Foundation Model APIs, chạy trong ranh giới hạ tầng của khách hàng. Trước đó một ngày, Databricks mở Public Preview cho phép phân quyền từng AI Function riêng lẻ trong Unity Catalog.",
+   "why": "Chi tiết đáng chú ý không phải là model mới, mà là hai chữ Databricks-hosted: dữ liệu không rời nền tảng. Cộng thêm phân quyền tới từng AI Function, đây là bước biến AI trong kho dữ liệu từ tính năng thành thứ quản trị được — điều kiện bắt buộc để bộ phận compliance chịu ký.",
+   "url": "https://learn.microsoft.com/en-us/azure/databricks/release-notes/product/2026/july",
+   "domain": "learn.microsoft.com",
+   "date": "2026-07-09",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "Airbyte Agents lên GA: Context Store, MCP endpoint và quyền ghi ngược vào Salesforce",
+   "title_en": "Airbyte Agents Data Platform Available on OpenAI App Marketplace, Adds CLI and Salesforce Write",
+   "summary": "Ngày 8/7, Airbyte đưa nền tảng dữ liệu AI-native Airbyte Agents lên GA: có mặt trên OpenAI App Marketplace, thêm Agent CLI dạng một binary cho developer và CI/CD, cùng connector ghi ngược vào Salesforce và HubSpot. Trung tâm là Context Store — bản sao dữ liệu vận hành đã tối ưu cho tìm kiếm — phơi ra qua MCP endpoint cho mọi client tương thích.",
+   "why": "Airbyte đang tự định vị lại từ công cụ ELT thành context infrastructure. Điểm bước ngoặt là agent không chỉ đọc mà đã được ghi ngược vào hệ thống nghiệp vụ — tiện gấp bội, nhưng cũng là lúc phải nghĩ rất nghiêm túc về quyền và audit trail.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/airbyte-enhances-agents-platform-with-openai-marketplace-launch-and-new-automation-tools/",
+   "domain": "hpcwire.com",
+   "date": "2026-07-08",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "Snowflake đưa Deep Research trong CoWork lên GA: tự phân rã câu hỏi, chạy song song, trích nguồn từng câu",
+   "title_en": "Deep Research in Snowflake CoWork (General Availability)",
+   "summary": "Từ 7/7, Deep Research trong Snowflake CoWork chính thức GA. Đây là chế độ điều tra cho các câu hỏi mở, phức tạp: thay vì trả về một kết quả, CoWork tự phân rã câu hỏi thành nhiều nhánh điều tra con, chạy song song trên cả dữ liệu có cấu trúc lẫn phi cấu trúc, rồi tổng hợp thành một báo cáo có cấu trúc. Mọi khẳng định trong báo cáo đều truy ngược được về dữ liệu nguồn và truy vấn đã chạy.",
+   "why": "Text-to-SQL trả lời một câu hỏi; Deep Research trả lời một vấn đề. Nhưng thứ đáng giá nhất lại là phần ít hào nhoáng nhất: mỗi câu đều dẫn về query đã chạy. Không có lớp truy vết đó thì báo cáo do AI viết chỉ là văn hay, không ai dám ký.",
+   "url": "https://docs.snowflake.com/en/release-notes/2026/other/2026-07-07-snowflake-cowork-deep-research-ga",
+   "domain": "docs.snowflake.com",
+   "date": "2026-07-07",
+   "section": "🤖 AI × Data",
+   "hot_rank": 2
+  },
+  {
+   "aid": 14,
+   "title": "Expedia dùng LLM đọc Spark SQL plan: giảm 40-95% thời gian chạy, 50-95% chi phí compute",
+   "title_en": "Using LLMs to Analyze Spark SQL Plans: A Practical Approach to Debugging Long-Running Jobs",
+   "summary": "Đội kỹ thuật Expedia Group dựng workflow tự động đẩy metadata của Spark execution plan qua một MCP server vào LLM, rồi dùng prompt có cấu trúc để phát hiện các anti-pattern quen thuộc: thiếu broadcast join, partition lệch, broadcast quá khổ, full table scan. Kết quả thực tế: thời gian chạy job giảm 40 đến 95 phần trăm, chi phí compute giảm 50 đến 95 phần trăm, có job từ ba tiếng rút về đúng hạn, có job từ 20 phút còn 1 phút.",
+   "why": "Đây là cách dùng AI trong data engineering mà mình thích nhất: không sinh code hộ, mà đọc hộ thứ con người lười đọc — execution plan. Bài toán tối ưu Spark vốn cần chuyên gia hiếm và đắt; đưa nó thành workflow lặp lại được là giá trị thật, đo được bằng hoá đơn cloud.",
+   "url": "https://medium.com/expedia-group-tech/using-llms-to-analyze-spark-sql-plans-a-practical-approach-to-debugging-long-running-jobs-35eace7eeec4",
+   "domain": "medium.com",
+   "date": "2026-07-06",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "r/dataengineering bùng nổ: \"Gửi những ai nghĩ AI sắp cướp việc data engineer\"",
+   "title_en": "For folks who think AI is going to take data engineering jobs",
+   "summary": "Bài đăng ngày 9/7 trên r/dataengineering đạt 429 upvote và 134 bình luận, kể về một công ty tuyển data engineer chỉ vài tháng vì tin rằng sau đó sẽ không cần ai bảo trì thứ mà DE dựng ra. Bình luận được vote cao nhất gọi thẳng đó là sự ngạo mạn, và cảnh báo đây là cờ đỏ cho bất kỳ ai định ứng tuyển.",
+   "why": "Cuộc tranh luận này phơi ra hiểu lầm cốt lõi của lãnh đạo: nghĩ pipeline là thứ dựng một lần rồi thôi. Thực tế chi phí của data engineering nằm ở bảo trì, ở schema đổi, ở nguồn chết lúc hai giờ sáng — đúng phần AI hiện vẫn yếu nhất.",
+   "url": "https://www.reddit.com/r/dataengineering/comments/1urg3nx/for_folks_who_think_ai_is_going_to_take_data/",
+   "domain": "reddit.com",
+   "date": "2026-07-09",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 16,
+   "title": "Tranh cãi chưa có lời giải trong Iceberg: các engine đang ghi đè thống kê của nhau",
+   "title_en": "Apache Data Lakehouse: 4 major debates shaping open formats",
+   "summary": "Cộng đồng Iceberg vẫn chưa chốt được cách xử lý xung đột thống kê trong triển khai đa engine: Spark lo ingest, Trino hoặc Dremio phục vụ truy vấn tương tác, Impala hay Flink nằm đâu đó trong pipeline, mỗi engine một mô hình thống kê riêng. Khi engine A ghi thống kê cho một snapshot rồi engine B tự tính lại, B ghi đè thẳng lên công sức của A — không có cơ chế trọng tài, không versioning, không mô hình sở hữu.",
+   "why": "Đây chính là cái giá thật của lời hứa lakehouse mở: nhiều engine trên một bản dữ liệu nghe rất đẹp cho tới khi chúng đá nhau ở tầng metadata. Thống kê sai thì query planner chọn sai kế hoạch, và bạn trả tiền cho một cú full scan không đáng có.",
+   "url": "https://www.squaredtech.co/apache-data-lakehouse-4-major-debates-shaping-open-formats",
+   "domain": "squaredtech.co",
+   "date": "2026-07-08",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "Data Engineering Weekly #277: Meta công bố blueprint lưu trữ cho AI, Stripe replay traffic bằng Spark",
+   "title_en": "Data Engineering Weekly #277",
+   "summary": "Số ra ngày 6/7 tập hợp loạt bài kỹ thuật đáng đọc: Meta trình bày kiến trúc lưu trữ cho AI ở quy mô lớn với schema metadata hợp nhất và SDK client streaming trực tiếp để gỡ nút thắt GPU; Stripe dùng Spark replay lưu lượng production lịch sử để kiểm thử hồi quy microservice; Target dựng kiến trúc RAG cho dự báo chiến dịch marketing, đạt độ phủ 100 phần trăm ở top ba.",
+   "why": "Ba case study, ba cách dùng dữ liệu rất khác nhau, nhưng cùng một bài học: hạ tầng dữ liệu tốt là thứ làm cho AI và cả hệ thống thường chạy được ở quy mô lớn. Đây là loại nội dung để học nghề, không phải để đọc cho vui.",
+   "url": "https://www.dataengineeringweekly.com/p/data-engineering-weekly-277",
+   "domain": "dataengineeringweekly.com",
+   "date": "2026-07-06",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 18,
+   "title": "Cộng đồng bàn chuyện nghề DE quá tải người mới: \"ai cũng học cú pháp, ít ai giải được bài toán\"",
+   "title_en": "Overcrowding in data engineering field",
+   "summary": "Thread ngày 6/7 trên r/dataengineersindia bàn về tình trạng thị trường ngập ứng viên data engineer nhưng thiếu người thật sự làm được việc. Bình luận nổi bật: ai cũng học được cú pháp và thuật ngữ, số người thật sự áp dụng và giải được vấn đề rất ít; một người phỏng vấn kể phải tự hỏi ứng viên làm gì ở chỗ làm cũ. Nhiều ý kiến khuyên học sâu GenAI vì phỏng vấn DE giờ đã hỏi cả RAG, LangChain, LangGraph.",
+   "why": "Nghịch lý của nghề: thị trường vừa thừa người vừa thiếu người. Điều đáng lưu cho bạn trẻ Việt là mô tả công việc DE đang lặng lẽ nuốt thêm phần AI — biết Spark và SQL thôi chưa đủ, phải hiểu cả RAG và agent.",
+   "url": "https://www.reddit.com/r/dataengineersindia/comments/1uonvv5/overcrowding_in_data_engineering_field/",
+   "domain": "reddit.com",
+   "date": "2026-07-06",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 19,
+   "title": "Actian hoàn tất thâu tóm Jaspersoft, gộp embedded analytics vào danh mục quản trị dữ liệu",
+   "title_en": "Actian Expands Data Management Portfolio With Jaspersoft Embedded Analytics And Agentic BI",
+   "summary": "Actian, mảng data và AI của HCLSoftware, hoàn tất thương vụ mua Jaspersoft và đang gộp năng lực embedded analytics cùng báo cáo pixel-perfect của Jaspersoft vào danh mục quản trị dữ liệu của mình. Nền tảng hợp nhất hứa hẹn đường đi liền mạch từ dữ liệu đã được quản trị sang báo cáo vận hành, dashboard và các năng lực agentic BI đang hình thành.",
+   "why": "Làn sóng hợp nhất ở tầng BI vẫn chưa dừng: sau Fivetran gộp dbt Labs, giờ tới Actian ôm Jaspersoft. Xu hướng rõ ràng là khách hàng không muốn ghép năm nhà cung cấp để đi từ dữ liệu thô tới báo cáo nữa.",
+   "url": "https://www.actian.com/blog/company/actian-adds-jaspersoft/",
+   "domain": "actian.com",
+   "date": "2026-07-10",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 20,
+   "title": "Teradata khảo sát 1.000 lãnh đạo công nghệ: điều gì đang chặn AI doanh nghiệp",
+   "title_en": "Teradata AI Report Surveys 1,000 Global Tech and Data Leaders",
+   "summary": "Teradata công bố báo cáo AI dựa trên khảo sát 1.000 lãnh đạo công nghệ và dữ liệu toàn cầu, soi vào những gì thật sự xảy ra khi doanh nghiệp cố mở rộng quy mô AI. Các rào cản dai dẳng vẫn quay về đúng bốn thứ: dữ liệu chưa sẵn sàng, quản trị, đo lường ROI và thiếu kỹ năng.",
+   "why": "Không có gì mới, và đó mới là điều đáng nói. Sau ba năm hype, thứ chặn AI doanh nghiệp vẫn là dữ liệu bẩn và quản trị lỏng — không phải model yếu. Ai định mua thêm một công cụ AI nữa để chữa nên đọc lại danh sách này.",
+   "url": "https://www.prnewswire.com/news-releases/nyse-content-update-teradata-ai-report-surveys-1-000-global-tech--data-leaders-302819481.html",
+   "domain": "prnewswire.com",
+   "date": "2026-07-10",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 21,
+   "title": "Snowflake mở trụ sở tại Paris, rót vốn vào Mistral AI và Dust",
+   "title_en": "Snowflake opens new office in France to accelerate data and AI innovation",
+   "summary": "Snowflake khai trương trụ sở mới tại trung tâm Paris để phục vụ khách hàng doanh nghiệp và SMB, phản ánh nhu cầu mạnh với AI Data Cloud tại Pháp. Động thái này gắn với chiến lược hệ sinh thái rộng hơn, trong đó Snowflake Ventures đã đầu tư vào các công ty AI Pháp như Mistral AI và Dust.",
+   "why": "Cuộc đua data cloud đang chuyển sang mặt trận chủ quyền dữ liệu khu vực. Việc một vendor Mỹ vừa mở văn phòng vừa đầu tư vào vô địch AI nội địa là bài học đáng ngẫm cho thị trường Việt Nam khi nói chuyện data sovereignty.",
+   "url": "https://www.snowflake.com/en/news/press-releases/snowflake-opens-new-office-france-accelerate-data-ai-innovation/",
+   "domain": "snowflake.com",
+   "date": "2026-07-10",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 22,
+   "title": "Cloudera và Mercy Corps mở rộng hợp tác: agentic AI cho ứng phó nhân đạo",
+   "title_en": "Cloudera and Mercy Corps deepen partnership with agentic AI for humanitarian response",
+   "summary": "Cloudera công bố giai đoạn tiếp theo trong hợp tác với Mercy Corps, xoay quanh agentic AI có thể hành động trên dữ liệu nhân đạo hợp nhất trải khắp nhiều cloud và môi trường edge. Các agent sẽ giúp phân tích dữ liệu khí hậu, xung đột và kinh tế, chạy kịch bản dự phóng và tự động hoá một phần quy trình ứng phó, trong khi vẫn giữ quản trị dữ liệu, chủ quyền và giám sát của con người ở vị trí trung tâm.",
+   "why": "Một trong số ít case study agentic AI có kết quả đo được bằng mạng người chứ không phải bằng doanh thu. Điểm kỹ thuật đáng học: dữ liệu nằm rải rác từ cloud tới edge ở vùng sóng yếu, đúng bài toán mà nhiều tổ chức Việt cũng gặp.",
+   "url": "https://www.cloudera.com/about/news-and-blogs/press-releases/2026-07-09-cloudera-and-mercy-corps-deepen-partnership-with-agentic",
+   "domain": "cloudera.com",
+   "date": "2026-07-09",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 1,
+ "weekly_video": {
+  "intro": "Chào các bạn, đây là bản tin Data News tuần 28, từ ngày 6 đến 12 tháng 7 năm 2026. Tuần này thế giới dữ liệu vừa bị AI viết lại phần móng, vừa bắt đầu tính tiền phần ngọn. Một AI viết lại được cả Postgres bằng Rust, Snowflake và Databricks đẩy agent phân tích lên mức thương mại, còn tầng chuẩn mở thì lặng lẽ dọn đường cho kỷ nguyên AI. Mời các bạn cùng Đức điểm qua năm câu chuyện nóng nhất.",
+  "outro": "Đó là năm câu chuyện nổi bật nhất tuần 28. Chi tiết đầy đủ của cả hai mươi hai tin, các bạn xem trong bản tin trên trang Data News. Hẹn gặp lại các bạn tuần sau.",
+  "segments": [
+   {
+    "aid": 1,
+    "headline": "pgrust: AI viết lại Postgres bằng Rust, pass sạch test",
+    "narration": "Câu chuyện gây sốc nhất tuần đến từ một dự án cá nhân. Ngày 9 tháng 7, Malcolm Matis công bố pgrust, bản viết lại toàn bộ PostgreSQL bằng ngôn ngữ Rust. Điều đáng kinh ngạc không nằm ở ý tưởng, mà ở cách nó được làm: tác giả cho tám coding agent chạy song song, sinh ra hơn bốn trăm năm mươi nghìn dòng code. Kết quả là pgrust chạy sạch hơn bốn mươi sáu nghìn truy vấn trong bộ regression test của Postgres, không sai một câu nào. Về kiến trúc, pgrust bỏ mô hình mỗi kết nối một tiến trình để chuyển sang mỗi kết nối một luồng, vì bảo đảm an toàn bộ nhớ của Rust đã thay được vai trò cách ly tiến trình. Trên lý thuyết, điều này gỡ giới hạn số kết nối và tăng hiệu năng truy vấn song song. Tác giả nói rất thẳng: bản 0.1 chưa sẵn sàng cho production, chưa tối ưu hiệu năng, và còn thiếu phần lớn hệ extension. Cộng đồng cũng hoài nghi đúng mực. Nhưng theo Đức, ý nghĩa thật của pgrust không phải là thay thế Postgres. Nó là một cột mốc: lần đầu tiên một bản viết lại do AI sinh ra chạm được vào loại phần mềm khó nhất mà ngành phần mềm có, là database engine hai mươi năm tuổi, và vượt qua chính bộ test đúng đắn của nó. Ranh giới việc gì AI làm được ở tầng hạ tầng lõi vừa dịch chuyển thật sự.",
+    "bullets": [
+     "Tám AI agent sinh hơn 450 nghìn dòng Rust",
+     "Pass 100 phần trăm hơn 46 nghìn regression query",
+     "Đổi sang mô hình thread-per-connection"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "pgrust v0.1 qua các con số",
+     "items": [
+      {
+       "v": "8",
+       "l": "AI agent chạy song song"
+      },
+      {
+       "v": "450K+",
+       "l": "dòng code Rust sinh ra"
+      },
+      {
+       "v": "46K+",
+       "l": "truy vấn regression pass"
+      },
+      {
+       "v": "100%",
+       "l": "tỷ lệ vượt bộ test"
+      }
+     ]
+    },
+    "images": [
+     "https://malisper.me/wp-content/uploads/2026/04/image-1.png"
+    ]
+   },
+   {
+    "aid": 13,
+    "headline": "Snowflake Deep Research trong CoWork chính thức GA",
+    "narration": "Ngày 7 tháng 7, Snowflake đưa tính năng Deep Research trong CoWork lên trạng thái phát hành chính thức. Đây không còn là một hàm text-to-SQL. Deep Research là chế độ điều tra dành cho những câu hỏi mở và phức tạp, loại câu hỏi mà một truy vấn duy nhất không thể trả lời. Cách nó làm việc như sau: thay vì trả về một kết quả, CoWork tự phân rã câu hỏi lớn thành nhiều nhánh điều tra con, chạy các nhánh đó song song trên cả dữ liệu có cấu trúc lẫn phi cấu trúc, rồi tổng hợp lại thành một bản báo cáo có cấu trúc. Nhưng điểm khiến Đức chú ý nhất lại là phần ít hào nhoáng nhất. Mọi khẳng định trong báo cáo đều truy ngược được về đúng dữ liệu nguồn và đúng câu truy vấn đã chạy ra nó. Bạn kiểm chứng được từng bước suy luận trước khi chia sẻ cho sếp. Vì sao điều này quan trọng? Vì trong thực tế tư vấn, thứ giết chết niềm tin vào báo cáo do AI viết không phải là AI viết dở, mà là AI viết hay quá mà không ai kiểm chứng được. Một con số đẹp không dẫn nguồn thì không ai dám ký. Lớp truy vết nguồn chính là thứ biến một bản tóm tắt thú vị thành một tài liệu ra quyết định được. Snowflake hiểu điều đó, và họ bán chính lớp truy vết đó.",
+    "bullets": [
+     "Tự phân rã câu hỏi thành nhiều nhánh điều tra",
+     "Chạy song song trên dữ liệu có và phi cấu trúc",
+     "Mọi khẳng định truy ngược về query nguồn"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Cách Deep Research làm việc",
+     "items": [
+      {
+       "t": "Câu hỏi mở",
+       "d": "Vấn đề phức tạp, nhiều tầng"
+      },
+      {
+       "t": "Phân rã",
+       "d": "Tách thành nhiều điều tra con"
+      },
+      {
+       "t": "Chạy song song",
+       "d": "Quét dữ liệu có và phi cấu trúc"
+      },
+      {
+       "t": "Tổng hợp",
+       "d": "Báo cáo có cấu trúc"
+      },
+      {
+       "t": "Truy nguồn",
+       "d": "Mỗi câu dẫn về query gốc"
+      }
+     ]
+    },
+    "images": [
+     "https://www.snowflake.com/content/dam/snowflake-site/blog/2026/06/snowflake-cowork-summit26-blog-header.png"
+    ]
+   },
+   {
+    "aid": 7,
+    "headline": "Databricks bật đồng hồ tính tiền cho Genie Agents",
+    "narration": "Từ 0 giờ UTC ngày 8 tháng 7, Databricks chính thức bật đồng hồ tính tiền cho toàn bộ nhóm sản phẩm Genie, gồm Genie Spaces, Genie Code và Genie One. Mô hình mới là trả theo mức dùng, kèm một trăm năm mươi DBU sử dụng mô hình ngôn ngữ miễn phí mỗi tháng, tương đương khoảng mười phẩy năm đô la ở vùng US East. Cùng lúc đó, Genie Spaces được đổi tên thành Genie Agents, một cái tên nói rất rõ tham vọng của họ. Trong cùng tuần, Databricks còn đưa REPLACE WHERE flows lên phát hành chính thức và bật hỗ trợ file Excel mặc định cho mọi workspace. Nhưng tin chính vẫn là chuyện tiền. Theo Đức, đây là dấu chấm hết cho giai đoạn dùng thử miễn phí của text-to-SQL trong doanh nghiệp. Một trăm năm mươi DBU nghe có vẻ nhiều, nhưng nó cháy rất nhanh nếu cả phòng kinh doanh cùng ngồi hỏi dữ liệu bằng ngôn ngữ tự nhiên cả ngày. Điều này nghĩa là gì với người làm dữ liệu? Từ giờ mỗi câu hỏi hồn nhiên của người dùng cuối đều có giá tiền cụ thể. Data team không thể thả cửa cho ai hỏi gì thì hỏi nữa. Bạn phải thiết kế quota, thiết kế cache, và quan trọng nhất là thiết kế semantic model cho tử tế, để một câu hỏi ra đúng một truy vấn hiệu quả, chứ không phải năm cú quét toàn bảng. Chi phí vừa biến chất lượng mô hình ngữ nghĩa từ chuyện kỹ thuật thành chuyện tài chính.",
+    "bullets": [
+     "Genie Spaces đổi tên thành Genie Agents",
+     "150 DBU miễn phí mỗi tháng, khoảng 10,5 đô la",
+     "Semantic model kém giờ thành chi phí thật"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Genie: trước và sau ngày 8/7",
+     "left": {
+      "h": "Trước 8/7/2026",
+      "items": [
+       "Genie Spaces, dùng thoải mái",
+       "Chi phí LLM ẩn trong nền tảng",
+       "Không cần quota người dùng"
+      ]
+     },
+     "right": {
+      "h": "Từ 8/7/2026",
+      "items": [
+       "Genie Agents, trả theo mức dùng",
+       "150 DBU miễn phí rồi tính tiền",
+       "Phải thiết kế quota và cache"
+      ]
+     }
+    },
+    "images": []
+   },
+   {
+    "aid": 8,
+    "headline": "Apache Ossie: chuẩn semantic mở về nhà ASF",
+    "narration": "Ngày 8 tháng 7, Apache Ossie chính thức mở dev list và bật website, kèm kế hoạch họp cộng đồng hai tuần một lần. Ossie là hậu thân của Open Semantic Interchange, đã vào vườn ươm Apache Incubator từ ngày 22 tháng 6. Nó giải quyết một vấn đề mà bất kỳ ai từng làm BI cho doanh nghiệp đều thấm: semantic drift. Nghĩa là cùng một khái niệm nghiệp vụ, ví dụ số người dùng hoạt động hàng tháng, nhưng mỗi hệ thống trong công ty lại định nghĩa một kiểu. Phòng marketing tính một cách, phòng sản phẩm tính cách khác, và cuộc họp biến thành cuộc cãi nhau xem con số nào đúng. Ossie đề xuất một đặc tả khai báo bằng YAML và JSON, trung lập với nhà cung cấp, để mô tả metric, dimension và các quan hệ join. Mọi công cụ BI, analytics và cả AI agent đều đọc chung một nguồn sự thật. Sức nặng thật của tin này nằm ở một chi tiết nhỏ nhiều người bỏ qua: Apache Polaris đã hủy cuộc bỏ phiếu cho semantic model API của chính mình để chờ đặc tả Ossie. Khi một dự án Apache chịu hy sinh spec riêng cho một chuẩn chung, đó là tín hiệu chuẩn này được coi là thật. Theo Đức, với doanh nghiệp Việt, tư thế đúng lúc này chưa phải là di trú, mà là căn chỉnh và thử nghiệm. Nhưng nếu bạn đang xây semantic layer mới, hãy nhìn Ossie trước khi tự đẻ ra một định dạng riêng.",
+    "bullets": [
+     "Đặc tả YAML và JSON trung lập nhà cung cấp",
+     "Chống semantic drift giữa các hệ thống",
+     "Polaris hoãn API riêng để chờ Ossie"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Ossie đứng ở đâu trong stack",
+     "items": [
+      {
+       "t": "Dữ liệu nguồn",
+       "d": "Lakehouse, warehouse, bảng"
+      },
+      {
+       "t": "Đặc tả Ossie",
+       "d": "Metric, dimension, join dạng YAML"
+      },
+      {
+       "t": "Catalog và BI",
+       "d": "Polaris, công cụ báo cáo đọc chung"
+      },
+      {
+       "t": "AI agent",
+       "d": "Hỏi đáp trên cùng một định nghĩa"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 2,
+    "headline": "Apache Parquet dọn đường cho kỷ nguyên AI",
+    "narration": "Câu chuyện cuối cùng ít ồn ào nhất nhưng có thể ảnh hưởng lâu nhất. Tuần này, Ryan Blue đưa ra bỏ phiếu việc Apache Parquet sẽ dùng số phiên bản cho các thay đổi phá vỡ tương thích, mượn đúng mô hình quản trị mà Iceberg đã mài giũa nhiều năm. Một cuộc bỏ phiếu khác đã chốt ngữ nghĩa sắp xếp cho kiểu INT96 cũ, chấm dứt nhiều năm mỗi engine hiểu một kiểu. Nghe rất khô khan, nhưng đây là chuyện lớn: nó mở khóa cho những thay đổi định dạng vốn bị treo nhiều năm vì không ai dám phá tương thích. Và thứ đầu tiên được mở khóa nói lên tất cả về thời đại này. Một thread dài hai mươi bốn tin đang bàn kiểu dữ liệu FIXED_SIZE_LIST, tức mảng có độ dài cố định, sinh ra để lưu vector cho workload AI mà không phải gánh chi phí mã hóa độ dài biến thiên. Benchmark cho thấy giải nén nhanh hơn hai phẩy ba lần trên mảng số thực, và có thể nhanh thêm một phẩy năm lần nữa nếu thêm gợi ý. Song song, có đề xuất mã hóa ALP để nén số thực trong embedding hiệu quả hơn. Điểm cốt lõi phải nhớ: Parquet là định dạng cột mà gần như mọi lakehouse trên thế giới đang nằm lên. Việc nó vừa mở khóa quản trị phiên bản, vừa thêm kiểu dữ liệu chuyên cho vector, nghĩa là tầng lưu trữ nền của cả ngành đang được thiết kế lại cho workload AI.",
+    "bullets": [
+     "Parquet dùng version cho thay đổi phá tương thích",
+     "FIXED_SIZE_LIST giải nén nhanh hơn 2,3 lần",
+     "Mã hóa ALP nhắm vào embedding AI"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Parquet cho workload AI",
+     "items": [
+      {
+       "v": "2,3x",
+       "l": "giải nén nhanh hơn với mảng float"
+      },
+      {
+       "v": "1,5x",
+       "l": "tiềm năng tăng thêm nhờ hints"
+      },
+      {
+       "v": "24",
+       "l": "tin thảo luận FIXED_SIZE_LIST"
+      }
+     ]
+    },
+    "images": []
+   }
+  ]
+ },
+ "facebook_post": "Tuần AI viết lại Postgres, còn Databricks bắt đầu tính tiền từng câu hỏi dữ liệu\n\nTuần này mình đọc tin mà phải dừng lại uống ngụm cà phê. Lần đầu tiên mình thấy AI đụng vào đúng chỗ khó nhất của ngành dữ liệu: cái móng. Và cùng lúc, các ông lớn lặng lẽ bật đồng hồ tính tiền cho thứ mà sáu tháng trước còn cho dùng thoải mái. Tuần 28 gói gọn trong một câu: móng bị viết lại, ngọn bắt đầu thu phí.\n\n1️⃣ pgrust: tám AI agent viết lại Postgres bằng Rust\nNgày 9/7, Malcolm Matis công bố pgrust: tám coding agent chạy song song, sinh hơn 450 nghìn dòng Rust, chạy sạch hơn 46 nghìn truy vấn regression test của Postgres, không sai một câu. Tác giả nói thẳng: bản 0.1 chưa production-ready, thiếu phần lớn extension. Nhưng ý nghĩa không nằm ở chuyện thay Postgres. Nó nằm ở chỗ: một database engine 20 năm tuổi, thứ khó nhất nghề phần mềm, vừa bị AI viết lại và vượt qua chính bộ test đúng đắn của nó.\n\n2️⃣ Databricks bật đồng hồ tính tiền cho Genie\nTừ 0h UTC ngày 8/7, Genie Spaces, Genie Code và Genie One chuyển sang trả theo mức dùng, kèm 150 DBU LLM miễn phí mỗi tháng (khoảng 10,5 đô ở US East). Genie Spaces cũng đổi tên thành Genie Agents. Nghĩa là gì? Giai đoạn text-to-SQL miễn phí đã hết. 150 DBU cháy rất nhanh nếu cả phòng kinh doanh ngồi hỏi cả ngày.\n\n3️⃣ Snowflake đưa Deep Research lên GA\nNgày 7/7, Deep Research trong CoWork chính thức GA: tự phân rã câu hỏi phức tạp thành nhiều nhánh điều tra con, chạy song song trên dữ liệu có và phi cấu trúc, rồi tổng hợp thành báo cáo. Điểm hay nhất lại ít hào nhoáng nhất: mọi khẳng định đều truy ngược được về đúng câu query đã chạy.\n\n4️⃣ Apache Ossie mở dev list: chuẩn semantic về nhà ASF\nNgày 8/7, Apache Ossie (hậu thân của Open Semantic Interchange) mở dev list và bật website — đặc tả YAML/JSON trung lập nhà cung cấp để mọi công cụ BI, analytics và AI agent cùng hiểu một định nghĩa metric. Chi tiết đáng giá: Apache Polaris đã hủy vote semantic model API của chính mình để chờ Ossie.\n\n5️⃣ Expedia dùng LLM đọc Spark SQL plan\nĐội Expedia đẩy metadata của Spark execution plan qua MCP server vào LLM để dò anti-pattern: thiếu broadcast join, partition lệch, full table scan. Kết quả: runtime giảm 40-95%, chi phí compute giảm 50-95%. Có job từ 20 phút còn 1 phút.\n\n💭 Góc nhìn của mình về tuần này\nMình vừa học và thi chứng chỉ Databricks, đang làm thực hành RAG trên nền lakehouse với Delta, Unity Catalog và vector search. Nên tin Genie bật tính tiền, với mình, không phải tin xấu. Nó lành mạnh.\n\nLý do: khi text-to-SQL còn miễn phí, không ai buồn hỏi câu hỏi khó nhất — mô hình ngữ nghĩa của mình có tử tế không? Cứ thả cửa, AI đoán bừa, sai thì đổ cho AI. Giờ mỗi câu hỏi có giá cụ thể, chất lượng semantic model lập tức từ chuyện kỹ thuật thành chuyện tài chính. Một câu hỏi ra một truy vấn gọn hay ra năm cú full scan, hóa đơn cuối tháng sẽ nói cho bạn biết. Thứ đẩy data team trưởng thành nhanh nhất là đau ví.\n\nVà đó là lý do mình nghĩ Apache Ossie mới là tin âm thầm quan trọng nhất tuần. Bạn không thể tối ưu chi phí AI hỏi-đáp dữ liệu nếu mỗi hệ thống định nghĩa doanh thu một kiểu. Chi phí và ngữ nghĩa là hai mặt của cùng một đồng xu.\n\nNÊN làm tuần này: rà soát semantic model và định nghĩa metric của công ty, trước khi mua thêm bất kỳ công cụ AI nào. KHÔNG NÊN: bê pgrust vào production, và vội migrate sang Ossie khi spec mới v0.1 — hãy căn chỉnh và thử nghiệm thôi.\n\nAI viết được cả một database engine, nhưng nó vẫn chưa biết đâu là con số đúng khi công ty bạn có ba định nghĩa doanh thu. Vấn đề chưa bao giờ nằm ở công cụ — nó nằm ở chỗ mình có chịu định nghĩa dữ liệu cho rõ ràng hay không.\n\nGhé AI News và Data News của mình để đọc đầy đủ 22 tin tuần này nhé. 🙌\n\n#Data #DataEngineering #Lakehouse #ApacheIceberg #Parquet #Databricks #Snowflake #PostgreSQL #Rust #SemanticLayer #TextToSQL #BusinessIntelligence #AIAgent #DataNews #DucNguyenAI",
+ "bgm": "minimal-tech",
+ "youtube": {
+  "recap": "vC-2A7fx0tE",
+  "short": "eBD5CxpapKA"
+ }
+}

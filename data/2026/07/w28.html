@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data News – Tuần W28: AI viết lại Postgres, Genie bật đồng hồ tính tiền</title>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data News – Tuần W28: AI viết lại Postgres, Genie bật đồng hồ tính tiền">
+<meta property="og:description" content="Tuần 28: pgrust viết lại Postgres bằng Rust nhờ 8 AI agent và pass 100% regression test, Snowflake đưa Deep Research lên GA, Databricks tính tiền Genie Agents, Apache Ossie và Parquet dọn đường cho kỷ nguyên AI.">
+<meta property="og:image" content="https://ducnguyen.vn/news/data/assets/og-banner.png">
+<meta property="og:url" content="https://ducnguyen.vn/news/data/2026/07/w28.html">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#04060a;color:#f8fafc;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.65;font-size:16px}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px 60px;position:relative;z-index:2}
+a{color:#34f5a4}
+
+/* HEADER */
+.hdr{position:sticky;top:8px;z-index:60;background:rgba(6,9,16,.92);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:12px;margin:10px 0 4px;padding:12px 16px}
+.hdr-row{display:flex;align-items:center}
+.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:#f8fafc}
+.brand-mark{width:42px;height:42px;display:grid;place-items:center;flex:0 0 auto;border:1px solid rgba(52,245,164,.4);border-radius:50%;background:radial-gradient(circle,rgba(52,245,164,.22),rgba(56,189,248,.06) 55%,rgba(4,6,10,.95) 78%);box-shadow:0 0 18px rgba(52,245,164,.35);animation:brandPulse 3.2s ease-in-out infinite;transition:transform .45s cubic-bezier(.175,.885,.32,1.275)}
+.brand:hover .brand-mark{transform:rotate(180deg) scale(1.06);border-color:#34f5a4}
+@keyframes brandPulse{0%,100%{box-shadow:0 0 10px rgba(52,245,164,.22)}50%{box-shadow:0 0 26px rgba(52,245,164,.55)}}
+.brand-name{font-size:1.18rem;font-weight:600;letter-spacing:.2px}
+.brand-name b{color:#34f5a4}
+.brand-sub{display:inline;color:#94a3b8;font-size:.78rem;margin-left:4px}
+.hdr-row2{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-top:8px;position:relative}
+.hdr-row2 .toc{flex:1 1 auto;display:flex;gap:7px;flex-wrap:wrap}
+.toc a{display:inline-block;padding:5px 11px;border:1px solid rgba(255,255,255,.1);border-radius:999px;background:rgba(15,23,38,.9);color:#cbd5e1;text-decoration:none;font-size:.78rem}
+.toc a:hover{border-color:rgba(52,245,164,.5);color:#34f5a4}
+.vdiv{width:1px;height:22px;background:rgba(255,255,255,.16)}
+.hdr-ctrls{display:flex;align-items:center;gap:8px}
+.ctrl{display:inline-flex;align-items:center;justify-content:center;gap:2px;padding:8px 14px;border:1px solid rgba(255,255,255,.14);border-radius:9px;background:rgba(15,23,38,.92);color:#e2e8f0;font-size:.82rem;font-weight:600;cursor:pointer;text-decoration:none;font-family:inherit}
+.ctrl:hover{border-color:rgba(52,245,164,.5);color:#34f5a4}
+.ctrl-acc{background:linear-gradient(90deg,#34f5a4,#38bdf8);color:#04060a;border-color:transparent}
+.ctrl-acc:hover{color:#04060a;opacity:.9}
+.ctrl-ic{width:38px;height:36px;padding:0}
+.navpop-btn{display:none}
+.navpop{display:none}
+.navpop-t:checked ~ .navpop{display:flex;flex-direction:column;gap:2px;position:absolute;top:calc(100% + 10px);left:0;right:0;z-index:80;background:rgba(8,12,20,.98);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:8px;backdrop-filter:blur(16px)}
+.navpop a{padding:11px 14px;border-radius:8px;color:#cbd5e1;text-decoration:none;font-size:.9rem}
+.navpop a:hover{background:rgba(52,245,164,.1);color:#34f5a4}
+.navpop-t:checked ~ .hdr-ctrls .navpop-btn{color:#04060a;background:linear-gradient(90deg,#34f5a4,#38bdf8);border-color:transparent}
+
+/* RECAP VIDEO */
+#recap{scroll-margin-top:120px}
+.hot-video{margin-top:26px}
+.hot-video .hot-label{font-weight:700;margin-bottom:12px}
+.hot-video video,.hot-video iframe{width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.08)}
+.vid-links{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.vbtn{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border:1px solid rgba(52,245,164,.35);border-radius:9px;color:#34f5a4;text-decoration:none;font-size:.88rem;font-weight:600;background:rgba(52,245,164,.07)}
+.vbtn:hover{background:rgba(52,245,164,.16)}
+
+/* TLDR + TIMELINE */
+.tldr{margin-top:26px;background:rgba(10,15,26,.95);border:1px solid rgba(52,245,164,.28);border-left:3px solid #34f5a4;border-radius:12px;padding:18px 20px}
+.tldr h2{font-size:1.02rem;color:#34f5a4;margin-bottom:8px;letter-spacing:.3px}
+.tldr p{color:#cbd5e1;font-size:.95rem}
+.timeline{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.tl{flex:1 1 auto;min-width:90px;background:rgba(10,15,26,.93);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:9px 8px;text-align:center}
+.tl .d{font-size:.74rem;color:#94a3b8;letter-spacing:.4px}
+.tl .n{font-size:1.05rem;font-weight:700;color:#34f5a4;margin-top:2px}
+.tl.zero{opacity:.35}
+.tl.zero .n{color:#94a3b8}
+
+/* SECTIONS + CARDS */
+.sec{margin-top:38px;scroll-margin-top:120px}
+.sec h2{font-size:1.24rem;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:18px}
+.card{display:flex;gap:14px;background:rgba(10,15,26,.93);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:15px;margin-bottom:14px}
+.card[data-hot="1"]{border-color:rgba(52,245,164,.45);box-shadow:0 0 24px rgba(52,245,164,.1)}
+.thumb{width:96px;height:72px;flex:0 0 96px;object-fit:cover;border-radius:9px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07)}
+.thumb-fallback{object-fit:contain;padding:16px;background:rgba(255,255,255,.05)}
+.body{flex:1 1 auto;min-width:0}
+.rank{display:inline-block;background:linear-gradient(90deg,#34f5a4,#38bdf8);color:#04060a;font-size:.68rem;font-weight:800;padding:3px 9px;border-radius:999px;letter-spacing:.5px;margin-bottom:7px}
+.title{display:block;font-size:1.06rem;font-weight:650;color:#f8fafc;text-decoration:none;line-height:1.4}
+.title:hover{color:#34f5a4}
+.sum{margin-top:7px;color:#cbd5e1;font-size:.93rem}
+.why{margin-top:7px;color:#94a3b8;font-size:.89rem;font-style:italic}
+.meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:11px}
+.when{font-size:.78rem;color:#94a3b8}
+.metabtn,.readbtn{display:inline-flex;align-items:center;gap:4px;padding:5px 11px;border:1px solid rgba(255,255,255,.13);border-radius:8px;background:rgba(15,23,38,.9);color:#cbd5e1;font-size:.76rem;text-decoration:none;cursor:pointer;font-family:inherit;font-weight:600}
+.metabtn:hover,.readbtn:hover{border-color:rgba(52,245,164,.5);color:#34f5a4}
+.xt:checked ~ .meta .xbtn{background:rgba(52,245,164,.16);border-color:rgba(52,245,164,.55);color:#34f5a4}
+.more{display:none}
+.xt:checked ~ .more{display:block;margin-top:14px;border-top:1px dashed rgba(255,255,255,.12);padding-top:14px}
+.kb{list-style:none;margin-bottom:12px}
+.kb li{position:relative;padding-left:18px;color:#cbd5e1;font-size:.9rem;margin-bottom:5px}
+.kb li::before{content:"▸";position:absolute;left:0;color:#34f5a4}
+.facts{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
+.fact{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border:1px solid rgba(56,189,248,.28);border-radius:999px;background:rgba(56,189,248,.07);font-size:.74rem;font-family:ui-monospace,Consolas,monospace;color:#cbd5e1}
+.fact b{color:#38bdf8;font-weight:700;letter-spacing:.4px}
+.deep{color:#94a3b8;font-size:.9rem}
+
+footer{margin-top:46px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);color:#94a3b8;font-size:.84rem;text-align:center}
+
+@media(max-width:767px){
+  .wrap{padding:0 12px 44px}
+  .hdr{padding:10px 12px}
+  .brand-mark{width:36px;height:36px}
+  .brand-name{font-size:1.02rem}
+  .brand-sub{font-size:.7rem}
+  .hdr-row2 .toc,.vdiv{display:none}
+  .hdr-ctrls{width:100%;gap:6px}
+  .hdr-ctrls .ctrl{flex:1 1 auto;font-size:.78rem;padding:8px 6px;text-align:center}
+  .hdr-ctrls .ctrl-ic{flex:0 0 38px;width:38px;height:36px;padding:0}
+  .navpop-btn{display:grid;place-items:center}
+  .card{flex-direction:column;gap:11px}
+  .thumb{width:100%;height:148px;flex:0 0 auto}
+  .vid-links .vbtn{flex:1 1 auto;justify-content:center}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hdr" id="top">
+  <div class="hdr-row">
+    <a class="brand" href="../../index.html" title="Về trang chính Data News"><span class="brand-mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34f5a4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/><path d="M4.5 11.5v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/></svg></span><span class="brand-name">Data <b>News</b></span><span class="brand-sub">Tuần W28 · 06/07 - 12/07/2026</span></a>
+  </div>
+  <div class="hdr-row2">
+    <input type="checkbox" id="navpop" class="navpop-t" hidden>
+    <nav class="toc">
+      <a href="#recap">🎬 Recap</a>
+      <a href="#sec-1">🗄️ Hạ tầng</a>
+      <a href="#sec-2">🛠️ Công cụ</a>
+      <a href="#sec-3">🤖 AI × Data</a>
+      <a href="#sec-4">📈 Trend</a>
+      <a href="#sec-5">🏢 Ngành</a>
+    </nav>
+    <span class="vdiv"></span>
+    <div class="hdr-ctrls">
+      <button id="readAll" class="ctrl ctrl-acc">🔊<span class="btxt"> Đọc tóm tắt</span></button>
+      <button id="readStop" class="ctrl">⏹<span class="btxt"> Dừng</span></button>
+      <label class="ctrl ctrl-ic navpop-btn" for="navpop" title="Mục lục">☰</label>
+      <a class="ctrl ctrl-ic" href="../../index.html" title="Quay lại Data News">←</a>
+    </div>
+    <div class="navpop">
+      <a href="#recap" onclick="document.getElementById('navpop').checked=false">🎬 Recap</a>
+      <a href="#sec-1" onclick="document.getElementById('navpop').checked=false">🗄️ Hạ tầng &amp; Kiến trúc dữ liệu</a>
+      <a href="#sec-2" onclick="document.getElementById('navpop').checked=false">🛠️ Công cụ &amp; Nền tảng</a>
+      <a href="#sec-3" onclick="document.getElementById('navpop').checked=false">🤖 AI × Data</a>
+      <a href="#sec-4" onclick="document.getElementById('navpop').checked=false">📈 Hot trend &amp; Cộng đồng</a>
+      <a href="#sec-5" onclick="document.getElementById('navpop').checked=false">🏢 Ngành &amp; Doanh nghiệp</a>
+    </div>
+  </div>
+</header>
+
+<div id="recap"></div>
+<div class="hot-video"><div class="hot-label">🎬 Video recap tuần — các tin nóng nhất</div><div style="position:relative;width:100%;padding-top:56.25%;border-radius:12px;overflow:hidden"><iframe src="https://www.youtube.com/embed/vC-2A7fx0tE" title="AI News recap" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><div class="vid-links"><a class="vbtn" href="https://youtu.be/vC-2A7fx0tE" target="_blank" rel="noopener">▶ Mở Youtube</a><a class="vbtn" href="https://www.youtube.com/shorts/eBD5CxpapKA" target="_blank" rel="noopener">📱 Youtube Short</a></div></div>
+
+<div class="tldr">
+  <h2>📌 Tổng quan tuần này</h2>
+  <p>Tuần 28 (06/07 - 12/07/2026) là tuần thế giới dữ liệu vừa bị AI viết lại phần móng, vừa bắt đầu tính tiền phần ngọn. Cú sốc lớn nhất: <b>pgrust</b>, bản viết lại Postgres bằng Rust do tám AI agent sinh hơn 450 nghìn dòng code, chạy sạch hơn 46 nghìn truy vấn regression mà không lỗi một câu. Trên tầng sản phẩm, Snowflake đưa <b>Deep Research</b> trong CoWork lên GA, còn Databricks đổi tên Genie Spaces thành <b>Genie Agents</b> và bật đồng hồ tính tiền pay-as-you-go từ ngày 8/7. Ở tầng chuẩn mở, <b>Apache Ossie</b> mở dev list và website để thống nhất semantic model cho toàn ngành, trong khi <b>Apache Parquet</b> bỏ phiếu đánh số phiên bản và bàn kiểu FIXED_SIZE_LIST để lưu vector AI nhanh hơn 2,3 lần. Thông điệp của tuần rất rõ: AI đã đủ sức đụng vào hạ tầng lõi, nhưng ai muốn dùng AI trên dữ liệu thì từ nay phải trả tiền và phải có chuẩn ngữ nghĩa tử tế.</p>
+  <div class="timeline">
+    <div class="tl"><div class="d">T2 06/07</div><div class="n">5</div></div>
+    <div class="tl"><div class="d">T3 07/07</div><div class="n">2</div></div>
+    <div class="tl"><div class="d">T4 08/07</div><div class="n">6</div></div>
+    <div class="tl"><div class="d">T5 09/07</div><div class="n">4</div></div>
+    <div class="tl"><div class="d">T6 10/07</div><div class="n">5</div></div>
+    <div class="tl zero"><div class="d">T7 11/07</div><div class="n">0</div></div>
+    <div class="tl zero"><div class="d">CN 12/07</div><div class="n">0</div></div>
+  </div>
+</div>
+
+<!-- SECTION 1 -->
+<section class="sec" id="sec-1">
+<h2>🗄️ Hạ tầng &amp; Kiến trúc dữ liệu</h2>
+
+<article class="card" data-aid="1" data-hot="1">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://malisper.me/wp-content/uploads/2026/04/image-1.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=malisper.me&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-1" class="xt" hidden>
+    <span class="rank">🔥 TOP 1 TUẦN NÀY</span>
+    <a class="title" href="https://malisper.me/pgrust-rebuilding-postgres-in-rust-with-ai/" target="_blank" rel="noopener">pgrust: Postgres viết lại bằng Rust nhờ 8 AI agent, pass 100% regression test</a>
+    <p class="sum">Malcolm Matis công bố pgrust ngày 9/7 — bản viết lại PostgreSQL bằng Rust, dùng tám coding agent chạy song song sinh hơn 450.000 dòng code, và vượt toàn bộ hơn 46.000 truy vấn trong bộ regression test của Postgres mà không sai câu nào. Kiến trúc đổi từ process-per-connection sang thread-per-connection, tương thích định dạng đĩa gốc.</p>
+    <p class="why">💡 Đây là lần đầu một AI-generated rewrite chạm được vào loại phần mềm khó nhất: database engine hai mươi năm tuổi, và pass đủ bộ test đúng đắn của nó. Tác giả nói rõ v0.1 chưa production-ready, nhưng ranh giới việc gì AI làm được ở tầng hạ tầng lõi vừa dịch chuyển thật sự.</p>
+    <div class="meta">
+      <span class="when">📅 09/07</span>
+      <a class="metabtn" href="https://malisper.me/pgrust-rebuilding-postgres-in-rust-with-ai/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-1">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="1">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Tám coding agent chạy song song sinh hơn 450.000 dòng Rust.</li>
+        <li>Chạy sạch hơn 46.000 truy vấn regression, không sai câu nào.</li>
+        <li>Bỏ process-per-connection, chuyển sang thread-per-connection.</li>
+        <li>Tương thích định dạng đĩa gốc của Postgres.</li>
+        <li>Tác giả khẳng định v0.1 chưa production-ready, thiếu phần lớn extension.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>AGENT</b>8 chạy song song</span>
+        <span class="fact"><b>CODE</b>450.000+ dòng Rust</span>
+        <span class="fact"><b>TEST</b>46.000+ query, pass 100%</span>
+        <span class="fact"><b>NGÀY</b>09/07/2026</span>
+        <span class="fact"><b>TRẠNG THÁI</b>v0.1, chưa production</span>
+      </div>
+      <p class="deep">Đừng đọc tin này như một tin về database. Hãy đọc nó như một tin về giới hạn của AI. Viết lại một database engine hai mươi năm tuổi là bài toán khó nhất của nghề phần mềm: hàng nghìn ca biên, ngữ nghĩa transaction tinh vi, tương thích nhị phân. Và bộ regression test của Postgres không phải loại test cho có — nó là tài sản mà cộng đồng bồi đắp suốt hai thập kỷ để bắt đúng những chỗ dễ sai nhất. Pass sạch 46.000 truy vấn nghĩa là code này đúng ở mức ngữ nghĩa, không phải chỉ chạy được. Nhưng đừng nhầm: chưa tối ưu hiệu năng, chưa có hệ extension, và một database mà thiếu extension thì với đa số doanh nghiệp là vô dụng. Điều đáng làm ngay không phải là thử pgrust, mà là nhìn lại chính codebase legacy của mình — thứ mà sáu tháng trước bạn còn nghĩ "không đời nào AI đụng vào được".</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="2">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fqfhp4vkl0em2k9kxiabr.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=dev.to&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-2" class="xt" hidden>
+    <span class="rank">🔥 TOP 5 TUẦN NÀY</span>
+    <a class="title" href="https://dev.to/alexmercedcoder/apache-data-lakehouse-weekly-july-1-to-july-8-2026-3non" target="_blank" rel="noopener">Apache Parquet dọn đường cho AI: bỏ phiếu versioned releases, thêm FIXED_SIZE_LIST và mã hoá ALP</a>
+    <p class="sum">Ryan Blue đưa ra bỏ phiếu việc dùng số phiên bản cho các thay đổi phá vỡ tương thích của Parquet, mượn đúng mô hình quản trị mà Iceberg đã mài nhiều năm; một vote khác chốt ngữ nghĩa sắp xếp cho kiểu INT96 cũ. Song song, thread 24 tin bàn kiểu FIXED_SIZE_LIST để lưu vector độ dài cố định, đo được giải nén nhanh hơn 2,3 lần trên mảng float, cộng đề xuất mã hoá ALP cho embedding.</p>
+    <p class="why">💡 Parquet là định dạng cột mà gần như mọi lakehouse đang nằm trên. Việc nó vừa mở khoá quản trị phiên bản vừa thêm kiểu dữ liệu chuyên cho vector nghĩa là tầng lưu trữ đang được thiết kế lại cho workload AI, chứ không còn chỉ cho báo cáo BI.</p>
+    <div class="meta">
+      <span class="when">📅 08/07</span>
+      <a class="metabtn" href="https://dev.to/alexmercedcoder/apache-data-lakehouse-weekly-july-1-to-july-8-2026-3non" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-2">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="2">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Vote dùng version number cho thay đổi phá vỡ tương thích, theo mô hình Iceberg.</li>
+        <li>Chốt ngữ nghĩa sắp xếp cho kiểu INT96 legacy, hết cảnh mỗi engine hiểu một kiểu.</li>
+        <li>FIXED_SIZE_LIST: lưu vector độ dài cố định, bỏ chi phí mã hoá độ dài biến thiên.</li>
+        <li>Benchmark: giải nén nhanh 2,3 lần trên mảng float, thêm 1,5 lần nữa nếu có hints.</li>
+        <li>Đề xuất mã hoá ALP khai thác đặc tính số thập phân trá hình trong embedding.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>GIẢI NÉN</b>nhanh 2,3x</span>
+        <span class="fact"><b>TIỀM NĂNG</b>thêm 1,5x nhờ hints</span>
+        <span class="fact"><b>THREAD</b>24 tin thảo luận</span>
+        <span class="fact"><b>NGÀY</b>08/07/2026</span>
+      </div>
+      <p class="deep">Đây là loại tin không ai chia sẻ trên LinkedIn nhưng lại quyết định hoá đơn cloud của bạn ba năm tới. Parquet nằm dưới gần như mọi lakehouse trên thế giới; mọi thứ bạn gọi là Iceberg, Delta hay Hudi thực chất đều đọc-ghi file Parquet. Suốt nhiều năm, Parquet bị kẹt: không dám phá tương thích nên không thêm được kiểu dữ liệu mới. Vote versioning vừa gỡ nút thắt đó. Và thứ đầu tiên được đẩy qua cửa nói lên tất cả về thời đại: một kiểu mảng cố định để lưu vector. Nghĩa là gì với doanh nghiệp Việt? Nếu bạn đang cân nhắc nhét embedding vào một vector database riêng, hãy chờ thêm vài tháng — nhiều khả năng lakehouse của bạn sẽ tự lo được, rẻ hơn và bớt một hệ thống phải vận hành. Đừng vội mua thêm thứ mà nền tảng sắp có sẵn.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="3">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://substackcdn.com/image/fetch/$s_!-pMD!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb742a15e-6d50-4e01-a1da-a329b010ada6_1672x941.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=amdatalakehouse.substack.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-3" class="xt" hidden>
+    <a class="title" href="https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-july" target="_blank" rel="noopener">Sóng release Rust của lakehouse: Iceberg Rust 0.10.0 RC3, Arrow 25.0.0 RC1, Polaris 1.6.0</a>
+    <p class="sum">Tuần này Iceberg Rust bỏ phiếu RC3 sau khi RC2 lộ lỗi lúc verify, Arrow 25.0.0 mở vote RC1 và Arrow Rust 59.1.0 RC1 đã pass, còn Apache Polaris 1.6.0 thông qua vote phát hành. iceberg-rust đang thành tầng nền cho thế hệ công cụ lakehouse thứ hai: pyiceberg-core bind vào Python, DataFusion dùng để xử lý truy vấn, nhiều service đọc-ghi Iceberg mà không cần dựng JVM.</p>
+    <p class="why">💡 Bỏ được JVM khỏi đường đọc-ghi lakehouse là bỏ được cả gánh nặng bộ nhớ, thời gian khởi động và chi phí. Đây là lý do các engine nhẹ đang mọc lên nhanh — và là tin tốt cho team data nhỏ chạy trên máy đơn.</p>
+    <div class="meta">
+      <span class="when">📅 08/07</span>
+      <a class="metabtn" href="https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-july" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-3">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="3">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Iceberg Rust cắt RC3 ngày 8/7 sau khi RC2 lộ lỗi trong khâu verify.</li>
+        <li>Arrow 25.0.0 RC1 mở vote ngày 6/7; Arrow Rust 59.1.0 RC1 đã pass ngày 7/7.</li>
+        <li>Apache Polaris 1.6.0 thông qua vote phát hành ngày 8/7.</li>
+        <li>pyiceberg-core bind iceberg-rust vào Python; DataFusion dùng nó để xử lý truy vấn.</li>
+        <li>Polaris bàn Terraform provider và JDBC datasource — dấu hiệu adoption production.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>ICEBERG RUST</b>0.10.0 RC3</span>
+        <span class="fact"><b>ARROW</b>25.0.0 RC1</span>
+        <span class="fact"><b>POLARIS</b>1.6.0 pass vote</span>
+        <span class="fact"><b>NGÀY</b>08/07/2026</span>
+      </div>
+      <p class="deep">Chi tiết đáng nhớ nhất trong đống release note này là ba chữ: không cần JVM. Suốt mười năm, muốn đọc-ghi một bảng Iceberg tử tế thì gần như phải kéo theo cả hệ sinh thái Java: Spark, Hadoop, vài trăm megabyte dependency, và mấy chục giây khởi động. iceberg-rust đang xóa điều kiện đó. Hệ quả rất cụ thể: bạn có thể viết một service nhỏ, khởi động trong mili-giây, đọc thẳng bảng Iceberg trong S3, chạy trên một container 256MB. Với team data nhỏ ở Việt Nam — nơi ngân sách hạ tầng luôn là bài toán — đây là thay đổi thực chất hơn mọi tính năng AI cộng lại. Nhưng nhớ: RC2 lộ lỗi phải cắt RC3, tức là hệ sinh thái Rust vẫn đang trẻ. Dùng cho tooling và service phụ trợ thì tốt; đừng vội đặt pipeline sản xuất lên đó.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="4">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://datalakehousehub.com/open-graph/iceberg-v4-state-july-2026.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=datalakehousehub.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-4" class="xt" hidden>
+    <a class="title" href="https://datalakehousehub.com/blog/iceberg-v4-state-july-2026/" target="_blank" rel="noopener">Iceberg v4 dần thành hình: single-file commits, snapshot offloading, cập nhật theo cột</a>
+    <p class="sum">Alex Merced tổng hợp trạng thái Iceberg v4 tính tới tháng 7: bản ổn định vẫn là v1.11 thuộc kỷ nguyên v3, nhưng nhiều mảnh v4 đã được vote thông qua như relative paths và content stats. Đang bàn tiếp: single-file commits với cây metadata thích ứng, snapshot offloading để metadata.json không phình, và cập nhật cột riêng lẻ mà không phải viết lại cả dòng.</p>
+    <p class="why">💡 Ba hướng của v4 nhắm đúng ba nỗi đau thật: kinh tế của streaming, bảng siêu rộng cho AI, và vận hành đa vùng. Nếu bạn đang chọn table format cho ba năm tới, đây là bản đồ nên đọc trước khi ký hợp đồng.</p>
+    <div class="meta">
+      <span class="when">📅 07/07</span>
+      <a class="metabtn" href="https://datalakehousehub.com/blog/iceberg-v4-state-july-2026/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-4">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="4">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Bản ổn định vẫn là v1.11 (tháng 5/2026), thuộc kỷ nguyên v3 — v4 chưa phát hành.</li>
+        <li>Đã vote thông qua: relative paths (di chuyển bảng không cần viết lại metadata).</li>
+        <li>Đã vote thông qua: content stats — thống kê có kiểu, thay cho map chung chung.</li>
+        <li>Đang bàn: single-file commits, snapshot offloading, cập nhật cột riêng lẻ.</li>
+        <li>Compact bitmaps cho deletion vector đã vote draft spec từ tháng 6.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>ỔN ĐỊNH</b>v1.11 (05/2026)</span>
+        <span class="fact"><b>ĐÃ VOTE</b>relative paths, content stats</span>
+        <span class="fact"><b>ĐANG BÀN</b>single-file commits</span>
+        <span class="fact"><b>MỤC TIÊU</b>streaming, AI, đa vùng</span>
+      </div>
+      <p class="deep">Đọc roadmap v4 là đọc chính danh sách chỗ đau của những người vận hành Iceberg ở quy mô lớn nhất. Snapshot offloading sinh ra vì metadata.json phình to khi commit liên tục — nỗi khổ kinh điển của streaming. Cập nhật cột riêng lẻ sinh ra vì bảng feature cho AI có hàng nghìn cột, viết lại cả dòng để sửa một cột là lãng phí khủng khiếp. Relative paths sinh ra vì ai từng migrate bucket S3 đều biết cảm giác phải viết lại toàn bộ metadata. Điều này nghĩa là gì nếu bạn đang chọn table format? Đừng chọn theo benchmark hôm nay; chọn theo hướng mà cộng đồng đang khoét sâu. Iceberg đang khoét đúng ba hướng mà workload AI cần. Nhưng cũng nhớ: v4 chưa ra, và trong sản xuất, bản chưa ra thì bằng không.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="5">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fh9dgcx5h162r7xj4oz5s.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=dev.to&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-5" class="xt" hidden>
+    <a class="title" href="https://dev.to/alexmercedcoder/the-state-of-streaming-to-apache-iceberg-in-july-2026-every-path-its-latency-and-what-to-do-when-i6p" target="_blank" rel="noopener">Streaming vào Apache Iceberg tháng 7/2026: mọi đường đi, độ trễ và lối thoát khi giây là quá chậm</a>
+    <p class="sum">Bài khảo sát đối chiếu toàn bộ các con đường đưa dữ liệu streaming vào Iceberg cùng độ trễ thực tế của từng đường, và chỉ ra phải làm gì khi yêu cầu nghiệp vụ xuống dưới ngưỡng vài giây mà commit của table format không theo kịp.</p>
+    <p class="why">💡 Đây là câu hỏi nhức nhất của mọi kiến trúc lakehouse thời gian thực: Iceberg tuyệt vời cho phân tích nhưng commit theo snapshot vốn không sinh ra để phục vụ độ trễ mili-giây. Biết rõ trần của từng đường giúp bạn khỏi hứa sai với business.</p>
+    <div class="meta">
+      <span class="when">📅 06/07</span>
+      <a class="metabtn" href="https://dev.to/alexmercedcoder/the-state-of-streaming-to-apache-iceberg-in-july-2026-every-path-its-latency-and-what-to-do-when-i6p" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-5">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="5">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Liệt kê đầy đủ các đường đưa streaming vào Iceberg kèm độ trễ thực tế từng đường.</li>
+        <li>Chỉ rõ trần độ trễ do cơ chế commit theo snapshot của table format.</li>
+        <li>Đưa hướng xử lý khi nghiệp vụ đòi dưới ngưỡng vài giây.</li>
+        <li>Liên hệ trực tiếp với đề xuất single-file commits trong roadmap Iceberg v4.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>CHỦ ĐỀ</b>streaming vào Iceberg</span>
+        <span class="fact"><b>NÚT THẮT</b>commit theo snapshot</span>
+        <span class="fact"><b>NGÀY</b>06/07/2026</span>
+      </div>
+      <p class="deep">Sai lầm phổ biến nhất mình gặp khi tư vấn: coi lakehouse là thứ vạn năng, rồi hứa với business một dashboard real-time trên Iceberg. Iceberg commit theo snapshot — mỗi lần commit là một lần ghi metadata mới. Đẩy tần suất commit lên để giảm độ trễ thì metadata phình, chi phí bảo trì bảng tăng, và query planner chậm dần. Đây là trần vật lý của kiến trúc, không phải lỗi cấu hình, và không có tham số nào chỉnh được. Vậy nên làm gì? Rất rõ: nếu nghiệp vụ thật sự cần dưới một giây, đừng ép Iceberg — hãy để một tầng streaming store phục vụ đường nóng, và Iceberg phục vụ đường phân tích. Kiến trúc hai đường xấu xí hơn slide bán hàng, nhưng nó chạy được. Còn nếu business chỉ cần "mới trong vòng một phút" thì đừng đốt tiền xây real-time làm gì.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<!-- SECTION 2 -->
+<section class="sec" id="sec-2">
+<h2>🛠️ Công cụ &amp; Nền tảng</h2>
+
+<article class="card" data-aid="6">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/d451f2c4-7493-482d-8eb4-f36a76486cfc/id-preview-8162aebf--06741920-c3ac-4282-be92-60f8b92d94a8.lovable.app-1773256989068.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=ffnews.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-6" class="xt" hidden>
+    <a class="title" href="https://ffnews.com/news/rippling-launches-ai-powered-data-cloud-to-bridge-business-intelligence-and-employee-identity" target="_blank" rel="noopener">Rippling ra mắt Data Cloud: gắn BI vào danh tính nhân sự</a>
+    <p class="sum">Rippling giới thiệu Data Cloud, bộ BI kéo dữ liệu từ CRM, POS, helpdesk và tài chính về một chỗ rồi nối thẳng vào danh tính nhân viên, với sơ đồ tổ chức và phân quyền dựng sẵn. Rippling AI có thể trả lời các câu hỏi kiểu chi phí nhân sự chiếm bao nhiêu phần trăm doanh thu, hay đội nào đang tiêu quá tay cho công cụ so với sản lượng.</p>
+    <p class="why">💡 Hầu hết dashboard chết vì thiếu ngữ cảnh con người: con số biết đội nào tiêu tiền nhưng không biết đội đó là ai, báo cáo cho ai. Nối BI vào org chart và permission ngay từ tầng nền là cách giải bài toán đó mà nhiều data team Việt vẫn đang vá thủ công.</p>
+    <div class="meta">
+      <span class="when">📅 10/07</span>
+      <a class="metabtn" href="https://ffnews.com/news/rippling-launches-ai-powered-data-cloud-to-bridge-business-intelligence-and-employee-identity" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-6">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="6">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Kéo dữ liệu từ CRM, POS, helpdesk, tài chính về nền Rippling.</li>
+        <li>Org chart và phân quyền dựng sẵn ngay trong modern data stack.</li>
+        <li>Trả lời câu hỏi kiểu chi phí nhân sự trên doanh thu, đội nào tiêu quá tay.</li>
+        <li>Phơi dữ liệu ra cho dashboard, workflow và custom app.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>SẢN PHẨM</b>Rippling Data Cloud</span>
+        <span class="fact"><b>ĐIỂM KHÁC</b>BI gắn worker identity</span>
+        <span class="fact"><b>NGÀY</b>10/07/2026</span>
+      </div>
+      <p class="deep">Ý tưởng ở đây thông minh hơn vẻ ngoài. Bài toán row-level security trong BI thường được giải bằng cách nhồi bảng mapping user-phòng ban rồi tự bảo trì, và nó luôn lệch sau mỗi lần công ty tái cơ cấu. Rippling vốn là hệ thống nhân sự, nên org chart và phân quyền của họ luôn đúng theo định nghĩa — họ chính là nguồn sự thật. Xây BI lên trên đó là lấy đúng thứ mình có sẵn làm lợi thế. Bài học rút ra cho doanh nghiệp Việt không phải là đi mua Rippling, mà là: nguồn sự thật về con người và phân quyền của bạn đang nằm ở đâu, và tại sao data team lại đang tự chép lại nó bằng tay?</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="7">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-7" class="xt" hidden>
+    <span class="rank">🔥 TOP 3 TUẦN NÀY</span>
+    <a class="title" href="https://docs.databricks.com/aws/en/release-notes/product/2026/july" target="_blank" rel="noopener">Databricks đổi Genie Spaces thành Genie Agents và bật đồng hồ tính tiền pay-as-you-go</a>
+    <p class="sum">Từ 00:00 UTC ngày 8/7/2026, toàn bộ nhóm sản phẩm Genie gồm Genie Spaces, Genie Code và Genie One chuyển sang mô hình tính tiền pay-as-you-go, kèm 150 DBU dùng LLM miễn phí mỗi tháng, tương đương khoảng 10,5 đô la ở vùng US East; Genie Spaces đồng thời được đổi tên thành Genie Agents. Cùng tuần, Databricks đưa REPLACE WHERE flows lên GA, bật hỗ trợ file Excel mặc định cho mọi workspace và mở preview managed Iceberg materialized views.</p>
+    <p class="why">💡 Giai đoạn dùng thử miễn phí của text-to-SQL đã hết. 150 DBU cháy rất nhanh nếu cả phòng kinh doanh cùng hỏi dữ liệu, nên từ giờ mỗi câu hỏi hồn nhiên của người dùng cuối đều có giá — và data team phải thiết kế quota, cache, semantic model cho tử tế thay vì thả cửa.</p>
+    <div class="meta">
+      <span class="when">📅 08/07</span>
+      <a class="metabtn" href="https://docs.databricks.com/aws/en/release-notes/product/2026/july" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-7">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="7">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Genie Spaces, Genie Code, Genie One chuyển sang pay-as-you-go từ 00:00 UTC 8/7.</li>
+        <li>150 DBU dùng LLM miễn phí mỗi tháng, khoảng 10,5 đô la tại US East.</li>
+        <li>Genie Spaces được đổi tên thành Genie Agents.</li>
+        <li>REPLACE WHERE flows lên GA: chỉ thay dòng khớp predicate, không xử lại cả lịch sử bảng.</li>
+        <li>Hỗ trợ đọc .xls, .xlsx, .xlsm mặc định; managed Iceberg materialized views vào preview.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>HIỆU LỰC</b>00:00 UTC 08/07/2026</span>
+        <span class="fact"><b>MIỄN PHÍ</b>150 DBU/tháng</span>
+        <span class="fact"><b>QUY ĐỔI</b>~10,5 USD (US East)</span>
+        <span class="fact"><b>ĐỔI TÊN</b>Genie Spaces → Genie Agents</span>
+      </div>
+      <p class="deep">Nhiều người sẽ đọc tin này là tin xấu. Mình nghĩ ngược lại: nó lành mạnh. Khi text-to-SQL còn miễn phí, không ai buồn hỏi câu hỏi khó nhất — mô hình ngữ nghĩa của mình có tử tế không? Cứ thả cửa cho người dùng hỏi, AI đoán bừa, ra số nào cũng nhận, sai thì đổ cho AI. Giờ mỗi câu hỏi có giá cụ thể, chất lượng semantic model từ chuyện kỹ thuật lập tức thành chuyện tài chính: một câu hỏi ra một truy vấn gọn hay ra năm cú full scan, hoá đơn cuối tháng sẽ nói cho bạn biết. 150 DBU cháy nhanh hơn bạn tưởng — chỉ cần vài chục người dùng cuối hỏi mỗi ngày. Việc cần làm ngay: dựng quota theo nhóm, cache lại câu hỏi lặp, và quan trọng nhất là chuẩn hoá định nghĩa metric trước khi mở Genie cho cả công ty. Đừng biến nó thành phong trào, hãy biến nó thành hệ thống.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="8">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=ossie.apache.org&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-8" class="xt" hidden>
+    <span class="rank">🔥 TOP 4 TUẦN NÀY</span>
+    <a class="title" href="https://ossie.apache.org/" target="_blank" rel="noopener">Apache Ossie mở dev list và website: chuẩn semantic mở chính thức về nhà ASF</a>
+    <p class="sum">Ngày 8/7, Apache Ossie — hậu thân của Open Semantic Interchange, vào Incubator từ 22/6 — chính thức mở dev list và bật website tại ossie.apache.org, kèm kế hoạch họp cộng đồng hai tuần một lần. Ossie định nghĩa một đặc tả YAML và JSON trung lập nhà cung cấp để mô tả metric, dimension và quan hệ, cho mọi công cụ BI, analytics và AI cùng đọc-ghi.</p>
+    <p class="why">💡 Ossie đánh thẳng vào semantic drift: cùng một chỉ số Monthly Active Users nhưng mỗi hệ thống định nghĩa một kiểu. Sức nặng thật của nó nằm ở chỗ Apache Polaris đã huỷ vote semantic model API của mình để chờ Ossie — dấu hiệu chuẩn này đang được coi là thật, chứ không phải một đặc tả nữa cho vui.</p>
+    <div class="meta">
+      <span class="when">📅 08/07</span>
+      <a class="metabtn" href="https://ossie.apache.org/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-8">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="8">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Vào Apache Incubator ngày 22/6; mở dev list và bật website ngày 8/7.</li>
+        <li>Đặc tả YAML và JSON trung lập vendor cho metric, dimension, join.</li>
+        <li>Mục tiêu: xoá semantic drift — mỗi hệ thống định nghĩa chỉ số một kiểu.</li>
+        <li>Apache Polaris huỷ vote semantic model API riêng để chờ spec của Ossie.</li>
+        <li>Spec mới ở v0.1: tư thế đúng lúc này là căn chỉnh và thử nghiệm, chưa phải di trú.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>SPEC</b>v0.1, incubating</span>
+        <span class="fact"><b>ĐỊNH DẠNG</b>YAML + JSON khai báo</span>
+        <span class="fact"><b>VÀO ASF</b>22/06/2026</span>
+        <span class="fact"><b>DEV LIST</b>08/07/2026</span>
+      </div>
+      <p class="deep">Trong mười năm làm BI cho doanh nghiệp, cuộc họp mình chứng kiến nhiều nhất không phải họp về công nghệ, mà là họp cãi nhau xem con số nào đúng. Marketing tính doanh thu một kiểu, kế toán tính kiểu khác, và ai cũng có dashboard đẹp để chứng minh mình đúng. Đó chính là semantic drift, và nó là lý do sâu xa khiến rất nhiều dự án BI thất bại dù công nghệ chạy ngon. Ossie không phải một công cụ mới — nó là một cách viết ra định nghĩa để máy đọc được. Vì sao lần này khác? Vì Polaris đã hoãn API riêng của mình để chờ nó. Khi một dự án Apache chịu hy sinh spec của chính mình cho một chuẩn chung, đó là tín hiệu thị trường thật. Khuyến nghị của mình: đừng migrate vội, spec mới v0.1. Nhưng nếu bạn sắp xây semantic layer mới trong sáu tháng tới, hãy đọc Ossie trước khi tự đẻ ra một định dạng riêng để rồi ba năm sau phải chuyển đổi.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="9">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.snowflake.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-9" class="xt" hidden>
+    <a class="title" href="https://docs.snowflake.com/en/release-notes/2026/other/2026-07-06-ai-translate-long-document-translation" target="_blank" rel="noopener">Snowflake AI_TRANSLATE dịch được tài liệu dài tới 100.000 token</a>
+    <p class="sum">Snowflake Cortex nâng hàm AI_TRANSLATE lên mức xử lý tối đa 100.000 token đầu vào, cho phép dịch tài liệu dài và văn bản dạng dài ngay bên trong Snowflake mà không phải cắt nhỏ rồi ghép lại thủ công.</p>
+    <p class="why">💡 Với doanh nghiệp Việt phải xử lý hợp đồng, báo cáo, tài liệu kỹ thuật song ngữ, dịch ngay trong kho dữ liệu nghĩa là không phải bê dữ liệu nhạy cảm ra ngoài. Đây là kiểu tính năng nhỏ nhưng xoá được cả một đoạn pipeline lắt nhắt.</p>
+    <div class="meta">
+      <span class="when">📅 06/07</span>
+      <a class="metabtn" href="https://docs.snowflake.com/en/release-notes/2026/other/2026-07-06-ai-translate-long-document-translation" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-9">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="9">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>AI_TRANSLATE nhận tối đa 100.000 token đầu vào cho một lần gọi.</li>
+        <li>Dịch tài liệu dài và văn bản dạng dài ngay trong Snowflake.</li>
+        <li>Không phải tự chunk rồi ghép lại — bớt một đoạn pipeline thủ công.</li>
+        <li>Dữ liệu không rời khỏi ranh giới nền tảng.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>GIỚI HẠN</b>100.000 token đầu vào</span>
+        <span class="fact"><b>HÀM</b>AI_TRANSLATE (Cortex)</span>
+        <span class="fact"><b>NGÀY</b>06/07/2026</span>
+      </div>
+      <p class="deep">Tin nhỏ nhưng thực dụng. Ai từng làm pipeline dịch tài liệu đều biết đoạn khổ nhất không phải gọi model, mà là chunk văn bản sao cho không cắt giữa câu, rồi ghép lại sao cho ngữ cảnh không đứt. Nâng giới hạn lên 100.000 token là xoá gần hết đoạn đó. Với doanh nghiệp Việt xử lý hợp đồng song ngữ hoặc tài liệu kỹ thuật, còn một điểm quan trọng hơn: dữ liệu không rời khỏi warehouse. Không phải gọi API bên thứ ba, không phải giải trình với phòng pháp chế. Đây là kiểu tính năng ít ai làm video khoe nhưng lại giúp bạn đóng một ticket compliance.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<!-- SECTION 3 -->
+<section class="sec" id="sec-3">
+<h2>🤖 AI × Data</h2>
+
+<article class="card" data-aid="10">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://solutionsreview.com/business-intelligence/files/2026/07/Analytics-and-Data-Science-Blank-scaled-768x432-1.jpg" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=solutionsreview.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-10" class="xt" hidden>
+    <a class="title" href="https://solutionsreview.com/business-intelligence/analytics-and-data-science-news-for-the-week-of-july-10-updates-from-actian-dun-bradstreet-gartner-more/" target="_blank" rel="noopener">Dun &amp; Bradstreet đưa AI agent vào D&amp;B Risk Analytics, cắt 70-90% quy trình compliance</a>
+    <p class="sum">Dun &amp; Bradstreet bổ sung năng lực agentic AI cho nền tảng D&amp;B Risk Analytics, cho phép agent hành động trực tiếp trên dữ liệu rủi ro và tuân thủ đã được kiểm chứng để tự động hoá onboarding và các bước KYC, KYB. Agent kết nối qua Model Context Protocol, hỗ trợ các trợ lý AI phổ biến và dự kiến mở rộng sang Microsoft Copilot cùng hệ sinh thái Google, giúp giảm 70 đến 90 phần trăm công đoạn thủ công.</p>
+    <p class="why">💡 Đây là ví dụ sạch của data-for-AI làm đúng: agent không tự bịa, nó hành động trên Commercial Graph đã được xác thực. Với ngân hàng và fintech Việt đang ngập trong KYC thủ công, mô hình dữ liệu đã kiểm chứng cộng MCP là con đường đáng học nhất tuần này.</p>
+    <div class="meta">
+      <span class="when">📅 10/07</span>
+      <a class="metabtn" href="https://solutionsreview.com/business-intelligence/analytics-and-data-science-news-for-the-week-of-july-10-updates-from-actian-dun-bradstreet-gartner-more/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-10">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="10">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Agent hành động trực tiếp trên dữ liệu rủi ro và tuân thủ đã kiểm chứng.</li>
+        <li>Tự động hoá onboarding, KYC và KYB — giảm 70 đến 90 phần trăm thao tác tay.</li>
+        <li>Kết nối qua Model Context Protocol; mở rộng dần sang Copilot và hệ sinh thái Google.</li>
+        <li>Nền tảng dữ liệu là D&amp;B Commercial Graph tích luỹ hàng chục năm.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>GIẢM TAY</b>70-90% quy trình</span>
+        <span class="fact"><b>GIAO THỨC</b>MCP</span>
+        <span class="fact"><b>NỀN DỮ LIỆU</b>D&amp;B Commercial Graph</span>
+        <span class="fact"><b>NGÀY</b>10/07/2026</span>
+      </div>
+      <p class="deep">Đây là kiểu triển khai agentic AI mà mình tin. Lý do: agent không được tự do bịa. Nó hành động trên một đồ thị dữ liệu doanh nghiệp đã xác thực, tích luỹ hàng chục năm — nghĩa là phần "sự thật" đã có sẵn, AI chỉ lo phần điều phối và diễn giải. So sánh với các dự án agent thất bại mà mình gặp: hầu hết đều bắt agent vừa tìm sự thật vừa ra quyết định, và nó bịa ở bước đầu rồi sai cả chuỗi. Bài học rất cụ thể cho ngân hàng và fintech Việt đang ngập trong KYC thủ công: trước khi nghĩ đến agent, hãy hỏi dữ liệu nền của mình đã đủ sạch và đủ được xác thực chưa. AI không thay người giỏi; nó khuếch đại hệ thống dữ liệu tử tế. Nếu dữ liệu nền bẩn, agent chỉ giúp bạn sai nhanh hơn.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="11">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://learn.microsoft.com/en-us/media/open-graph-image.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=learn.microsoft.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-11" class="xt" hidden>
+    <a class="title" href="https://learn.microsoft.com/en-us/azure/databricks/release-notes/product/2026/july" target="_blank" rel="noopener">Databricks host GPT-5.6 (Sol, Terra, Luna) và siết quyền AI Functions trong Unity Catalog</a>
+    <p class="sum">Ngày 9/7, bộ mô hình OpenAI GPT-5.6 gồm Sol, Terra và Luna trở thành mô hình do Databricks tự host qua Foundation Model APIs, chạy trong ranh giới hạ tầng của khách hàng. Trước đó một ngày, Databricks mở Public Preview cho phép phân quyền từng AI Function riêng lẻ trong Unity Catalog.</p>
+    <p class="why">💡 Chi tiết đáng chú ý không phải là model mới, mà là hai chữ Databricks-hosted: dữ liệu không rời nền tảng. Cộng thêm phân quyền tới từng AI Function, đây là bước biến AI trong kho dữ liệu từ tính năng thành thứ quản trị được — điều kiện bắt buộc để bộ phận compliance chịu ký.</p>
+    <div class="meta">
+      <span class="when">📅 09/07</span>
+      <a class="metabtn" href="https://learn.microsoft.com/en-us/azure/databricks/release-notes/product/2026/july" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-11">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="11">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>GPT-5.6 (Sol, Terra, Luna) thành mô hình Databricks-hosted qua Foundation Model APIs.</li>
+        <li>AI Functions Unity Catalog permissions vào Public Preview ngày 8/7.</li>
+        <li>Cho phép giới hạn quyền truy cập từng AI Function theo tác vụ.</li>
+        <li>Cùng tuần: SQL alerts bật mặc định cho workspace có compliance security profile.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>MÔ HÌNH</b>GPT-5.6 Sol / Terra / Luna</span>
+        <span class="fact"><b>KIỂU</b>Databricks-hosted</span>
+        <span class="fact"><b>QUYỀN</b>per-AI-Function (Preview)</span>
+        <span class="fact"><b>NGÀY</b>09/07/2026</span>
+      </div>
+      <p class="deep">Tin này dễ bị đọc lướt vì ai cũng nhìn vào cái tên model. Nhưng thứ đáng giá nằm ở chỗ khác: mô hình chạy trong ranh giới hạ tầng của khách hàng, và mỗi AI Function có thể phân quyền riêng. Với doanh nghiệp Việt trong ngành ngân hàng, bảo hiểm hay y tế, đây chính là hai câu hỏi mà bộ phận pháp chế luôn hỏi đầu tiên và thường làm dự án AI chết yểu: dữ liệu có ra ngoài không, và ai được gọi cái gì. Trả lời được hai câu đó thì dự án mới đi tiếp. Nói cách khác, Databricks đang bán quản trị chứ không bán model — và đó mới là thứ khách hàng doanh nghiệp thật sự trả tiền.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="12">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=hpcwire.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-12" class="xt" hidden>
+    <a class="title" href="https://www.hpcwire.com/bigdatawire/this-just-in/airbyte-enhances-agents-platform-with-openai-marketplace-launch-and-new-automation-tools/" target="_blank" rel="noopener">Airbyte Agents lên GA: Context Store, MCP endpoint và quyền ghi ngược vào Salesforce</a>
+    <p class="sum">Ngày 8/7, Airbyte đưa nền tảng dữ liệu AI-native Airbyte Agents lên GA: có mặt trên OpenAI App Marketplace, thêm Agent CLI dạng một binary cho developer và CI/CD, cùng connector ghi ngược vào Salesforce và HubSpot. Trung tâm là Context Store — bản sao dữ liệu vận hành đã tối ưu cho tìm kiếm — phơi ra qua MCP endpoint cho mọi client tương thích.</p>
+    <p class="why">💡 Airbyte đang tự định vị lại từ công cụ ELT thành context infrastructure. Điểm bước ngoặt là agent không chỉ đọc mà đã được ghi ngược vào hệ thống nghiệp vụ — tiện gấp bội, nhưng cũng là lúc phải nghĩ rất nghiêm túc về quyền và audit trail.</p>
+    <div class="meta">
+      <span class="when">📅 08/07</span>
+      <a class="metabtn" href="https://www.hpcwire.com/bigdatawire/this-just-in/airbyte-enhances-agents-platform-with-openai-marketplace-launch-and-new-automation-tools/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-12">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="12">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Airbyte Agents lên GA; có mặt trên OpenAI App Marketplace.</li>
+        <li>Context Store: bản sao dữ liệu vận hành tối ưu cho tìm kiếm, giảm token tiêu thụ.</li>
+        <li>MCP endpoint được Airbyte host sẵn, dùng với mọi client tương thích MCP.</li>
+        <li>Agent CLI dạng một binary cho luồng developer và CI/CD.</li>
+        <li>Connector ghi ngược vào Salesforce và HubSpot — agent hành động, không chỉ đọc.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>TRẠNG THÁI</b>GA</span>
+        <span class="fact"><b>GIAO THỨC</b>MCP (managed)</span>
+        <span class="fact"><b>MỚI</b>ghi ngược Salesforce, HubSpot</span>
+        <span class="fact"><b>NGÀY</b>08/07/2026</span>
+      </div>
+      <p class="deep">Điểm kỹ thuật thông minh nhất ở đây là Context Store, và lý do rất thực dụng: gọi thẳng API của Salesforce mỗi lần agent cần lọc dữ liệu thì vừa chậm vừa đốt token khủng khiếp. Giữ một bản sao đã tối ưu tìm kiếm là cách rẻ hơn nhiều. Nhưng phần khiến mình dừng lại là quyền ghi ngược. Đọc sai thì ra câu trả lời sai, còn ghi sai thì hỏng dữ liệu CRM thật của công ty. Đây là ranh giới mà nhiều team sẽ bước qua vì tiện mà quên dựng hàng rào. Khuyến nghị rất rõ: nếu bật quyền ghi cho agent, hãy có audit trail đầy đủ, có môi trường staging, và có quyền tối thiểu theo từng đối tượng. Đừng để agent làm sạch data bằng cách xoá sạch data.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="13">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.snowflake.com/content/dam/snowflake-site/blog/2026/06/snowflake-cowork-summit26-blog-header.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.snowflake.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-13" class="xt" hidden>
+    <span class="rank">🔥 TOP 2 TUẦN NÀY</span>
+    <a class="title" href="https://docs.snowflake.com/en/release-notes/2026/other/2026-07-07-snowflake-cowork-deep-research-ga" target="_blank" rel="noopener">Snowflake đưa Deep Research trong CoWork lên GA: tự phân rã câu hỏi, chạy song song, trích nguồn từng câu</a>
+    <p class="sum">Từ 7/7, Deep Research trong Snowflake CoWork chính thức GA. Đây là chế độ điều tra cho các câu hỏi mở, phức tạp: thay vì trả về một kết quả, CoWork tự phân rã câu hỏi thành nhiều nhánh điều tra con, chạy song song trên cả dữ liệu có cấu trúc lẫn phi cấu trúc, rồi tổng hợp thành một báo cáo có cấu trúc. Mọi khẳng định trong báo cáo đều truy ngược được về dữ liệu nguồn và truy vấn đã chạy.</p>
+    <p class="why">💡 Text-to-SQL trả lời một câu hỏi; Deep Research trả lời một vấn đề. Nhưng thứ đáng giá nhất lại là phần ít hào nhoáng nhất: mỗi câu đều dẫn về query đã chạy. Không có lớp truy vết đó thì báo cáo do AI viết chỉ là văn hay, không ai dám ký.</p>
+    <div class="meta">
+      <span class="when">📅 07/07</span>
+      <a class="metabtn" href="https://docs.snowflake.com/en/release-notes/2026/other/2026-07-07-snowflake-cowork-deep-research-ga" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-13">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="13">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Chế độ điều tra cho câu hỏi mở, cần suy luận nhiều bước — GA từ 7/7.</li>
+        <li>Tự phân rã câu hỏi lớn thành nhiều nhánh điều tra con.</li>
+        <li>Chạy song song trên cả dữ liệu có cấu trúc và phi cấu trúc.</li>
+        <li>Tổng hợp thành báo cáo có cấu trúc, không phải một kết quả đơn lẻ.</li>
+        <li>Mọi khẳng định truy ngược được về dữ liệu nguồn và câu truy vấn đã chạy.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>TRẠNG THÁI</b>GA</span>
+        <span class="fact"><b>NGÀY</b>07/07/2026</span>
+        <span class="fact"><b>PHẠM VI</b>dữ liệu có + phi cấu trúc</span>
+        <span class="fact"><b>ĐIỂM LÕI</b>truy vết về query nguồn</span>
+      </div>
+      <p class="deep">Khoảng cách giữa text-to-SQL và Deep Research chính là khoảng cách giữa "trả lời một câu hỏi" và "điều tra một vấn đề". Câu hỏi kiểu doanh thu quý trước bao nhiêu thì một truy vấn là đủ. Câu hỏi kiểu vì sao khách hàng miền Bắc rời bỏ nhiều hơn thì cần chục truy vấn, cộng đọc ticket support, cộng đối chiếu. Deep Research làm đúng việc đó và làm song song. Nhưng thứ quyết định nó có sống được trong doanh nghiệp không lại là lớp truy vết. Trong thực tế tư vấn, thứ giết chết niềm tin vào báo cáo AI không phải AI viết dở — mà là AI viết hay quá, số nghe rất thuyết phục, và không ai kiểm chứng được nó lấy ở đâu. Một con số không dẫn nguồn thì giám đốc không dám ký. Snowflake bán chính lớp truy vết đó, và họ bán đúng thứ khách hàng cần.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="14">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=medium.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-14" class="xt" hidden>
+    <a class="title" href="https://medium.com/expedia-group-tech/using-llms-to-analyze-spark-sql-plans-a-practical-approach-to-debugging-long-running-jobs-35eace7eeec4" target="_blank" rel="noopener">Expedia dùng LLM đọc Spark SQL plan: giảm 40-95% thời gian chạy, 50-95% chi phí compute</a>
+    <p class="sum">Đội kỹ thuật Expedia Group dựng workflow tự động đẩy metadata của Spark execution plan qua một MCP server vào LLM, rồi dùng prompt có cấu trúc để phát hiện các anti-pattern quen thuộc: thiếu broadcast join, partition lệch, broadcast quá khổ, full table scan. Kết quả thực tế: thời gian chạy job giảm 40 đến 95 phần trăm, chi phí compute giảm 50 đến 95 phần trăm, có job từ ba tiếng rút về đúng hạn, có job từ 20 phút còn 1 phút.</p>
+    <p class="why">💡 Đây là cách dùng AI trong data engineering mà mình thích nhất: không sinh code hộ, mà đọc hộ thứ con người lười đọc — execution plan. Bài toán tối ưu Spark vốn cần chuyên gia hiếm và đắt; đưa nó thành workflow lặp lại được là giá trị thật, đo được bằng hoá đơn cloud.</p>
+    <div class="meta">
+      <span class="when">📅 06/07</span>
+      <a class="metabtn" href="https://medium.com/expedia-group-tech/using-llms-to-analyze-spark-sql-plans-a-practical-approach-to-debugging-long-running-jobs-35eace7eeec4" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-14">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="14">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Đẩy metadata Spark execution plan qua MCP server vào LLM, dùng prompt có cấu trúc.</li>
+        <li>Dò anti-pattern: thiếu broadcast join, partition lệch, broadcast quá khổ, full table scan.</li>
+        <li>Thời gian chạy job giảm 40 đến 95 phần trăm trên nhiều workload thực tế.</li>
+        <li>Chi phí compute giảm 50 đến 95 phần trăm.</li>
+        <li>Ví dụ cụ thể: một job từ 20 phút rút còn 1 phút; job hơn 3 tiếng về đúng hạn.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>RUNTIME</b>giảm 40-95%</span>
+        <span class="fact"><b>CHI PHÍ</b>giảm 50-95%</span>
+        <span class="fact"><b>CA TỐT NHẤT</b>20 phút → 1 phút</span>
+        <span class="fact"><b>KÊNH</b>Spark MCP server + LLM</span>
+      </div>
+      <p class="deep">Đây là case study mình sẽ mang đi dạy. Lý do: nó không dùng AI để làm thứ hào nhoáng, nó dùng AI để làm thứ chán ngắt mà con người lười làm — đọc execution plan. Tối ưu Spark xưa nay là nghề của vài chuyên gia hiếm và đắt; họ nhìn plan, thấy ngay chỗ partition lệch hay thiếu broadcast join. Vấn đề là công ty nào cũng chỉ có một hai người như vậy, và họ không đủ thời gian soi hết vài trăm job. Biến tri thức đó thành prompt có cấu trúc, cắm vào MCP server để lấy metadata thật, là cách nhân bản chuyên gia. Con số 50 đến 95 phần trăm chi phí compute không phải marketing — nó đo được trên hoá đơn. Nếu đội bạn đang chạy Spark trên cloud và tháng nào cũng giật mình vì hoá đơn, đây là thứ đáng thử ngay tuần sau, chứ không phải năm sau.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<!-- SECTION 4 -->
+<section class="sec" id="sec-4">
+<h2>📈 Hot trend &amp; Thảo luận cộng đồng</h2>
+
+<article class="card" data-aid="15">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=reddit.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-15" class="xt" hidden>
+    <a class="title" href="https://www.reddit.com/r/dataengineering/comments/1urg3nx/for_folks_who_think_ai_is_going_to_take_data/" target="_blank" rel="noopener">r/dataengineering bùng nổ: "Gửi những ai nghĩ AI sắp cướp việc data engineer"</a>
+    <p class="sum">Bài đăng ngày 9/7 trên r/dataengineering đạt 429 upvote và 134 bình luận, kể về một công ty tuyển data engineer chỉ vài tháng vì tin rằng sau đó sẽ không cần ai bảo trì thứ mà DE dựng ra. Bình luận được vote cao nhất gọi thẳng đó là sự ngạo mạn, và cảnh báo đây là cờ đỏ cho bất kỳ ai định ứng tuyển.</p>
+    <p class="why">💡 Cuộc tranh luận này phơi ra hiểu lầm cốt lõi của lãnh đạo: nghĩ pipeline là thứ dựng một lần rồi thôi. Thực tế chi phí của data engineering nằm ở bảo trì, ở schema đổi, ở nguồn chết lúc hai giờ sáng — đúng phần AI hiện vẫn yếu nhất.</p>
+    <div class="meta">
+      <span class="when">📅 09/07</span>
+      <a class="metabtn" href="https://www.reddit.com/r/dataengineering/comments/1urg3nx/for_folks_who_think_ai_is_going_to_take_data/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-15">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="15">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>429 upvote, 134 bình luận chỉ trong ít ngày — thread nóng nhất tuần của r/dataengineering.</li>
+        <li>Công ty tuyển DE hợp đồng vài tháng, tin rằng sau đó không cần ai bảo trì.</li>
+        <li>Bình luận top (453 upvote): gọi thẳng đó là sự ngạo mạn.</li>
+        <li>Nhiều bình luận coi đây là cờ đỏ, khuyên ứng viên tránh xa.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>UPVOTE</b>429</span>
+        <span class="fact"><b>BÌNH LUẬN</b>134</span>
+        <span class="fact"><b>SUB</b>r/dataengineering</span>
+        <span class="fact"><b>NGÀY</b>09/07/2026</span>
+      </div>
+      <p class="deep">Ngộ nhận ở đây rất cổ điển và mình gặp hoài khi tư vấn: lãnh đạo nghĩ pipeline giống một toà nhà — xây xong là xong. Thực tế nó giống một khu vườn: bỏ hai tháng không chăm là chết. Chi phí thật của data engineering không nằm ở lúc viết code, nó nằm ở lúc đối tác đổi schema mà không báo, lúc nguồn API chết lúc hai giờ sáng, lúc business đổi định nghĩa doanh thu mà quên nói với ai. Đó chính xác là phần AI hiện vẫn yếu nhất, vì nó đòi ngữ cảnh tổ chức chứ không đòi cú pháp. Nhưng công bằng mà nói, phía kia cũng có phần đúng: nhiều DE thật sự chỉ đang viết SQL và dựng DAG lặp lại — phần đó AI làm được, và làm rồi. Lời khuyên của mình cho bạn trẻ: đừng phòng thủ bằng cách chứng minh AI không viết được SQL. Hãy chuyển giá trị của mình lên phần AI chưa chạm được — thiết kế dữ liệu, định nghĩa nghiệp vụ, và độ tin cậy của hệ thống.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="16">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.squaredtech.co/wp-content/uploads/2026/07/squaredtech-4cc61580-apache-data-lakehouse-4-major-debates-shaping-open.webp" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=squaredtech.co&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-16" class="xt" hidden>
+    <a class="title" href="https://www.squaredtech.co/apache-data-lakehouse-4-major-debates-shaping-open-formats" target="_blank" rel="noopener">Tranh cãi chưa có lời giải trong Iceberg: các engine đang ghi đè thống kê của nhau</a>
+    <p class="sum">Cộng đồng Iceberg vẫn chưa chốt được cách xử lý xung đột thống kê trong triển khai đa engine: Spark lo ingest, Trino hoặc Dremio phục vụ truy vấn tương tác, Impala hay Flink nằm đâu đó trong pipeline, mỗi engine một mô hình thống kê riêng. Khi engine A ghi thống kê cho một snapshot rồi engine B tự tính lại, B ghi đè thẳng lên công sức của A — không có cơ chế trọng tài, không versioning, không mô hình sở hữu.</p>
+    <p class="why">💡 Đây chính là cái giá thật của lời hứa lakehouse mở: nhiều engine trên một bản dữ liệu nghe rất đẹp cho tới khi chúng đá nhau ở tầng metadata. Thống kê sai thì query planner chọn sai kế hoạch, và bạn trả tiền cho một cú full scan không đáng có.</p>
+    <div class="meta">
+      <span class="when">📅 08/07</span>
+      <a class="metabtn" href="https://www.squaredtech.co/apache-data-lakehouse-4-major-debates-shaping-open-formats" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-16">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="16">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Nhiều engine cùng ghi thống kê cho một snapshot, engine sau ghi đè engine trước.</li>
+        <li>Không có cơ chế trọng tài, không versioning, không mô hình sở hữu thống kê.</li>
+        <li>Hai hướng đang bàn: versioning theo snapshot, hoặc nhiều file thống kê có khoá.</li>
+        <li>Gábor Kaszab lo ngại về tính mạch lạc của mô hình tư duy và việc khớp engine ID.</li>
+        <li>Cùng tuần còn ba tranh luận lớn khác về quản trị, sở hữu thống kê và bảo mật.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>VẤN ĐỀ</b>ghi đè thống kê đa engine</span>
+        <span class="fact"><b>TRẠNG THÁI</b>chưa có lời giải</span>
+        <span class="fact"><b>HỆ QUẢ</b>query planner chọn sai kế hoạch</span>
+        <span class="fact"><b>NGÀY</b>08/07/2026</span>
+      </div>
+      <p class="deep">Slide bán hàng của mọi vendor lakehouse đều có một câu: một bản dữ liệu, mọi engine đều đọc được. Đây là chỗ câu đó vỡ. Thống kê bảng — số dòng, phân bố giá trị, min-max theo cột — chính là thứ query planner dựa vào để quyết định có broadcast join hay không, có bỏ qua file nào không. Khi Spark ghi thống kê theo mô hình của nó, rồi Trino tính lại theo mô hình của mình và ghi đè, kết quả là planner có thể tin vào một bức tranh sai. Hệ quả rất cụ thể: bạn trả tiền cho một cú full scan lẽ ra không cần. Điều nên làm ngay nếu đang chạy đa engine trên Iceberg: đừng để hai engine cùng ghi thống kê cho một bảng — chọn một engine làm chủ, các engine còn lại chỉ đọc. Xấu, nhưng an toàn, cho tới khi cộng đồng chốt được cơ chế sở hữu.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="17">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://substackcdn.com/image/fetch/$s_!AdQk!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6f51c1bf-abc9-4cd3-ad69-22cc8e3f1ef2_1080x1080.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=dataengineeringweekly.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-17" class="xt" hidden>
+    <a class="title" href="https://www.dataengineeringweekly.com/p/data-engineering-weekly-277" target="_blank" rel="noopener">Data Engineering Weekly #277: Meta công bố blueprint lưu trữ cho AI, Stripe replay traffic bằng Spark</a>
+    <p class="sum">Số ra ngày 6/7 tập hợp loạt bài kỹ thuật đáng đọc: Meta trình bày kiến trúc lưu trữ cho AI ở quy mô lớn với schema metadata hợp nhất và SDK client streaming trực tiếp để gỡ nút thắt GPU; Stripe dùng Spark replay lưu lượng production lịch sử để kiểm thử hồi quy microservice; Target dựng kiến trúc RAG cho dự báo chiến dịch marketing, đạt độ phủ 100 phần trăm ở top ba.</p>
+    <p class="why">💡 Ba case study, ba cách dùng dữ liệu rất khác nhau, nhưng cùng một bài học: hạ tầng dữ liệu tốt là thứ làm cho AI và cả hệ thống thường chạy được ở quy mô lớn. Đây là loại nội dung để học nghề, không phải để đọc cho vui.</p>
+    <div class="meta">
+      <span class="when">📅 06/07</span>
+      <a class="metabtn" href="https://www.dataengineeringweekly.com/p/data-engineering-weekly-277" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-17">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="17">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Meta: schema metadata hợp nhất và SDK streaming trực tiếp để gỡ nút thắt GPU.</li>
+        <li>Stripe: dùng Spark replay traffic production lịch sử để test hồi quy microservice.</li>
+        <li>Target: kiến trúc RAG lọc và xếp hạng chiến dịch cũ, đạt độ phủ 100% ở top ba.</li>
+        <li>Microsoft: Durable Functions trong PostgreSQL qua extension pg_durable.</li>
+        <li>Boaz Palgi phản biện LTAP của Databricks về đảm bảo concurrency và copy-on-write.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>SỐ</b>#277</span>
+        <span class="fact"><b>NGÀY</b>06/07/2026</span>
+        <span class="fact"><b>CASE</b>Meta, Stripe, Target, Affirm</span>
+      </div>
+      <p class="deep">Ba case study này đáng đọc kỹ vì chúng cho thấy hạ tầng dữ liệu đang bị AI kéo đi đâu. Meta phải viết lại tầng lưu trữ vì GPU đắt tới mức mọi mili-giây chờ dữ liệu đều thành tiền — bài học là ở quy mô AI, storage chính là nút thắt chứ không phải compute. Stripe replay traffic thật bằng Spark để test hồi quy: đây là cách dùng data engineering để phục vụ độ tin cậy phần mềm, một hướng ít ai nghĩ tới. Target dùng RAG cho dự báo marketing thay vì cho chatbot — đúng kiểu ứng dụng mà mình hay khuyên doanh nghiệp Việt: đừng đi làm chatbot, hãy tìm bài toán quyết định có sẵn dữ liệu lịch sử. Nếu bạn chỉ có thời gian đọc một newsletter tuần này, đọc số này.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="18">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=reddit.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-18" class="xt" hidden>
+    <a class="title" href="https://www.reddit.com/r/dataengineersindia/comments/1uonvv5/overcrowding_in_data_engineering_field/" target="_blank" rel="noopener">Cộng đồng bàn chuyện nghề DE quá tải người mới: "ai cũng học cú pháp, ít ai giải được bài toán"</a>
+    <p class="sum">Thread ngày 6/7 trên r/dataengineersindia bàn về tình trạng thị trường ngập ứng viên data engineer nhưng thiếu người thật sự làm được việc. Bình luận nổi bật: ai cũng học được cú pháp và thuật ngữ, số người thật sự áp dụng và giải được vấn đề rất ít; một người phỏng vấn kể phải tự hỏi ứng viên làm gì ở chỗ làm cũ. Nhiều ý kiến khuyên học sâu GenAI vì phỏng vấn DE giờ đã hỏi cả RAG, LangChain, LangGraph.</p>
+    <p class="why">💡 Nghịch lý của nghề: thị trường vừa thừa người vừa thiếu người. Điều đáng lưu cho bạn trẻ Việt là mô tả công việc DE đang lặng lẽ nuốt thêm phần AI — biết Spark và SQL thôi chưa đủ, phải hiểu cả RAG và agent.</p>
+    <div class="meta">
+      <span class="when">📅 06/07</span>
+      <a class="metabtn" href="https://www.reddit.com/r/dataengineersindia/comments/1uonvv5/overcrowding_in_data_engineering_field/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-18">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="18">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Thị trường ngập ứng viên DE nhưng số người giải được vấn đề rất ít.</li>
+        <li>"Ai cũng học được cú pháp và thuật ngữ" — khác biệt nằm ở khả năng giải bài toán.</li>
+        <li>Người phỏng vấn kể phải tự hỏi ứng viên thực sự làm gì ở chỗ làm cũ.</li>
+        <li>Phỏng vấn DE giờ hỏi cả RAG, LangChain, LangGraph.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>SUB</b>r/dataengineersindia</span>
+        <span class="fact"><b>TƯƠNG TÁC</b>37 upvote, 38 bình luận</span>
+        <span class="fact"><b>NGÀY</b>06/07/2026</span>
+      </div>
+      <p class="deep">Thread này nhỏ về lượt vote nhưng nói trúng thứ mình thấy khi phỏng vấn ở Việt Nam. Thị trường vừa thừa vừa thiếu: hàng trăm CV biết liệt kê Spark, Airflow, dbt, nhưng hỏi tới "dữ liệu này dùng để ra quyết định gì" thì im lặng. Cú pháp học được trong ba tháng; tư duy giải bài toán mất ba năm. Chi tiết đáng chú ý nhất là phỏng vấn DE giờ đã hỏi RAG và LangGraph — nghĩa là mô tả công việc data engineer đang lặng lẽ nuốt thêm phần AI, đúng như những gì tuần này chứng kiến với Airbyte, Databricks và Snowflake. Lời khuyên cụ thể cho bạn trẻ Việt: đừng học thêm một framework nữa. Hãy chọn một bài toán nghiệp vụ thật, làm end-to-end từ nguồn dữ liệu tới con số ra quyết định, và kể được câu chuyện đó trong buổi phỏng vấn. Đó là thứ mà năm trăm CV kia không có.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<!-- SECTION 5 -->
+<section class="sec" id="sec-5">
+<h2>🏢 Ngành &amp; Doanh nghiệp</h2>
+
+<article class="card" data-aid="19">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.actian.com/wp-content/uploads/2026/06/Actian-acquires-Jaspersoft-2.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=actian.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-19" class="xt" hidden>
+    <a class="title" href="https://www.actian.com/blog/company/actian-adds-jaspersoft/" target="_blank" rel="noopener">Actian hoàn tất thâu tóm Jaspersoft, gộp embedded analytics vào danh mục quản trị dữ liệu</a>
+    <p class="sum">Actian, mảng data và AI của HCLSoftware, hoàn tất thương vụ mua Jaspersoft và đang gộp năng lực embedded analytics cùng báo cáo pixel-perfect của Jaspersoft vào danh mục quản trị dữ liệu của mình. Nền tảng hợp nhất hứa hẹn đường đi liền mạch từ dữ liệu đã được quản trị sang báo cáo vận hành, dashboard và các năng lực agentic BI đang hình thành.</p>
+    <p class="why">💡 Làn sóng hợp nhất ở tầng BI vẫn chưa dừng: sau Fivetran gộp dbt Labs, giờ tới Actian ôm Jaspersoft. Xu hướng rõ ràng là khách hàng không muốn ghép năm nhà cung cấp để đi từ dữ liệu thô tới báo cáo nữa.</p>
+    <div class="meta">
+      <span class="when">📅 10/07</span>
+      <a class="metabtn" href="https://www.actian.com/blog/company/actian-adds-jaspersoft/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-19">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="19">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Actian (mảng data và AI của HCLSoftware) hoàn tất thâu tóm Jaspersoft.</li>
+        <li>Gộp embedded analytics và báo cáo pixel-perfect vào danh mục quản trị dữ liệu.</li>
+        <li>Định hướng: đường đi liền mạch từ dữ liệu đã quản trị tới báo cáo vận hành.</li>
+        <li>Kế hoạch tiếp: analytics tăng cường AI, trải nghiệm hội thoại, agentic BI.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>BÊN MUA</b>Actian (HCLSoftware)</span>
+        <span class="fact"><b>BÊN BỊ MUA</b>Jaspersoft</span>
+        <span class="fact"><b>TRỌNG TÂM</b>embedded analytics, agentic BI</span>
+        <span class="fact"><b>NGÀY</b>10/07/2026</span>
+      </div>
+      <p class="deep">Thương vụ này không lớn về tiền nhưng đúng về hướng. Nhìn lại nửa đầu 2026: Fivetran gộp dbt Labs, Databricks mua Panther, giờ Actian ôm Jaspersoft. Mẫu chung rất rõ — không ai còn muốn bán một mảnh của chuỗi giá trị dữ liệu nữa, ai cũng muốn bán trọn đường từ nguồn tới quyết định. Với doanh nghiệp Việt, điều này có hai mặt. Mặt tốt: bớt phải tự ghép năm vendor và tự chịu trách nhiệm chỗ nối. Mặt xấu: khoá nhà cung cấp ngày càng chặt, và giá đàm phán về sau chỉ có tăng. Lời khuyên: khi mua nền tảng hợp nhất, hãy hỏi ngay câu khó nhất — nếu ba năm nữa tôi muốn ra đi, dữ liệu và semantic model của tôi có đi theo được không? Trả lời được câu đó rồi hãy ký.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="20">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=prnewswire.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-20" class="xt" hidden>
+    <a class="title" href="https://www.prnewswire.com/news-releases/nyse-content-update-teradata-ai-report-surveys-1-000-global-tech--data-leaders-302819481.html" target="_blank" rel="noopener">Teradata khảo sát 1.000 lãnh đạo công nghệ: điều gì đang chặn AI doanh nghiệp</a>
+    <p class="sum">Teradata công bố báo cáo AI dựa trên khảo sát 1.000 lãnh đạo công nghệ và dữ liệu toàn cầu, soi vào những gì thật sự xảy ra khi doanh nghiệp cố mở rộng quy mô AI. Các rào cản dai dẳng vẫn quay về đúng bốn thứ: dữ liệu chưa sẵn sàng, quản trị, đo lường ROI và thiếu kỹ năng.</p>
+    <p class="why">💡 Không có gì mới, và đó mới là điều đáng nói. Sau ba năm hype, thứ chặn AI doanh nghiệp vẫn là dữ liệu bẩn và quản trị lỏng — không phải model yếu. Ai định mua thêm một công cụ AI nữa để chữa nên đọc lại danh sách này.</p>
+    <div class="meta">
+      <span class="when">📅 10/07</span>
+      <a class="metabtn" href="https://www.prnewswire.com/news-releases/nyse-content-update-teradata-ai-report-surveys-1-000-global-tech--data-leaders-302819481.html" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-20">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="20">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Khảo sát 1.000 lãnh đạo công nghệ và dữ liệu toàn cầu.</li>
+        <li>Bốn rào cản dai dẳng: dữ liệu chưa sẵn sàng, quản trị, đo ROI, thiếu kỹ năng.</li>
+        <li>Vấn đề nằm ở chuyển từ pilot rời rạc sang chương trình AI có quản trị.</li>
+        <li>Teradata định vị nền tảng dữ liệu AI-ready làm lời giải.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>MẪU</b>1.000 lãnh đạo</span>
+        <span class="fact"><b>RÀO CẢN</b>data readiness, governance</span>
+        <span class="fact"><b>CÒN LẠI</b>đo ROI, thiếu kỹ năng</span>
+        <span class="fact"><b>NGÀY</b>10/07/2026</span>
+      </div>
+      <p class="deep">Đọc báo cáo vendor thì phải trừ hao phần bán hàng, nhưng danh sách rào cản này thì mình tin, vì nó khớp đúng những gì thấy khi đi tư vấn. Đáng nói là sau ba năm hype, danh sách không đổi một chữ: dữ liệu bẩn, quản trị lỏng, không đo được ROI, thiếu người. Không có dòng nào ghi "model chưa đủ thông minh". Nghĩa là gì? Nghĩa là phần lớn doanh nghiệp đang mua sai thuốc — họ mua thêm công cụ AI để chữa một bệnh thuộc về dữ liệu và tổ chức. Nếu công ty bạn có ba định nghĩa doanh thu khác nhau, không một model nào cứu được bạn. Việc đúng cần làm trước: dọn định nghĩa metric, chuẩn hoá nguồn, và chọn một bài toán đo được ROI. Rồi mới nói chuyện AI.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="21">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.snowflake.com/content/dam/snowflake-site/general/social-thumbnails/og-social-snowflake-newsroom.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=snowflake.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-21" class="xt" hidden>
+    <a class="title" href="https://www.snowflake.com/en/news/press-releases/snowflake-opens-new-office-france-accelerate-data-ai-innovation/" target="_blank" rel="noopener">Snowflake mở trụ sở tại Paris, rót vốn vào Mistral AI và Dust</a>
+    <p class="sum">Snowflake khai trương trụ sở mới tại trung tâm Paris để phục vụ khách hàng doanh nghiệp và SMB, phản ánh nhu cầu mạnh với AI Data Cloud tại Pháp. Động thái này gắn với chiến lược hệ sinh thái rộng hơn, trong đó Snowflake Ventures đã đầu tư vào các công ty AI Pháp như Mistral AI và Dust.</p>
+    <p class="why">💡 Cuộc đua data cloud đang chuyển sang mặt trận chủ quyền dữ liệu khu vực. Việc một vendor Mỹ vừa mở văn phòng vừa đầu tư vào vô địch AI nội địa là bài học đáng ngẫm cho thị trường Việt Nam khi nói chuyện data sovereignty.</p>
+    <div class="meta">
+      <span class="when">📅 10/07</span>
+      <a class="metabtn" href="https://www.snowflake.com/en/news/press-releases/snowflake-opens-new-office-france-accelerate-data-ai-innovation/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-21">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="21">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Trụ sở Pháp mới đặt tại trung tâm Paris, phục vụ cả doanh nghiệp lớn và SMB.</li>
+        <li>Snowflake Ventures đã đầu tư vào Mistral AI và Dust.</li>
+        <li>Chiến lược hệ sinh thái: gắn nền tảng với vô địch AI nội địa.</li>
+        <li>Củng cố vị thế Pháp như trung tâm data và AI của châu Âu.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>ĐỊA ĐIỂM</b>Paris, Pháp</span>
+        <span class="fact"><b>ĐẦU TƯ</b>Mistral AI, Dust</span>
+        <span class="fact"><b>QUỸ</b>Snowflake Ventures</span>
+        <span class="fact"><b>NGÀY</b>10/07/2026</span>
+      </div>
+      <p class="deep">Đây không đơn thuần là tin mở văn phòng. Chiêu của Snowflake tinh vi hơn: vừa đặt hạ tầng tại chỗ, vừa rót vốn vào chính các công ty AI được coi là niềm tự hào quốc gia của Pháp. Khi khách hàng châu Âu lo chủ quyền dữ liệu và muốn dùng model nội địa, Snowflake đã có sẵn câu trả lời — dùng Mistral, chạy trên nền của chúng tôi. Đó là cách vô hiệu hoá lập luận sovereignty mà không cần tranh cãi. Bài học cho thị trường Việt: khi các vendor lớn nói chuyện chủ quyền dữ liệu với ta, hãy hiểu rằng họ đã tính trước nước này ở châu Âu rồi. Câu hỏi ta cần hỏi không phải "dữ liệu có ở Việt Nam không", mà là "nếu tôi rời nền tảng này, tôi mang đi được gì".</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="22">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.cloudera.com/content/dam/www/static/images/logos/cloudera-card.jpg" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=cloudera.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-22" class="xt" hidden>
+    <a class="title" href="https://www.cloudera.com/about/news-and-blogs/press-releases/2026-07-09-cloudera-and-mercy-corps-deepen-partnership-with-agentic" target="_blank" rel="noopener">Cloudera và Mercy Corps mở rộng hợp tác: agentic AI cho ứng phó nhân đạo</a>
+    <p class="sum">Cloudera công bố giai đoạn tiếp theo trong hợp tác với Mercy Corps, xoay quanh agentic AI có thể hành động trên dữ liệu nhân đạo hợp nhất trải khắp nhiều cloud và môi trường edge. Các agent sẽ giúp phân tích dữ liệu khí hậu, xung đột và kinh tế, chạy kịch bản dự phóng và tự động hoá một phần quy trình ứng phó, trong khi vẫn giữ quản trị dữ liệu, chủ quyền và giám sát của con người ở vị trí trung tâm.</p>
+    <p class="why">💡 Một trong số ít case study agentic AI có kết quả đo được bằng mạng người chứ không phải bằng doanh thu. Điểm kỹ thuật đáng học: dữ liệu nằm rải rác từ cloud tới edge ở vùng sóng yếu, đúng bài toán mà nhiều tổ chức Việt cũng gặp.</p>
+    <div class="meta">
+      <span class="when">📅 09/07</span>
+      <a class="metabtn" href="https://www.cloudera.com/about/news-and-blogs/press-releases/2026-07-09-cloudera-and-mercy-corps-deepen-partnership-with-agentic" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-22">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="22">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Agent hành động trên dữ liệu nhân đạo hợp nhất trải khắp nhiều cloud và edge.</li>
+        <li>Phân tích dữ liệu khí hậu, xung đột và kinh tế; chạy kịch bản dự phóng.</li>
+        <li>Tự động hoá một phần quy trình ứng phó khẩn cấp.</li>
+        <li>Giữ quản trị dữ liệu, chủ quyền và giám sát của con người ở trung tâm.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>ĐỐI TÁC</b>Cloudera × Mercy Corps</span>
+        <span class="fact"><b>HẠ TẦNG</b>đa cloud + edge</span>
+        <span class="fact"><b>DỮ LIỆU</b>khí hậu, xung đột, kinh tế</span>
+        <span class="fact"><b>NGÀY</b>09/07/2026</span>
+      </div>
+      <p class="deep">Bài toán kỹ thuật ở đây khó hơn vẻ ngoài, và đó là lý do nó đáng học. Dữ liệu nhân đạo không nằm gọn trong một data lake xinh xắn: nó rải từ cloud tới thiết bị edge ở vùng sóng yếu, mất kết nối liên tục, chất lượng thất thường. Xây agent chạy được trên nền dữ liệu như vậy khó hơn nhiều so với xây chatbot trên một warehouse sạch. Điểm mình đánh giá cao là họ giữ giám sát con người ở trung tâm — vì trong ứng phó khẩn cấp, một quyết định sai không phải là con số sai trên dashboard, nó là người. Nhiều tổ chức và doanh nghiệp Việt có bài toán dữ liệu rất giống: chi nhánh xa, kết nối kém, dữ liệu về trễ. Kiến trúc hybrid cloud-edge kiểu này đáng nghiên cứu hơn hầu hết các demo agentic AI bóng bẩy khác.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<footer>
+  <p>Bản tin tạo lúc 11/07/2026 · 22 tin trong tuần W28 (06/07 - 12/07/2026)</p>
+  <p>Tuyển chọn &amp; đọc bởi Duc Nguyen · <a href="https://ducnguyen.vn" target="_blank" rel="noopener">ducnguyen.vn</a></p>
+</footer>
+
+</div>
+<script src="../../assets/bg.js" defer></script>
+<!--MEDIA_INJECTED-->
+<script>
+(function(){
+  var base="../../audio/2026-07-11/";
+  var cur=null;
+  function play(src){ if(cur){cur.pause();} cur=new Audio(src); cur.play().catch(function(){}); }
+  function stop(){ if(cur){cur.pause(); cur=null;} }
+  document.addEventListener("DOMContentLoaded",function(){
+    var ra=document.getElementById("readAll"); if(ra) ra.onclick=function(){ play(base+"all.mp3"); };
+    var rs=document.getElementById("readStop"); if(rs) rs.onclick=stop;
+    document.querySelectorAll(".readbtn").forEach(function(b){
+      b.onclick=function(){ var id=b.getAttribute("data-aid"); if(id) play(base+id+".mp3"); };
+    });
+  });
+})();
+</script>
+</body>
+</html>
