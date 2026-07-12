@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-07-12",
+      "display_date": "12/07/2026",
+      "title": "Apple kiện OpenAI: cáo buộc đánh cắp bí mật phần cứng",
+      "summary": "Apple vừa lôi OpenAI ra tòa, tố đánh cắp bí mật phần cứng. Trong hồ sơ có laptop không trả và linh kiện mang lậu đi phỏng vấn.",
+      "source": "techcrunch.com",
+      "video_id": "mt767gi1ohk",
+      "short_id": "Rxl0HdreWfI",
+      "published_at": "2026-07-12T18:19:29"
+    },
+    {
       "date": "2026-07-06",
       "display_date": "06/07/2026",
       "title": "Meituan mở mã LongCat-2.0: mô hình 1,6 nghìn tỷ, không cần Nvidia",
