@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-07-13",
+      "display_date": "13/07/2026",
+      "title": "Airbyte cho AI agent ghi ngược vào Salesforce, ETL đảo chiều",
+      "summary": "Airbyte vừa cho AI agent quyền ghi thẳng vào Salesforce và HubSpot. Đường ống dữ liệu một chiều suốt hai mươi năm vừa mọc thêm chiều về.",
+      "source": "airbyte.com",
+      "video_id": "koaTGG5-_C0",
+      "short_id": "0gv8fEPijLU",
+      "published_at": "2026-07-13T19:26:22"
+    },
+    {
       "date": "2026-07-11",
       "display_date": "11/07/2026",
       "title": "AI viết lại Postgres bằng Rust, pass 100% regression test",
