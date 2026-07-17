@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-07-17",
+      "display_date": "17/07/2026",
+      "title": "Apache Spark 4.2 đưa metric view và vector search vào engine",
+      "summary": "Apache Spark vừa ra bản 4.2, kéo lớp semantic và tìm kiếm vector vào thẳng trong engine, thay vì bắt bạn mua thêm công cụ riêng.",
+      "source": "spark.apache.org",
+      "video_id": "igqV7RA1HDw",
+      "short_id": "4hUn0OMjqYU",
+      "published_at": "2026-07-17T19:22:32"
+    },
+    {
       "date": "2026-07-15",
       "display_date": "15/07/2026",
       "title": "Airflow 3.3: task có trí nhớ, chạy được Java và Go",
