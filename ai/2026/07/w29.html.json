@@ -1,0 +1,422 @@
+{
+ "date": "17/07/2026",
+ "week": "W29",
+ "range": "13/07 - 19/07/2026",
+ "tldr": "Tuần 29 là tuần AI rời phòng lab để bước vào địa chính trị và đời sống thật. Apple chịu thua ở Trung Quốc và giao Apple Intelligence cho Qwen của Alibaba, trong khi 29 nước ký thành lập World AI Cooperation Organization đặt trụ sở tại Thượng Hải, nơi Chủ tịch Tập Cận Bình lần đầu dự khai mạc hội nghị AI thế giới. Ở chiều kỹ thuật, PrismML nén model 27 tỷ tham số xuống 3,9 GB để chạy thẳng trên iPhone, còn OpenAI bán phần cứng đầu tiên là bàn phím 230 đô để điều khiển agent. Mặt trái cũng lộ rõ: New York thành bang đầu tiên của Mỹ đóng băng data center siêu lớn, công nhân Hyundai đình công vì robot hình người, và cộng đồng công nghệ tranh cãi gay gắt chuyện con người đang giao quá nhiều việc suy nghĩ cho máy.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "Apple Intelligence được duyệt vào Trung Quốc — chạy bằng Qwen của Alibaba",
+   "title_en": "Apple Intelligence approved for launch in China with Alibaba's Qwen AI",
+   "summary": "Cục Quản lý Không gian mạng Trung Quốc đã đưa dịch vụ AI của Apple vào danh sách nhà cung cấp được phê duyệt, nhưng phần lõi sinh nội dung sẽ do model Qwen của Alibaba đảm nhiệm, với Baidu tham gia ở vai trò chưa công bố. Qwen sẽ chạy Apple Intelligence trên iOS, iPadOS, macOS và visionOS tại Trung Quốc đại lục.",
+   "why": "Apple chấp nhận không dùng model của chính mình ở thị trường lớn thứ hai — đây là lần đầu một hãng phương Tây hàng đầu giao lớp AI cốt lõi cho đối tác Trung Quốc để đổi lấy giấy phép. Tín hiệu rõ ràng rằng thị trường AI đang tách làm hai hệ sinh thái riêng biệt.",
+   "url": "https://techcrunch.com/2026/07/16/apple-intelligence-approved-for-launch-in-china-with-alibabas-qwen-ai/",
+   "domain": "techcrunch.com",
+   "date": "2026-07-16",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 1
+  },
+  {
+   "aid": 2,
+   "title": "OpenAI bán phần cứng đầu tiên: Codex Micro, bàn phím 230 USD để điều khiển agent",
+   "title_en": "Amid hardware legal battle, OpenAI releases a $230 keyboard for Codex",
+   "summary": "OpenAI ra mắt Codex Micro tại AI Engineer World Fair ngày 15/07 — một macro pad làm cùng hãng bàn phím Work Louder, có 6 phím agent với đèn LED bám trạng thái agent theo thời gian thực, núm xoay chỉnh mức reasoning và joystick chuyển workflow. Giá 230 USD, số lượng giới hạn.",
+   "why": "Đây là sản phẩm phần cứng đầu tiên của OpenAI, ra mắt giữa lúc hãng vướng tranh chấp pháp lý về phần cứng. Nó hé lộ một giả định lớn: lập trình viên sẽ chạy nhiều agent song song đến mức cần một thiết bị vật lý riêng để theo dõi và điều phối.",
+   "url": "https://techcrunch.com/2026/07/15/amid-hardware-legal-battle-openai-releases-a-230-keyboard-for-codex/",
+   "domain": "techcrunch.com",
+   "date": "2026-07-15",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 5
+  },
+  {
+   "aid": 3,
+   "title": "Anthropic ra mắt Claude for Teachers: miễn phí bản premium cho toàn bộ giáo viên K-12 tại Mỹ",
+   "title_en": "Introducing Claude for Teachers",
+   "summary": "Anthropic cho giáo viên K-12 Mỹ đã xác minh dùng miễn phí các tính năng Claude premium, kèm thư viện teaching skills và cơ sở dữ liệu chương trình bám chuẩn học thuật của cả 50 bang, tích hợp 9 nền tảng edtech và điều khoản dữ liệu tuân thủ FERPA xây cùng American Federation of Teachers. Đăng ký trước 30/06/2027 được trọn một năm.",
+   "why": "Cuộc đua giành lớp học đang nóng lên giữa Anthropic, Google, OpenAI và Khan Academy. Điểm khác biệt ở đây là hạ tầng agentic giống Claude Code được đóng gói lại cho giáo viên, kèm cam kết không dùng hội thoại để train model.",
+   "url": "https://www.anthropic.com/news/claude-for-teachers",
+   "domain": "anthropic.com",
+   "date": "2026-07-14",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 4,
+   "title": "PrismML nén Bonsai 27B xuống 3,9 GB: model 27 tỷ tham số chạy thẳng trên iPhone",
+   "title_en": "PrismML releases Bonsai 27B, claiming first major AI model of its size fit for iPhone",
+   "summary": "Dựa trên Qwen3.6 27B, PrismML dùng lượng tử hóa 1-bit và ternary để kéo bộ nhớ từ 54 GB xuống còn 3,9 GB cho bản mobile và 5,9 GB cho bản laptop, giữ nguyên context 262K và khả năng multimodal nhờ vision tower 4-bit. Trên iPhone 17 Pro Max, model chạy khoảng 11 token mỗi giây; trên RTX 5090 đạt tới 163 token mỗi giây.",
+   "why": "Đây là lần đầu một model cỡ 27B chạy được trên điện thoại — ngưỡng mà trước đây phải có server. Nếu con số này đứng vững, bài toán chi phí và quyền riêng tư của rất nhiều ứng dụng AI sẽ được viết lại từ đầu.",
+   "url": "https://9to5mac.com/2026/07/14/prismml-releases-bonsai-27b-claiming-first-major-ai-model-of-its-size-fit-for-iphone/",
+   "domain": "9to5mac.com",
+   "date": "2026-07-14",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 3
+  },
+  {
+   "aid": 5,
+   "title": "Claude Code 2.1.212: thêm background session và trần chặn vòng lặp agent chạy loạn",
+   "title_en": "Claude Code 2.1.212 release notes",
+   "summary": "Bản 2.1.212 ngày 17/07 cho phép lệnh fork sao chép hội thoại sang một background session riêng, đồng thời đặt trần mặc định 200 lần gọi tìm kiếm web và 200 lần spawn subagent mỗi phiên để chặn vòng lặp chạy loạn. MCP tool chạy quá 2 phút tự động chuyển xuống nền để phiên không bị treo.",
+   "why": "Các trần mặc định này là dấu hiệu agent đã đủ tự do để tự đốt tài nguyên. Với team Việt trả tiền theo token, một vòng lặp subagent không giới hạn là hóa đơn bất ngờ — giờ nó được chặn ngay ở mức công cụ.",
+   "url": "https://releasebot.io/updates/anthropic/claude-code",
+   "domain": "releasebot.io",
+   "date": "2026-07-17",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "OpenAI tuần này: Codex siết phát hiện lệnh nguy hiểm, ChatGPT có unified search và custom instructions 5.000 ký tự",
+   "title_en": "OpenAI release notes, July 13-16 2026",
+   "summary": "Codex 0.144.5 ngày 16/07 sửa lỗi phát hiện lệnh nguy hiểm và làm rõ lý do từ chối lệnh. Trước đó ChatGPT nâng giới hạn custom instructions từ 1.500 lên 5.000 ký tự cho Plus, Enterprise, Business và Education, đồng thời tung unified search quét xuyên chat, project, ảnh và tài liệu trên web, iOS và Android.",
+   "why": "Custom instructions 5.000 ký tự là thay đổi âm thầm nhưng đáng giá: đủ chỗ để nhét cả một context profile nghiêm túc thay vì vài dòng mô tả. Còn việc Codex siết lệnh nguy hiểm cho thấy agent chạy terminal vẫn là bề mặt rủi ro chưa yên tâm.",
+   "url": "https://releasebot.io/updates/openai",
+   "domain": "releasebot.io",
+   "date": "2026-07-16",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "MonkeyOCRv2 mở mã: foundation model thị giác-văn bản cho Document AI, train trên 113 triệu ảnh",
+   "title_en": "MonkeyOCRv2: A Visual-Text Foundation Model for Document AI",
+   "summary": "Nhóm Đại học Khoa học Công nghệ Hoa Trung cùng Kingsoft Office phát hành MonkeyOCRv2 ngày 13/07, gồm vision encoder, bản Parsing cho phân tích tài liệu đa ngữ và bản Und cho hiểu tài liệu. Model train trên MonkeyDoc v2 với 113 triệu ảnh trải 17 ngôn ngữ.",
+   "why": "Document AI là bài toán thật của doanh nghiệp Việt: hợp đồng scan, hóa đơn, báo cáo PDF. Một model mở đa ngữ ở quy mô này đáng để thử trước khi trả tiền cho API OCR thương mại.",
+   "url": "https://github.com/Yuliang-Liu/MonkeyOCRv2",
+   "domain": "github.com",
+   "date": "2026-07-13",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "Hugging Face tuần này: fill-in-the-middle theo hàm cho coding agent, và MLLM làm reward model zero-shot",
+   "title_en": "Hugging Face trending papers, July 15 2026",
+   "summary": "Dẫn đầu bảng trending ngày 15/07 là Function-Aware Fill-in-the-Middle as Mid-Training for Coding Agent Foundation Models của TIGER-Lab với 95 upvote, đề xuất huấn luyện giai đoạn giữa theo đơn vị hàm thay vì cắt token tùy tiện. Theo sau là Read It Back của ByteDance Seed, cho thấy MLLM đã pretrain có thể chấm chất lượng ảnh sinh ra mà không cần train riêng.",
+   "why": "Cả hai bài đi cùng một hướng: tận dụng cấu trúc sẵn có thay vì đổ thêm dữ liệu. Với team nhỏ không có ngân sách pretrain, đây chính là loại kỹ thuật đáng đọc kỹ.",
+   "url": "https://huggingface.co/papers/date/2026-07-15",
+   "domain": "huggingface.co",
+   "date": "2026-07-15",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "Long-Horizon-Terminal-Bench: model mạnh nhất cũng chỉ đạt 15,2% trên tác vụ terminal dài hơi",
+   "title_en": "Long-Horizon-Terminal-Bench: Testing the Limits of Agents on Long-Horizon Terminal Tasks with Dense Reward-Based Grading",
+   "summary": "Benchmark gồm 46 tác vụ dài hơi trải 9 nhóm, từ game tương tác, tái lập thí nghiệm, kỹ thuật phần mềm đến tính toán khoa học, chấm điểm từng phần thay vì chỉ đúng-sai cuối cùng. Model tốt nhất đạt 15,2% pass@1 ở ngưỡng 0,95 và 10,9% ở ngưỡng tuyệt đối; trung bình các model chỉ 4,3% và 1,7%.",
+   "why": "Con số này dội gáo nước lạnh vào kỳ vọng agent tự chạy dự án dài. Chấm điểm từng phần còn cho thấy agent thường đi được nửa đường rồi hỏng — đúng kiểu thất bại tốn tiền nhất trong thực tế.",
+   "url": "https://arxiv.org/abs/2607.08964",
+   "domain": "arxiv.org",
+   "date": "2026-07-13",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "MIT Technology Review phản biện phát hiện J-space của Anthropic: thú vị, nhưng đừng vội gọi là ý thức",
+   "title_en": "What Anthropic's latest AI discovery does—and doesn't—show",
+   "summary": "Anthropic dùng công cụ Jacobian lens phát hiện J-space bên trong Claude Opus 4.6 — vùng chứa những từ không xuất hiện ở đầu ra nhưng ảnh hưởng cách model giải bài, và ví nó với global workspace theory trong thần kinh học. Bài phân tích ngày 13/07 của MIT Technology Review chỉ ra phép so sánh này bị đẩy đi quá xa so với bằng chứng thực tế.",
+   "why": "Đây là ví dụ sạch về khoảng cách giữa kết quả interpretability và cách nó được kể lại. Ai làm AI nghiêm túc nên đọc cả bài gốc lẫn bài phản biện trước khi trích dẫn.",
+   "url": "https://www.technologyreview.com/2026/07/13/1140343/what-anthropics-latest-ai-discovery-does-and-doesnt-show/",
+   "domain": "technologyreview.com",
+   "date": "2026-07-13",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "Chúng ta có đang giao quá nhiều việc suy nghĩ cho AI? — bài viết bùng nổ trên Hacker News",
+   "title_en": "Are we offloading too much of our thinking to AI?",
+   "summary": "Bài blog trên artfish.ai leo lên đỉnh Hacker News ngày 14/07 với 521 điểm và 477 bình luận, đặt câu hỏi liệu việc dùng AI cho mọi bước tư duy có đang bào mòn chính năng lực tư duy đó hay không.",
+   "why": "Cuộc tranh luận này đang chuyển từ lo AI cướp việc sang lo AI làm teo kỹ năng. Với người làm nghề, câu hỏi thực tế là giữ lại phần suy nghĩ nào cho mình và giao phần nào cho máy.",
+   "url": "https://www.artfish.ai/p/offloading-thinking-to-ai",
+   "domain": "artfish.ai",
+   "date": "2026-07-14",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "Ask HN: hãy gắn cờ bài viết do AI sinh ra — 1.087 điểm và một cuộc tranh cãi dữ dội",
+   "title_en": "Ask HN: Add flag for AI-generated articles",
+   "summary": "Đề xuất thêm cờ đánh dấu nội dung do AI sinh ra trên Hacker News thu 1.087 điểm và 456 bình luận ngày 13/07, biến thành cuộc tranh luận về việc cộng đồng công nghệ nên xử lý ra sao khi nội dung máy viết tràn vào.",
+   "why": "Chính cộng đồng từng đón AI nồng nhiệt nhất giờ muốn dán nhãn nó. Xu hướng này trùng với hướng quản lý của Việt Nam, nơi Nghị định 237 đã buộc gắn nhãn nội dung báo chí dùng AI từ 01/07.",
+   "url": "https://news.ycombinator.com/item?id=48886741",
+   "domain": "news.ycombinator.com",
+   "date": "2026-07-13",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "Công nhân Hyundai đình công vì robot hình người Atlas — lần đầu trong ngành ô tô",
+   "title_en": "Hyundai strike said to be first car factory stoppage over humanoid robots",
+   "summary": "Công nhân các nhà máy Hyundai tại Hàn Quốc ngừng việc 4 tiếng mỗi ngày từ 13 đến 15/07, đòi thưởng bằng 30% lợi nhuận ròng năm ngoái và cam kết bảo đảm việc làm trước tự động hóa. Hyundai dự định đưa robot Atlas của Boston Dynamics vào nhà máy Mỹ từ 2028, hướng tới hơn 25.000 con trên toàn hệ thống Hyundai và Kia.",
+   "why": "Đây là lần đầu robot hình người trở thành lý do đình công tại một nhà máy ô tô. Nó cho thấy phản ứng của người lao động đến trước khi công nghệ kịp triển khai — và đàm phán bắt đầu từ bây giờ chứ không phải năm 2028.",
+   "url": "https://www.carscoops.com/2026/07/hyundai-workers-strike-robots/",
+   "domain": "carscoops.com",
+   "date": "2026-07-13",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "Tập Cận Bình lần đầu dự khai mạc World AI Conference tại Thượng Hải",
+   "title_en": "Xi Jinping to attend World AI Conference for first time as China elevates tech push",
+   "summary": "Hội nghị Trí tuệ Nhân tạo Thế giới 2026 khai mạc tại Thượng Hải ngày 17/07 với chủ đề AI Partnership for a Brighter Future, quy tụ hơn 140 diễn đàn, 1.400 khách mời và 1.100 đơn vị triển lãm, hơn 300 sản phẩm ra mắt toàn cầu. Đây là lần đầu Chủ tịch Tập Cận Bình dự trực tiếp kể từ khi sự kiện khởi động năm 2018.",
+   "why": "Lãnh đạo cao nhất xuất hiện trực tiếp là tín hiệu chính trị rõ ràng: Bắc Kinh coi AI là ưu tiên quốc gia và muốn tham gia định hình luật chơi toàn cầu, không chỉ chạy theo công nghệ.",
+   "url": "https://www.scmp.com/tech/article/3360404/xi-jinping-attend-world-ai-conference-first-time-china-elevates-tech-push",
+   "domain": "scmp.com",
+   "date": "2026-07-17",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "29 nước ký lập World AI Cooperation Organization, trụ sở đặt tại Thượng Hải",
+   "title_en": "29 countries sign agreement on establishing World AI Cooperation Organization",
+   "summary": "Ngày 16/07 tại Thượng Hải, 29 nước gồm Nga, Belarus, Serbia, Cuba, Brazil, Venezuela cùng 10 nước châu Phi và 12 nước châu Á đã ký thỏa thuận thành lập WAICO — một tổ chức liên chính phủ độc lập đặt trụ sở tại Thượng Hải. Ngoại trưởng Vương Nghị ký thay mặt Trung Quốc, Tổng Thư ký Liên Hợp Quốc António Guterres có mặt tại lễ ký.",
+   "why": "Lần đầu có một tổ chức quản trị AI liên chính phủ do Trung Quốc dẫn dắt, song song với tiến trình của Liên Hợp Quốc và các khung phương Tây. Quản trị AI toàn cầu giờ có ít nhất hai trung tâm, và doanh nghiệp đa quốc gia sẽ phải sống với hai bộ luật chơi.",
+   "url": "https://english.news.cn/20260716/2fb3c068a5ec4efbbeb6a88acf155175/c.html",
+   "domain": "english.news.cn",
+   "date": "2026-07-16",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": 2
+  },
+  {
+   "aid": 16,
+   "title": "Emergent thành kỳ lân sau hơn một năm: gọi 130 triệu USD Series C, định giá 1,5 tỷ",
+   "title_en": "Indian AI coding startup Emergent becomes a unicorn just over a year after launch",
+   "summary": "Startup coding AI Ấn Độ Emergent huy động 130 triệu USD vòng Series C ở định giá 1,5 tỷ USD, nâng tổng vốn lên 230 triệu sau vòng Series B 70 triệu hồi tháng 1. Công ty đạt trạng thái kỳ lân chỉ hơn một năm sau khi ra mắt.",
+   "why": "Coding agent vẫn là mảng hút vốn nhanh nhất, và lần này người thắng không đến từ Silicon Valley. Với thị trường Đông Nam Á, đây là bằng chứng rằng đội ngũ ngoài Mỹ vẫn cạnh tranh được ở lớp ứng dụng.",
+   "url": "https://techcrunch.com/2026/07/15/indian-ai-coding-startup-emergent-becomes-a-unicorn-just-over-a-year-after-launch/",
+   "domain": "techcrunch.com",
+   "date": "2026-07-15",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "New York thành bang đầu tiên của Mỹ đóng băng data center siêu lớn",
+   "title_en": "New York Becomes First State in the Nation to Pause New Hyperscale Data Centers",
+   "summary": "Ngày 14/07, Thống đốc Kathy Hochul ký sắc lệnh tạm dừng cấp phép môi trường cấp bang cho data center mới có nhu cầu điện từ 50 MW trở lên, kéo dài tối đa một năm để xây dựng khung quản lý. Bang cũng sẽ theo đuổi luật bãi bỏ miễn thuế bán hàng cho các data center khổng lồ.",
+   "why": "Đây là lần đầu một bang của Mỹ nói không với hạ tầng AI vì lý do điện, nước và hóa đơn của người dân. Nút thắt của AI đang dịch từ chip sang lưới điện và sự đồng thuận của cộng đồng địa phương.",
+   "url": "https://insideclimatenews.org/news/14072026/new-york-first-data-center-moratorium/",
+   "domain": "insideclimatenews.org",
+   "date": "2026-07-14",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": 4
+  },
+  {
+   "aid": 18,
+   "title": "Chai Discovery gọi 400 triệu USD Series C, định giá 3,8 tỷ nhờ kháng thể do AI thiết kế",
+   "title_en": "Chai brews up $400M series C to fuel AI molecule models used by Lilly, Novartis and Pfizer",
+   "summary": "Chai Discovery đóng vòng Series C 400 triệu USD ở định giá 3,8 tỷ do Index Ventures dẫn dắt, gần gấp ba định giá chỉ sau chưa đầy tám tháng. Model Chai-2 đạt tỷ lệ trúng thực nghiệm khoảng 16-20% khi thiết kế kháng thể hoàn toàn mới, so với dưới 1% của các phương pháp tính toán trước đó.",
+   "why": "Bước nhảy từ dưới 1% lên 16-20% là loại cải thiện đổi hẳn kinh tế của một ngành, không phải cải thiện biên. Lilly, Pfizer và Novartis đã ký hợp tác — tức là thị trường đã trả tiền, không còn là hứa hẹn.",
+   "url": "https://www.fiercebiotech.com/biotech/chai-brews-400m-series-c-fuel-ai-used-lilly-novartis-and-pfizer",
+   "domain": "fiercebiotech.com",
+   "date": "2026-07-13",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  },
+  {
+   "aid": 19,
+   "title": "Vietnam AI Innovation Challenge 2026 vào chung kết tại FPT Tower, Việt Nam ứng cử đăng cai Olympiad AI toàn cầu",
+   "title_en": "Vietnam AI Innovation Challenge 2026 finals open",
+   "summary": "Vòng chung kết VAIC 2026 diễn ra từ 17 đến 19/07 tại FPT Tower Hà Nội, với hơn 300 đội hoàn tất đăng ký sau gần 2.500 lượt ghi danh, thi lập trình 48 giờ liên tục để tạo giải pháp AI thực tế. Đây là một trong những hackathon AI-native lớn nhất Việt Nam.",
+   "why": "Thị trường AI Việt Nam được dự báo đạt 1,2 tỷ USD cuối 2026, tăng 76% so với 2025 — nhanh nhất Đông Nam Á. Một sân chơi kỹ thuật quy mô này là kênh tuyển người và kiểm chứng năng lực thật, đáng để doanh nghiệp để mắt.",
+   "url": "https://vir.com.vn/vietnam-ai-innovation-challenge-2026-finals-open-156937.html",
+   "domain": "vir.com.vn",
+   "date": "2026-07-17",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 1,
+ "weekly_video": {
+  "intro": "Xin chào, mình là Đức, và đây là bản tin AI tuần 29, từ ngày 13 đến 19 tháng 7 năm 2026. Tuần này AI rời khỏi phòng lab để bước thẳng vào địa chính trị và đời sống thật: Apple chịu thua ở Trung Quốc, hai mươi chín quốc gia lập tổ chức quản trị AI mới, một model hai mươi bảy tỷ tham số chui vừa vào iPhone, và New York nói không với data center. Mời bạn cùng mình điểm qua năm câu chuyện nóng nhất.",
+  "outro": "Đó là năm câu chuyện lớn nhất của tuần hai mươi chín. Chi tiết đầy đủ cùng các tin còn lại bạn xem trong bản tin nhé. Hẹn gặp lại bạn tuần sau.",
+  "segments": [
+   {
+    "aid": 1,
+    "headline": "Apple giao Apple Intelligence tại Trung Quốc cho Qwen",
+    "narration": "Câu chuyện lớn nhất tuần này đến từ Apple. Ngày mười sáu tháng bảy, Cục Quản lý Không gian mạng Trung Quốc đã đưa dịch vụ AI của Apple vào danh sách nhà cung cấp được phê duyệt. Nhưng điểm đáng nói không nằm ở chuyện được duyệt, mà nằm ở cái giá phải trả. Phần lõi sinh nội dung của Apple Intelligence tại Trung Quốc đại lục sẽ không do model của Apple đảm nhiệm, mà do Qwen của Alibaba. Baidu cũng tham gia ở một vai trò đã được xác nhận nhưng chưa công bố chi tiết. Alibaba xác nhận Qwen sẽ chạy Apple Intelligence xuyên suốt iOS, iPadOS, macOS và visionOS, cho phép người dùng gọi các tính năng xử lý và sinh cả văn bản lẫn hình ảnh ngay trong giao diện của Apple, không cần mở ứng dụng riêng. Cổ phiếu Alibaba tăng bốn phần trăm ngay sau tin này. Quá trình phê duyệt kéo dài từ năm hai nghìn không trăm hai mươi tư, khi Apple lần đầu công bố bộ tính năng AI của mình, và cơ quan quản lý vẫn chưa nêu ngày ra mắt cụ thể. Vì sao đáng chú ý? Vì đây là lần đầu một hãng công nghệ phương Tây hàng đầu chấp nhận giao lớp AI cốt lõi cho đối tác Trung Quốc để đổi lấy giấy phép hoạt động. Nó xác nhận điều mà cả năm nay giới quan sát vẫn nói: thị trường AI toàn cầu đang tách làm hai hệ sinh thái riêng biệt, và ngay cả Apple cũng không đủ sức đứng một chân ở cả hai bên.",
+    "bullets": [
+     "Qwen chạy Apple Intelligence tại Trung Quốc đại lục",
+     "Baidu tham gia, vai trò chưa công bố",
+     "Cổ phiếu Alibaba tăng 4% sau tin"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Đường vào Trung Quốc của Apple Intelligence",
+     "items": [
+      {
+       "t": "2024",
+       "d": "Apple công bố bộ tính năng AI"
+      },
+      {
+       "t": "Xin phép",
+       "d": "Chờ duyệt từ cơ quan quản lý mạng"
+      },
+      {
+       "t": "Đổi lõi",
+       "d": "Bỏ model Apple, dùng Qwen của Alibaba"
+      },
+      {
+       "t": "15-16/07/2026",
+       "d": "Được đưa vào danh sách duyệt"
+      },
+      {
+       "t": "Ra mắt",
+       "d": "Chưa có ngày cụ thể"
+      }
+     ]
+    },
+    "images": [
+     "https://techcrunch.com/wp-content/uploads/2014/10/apple-china.jpg?resize=1200,800"
+    ]
+   },
+   {
+    "aid": 15,
+    "headline": "29 nước lập tổ chức quản trị AI mới tại Thượng Hải",
+    "narration": "Câu chuyện thứ hai mang màu địa chính trị rõ nét. Ngày mười sáu tháng bảy tại Thượng Hải, hai mươi chín quốc gia đã ký thỏa thuận thành lập World Artificial Intelligence Cooperation Organization, gọi tắt là WAICO. Đây sẽ là một tổ chức liên chính phủ độc lập, đặt trụ sở tại Thượng Hải. Danh sách thành viên sáng lập gồm Nga, Belarus, Serbia, Cuba, Brazil và Venezuela, cùng mười nước châu Phi và mười hai nước châu Á, trong đó có Kazakhstan, Lào, Pakistan và Indonesia. Ngoại trưởng Trung Quốc Vương Nghị ký thay mặt chính phủ Trung Quốc. Đáng chú ý, Tổng Thư ký Liên Hợp Quốc António Guterres có mặt tại lễ ký. Tổ chức này tuyên bố mục tiêu thúc đẩy hợp tác quốc tế và quản trị AI toàn cầu, bảo đảm AI phát triển theo hướng có lợi, an toàn và công bằng. Lễ ký diễn ra ngay trước thềm Hội nghị Trí tuệ Nhân tạo Thế giới, khai mạc ngày mười bảy tháng bảy với sự tham dự trực tiếp lần đầu tiên của Chủ tịch Tập Cận Bình kể từ khi sự kiện khởi động năm hai nghìn mười tám. Theo mình, ý nghĩa thật sự nằm ở chỗ này: quản trị AI toàn cầu giờ có ít nhất hai trung tâm, một bên là tiến trình Liên Hợp Quốc và các khung phương Tây, một bên là WAICO. Doanh nghiệp làm ăn xuyên biên giới sẽ phải sống với hai bộ luật chơi, chứ không còn một chuẩn duy nhất.",
+    "bullets": [
+     "WAICO đặt trụ sở tại Thượng Hải",
+     "Nga, Brazil, Indonesia trong nhóm sáng lập",
+     "Tổng Thư ký Liên Hợp Quốc dự lễ ký"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "WAICO qua các con số",
+     "items": [
+      {
+       "v": "29",
+       "l": "nước sáng lập"
+      },
+      {
+       "v": "12",
+       "l": "nước châu Á"
+      },
+      {
+       "v": "10",
+       "l": "nước châu Phi"
+      },
+      {
+       "v": "16/07",
+       "l": "ngày ký tại Thượng Hải"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 4,
+    "headline": "Model 27 tỷ tham số chạy thẳng trên iPhone",
+    "narration": "Câu chuyện thứ ba là thành tựu kỹ thuật ấn tượng nhất tuần. PrismML công bố Bonsai hai mươi bảy tỷ, model đầu tiên ở tầm hai mươi bảy tỷ tham số chạy được trực tiếp trên điện thoại. Model dựa trên nền Qwen ba chấm sáu hai mươi bảy tỷ. Bằng kỹ thuật lượng tử hóa một bit và ternary, PrismML kéo bộ nhớ cần thiết từ năm mươi tư gigabyte xuống chỉ còn ba phẩy chín gigabyte cho bản mobile, và năm phẩy chín gigabyte cho bản laptop. Điều đáng nói là họ không cắt bớt năng lực: cả hai bản đều giữ context hai trăm sáu mươi hai nghìn token và vẫn multimodal nhờ một vision tower bốn bit, nên model đọc được ảnh chụp màn hình, tài liệu và dữ liệu từ camera chứ không chỉ xử lý văn bản. Về tốc độ, trên iPhone mười bảy Pro Max model chạy khoảng mười một token mỗi giây. Trên card RTX năm nghìn không trăm chín mươi, con số lên tới một trăm sáu mươi ba token mỗi giây ở bản một bit. Trên chip M5 Max là tám mươi bảy token mỗi giây. Theo mình, nếu các con số này đứng vững qua kiểm chứng độc lập, bài toán chi phí và quyền riêng tư của rất nhiều ứng dụng AI sẽ phải viết lại từ đầu. Rất nhiều tác vụ hiện đang trả tiền cho API đám mây thực ra chỉ cần một model chạy ngay trên máy người dùng.",
+    "bullets": [
+     "54 GB nén xuống còn 3,9 GB",
+     "11 token mỗi giây trên iPhone 17 Pro Max",
+     "Giữ context 262K và khả năng multimodal"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Bonsai 27B: trước và sau khi nén",
+     "left": {
+      "h": "Bản gốc 27B",
+      "items": [
+       "Cần 54 GB bộ nhớ",
+       "Phải chạy trên server",
+       "Dữ liệu rời khỏi máy"
+      ]
+     },
+     "right": {
+      "h": "Bonsai 27B 1-bit",
+      "items": [
+       "Chỉ 3,9 GB",
+       "Chạy trên iPhone 17 Pro",
+       "Dữ liệu ở lại trên máy"
+      ]
+     }
+    },
+    "images": [
+     "https://i0.wp.com/9to5mac.com/wp-content/uploads/sites/6/2026/02/cosmic-orange-17-pro.webp?resize=1200%2C628&quality=82&strip=all&ssl=1"
+    ]
+   },
+   {
+    "aid": 17,
+    "headline": "New York đóng băng data center siêu lớn",
+    "narration": "Câu chuyện thứ tư cho thấy mặt trái của cơn sốt hạ tầng AI. Ngày mười bốn tháng bảy, Thống đốc bang New York Kathy Hochul ký một sắc lệnh hành pháp tạo ra lệnh tạm hoãn đầu tiên trên toàn nước Mỹ đối với data center siêu lớn. Cụ thể, bang tạm dừng cấp phép môi trường cấp bang cho các data center mới có nhu cầu điện từ năm mươi megawatt trở lên. Lệnh này kéo dài tối đa một năm và không áp dụng với các cơ sở đang hoạt động hay giấy phép đã hoàn tất. Trong thời gian đó, Sở Dịch vụ Công ích sẽ xây dựng một Báo cáo Đánh giá Tác động Môi trường tổng thể cho data center, đánh giá tác động lên nhu cầu điện, lượng nước, chất lượng nước và chất lượng không khí. Sở Bảo vệ Môi trường sẽ không cấp giấy phép tùy nghi nào mới. Chưa hết, Thống đốc còn tuyên bố sẽ theo đuổi luật bãi bỏ miễn thuế bán hàng cho các data center khổng lồ trên toàn bang. Theo mình, đây là cột mốc quan trọng. Suốt hai năm qua, nút thắt của AI luôn được kể là chip. Tuần này New York nói rõ nút thắt thật sự đang dịch sang lưới điện, nguồn nước, và quan trọng nhất là sự đồng thuận của cộng đồng địa phương. Không có giấy phép thì GPU nằm trong kho.",
+    "bullets": [
+     "Áp dụng với data center từ 50 MW trở lên",
+     "Tạm dừng cấp phép tối đa một năm",
+     "Sẽ bỏ miễn thuế bán hàng cho data center lớn"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Các tầng nút thắt của hạ tầng AI",
+     "items": [
+      {
+       "t": "Chip",
+       "d": "Nút thắt cũ, đã dần hạ nhiệt"
+      },
+      {
+       "t": "Lưới điện",
+       "d": "Ngưỡng 50 MW bị soi kỹ"
+      },
+      {
+       "t": "Nước & không khí",
+       "d": "Phải đánh giá tác động tổng thể"
+      },
+      {
+       "t": "Đồng thuận địa phương",
+       "d": "Nút thắt mới, khó mua bằng tiền"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 2,
+    "headline": "OpenAI bán bàn phím 230 đô điều khiển agent",
+    "narration": "Câu chuyện cuối cùng vừa vui vừa đáng suy nghĩ. Ngày mười lăm tháng bảy, tại AI Engineer World Fair ở San Francisco, OpenAI ra mắt sản phẩm phần cứng đầu tiên trong lịch sử công ty. Đó không phải kính thông minh hay điện thoại, mà là một macro pad tên Codex Micro, giá hai trăm ba mươi đô la, làm cùng hãng bàn phím Work Louder. Thiết bị có sáu phím agent mặt mờ, đèn LED bên dưới bám trạng thái agent Codex theo thời gian thực, kèm các phím lệnh để chấp nhận hoặc từ chối code. Có một núm xoay để chỉnh mức reasoning của Codex ngay lúc đang chạy, và một joystick phẳng để nhảy giữa các workflow. Hộp kèm ba mươi hai keycap để người dùng tự ánh xạ phím. Sản phẩm bán qua cả OpenAI lẫn Work Louder, số lượng có hạn, và ra mắt giữa lúc OpenAI đang vướng tranh chấp pháp lý về mảng phần cứng. Theo mình, cái đáng chú ý không phải chiếc bàn phím, mà là giả định đằng sau nó. OpenAI đang đặt cược rằng lập trình viên sẽ chạy nhiều agent song song đến mức cần một thiết bị vật lý riêng chỉ để theo dõi và điều phối chúng. Nếu giả định đó đúng, cách chúng ta làm việc với code sẽ khác hẳn. Nếu sai, đây chỉ là một món đồ chơi đẹp trên bàn.",
+    "bullets": [
+     "Phần cứng đầu tiên trong lịch sử OpenAI",
+     "6 phím agent với LED bám trạng thái",
+     "Núm xoay chỉnh mức reasoning khi đang chạy"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Codex Micro trong vài con số",
+     "items": [
+      {
+       "v": "230$",
+       "l": "giá bán"
+      },
+      {
+       "v": "6",
+       "l": "phím agent có LED"
+      },
+      {
+       "v": "32",
+       "l": "keycap tự ánh xạ"
+      },
+      {
+       "v": "15/07",
+       "l": "ra mắt tại AI Engineer World Fair"
+      }
+     ]
+    },
+    "images": [
+     "https://techcrunch.com/wp-content/uploads/2026/07/Supply-Co-Page_Brand.png?resize=1200,623"
+    ]
+   }
+  ]
+ },
+ "facebook_post": "Tuần AI mà Apple phải nhường lõi cho Alibaba, còn New York thì nói không với data center\n\nMình theo dõi tin AI hàng tuần, và tuần 29 này có cảm giác khác hẳn. Không phải tuần của benchmark hay model mới nhất. Đây là tuần AI va vào những thứ rất thật: giấy phép, lưới điện, hợp đồng lao động và biên giới quốc gia.\n\n1️⃣ Apple Intelligence vào Trung Quốc — nhưng lõi là Qwen của Alibaba\nNgày 16/07, cơ quan quản lý không gian mạng Trung Quốc đưa dịch vụ AI của Apple vào danh sách được duyệt. Cái giá: phần sinh nội dung không do model Apple chạy mà do Qwen đảm nhiệm, xuyên suốt iOS, iPadOS, macOS và visionOS. Baidu tham gia ở vai trò chưa công bố. Cổ phiếu Alibaba tăng 4% ngay sau tin.\n\n2️⃣ 29 nước lập tổ chức quản trị AI mới, trụ sở Thượng Hải\nNgày 16/07, 29 quốc gia ký thỏa thuận thành lập World AI Cooperation Organization (WAICO), tổ chức liên chính phủ độc lập đặt tại Thượng Hải: Nga, Brazil, Indonesia, Pakistan, 10 nước châu Phi và 12 nước châu Á. Ngoại trưởng Vương Nghị ký thay mặt Trung Quốc, Tổng Thư ký Liên Hợp Quốc Guterres có mặt. Hôm sau, Chủ tịch Tập Cận Bình lần đầu dự trực tiếp khai mạc Hội nghị AI Thế giới kể từ 2018.\n\n3️⃣ Model 27 tỷ tham số chui vừa vào iPhone\nPrismML công bố Bonsai 27B, nền Qwen3.6, dùng lượng tử hóa 1-bit và ternary kéo bộ nhớ từ 54 GB xuống 3,9 GB. Chạy trên iPhone 17 Pro Max khoảng 11 token/giây, giữ nguyên context 262K và vẫn multimodal nhờ vision tower 4-bit.\n\n4️⃣ New York đóng băng data center siêu lớn\nNgày 14/07, Thống đốc Kathy Hochul ký sắc lệnh tạm dừng cấp phép môi trường cho data center mới từ 50 MW trở lên, tối đa một năm, để xây khung quản lý về điện, nước và không khí. Bang đầu tiên của Mỹ làm việc này.\n\n5️⃣ Công nhân Hyundai đình công vì robot hình người\nTừ 13 đến 15/07, công nhân Hyundai tại Hàn Quốc ngừng việc 4 tiếng mỗi ngày, đòi thưởng bằng 30% lợi nhuận ròng năm ngoái và cam kết việc làm trước tự động hóa. Hyundai định đưa robot Atlas của Boston Dynamics vào nhà máy Mỹ từ 2028, hướng tới hơn 25.000 con.\n\n💭 Góc nhìn của mình về tuần này\nTheo mình, sợi chỉ xuyên suốt tuần này là: AI hết giai đoạn được đánh giá bằng benchmark, và bắt đầu bị đánh giá bằng giấy phép.\n\nĐặt tin New York cạnh tin Apple sẽ thấy rõ. Hai năm qua ai cũng kể nút thắt của AI là chip. Tuần này New York nói thẳng: nút thắt là lưới điện, là nước, là sự đồng thuận của dân địa phương. Không có giấy phép thì GPU nằm trong kho. Apple thì chứng minh chiều ngược lại: bạn có thể là công ty giá trị nhất hành tinh và vẫn phải bỏ model của mình để đổi lấy giấy phép vào một thị trường.\n\nVới anh em làm data và AI ở Việt Nam, mình nghĩ Bonsai 27B mới là tin đáng làm gì đó nhất. Mình làm RAG và AI agent cho doanh nghiệp đủ nhiều để biết phần lớn chi phí và phần lớn nỗi lo dữ liệu nhạy cảm đều đến từ một chỗ: mọi thứ phải đi qua API đám mây. Nếu một model 27B thật sự chạy được ở 3,9 GB với context 262K, thì một loạt bài toán nội bộ như tra cứu tài liệu, phân loại, trích xuất có thể chạy ngay trên máy. Mình chưa tự benchmark nên chưa dám khẳng định con số, nhưng đây là thứ mình sẽ thử ngay.\n\nNên làm: thử on-device cho tác vụ nội bộ có dữ liệu nhạy cảm, và đo chi phí thật thay vì đoán. Không nên: chuyển toàn bộ workload sang on-device chỉ vì một thông cáo báo chí, hay chọn nhà cung cấp AI mà bỏ qua điều tuần này vừa cho thấy — quản trị AI toàn cầu giờ có ít nhất hai trung tâm, và ai làm xuyên biên giới sẽ phải sống với hai bộ luật chơi.\n\nCái cốt lõi phải nhớ: AI không thay người giỏi, nó khuếch đại người biết làm việc rõ ràng. Tuần này nhắc thêm một vế — công nghệ mạnh đến đâu cũng phải xin phép để được chạy.\n\nGhé AI News và Data News của mình để xem chi tiết nhé, và subscribe nếu bạn muốn nhận bản tin hàng tuần.\n\n#AI #ArtificialIntelligence #AINews #DucNguyenAI #AppleIntelligence #Qwen #Alibaba #OpenAI #DataCenter #OnDeviceAI #LLM #RAG #AIAgent #AIGovernance #DataEngineering",
+ "bgm": "tech-pulse",
+ "youtube": {
+  "recap": "Pf7hxYWEpyc",
+  "short": "UWlbZ1_1VuE"
+ }
+}
