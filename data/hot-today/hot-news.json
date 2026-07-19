@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-07-19",
+      "display_date": "19/07/2026",
+      "title": "NetApp mua DataPelago: đưa GPU về sát nơi dữ liệu nằm",
+      "summary": "NetApp vừa thâu tóm DataPelago để mang sức tính GPU về ngay chỗ dữ liệu nằm — thay vì bê dữ liệu chạy khắp nơi. Vì sao đáng chú ý?",
+      "source": "netapp.com",
+      "video_id": "X0aT59IG19A",
+      "short_id": "HWoRyNXAaKo",
+      "published_at": "2026-07-19T19:24:38"
+    },
+    {
       "date": "2026-07-17",
       "display_date": "17/07/2026",
       "title": "Apache Spark 4.2 đưa metric view và vector search vào engine",
