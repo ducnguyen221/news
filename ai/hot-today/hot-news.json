@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-07-20",
+      "display_date": "20/07/2026",
+      "title": "AI tự hành hack Hugging Face, mô hình Trung Quốc phá án",
+      "summary": "Kho AI lớn nhất thế giới bị một AI tự hành hack, và phải nhờ mô hình mở Trung Quốc mới điều tra nổi.",
+      "source": "huggingface.co",
+      "video_id": "DNn4tYxeCZs",
+      "short_id": "FkOkK_L2Yo4",
+      "published_at": "2026-07-20T18:23:48"
+    },
+    {
       "date": "2026-07-16",
       "display_date": "16/07/2026",
       "title": "Torvalds: ai chống AI cứ fork Linux mà đi",
