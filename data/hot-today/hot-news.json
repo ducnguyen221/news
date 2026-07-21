@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-07-21",
+      "display_date": "21/07/2026",
+      "title": "Parquet duyệt kiểu File: ảnh và âm thanh vào thẳng bảng",
+      "summary": "Apache Parquet vừa duyệt kiểu dữ liệu File, cho phép ảnh và âm thanh nằm ngay trong bảng thay vì rải rác ngoài object storage.",
+      "source": "parquet.apache.org",
+      "video_id": "gi3qHWH5c2k",
+      "short_id": "zSuoCUs78Zc",
+      "published_at": "2026-07-21T19:27:47"
+    },
+    {
       "date": "2026-07-19",
       "display_date": "19/07/2026",
       "title": "NetApp mua DataPelago: đưa GPU về sát nơi dữ liệu nằm",
