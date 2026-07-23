@@ -1,0 +1,446 @@
+{
+ "date": "24/07/2026",
+ "week": "W30",
+ "range": "20/07 - 26/07/2026",
+ "tldr": "Tuần W30 (20/07 - 26/07/2026) khép lại quãng giữa đến cuối tháng 7 mà cả thế giới dữ liệu như đang được tháo ra lắp lại quanh một nhân vật mới: AI agent. Tin nóng nhất là RegattaDB lên GA — một database hợp nhất OLTP, OLAP và vector trong đúng một engine, cắm thẳng MCP để agent đọc, ghi và tìm ngữ nghĩa trong một bước, tuyên bố xoá luôn ETL. Ở tầng nền, dev-list Apache tuần này bỏ phiếu dọn nợ cho Iceberg v4 (bỏ equality deletes, thêm kiểu vector, ra Terraform Provider), còn Alex Merced vẽ ra cuộc hội tụ Delta 5.0 và Iceberg v4 về chung một cây metadata. Trên tầng công cụ, dbt trình diễn trực tiếp dbt Wizard cùng dbt State, Alation biến data catalog thành lớp điều phối AI, và Databricks ra Spark 4.2. Về tiền và thương vụ: Anaconda thâu tóm Kilo Code (gần 10 nghìn tỷ token mỗi tháng), Databricks gọi thêm 3 tỷ USD ở định giá 188 tỷ. Thông điệp cả tuần rất rõ: dữ liệu không còn được xây cho dashboard, mà đang được xây lại cho agent.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "Tuần lễ lakehouse: Iceberg v4 bỏ equality delete, ra Terraform Provider và bàn kiểu vector",
+   "title_en": "Apache Data Lakehouse Weekly: July 11-18, 2026",
+   "summary": "Bản tổng hợp dev-list các dự án Apache tuần 11-18/7: Iceberg khởi động lại đề xuất bỏ equality deletes khỏi spec v4 (đã có deletion vector thay thế), phát hành Iceberg Terraform Provider v0.1.0, mở thảo luận kiểu vector hạng nhất cho embedding và đề xuất thêm định dạng file Vortex; DataFusion cắt bản 54.1.0.",
+   "why": "Đây là nơi tương lai của mọi lakehouse được định đoạt bằng bỏ phiếu công khai. Ba tín hiệu đáng chú ý: spec v4 đang dọn nợ kỹ thuật, hạ tầng vận hành kiểu Terraform đang chín, và table format bắt đầu ôm workload AI ngay ở tầng nền.",
+   "url": "https://dev.to/alexmercedcoder/apache-data-lakehouse-weekly-july-11-to-july-18-2026-3f1p",
+   "domain": "dev.to",
+   "date": "2026-07-18",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 3
+  },
+  {
+   "aid": 2,
+   "title": "Databricks ra Apache Spark 4.2: đẩy xử lý dữ liệu real-time và cho agent",
+   "title_en": "Introducing Apache Spark 4.2 on Databricks",
+   "summary": "Databricks phát hành Apache Spark 4.2 với loạt cải tiến hướng tới xử lý dữ liệu real-time, streaming và các workload AI/agentic, giúp dựng pipeline nơi AI agent tiêu thụ dữ liệu tươi, kích hoạt transform và feed downstream với độ trễ thấp hơn.",
+   "why": "Spark vẫn là con ngựa thồ của phần lớn data team. Việc bản 4.2 nhắm thẳng vào agentic data processing cho thấy ngay cả engine batch kinh điển cũng đang được uốn về phía real-time và AI.",
+   "url": "https://www.databricks.com/blog/introducing-apache-spark-42",
+   "domain": "databricks.com",
+   "date": "2026-07-16",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 3,
+   "title": "Confluent truy vết memory leak trong Flink RocksDB, giảm 91,2% Task Manager bị OOM",
+   "title_en": "How we cut Flink OOMKills by 91.2%: Zombie block cache, phantom CPUs",
+   "summary": "Đội Apache Flink của Confluent kể lại quá trình truy vết một native-memory leak trong block cache RocksDB và một bug phân mảnh jemalloc; sau khi vá đã cắt 91,2% số Task Manager bị OOMKilled và giảm 13% đỉnh sử dụng bộ nhớ.",
+   "why": "Đây là loại bài kỹ thuật hiếm và quý: không hype, chỉ là truy tận gốc một lỗi hạ tầng streaming mà nhiều team gặp nhưng ít ai gỡ nổi. Bài học vàng về vận hành Flink ở quy mô lớn.",
+   "url": "https://developer.confluent.io/blog/flink-oomkills/",
+   "domain": "developer.confluent.io",
+   "date": "2026-07-16",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 4,
+   "title": "RegattaDB lên GA: database hợp nhất OLTP + OLAP + vector, cắm sẵn MCP cho AI agent",
+   "title_en": "RegattaDB Launches as the Database Built for AI Agents — Unifying OLTP, OLAP, and Vectors",
+   "summary": "Regatta Data đưa RegattaDB lên GA ngày 15/7: một distributed SQL database gộp giao dịch (OLTP), phân tích (OLAP) và tìm kiếm vector vào đúng một engine, với nhất quán chuỗi hoá xuyên node và hỗ trợ MCP ngay trong lõi để agent đọc trạng thái sống, chạy giao dịch và tìm ngữ nghĩa trong một bước. Công ty đã gọi 68 triệu USD từ Lightspeed, 83North và các nhà đầu tư như Frank Slootman, Eyal Waldman.",
+   "why": "Suốt 20 năm ta bị dạy phải tách database giao dịch, phân tích và giờ thêm cả vector database cho AI — mỗi lần tách là một pipeline phải bảo trì và một chỗ để dữ liệu lệch nhau. RegattaDB đặt câu hỏi ngược: nếu người tiêu thụ dữ liệu giờ là agent cần cả ba cùng lúc, tại sao vẫn tách?",
+   "url": "https://www.blocksandfiles.com/data-management/2026/07/15/regatta-launches-its-unified-oltp-olap-and-vector-database/5271769",
+   "domain": "blocksandfiles.com",
+   "date": "2026-07-15",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 1
+  },
+  {
+   "aid": 5,
+   "title": "dbt trình diễn trực tiếp dbt Wizard và dbt State cắt 30% chi phí compute",
+   "title_en": "dbt Wizard live demo and dbt State: what's shipping in dbt",
+   "summary": "Ngày 22/7, dbt tổ chức sự kiện trực tiếp trình diễn dbt Wizard trong thực chiến trên cả CLI lẫn nền tảng dbt — trợ lý tự động viết, refactor và debug model, đặt trong toàn bộ ngữ cảnh dự án gồm lineage, test, contract và metric. Đi kèm là dbt State, tính năng bỏ qua thông minh các model không đổi, tiết kiệm 30% chi phí compute trở lên.",
+   "why": "Đây là ví dụ sạch của AI đặt đúng chỗ trong data engineering: không thay bạn quyết mô hình dữ liệu, mà tăng tốc phần cơ khí. dbt State thì đánh trực tiếp vào ví tiền — rất nhiều đội đang chạy lại cả pipeline chỉ vì đổi một model.",
+   "url": "https://www.getdbt.com/resources/webinars/fivetran-dbt-labs-the-merger-what-s-shipping-in-dbt-and-live-q-and-a",
+   "domain": "getdbt.com",
+   "date": "2026-07-22",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": 4
+  },
+  {
+   "aid": 6,
+   "title": "Power BI tháng 7/2026: đưa Model options lên web modeling và mở REST API quản lý app, paginated report",
+   "title_en": "Power BI July 2026 Feature Summary",
+   "summary": "Bản tổng hợp tính năng Power BI tháng 7/2026: hộp thoại Model options nay có sẵn ngay trong web modeling, không phải quay về Power BI Desktop; đồng thời mở REST API của Microsoft Fabric để tạo, đọc, sửa, xoá và liệt kê org app cùng audience, và quản lý paginated report qua API.",
+   "why": "Web modeling ngày càng đủ để làm việc mà không cần Desktop là tin tốt cho team dùng máy nhẹ và cộng tác. REST API cho org app và paginated report mở đường tự động hoá vòng đời báo cáo — thứ mà nhiều đội BI Việt vẫn làm tay.",
+   "url": "https://community.fabric.microsoft.com/t5/Power-BI-Updates-Blog/Power-BI-July-2026-Feature-Summary/ba-p/5303533",
+   "domain": "community.fabric.microsoft.com",
+   "date": "2026-07-21",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "Qlik Cloud tháng 7/2026: Open Lakehouse nhận Qlik Replicate làm nguồn, thêm declarative pipeline",
+   "title_en": "What's New in Qlik Cloud — July 2026",
+   "summary": "Cập nhật Qlik Talend Data Integration tháng 7 mở rộng câu chuyện Open Lakehouse: nay hỗ trợ Qlik Replicate làm nguồn native, tạo đường đi thẳng từ các triển khai Replicate sẵn có vào kiến trúc lakehouse dựa trên Iceberg, cùng declarative pipeline và các nâng cấp quản trị, giám sát.",
+   "why": "Nhiều doanh nghiệp đã dùng Replicate để đồng bộ dữ liệu từ lâu; nối thẳng nó vào lakehouse Iceberg mà không phải dựng lại pipeline là cách hạ rào cản migrate sang kiến trúc mở, một lối đi thực dụng cho đội đang mắc kẹt với hệ cũ.",
+   "url": "https://www.climberbi.co.uk/whats-new-in-qlik-cloud-july-2026/",
+   "domain": "climberbi.co.uk",
+   "date": "2026-07-20",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "Alation ra AIOS: biến data catalog thành hệ điều hành điều phối AI",
+   "title_en": "Alation Launches AIOS Intelligence Operating System",
+   "summary": "Alation giới thiệu AIOS, một Intelligence Operating System ngồi trên data catalog để điều phối mô hình AI, agent và analytics khắp doanh nghiệp. AIOS dùng hiểu biết của Alation về dữ liệu, chính sách và cách dùng để định tuyến yêu cầu AI tới đúng nguồn và công cụ, cấp ngữ cảnh và thực thi quản trị — biến catalog từ chỉ mục thụ động thành lớp kiểm soát chủ động.",
+   "why": "Đây là tín hiệu rõ của một xu hướng cả tuần: data catalog đang tiến hoá thành lớp ngữ cảnh và kiểm soát cho AI agent. Với đội đã có catalog, đây là cách tận dụng thứ mình có sẵn thay vì mua thêm một hệ thống governance riêng cho AI.",
+   "url": "https://www.alation.com/news-and-press/alation-launches-aios-intelligence-operating-system/",
+   "domain": "alation.com",
+   "date": "2026-07-15",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "Crunchbase ra MCP: đưa dữ liệu thị trường tư nhân thẳng vào Claude, ChatGPT, Gemini",
+   "title_en": "Crunchbase Launches MCP to Bring Private Market Intelligence Into AI Workflows",
+   "summary": "Ngày 21/7, Crunchbase công bố một Model Context Protocol server đưa dữ liệu thị trường tư nhân thẳng vào câu trả lời của LLM. Server khai thác hơn 39 tỷ tín hiệu thị trường sống và 15 triệu dự báo, tương thích Claude, ChatGPT, Gemini, Cursor và các agent qua một giao diện chuẩn duy nhất, thay cho việc mỗi khách hàng tự dựng tích hợp riêng.",
+   "why": "Đây là ví dụ mẫu của data-for-AI: thay vì để agent bịa hay tự cào web, doanh nghiệp phơi một nguồn dữ liệu đã kiểm chứng qua MCP để agent truy vấn. Với team Việt, mô hình một chuẩn kết nối chung thay cho hàng loạt tích hợp thủ công là bài học đáng học nhất.",
+   "url": "https://finance.yahoo.com/technology/ai/articles/crunchbase-launches-mcp-bring-private-140000246.html",
+   "domain": "finance.yahoo.com",
+   "date": "2026-07-21",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "Denodo Platform 9.5 thêm Agentic AI Active Context cho lớp ảo hoá dữ liệu",
+   "title_en": "Denodo Platform 9.5 Provides Agentic AI Active Context",
+   "summary": "Denodo phát hành Platform 9.5 với Agentic AI Active Context, mở rộng lớp data virtualization thành một context engine cho hệ thống AI. Bằng cách duy trì ngữ cảnh ngữ nghĩa và chính sách cập nhật liên tục trên dữ liệu federated rồi phơi ra cho agent, Denodo giúp AI hành động hiệu quả và có trách nhiệm — hiểu ý nghĩa, độ nhạy cảm và quy tắc dùng dữ liệu ngay cả khi nó nằm rải rác.",
+   "why": "Data virtualization từng bị xem là hạ tầng cũ; giờ nó tái sinh thành nơi cấp ngữ cảnh cho agent mà không phải gom dữ liệu về một chỗ. Với doanh nghiệp có dữ liệu phân mảnh nhiều nguồn, đây là con đường cho agent mà không phải xây thêm một kho tập trung.",
+   "url": "https://www.denodo.com/en/press-release/2026-07-16/denodo-platform-95-provides-agentic-ai-active-context-act-effectively-and-responsibly",
+   "domain": "denodo.com",
+   "date": "2026-07-16",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "Teradata đưa Autonomous Knowledge Platform lên GA làm nền tri thức cho agentic AI",
+   "title_en": "Teradata Autonomous Knowledge Platform Reaches General Availability",
+   "summary": "Teradata công bố Autonomous Knowledge Platform nay đã GA trên cả cloud lẫn on-premises, làm nền cho agentic AI mà không buộc đánh đổi giữa kiểm soát, hiệu năng và chi phí. Nền tảng tự động tổ chức, quản trị và tối ưu tài sản dữ liệu, tri thức để agent hành động trên thông tin đáng tin, mở rộng vai trò Teradata từ engine phân tích sang lớp tri thức sẵn sàng cho AI.",
+   "why": "Vấn đề chặn agentic AI trong doanh nghiệp lớn thường không phải model yếu mà là dữ liệu bẩn và không quản trị được. Việc một vendor kho dữ liệu kỳ cựu định vị lại thành lớp tri thức cho agent phản ánh đúng nơi giá trị đang dịch chuyển.",
+   "url": "https://www.prnewswire.com/news-releases/teradata-autonomous-knowledge-platform-reaches-general-availability-across-cloud-and-on-premises-302825673.html",
+   "domain": "prnewswire.com",
+   "date": "2026-07-16",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "CData mở Connect AI cho môi trường HIPAA: cho agent truy cập dữ liệu PHI có quản trị",
+   "title_en": "CData Extends Connect AI to HIPAA-Regulated Healthcare",
+   "summary": "CData mở rộng Connect AI thành một lớp dữ liệu AI có quản trị chuyên cho môi trường tuân thủ HIPAA. Nhà cung cấp y tế, hãng bảo hiểm và công ty health tech nay có thể nối ứng dụng và agent AI thẳng vào hệ thống chứa dữ liệu sức khoẻ nhạy cảm (PHI) mà không phải sao chép dữ liệu hay nới lỏng kiểm soát, nhờ truy cập theo danh tính, audit và thực thi chính sách.",
+   "why": "Bài toán khó nhất khi đưa AI vào ngành nhạy cảm không phải là model, mà là làm sao cho agent chạm dữ liệu mà vẫn giữ tuân thủ. Cấp quyền theo danh tính và audit ngay tại tầng kết nối là mẫu hình mà fintech và y tế Việt nên tham khảo.",
+   "url": "https://www.prnewswire.com/news-releases/cdata-extends-connect-ai-to-hipaa-regulated-healthcare-302825270.html",
+   "domain": "prnewswire.com",
+   "date": "2026-07-15",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "Qumulo ra NeuralSearch và bắt tay Databricks tìm kiếm dữ liệu phi cấu trúc cho AI",
+   "title_en": "Qumulo Announces NeuralSearch and ISV Partnership With Databricks",
+   "summary": "Qumulo giới thiệu NeuralSearch, nền tảng tìm kiếm storage-native cho dữ liệu phi cấu trúc, cùng hợp tác ISV với Databricks tích hợp qua giao thức Open Sharing. Khách hàng Databricks có thể khám phá, truy vấn và cộng tác trên dữ liệu dạng bảng lẫn file khắp core, cloud và edge qua Unity Catalog, trong khi Qumulo biến metadata filesystem thành trí tuệ tìm kiếm thời gian thực.",
+   "why": "Phần lớn dữ liệu doanh nghiệp là phi cấu trúc và nằm ngoài kho phân tích. Biến chính filesystem thành lớp tìm kiếm cho AI, thay vì phải copy và index lại, là cách giải bài toán RAG trên dữ liệu doanh nghiệp mà không nhân đôi hạ tầng.",
+   "url": "https://qumulo.com/press-releases/qumulo-announces-neuralsearch-and-isv-partnership-with-databricks",
+   "domain": "qumulo.com",
+   "date": "2026-07-15",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "Xu hướng tuần: data catalog trở thành nền cho kiến trúc dữ liệu AI-ready",
+   "title_en": "How Data Catalogs Enable AI-Ready Data Architectures",
+   "summary": "Bản điểm tin tuần của Solutions Review hội tụ về một chủ đề: hàng loạt nền tảng đua nhau biến catalog và lớp ngữ cảnh thành nền cho AI — Alation ra AIOS, Denodo thêm Active Context, Teradata GA lớp tri thức. Bài Editors Lens của Tim King lập luận catalog nay chỉ là điểm khởi đầu của một data intelligence platform liên tục làm giàu metadata, quan hệ, quản trị và tri thức nghiệp vụ.",
+   "why": "Khi mọi vendor cùng đi về một hướng trong một tuần, đó là tín hiệu thị trường thật. Với người làm dữ liệu, thông điệp là: đừng coi catalog là chỗ tra cứu chết, hãy xem nó là nơi agent lấy ngữ cảnh — và đầu tư vào metadata cho tử tế.",
+   "url": "https://solutionsreview.com/data-management/data-management-news-for-the-week-of-july-17-updates-from-cdata-denodo-teradata-more/",
+   "domain": "solutionsreview.com",
+   "date": "2026-07-17",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "Alex Merced: Delta 5.0 và Iceberg v4 sẽ hội tụ về chung một cây metadata",
+   "title_en": "Lakehouse Table Formats in 2026: Iceberg, Delta, Hudi, Paimon, and DuckLake",
+   "summary": "Trong bài tổng quan các table format 2026, Alex Merced chỉ ra diễn biến lớn: Databricks đề xuất Delta Lake 5.0 dùng chung cấu trúc cây metadata thích ứng mà Iceberg v4 đang xây, để client của Delta và Iceberg đọc-ghi cùng một cấu trúc trên đĩa, không cần lớp dịch. Hai định dạng vẫn độc lập về commit và catalog, nhưng metadata thì chung — cây phẳng hơn cho phép commit một file, kéo chi phí ghi metadata về gần hằng số.",
+   "why": "Suốt mấy năm ta bị buộc chọn phe Delta hay Iceberg, ai chọn sai thì lo mắc kẹt. Nếu hai bên thật sự hội tụ ở tầng metadata, cái giá của việc chọn sai giảm hẳn. Nhưng bản ổn định sớm nhất cũng cuối 2027, nên đây là bản đồ để theo dõi, chưa phải để đổi kiến trúc.",
+   "url": "https://dev.to/alexmercedcoder/lakehouse-table-formats-in-2026-iceberg-delta-lake-hudi-paimon-and-ducklake-how-they-work-p1k",
+   "domain": "dev.to",
+   "date": "2026-07-13",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": 5
+  },
+  {
+   "aid": 16,
+   "title": "Tranh luận cộng đồng: AI agent nên đứng ở đâu trong data engineering — lớp kiểm chứng đúng sai",
+   "title_en": "Where AI Agents Belong in Data Engineering: The Correctness Layer",
+   "summary": "Bài viết được thảo luận trên Hacker News lập luận rằng chỗ đúng cho AI agent trong data engineering không phải là sinh pipeline hộ, mà là lớp kiểm chứng tính đúng đắn: dò anomaly, kiểm tra ràng buộc, phát hiện dữ liệu lệch trước khi nó lan xuống báo cáo. Cuộc tranh luận phản ánh sự dịch chuyển: người tiêu thụ pipeline giờ là agent, và niềm tin vào dữ liệu quan trọng hơn tốc độ dựng.",
+   "why": "Đây là góc nhìn tỉnh táo giữa cơn sốt agent sinh code. Giá trị thật của data engineering nằm ở độ tin cậy, và đó cũng là chỗ AI hữu ích nhất mà ít rủi ro nhất — kiểm tra, chứ không phải tự quyết.",
+   "url": "https://www.altimate.ai/blog/where-ai-agents-belong-in-data-engineering-the-correctness-layer/",
+   "domain": "altimate.ai",
+   "date": "2026-07-01",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "Anaconda thâu tóm Kilo Code, đặt cược vào doanh nghiệp nghìn tỷ token",
+   "title_en": "Anaconda Acquires Kilo Code to Power the Trillion-Token Enterprise",
+   "summary": "Ngày 15/7, Anaconda mua lại Kilo Code — nền tảng kỹ thuật agentic mã nguồn mở, trung lập model, đang được hơn 3 triệu lập trình viên dùng trên VS Code, JetBrains, web và CLI, định tuyến gần 10 nghìn tỷ token mỗi tháng. Thương vụ nối tiếp việc Anaconda mua Outerbounds đầu năm, đưa năng lực coding agent thẳng vào môi trường mà developer dữ liệu đã dùng hàng ngày.",
+   "why": "Đây là nước đi thông minh về vị trí: thay vì để agent AI sống ở công cụ tách rời, Anaconda đưa nó về nơi data scientist và data engineer đã ngồi sẵn, với quản trị và bảo mật gói có sẵn. Với doanh nghiệp Việt lo đưa mã và dữ liệu ra ngoài, agent chạy trong môi trường kiểm soát là hướng đáng để ý.",
+   "url": "https://www.anaconda.com/blog/anaconda-acquires-kilo-code",
+   "domain": "anaconda.com",
+   "date": "2026-07-15",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": 2
+  },
+  {
+   "aid": 18,
+   "title": "Databricks gọi thêm 3 tỷ USD ở định giá 188 tỷ, tăng 40% chỉ sau vài tháng",
+   "title_en": "Databricks Hits $188 Billion Valuation in New Strategic Funding Round",
+   "summary": "Databricks ký term sheet gọi 3 tỷ USD ở định giá 188 tỷ USD, do Coatue dẫn dắt — vòng thứ hai trong năm 2026 và tăng 40% so với mức 134 tỷ chỉ vài tháng trước. Công ty dự kiến dùng vốn để tài trợ các thương vụ thâu tóm và mở rộng nền tảng, gồm trợ lý Genie và Unity AI Gateway để kiểm soát chi phí AI.",
+   "why": "Định giá tăng 40% trong vài tháng cho thấy dòng tiền vẫn đặt cược mạnh vào lakehouse gắn AI. Đáng chú ý là hướng dùng tiền: mua thêm công ty và siết công cụ kiểm soát chi phí AI — đúng nỗi đau mà mọi khách hàng đang gặp.",
+   "url": "https://techcrunch.com/2026/07/17/databricks-hits-188b-valuation-extending-its-run-as-ais-favorite-second-act/",
+   "domain": "techcrunch.com",
+   "date": "2026-07-17",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 19,
+   "title": "Fireworks AI gọi 1,5 tỷ USD Series D để mở rộng nền tảng đa mô hình cho workload agentic",
+   "title_en": "Fireworks AI Raises $1.5 Billion Series D",
+   "summary": "Fireworks AI huy động 1,5 tỷ USD vòng Series D để mở rộng nền tảng AI đa mô hình và phục vụ các workload agentic doanh nghiệp đòi hỏi cao hơn. Vốn dùng để phát triển hạ tầng, nghiên cứu và go-to-market cho khách hàng cần điều phối nhiều model và agent qua các ca dùng như chăm sóc khách hàng, vận hành và tự động hoá quyết định.",
+   "why": "Làn sóng vốn đang chảy về tầng phục vụ và điều phối nhiều model cho agent — nơi dữ liệu doanh nghiệp gặp mô hình. Đây là chỉ dấu hạ tầng cho agentic AI đang được đặt cược nghiêm túc, không còn là thử nghiệm.",
+   "url": "https://solutionsreview.com/ai-news-for-the-week-of-july-17-updates-from-alation-cloudera-vast-more/",
+   "domain": "solutionsreview.com",
+   "date": "2026-07-15",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 20,
+   "title": "Cloudera bắt tay VAST Data dựng nền AI data ở bất kỳ nơi dữ liệu nằm",
+   "title_en": "Cloudera and VAST Data Announce Strategic Partnership",
+   "summary": "Ngày 14/7, Cloudera và VAST Data hợp tác chiến lược, gộp nền tảng AI-native của Cloudera với storage hợp nhất của VAST để đưa một nền tảng AI data tới mọi nơi dữ liệu cư trú. Giải pháp chung cho phép chạy analytics và AI trên on-premises, cloud và edge mà không phải tái kiến trúc tầng dữ liệu, coi mọi dữ liệu là AI-ready.",
+   "why": "Không phải doanh nghiệp nào cũng gom được dữ liệu về một cloud. Mô hình đưa AI tới nơi dữ liệu đang nằm, thay vì bắt dữ liệu di chuyển, đúng bài toán chủ quyền và chi phí mà nhiều tổ chức Việt gặp.",
+   "url": "https://www.cloudera.com/about/news-and-blogs/press-releases/2026-07-14-cloudera-and-vast-data-announce-strategic-partnership-to-deliver-ai-data-platform-anywhere.html",
+   "domain": "cloudera.com",
+   "date": "2026-07-14",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 21,
+   "title": "Oxylabs nhận 130 triệu USD từ Warburg Pincus để mở rộng nền tảng thu thập dữ liệu web",
+   "title_en": "Oxylabs Announces $130 Million Investment from Warburg Pincus",
+   "summary": "Oxylabs công bố khoản đầu tư 130 triệu USD từ Warburg Pincus để mở rộng nền tảng truy cập dữ liệu và web intelligence. Vốn nhắm tới việc mở rộng quy mô hạ tầng thu thập, xử lý dữ liệu web ở cấp doanh nghiệp — nguồn nguyên liệu ngày càng quan trọng cho các ứng dụng AI cần grounding trên dữ liệu công khai.",
+   "why": "Dữ liệu web sạch, hợp pháp và quy mô lớn đang thành nguyên liệu chiến lược cho AI. Khoản vốn này cho thấy tầng thu thập dữ liệu — thường bị coi là hạ tầng thầm lặng — đang được định giá lại theo nhu cầu grounding cho agent.",
+   "url": "https://www.globenewswire.com/news-release/2026/07/09/3324811/0/en/oxylabs-announces-130-million-investment-from-warburg-pincus.html",
+   "domain": "globenewswire.com",
+   "date": "2026-07-09",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 4,
+ "weekly_video": {
+  "intro": "Chào các bạn, đây là bản tin Data News tuần ba mươi, điểm lại những câu chuyện dữ liệu lớn nhất nửa cuối tháng bảy năm 2026. Chủ đề xuyên suốt tuần này chỉ có một: cả ngành dữ liệu đang được xây lại quanh AI agent, từ database, table format, cho tới công cụ và những thương vụ tỷ đô. Mời các bạn cùng Đức đi qua năm câu chuyện nóng nhất.",
+  "outro": "Đó là năm câu chuyện nổi bật nhất tuần ba mươi. Chi tiết đầy đủ của cả hai mươi mốt tin, các bạn xem trong bản tin trên trang Data News. Hẹn gặp lại các bạn tuần sau.",
+  "segments": [
+   {
+    "aid": 4,
+    "headline": "RegattaDB: một database làm cả ba việc cho AI agent",
+    "narration": "Câu chuyện nóng nhất tuần đến từ một startup tên Regatta Data. Ngày mười lăm tháng bảy, họ đưa RegattaDB lên phát hành chính thức, với một tuyên bố đủ táo bạo để cả ngành phải quay đầu nhìn: một database duy nhất làm được cả ba việc mà lâu nay phải chia cho ba hệ thống khác nhau. Đó là xử lý giao dịch, tức OLTP; xử lý phân tích, tức OLAP; và tìm kiếm vector cho AI. RegattaDB được xây từ đầu chứ không chắp vá, với nhất quán chuỗi hoá xuyên nhiều node. Điểm khiến Đức chú ý nhất là nó hỗ trợ MCP ngay trong lõi, nghĩa là một AI agent có thể đọc trạng thái sống, chạy giao dịch và tìm kiếm ngữ nghĩa chỉ trong một bước, trên cùng một nguồn dữ liệu. Regatta nói thẳng mục tiêu: xoá các pipeline ETL và giảm chi phí hạ tầng. Công ty đã gọi được sáu mươi tám triệu đô, với những cái tên chống lưng như Frank Slootman và Eyal Waldman. Vì sao điều này quan trọng? Vì suốt hai mươi năm, chúng ta được dạy rằng phải tách database giao dịch khỏi database phân tích, rồi giờ thêm cả một vector database riêng cho AI. Mỗi lần tách là một lần copy dữ liệu, một pipeline phải bảo trì, một chỗ để dữ liệu lệch nhau. RegattaDB đặt câu hỏi ngược: nếu người tiêu thụ dữ liệu giờ là agent, cần cả ba loại cùng lúc, thì tại sao vẫn phải tách? Theo Đức, đây chưa phải lúc bê vào production, nhưng nó là tín hiệu rõ nhất cho hướng đi của cả ngành.",
+    "bullets": [
+     "Gộp OLTP, OLAP và vector trong một engine",
+     "Hỗ trợ MCP ngay trong lõi cho agent",
+     "Gọi 68 triệu đô, Slootman chống lưng"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Trước và sau RegattaDB",
+     "left": {
+      "h": "Kiến trúc cũ",
+      "items": [
+       "OLTP, OLAP, vector tách ba hệ thống",
+       "Nối bằng pipeline ETL",
+       "Dữ liệu dễ lệch, khó nhất quán"
+      ]
+     },
+     "right": {
+      "h": "RegattaDB",
+      "items": [
+       "Một engine cho cả ba workload",
+       "Agent đọc, ghi, tìm trong một bước",
+       "MCP native, bỏ ETL"
+      ]
+     }
+    },
+    "images": [
+     "https://cdn.sanity.io/images/rgm91hol/production/22c98e6d34f202dffd3acc9394da3e8b0e1f01bf-1667x875.png?w=1200&h=630&fit=crop"
+    ]
+   },
+   {
+    "aid": 17,
+    "headline": "Anaconda thâu tóm Kilo Code",
+    "narration": "Câu chuyện thứ hai là một thương vụ lớn. Ngày mười lăm tháng bảy, Anaconda, cái tên gắn liền với Python trong giới khoa học dữ liệu, thông báo mua lại Kilo Code. Kilo là một nền tảng kỹ thuật agentic mã nguồn mở, trung lập với mô hình, đang được hơn ba triệu lập trình viên dùng trên VS Code, JetBrains, web và dòng lệnh. Con số gây choáng là Kilo đang định tuyến gần mười nghìn tỷ token mỗi tháng qua nền tảng của mình. Đây là thương vụ thứ hai của Anaconda trong năm, sau khi đã mua Outerbounds để có năng lực điều phối AI ở mức production. Lãnh đạo hai bên nói họ gần như không chồng chéo: mỗi bên có đúng thứ bên kia thiếu. Vì sao đáng chú ý với người làm dữ liệu? Anaconda vốn là nơi các data scientist và data engineer cài đặt môi trường, quản lý thư viện, kiểm soát bảo mật gói. Giờ họ nhét thẳng năng lực coding agent vào chính môi trường đó. Theo Đức, đây là một nước đi thông minh về mặt vị trí. Thay vì để agent AI sống ở một công cụ tách rời, Anaconda đưa nó về nơi lập trình viên dữ liệu đã ngồi sẵn mỗi ngày, với quản trị và bảo mật có sẵn. Với doanh nghiệp Việt lo ngại chuyện đưa mã và dữ liệu ra ngoài, mô hình agent chạy trong môi trường được kiểm soát chặt là hướng đáng để ý. Nhưng cũng nhớ: gần mười nghìn tỷ token một tháng cũng có nghĩa là một hoá đơn khổng lồ, và ai cũng phải học cách kiểm soát nó.",
+    "bullets": [
+     "Kilo có hơn 3 triệu lập trình viên",
+     "Gần 10 nghìn tỷ token mỗi tháng",
+     "Đưa coding agent vào môi trường có quản trị"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Kilo Code qua các con số",
+     "items": [
+      {
+       "v": "10 nghìn tỷ",
+       "l": "token định tuyến mỗi tháng"
+      },
+      {
+       "v": "3 triệu+",
+       "l": "lập trình viên đang dùng"
+      },
+      {
+       "v": "4",
+       "l": "môi trường: IDE, web, CLI"
+      },
+      {
+       "v": "2",
+       "l": "thương vụ Anaconda trong năm"
+      }
+     ]
+    },
+    "images": [
+     "https://www.anaconda.com/wp-content/uploads/2026/07/Kilo_Announcement_1920x1080.webp"
+    ]
+   },
+   {
+    "aid": 1,
+    "headline": "Nền móng lakehouse dọn nợ và ôm workload AI",
+    "narration": "Câu chuyện thứ ba ít ồn ào nhưng quyết định nền móng của mọi lakehouse. Trong tuần mười một đến mười tám tháng bảy, các dự án Apache tiếp tục định hình tương lai bằng những cuộc bỏ phiếu công khai. Có ba tín hiệu đáng chú ý. Thứ nhất, cộng đồng Iceberg khởi động lại đề xuất bỏ hẳn cơ chế equality deletes khỏi đặc tả phiên bản bốn, vì deletion vector giờ đã nhanh hơn và Flink đã hoàn tất đường chuyển đổi thay thế. Đây là dọn nợ kỹ thuật, bỏ bớt một cơ chế cũ gây phức tạp. Thứ hai, Iceberg phát hành Terraform Provider phiên bản không chấm một, đóng gói cho cả Terraform và OpenTofu. Nghe khô khan, nhưng nó là dấu hiệu Iceberg đã đủ chín để quản lý bằng hạ tầng như mã, đúng cách các đội vận hành nghiêm túc muốn làm. Thứ ba, và đáng chú ý nhất cho thời đại này: cộng đồng mở thảo luận về một kiểu vector hạng nhất, với số chiều cố định, để lưu embedding ngay trong table format, cùng đề xuất thêm một định dạng file mới tên Vortex. Vì sao quan trọng? Theo Đức, đây là nơi bạn nhìn thấy tương lai trước khi nó thành sản phẩm bán ra. Table format đang lặng lẽ được thiết kế lại để ôm workload AI ngay ở tầng nền, thay vì đẩy vector sang một database riêng. Nếu bạn đang chọn nền cho ba năm tới, hãy theo dõi chính những cuộc bỏ phiếu này, chứ đừng chỉ nghe vendor quảng cáo.",
+    "bullets": [
+     "Iceberg v4 bỏ equality deletes",
+     "Ra Terraform Provider v0.1.0",
+     "Bàn kiểu vector hạng nhất cho embedding"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Ngăn xếp lakehouse đang đổi",
+     "items": [
+      {
+       "t": "Tầng file",
+       "d": "Parquet, đề xuất thêm Vortex"
+      },
+      {
+       "t": "Table format",
+       "d": "Iceberg v4 dọn nợ, thêm vector"
+      },
+      {
+       "t": "Vận hành",
+       "d": "Terraform Provider v0.1.0"
+      },
+      {
+       "t": "Workload",
+       "d": "AI, embedding ngay trong bảng"
+      }
+     ]
+    },
+    "images": [
+     "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Flixyw288tb5syl2oabk8.png"
+    ]
+   },
+   {
+    "aid": 5,
+    "headline": "dbt Wizard và dbt State: AI đặt đúng chỗ",
+    "narration": "Câu chuyện thứ tư là về công cụ hàng ngày của người làm analytics engineering. Ngày hai mươi hai tháng bảy, dbt tổ chức một sự kiện trực tiếp để trình diễn dbt Wizard trong thực chiến, chạy trên cả dòng lệnh lẫn nền tảng dbt. dbt Wizard là trợ lý tự động giúp viết model, refactor và debug, nhưng điểm khác biệt nằm ở chỗ nó được đặt trong toàn bộ ngữ cảnh dự án: lineage, test, contract và các metric đã định nghĩa. Nói cách khác, nó không đoán mò như một chatbot chung chung, mà hiểu đúng cấu trúc dự án của bạn. Đi kèm là dbt State, một tính năng bỏ qua thông minh những model không đổi để cắt chi phí compute của kho dữ liệu, với mức tiết kiệm báo cáo là ba mươi phần trăm trở lên. Vì sao đáng chú ý? Theo Đức, đây là ví dụ sạch của việc AI được đặt đúng chỗ trong data engineering. Nó không thay bạn quyết định mô hình dữ liệu, mà tăng tốc phần cơ khí: viết, sửa, dò lỗi. Và dbt State thì đánh trực tiếp vào nỗi đau ví tiền: rất nhiều đội chạy lại toàn bộ pipeline mỗi lần chỉ vì đổi một model. Bỏ qua phần không đổi là tiết kiệm thật, đo được bằng hoá đơn. Lời khuyên của Đức: trước khi mê tính năng AI, hãy bật dbt State và chuẩn hoá test cùng contract cho tử tế, vì chính ngữ cảnh sạch đó mới làm cho trợ lý AI hữu dụng.",
+    "bullets": [
+     "dbt Wizard viết, refactor, debug theo ngữ cảnh dự án",
+     "Hiểu lineage, test, contract, metric",
+     "dbt State cắt 30% compute trở lên"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "dbt Wizard làm việc thế nào",
+     "items": [
+      {
+       "t": "Viết model",
+       "d": "Sinh theo ngữ cảnh dự án"
+      },
+      {
+       "t": "Chạy test",
+       "d": "Dựa trên contract, metric"
+      },
+      {
+       "t": "Dò lỗi",
+       "d": "Debug bám lineage"
+      },
+      {
+       "t": "dbt State",
+       "d": "Bỏ qua model không đổi"
+      }
+     ]
+    },
+    "images": [
+     "https://cdn.sanity.io/images/wl0ndo6t/main/2d8654ffc6d81d1878f1719ef49a6a64749eeda9-3600x1890.png?w=1200&h=630"
+    ]
+   },
+   {
+    "aid": 15,
+    "headline": "Delta 5.0 và Iceberg v4 hội tụ metadata",
+    "narration": "Câu chuyện cuối cùng là về cuộc chiến định dạng bảng, thứ tưởng đã ngã ngũ nhưng vừa rẽ sang một hướng bất ngờ. Trong bài tổng quan các table format năm hai nghìn không trăm hai sáu, Alex Merced chỉ ra một diễn biến lớn: Databricks đề xuất Delta Lake phiên bản năm sẽ dùng chung cấu trúc cây metadata thích ứng mà Iceberg phiên bản bốn đang xây. Nghĩa là hai định dạng vốn cạnh tranh gay gắt sẽ hội tụ về cùng một cách lưu metadata trên đĩa, để client của Delta và của Iceberg đọc-ghi được cùng một cấu trúc, không cần lớp dịch trung gian. Hai định dạng vẫn độc lập về giao thức commit và catalog, nhưng phần metadata thì chung. Về kỹ thuật, cây metadata mới thay chuỗi manifest nhiều tầng bằng một mô hình cây phẳng hơn, cho phép commit một file duy nhất, kéo chi phí ghi metadata từ phụ thuộc số manifest xuống gần như hằng số, mở đường cho commit dưới một giây trong streaming. Vì sao quan trọng? Theo Đức, suốt mấy năm qua chúng ta bị buộc phải chọn phe Delta hay Iceberg, và ai chọn sai thì lo mắc kẹt. Nếu hai bên thật sự hội tụ ở tầng metadata, thì cái giá của việc chọn sai giảm hẳn, và đó là tin tốt cho doanh nghiệp. Nhưng cũng phải tỉnh táo: bản ổn định còn phải chờ, sớm nhất cũng cuối năm hai nghìn không trăm hai bảy. Trong sản xuất, thứ chưa ra thì vẫn bằng không. Hãy theo dõi, nhưng đừng đổi kiến trúc chỉ vì một lời hứa hội tụ.",
+    "bullets": [
+     "Delta 5.0 dùng chung cây metadata Iceberg v4",
+     "Client hai bên đọc-ghi cùng cấu trúc",
+     "Bản ổn định sớm nhất cuối 2027"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Cây metadata thích ứng của v4",
+     "items": [
+      {
+       "t": "root-metadata.parquet",
+       "d": "Gốc, thống kê inline"
+      },
+      {
+       "t": "Metadata nodes",
+       "d": "Tách, gộp, dời động theo bảng"
+      },
+      {
+       "t": "Data files",
+       "d": "Không còn manifest nhiều tầng"
+      },
+      {
+       "t": "Delta 5.0 và Iceberg v4",
+       "d": "Đọc chung một cấu trúc"
+      }
+     ]
+    },
+    "images": [
+     "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fjuwwpvlz2mqck0bi6qmz.png"
+    ]
+   }
+  ]
+ },
+ "facebook_post": "Tuần cả ngành dữ liệu bận rộn xây lại mọi thứ cho AI agent\n\nTuần này mình đọc tin mà có một cảm giác rất rõ: người ta không còn xây database và pipeline cho con người ngồi xem dashboard nữa, mà đang xây lại tất cả cho AI agent. Từ database, table format, cho tới công cụ và cả những thương vụ tỷ đô, tất cả đều xoay quanh một câu hỏi: làm sao để agent lấy được đúng dữ liệu, nhanh và rẻ. Data News tuần này gói gọn trong một câu: dữ liệu giờ được thiết kế cho agent, không phải cho báo cáo.\n\n1️⃣ RegattaDB: một database làm cả OLTP, OLAP và vector\nNgày 15/7, RegattaDB lên GA với tuyên bố táo bạo: gộp giao dịch, phân tích và tìm kiếm vector vào đúng một engine, cắm MCP ngay trong lõi để agent đọc, ghi và tìm ngữ nghĩa trong một bước. Họ gọi được 68 triệu đô, có cả Frank Slootman chống lưng. Nghĩa là gì? Suốt 20 năm ta bị dạy phải tách 3 hệ thống; RegattaDB hỏi ngược: nếu người dùng dữ liệu giờ là agent, tại sao vẫn tách?\n\n2️⃣ Anaconda mua Kilo Code\nAnaconda, cái tên gắn với Python data, thâu tóm Kilo Code — nền tảng coding agent đang chạy gần 10 nghìn tỷ token mỗi tháng, hơn 3 triệu dev. Họ đưa agent về thẳng nơi data scientist đã ngồi sẵn. Với doanh nghiệp lo đưa data ra ngoài, agent chạy trong môi trường kiểm soát là hướng đáng để ý.\n\n3️⃣ Nền móng lakehouse tiếp tục dọn nợ cho AI\nDev-list Apache tuần 11-18/7: Iceberg bỏ equality deletes khỏi spec v4, ra Terraform Provider v0.1.0, và bàn kiểu vector hạng nhất để lưu embedding ngay trong table format. Song song, Alex Merced chỉ ra Delta 5.0 và Iceberg v4 sẽ hội tụ về chung một cây metadata. Cái giá của việc chọn nhầm phe Delta hay Iceberg đang giảm dần.\n\n4️⃣ dbt Wizard và dbt State\nNgày 22/7, dbt trình diễn trực tiếp dbt Wizard — trợ lý viết, refactor, debug model trong đúng ngữ cảnh lineage, test, contract — cùng dbt State giúp bỏ qua model không đổi, tiết kiệm 30% compute trở lên. AI đặt đúng chỗ: tăng tốc phần cơ khí, không thay bạn quyết mô hình.\n\n💭 Góc nhìn của mình về tuần này\nMình vừa học và thi chứng chỉ Databricks, đang làm thực hành RAG trên nền lakehouse với Delta, Unity Catalog và vector search, nên tuần này mình đọc mà thấy rất trúng. Cả tuần chỉ nói một điều: kiến trúc dữ liệu cũ được thiết kế cho con người truy vấn thưa; còn agent thì truy vấn dày, cần cả giao dịch, phân tích lẫn ngữ nghĩa cùng lúc.\n\nTheo mình, cốt lõi phải hiểu là: RegattaDB, hay Alation biến catalog thành hệ điều hành AI, hay Denodo thêm lớp ngữ cảnh — tất cả đang trả lời cùng một câu hỏi, chỉ khác góc đánh. Nhưng đừng để bị cuốn theo hype. Công nghệ hợp nhất nghe rất sướng, nhưng với team nhỏ ở Việt Nam, cái đau thật vẫn là dữ liệu bẩn và định nghĩa metric loạn xạ, chứ không phải thiếu một database mới. Một database gộp ba trong một vẫn không biết đâu là con số doanh thu đúng nếu công ty bạn có ba định nghĩa doanh thu.\n\nNÊN làm tuần này: nếu dùng dbt, bật ngay dbt State để cắt chi phí, và chuẩn hoá test, contract, metric cho sạch — vì chính ngữ cảnh sạch đó mới làm agent hữu dụng. KHÔNG NÊN: bê RegattaDB hay Delta 5.0 vào production, vì bản ổn định của cuộc hội tụ sớm nhất cũng cuối 2027.\n\nDữ liệu không còn chỉ để báo cáo — nó phải giúp agent hành động đúng. Nhưng agent chỉ hành động đúng khi dữ liệu bên dưới được định nghĩa rõ ràng. Công cụ đổi từng tuần; kỷ luật dữ liệu thì không.\n\nGhé AI News và Data News của mình để đọc đầy đủ 21 tin tuần này nhé, và subscribe để không lỡ số sau. 🙌\n\n#Data #DataEngineering #Lakehouse #ApacheIceberg #DeltaLake #Databricks #dbt #RegattaDB #VectorDatabase #MCP #SemanticLayer #AIAgent #RAG #DataNews #DucNguyenAI",
+ "bgm": "tech-pulse",
+ "youtube": {
+  "recap": "_zqtiSGXyW8",
+  "short": "DsnQsQAt48s"
+ }
+}
