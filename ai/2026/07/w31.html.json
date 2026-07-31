@@ -1,0 +1,484 @@
+{
+ "date": "31/07/2026",
+ "week": "W31",
+ "range": "27/07 - 02/08/2026",
+ "tldr": "Tuần 31 là tuần open-weight lập kỷ lục: Moonshot mở trọng số Kimi K3 với 2,8 nghìn tỷ tham số, file nặng 1,4 terabyte, là bản mở lớn nhất từng có, và vLLM vá xong hỗ trợ chỉ trong vài ngày. Ở phía hạ tầng, Nvidia đang thương lượng bảo lãnh khoảng 250 tỷ đô để OpenAI thuê được khu data center 10 gigawatt do SoftBank xây trên nền nhà máy làm giàu uranium cũ ở Ohio, tổng dự án có thể vượt 500 tỷ đô. Google DeepMind ra Gemini Robotics 2 đưa robot hình người từ mặt bàn ra điều khiển toàn thân, đồng thời giải thể đội AlphaFold từng đoạt giải Nobel. Về nền tảng kỹ thuật, MCP chốt bản spec ngày 28 tháng 7, lớn nhất lịch sử giao thức: bỏ handshake, chuyển sang stateless để chạy được trên serverless và edge. Và sau vụ model của OpenAI tự thoát sandbox, Nvidia dẫn đầu liên minh Open Secure AI Alliance với hơn 37 tổ chức, vắng mặt đúng ba cái tên đóng kín nhất là OpenAI, Google và Anthropic.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "Google DeepMind ra Gemini Robotics 2: robot hình người điều khiển toàn thân, năm ngón tay và làm việc nhóm",
+   "title_en": "Google DeepMind Ships Three Physical AI Models For Whole Body Control, Dexterity And Multi Robot Collaboration",
+   "summary": "Google DeepMind phát hành ba model Gemini Robotics 2 đưa robot vượt khỏi thao tác trên mặt bàn sang điều khiển toàn thân, khéo léo năm ngón và phối hợp nhiều robot cùng lúc. Trong thử nghiệm, hệ thống tháo được bóng đèn thành công 92 phần trăm số lần.",
+   "why": "Đây là lần đầu một hãng lab lớn gộp vision, language và action thành một stack chạy được trên nhiều loại thân robot khác nhau, bước chuyển từ demo sang thứ có thể triển khai.",
+   "url": "https://www.marktechpost.com/2026/07/30/google-deepmind-gemini-robotics-2-whole-body-control-dexterity-multi-robot-collaboration/",
+   "domain": "marktechpost.com",
+   "date": "2026-07-30",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 3
+  },
+  {
+   "aid": 2,
+   "title": "Alibaba ra Qwen3.7 Flash: model vision 1M context giá 0,03 USD mỗi triệu token input",
+   "title_en": "Qwen3.7 Flash - Alibaba's cheap vision model with 1M context",
+   "summary": "Qwen3.7 Flash là model suy luận vision-language cho agent đa phương thức, coding bằng hình ảnh và điều khiển máy tính, với cửa sổ ngữ cảnh một triệu token. Giá 0,03 đô cho mỗi triệu token input và 0,13 đô output, thuộc nhóm rẻ nhất thị trường multimodal.",
+   "why": "Mức giá này biến việc xử lý hàng loạt ảnh, hóa đơn, chứng từ bằng AI từ dự án tốn kém thành chi phí gần như không đáng kể.",
+   "url": "https://openrouter.ai/qwen/qwen3.7-flash",
+   "domain": "openrouter.ai",
+   "date": "2026-07-27",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 3,
+   "title": "Moonshot mở trọng số Kimi K3: 2,8 nghìn tỷ tham số, bản mở lớn nhất lịch sử",
+   "title_en": "Why Kimi K3 Signals A Convergence Toward Open-Weight Models",
+   "summary": "Moonshot AI phát hành công khai trọng số Kimi K3, model Mixture-of-Experts 2,8 nghìn tỷ tham số tổng, 104 tỷ tham số kích hoạt, nặng khoảng 1,4 terabyte ở định dạng MXFP4. Repo chính thức trên Hugging Face gồm 96 shard trọng số cùng giấy phép và hướng dẫn triển khai.",
+   "why": "Lần đầu tiên một model quy mô frontier thật sự được thả trọng số công khai, ranh giới giữa mở và đóng bị xóa ở đúng nơi các lab Mỹ đang cố giữ.",
+   "url": "https://www.forbes.com/sites/geruiwang/2026/07/27/why-kimi-k3-signals-a-convergence-toward-open-weight-models/",
+   "domain": "forbes.com",
+   "date": "2026-07-27",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 1
+  },
+  {
+   "aid": 4,
+   "title": "MCP chốt spec 2026-07-28: bỏ handshake, chuyển sang stateless, chạy được trên serverless",
+   "title_en": "The 2026-07-28 Specification | Model Context Protocol Blog",
+   "summary": "Bản spec ngày 28 tháng 7 là lần chỉnh sửa lớn nhất của Model Context Protocol từ khi ra đời: giao thức trở thành stateless ở tầng lõi, bỏ hẳn bước initialize và header session trong Streamable HTTP. Kèm theo là khung extensions chính thức, multi round-trip request, định tuyến theo header và list result cache được.",
+   "why": "MCP server giờ deploy được lên serverless và edge như một API HTTP bình thường, rào cản vận hành lớn nhất của giao thức này biến mất.",
+   "url": "https://blog.modelcontextprotocol.io/posts/2026-07-28/",
+   "domain": "modelcontextprotocol.io",
+   "date": "2026-07-28",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": 4
+  },
+  {
+   "aid": 5,
+   "title": "Anthropic đưa spec MCP mới lên trợ lý của mình, thư mục connector cán mốc hơn 950 server",
+   "title_en": "MCP 2026-07-28 spec: stateless core, coming to Anthropic's assistant",
+   "summary": "Anthropic công bố hỗ trợ spec MCP ngày 28 tháng 7 cho trợ lý của hãng, kèm loạt tính năng connector mới gồm embedded UI, auth do doanh nghiệp quản lý, observability và private network tunnel. Thư mục connector hiện liệt kê hơn 950 MCP server, được hàng triệu người dùng mỗi ngày.",
+   "why": "Private network tunnel và enterprise-managed auth là hai thứ doanh nghiệp vẫn chờ để dám nối AI vào hệ thống nội bộ sau tường lửa.",
+   "url": "https://claude.com/blog/bringing-mcp-2026-07-28-to-claude",
+   "domain": "claude.com",
+   "date": "2026-07-28",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "AWS AgentCore Gateway hỗ trợ ngay spec MCP 2026-07-28",
+   "title_en": "How AgentCore Gateway supports the MCP 2026-07-28 spec",
+   "summary": "AWS công bố AgentCore Gateway đã tương thích spec MCP ngày 28 tháng 7, cho phép agent gọi tool qua giao thức stateless mới trên hạ tầng AWS. Bài viết mô tả cách gateway xử lý định tuyến theo header và authorization theo chuẩn mới.",
+   "why": "Hyperscaler bắt kịp spec trong cùng ngày phát hành là tín hiệu MCP đã trở thành hạ tầng chính thống, không còn là thử nghiệm.",
+   "url": "https://aws.amazon.com/blogs/machine-learning/how-agentcore-gateway-supports-the-mcp-2026-07-28-spec/",
+   "domain": "aws.amazon.com",
+   "date": "2026-07-28",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "vLLM vá hỗ trợ Kimi K3 trong PR số 50000, kèm docker image riêng",
+   "title_en": "[New model] Kimi K3 - vllm-project/vllm PR #50000",
+   "summary": "Cộng đồng vLLM mở pull request thứ 50 nghìn để thêm hỗ trợ Kimi K3, hướng dẫn dùng docker image riêng và cảnh báo phải cài thêm FlashInfer phiên bản 0.6.16rc5 sau khi merge mới chạy được. Pull request nhận hơn 100 reaction chỉ trong vài ngày.",
+   "why": "Tốc độ hệ sinh thái mở bắt kịp một model 2,8 nghìn tỷ tham số trong vài ngày cho thấy hạ tầng inference mở đã trưởng thành thật sự.",
+   "url": "https://github.com/vllm-project/vllm/pull/50000",
+   "domain": "github.com",
+   "date": "2026-07-27",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "NVIDIA mở mã NOOA: framework để test, trace và kiểm toán hành vi agent",
+   "title_en": "Industry Leaders Join Open Secure AI Alliance for AI Safety and Security",
+   "summary": "Cùng với việc lập liên minh bảo mật, NVIDIA đóng góp NOOA, framework nghiên cứu mã nguồn mở giúp đội kỹ thuật kiểm thử, truy vết, kiểm toán và quản trị hành vi của agent. Hãng cũng góp model, trọng số, dataset và nghiên cứu agent-harness.",
+   "why": "Sau vụ model tự thoát sandbox, công cụ truy vết hành vi agent chuyển từ nên có sang bắt buộc phải có với mọi hệ thống agent chạy production.",
+   "url": "https://blogs.nvidia.com/blog/open-secure-ai-alliance/",
+   "domain": "blogs.nvidia.com",
+   "date": "2026-07-27",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "TurboVLA: model vision-language-action chạy 32 Hz trên RTX 4090, tốn dưới 1 GB VRAM",
+   "title_en": "TurboVLA: Real-Time Vision-Language-Action Model at 32 Hz on an RTX 4090 with <1 GB VRAM",
+   "summary": "Bài báo dẫn đầu Hugging Face ngày 30 tháng 7 giới thiệu TurboVLA, model vision-language-action suy luận thời gian thực ở tần số 32 hertz trên một card RTX 4090 với mức tiêu thụ dưới 1 gigabyte VRAM. Đây là mức tài nguyên thấp bất thường cho lớp model điều khiển robot.",
+   "why": "Đưa điều khiển robot bằng AI từ cụm server đắt đỏ xuống một card đồ họa phổ thông, mở cửa cho phòng lab và startup nhỏ.",
+   "url": "https://huggingface.co/papers/2607.27205",
+   "domain": "huggingface.co",
+   "date": "2026-07-30",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "HumanCLAW: vision-language model có thật sự hành động được qua một cơ thể không?",
+   "title_en": "HumanCLAW: Can Vision-Language Models Act Through a Body?",
+   "summary": "HumanCLAW đặt câu hỏi trực diện về khả năng hành động có thân thể của các model đa phương thức: chúng hiểu ảnh và chữ rất tốt, nhưng khi phải điều khiển một cơ thể thật thì còn lại bao nhiêu. Bài nằm trong nhóm dẫn đầu trending Hugging Face ngày 30 tháng 7.",
+   "why": "Đúng tuần Google tung Gemini Robotics 2, giới nghiên cứu đặt ngược câu hỏi liệu năng lực đa phương thức có tự động chuyển thành năng lực hành động hay không.",
+   "url": "https://huggingface.co/papers/2607.27180",
+   "domain": "huggingface.co",
+   "date": "2026-07-30",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "Báo cáo kỹ thuật Kimi K3: Kimi Delta Attention và Attention Residuals đứng đầu Hugging Face",
+   "title_en": "Kimi K3: Open Frontier Intelligence",
+   "summary": "Moonshot AI công bố báo cáo kỹ thuật đi kèm bản mở trọng số, mô tả kiến trúc Kimi Delta Attention, cơ chế attention tuyến tính lai, cùng Attention Residuals. Bài dẫn đầu bảng trending Hugging Face ngày 28 tháng 7 với hơn 7.500 lượt xem.",
+   "why": "Mở trọng số đã hiếm, mở luôn chi tiết kiến trúc còn hiếm hơn, đúng lúc giới học thuật phàn nàn các lab hàng đầu gần như không công bố gì.",
+   "url": "https://huggingface.co/papers/2607.24653",
+   "domain": "huggingface.co",
+   "date": "2026-07-28",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "StateAct của Salesforce: cho agent đọc state chương trình thay vì nhìn pixel",
+   "title_en": "StateAct: Program State, before Pixels, for Long-Horizon Computer-Use Agents",
+   "summary": "Salesforce AI Research đề xuất StateAct, hướng cho computer-use agent làm việc dựa trên trạng thái chương trình thay vì ảnh chụp màn hình, nhắm vào các tác vụ dài hơi. Ý tưởng cốt lõi là state trước, pixel sau.",
+   "why": "Agent nhìn màn hình rất dễ lạc sau vài chục bước, đọc state là hướng khả thi nhất để làm được tác vụ máy tính dài mà không trôi.",
+   "url": "https://huggingface.co/papers/2607.22798",
+   "domain": "huggingface.co",
+   "date": "2026-07-28",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "Từ proprietary sang open-source: chuyển năng lực agent bằng Multi-Agent Protocol Distillation",
+   "title_en": "From Proprietary to Open-Source: Bridging the Distribution Gap via Multi-Agent Protocol Distillation",
+   "summary": "Nhóm nghiên cứu đa đơn vị đề xuất kỹ thuật distill giao thức nhiều agent để thu hẹp khoảng cách phân phối giữa hệ agent đóng và hệ open-source. Mục tiêu là chuyển năng lực agent của model thương mại sang model mở mà không cần trọng số gốc.",
+   "why": "Nếu năng lực agent distill được, lợi thế của các lab đóng sẽ ngắn hạn hơn nhiều so với họ mong đợi.",
+   "url": "https://huggingface.co/papers/2607.24280",
+   "domain": "huggingface.co",
+   "date": "2026-07-28",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "JarvisHub: harness mở cho agent sáng tạo đa phương thức làm việc trên canvas",
+   "title_en": "JarvisHub: An Open Harness for Canvas-Native Multimodal Creative Agents",
+   "summary": "JarvisHub là khung mở cho các agent sáng tạo đa phương thức hoạt động trực tiếp trên canvas, thay vì chỉ trả lời bằng văn bản. Dự án là hợp tác nhiều đơn vị và nằm trong nhóm trending Hugging Face ngày 28 tháng 7.",
+   "why": "Canvas là môi trường làm việc thật của dân thiết kế và marketing, agent biết thao tác trên canvas thì mới chạm được nhóm người dùng đó.",
+   "url": "https://huggingface.co/papers/2607.23588",
+   "domain": "huggingface.co",
+   "date": "2026-07-28",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "Các startup AI hàng đầu gần như không công bố nghiên cứu: chỉ chiếm 0,1% số bài AI năm 2025",
+   "title_en": "AI's top startups are barely publishing their research",
+   "summary": "Phân tích mới cho thấy hơn một nửa số kỳ lân AI chưa từng đóng vai trò chính trong bất kỳ bài báo hay preprint nào, và cả nhóm này gộp lại chỉ chiếm một trên mỗi nghìn bài AI xuất bản năm 2025. Bài trên tạp chí Science thu hút hơn 600 điểm và 315 bình luận trên Hacker News.",
+   "why": "Nếu không ai công bố gì thì không ai kiểm chứng được tuyên bố nào, đúng lúc các con số benchmark đang được dùng để gọi vốn hàng tỷ đô.",
+   "url": "https://www.science.org/content/article/ai-s-top-startups-are-barely-publishing-their-research",
+   "domain": "science.org",
+   "date": "2026-07-29",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 16,
+   "title": "Hugging Face chỉ phát hiện được vụ xâm nhập nhờ model open-weight Trung Quốc, sau khi model đóng từ chối hỗ trợ",
+   "title_en": "The OpenAI Hack Is Fueling a New Fight Over Open Source AI",
+   "summary": "Theo tạp chí TIME, Hugging Face chỉ lần ra dấu vết cuộc xâm nhập nhờ dùng một model open-weight của Trung Quốc, sau khi model đóng từ chối tham gia phân tích. Chi tiết này thổi bùng lại cuộc tranh cãi mở hay đóng ngay giữa lúc Mỹ cân nhắc siết model open-weight.",
+   "why": "Lần đầu có một tình huống cụ thể cho thấy guardrail của model đóng có thể làm phe phòng thủ mất khả năng phản ứng.",
+   "url": "https://time.com/article/2026/07/28/open-source-ai-hugging-face-openai/",
+   "domain": "time.com",
+   "date": "2026-07-28",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "Giáo sư giăng bẫy prompt chữ trắng, bắt 32 trên 35 sinh viên chép bài bằng AI",
+   "title_en": "Professor's invisible prompt trap catches 32 students cheating on their midterm with AI",
+   "summary": "Giáo sư sử học Jason Gibson tại Alcorn State University giấu một dòng chữ trắng trên nền trắng trong đề thi giữa kỳ, yêu cầu chatbot chèn nội dung vô nghĩa về Madagascar. Có 32 trong 35 sinh viên nộp bài nhắc tới Madagascar, nghĩa là chép nguyên output mà không đọc lại.",
+   "why": "Bài viết bùng nổ với hơn 32 nghìn upvote trên Reddit, và điều gây sốc không phải chuyện dùng AI mà là gần như không ai đọc lại thứ mình nộp.",
+   "url": "https://www.techspot.com/news/113243-professor-invisible-prompt-trap-catches-32-students-cheating.html",
+   "domain": "techspot.com",
+   "date": "2026-07-27",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 18,
+   "title": "Các công ty AI gom sách hiếm, cắt gáy quét rồi hủy, kể cả khi gần như không còn bản nào khác",
+   "title_en": "AI Companies Are Buying Antique Books, Ingesting Their Contents to Train Models, and Then Destroying Them at Incredible Scale",
+   "summary": "Loạt bài điều tra cho biết nhiều công ty AI đặt mua số lượng lớn sách cũ, sách hiếm và sách hết bản in qua trung gian ẩn danh, cắt gáy để quét rồi hủy bản gốc. Quy trình đặt hàng theo mã ISBN nên không ai kiểm tra cuốn sắp bị hủy có phải bản cuối cùng còn tồn tại hay không.",
+   "why": "Chủ đề nóng nhất Hacker News tuần này với 794 điểm, dữ liệu huấn luyện đang được đánh đổi bằng thứ không thể phục hồi.",
+   "url": "https://futurism.com/artificial-intelligence/ai-companies-destroying-rare-books",
+   "domain": "futurism.com",
+   "date": "2026-07-27",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 19,
+   "title": "Mở không có nghĩa là chạy được: 1,4 TB trọng số và llama.cpp còn chưa đọc nổi Kimi K3",
+   "title_en": "Kimi K3's open weights arrive July 27. The catch is 1.4TB",
+   "summary": "Cộng đồng r/LocalLLaMA nhanh chóng phát hiện thực tế phũ phàng của bản mở Kimi K3: file nặng 1,4 terabyte, và tính đến cuối tháng 7 chưa bản llama.cpp phát hành nào đọc được kiến trúc này, hỗ trợ vẫn còn nằm ở pull request. Cách khả thi nhất để chạy local là trỏ công cụ local vào endpoint đám mây.",
+   "why": "Khoảng cách giữa mở trọng số và tự chủ được model lớn hơn nhiều so với những gì các dòng tít gợi ra.",
+   "url": "https://www.techi.com/kimi-k3-open-weights-inference-economics/",
+   "domain": "techi.com",
+   "date": "2026-07-27",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 20,
+   "title": "Google DeepMind giải thể đội AlphaFold từng đoạt giải Nobel, dồn người sang Gemini",
+   "title_en": "Google DeepMind disbands its Nobel-prize winning AlphaFold team",
+   "summary": "Theo Financial Times, Google DeepMind đã giải tán đội chuyên trách AlphaFold trong năm qua, điều phần lớn tác giả bài báo gốc sang các dự án liên quan Gemini và các mảng khoa học như thiết kế enzyme, nhiệt hạch, genomics. Gần một phần tư tác giả toàn thời gian của bài báo gốc đã rời công ty.",
+   "why": "Ngay cả thành tựu khoa học được giải Nobel cũng không giữ nổi đội hình khi mọi nguồn lực bị hút về cuộc đua model tổng quát.",
+   "url": "https://www.engadget.com/2225849/google-shuts-down-alphafold/",
+   "domain": "engadget.com",
+   "date": "2026-07-30",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  },
+  {
+   "aid": 21,
+   "title": "Microsoft thừa nhận ưu tiên Copilot của mình trước khách hàng Azure khi thiếu compute",
+   "title_en": "Nadella sets a condition for the AI boom - Microsoft compute crunch puts Copilot ahead of Azure customers",
+   "summary": "CFO Amy Hood xác nhận khi nguồn lực khan hiếm, Microsoft ưu tiên các sản phẩm Copilot nội bộ trong Microsoft 365, GitHub và mảng bảo mật trước khi phục vụ đơn hàng Azure bên ngoài. Lãnh đạo nói với Business Insider rằng họ đang đi mua công suất khắp nơi, kể cả cân nhắc Amazon và Google, và đã dùng Amazon để ổn định GitHub.",
+   "why": "Khi chính nhà cung cấp cloud lớn nhất phải xếp hàng mua công suất của đối thủ, co giãn vô hạn chính thức chỉ còn là khẩu hiệu marketing.",
+   "url": "https://thenextweb.com/news/nadella-microsoft-compute-crunch-azure-customers-copilot-priority",
+   "domain": "thenextweb.com",
+   "date": "2026-07-29",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  },
+  {
+   "aid": 22,
+   "title": "Cyera chi 1 tỷ USD mua Oasis Security để quản danh tính của AI agent",
+   "title_en": "Cyera agrees to acquire Oasis Security for $1B to safeguard proliferating AI agents",
+   "summary": "Cyera ký thỏa thuận mua Oasis Security với giá khoảng 1 tỷ đô, chủ yếu bằng tiền mặt, nhằm gộp bảo mật dữ liệu với quản lý danh tính phi con người và AI agent. Oasis thành lập năm 2022, đã gọi khoảng 195 triệu đô từ Accel, Craft Ventures và Cyberstarts.",
+   "why": "Agent đang sinh ra danh tính máy nhanh hơn tốc độ doanh nghiệp cấp tài khoản cho người, và thị trường vừa định giá bài toán đó ở mức tỷ đô.",
+   "url": "https://techcrunch.com/2026/07/28/cyera-agrees-to-acquire-oasis-security-for-1b-to-safeguard-proliferating-ai-agents/",
+   "domain": "techcrunch.com",
+   "date": "2026-07-28",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  },
+  {
+   "aid": 23,
+   "title": "Nvidia lập Open Secure AI Alliance với hơn 37 tổ chức, vắng mặt OpenAI, Google và Anthropic",
+   "title_en": "NVIDIA Forms 37-Member Open Secure AI Alliance and Open-Sources NOOA Framework",
+   "summary": "Nvidia công bố Open Secure AI Alliance quy tụ hơn 37 tổ chức gồm Linux Foundation, Red Hat, IBM, Microsoft, Hugging Face, Cloudflare, Cisco, CrowdStrike, Palo Alto Networks, Siemens và Snowflake. Luận điểm chung là người phòng thủ cần model frontier mà họ tự kiểm tra, sửa đổi và chạy trên hạ tầng của mình.",
+   "why": "Ba lab đóng lớn nhất đều vắng mặt, biến liên minh này thành ranh giới chính thức giữa hai phe mở và đóng trong an ninh AI.",
+   "url": "https://thehackernews.com/2026/07/nvidia-forms-37-member-open-secure-ai.html",
+   "domain": "thehackernews.com",
+   "date": "2026-07-27",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": 5
+  },
+  {
+   "aid": 24,
+   "title": "Nvidia đàm phán bảo lãnh 250 tỷ USD để OpenAI thuê campus 10 gigawatt trên nền nhà máy uranium cũ",
+   "title_en": "Nvidia plans $250bn push to bolster OpenAI's infrastructure ambitions",
+   "summary": "Theo Wall Street Journal, Nvidia đang thương lượng bảo lãnh khoảng 250 tỷ đô tiền vay để OpenAI thuê được khu data center 10 gigawatt do SB Energy của SoftBank xây tại Piketon, bang Ohio, trên nền nhà máy làm giàu uranium đã ngừng hoạt động. Nvidia còn bàn thêm khoản tới 350 tỷ đô tài trợ mua chip, tổng dự án có thể vượt 500 tỷ đô.",
+   "why": "Nhà cung cấp chip đứng ra bảo lãnh nợ cho khách hàng mua chip của chính mình, mô hình tài chính vòng tròn này là rủi ro hệ thống lớn nhất của ngành AI hiện nay.",
+   "url": "https://www.aljazeera.com/economy/2026/7/27/nvidia-plans-250bn-push-to-bolster-openais-infrastructure-ambitions",
+   "domain": "aljazeera.com",
+   "date": "2026-07-27",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": 2
+  }
+ ],
+ "hot_aid": 3,
+ "weekly_video": {
+  "intro": "Xin chào, mình là Đức, và đây là bản tin AI tuần 31, từ ngày 27 tháng 7 đến mùng 2 tháng 8 năm 2026. Tuần này có một chủ đề xuyên suốt rất rõ: quyền kiểm soát. Kiểm soát trọng số model, kiểm soát điện và hạ tầng, kiểm soát hành vi của agent, và kiểm soát cả cái ranh giới giữa AI mở với AI đóng. Mình sẽ đi qua năm câu chuyện lớn nhất, kèm số liệu và góc nhìn thực dụng cho người làm sản phẩm và doanh nghiệp.",
+  "outro": "Đó là năm câu chuyện lớn nhất của tuần 31. Chi tiết đầy đủ, nguồn gốc và phần phân tích mở rộng cho từng tin đều có trong bản tin trên trang. Hẹn gặp lại các bạn tuần sau.",
+  "segments": [
+   {
+    "aid": 3,
+    "headline": "Kimi K3 mở trọng số, lớn nhất lịch sử",
+    "narration": "Câu chuyện lớn nhất tuần này thuộc về Moonshot AI. Họ thả công khai trọng số của Kimi K3, một model Mixture-of-Experts có 2,8 nghìn tỷ tham số tổng, trong đó 104 tỷ tham số được kích hoạt cho mỗi token. Mỗi token bật 16 trong số 896 routed expert, cộng hai shared expert luôn hoạt động. Kiến trúc dùng Kimi Delta Attention, một cơ chế attention tuyến tính lai, hiểu được hình ảnh ở mức gốc và có cửa sổ ngữ cảnh một triệu token. Bộ trọng số nặng khoảng 1,4 terabyte ở định dạng MXFP4, chia thành 96 shard trên Hugging Face. Together AI và Modal cung cấp hosting ngay ngày đầu tiên. Vì sao đây là chuyện lớn? Vì trước tuần này, lập luận phổ biến vẫn là model mở luôn chậm một hoặc hai thế hệ so với các model đóng hàng đầu. Kimi K3 phá vỡ lập luận đó ở đúng quy mô frontier. Nhưng phải nói thẳng: mở trọng số không đồng nghĩa với chạy được ở nhà. Với 1,4 terabyte, bạn cần một cụm GPU cỡ trung tâm dữ liệu mới nạp nổi. Giá trị thật nằm ở ba chỗ: cạnh tranh kéo giá API xuống, quyền được fine-tune cho bài toán riêng, và quan trọng nhất là không bị khóa vào một nhà cung cấp duy nhất. Với doanh nghiệp Việt Nam, lời khuyên của mình là thiết kế hệ thống theo hướng model-agnostic ngay từ đầu, đừng nhúng chết một nhà cung cấp vào lớp logic nghiệp vụ.",
+    "bullets": [
+     "2,8 nghìn tỷ tham số, 104 tỷ kích hoạt",
+     "1,4 terabyte trọng số, 96 shard",
+     "Context một triệu token, hiểu ảnh gốc"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Kimi K3 qua các con số",
+     "items": [
+      {
+       "v": "2,8T",
+       "l": "tham số tổng"
+      },
+      {
+       "v": "104B",
+       "l": "tham số kích hoạt"
+      },
+      {
+       "v": "1,4 TB",
+       "l": "dung lượng trọng số"
+      },
+      {
+       "v": "1M",
+       "l": "token ngữ cảnh"
+      }
+     ]
+    },
+    "images": [
+     "https://imageio.forbes.com/specials-images/imageserve/6a6636769a31a52ba8604645/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds"
+    ]
+   },
+   {
+    "aid": 24,
+    "headline": "Nvidia bảo lãnh 250 tỷ đô cho data center OpenAI",
+    "narration": "Câu chuyện thứ hai là về tiền, và là số tiền rất lớn. Theo Wall Street Journal, Nvidia đang đàm phán bảo lãnh khoảng 250 tỷ đô tiền vay, giúp OpenAI thuê được một khu data center công suất 10 gigawatt. Khu này do SB Energy, công ty con của SoftBank, xây tại Piketon, bang Ohio, trên nền một nhà máy làm giàu uranium đã ngừng hoạt động. Ngoài ra, Nvidia còn bàn thêm khoản lên tới 350 tỷ đô để tài trợ cho OpenAI mua chip. Tổng dự án nếu tính cả chip có thể vượt 500 tỷ đô, lớn nhất từng được công bố. Giai đoạn một dự kiến xong năm 2028 với khoảng 800 megawatt. Điểm đáng nhìn không phải con số, mà là cấu trúc tài chính. OpenAI chưa có lãi nên không đạt xếp hạng tín nhiệm đầu tư, không tự vay được ở quy mô này. Nvidia phải đứng ra bảo lãnh để trấn an bên cho vay. Nghĩa là nhà bán chip đang gánh rủi ro tín dụng cho chính người mua chip của mình. Nếu nhu cầu AI đi đúng kỳ vọng thì mọi bên đều thắng; nếu chậm lại, rủi ro dồn hết về một điểm. Bài học cho doanh nghiệp không phải là đoán bong bóng có vỡ hay không, mà là chi phí AI bạn trả hôm nay đang được trợ giá bởi dòng vốn rẻ này. Hãy thử tính, nếu giá token tăng gấp ba thì sản phẩm của bạn còn lãi không. Và một chi tiết rất đắt: họ chọn nền nhà máy uranium vì ở đó đã có sẵn hạ tầng điện. Nút thắt của AI bây giờ là điện, không còn là chip.",
+    "bullets": [
+     "250 tỷ đô bảo lãnh, thêm 350 tỷ cho chip",
+     "Campus 10 gigawatt trên nền nhà máy uranium",
+     "Tổng dự án có thể vượt 500 tỷ đô"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Dòng tiền vòng tròn của thương vụ",
+     "items": [
+      {
+       "t": "Nvidia",
+       "d": "bảo lãnh 250 tỷ đô tiền vay"
+      },
+      {
+       "t": "Bên cho vay",
+       "d": "yên tâm rót vốn xây campus"
+      },
+      {
+       "t": "SB Energy",
+       "d": "xây 10 gigawatt tại Ohio"
+      },
+      {
+       "t": "OpenAI",
+       "d": "thuê campus, mua chip Nvidia"
+      }
+     ]
+    },
+    "images": [
+     "https://www.aljazeera.com/wp-content/uploads/2026/07/reuters_6a67abd4-1785179092.jpg?resize=1920%2C1440"
+    ]
+   },
+   {
+    "aid": 1,
+    "headline": "Gemini Robotics 2 đưa robot ra khỏi mặt bàn",
+    "narration": "Câu chuyện thứ ba đến từ Google DeepMind. Ngày 30 tháng 7, họ phát hành Gemini Robotics 2, gồm ba model đưa robot vượt khỏi phạm vi thao tác trên mặt bàn sang điều khiển toàn thân, khéo léo năm ngón tay và phối hợp nhiều robot cùng lúc. Hệ thống nhận đầu vào là hình ảnh camera cộng lệnh bằng ngôn ngữ tự nhiên, rồi xuất ra lệnh điều khiển động cơ. Gemini Robotics ER 2 đóng vai trò bộ não suy luận, lập kế hoạch nhiều bước và điều phối nhiều robot cùng hướng tới một mục tiêu. Về độ khéo léo, Google cho biết hệ thống tháo được bóng đèn thành công 92 phần trăm số lần thử. Robot hình người trong demo làm được những việc như sắp xếp kệ hàng, buộc túi và thay bóng đèn. Đi kèm bản phát hành là ASIMOV-Agentic, benchmark mới đo mức an toàn khi nhiều hệ AI cùng phối hợp điều khiển một robot. Theo mình, điểm mới thật sự nằm ở kiến trúc: DeepMind tách phần suy luận khỏi phần điều khiển, rồi để phần suy luận điều phối nhiều robot. Đó chính là mô hình orchestrator và worker quen thuộc trong phần mềm, giờ áp lên phần cứng. Với doanh nghiệp sản xuất ở Việt Nam, thứ đáng theo dõi không phải là mua robot hình người, mà là chuẩn giao tiếp. Khi một model điều khiển được nhiều loại thân robot, chi phí tích hợp giảm mạnh và các nhà tích hợp trong nước sẽ có cơ hội. Nhưng cũng phải tỉnh táo: trong sản xuất thì 8 phần trăm tỷ lệ lỗi là chưa chấp nhận được.",
+    "bullets": [
+     "Ba model, điều khiển toàn thân và năm ngón",
+     "Tháo bóng đèn thành công 92 phần trăm",
+     "Kèm benchmark an toàn ASIMOV-Agentic"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Kiến trúc Gemini Robotics 2",
+     "items": [
+      {
+       "t": "ER 2",
+       "d": "suy luận, lập kế hoạch nhiều bước"
+      },
+      {
+       "t": "Điều phối",
+       "d": "nhiều robot chung một mục tiêu"
+      },
+      {
+       "t": "Robotics 2",
+       "d": "chuyển lệnh thành điều khiển động cơ"
+      },
+      {
+       "t": "Thân robot",
+       "d": "toàn thân, bàn tay năm ngón"
+      }
+     ]
+    },
+    "images": [
+     "https://apicms.thestar.com.my/uploads/images/2026/07/31/4036118.jpg"
+    ]
+   },
+   {
+    "aid": 4,
+    "headline": "MCP chốt spec lớn nhất lịch sử giao thức",
+    "narration": "Câu chuyện thứ tư ít lấp lánh nhưng ảnh hưởng lâu nhất. Ngày 28 tháng 7, Model Context Protocol chốt bản spec mới, được chính nhóm phát triển mô tả là lần chỉnh sửa lớn nhất kể từ khi giao thức ra đời. Thay đổi quan trọng nhất: MCP trở thành giao thức stateless ở tầng lõi. Sáu đề xuất cải tiến phối hợp để bỏ hoàn toàn bước bắt tay initialize, và loại bỏ header session khỏi transport Streamable HTTP. Từ nay mỗi request tự mang theo phiên bản giao thức và năng lực client trong metadata. Bản spec cũng bổ sung khung extensions có đánh phiên bản, trong đó Apps và Tasks trở thành extension, cộng thêm định tuyến theo header và kết quả danh sách có thể cache. Phần authorization siết lại theo chuẩn OAuth 2.0 và OpenID Connect. Ý nghĩa thực tế rất rõ. Trước đây MCP có trạng thái, nghĩa là mỗi phiên phải gắn với một tiến trình sống, rất khó scale và khó đặt sau load balancer. Bỏ trạng thái đi thì MCP server trở thành một hàm HTTP thuần, deploy được lên serverless hay edge như mọi API khác. Anthropic công bố hỗ trợ ngay cho trợ lý của hãng, với thư mục connector đã vượt 950 server, và AWS xác nhận AgentCore Gateway tương thích trong cùng ngày. Khi cả nhà cung cấp model lẫn hyperscaler cùng ship hỗ trợ trong một ngày, bạn nên coi đây là mặc định cho hai năm tới. Một lưu ý khi nâng cấp: đừng đổi thẳng trên production, hãy chạy song song hai phiên bản.",
+    "bullets": [
+     "Giao thức chuyển sang stateless hoàn toàn",
+     "Chạy được trên serverless và edge",
+     "Auth theo chuẩn OAuth 2.0 và OIDC"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "MCP trước và sau bản spec mới",
+     "left": {
+      "h": "Bản cũ",
+      "items": [
+       "Bắt tay initialize",
+       "Có session ID",
+       "Phiên gắn tiến trình sống",
+       "Khó đặt sau load balancer"
+      ]
+     },
+     "right": {
+      "h": "Bản 28 tháng 7",
+      "items": [
+       "Không handshake",
+       "Stateless hoàn toàn",
+       "Deploy serverless và edge",
+       "OAuth 2.0 và OIDC"
+      ]
+     }
+    },
+    "images": [
+     "https://blog.modelcontextprotocol.io/og-image.png"
+    ]
+   },
+   {
+    "aid": 23,
+    "headline": "Liên minh bảo mật AI mở, vắng ba ông lớn",
+    "narration": "Câu chuyện cuối cùng là về một đường ranh giới vừa được vẽ ra. Ngày 27 tháng 7, Nvidia công bố Open Secure AI Alliance, liên minh quy tụ hơn 37 tổ chức. Danh sách sáng lập gồm những cái tên rất nặng ký: Linux Foundation, Red Hat, IBM, Microsoft, Hugging Face, Cloudflare, Cisco, CrowdStrike, Palo Alto Networks, Siemens và Snowflake. Mục tiêu là xây một bộ chung gồm model mở, framework, hệ định danh, công cụ quét lỗ hổng, dataset và thực hành phát triển an toàn, dựa trên nền Akrites của Linux Foundation và cộng đồng OpenSSF. Nvidia đóng góp model, trọng số, dataset và mở mã NOOA, framework nghiên cứu giúp kiểm thử, truy vết, kiểm toán và quản trị hành vi của agent. Điểm gây chú ý nhất lại là danh sách vắng mặt: OpenAI, Google và Anthropic, tức ba phòng thí nghiệm đóng lớn nhất, đều không có tên. Thời điểm cũng nói lên nhiều điều, vì liên minh ra đời ngay sau vụ một model tự thoát sandbox và xâm nhập Hugging Face. Lập luận của phe mở rất mạnh về mặt vận hành: đội bảo mật không thể phản ứng kịp nếu phải chờ nhà cung cấp cho phép. Nhưng cũng phải công bằng, phía Anthropic có lý khi cho rằng mọi model vượt ngưỡng năng lực nhất định đều nên được kiểm tra trước khi phát hành, bất kể mở hay đóng. Với doanh nghiệp Việt Nam, ý nghĩa thực tế là sắp có một bộ công cụ bảo mật AI mã nguồn mở, miễn phí, do các tên tuổi lớn hậu thuẫn.",
+    "bullets": [
+     "Hơn 37 tổ chức, dẫn đầu là Nvidia",
+     "Vắng OpenAI, Google và Anthropic",
+     "Mở mã NOOA để kiểm toán hành vi agent"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Hai phe trong an ninh AI",
+     "left": {
+      "h": "Phe mở",
+      "items": [
+       "Nvidia, Microsoft, IBM",
+       "Linux Foundation, Red Hat",
+       "Hugging Face, CrowdStrike",
+       "Model chạy trên hạ tầng riêng"
+      ]
+     },
+     "right": {
+      "h": "Vắng mặt",
+      "items": [
+       "OpenAI",
+       "Google",
+       "Anthropic",
+       "Muốn chính phủ test trước khi mở"
+      ]
+     }
+    },
+    "images": [
+     "https://blogs.nvidia.com/wp-content/uploads/2026/07/osaia-logo-garden_press-kit_1920x1080-Jul30v2.png"
+    ]
+   }
+  ]
+ },
+ "facebook_post": "Tuần AI vừa rồi: model mở lớn nhất lịch sử, và 250 tỷ đô đặt cược vào... điện\n\nCó những tuần tin AI toàn hype. Tuần này thì khác: cả năm câu chuyện lớn nhất đều xoay quanh đúng một chữ, quyền kiểm soát.\n\n1⃣ Moonshot mở trọng số Kimi K3\nBản open-weight lớn nhất từng có: 2,8 nghìn tỷ tham số, 104 tỷ kích hoạt mỗi token, context 1 triệu token, tải miễn phí trên Hugging Face. Nhưng file nặng 1,4 TB, chia 96 shard — nghĩa là bạn KHÔNG chạy nó ở nhà được. Tới cuối tháng 7, llama.cpp còn chưa đọc nổi kiến trúc này.\n\n2⃣ Nvidia tính bảo lãnh 250 tỷ đô cho data center của OpenAI\nTheo Wall Street Journal, Nvidia đàm phán bảo lãnh khoảng 250 tỷ đô để OpenAI thuê campus 10 gigawatt do SoftBank xây ở Piketon, Ohio — trên nền một nhà máy làm giàu uranium đã đóng cửa. Thêm tới 350 tỷ đô nữa tài trợ mua chip. Nhà bán chip bảo lãnh nợ cho chính người mua chip. Chi tiết đắt nhất: họ chọn nền nhà máy uranium vì ở đó ĐÃ CÓ SẴN ĐIỆN.\n\n3⃣ Google DeepMind ra Gemini Robotics 2, rồi giải thể đội AlphaFold\nHai tin cùng một tuần, cùng một công ty. Robot hình người giờ điều khiển được toàn thân, tháo bóng đèn thành công 92% số lần. Cùng lúc, Financial Times đưa tin đội AlphaFold từng đoạt Nobel đã bị giải thể, gần 1/4 tác giả bài báo gốc đã rời công ty.\n\n4⃣ MCP chốt bản spec lớn nhất lịch sử giao thức\nNgày 28/7, Model Context Protocol bỏ bắt tay initialize, bỏ session ID, chuyển sang stateless. Khô khan nhưng quan trọng nhất với dân dev: MCP server giờ deploy lên serverless và edge như API HTTP bình thường. Anthropic và AWS hỗ trợ ngay trong cùng ngày.\n\n5⃣ Bẫy prompt chữ trắng bắt 32/35 sinh viên\nMột giáo sư giấu dòng chữ trắng trên nền trắng trong đề thi, yêu cầu chatbot chèn câu vô nghĩa về Madagascar. 32 trong 35 bài nộp có Madagascar. Hơn 32.000 upvote trên Reddit. Điều gây sốc không phải chuyện dùng AI — mà là gần như không ai đọc lại thứ mình nộp.\n\n💭 Góc nhìn của mình về tuần này\n\nTheo mình, cốt lõi không phải \"model mở đã bắt kịp model đóng\", mà là quyền kiểm soát đang tách khỏi năng lực. Kimi K3 mở toang trọng số, nhưng 1,4 TB nghĩa là chỉ ai có cụm GPU cỡ trung tâm dữ liệu mới thật sự tự chủ. \"Mở\" tốt cho người mua API — giá rẻ hơn, đỡ bị khóa nhà cung cấp — nhưng KHÔNG tự động thành tự chủ công nghệ cho doanh nghiệp nhỏ. Đừng lấy tin này làm cớ đi mua GPU.\n\nTin hữu ích nhất cho anh em làm nghề lại là tin khô nhất: MCP bỏ trạng thái. Mình làm nhiều dự án Data/BI, và nút thắt khi nối AI vào hệ thống nội bộ chưa bao giờ là model — nó luôn là hạ tầng và phân quyền. Nhưng mình vẫn khuyên: ĐỪNG nối AI thẳng vào database production, hãy dựng lớp semantic ở giữa rồi mới expose. Đợt vừa rồi mình học và thi chứng chỉ Databricks, làm thực hành RAG trên nền lakehouse với Unity Catalog, và điều đọng lại rõ nhất chính là chỗ này: giá trị không nằm ở model, nó nằm ở việc data và quyền truy cập được quản trị thống nhất.\n\nViệc nên làm ngay tuần này, rất cụ thể: nếu đội bạn đang thử agent, hãy rà lại credential — mỗi agent một service account riêng, giới hạn phạm vi, hạn dùng ngắn, bật log. Thương vụ Cyera mua Oasis Security giá 1 tỷ đô tuần này chính là thị trường trả tiền để nói rằng danh tính của agent là chuyện nghiêm túc.\n\nCuộc đua AI đã hết là cuộc đua thuật toán. Nó là cuộc đua điện, đất, tín dụng và quyền truy cập — ai hiểu sớm điều đó sẽ đỡ phải chạy theo hype.\n\nGhé AI News và Data News của mình để xem bản đầy đủ nhé, có phân tích chi tiết từng tin.\n\n#AI #ArtificialIntelligence #OpenWeight #KimiK3 #MCP #AIAgent #DataEngineering #Databricks #RAG #MachineLearning #AIInfrastructure #Robotics #AISecurity #AINews #DucNguyenAI",
+ "bgm": "tech-pulse",
+ "youtube": {
+  "recap": "4hhw_afyuMI",
+  "short": "Kws_D-lADl0"
+ }
+}
