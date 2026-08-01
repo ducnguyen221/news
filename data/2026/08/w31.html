@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data News – Tuần W31 (27/07 - 02/08/2026)</title>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="description" content="Bản tin dữ liệu tuần W31/2026: Snowflake ra Cortex AI Gateway, Fabric July 2026, Polaris 1.7.0 gãy vote, groundcover và DataBahn gọi vốn lớn.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data News – Tuần W31: Cổng kiểm soát AI agent thành hạ tầng dữ liệu">
+<meta property="og:description" content="Tuần W31/2026: Snowflake ra Cortex AI Gateway, Fabric đẩy Runtime 2.0 và Lakehouse Query Explorer, Polaris 1.7.0 gãy vì license, groundcover gọi 100 triệu USD.">
+<meta property="og:image" content="https://ducnguyen.vn/news/data/assets/og-banner.png">
+<meta property="og:url" content="https://ducnguyen.vn/news/data/2026/08/w31.html">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;padding:0 16px 40px;background:#04060a;color:#f8fafc;font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;line-height:1.62;font-size:15.5px}
+.wrap{max-width:960px;margin:0 auto;position:relative;z-index:2}
+a{color:#34f5a4}
+
+/* ---------- HEADER ---------- */
+.hdr{position:sticky;top:8px;z-index:60;background:rgba(6,9,16,.92);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:12px;margin:10px 0 4px;padding:12px 16px}
+.hdr-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{display:inline-flex;align-items:center;gap:12px}
+.brand{text-decoration:none;color:#f8fafc}
+.brand-mark{width:42px;height:42px;display:grid;place-items:center;flex:0 0 auto;border:1px solid rgba(52,245,164,.4);border-radius:50%;background:radial-gradient(circle,rgba(52,245,164,.22),rgba(56,189,248,.06) 55%,rgba(4,6,10,.95) 78%);box-shadow:0 0 18px rgba(52,245,164,.35);animation:brandPulse 3.2s ease-in-out infinite;transition:transform .45s cubic-bezier(.175,.885,.32,1.275)}
+.brand:hover .brand-mark{transform:rotate(180deg) scale(1.06);border-color:#34f5a4}
+@keyframes brandPulse{0%,100%{box-shadow:0 0 10px rgba(52,245,164,.22)}50%{box-shadow:0 0 26px rgba(52,245,164,.55)}}
+.brand-name{font-size:1.12rem;font-weight:600;letter-spacing:.2px}
+.brand-name b{color:#34f5a4}
+.brand-sub{display:inline;color:#94a3b8;font-size:.78rem;margin-left:4px}
+.hdr-row2{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-top:8px;position:relative}
+.hdr-row2 .toc{flex:1 1 auto;display:flex;gap:7px;flex-wrap:wrap}
+.toc a{display:inline-block;padding:5px 11px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(12,18,30,.9);color:#cbd5e1;text-decoration:none;font-size:.79rem}
+.toc a:hover{border-color:rgba(52,245,164,.5);color:#34f5a4}
+.vdiv{width:1px;height:22px;background:rgba(255,255,255,.16)}
+.hdr-ctrls{display:flex;align-items:center;gap:8px}
+.ctrl{display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:8px 14px;border-radius:9px;border:1px solid rgba(255,255,255,.14);background:rgba(12,18,30,.95);color:#e2e8f0;font-size:.82rem;font-weight:600;cursor:pointer;text-decoration:none;font-family:inherit}
+.ctrl:hover{border-color:rgba(52,245,164,.5)}
+.ctrl-acc{background:linear-gradient(90deg,#34f5a4,#38bdf8);color:#04060a;border-color:transparent}
+.ctrl-ic{width:38px;height:36px;padding:0}
+.navpop-btn{display:none}
+.navpop{display:none}
+.navpop-t:checked ~ .navpop{display:flex;flex-direction:column;gap:2px;position:absolute;top:calc(100% + 10px);left:0;right:0;z-index:80;background:rgba(8,12,20,.98);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:8px;backdrop-filter:blur(16px)}
+.navpop a{padding:11px 14px;border-radius:8px;color:#cbd5e1;text-decoration:none}
+.navpop a:hover{background:rgba(52,245,164,.1);color:#34f5a4}
+.navpop-t:checked ~ .hdr-ctrls .navpop-btn{color:#04060a;background:linear-gradient(90deg,#34f5a4,#38bdf8);border-color:transparent}
+
+/* ---------- RECAP VIDEO ---------- */
+#recap{scroll-margin-top:120px}
+.hot-video{margin-top:26px}
+.hot-video .hot-label{font-weight:700;margin-bottom:12px}
+.hot-video video,.hot-video iframe{width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.08)}
+.vid-links{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.vbtn{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border:1px solid rgba(52,245,164,.35);border-radius:9px;color:#34f5a4;text-decoration:none;font-size:.88rem;font-weight:600;background:rgba(52,245,164,.07)}
+.vbtn:hover{background:rgba(52,245,164,.16)}
+
+/* ---------- TLDR + TIMELINE ---------- */
+.tldr{margin:24px 0 14px;padding:18px 20px;background:rgba(10,15,26,.95);border:1px solid rgba(52,245,164,.24);border-left:3px solid #34f5a4;border-radius:12px}
+.tldr h2{margin:0 0 8px;font-size:1.04rem;color:#34f5a4;letter-spacing:.3px}
+.tldr p{margin:0;color:#e2e8f0}
+.timeline{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 26px}
+.tl-chip{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:74px;padding:8px 10px;background:rgba(10,15,26,.93);border:1px solid rgba(255,255,255,.08);border-radius:10px}
+.tl-chip .d{font-size:.74rem;color:#94a3b8;letter-spacing:.3px}
+.tl-chip .n{font-size:1.02rem;font-weight:700;color:#34f5a4}
+.tl-chip.zero{opacity:.38}
+.tl-chip.zero .n{color:#94a3b8}
+
+/* ---------- SECTIONS + CARDS ---------- */
+.sec{margin:34px 0 0;scroll-margin-top:120px}
+.sec h2{font-size:1.2rem;margin:0 0 14px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.08)}
+.card{display:flex;gap:14px;padding:16px;margin-bottom:14px;background:rgba(10,15,26,.93);border:1px solid rgba(255,255,255,.08);border-radius:12px}
+.card[data-hot="1"]{border-color:rgba(52,245,164,.45);box-shadow:0 0 22px rgba(52,245,164,.1)}
+.thumb{width:96px;height:72px;flex:0 0 96px;object-fit:cover;border-radius:9px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07)}
+.thumb-fallback{object-fit:contain;padding:16px;background:rgba(255,255,255,.05)}
+.body{flex:1 1 auto;min-width:0}
+.rank{display:inline-block;margin-bottom:6px;padding:3px 10px;border-radius:999px;background:linear-gradient(90deg,rgba(52,245,164,.2),rgba(56,189,248,.18));border:1px solid rgba(52,245,164,.4);color:#34f5a4;font-size:.71rem;font-weight:700;letter-spacing:.4px}
+a.title{display:block;font-size:1.04rem;font-weight:650;color:#f8fafc;text-decoration:none;line-height:1.42}
+a.title:hover{color:#34f5a4}
+.sum{margin:7px 0 0;color:#cbd5e1}
+.why{margin:8px 0 0;color:#94a3b8;font-size:.92rem}
+.meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:11px}
+.when{font-size:.78rem;color:#94a3b8}
+.metabtn,.readbtn{display:inline-flex;align-items:center;gap:5px;padding:5px 11px;border-radius:8px;border:1px solid rgba(255,255,255,.13);background:rgba(12,18,30,.95);color:#cbd5e1;font-size:.76rem;text-decoration:none;cursor:pointer;font-family:inherit}
+.metabtn:hover,.readbtn:hover{border-color:rgba(52,245,164,.5);color:#34f5a4}
+.xt:checked ~ .meta .xbtn{background:rgba(52,245,164,.16);border-color:rgba(52,245,164,.55);color:#34f5a4}
+.more{display:none}
+.xt:checked ~ .more{display:block;margin-top:14px;border-top:1px dashed rgba(255,255,255,.12);padding-top:14px}
+.kb{list-style:none;margin:0 0 12px;padding:0}
+.kb li{position:relative;padding-left:18px;margin-bottom:5px;color:#cbd5e1;font-size:.92rem}
+.kb li::before{content:"▸";position:absolute;left:0;color:#34f5a4}
+.facts{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
+.fact{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:7px;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.22);font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;font-size:.73rem;color:#cbd5e1}
+.fact b{color:#38bdf8;font-weight:700;letter-spacing:.3px}
+.deep{margin:0;color:#9db0c6;font-size:.92rem;line-height:1.7}
+
+footer{margin-top:40px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);color:#94a3b8;font-size:.84rem}
+footer a{color:#34f5a4}
+
+@media(max-width:767px){
+  body{font-size:15px;padding:0 12px 32px}
+  .hdr{padding:10px 12px}
+  .brand-mark{width:36px;height:36px}
+  .brand-name{font-size:1rem}
+  .brand-sub{font-size:.72rem}
+  .hdr-row2 .toc,.vdiv{display:none}
+  .hdr-ctrls{width:100%;gap:6px}
+  .hdr-ctrls .ctrl{flex:1 1 auto;font-size:.78rem;padding:8px 6px;text-align:center}
+  .hdr-ctrls .ctrl-ic{flex:0 0 38px;width:38px;height:36px;padding:0}
+  .navpop-btn{display:grid;place-items:center}
+  .card{flex-direction:row;gap:11px;padding:13px}
+  .thumb{width:70px;height:56px;flex:0 0 70px}
+  a.title{font-size:.99rem}
+  .vid-links .vbtn{flex:1 1 auto;justify-content:center}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hdr" id="top">
+  <div class="hdr-row">
+    <a class="brand" href="../../index.html" title="Về trang chính Data News"><span class="brand-mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34f5a4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/><path d="M4.5 11.5v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/></svg></span><span class="brand-name">Data <b>News</b></span><span class="brand-sub">Tuần W31 · 27/07 - 02/08/2026</span></a>
+  </div>
+  <div class="hdr-row2">
+    <input type="checkbox" id="navpop" class="navpop-t" hidden>
+    <nav class="toc">
+      <a href="#recap">🎬 Recap</a>
+      <a href="#sec-1">🗄️ Hạ tầng</a>
+      <a href="#sec-2">🛠️ Công cụ</a>
+      <a href="#sec-3">🤖 AI × Data</a>
+      <a href="#sec-4">📈 Trend</a>
+      <a href="#sec-5">🏢 Ngành</a>
+    </nav>
+    <span class="vdiv"></span>
+    <div class="hdr-ctrls">
+      <button id="readAll" class="ctrl ctrl-acc">🔊<span class="btxt"> Đọc tóm tắt</span></button>
+      <button id="readStop" class="ctrl">⏹<span class="btxt"> Dừng</span></button>
+      <label class="ctrl ctrl-ic navpop-btn" for="navpop" title="Mục lục">☰</label>
+      <a class="ctrl ctrl-ic" href="../../index.html" title="Quay lại Data News">←</a>
+    </div>
+    <div class="navpop">
+      <a href="#recap" onclick="document.getElementById('navpop').checked=false">🎬 Recap</a>
+      <a href="#sec-1" onclick="document.getElementById('navpop').checked=false">🗄️ Hạ tầng &amp; Kiến trúc dữ liệu</a>
+      <a href="#sec-2" onclick="document.getElementById('navpop').checked=false">🛠️ Công cụ &amp; Nền tảng</a>
+      <a href="#sec-3" onclick="document.getElementById('navpop').checked=false">🤖 AI × Data</a>
+      <a href="#sec-4" onclick="document.getElementById('navpop').checked=false">📈 Hot trend &amp; Thảo luận</a>
+      <a href="#sec-5" onclick="document.getElementById('navpop').checked=false">🏢 Ngành &amp; Doanh nghiệp</a>
+    </div>
+  </div>
+</header>
+
+<div id="recap"></div>
+<!--HOT_VIDEO-->
+
+<div class="tldr">
+  <h2>📌 Tổng quan tuần này</h2>
+  <p>Tuần W31 là tuần các nền tảng dữ liệu lớn đồng loạt dựng "cổng kiểm soát" cho AI agent thay vì khoe thêm tính năng AI. Snowflake ra Cortex AI Gateway ngày 28/07 để quản lý và tính tiền mọi agent chạm vào dữ liệu, kể cả agent bên thứ ba như Claude Code hay Cursor; Databricks mở connector kéo dữ liệu vận hành của OpenAI vào lakehouse; Microsoft Fabric tung bản cập nhật tháng 7 với Runtime 2.0, Lakehouse Query Explorer GA và một skill mã nguồn mở chẩn đoán lỗi Spark bằng ngôn ngữ tự nhiên. Ở tầng nền tảng mở, Apache Polaris phải huỷ bản 1.7.0 vì 44 trên 269 file jar thiếu LICENSE, còn Parquet duyệt xong mã hoá số thực ALP. Tiền vẫn chảy mạnh vào lớp đường ống: groundcover gọi 100 triệu USD, DataBahn gọi 40 triệu USD, cùng chung một luận điểm rằng dữ liệu vận hành mới là chỗ nghẽn thật của AI doanh nghiệp.</p>
+</div>
+
+<div class="timeline">
+  <div class="tl-chip"><span class="d">T2 27/07</span><span class="n">2</span></div>
+  <div class="tl-chip"><span class="d">T3 28/07</span><span class="n">5</span></div>
+  <div class="tl-chip"><span class="d">T4 29/07</span><span class="n">7</span></div>
+  <div class="tl-chip"><span class="d">T5 30/07</span><span class="n">4</span></div>
+  <div class="tl-chip"><span class="d">T6 31/07</span><span class="n">2</span></div>
+  <div class="tl-chip zero"><span class="d">T7 01/08</span><span class="n">0</span></div>
+  <div class="tl-chip zero"><span class="d">CN 02/08</span><span class="n">0</span></div>
+</div>
+
+<!-- ============ SECTION 1 ============ -->
+<section class="sec" id="sec-1">
+<h2>🗄️ Hạ tầng &amp; Kiến trúc dữ liệu</h2>
+
+<article class="card" data-aid="1">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.snowflake.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-1" class="xt" hidden>
+    <a class="title" href="https://docs.snowflake.com/en/release-notes/new-features" target="_blank" rel="noopener">Snowflake đưa chế độ ADAPTIVE refresh của Dynamic Tables lên GA</a>
+    <p class="sum">Ngày 30/07, Snowflake chuyển chế độ làm mới ADAPTIVE cho Dynamic Tables từ preview sang GA: engine tự quyết mỗi lần refresh nên chạy incremental hay full thay vì bắt người dùng chốt cứng từ lúc tạo bảng.</p>
+    <p class="why">💡 Dynamic Tables là xương sống của pipeline khai báo trên Snowflake. Bỏ được một nút chỉnh tay dễ sai đồng nghĩa bớt cả lỗi dữ liệu lẫn credit đốt vô ích mỗi đêm.</p>
+    <div class="meta">
+      <span class="when">📅 30/07</span>
+      <a class="metabtn" href="https://docs.snowflake.com/en/release-notes/new-features" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-1">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="1">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>ADAPTIVE refresh mode cho Dynamic Tables chính thức GA ngày 30/07/2026</li>
+        <li>Engine tự chọn incremental hoặc full refresh theo từng lần chạy</li>
+        <li>Trước đây refresh_mode phải cố định ngay lúc tạo bảng</li>
+        <li>Cùng tuần Snowflake mở preview dashboard giám sát chất lượng dữ liệu</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>30/07/2026</span>
+        <span class="fact"><b>TRẠNG THÁI</b>GA</span>
+        <span class="fact"><b>SẢN PHẨM</b>Dynamic Tables</span>
+        <span class="fact"><b>CHẾ ĐỘ</b>ADAPTIVE</span>
+      </div>
+      <p class="deep">Ai từng vận hành Dynamic Tables đều biết cái bẫy: chọn INCREMENTAL rồi một hôm query đổi, engine âm thầm rơi về FULL và hoá đơn nhảy vọt mà không ai hay. ADAPTIVE gỡ đúng chỗ đó bằng cách để engine quyết theo từng lần refresh. Với team data Việt Nam đang dùng Snowflake, đây là loại thay đổi nên đón nhận ngay vì nó không đòi viết lại pipeline, chỉ đổi một thuộc tính. Nhưng đừng bật rồi quên: vẫn phải theo dõi refresh history để biết engine thực sự chọn gì, nếu không thì bạn chỉ chuyển sự mù mờ từ chỗ này sang chỗ khác. Kinh nghiệm của mình là mọi tính năng "tự động" đều cần một dashboard theo dõi đi kèm, bằng không nó biến thành hộp đen tốn tiền. Nhìn rộng hơn, đây là hướng chung của cả ngành trong 2026: chuyển quyết định tối ưu từ tay kỹ sư sang runtime, kỹ sư chỉ còn lo chỗ đặt ranh giới và ngân sách.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="2" data-hot="1">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=community.fabric.microsoft.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-2" class="xt" hidden>
+    <span class="rank">🔥 TOP 2 TUẦN NÀY</span>
+    <a class="title" href="https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Fabric-July-2026-Feature-Summary/ba-p/5325823" target="_blank" rel="noopener">Microsoft Fabric bản tháng 7/2026: Runtime 2.0, Lakehouse Query Explorer GA và Oracle CDC cho Eventstream</a>
+    <p class="sum">Bản tổng hợp tính năng Fabric tháng 7 công bố ngày 29/07 mang tới Fabric Runtime 2.0 (preview), release channel cho runtime, Lakehouse Query Explorer và Materialized Lake View analytics lên GA, cùng connector Oracle CDC cho Eventstream.</p>
+    <p class="why">💡 Fabric đang gom cả data engineering, warehouse và real-time về một nhịp phát hành tháng. Ai đang cân Fabric với Databricks hay Snowflake cần đọc bản này để thấy khoảng cách tính năng thu hẹp tới đâu.</p>
+    <div class="meta">
+      <span class="when">📅 29/07</span>
+      <a class="metabtn" href="https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Fabric-July-2026-Feature-Summary/ba-p/5325823" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-2">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="2">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Fabric Runtime 2.0 vào preview, kèm cơ chế release channel để chọn nhịp cập nhật</li>
+        <li>Lakehouse Query Explorer và Materialized Lake Views analytics lên GA</li>
+        <li>Materialized Lake Views thêm event-driven refresh (preview)</li>
+        <li>Eventstream có connector Oracle CDC, hỗ trợ mTLS và CA tự cấp</li>
+        <li>Data Warehouse thêm scalar UDF (preview) và lakehouse table health check GA</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>29/07/2026</span>
+        <span class="fact"><b>RUNTIME</b>2.0 preview</span>
+        <span class="fact"><b>SPARK</b>4.1 diagnostic emitter</span>
+        <span class="fact"><b>SỰ KIỆN</b>FABCON Barcelona 28/09</span>
+      </div>
+      <p class="deep">Bản tháng 7 này cho thấy Fabric đã qua giai đoạn chạy đua bề rộng và bắt đầu vá những chỗ đau thật của người vận hành. Release channel cho runtime là tính năng nhỏ nhưng quan trọng: trước đây Microsoft đẩy runtime mới là cả workspace ăn theo, giờ team có quyền chọn nhịp. Lakehouse Query Explorer lên GA nghĩa là hết cảnh phải mở notebook chỉ để xem thử vài dòng dữ liệu. Với doanh nghiệp Việt đã mua sẵn E5 và Power BI Premium, Fabric càng lúc càng khó bỏ qua về mặt chi phí biên. Nhưng khuyến nghị của mình vẫn không đổi: đừng chọn nền tảng theo danh sách tính năng, hãy chọn theo đội ngũ bạn có. Fabric mạnh khi tổ chức đã sống trong hệ Microsoft và có người rành Power BI; nếu đội bạn là dân Spark thuần và cần kiểm soát sâu, Databricks vẫn là chỗ ít vật lộn hơn. Điểm đáng theo dõi là Runtime 2.0 — nó sẽ quyết định Fabric có bắt kịp Spark 4.2 hay không.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="3">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F8bb64annab5aohteh2ey.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=dev.to&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-3" class="xt" hidden>
+    <span class="rank">🔥 TOP 4 TUẦN NÀY</span>
+    <a class="title" href="https://dev.to/alexmercedcoder/apache-data-lakehouse-weekly-july-21-to-july-29-2026-p73" target="_blank" rel="noopener">Tuần lakehouse: Polaris 1.7.0 bị huỷ vì 44 file jar thiếu license, Parquet duyệt mã hoá ALP</a>
+    <p class="sum">Bản tổng kết tuần 21–29/07 của Alex Merced ghi nhận Apache Polaris phải huỷ bản 1.7.0 RC0 vì 44 trong 269 jar thiếu cả LICENSE lẫn NOTICE, còn Parquet thông qua mã hoá số thực ALP với 11 phiếu thuận.</p>
+    <p class="why">💡 Đây là tuần các dự án lakehouse chuyển từ "quy ước ngầm" sang "cam kết viết ra giấy" — từ giấy phép, nullability tới ngữ nghĩa scan. Nghe khô nhưng chính nó quyết định các engine có đọc được dữ liệu của nhau hay không.</p>
+    <div class="meta">
+      <span class="when">📅 29/07</span>
+      <a class="metabtn" href="https://dev.to/alexmercedcoder/apache-data-lakehouse-weekly-july-21-to-july-29-2026-p73" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-3">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="3">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Polaris 1.7.0 RC0 huỷ vote: 44/269 jar staged thiếu META-INF/LICENSE và NOTICE</li>
+        <li>Parquet duyệt mã hoá ALP cho số thực với 11 phiếu +1, thêm Parquet Java 1.18.0 RC1</li>
+        <li>Iceberg Rust 0.10.1 RC1 chạy qua 1.839 test; Maximilian Michels thành committer mới</li>
+        <li>Arrow ra ADBC 24, Arrow Rust 58.4.0, Arrow Go 18.7.0; DataFusion 54.1.0 RC1 pass</li>
+        <li>Apache Ossie nhắm bản 0.3.0-incubating cuối tháng 8 hoặc đầu tháng 9</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>POLARIS</b>44/269 jar lỗi license</span>
+        <span class="fact"><b>PARQUET</b>ALP, 11 phiếu +1</span>
+        <span class="fact"><b>ICEBERG RUST</b>0.10.1 RC1</span>
+        <span class="fact"><b>TEST PASS</b>1.839</span>
+        <span class="fact"><b>ARROW</b>ADBC 24</span>
+      </div>
+      <p class="deep">Chuyện Polaris gãy release vì thiếu file LICENSE nghe rất buồn cười cho tới khi bạn nhớ Polaris là catalog mà nhiều doanh nghiệp định đặt làm nguồn sự thật cho toàn bộ lakehouse. Một dự án ASF không ship được vì hồ sơ pháp lý chưa sạch là tín hiệu về độ trưởng thành vận hành, không phải về chất lượng code. Với ai đang cân nhắc Polaris cho production trong quý này, đây là lý do hợp lý để chờ thêm một nhịp. Phía Parquet, ALP là thứ đáng quan tâm hơn nhiều so với vẻ ngoài kỹ thuật của nó: nén số thực tốt hơn nghĩa là bảng cảm biến, bảng giá, bảng embedding đều nhỏ đi, mà chi phí lakehouse phần lớn nằm ở byte đọc từ object storage. Điểm cốt lõi phải nhớ tuần này là các format đang tự siết chuẩn để nhiều engine cùng ghi mà không đạp lên nhau. Còn Iceberg Rust với 1.839 test đi qua cho thấy nhánh không-JVM đã đủ nghiêm túc để tính vào kiến trúc, không còn là đồ chơi.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="4">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-4" class="xt" hidden>
+    <a class="title" href="https://docs.databricks.com/gcp/en/release-notes/product/2026/july" target="_blank" rel="noopener">Databricks bắt đầu tự động bật row tracking và Checkpoint V2 cho bảng Unity Catalog đã tồn tại</a>
+    <p class="sum">Từ 29/07, cơ chế automatic upgrades của Databricks không chỉ áp cho bảng mới mà bắt đầu lan sang các bảng managed Unity Catalog đang chạy, bật row tracking và Checkpoint V2 theo từng đợt.</p>
+    <p class="why">💡 Nền tảng tự nâng cấp table feature trên dữ liệu production là con dao hai lưỡi: nhanh và tiện, nhưng nếu còn client cũ đọc bảng thì đây là nguồn sự cố khó truy.</p>
+    <div class="meta">
+      <span class="when">📅 29/07</span>
+      <a class="metabtn" href="https://docs.databricks.com/gcp/en/release-notes/product/2026/july" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-4">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="4">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Automatic upgrades mở rộng từ bảng mới sang bảng managed Unity Catalog đã có</li>
+        <li>Hai tính năng đầu tiên được đẩy là row tracking và Checkpoint V2</li>
+        <li>Databricks chỉ bật sau khi observation window xác nhận mọi client đều hỗ trợ</li>
+        <li>Việc triển khai theo đợt, mỗi khách hàng nhận vào thời điểm khác nhau</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>29/07/2026</span>
+        <span class="fact"><b>PHẠM VI</b>UC managed tables</span>
+        <span class="fact"><b>TÍNH NĂNG</b>row tracking, Checkpoint V2</span>
+        <span class="fact"><b>KIỂU</b>rollout theo đợt</span>
+      </div>
+      <p class="deep">Cơ chế observation window là phần thiết kế đáng khen: Databricks quan sát xem mọi client chạm vào bảng có hỗ trợ tính năng chưa rồi mới bật. Nhưng "mọi client" ở đây là những client mà Databricks nhìn thấy. Nếu tổ chức bạn có job Spark tự dựng ngoài workspace, connector cũ, hay một pipeline đọc file Delta trực tiếp qua thư viện phiên bản thấp, thì cửa sổ quan sát đó có lỗ hổng. Việc cần làm ngay là rà lại danh sách reader ngoài luồng và ghim phiên bản delta-spark, đồng thời theo dõi bảng Supported features để biết cái gì sắp tới. Điều tốt là row tracking mở đường cho CDF chính xác và merge nhanh hơn — thứ team data nào cũng muốn. Điều cần cẩn trọng là bạn không còn quyền chọn thời điểm. Theo mình, đây là ví dụ điển hình của xu hướng nền tảng đám mây chuyển rủi ro nâng cấp từ khách hàng sang chính họ, đổi lại khách hàng mất quyền kiểm soát lịch — chấp nhận được, miễn là bạn có giám sát.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="5">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-5" class="xt" hidden>
+    <a class="title" href="https://docs.databricks.com/aws/en/udf/udtf-unity-catalog" target="_blank" rel="noopener">Python UDTF trong Unity Catalog lên GA: hàm trả về cả bảng, có quản trị</a>
+    <p class="sum">Ngày 28/07, Databricks đưa việc đăng ký Python user-defined table function trong Unity Catalog lên GA trên Databricks Runtime 18, chạy được cả trên serverless, classic standard và SQL warehouse.</p>
+    <p class="why">💡 UDTF cho phép gói logic sinh nhiều dòng — parse log, bung JSON, gọi mô hình — thành một hàm có phân quyền, thay vì rải notebook khắp nơi rồi không ai biết ai đang dùng bản nào.</p>
+    <div class="meta">
+      <span class="when">📅 28/07</span>
+      <a class="metabtn" href="https://docs.databricks.com/aws/en/udf/udtf-unity-catalog" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-5">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="5">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Đăng ký Python UDTF trong Unity Catalog chính thức GA ngày 28/07/2026</li>
+        <li>Yêu cầu Databricks Runtime 18; gọi trong mệnh đề FROM của câu SQL</li>
+        <li>Chạy trên serverless compute, classic compute standard access và SQL warehouse</li>
+        <li>Cùng nhánh với Scala/Java UDF trong Unity Catalog đã GA giữa tháng 7</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>28/07/2026</span>
+        <span class="fact"><b>RUNTIME</b>DBR 18</span>
+        <span class="fact"><b>GỌI Ở</b>mệnh đề FROM</span>
+        <span class="fact"><b>QUẢN TRỊ</b>Unity Catalog</span>
+      </div>
+      <p class="deep">Ý nghĩa thật của UDTF trong Unity Catalog không nằm ở cú pháp mà ở chỗ nó biến đoạn code xử lý phức tạp thành một tài sản có chủ, có quyền, có audit. Trong mọi dự án BI mình từng làm, thứ giết chết khả năng bảo trì luôn là logic biến đổi nằm rải rác: một ít trong notebook, một ít trong view, một ít trong Power Query. UDTF cho phép kéo phần "sinh nhiều dòng từ một dòng" về đúng một chỗ mà analyst vẫn gọi được bằng SQL thuần. Khuyến nghị cụ thể: chuyển trước những hàm parse dữ liệu bán cấu trúc và hàm bung mảng, vì đó là chỗ code trùng lặp nhiều nhất. Đừng chuyển vội logic nghiệp vụ cốt lõi vào UDTF chỉ vì thấy hay — hàm càng nhiều nghiệp vụ càng khó test và càng khó tối ưu. Và nhớ rằng UDTF Python vẫn chậm hơn hàm native đáng kể, nên đừng đặt nó ở giữa đường dẫn nóng của dashboard.</p>
+    </div>
+  </div>
+</article>
+
+</section>
+
+<!-- ============ SECTION 2 ============ -->
+<section class="sec" id="sec-2">
+<h2>🛠️ Công cụ &amp; Nền tảng</h2>
+
+<article class="card" data-aid="6">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-6" class="xt" hidden>
+    <a class="title" href="https://docs.databricks.com/aws/en/ingestion/lakeflow-connect/openai" target="_blank" rel="noopener">Databricks mở OpenAI connector: kéo chi phí, khoá API và audit log của OpenAI vào lakehouse</a>
+    <p class="sum">Ngày 31/07, Lakeflow Connect thêm connector OpenAI ở bản Beta, dùng OpenAI Organization Admin API để nạp dữ liệu quản trị tổ chức — người dùng, project, API key, mức dùng, chi phí và audit log — thẳng vào Databricks.</p>
+    <p class="why">💡 Chi tiêu cho LLM đang thành khoản lớn trong ngân sách IT mà hầu như không ai mô hình hoá nó như dữ liệu. Connector này biến hoá đơn AI thành một bảng fact bình thường, phân tích được như mọi chi phí khác.</p>
+    <div class="meta">
+      <span class="when">📅 31/07</span>
+      <a class="metabtn" href="https://docs.databricks.com/aws/en/ingestion/lakeflow-connect/openai" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-6">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="6">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>OpenAI connector vào Lakeflow Connect ở trạng thái Beta ngày 31/07/2026</li>
+        <li>Nạp users, projects, API keys, usage, costs và audit logs từ OpenAI</li>
+        <li>Xác thực bằng OpenAI Admin API key qua Organization Admin API</li>
+        <li>Workspace admin bật/tắt tính năng từ trang Previews</li>
+        <li>Cùng tuần Databricks mở web terminal cho serverless GPU compute (AI Runtime)</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>31/07/2026</span>
+        <span class="fact"><b>TRẠNG THÁI</b>Beta</span>
+        <span class="fact"><b>NGUỒN</b>OpenAI Admin API</span>
+        <span class="fact"><b>DỮ LIỆU</b>usage, cost, audit</span>
+      </div>
+      <p class="deep">Đây là tin nhỏ nhưng nói lên rất nhiều về chỗ ngành đang đi. Sáu tháng trước, câu hỏi của lãnh đạo là "AI làm được gì". Bây giờ câu hỏi là "AI đang tiêu bao nhiêu, ai tiêu, tiêu vào việc gì". Muốn trả lời câu thứ hai thì dữ liệu vận hành của nhà cung cấp mô hình phải nằm trong warehouse chứ không phải trong một trang billing riêng. Với doanh nghiệp Việt đang dùng OpenAI theo tổ chức, việc đầu tiên nên làm là dựng một bảng chi phí theo project và theo người dùng, rồi gắn vào dashboard tài chính sẵn có — đó là nửa ngày công và trả lời được câu hỏi mà giám đốc nào cũng hỏi. Điều không nên làm là chờ nhà cung cấp làm sẵn báo cáo cho bạn; báo cáo của họ luôn theo góc nhìn của họ. Nói rộng hơn, mình nghĩ trong 12 tháng tới FinOps cho AI sẽ thành một mảng nghề riêng, và nó sẽ do team data gánh chứ không phải team IT.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="7">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.opensourceforu.com/wp-content/uploads/2026/07/Helical-Insight.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=opensourceforu.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-7" class="xt" hidden>
+    <a class="title" href="https://www.opensourceforu.com/2026/07/helical-insight-makes-enterprise-bi-free-in-open-source/" target="_blank" rel="noopener">Helical Insight mở toàn bộ tính năng BI doanh nghiệp vào bản Community miễn phí</a>
+    <p class="sum">Helical Insight bỏ mô hình khoá tính năng: bản Community mã nguồn mở nay có đủ conversational analytics theo hướng bring-your-own-LLM, dashboard tương tác, pixel-perfect report, embedded analytics, SSO, row-level security, multi-tenancy và white labeling.</p>
+    <p class="why">💡 Hầu hết BI "open core" đều giữ SSO và row-level security làm mồi bán bản trả tiền. Bỏ hàng rào đó là đòn đánh thẳng vào phân khúc doanh nghiệp vừa và nhỏ đang phải trả tiền license chỉ để có phân quyền.</p>
+    <div class="meta">
+      <span class="when">📅 30/07</span>
+      <a class="metabtn" href="https://www.opensourceforu.com/2026/07/helical-insight-makes-enterprise-bi-free-in-open-source/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-7">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="7">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Community Edition nhận đủ tính năng vốn thuộc bản Enterprise</li>
+        <li>Có conversational analytics với LLM do người dùng tự cắm vào</li>
+        <li>Bao gồm SSO, row-level security, multi-tenancy, white labeling, report bursting</li>
+        <li>Doanh thu chuyển sang bán hỗ trợ, triển khai và dịch vụ thay vì bán tính năng</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>30/07/2026</span>
+        <span class="fact"><b>MÔ HÌNH</b>bỏ open-core</span>
+        <span class="fact"><b>LLM</b>bring your own</span>
+        <span class="fact"><b>GỒM</b>SSO, RLS, multi-tenant</span>
+      </div>
+      <p class="deep">Với thị trường Việt Nam thì tin này thực tế hơn nhiều tin lớn khác trong tuần. Rất nhiều doanh nghiệp vừa ở đây không cần một lakehouse; họ cần một cổng báo cáo có phân quyền theo phòng ban, nhúng được vào app nội bộ, và không phải trả license theo đầu người. Helical Insight vừa đưa đúng gói đó về mức miễn phí. Nhưng nói thẳng: bỏ hàng rào tính năng không có nghĩa là bạn tiết kiệm được. Chi phí thật của BI nằm ở mô hình dữ liệu, ở người biết đặt câu hỏi, và ở việc duy trì semantic layer sạch — chứ không ở giá license. Mình đã thấy nhiều đội chọn công cụ miễn phí rồi tốn gấp ba lần tiền lương để tự vá những thứ mà bản thương mại làm sẵn. Khuyến nghị: hợp lý cho embedded analytics và cho hệ thống multi-tenant tự dựng; không hợp lý nếu bạn đang định thay Power BI trong một tổ chức đã quen Microsoft, vì phần đắt nhất là thay đổi thói quen người dùng chứ không phải phần mềm.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="8">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=hpcwire.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-8" class="xt" hidden>
+    <a class="title" href="https://www.hpcwire.com/bigdatawire/this-just-in/tdengine-makes-its-complete-ai-native-industrial-data-platform-free-forever-for-up-to-5000-tags/" target="_blank" rel="noopener">TDengine miễn phí vĩnh viễn nền tảng dữ liệu công nghiệp AI-native cho tới 5.000 tag</a>
+    <p class="sum">Ngày 28/07, TDengine công bố Free Tier toàn cầu: trọn gói TDengine All-in-One không phí license cho triển khai tới 5.000 tag, không giới hạn thời gian và không cắt tính năng, dùng được cả trong cấu hình high availability.</p>
+    <p class="why">💡 Nhà máy, điện lực, hệ thống giám sát ở Việt Nam vẫn đang trả tiền cho data historian đời cũ. Một nền tảng time-series đầy đủ, miễn phí ở quy mô 5.000 tag là ngưỡng đủ cho phần lớn dây chuyền cỡ vừa.</p>
+    <div class="meta">
+      <span class="when">📅 28/07</span>
+      <a class="metabtn" href="https://www.hpcwire.com/bigdatawire/this-just-in/tdengine-makes-its-complete-ai-native-industrial-data-platform-free-forever-for-up-to-5000-tags/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-8">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="8">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Free Tier áp dụng toàn cầu cho triển khai tối đa 5.000 tag</li>
+        <li>Không phải bản dùng thử giới hạn thời gian, không phải bản community rút gọn</li>
+        <li>Đủ hiệu năng và tính năng, chạy được production kể cả cấu hình high availability</li>
+        <li>Gồm lưu trữ time-series, thu thập dữ liệu công nghiệp, asset modeling, phân tích sự kiện</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>28/07/2026</span>
+        <span class="fact"><b>NGƯỠNG</b>5.000 tag</span>
+        <span class="fact"><b>PHÍ</b>0 license</span>
+        <span class="fact"><b>HA</b>được phép</span>
+      </div>
+      <p class="deep">Chiến lược ở đây rất rõ và rất cũ: cho miễn phí ở tầng dưới để giết đối thủ legacy, rồi thu tiền khi khách vượt ngưỡng. 5.000 tag nghe nhiều nhưng một dây chuyền sản xuất trung bình có thể chạm ngưỡng đó trong vài năm mở rộng, nên hãy tính đường nâng cấp ngay từ đầu chứ đừng để bị kẹt. Điểm mình đánh giá cao là TDengine gộp cả asset modeling và phân tích sự kiện vào cùng một nền, thay vì bắt khách ghép ba công cụ. Trong các dự án OT/IT mình từng chạm, chỗ tốn công nhất luôn là ánh xạ từ tag thô sang mô hình thiết bị có nghĩa; ai giải được chỗ đó thì thắng. Lời khuyên thực tế cho doanh nghiệp sản xuất Việt: thử ở một dây chuyền, đo xem đội bảo trì có thực sự đọc được dashboard không, rồi mới nhân rộng. Công nghệ ở tầng này không phải rào cản — rào cản là người vận hành có đổi thói quen ghi chép hay không.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="9">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.snowflake.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-9" class="xt" hidden>
+    <a class="title" href="https://docs.snowflake.com/en/release-notes/all-release-notes" target="_blank" rel="noopener">Snowflake mở bản preview dashboard giám sát chất lượng dữ liệu cho tài khoản Enterprise</a>
+    <p class="sum">Ngày 29/07, dashboard giám sát chất lượng dữ liệu của Snowflake vào public preview cho tài khoản Enterprise Edition, gom kết quả các data metric function về một màn hình theo dõi chung.</p>
+    <p class="why">💡 Chất lượng dữ liệu lâu nay là mảnh đất của công cụ bên thứ ba. Khi nền tảng tự làm sẵn và tính vào gói Enterprise, ngân sách cho lớp observability riêng sẽ bị soi lại.</p>
+    <div class="meta">
+      <span class="when">📅 29/07</span>
+      <a class="metabtn" href="https://docs.snowflake.com/en/release-notes/all-release-notes" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-9">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="9">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Data quality monitoring dashboard vào public preview ngày 29/07/2026</li>
+        <li>Giới hạn ở tài khoản Enterprise Edition trở lên</li>
+        <li>Cùng ngày Snowflake thêm hàm quản lý nhiều hostname cho PrivateLink endpoint</li>
+        <li>Nằm trong nhánh data metric function đã có sẵn của nền tảng</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>29/07/2026</span>
+        <span class="fact"><b>TRẠNG THÁI</b>Public Preview</span>
+        <span class="fact"><b>YÊU CẦU</b>Enterprise Edition</span>
+      </div>
+      <p class="deep">Đây là một nước cờ quen thuộc của các nền tảng dữ liệu lớn: nuốt dần từng lớp công cụ vệ tinh. Nhưng cần công bằng — dashboard sẵn có của nền tảng thường chỉ giải quyết được lớp kiểm tra kỹ thuật như null, duplicate, freshness. Phần khó của chất lượng dữ liệu là quy tắc nghiệp vụ: doanh thu ghi nhận có khớp với hợp đồng không, mã khách có tồn tại trong CRM không. Chỗ đó vẫn cần người hiểu nghiệp vụ ngồi định nghĩa. Lời khuyên của mình cho team data đang cân nhắc mua công cụ data observability riêng: hãy bật cái sẵn có trước, chạy ba tháng, xem còn thiếu gì rồi mới quyết chi tiền. Rất nhiều đội mua trước rồi mới phát hiện 80% cảnh báo họ cần đã nằm sẵn trong nền tảng. Và nhớ nguyên tắc gốc: cảnh báo mà không ai chịu trách nhiệm xử lý thì chỉ là tiếng ồn đắt tiền.</p>
+    </div>
+  </div>
+</article>
+
+</section>
+
+<!-- ============ SECTION 3 ============ -->
+<section class="sec" id="sec-3">
+<h2>🤖 AI × Data</h2>
+
+<article class="card" data-aid="10" data-hot="1">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.snowflake.com/content/dam/snowflake-site/en/newsroom/press/2026/2026-07-28.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=snowflake.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-10" class="xt" hidden>
+    <span class="rank">🔥 TOP 1 TUẦN NÀY</span>
+    <a class="title" href="https://www.snowflake.com/en/news/press-releases/snowflake-advances-the-trusted-agentic-enterprise-era-with-unified-monitoring-and-cost-management/" target="_blank" rel="noopener">Snowflake ra Cortex AI Gateway: một cổng kiểm soát mọi AI agent chạm vào dữ liệu, kể cả Claude Code và Cursor</a>
+    <p class="sum">Ngày 28/07, Snowflake giới thiệu Cortex AI Gateway — lớp điều phối và quản trị cho cả agent nội bộ như CoWork, CoCo lẫn agent bên ngoài như Claude Code hay Cursor — kèm giám sát token, hàng rào chống prompt injection và tích hợp với 1Password, Okta XAA, SailPoint, Saviynt, Aembit, Linx Security.</p>
+    <p class="why">💡 Đây là lần đầu một nền tảng dữ liệu lớn nói thẳng rằng agent của người khác cũng sẽ vào kho dữ liệu của bạn, và bài toán không còn là chặn mà là cấp quyền có kiểm soát cùng đo được chi phí.</p>
+    <div class="meta">
+      <span class="when">📅 28/07</span>
+      <a class="metabtn" href="https://www.snowflake.com/en/news/press-releases/snowflake-advances-the-trusted-agentic-enterprise-era-with-unified-monitoring-and-cost-management/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-10">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="10">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Cortex AI Gateway quản trị cả agent first-party lẫn agent bên thứ ba</li>
+        <li>Kiểm soát tập trung ai truy cập dữ liệu nào, gọi mô hình nào, tiêu bao nhiêu token</li>
+        <li>Hàng rào bảo mật chống prompt injection và truy cập trái phép</li>
+        <li>Tích hợp 1Password, Aembit, Linx Security, Okta XAA, SailPoint, Saviynt</li>
+        <li>Mục tiêu công bố: chặn tình trạng chi phí AI vượt kiểm soát</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>28/07/2026</span>
+        <span class="fact"><b>SẢN PHẨM</b>Cortex AI Gateway</span>
+        <span class="fact"><b>ĐỐI TÁC</b>6 hãng identity</span>
+        <span class="fact"><b>AGENT NGOÀI</b>Claude Code, Cursor</span>
+        <span class="fact"><b>ĐO</b>token, chi phí, truy cập</span>
+      </div>
+      <p class="deep">Cái mới thật sự ở đây không phải công nghệ mà là sự thừa nhận: Snowflake chấp nhận rằng agent do đội kỹ thuật tự cắm vào sẽ vào kho dữ liệu bất kể chính sách nói gì, nên tốt hơn là dựng cổng thay vì dựng tường. Đó là cách nghĩ đúng, giống hệt bài học từ thời BYOD điện thoại cá nhân. Bản chất Cortex AI Gateway là một identity-aware proxy cho truy vấn AI: mỗi lượt gọi gắn với một danh tính, một hạn mức, một dấu vết audit. Ai hưởng lợi? Doanh nghiệp có nhiều đội tự triển khai AI và đang không biết ai đang đọc bảng nào. Ai chưa cần? Team nhỏ chạy một agent duy nhất — với họ đây là lớp phức tạp thừa. Điều phải nhớ: quản trị agent là bài toán identity, không phải bài toán AI; danh sách sáu đối tác đều là hãng identity chứ không phải hãng mô hình, và đó là chi tiết nói lên tất cả. Nên làm gì ngay tuần này, kể cả khi bạn không dùng Snowflake: liệt kê xem hiện có bao nhiêu agent, chạy bằng credential của ai, và đọc được những bảng nào. Mình cá là con số sẽ làm bạn giật mình.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="11">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=github.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-11" class="xt" hidden>
+    <a class="title" href="https://github.com/microsoft/skills-for-fabric" target="_blank" rel="noopener">Microsoft mở mã Fabric Spark Operations Skill: chẩn đoán job Spark hỏng bằng ngôn ngữ tự nhiên</a>
+    <p class="sum">Skill spark-operations-cli được đưa vào thư viện mã nguồn mở skills-for-fabric, cho phép hỏi bằng tiếng Anh về notebook lỗi, Livy session treo, OOM, shuffle hay skew ngay từ GitHub Copilot CLI, Claude Code, VS Code hoặc Cursor, và trả về danh sách phát hiện xếp theo mức nghiêm trọng kèm gợi ý sửa.</p>
+    <p class="why">💡 Đây là dạng "AI cho data engineer" hữu dụng nhất: không sinh code hộ, mà đọc log và Spark Advisor thay bạn — đúng phần việc tốn thời gian nhất khi job production gãy lúc 2 giờ sáng.</p>
+    <div class="meta">
+      <span class="when">📅 29/07</span>
+      <a class="metabtn" href="https://github.com/microsoft/skills-for-fabric" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-11">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="11">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Skill chỉ đọc, không ghi — giới hạn ở chẩn đoán, không tự sửa hệ thống</li>
+        <li>Xử lý notebook lỗi, Spark job hỏng, Livy session treo, OOM, shuffle, skew</li>
+        <li>Quy trình tự động: triage job, đào log, đọc Spark Advisor, đề xuất khắc phục</li>
+        <li>Chạy từ GitHub Copilot CLI, Claude Code, VS Code, Cursor và công cụ tương thích</li>
+        <li>Công bố kèm bản cập nhật Fabric tháng 7/2026</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>29/07/2026</span>
+        <span class="fact"><b>REPO</b>microsoft/skills-for-fabric</span>
+        <span class="fact"><b>QUYỀN</b>read-only</span>
+        <span class="fact"><b>ĐẦU RA</b>xếp theo severity</span>
+      </div>
+      <p class="deep">Chi tiết quan trọng nhất trong tin này là hai chữ read-only. Microsoft chọn để AI chẩn đoán chứ không để AI tự vá, và mình cho rằng đó là ranh giới đúng ở thời điểm hiện tại. Debug Spark là việc đọc hiểu — đọc log, đọc plan, đọc metric — chứ không phải việc sáng tạo, nên nó hợp với LLM một cách tự nhiên. Giá trị thực tế: một junior engineer với skill này có thể xử lý được lớp sự cố mà trước đây phải chờ người senior. Đó là đòn bẩy năng lực thật, không phải marketing. Nhưng đừng nhầm nó với việc bạn hết cần hiểu Spark; khi AI nói "job bị skew ở khoá khách hàng", bạn vẫn phải biết chọn giữa salting, broadcast join hay đổi mô hình dữ liệu. Đúng như mình vẫn nói: AI không thay người giỏi, nó khuếch đại người biết đặt câu hỏi rõ ràng. Ai đang dùng Fabric nên cài thử ngay trong tuần này, chi phí gần như bằng không.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="12">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=snowflake.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-12" class="xt" hidden>
+    <a class="title" href="https://www.snowflake.com/en/ai-pulse/july-2026/" target="_blank" rel="noopener">Snowflake đưa gợi ý code bằng AI trong Workspaces lên GA</a>
+    <p class="sum">Ngày 28/07, tính năng AI code suggestions trong Snowflake Workspaces chính thức GA, gợi ý SQL và Python ngay trong môi trường soạn thảo của nền tảng.</p>
+    <p class="why">💡 Gợi ý code chạy ngay trong Workspaces nghĩa là mô hình nhìn thấy metadata và ngữ cảnh bảng thật — khác hẳn việc copy schema sang chatbot bên ngoài rồi dán kết quả về.</p>
+    <div class="meta">
+      <span class="when">📅 28/07</span>
+      <a class="metabtn" href="https://www.snowflake.com/en/ai-pulse/july-2026/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-12">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="12">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>AI code suggestions trong Workspaces chuyển sang GA ngày 28/07/2026</li>
+        <li>Cùng ngày, bản CoCo Desktop 1.20.2 vá lỗi crash khi cập nhật trên Windows</li>
+        <li>CoCo Desktop thêm chia sẻ skill và plugin bằng một cú nhấp</li>
+        <li>Nằm trong nhóm cập nhật AI tháng 7 của Snowflake cùng Cortex AI Gateway</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>28/07/2026</span>
+        <span class="fact"><b>TRẠNG THÁI</b>GA</span>
+        <span class="fact"><b>NƠI CHẠY</b>Snowflake Workspaces</span>
+      </div>
+      <p class="deep">Việc mọi nền tảng dữ liệu đều nhét trợ lý code vào editor đã trở thành mặc định của năm 2026 — Databricks có Genie Code, Fabric có Copilot, giờ Snowflake đưa Workspaces lên GA. Điều đáng bàn không phải ai có, mà là chất lượng ngữ cảnh. Trợ lý nằm trong nền tảng thấy được schema, thấy được query history, nên gợi ý sát hơn hẳn trợ lý ngoài. Kinh nghiệm thực tế khi mình hướng dẫn học viên: trợ lý code giúp nhiều nhất ở khâu viết nháp và khâu chuyển dialect SQL, giúp ít nhất ở khâu tối ưu — vì tối ưu cần hiểu phân phối dữ liệu chứ không chỉ hiểu cú pháp. Và có một rủi ro ít ai nói: người mới học dễ chấp nhận câu SQL chạy được nhưng sai nghiệp vụ. Vì vậy quy tắc mình đặt ra cho đội là mọi câu truy vấn do AI viết đều phải qua một bước đối chiếu số với nguồn đã tin cậy trước khi lên báo cáo.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="13">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_vOwhZ1EwZ-Mj3gYU3GfOF4o2mmAvN3a0Uyifc4CzEBGgvJvU3oM2QOOJq6AVIqal92A3nphOb20otmd21LWqLOKwvraFi0SP5p43MK0EvNW0CV1jaJsEkkw1lvVwnXuMWBBYuzoBygy_gQuN2QpBAm=w1200-h630-p-k-no-nu" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=datainmotion.dev&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-13" class="xt" hidden>
+    <a class="title" href="https://www.datainmotion.dev/2026/07/all-data-and-ai-weekly-252-27-july-2026.html" target="_blank" rel="noopener">All Data and AI Weekly #252: Apache NiFi 2.10.0, Cisco mở mã AI-BOM scanner và hai hệ IoT dựng bằng Cortex Code</a>
+    <p class="sum">Số 252 ra ngày 27/07 điểm lại tuần dữ liệu: Snowflake ship SHOW CORTEX BASE MODELS lên GA, thêm biến môi trường SQL cho dbt Projects và cho refresh nhiều Dynamic Table trong một lệnh ALTER; phía cộng đồng có Apache NiFi 2.10.0 và bộ quét AI-BOM được Cisco mở mã.</p>
+    <p class="why">💡 Bản tin này là chỗ hiếm hoi ghép được cả tin sản phẩm lẫn tin cộng đồng trong một tuần, và lần này nó cho thấy AI-BOM đang thành yêu cầu bảo mật thật chứ không còn là khái niệm hội thảo.</p>
+    <div class="meta">
+      <span class="when">📅 27/07</span>
+      <a class="metabtn" href="https://www.datainmotion.dev/2026/07/all-data-and-ai-weekly-252-27-july-2026.html" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-13">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="13">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Snowflake đưa SHOW CORTEX BASE MODELS lên GA để liệt kê mô hình nền có sẵn</li>
+        <li>dbt Projects trên Snowflake nhận biến môi trường SQL</li>
+        <li>Một lệnh ALTER có thể refresh nhiều Dynamic Table cùng lúc</li>
+        <li>Apache NiFi phát hành bản 2.10.0</li>
+        <li>Hai hệ giám sát chất lượng không khí IoT dựng trọn bằng Cortex Code, ingest qua Snowpipe Streaming V2</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>SỐ</b>#252</span>
+        <span class="fact"><b>NGÀY</b>27/07/2026</span>
+        <span class="fact"><b>NIFI</b>2.10.0</span>
+        <span class="fact"><b>CISCO</b>AI-BOM scanner mở mã</span>
+      </div>
+      <p class="deep">Chi tiết mình chú ý nhất trong số này là AI-BOM scanner của Cisco. Software bill of materials đã thành chuẩn trong bảo mật phần mềm; AI-BOM là bước tiếp theo — liệt kê mô hình nào, trọng số nào, dữ liệu huấn luyện nào đang nằm trong hệ thống của bạn. Với doanh nghiệp Việt sắp phải trả lời câu hỏi tuân thủ về AI, đây là thứ nên tìm hiểu sớm thay vì đợi kiểm toán hỏi. Chi tiết thứ hai đáng học là hai hệ IoT chất lượng không khí được dựng trọn gói bằng công cụ code hỗ trợ AI: từ ingest streaming, semantic view, dashboard tới cảnh báo Slack. Nó chứng minh một điều mình hay nói với học viên — rào cản dựng hệ thống dữ liệu end-to-end đã hạ xuống rất thấp, thứ còn thiếu là người biết thiết kế luồng và đặt câu hỏi đúng. Còn NiFi 2.10.0 thì nhắc rằng công cụ tưởng đã cũ vẫn sống khỏe ở mảng thu thập dữ liệu biên.</p>
+    </div>
+  </div>
+</article>
+
+</section>
+
+<!-- ============ SECTION 4 ============ -->
+<section class="sec" id="sec-4">
+<h2>📈 Hot trend &amp; Thảo luận cộng đồng</h2>
+
+<article class="card" data-aid="14">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://semyonsinchenko.github.io/ssinchenko/images/Internet_map_1024.jpg" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=semyonsinchenko.github.io&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-14" class="xt" hidden>
+    <a class="title" href="https://semyonsinchenko.github.io/ssinchenko/post/datafusion-graphs-cc-2/" target="_blank" rel="noopener">Chạy thuật toán trên đồ thị tỷ cạnh chỉ với 10GB RAM nhờ DataFusion</a>
+    <p class="sum">Bài viết của Semyon Sinchenko ngày 31/07 trình bày cách dùng Apache DataFusion để tính connected components trên đồ thị quy mô tỷ phần tử trong 10GB RAM, và leo lên 123 điểm trên Hacker News.</p>
+    <p class="why">💡 Nó phản bác thẳng giả định mặc định rằng đồ thị lớn thì phải có cụm Spark. Với rất nhiều bài toán, một máy đơn cộng engine columnar hiện đại là đủ — và rẻ hơn nhiều lần.</p>
+    <div class="meta">
+      <span class="when">📅 31/07</span>
+      <a class="metabtn" href="https://semyonsinchenko.github.io/ssinchenko/post/datafusion-graphs-cc-2/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-14">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="14">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Bài đạt 123 điểm và 39 bình luận trên Hacker News ngày 31/07/2026</li>
+        <li>Dùng Apache DataFusion làm engine thực thi thay cho cụm phân tán</li>
+        <li>Xử lý đồ thị quy mô tỷ phần tử trong giới hạn 10GB RAM</li>
+        <li>Nối tiếp làn sóng single-node analytics cùng hướng với DuckDB</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>31/07/2026</span>
+        <span class="fact"><b>HN</b>123 điểm · 39 bình luận</span>
+        <span class="fact"><b>RAM</b>10 GB</span>
+        <span class="fact"><b>ENGINE</b>Apache DataFusion</span>
+      </div>
+      <p class="deep">Đây là dạng bài mình thích đọc nhất vì nó tấn công vào thói quen chứ không vào công cụ. Trong mười dự án dựng cụm Spark mình từng gặp, có tới sáu bảy dự án khối lượng dữ liệu thật chỉ vài chục GB — hoàn toàn chạy được trên một máy. Cụm được dựng vì thói quen và vì nghe "big data", không vì số liệu. DataFusion và DuckDB đang làm cái việc rất lành mạnh là buộc người ta phải chứng minh mình cần phân tán. Khuyến nghị rõ ràng: trước khi xin ngân sách cụm, hãy đo dung lượng thật sau khi nén Parquet và thử một vòng trên máy đơn. Nếu chạy được thì mọi thứ phía sau — vận hành, gỡ lỗi, chi phí — đều nhẹ đi một bậc. Ngược lại, đừng cực đoan: khi dữ liệu thật sự vượt bộ nhớ hoặc cần chạy song song nhiều job nặng thì phân tán vẫn là câu trả lời. Vấn đề chưa bao giờ là công cụ, mà là ta có chịu đo trước khi chọn hay không.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="15">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://cdn.prod.website-files.com/672411cbf038560468c9e68f/6a1e552a2351abeae742f544_Use-Postgres-for-Queueing-at-Scale.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=dbos.dev&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-15" class="xt" hidden>
+    <a class="title" href="https://www.dbos.dev/blog/making-postgres-queues-scale" target="_blank" rel="noopener">"Làm hàng đợi Postgres scale được" — bài phân tích nóng trên Hacker News</a>
+    <p class="sum">Bài của DBOS ngày 30/07 mổ xẻ vì sao hàng đợi dựng trên Postgres hay nghẽn và cách khắc phục, thu hút 126 điểm cùng 33 bình luận trên Hacker News.</p>
+    <p class="why">💡 Cuộc tranh luận "dùng Postgres cho mọi thứ hay tách hệ chuyên dụng" lại nóng, và nó liên quan trực tiếp tới team data đang phải chọn giữa Kafka thật hay một bảng job đơn giản.</p>
+    <div class="meta">
+      <span class="when">📅 30/07</span>
+      <a class="metabtn" href="https://www.dbos.dev/blog/making-postgres-queues-scale" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-15">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="15">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Bài đạt 126 điểm và 33 bình luận trên Hacker News ngày 30/07/2026</li>
+        <li>Phân tích điểm nghẽn thường gặp khi dùng bảng Postgres làm hàng đợi</li>
+        <li>Thuộc nhánh tranh luận "just use Postgres" đang lan rộng trong cộng đồng</li>
+        <li>Liên quan trực tiếp tới thiết kế orchestration cho pipeline dữ liệu</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>30/07/2026</span>
+        <span class="fact"><b>HN</b>126 điểm · 33 bình luận</span>
+        <span class="fact"><b>CHỦ ĐỀ</b>Postgres queueing</span>
+      </div>
+      <p class="deep">Mình đứng về phía "dùng Postgres trước" trong hầu hết trường hợp, nhưng có điều kiện. Một bảng job trong Postgres cho bạn transaction, cho bạn quan sát bằng SQL, cho bạn khôi phục dễ — ba thứ mà Kafka bắt bạn đánh đổi. Với khối lượng vài nghìn tác vụ mỗi phút, đó là lựa chọn đúng và tiết kiệm cả năm công vận hành. Vấn đề bắt đầu ở chỗ khoá: nếu bạn không dùng SKIP LOCKED và không thiết kế index cho trạng thái, hàng đợi sẽ tự bóp cổ mình khi số worker tăng. Bài viết này đáng đọc chính vì nó chỉ đúng những chỗ đó. Khuyến nghị cho team data Việt: đừng dựng Kafka chỉ để chạy vài job ETL theo lịch — chi phí vận hành lớn hơn lợi ích rất nhiều. Chỉ chuyển sang hệ chuyên dụng khi bạn có bằng chứng đo đạc về throughput hoặc thật sự cần replay dòng sự kiện. Nguyên tắc chung mình vẫn giữ: chọn thứ đơn giản nhất mà vẫn giải được bài toán, rồi nâng cấp khi có số liệu, không nâng cấp vì lo xa.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="16">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://substackcdn.com/image/fetch/$s_!AdQk!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6f51c1bf-abc9-4cd3-ad69-22cc8e3f1ef2_1080x1080.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=dataengineeringweekly.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-16" class="xt" hidden>
+    <a class="title" href="https://www.dataengineeringweekly.com/p/data-engineering-weekly-280" target="_blank" rel="noopener">Data Engineering Weekly #280: Netflix tự dựng nền serving LLM, Airbnb nén bảy năm hành trình khách vào embedding</a>
+    <p class="sum">Số 280 ra ngày 27/07 gom lại tuần đọc của giới data engineer: Netflix công bố nền serving LLM nội bộ, Airbnb kể cách nén bảy năm lịch sử hành vi khách thành embedding hằng ngày cho cá nhân hoá tìm kiếm, cùng bài mổ xẻ MVCC và transaction trong RocksDB.</p>
+    <p class="why">💡 Mấy bài engineering blog này cho thấy các công ty lớn đã hết giai đoạn thử nghiệm AI và chuyển sang bài toán hạ tầng phục vụ mô hình ở quy mô lớn, cùng cách nén ngữ cảnh dài thành đặc trưng dùng được.</p>
+    <div class="meta">
+      <span class="when">📅 27/07</span>
+      <a class="metabtn" href="https://www.dataengineeringweekly.com/p/data-engineering-weekly-280" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-16">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="16">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Netflix chia sẻ kiến trúc serving LLM nội bộ, nhấn mạnh độ tin cậy khi phục vụ</li>
+        <li>Airbnb nén bảy năm hành trình khách thành embedding cập nhật hằng ngày</li>
+        <li>JioHotstar mổ xẻ đường đi của một ad request trong hệ real-time</li>
+        <li>Bài phân tích MVCC và transaction trong RocksDB của Artem Krylysov</li>
+        <li>Housing bàn vì sao phần lớn sáng kiến single source of truth thất bại</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>SỐ</b>#280</span>
+        <span class="fact"><b>NGÀY</b>27/07/2026</span>
+        <span class="fact"><b>AIRBNB</b>7 năm lịch sử → embedding</span>
+        <span class="fact"><b>CHỦ ĐỀ</b>LLM serving, RocksDB, SSOT</span>
+      </div>
+      <p class="deep">Bài đáng đọc nhất trong số này, theo mình, là bài về vì sao sáng kiến single source of truth thường thất bại. Đây là câu chuyện mình gặp ở gần như mọi dự án BI cho doanh nghiệp Việt: ai cũng đồng ý cần một nguồn số liệu duy nhất, nhưng không ai chịu bỏ bảng Excel của phòng mình. Nguyên nhân gốc không phải công nghệ mà là quyền lực dữ liệu và quy trình chứng nhận chỉ số. Cách làm hiệu quả mình đã thấy là chọn ra năm tới bảy chỉ số quan trọng nhất, chứng nhận thật kỹ, gắn tên người chịu trách nhiệm, rồi mới mở rộng — thay vì cố hợp nhất mọi thứ ngay từ đầu. Còn bài Airbnb thì là bài học về context engineering thuần túy: nén lịch sử dài thành đặc trưng cô đọng thay vì nhồi hết vào mô hình. Cùng một nguyên lý áp cho RAG doanh nghiệp — ngữ cảnh tốt thắng ngữ cảnh nhiều.</p>
+    </div>
+  </div>
+</article>
+
+</section>
+
+<!-- ============ SECTION 5 ============ -->
+<section class="sec" id="sec-5">
+<h2>🏢 Ngành &amp; Doanh nghiệp</h2>
+
+<article class="card" data-aid="17">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=businesswire.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-17" class="xt" hidden>
+    <span class="rank">🔥 TOP 3 TUẦN NÀY</span>
+    <a class="title" href="https://www.businesswire.com/news/home/20260729686071/en/groundcover-Raises-100-Million-Series-C-to-Create-the-Observability-Platform-Built-for-the-AI-Era" target="_blank" rel="noopener">groundcover gọi 100 triệu USD Series C để dựng nền observability cho kỷ nguyên AI</a>
+    <p class="sum">Ngày 29/07, groundcover công bố vòng Series C 100 triệu USD do One Peak dẫn dắt, có Morgan Stanley Expansion Capital tham gia, nâng tổng vốn lên 160 triệu USD sau một năm doanh thu định kỳ tăng gấp ba và nhân sự tăng gấp đôi.</p>
+    <p class="why">💡 groundcover đi theo kiến trúc bring-your-own-cloud, nghĩa là dữ liệu telemetry ở lại hạ tầng khách hàng. Đây là đòn đánh trực diện vào mô hình tính tiền theo lượng dữ liệu gửi lên của các hãng observability truyền thống.</p>
+    <div class="meta">
+      <span class="when">📅 29/07</span>
+      <a class="metabtn" href="https://www.businesswire.com/news/home/20260729686071/en/groundcover-Raises-100-Million-Series-C-to-Create-the-Observability-Platform-Built-for-the-AI-Era" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-17">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="17">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Series C 100 triệu USD do One Peak dẫn dắt, công bố ngày 29/07/2026</li>
+        <li>Morgan Stanley Expansion Capital tham gia cùng Zeev, Angular, Heavybit, Jibe</li>
+        <li>Tổng vốn huy động đạt 160 triệu USD</li>
+        <li>Một năm qua doanh thu định kỳ tăng gấp ba, nhân sự toàn cầu tăng gấp đôi</li>
+        <li>Nền tảng dựa trên eBPF và OpenTelemetry, kiến trúc bring-your-own-cloud</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>29/07/2026</span>
+        <span class="fact"><b>VÒNG</b>Series C 100 triệu USD</span>
+        <span class="fact"><b>TỔNG VỐN</b>160 triệu USD</span>
+        <span class="fact"><b>ARR</b>tăng gấp 3</span>
+        <span class="fact"><b>CÔNG NGHỆ</b>eBPF + OTel</span>
+      </div>
+      <p class="deep">Luận điểm đầu tư ở đây rất đáng suy nghĩ với dân data: observability về bản chất là một bài toán dữ liệu quy mô lớn, và mô hình kinh doanh của nó vỡ khi khối lượng telemetry tăng theo cấp số nhân vì AI. Khi mỗi lượt gọi agent sinh ra trace, log, metric, hoá đơn Datadog kiểu cũ trở nên vô lý. groundcover chọn cách để dữ liệu ở lại cloud của khách và chỉ bán phần điều khiển — mô hình này vừa rẻ hơn vừa hợp với yêu cầu chủ quyền dữ liệu. Với doanh nghiệp Việt trong ngành tài chính hay y tế, chỗ "dữ liệu không rời hạ tầng của mình" là điểm bán hàng mạnh hơn cả giá. Nhưng cần tỉnh táo: BYOC đẩy phần vận hành hạ tầng lưu trữ về phía khách hàng, nên nếu đội bạn mỏng thì cái rẻ trên hoá đơn có thể đắt trên nhân sự. Điều mình rút ra: lớp telemetry đang trở thành một kho dữ liệu thứ hai của doanh nghiệp, và nó nên được thiết kế bởi người làm data chứ không chỉ bởi team hạ tầng.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="18">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://mmx.prnewswire.com/media/MS1687032/DB-logo-final.jpg?id=OA2803683&amp;p=facebook" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=prnewswire.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-18" class="xt" hidden>
+    <span class="rank">🔥 TOP 5 TUẦN NÀY</span>
+    <a class="title" href="https://www.prnewswire.com/news-releases/databahn-raises-40-million-series-b-led-by-insight-partners-to-accelerate-innovation-across-the-agentic-data-control-plane-302838690.html" target="_blank" rel="noopener">DataBahn gọi 40 triệu USD Series B cho "agentic data control plane" gom telemetry từ hơn 600 nguồn</a>
+    <p class="sum">Ngày 30/07, DataBahn công bố vòng Series B 40 triệu USD do Insight Partners dẫn dắt, có Forgepoint, GTM Capital và S3 Ventures tham gia, nâng tổng vốn lên 59 triệu USD. Nền tảng nạp, chuẩn hoá, làm giàu và định tuyến telemetry từ hơn 600 nguồn, chỉ chuyển tới mỗi đích phần dữ liệu nó thật sự cần.</p>
+    <p class="why">💡 Ý tưởng cốt lõi rất đáng học: thay vì đổ hết dữ liệu vào mọi hệ thống rồi trả tiền theo dung lượng, hãy lọc ngay ở đường ống và chỉ kéo thêm ngữ cảnh khi được hỏi.</p>
+    <div class="meta">
+      <span class="when">📅 30/07</span>
+      <a class="metabtn" href="https://www.prnewswire.com/news-releases/databahn-raises-40-million-series-b-led-by-insight-partners-to-accelerate-innovation-across-the-agentic-data-control-plane-302838690.html" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-18">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="18">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Series B 40 triệu USD do Insight Partners dẫn dắt, công bố ngày 30/07/2026</li>
+        <li>Forgepoint, GTM Capital, S3 Ventures tham gia; tổng vốn đạt 59 triệu USD</li>
+        <li>Nền tảng xử lý telemetry từ hơn 600 nguồn, trung lập về dữ liệu và mô hình</li>
+        <li>Chỉ chuyển tiếp dữ liệu mỗi đích cần, kéo thêm ngữ cảnh theo yêu cầu</li>
+        <li>Trụ sở tại Dallas, phục vụ khách hàng Fortune 500; sẽ demo tại Black Hat USA 2026</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>30/07/2026</span>
+        <span class="fact"><b>VÒNG</b>Series B 40 triệu USD</span>
+        <span class="fact"><b>TỔNG VỐN</b>59 triệu USD</span>
+        <span class="fact"><b>NGUỒN</b>600+</span>
+        <span class="fact"><b>DẪN DẮT</b>Insight Partners</span>
+      </div>
+      <p class="deep">Cùng tuần với groundcover, DataBahn là mảnh ghép thứ hai của cùng một luận điểm: chỗ nghẽn của AI doanh nghiệp không nằm ở mô hình mà nằm ở đường ống dữ liệu vận hành. Khái niệm "control plane" mượn từ mạng máy tính và mượn rất đúng: tách mặt phẳng điều khiển khỏi mặt phẳng dữ liệu, để bạn đổi đích đến, đổi mô hình, đổi chính sách mà không phải viết lại pipeline. Đây là kiến trúc mà mình nghĩ team data ở doanh nghiệp lớn nên học ngay cả khi không mua sản phẩm nào: đặt một lớp định tuyến giữa nguồn và đích, đừng nối cứng. Cái giá phải trả là thêm một thành phần phải vận hành và một nhà cung cấp nữa để phụ thuộc. Với doanh nghiệp Việt cỡ vừa, mình thấy chưa cần mua — nhưng rất nên áp dụng nguyên tắc lọc-tại-nguồn, vì phần lớn hoá đơn SIEM và log ở đây đến từ dữ liệu không ai từng đọc. Cắt được nửa lượng log vô dụng thường là khoản tiết kiệm lớn nhất mà một kỹ sư dữ liệu có thể mang lại trong quý.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="19">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://news.nd.edu/assets/668234/1600x630/mlc_42326_campus_aerials_05jpg.jpg" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=news.nd.edu&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-19" class="xt" hidden>
+    <a class="title" href="https://news.nd.edu/news/notre-dame-launches-data-ai-and-computing-initiative-to-unify-emerging-technology-research-education-and-academic-services/" target="_blank" rel="noopener">Notre Dame lập Data, AI and Computing Initiative gom nghiên cứu và đào tạo về một mối</a>
+    <p class="sum">Ngày 29/07, Đại học Notre Dame công bố sáng kiến DAC kéo dài nhiều năm, hợp nhất nghiên cứu, đào tạo và dịch vụ học thuật quanh dữ liệu, AI và điện toán, do giáo sư Nitesh Chawla điều hành.</p>
+    <p class="why">💡 Khi một đại học lớn gom cả ba mảng về một đầu mối, đó là tín hiệu rằng data và AI đang được xem là hạ tầng chung của mọi ngành chứ không còn là một khoa riêng.</p>
+    <div class="meta">
+      <span class="when">📅 29/07</span>
+      <a class="metabtn" href="https://news.nd.edu/news/notre-dame-launches-data-ai-and-computing-initiative-to-unify-emerging-technology-research-education-and-academic-services/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-19">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="19">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Sáng kiến DAC công bố ngày 29/07/2026, phạm vi toàn trường, kéo dài nhiều năm</li>
+        <li>Do giáo sư Nitesh Chawla làm giám đốc</li>
+        <li>Hợp nhất thế mạnh sẵn có ở các trường, khoa và trung tâm nghiên cứu</li>
+        <li>Nhấn mạnh ứng dụng công nghệ mới vào các vấn đề xã hội và AI có trách nhiệm</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>29/07/2026</span>
+        <span class="fact"><b>TÊN</b>DAC Initiative</span>
+        <span class="fact"><b>GIÁM ĐỐC</b>Nitesh Chawla</span>
+        <span class="fact"><b>PHẠM VI</b>toàn trường</span>
+      </div>
+      <p class="deep">Mình để tin này vào bản tin vì nó chạm đúng câu chuyện đào tạo ở Việt Nam. Chúng ta vẫn đang dạy data như một chuyên ngành hẹp: học SQL, học Python, học dashboard. Trong khi mô hình mà Notre Dame chọn là coi data và AI như năng lực nền, gắn vào từng ngành cụ thể — y tế, kinh tế, xã hội học. Kinh nghiệm dạy của mình nói rằng cách thứ hai hiệu quả hơn nhiều: học viên hiểu bài toán ngành trước rồi mới học công cụ luôn đi nhanh hơn học viên chỉ biết cú pháp. Đó cũng là lý do thị trường tuyển dụng data đang thừa người biết viết truy vấn nhưng thiếu người giải được bài toán. Với các trường và trung tâm đào tạo ở Việt Nam, hướng đi thực tế là gắn chương trình data vào từng khối ngành sẵn có thay vì mở thêm một khoa mới. Còn với người học: đừng chỉ sưu tầm chứng chỉ công cụ, hãy chọn một lĩnh vực và hiểu sâu dữ liệu của nó.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="20">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://mmx.prnewswire.com/media/MS1960185/Terminal-Founders-Headshots.jpg?id=OA2798649&amp;p=facebook" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=prnewswire.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-20" class="xt" hidden>
+    <a class="title" href="https://www.prnewswire.com/news-releases/terminal-raises-20-million-to-scale-market-leading-telematics-integration-technology-for-fortune-500-companies-across-insurance-fleet-management-and-logistics-302837250.html" target="_blank" rel="noopener">Terminal gọi 20 triệu USD để mở rộng lớp tích hợp dữ liệu telematics cho bảo hiểm và logistics</a>
+    <p class="sum">Ngày 28/07, Terminal công bố huy động 20 triệu USD nhằm mở rộng công nghệ tích hợp telematics cho các doanh nghiệp Fortune 500 trong bảo hiểm, quản lý đội xe và logistics, đưa dữ liệu phương tiện vào luồng phân tích và AI.</p>
+    <p class="why">💡 Mảnh ghép thường bị bỏ quên của ngành dữ liệu: chuẩn hoá dữ liệu từ hàng chục nhà cung cấp thiết bị khác nhau. Không có lớp này thì mọi mô hình rủi ro đều xây trên nền cát.</p>
+    <div class="meta">
+      <span class="when">📅 28/07</span>
+      <a class="metabtn" href="https://www.prnewswire.com/news-releases/terminal-raises-20-million-to-scale-market-leading-telematics-integration-technology-for-fortune-500-companies-across-insurance-fleet-management-and-logistics-302837250.html" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-20">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="20">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Vòng gọi vốn 20 triệu USD công bố ngày 28/07/2026</li>
+        <li>Khách hàng mục tiêu là doanh nghiệp Fortune 500</li>
+        <li>Ba ngành trọng tâm: bảo hiểm, quản lý đội xe, logistics</li>
+        <li>Đưa dữ liệu phương tiện và vận hành vào luồng phân tích và AI</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>28/07/2026</span>
+        <span class="fact"><b>VÒNG</b>20 triệu USD</span>
+        <span class="fact"><b>NGÀNH</b>bảo hiểm, fleet, logistics</span>
+      </div>
+      <p class="deep">Tin này nhỏ nhưng nói lên một điều mà mình hay nhắc trong các dự án tư vấn: phần đắt nhất của một hệ thống dữ liệu ngành không phải kho, không phải mô hình, mà là lớp kết nối và chuẩn hoá nguồn. Trong bảo hiểm xe, mỗi hãng thiết bị GPS trả một định dạng, một tần suất, một cách hiểu về "phanh gấp" khác nhau. Ai chuẩn hoá được lớp đó thì sở hữu con hào cạnh tranh, còn mô hình chấm điểm rủi ro thì ai cũng làm được. Việt Nam đang có bài toán y hệt trong logistics và bảo hiểm ô tô, và phần lớn doanh nghiệp vẫn tự viết parser cho từng nhà cung cấp — vừa tốn vừa dễ hỏng khi đối tác đổi firmware. Khuyến nghị cụ thể: nếu đội bạn đang tích hợp từ ba nhà cung cấp trở lên, hãy đầu tư một canonical model cho sự kiện phương tiện trước khi nghĩ tới mô hình AI. Làm ngược thứ tự là cách nhanh nhất để có một dự án AI chết yểu vì dữ liệu bẩn.</p>
+    </div>
+  </div>
+</article>
+
+</section>
+
+<footer>
+  <p>Bản tin tạo lúc 01/08/2026 · 20 tin trong tuần W31 (27/07 - 02/08/2026) · Tuyển chọn &amp; đọc bởi Duc Nguyen</p>
+  <p><a href="https://ducnguyen.vn" target="_blank" rel="noopener">ducnguyen.vn</a> · <a href="../../index.html">Về trang chính Data News</a></p>
+</footer>
+
+</div>
+<script src="../../assets/bg.js" defer></script>
+</body>
+</html>

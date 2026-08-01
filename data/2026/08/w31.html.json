@@ -1,0 +1,364 @@
+{
+  "date": "01/08/2026",
+  "week": "W31",
+  "range": "27/07 - 02/08/2026",
+  "tldr": "Tuần 31 là tuần các nền tảng dữ liệu lớn đồng loạt dựng cổng kiểm soát cho AI agent thay vì khoe thêm tính năng AI. Snowflake ra Cortex AI Gateway ngày 28 tháng 7 để quản lý và tính tiền mọi agent chạm vào dữ liệu, kể cả agent bên thứ ba như Claude Code hay Cursor; Databricks mở connector kéo chi phí và audit log của OpenAI vào lakehouse; Microsoft Fabric tung bản cập nhật tháng 7 với Runtime 2.0, Lakehouse Query Explorer lên GA và một skill mã nguồn mở chẩn đoán lỗi Spark bằng ngôn ngữ tự nhiên. Ở tầng nền tảng mở, Apache Polaris phải huỷ bản 1.7.0 vì 44 trên 269 file jar thiếu giấy phép, còn Parquet duyệt xong mã hoá số thực ALP. Tiền vẫn chảy mạnh vào lớp đường ống dữ liệu: groundcover gọi 100 triệu đô, DataBahn gọi 40 triệu đô, cùng chung một luận điểm rằng dữ liệu vận hành mới là chỗ nghẽn thật của AI doanh nghiệp.",
+  "items": [
+    {
+      "aid": 1,
+      "title": "Snowflake đưa chế độ ADAPTIVE refresh của Dynamic Tables lên GA",
+      "title_en": "ADAPTIVE refresh mode for dynamic tables is now generally available",
+      "summary": "Ngày 30 tháng 7, Snowflake chuyển chế độ làm mới ADAPTIVE cho Dynamic Tables từ preview sang GA: engine tự quyết mỗi lần refresh nên chạy incremental hay full thay vì bắt người dùng chốt cứng từ lúc tạo bảng.",
+      "why": "Dynamic Tables là xương sống của pipeline khai báo trên Snowflake. Bỏ được một nút chỉnh tay dễ sai đồng nghĩa bớt cả lỗi dữ liệu lẫn credit đốt vô ích mỗi đêm.",
+      "url": "https://docs.snowflake.com/en/release-notes/new-features",
+      "domain": "docs.snowflake.com",
+      "date": "2026-07-30",
+      "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+      "hot_rank": null
+    },
+    {
+      "aid": 2,
+      "title": "Microsoft Fabric bản tháng 7/2026: Runtime 2.0, Lakehouse Query Explorer GA và Oracle CDC cho Eventstream",
+      "title_en": "Fabric July 2026 Feature Summary",
+      "summary": "Bản tổng hợp tính năng Fabric tháng 7 công bố ngày 29 tháng 7 mang tới Fabric Runtime 2.0 bản preview, cơ chế release channel cho runtime, Lakehouse Query Explorer và Materialized Lake View analytics lên GA, cùng connector Oracle CDC cho Eventstream.",
+      "why": "Fabric đang gom cả data engineering, warehouse và real-time về một nhịp phát hành tháng. Ai đang cân Fabric với Databricks hay Snowflake cần đọc bản này để thấy khoảng cách tính năng thu hẹp tới đâu.",
+      "url": "https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Fabric-July-2026-Feature-Summary/ba-p/5325823",
+      "domain": "community.fabric.microsoft.com",
+      "date": "2026-07-29",
+      "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+      "hot_rank": 2
+    },
+    {
+      "aid": 3,
+      "title": "Tuần lakehouse: Polaris 1.7.0 bị huỷ vì 44 file jar thiếu license, Parquet duyệt mã hoá ALP",
+      "title_en": "Apache Data Lakehouse Weekly: July 21 to July 29, 2026",
+      "summary": "Bản tổng kết tuần 21 đến 29 tháng 7 của Alex Merced ghi nhận Apache Polaris phải huỷ bản 1.7.0 RC0 vì 44 trong 269 file jar thiếu cả LICENSE lẫn NOTICE, còn Parquet thông qua mã hoá số thực ALP với 11 phiếu thuận.",
+      "why": "Đây là tuần các dự án lakehouse chuyển từ quy ước ngầm sang cam kết viết ra giấy, từ giấy phép, nullability tới ngữ nghĩa scan. Nghe khô nhưng chính nó quyết định các engine có đọc được dữ liệu của nhau hay không.",
+      "url": "https://dev.to/alexmercedcoder/apache-data-lakehouse-weekly-july-21-to-july-29-2026-p73",
+      "domain": "dev.to",
+      "date": "2026-07-29",
+      "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+      "hot_rank": 4
+    },
+    {
+      "aid": 4,
+      "title": "Databricks bắt đầu tự động bật row tracking và Checkpoint V2 cho bảng Unity Catalog đã tồn tại",
+      "title_en": "Automatic upgrades begin rolling out row tracking and Checkpoint V2 to existing tables",
+      "summary": "Từ ngày 29 tháng 7, cơ chế automatic upgrades của Databricks không chỉ áp cho bảng mới mà bắt đầu lan sang các bảng managed Unity Catalog đang chạy, bật row tracking và Checkpoint V2 theo từng đợt.",
+      "why": "Nền tảng tự nâng cấp table feature trên dữ liệu production là con dao hai lưỡi: nhanh và tiện, nhưng nếu còn client cũ đọc bảng thì đây là nguồn sự cố khó truy.",
+      "url": "https://docs.databricks.com/gcp/en/release-notes/product/2026/july",
+      "domain": "docs.databricks.com",
+      "date": "2026-07-29",
+      "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+      "hot_rank": null
+    },
+    {
+      "aid": 5,
+      "title": "Python UDTF trong Unity Catalog lên GA: hàm trả về cả bảng, có quản trị",
+      "title_en": "Python UDTFs in Unity Catalog are now generally available",
+      "summary": "Ngày 28 tháng 7, Databricks đưa việc đăng ký Python user-defined table function trong Unity Catalog lên GA trên Databricks Runtime 18, chạy được cả trên serverless, classic standard và SQL warehouse.",
+      "why": "UDTF cho phép gói logic sinh nhiều dòng như parse log, bung JSON hay gọi mô hình thành một hàm có phân quyền, thay vì rải notebook khắp nơi rồi không ai biết ai đang dùng bản nào.",
+      "url": "https://docs.databricks.com/aws/en/udf/udtf-unity-catalog",
+      "domain": "docs.databricks.com",
+      "date": "2026-07-28",
+      "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+      "hot_rank": null
+    },
+    {
+      "aid": 6,
+      "title": "Databricks mở OpenAI connector: kéo chi phí, khoá API và audit log của OpenAI vào lakehouse",
+      "title_en": "OpenAI connector (Beta) in Lakeflow Connect",
+      "summary": "Ngày 31 tháng 7, Lakeflow Connect thêm connector OpenAI ở bản Beta, dùng OpenAI Organization Admin API để nạp dữ liệu quản trị tổ chức gồm người dùng, project, API key, mức dùng, chi phí và audit log thẳng vào Databricks.",
+      "why": "Chi tiêu cho LLM đang thành khoản lớn trong ngân sách IT mà hầu như không ai mô hình hoá nó như dữ liệu. Connector này biến hoá đơn AI thành một bảng fact bình thường, phân tích được như mọi chi phí khác.",
+      "url": "https://docs.databricks.com/aws/en/ingestion/lakeflow-connect/openai",
+      "domain": "docs.databricks.com",
+      "date": "2026-07-31",
+      "section": "🛠️ Công cụ & Nền tảng",
+      "hot_rank": null
+    },
+    {
+      "aid": 7,
+      "title": "Helical Insight mở toàn bộ tính năng BI doanh nghiệp vào bản Community miễn phí",
+      "title_en": "Helical Insight makes enterprise BI free in open source",
+      "summary": "Helical Insight bỏ mô hình khoá tính năng: bản Community mã nguồn mở nay có đủ conversational analytics theo hướng bring your own LLM, dashboard tương tác, pixel perfect report, embedded analytics, SSO, row level security, multi tenancy và white labeling.",
+      "why": "Hầu hết BI open core đều giữ SSO và row level security làm mồi bán bản trả tiền. Bỏ hàng rào đó là đòn đánh thẳng vào phân khúc doanh nghiệp vừa và nhỏ đang phải trả tiền license chỉ để có phân quyền.",
+      "url": "https://www.opensourceforu.com/2026/07/helical-insight-makes-enterprise-bi-free-in-open-source/",
+      "domain": "opensourceforu.com",
+      "date": "2026-07-30",
+      "section": "🛠️ Công cụ & Nền tảng",
+      "hot_rank": null
+    },
+    {
+      "aid": 8,
+      "title": "TDengine miễn phí vĩnh viễn nền tảng dữ liệu công nghiệp AI-native cho tới 5.000 tag",
+      "title_en": "TDengine makes its complete AI-native industrial data platform free forever for up to 5,000 tags",
+      "summary": "Ngày 28 tháng 7, TDengine công bố Free Tier toàn cầu: trọn gói TDengine All-in-One không phí license cho triển khai tới 5.000 tag, không giới hạn thời gian và không cắt tính năng, dùng được cả trong cấu hình high availability.",
+      "why": "Nhà máy, điện lực và hệ thống giám sát ở Việt Nam vẫn đang trả tiền cho data historian đời cũ. Một nền tảng time-series đầy đủ, miễn phí ở quy mô 5.000 tag là ngưỡng đủ cho phần lớn dây chuyền cỡ vừa.",
+      "url": "https://www.hpcwire.com/bigdatawire/this-just-in/tdengine-makes-its-complete-ai-native-industrial-data-platform-free-forever-for-up-to-5000-tags/",
+      "domain": "hpcwire.com",
+      "date": "2026-07-28",
+      "section": "🛠️ Công cụ & Nền tảng",
+      "hot_rank": null
+    },
+    {
+      "aid": 9,
+      "title": "Snowflake mở bản preview dashboard giám sát chất lượng dữ liệu cho tài khoản Enterprise",
+      "title_en": "Data quality monitoring dashboard available in public preview",
+      "summary": "Ngày 29 tháng 7, dashboard giám sát chất lượng dữ liệu của Snowflake vào public preview cho tài khoản Enterprise Edition, gom kết quả các data metric function về một màn hình theo dõi chung.",
+      "why": "Chất lượng dữ liệu lâu nay là mảnh đất của công cụ bên thứ ba. Khi nền tảng tự làm sẵn và tính vào gói Enterprise, ngân sách cho lớp observability riêng sẽ bị soi lại.",
+      "url": "https://docs.snowflake.com/en/release-notes/all-release-notes",
+      "domain": "docs.snowflake.com",
+      "date": "2026-07-29",
+      "section": "🛠️ Công cụ & Nền tảng",
+      "hot_rank": null
+    },
+    {
+      "aid": 10,
+      "title": "Snowflake ra Cortex AI Gateway: một cổng kiểm soát mọi AI agent chạm vào dữ liệu, kể cả Claude Code và Cursor",
+      "title_en": "Snowflake Advances the Trusted Agentic Enterprise Era with Unified Monitoring and Cost Management",
+      "summary": "Ngày 28 tháng 7, Snowflake giới thiệu Cortex AI Gateway, lớp điều phối và quản trị cho cả agent nội bộ như CoWork, CoCo lẫn agent bên ngoài như Claude Code hay Cursor, kèm giám sát token, hàng rào chống prompt injection và tích hợp với sáu hãng quản lý danh tính.",
+      "why": "Đây là lần đầu một nền tảng dữ liệu lớn nói thẳng rằng agent của người khác cũng sẽ vào kho dữ liệu của bạn, và bài toán không còn là chặn mà là cấp quyền có kiểm soát cùng đo được chi phí.",
+      "url": "https://www.snowflake.com/en/news/press-releases/snowflake-advances-the-trusted-agentic-enterprise-era-with-unified-monitoring-and-cost-management/",
+      "domain": "snowflake.com",
+      "date": "2026-07-28",
+      "section": "🤖 AI × Data",
+      "hot_rank": 1
+    },
+    {
+      "aid": 11,
+      "title": "Microsoft mở mã Fabric Spark Operations Skill: chẩn đoán job Spark hỏng bằng ngôn ngữ tự nhiên",
+      "title_en": "The Fabric Spark Operations Skill — AI-Assisted Spark Diagnostics, Open Source (Preview)",
+      "summary": "Skill spark-operations-cli được đưa vào thư viện mã nguồn mở skills-for-fabric, cho phép hỏi bằng ngôn ngữ tự nhiên về notebook lỗi, Livy session treo, OOM, shuffle hay skew ngay từ GitHub Copilot CLI, Claude Code, VS Code hoặc Cursor, và trả về danh sách phát hiện xếp theo mức nghiêm trọng kèm gợi ý sửa.",
+      "why": "Đây là dạng AI cho data engineer hữu dụng nhất: không sinh code hộ, mà đọc log và Spark Advisor thay bạn, đúng phần việc tốn thời gian nhất khi job production gãy lúc hai giờ sáng.",
+      "url": "https://github.com/microsoft/skills-for-fabric",
+      "domain": "github.com",
+      "date": "2026-07-29",
+      "section": "🤖 AI × Data",
+      "hot_rank": null
+    },
+    {
+      "aid": 12,
+      "title": "Snowflake đưa gợi ý code bằng AI trong Workspaces lên GA",
+      "title_en": "AI code suggestions in Workspaces is now generally available",
+      "summary": "Ngày 28 tháng 7, tính năng gợi ý code bằng AI trong Snowflake Workspaces chính thức GA, gợi ý SQL và Python ngay trong môi trường soạn thảo của nền tảng.",
+      "why": "Gợi ý code chạy ngay trong Workspaces nghĩa là mô hình nhìn thấy metadata và ngữ cảnh bảng thật, khác hẳn việc copy schema sang chatbot bên ngoài rồi dán kết quả về.",
+      "url": "https://www.snowflake.com/en/ai-pulse/july-2026/",
+      "domain": "snowflake.com",
+      "date": "2026-07-28",
+      "section": "🤖 AI × Data",
+      "hot_rank": null
+    },
+    {
+      "aid": 13,
+      "title": "All Data and AI Weekly #252: Apache NiFi 2.10.0, Cisco mở mã AI-BOM scanner và hai hệ IoT dựng bằng Cortex Code",
+      "title_en": "All Data and AI Weekly #252 - 27 July 2026",
+      "summary": "Số 252 ra ngày 27 tháng 7 điểm lại tuần dữ liệu: Snowflake ship SHOW CORTEX BASE MODELS lên GA, thêm biến môi trường SQL cho dbt Projects và cho refresh nhiều Dynamic Table trong một lệnh ALTER; phía cộng đồng có Apache NiFi 2.10.0 và bộ quét AI-BOM được Cisco mở mã.",
+      "why": "Bản tin này là chỗ hiếm hoi ghép được cả tin sản phẩm lẫn tin cộng đồng trong một tuần, và lần này nó cho thấy AI-BOM đang thành yêu cầu bảo mật thật chứ không còn là khái niệm hội thảo.",
+      "url": "https://www.datainmotion.dev/2026/07/all-data-and-ai-weekly-252-27-july-2026.html",
+      "domain": "datainmotion.dev",
+      "date": "2026-07-27",
+      "section": "🤖 AI × Data",
+      "hot_rank": null
+    },
+    {
+      "aid": 14,
+      "title": "Chạy thuật toán trên đồ thị tỷ cạnh chỉ với 10GB RAM nhờ DataFusion",
+      "title_en": "Algorithms on billion-scale graph using 10GB RAM: I love DataFusion",
+      "summary": "Bài viết của Semyon Sinchenko ngày 31 tháng 7 trình bày cách dùng Apache DataFusion để tính connected components trên đồ thị quy mô tỷ phần tử trong 10GB RAM, và leo lên 123 điểm trên Hacker News.",
+      "why": "Nó phản bác thẳng giả định mặc định rằng đồ thị lớn thì phải có cụm Spark. Với rất nhiều bài toán, một máy đơn cộng engine columnar hiện đại là đủ và rẻ hơn nhiều lần.",
+      "url": "https://semyonsinchenko.github.io/ssinchenko/post/datafusion-graphs-cc-2/",
+      "domain": "semyonsinchenko.github.io",
+      "date": "2026-07-31",
+      "section": "📈 Hot trend & Thảo luận cộng đồng",
+      "hot_rank": null
+    },
+    {
+      "aid": 15,
+      "title": "Làm hàng đợi Postgres scale được - bài phân tích nóng trên Hacker News",
+      "title_en": "Making Postgres queues scale",
+      "summary": "Bài của DBOS ngày 30 tháng 7 mổ xẻ vì sao hàng đợi dựng trên Postgres hay nghẽn và cách khắc phục, thu hút 126 điểm cùng 33 bình luận trên Hacker News.",
+      "why": "Cuộc tranh luận dùng Postgres cho mọi thứ hay tách hệ chuyên dụng lại nóng, và nó liên quan trực tiếp tới team data đang phải chọn giữa Kafka thật hay một bảng job đơn giản.",
+      "url": "https://www.dbos.dev/blog/making-postgres-queues-scale",
+      "domain": "dbos.dev",
+      "date": "2026-07-30",
+      "section": "📈 Hot trend & Thảo luận cộng đồng",
+      "hot_rank": null
+    },
+    {
+      "aid": 16,
+      "title": "Data Engineering Weekly #280: Netflix tự dựng nền serving LLM, Airbnb nén bảy năm hành trình khách vào embedding",
+      "title_en": "Data Engineering Weekly #280",
+      "summary": "Số 280 ra ngày 27 tháng 7 gom lại tuần đọc của giới data engineer: Netflix công bố nền serving LLM nội bộ, Airbnb kể cách nén bảy năm lịch sử hành vi khách thành embedding hằng ngày cho cá nhân hoá tìm kiếm, cùng bài mổ xẻ MVCC và transaction trong RocksDB.",
+      "why": "Mấy bài engineering blog này cho thấy các công ty lớn đã hết giai đoạn thử nghiệm AI và chuyển sang bài toán hạ tầng phục vụ mô hình ở quy mô lớn, cùng cách nén ngữ cảnh dài thành đặc trưng dùng được.",
+      "url": "https://www.dataengineeringweekly.com/p/data-engineering-weekly-280",
+      "domain": "dataengineeringweekly.com",
+      "date": "2026-07-27",
+      "section": "📈 Hot trend & Thảo luận cộng đồng",
+      "hot_rank": null
+    },
+    {
+      "aid": 17,
+      "title": "groundcover gọi 100 triệu USD Series C để dựng nền observability cho kỷ nguyên AI",
+      "title_en": "groundcover Raises $100 Million Series C to Create the Observability Platform Built for the AI Era",
+      "summary": "Ngày 29 tháng 7, groundcover công bố vòng Series C 100 triệu đô do One Peak dẫn dắt, có Morgan Stanley Expansion Capital tham gia, nâng tổng vốn lên 160 triệu đô sau một năm doanh thu định kỳ tăng gấp ba và nhân sự tăng gấp đôi.",
+      "why": "groundcover đi theo kiến trúc bring your own cloud, nghĩa là dữ liệu telemetry ở lại hạ tầng khách hàng. Đây là đòn đánh trực diện vào mô hình tính tiền theo lượng dữ liệu gửi lên của các hãng observability truyền thống.",
+      "url": "https://www.businesswire.com/news/home/20260729686071/en/groundcover-Raises-100-Million-Series-C-to-Create-the-Observability-Platform-Built-for-the-AI-Era",
+      "domain": "businesswire.com",
+      "date": "2026-07-29",
+      "section": "🏢 Ngành & Doanh nghiệp",
+      "hot_rank": 3
+    },
+    {
+      "aid": 18,
+      "title": "DataBahn gọi 40 triệu USD Series B cho agentic data control plane gom telemetry từ hơn 600 nguồn",
+      "title_en": "DataBahn Raises $40 Million Series B Led by Insight Partners to Accelerate Innovation Across the Agentic Data Control Plane",
+      "summary": "Ngày 30 tháng 7, DataBahn công bố vòng Series B 40 triệu đô do Insight Partners dẫn dắt, có Forgepoint, GTM Capital và S3 Ventures tham gia, nâng tổng vốn lên 59 triệu đô. Nền tảng nạp, chuẩn hoá, làm giàu và định tuyến telemetry từ hơn 600 nguồn, chỉ chuyển tới mỗi đích phần dữ liệu nó thật sự cần.",
+      "why": "Ý tưởng cốt lõi rất đáng học: thay vì đổ hết dữ liệu vào mọi hệ thống rồi trả tiền theo dung lượng, hãy lọc ngay ở đường ống và chỉ kéo thêm ngữ cảnh khi được hỏi.",
+      "url": "https://www.prnewswire.com/news-releases/databahn-raises-40-million-series-b-led-by-insight-partners-to-accelerate-innovation-across-the-agentic-data-control-plane-302838690.html",
+      "domain": "prnewswire.com",
+      "date": "2026-07-30",
+      "section": "🏢 Ngành & Doanh nghiệp",
+      "hot_rank": 5
+    },
+    {
+      "aid": 19,
+      "title": "Notre Dame lập Data, AI and Computing Initiative gom nghiên cứu và đào tạo về một mối",
+      "title_en": "Notre Dame launches Data, AI, and Computing Initiative to unify emerging technology research, education and academic services",
+      "summary": "Ngày 29 tháng 7, Đại học Notre Dame công bố sáng kiến DAC kéo dài nhiều năm, hợp nhất nghiên cứu, đào tạo và dịch vụ học thuật quanh dữ liệu, AI và điện toán, do giáo sư Nitesh Chawla điều hành.",
+      "why": "Khi một đại học lớn gom cả ba mảng về một đầu mối, đó là tín hiệu rằng data và AI đang được xem là hạ tầng chung của mọi ngành chứ không còn là một khoa riêng.",
+      "url": "https://news.nd.edu/news/notre-dame-launches-data-ai-and-computing-initiative-to-unify-emerging-technology-research-education-and-academic-services/",
+      "domain": "news.nd.edu",
+      "date": "2026-07-29",
+      "section": "🏢 Ngành & Doanh nghiệp",
+      "hot_rank": null
+    },
+    {
+      "aid": 20,
+      "title": "Terminal gọi 20 triệu USD để mở rộng lớp tích hợp dữ liệu telematics cho bảo hiểm và logistics",
+      "title_en": "Terminal raises $20 million to scale market-leading telematics integration technology for Fortune 500 companies",
+      "summary": "Ngày 28 tháng 7, Terminal công bố huy động 20 triệu đô nhằm mở rộng công nghệ tích hợp telematics cho các doanh nghiệp Fortune 500 trong bảo hiểm, quản lý đội xe và logistics, đưa dữ liệu phương tiện vào luồng phân tích và AI.",
+      "why": "Mảnh ghép thường bị bỏ quên của ngành dữ liệu: chuẩn hoá dữ liệu từ hàng chục nhà cung cấp thiết bị khác nhau. Không có lớp này thì mọi mô hình rủi ro đều xây trên nền cát.",
+      "url": "https://www.prnewswire.com/news-releases/terminal-raises-20-million-to-scale-market-leading-telematics-integration-technology-for-fortune-500-companies-across-insurance-fleet-management-and-logistics-302837250.html",
+      "domain": "prnewswire.com",
+      "date": "2026-07-28",
+      "section": "🏢 Ngành & Doanh nghiệp",
+      "hot_rank": null
+    }
+  ],
+  "hot_aid": 10,
+  "weekly_video": {
+    "intro": "Chào các bạn, đây là bản tin dữ liệu tuần 31, từ ngày 27 tháng 7 đến ngày 2 tháng 8 năm 2026. Chủ đề xuyên suốt tuần này rất rõ: các nền tảng dữ liệu lớn không còn khoe thêm tính năng AI nữa, mà bắt đầu dựng cổng kiểm soát cho AI agent, đo chi phí và siết quyền truy cập. Song song đó, tiền đầu tư tiếp tục chảy vào lớp đường ống dữ liệu vận hành. Mời các bạn cùng mình điểm qua năm câu chuyện nóng nhất.",
+    "outro": "Đó là năm tin nóng nhất tuần 31. Chi tiết đầy đủ của cả hai mươi tin, kèm phần phân tích mở rộng, các bạn xem trong bản tin trên website. Hẹn gặp lại các bạn tuần sau.",
+    "segments": [
+      {
+        "aid": 10,
+        "headline": "Snowflake dựng cổng kiểm soát cho mọi AI agent",
+        "narration": "Tin nóng nhất tuần 31 đến từ Snowflake. Ngày 28 tháng 7, hãng giới thiệu Cortex AI Gateway, một lớp điều phối và quản trị đứng giữa AI agent và dữ liệu doanh nghiệp. Điểm đáng chú ý nhất là phạm vi: cổng này không chỉ quản agent do chính Snowflake làm ra như CoWork hay CoCo, mà quản luôn cả agent bên thứ ba phát triển trên nền tảng bên ngoài, ví dụ Claude Code hay Cursor. Doanh nghiệp có được cái nhìn tập trung về việc ai đang truy cập dữ liệu nào, gọi mô hình nào, và tiêu bao nhiêu token, kèm hàng rào bảo mật chống prompt injection và truy cập trái phép. Snowflake công bố kèm tích hợp với sáu hãng quản lý danh tính gồm 1Password, Aembit, Linx Security, Okta XAA, SailPoint và Saviynt. Chi tiết này nói lên bản chất vấn đề: quản trị agent là bài toán danh tính, không phải bài toán mô hình. Cái mới thật sự ở đây không nằm ở công nghệ mà ở sự thừa nhận. Snowflake chấp nhận rằng agent do các đội kỹ thuật tự cắm vào sẽ vào kho dữ liệu bất kể chính sách nói gì, nên tốt hơn là dựng cổng thay vì dựng tường. Việc bạn nên làm ngay tuần này, kể cả khi không dùng Snowflake, là liệt kê xem tổ chức mình hiện có bao nhiêu agent, chạy bằng tài khoản của ai, và đọc được những bảng nào.",
+        "bullets": [
+          "Quản cả agent nội bộ lẫn Claude Code, Cursor",
+          "Đo token, chi phí, truy cập tập trung",
+          "Tích hợp sáu hãng quản lý danh tính"
+        ],
+        "diagram": {
+          "type": "flow",
+          "title": "Đường đi của một truy vấn agent",
+          "items": [
+            {"t": "AI agent", "d": "nội bộ hoặc bên thứ ba"},
+            {"t": "Cortex AI Gateway", "d": "điều phối, chặn prompt injection"},
+            {"t": "Kiểm soát danh tính", "d": "Okta, SailPoint, Saviynt"},
+            {"t": "Dữ liệu Snowflake", "d": "đo token và chi phí"}
+          ]
+        },
+        "images": ["https://www.snowflake.com/content/dam/snowflake-site/en/newsroom/press/2026/2026-07-28.png"]
+      },
+      {
+        "aid": 2,
+        "headline": "Fabric tháng 7 đưa Runtime 2.0 và Lakehouse Query Explorer",
+        "narration": "Tin thứ hai là bản cập nhật tháng 7 của Microsoft Fabric, công bố ngày 29 tháng 7. Đây là một bản dày và thiên về vận hành thực tế hơn là tính năng gây chú ý. Fabric Runtime 2.0 vào bản preview, kèm theo cơ chế release channel cho phép từng đội chọn nhịp cập nhật runtime thay vì bị Microsoft đẩy đồng loạt như trước. Ở mảng data engineering, Lakehouse Query Explorer chính thức lên GA, nghĩa là hết cảnh phải mở notebook chỉ để xem thử vài dòng dữ liệu. Materialized Lake Views nhận thêm phần analytics lên GA và cơ chế làm mới theo sự kiện ở bản preview. Spark Diagnostic Emitter hỗ trợ runtime Spark 4.1 và có API nạp log mới. Phía Real-Time Intelligence, Eventstream có thêm connector Oracle CDC ở bản preview, hỗ trợ mTLS và chứng chỉ CA tự cấp. Kho dữ liệu thì có scalar user defined function ở bản preview và kiểm tra sức khoẻ bảng lakehouse lên GA. Nhìn tổng thể, Fabric đã qua giai đoạn chạy đua bề rộng và bắt đầu vá những chỗ đau thật của người vận hành. Với doanh nghiệp Việt Nam đã mua sẵn hệ Microsoft, chi phí biên để thêm Fabric ngày càng nhỏ. Nhưng lời khuyên của mình không đổi: đừng chọn nền tảng theo danh sách tính năng, hãy chọn theo đội ngũ bạn đang có.",
+        "bullets": [
+          "Runtime 2.0 preview, có release channel riêng",
+          "Lakehouse Query Explorer chính thức lên GA",
+          "Eventstream thêm connector Oracle CDC"
+        ],
+        "diagram": {
+          "type": "stack",
+          "title": "Fabric tháng 7 chạm vào những tầng nào",
+          "items": [
+            {"t": "Nền tảng", "d": "CI/CD bulk publish, OneLake catalog"},
+            {"t": "Data Engineering", "d": "Runtime 2.0, Query Explorer GA"},
+            {"t": "Data Warehouse", "d": "scalar UDF, table health check"},
+            {"t": "Real-Time Intelligence", "d": "Oracle CDC, mTLS cho Eventstream"}
+          ]
+        },
+        "images": []
+      },
+      {
+        "aid": 17,
+        "headline": "groundcover gọi 100 triệu đô cho observability kiểu mới",
+        "narration": "Tin thứ ba là câu chuyện tiền. Ngày 29 tháng 7, groundcover công bố vòng gọi vốn Series C trị giá 100 triệu đô do quỹ One Peak dẫn dắt, với sự tham gia của Morgan Stanley Expansion Capital cùng các nhà đầu tư cũ là Zeev Ventures, Angular Ventures, Heavybit và Jibe. Vòng này nâng tổng vốn huy động của công ty lên 160 triệu đô, sau một năm doanh thu định kỳ tăng gấp ba lần và nhân sự toàn cầu tăng gấp đôi. groundcover được thành lập năm 2021, xây nền tảng observability dựa trên eBPF và OpenTelemetry. Điểm khác biệt lớn nhất nằm ở kiến trúc bring your own cloud: toàn bộ dữ liệu telemetry ở lại hạ tầng của khách hàng, công ty chỉ bán phần điều khiển. Luận điểm đầu tư ở đây rất đáng suy nghĩ với dân dữ liệu. Observability về bản chất là một bài toán dữ liệu quy mô lớn, và mô hình kinh doanh tính tiền theo lượng dữ liệu gửi lên đám mây bắt đầu vỡ khi mỗi lượt gọi AI agent lại sinh thêm trace, log và metric. Với doanh nghiệp Việt Nam trong ngành tài chính hay y tế, việc dữ liệu không rời khỏi hạ tầng của mình là điểm bán hàng mạnh hơn cả giá. Nhưng cần tỉnh táo: mô hình này đẩy phần vận hành lưu trữ về phía khách hàng, nên nếu đội bạn mỏng thì cái rẻ trên hoá đơn có thể đắt trên nhân sự.",
+        "bullets": [
+          "100 triệu đô Series C, tổng vốn 160 triệu",
+          "Doanh thu định kỳ tăng gấp ba một năm",
+          "Telemetry ở lại hạ tầng khách hàng"
+        ],
+        "diagram": {
+          "type": "versus",
+          "title": "Bring your own cloud so với SaaS truyền thống",
+          "left": {
+            "h": "BYOC (groundcover)",
+            "items": ["Dữ liệu ở lại cloud khách", "Trả tiền phần điều khiển", "Hợp yêu cầu chủ quyền dữ liệu", "Khách tự lo lưu trữ"]
+          },
+          "right": {
+            "h": "SaaS truyền thống",
+            "items": ["Đẩy toàn bộ log lên hãng", "Tính tiền theo dung lượng", "Vận hành nhẹ cho khách", "Chi phí bùng khi AI tăng log"]
+          }
+        },
+        "images": []
+      },
+      {
+        "aid": 3,
+        "headline": "Polaris gãy release, Parquet duyệt mã hoá ALP",
+        "narration": "Tin thứ tư đến từ thế giới lakehouse mã nguồn mở. Bản tổng kết tuần 21 đến 29 tháng 7 của Alex Merced ghi nhận một sự cố đáng chú ý: Apache Polaris phải huỷ bỏ cuộc bỏ phiếu cho bản 1.7.0 RC0, vì 44 trong tổng số 269 file jar được chuẩn bị phát hành thiếu cả file LICENSE lẫn NOTICE. Nghe rất nhỏ, nhưng Polaris là catalog mà nhiều doanh nghiệp định đặt làm nguồn sự thật cho toàn bộ lakehouse, nên một dự án không ship được vì hồ sơ pháp lý chưa sạch là tín hiệu về độ trưởng thành vận hành. Nếu bạn đang cân nhắc đưa Polaris vào production quý này, đây là lý do hợp lý để chờ thêm một nhịp. Ở phía Parquet, cộng đồng đã thông qua mã hoá số thực ALP với 11 phiếu thuận, cùng lúc đề xuất bản Parquet Java 1.18.0 RC1. Nén số thực tốt hơn nghĩa là bảng cảm biến, bảng giá và bảng embedding đều nhỏ đi, mà chi phí lakehouse phần lớn nằm ở số byte đọc từ object storage. Iceberg Rust ra bản 0.10.1 RC1 chạy qua 1.839 bài kiểm thử, cho thấy nhánh không dùng máy ảo Java đã đủ nghiêm túc để tính vào kiến trúc. Arrow phát hành ADBC 24, Arrow Rust 58.4.0 và Arrow Go 18.7.0, còn DataFusion 54.1.0 RC1 đã qua vòng bỏ phiếu.",
+        "bullets": [
+          "Polaris 1.7.0 huỷ vote vì thiếu giấy phép",
+          "Parquet duyệt mã hoá ALP cho số thực",
+          "Iceberg Rust qua 1.839 bài kiểm thử"
+        ],
+        "diagram": {
+          "type": "stats",
+          "title": "Những con số của tuần lakehouse",
+          "items": [
+            {"v": "44/269", "l": "jar Polaris thiếu license"},
+            {"v": "11", "l": "phiếu thuận cho ALP"},
+            {"v": "1.839", "l": "test Iceberg Rust pass"},
+            {"v": "ADBC 24", "l": "bản Arrow mới"}
+          ]
+        },
+        "images": ["https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F8bb64annab5aohteh2ey.png"]
+      },
+      {
+        "aid": 18,
+        "headline": "DataBahn gọi 40 triệu đô cho lớp điều khiển dữ liệu",
+        "narration": "Tin thứ năm khép lại chủ đề của tuần. Ngày 30 tháng 7, DataBahn công bố vòng Series B trị giá 40 triệu đô do Insight Partners dẫn dắt, với sự tham gia của Forgepoint, GTM Capital và S3 Ventures. Vòng này nâng tổng vốn của công ty lên 59 triệu đô. DataBahn tự định vị là agentic data control plane cho doanh nghiệp: nền tảng nạp, chuẩn hoá, làm giàu, quản trị và định tuyến dữ liệu telemetry từ hơn 600 nguồn khác nhau, với nguyên tắc trung lập cả về nguồn, đích lẫn mô hình. Điểm cốt lõi trong cách làm là chỉ chuyển tới mỗi đích đúng phần dữ liệu mà đích đó thật sự cần, rồi kéo thêm ngữ cảnh khi được hỏi, thay vì đổ toàn bộ log vào mọi hệ thống và trả tiền theo dung lượng. Công ty đặt trụ sở tại Dallas, phục vụ khách hàng Fortune 500, và sẽ giới thiệu các tính năng mới tại Black Hat USA 2026. Đặt cạnh vòng gọi vốn của groundcover cùng tuần, hai tin này kể chung một câu chuyện: chỗ nghẽn của AI doanh nghiệp không nằm ở mô hình mà nằm ở đường ống dữ liệu vận hành. Với doanh nghiệp Việt Nam cỡ vừa, mình nghĩ chưa cần mua sản phẩm nào, nhưng rất nên áp dụng nguyên tắc lọc ngay tại nguồn, vì phần lớn hoá đơn log hiện nay đến từ dữ liệu không ai từng đọc.",
+        "bullets": [
+          "40 triệu đô Series B, tổng vốn 59 triệu",
+          "Gom telemetry từ hơn 600 nguồn",
+          "Lọc tại đường ống thay vì đổ hết"
+        ],
+        "diagram": {
+          "type": "flow",
+          "title": "Cách một control plane cắt chi phí dữ liệu",
+          "items": [
+            {"t": "600+ nguồn", "d": "log, metric, sự kiện bảo mật"},
+            {"t": "Chuẩn hoá", "d": "một định dạng chung"},
+            {"t": "Định tuyến", "d": "chỉ gửi phần đích cần"},
+            {"t": "Đích đến", "d": "SIEM, lakehouse, AI agent"}
+          ]
+        },
+        "images": ["https://mmx.prnewswire.com/media/MS1687032/DB-logo-final.jpg?id=OA2803683&p=facebook"]
+      }
+    ]
+  },
+  "facebook_post": "Tuần này ngành dữ liệu bận rộn dựng cổng kiểm soát AI agent, chứ không còn khoe tính năng AI nữa\n\nMình vừa ngồi đọc lại toàn bộ tin dữ liệu tuần 27/7 đến 2/8 và nhận ra một điều khá thú vị: các ông lớn năm nay không còn thi nhau công bố thêm chatbot hay thêm mô hình. Họ đang bận làm một việc chán hơn nhiều nhưng quan trọng hơn nhiều, đó là dựng hàng rào cho đám AI agent đang mọc lên trong doanh nghiệp. Nghe không sexy, nhưng đây mới là dấu hiệu công nghệ bắt đầu chạm vào vận hành thật.\n\n1️⃣ Snowflake ra Cortex AI Gateway (28/7)\nĐây là tin lớn nhất tuần. Snowflake dựng một cổng đứng giữa AI agent và dữ liệu, quản cả agent của chính họ lẫn agent bên ngoài như Claude Code hay Cursor. Đo token, đo chi phí, chặn prompt injection, và tích hợp với sáu hãng quản lý danh tính như Okta, SailPoint, Saviynt. Nghĩa là gì với người làm dữ liệu? Nghĩa là bài toán quản trị agent thực chất là bài toán identity, không phải bài toán AI.\n\n2️⃣ Microsoft Fabric bản tháng 7 (29/7)\nRuntime 2.0 vào preview, Lakehouse Query Explorer lên GA, Materialized Lake Views có refresh theo sự kiện, Eventstream thêm connector Oracle CDC. Toàn tính năng vận hành, không tính năng khoe. Fabric đang vá đúng những chỗ đau của người trực hệ thống.\n\n3️⃣ Polaris gãy release, Parquet duyệt ALP (29/7)\nApache Polaris phải huỷ bản 1.7.0 vì 44 trên 269 file jar thiếu LICENSE và NOTICE. Một catalog mà nhiều doanh nghiệp định đặt làm nguồn sự thật lại không ship được vì hồ sơ pháp lý chưa sạch. Ai định đưa Polaris vào production quý này thì nên chờ thêm một nhịp. Ngược lại Parquet duyệt xong mã hoá số thực ALP với 11 phiếu thuận, còn Iceberg Rust ra bản 0.10.1 RC1 chạy qua 1.839 test.\n\n4️⃣ Tiền vẫn đổ vào đường ống dữ liệu\ngroundcover gọi 100 triệu đô Series C (29/7), tổng vốn lên 160 triệu, sau một năm doanh thu định kỳ tăng gấp ba. DataBahn gọi 40 triệu đô Series B (30/7) cho nền tảng gom telemetry từ hơn 600 nguồn. Hai tin, một luận điểm: chỗ nghẽn của AI doanh nghiệp không ở mô hình, mà ở lớp dữ liệu vận hành.\n\n5️⃣ Helical Insight mở toàn bộ tính năng enterprise (30/7)\nBản open source giờ có đủ SSO, row-level security, multi-tenancy, embedded analytics, conversational analytics cắm LLM của bạn. Họ chuyển sang bán support thay vì bán tính năng.\n\n💭 Góc nhìn của mình về tuần này\nTheo mình, cái đáng nhớ nhất tuần này không phải sản phẩm nào cả, mà là một sự thừa nhận: Snowflake chấp nhận rằng agent do đội kỹ thuật tự cắm vào sẽ vào kho dữ liệu bất kể chính sách nói gì, nên tốt hơn hết là dựng cổng chứ đừng dựng tường. Giống hệt bài học thời BYOD điện thoại cá nhân cách đây mười năm.\n\nMình vừa học và thi chứng chỉ Databricks, làm thực hành RAG trên nền lakehouse với Unity Catalog và vector search, nên càng thấy rõ điều này. Khi data và AI về chung một nền, thứ quyết định thành bại không phải mô hình mạnh tới đâu, mà là bạn có kiểm soát được ai đọc gì, tốn bao nhiêu hay không. Rất nhiều doanh nghiệp hiện nay không trả lời nổi câu hỏi đơn giản: tháng này AI tiêu bao nhiêu tiền, ai tiêu, tiêu vào việc gì.\n\nTin này tốt hay xấu thì tuỳ góc nhìn. Với doanh nghiệp lớn có nhiều đội tự triển khai AI, đây là thứ họ cần gấp. Với team data nhỏ chạy đúng một agent, đó là lớp phức tạp thừa, đừng vội mua.\n\nNên làm gì ngay tuần này, kể cả khi bạn không dùng Snowflake: ngồi liệt kê xem tổ chức mình đang có bao nhiêu agent, chạy bằng credential của ai, đọc được những bảng nào. Mình cá là con số sẽ làm bạn giật mình. Không nên làm: mua thêm một công cụ quản trị nữa khi chưa có danh sách đó, vì bạn sẽ chỉ mua thêm một chỗ để bối rối.\n\nAI không thay người giỏi, nó khuếch đại người biết thiết kế ranh giới rõ ràng. Tuần này ngành vừa nhắc lại đúng điều đó.\n\nGhé AI News và Data News để đọc đầy đủ 20 tin của tuần, và subscribe để nhận bản tin hằng tuần nhé.\n\n#Data #DataEngineering #DataAnalytics #Lakehouse #Snowflake #Databricks #MicrosoftFabric #ApacheIceberg #Parquet #BI #AIAgent #DataGovernance #Observability #DataNews #DucNguyenAI",
+  "bgm": "minimal-tech"
+}
