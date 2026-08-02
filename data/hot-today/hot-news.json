@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-08-02",
+      "display_date": "02/08/2026",
+      "title": "DuckDB đọc bất đồng bộ, truy vấn S3 nhanh gấp 20 lần",
+      "summary": "Cùng một truy vấn, cùng một cỗ máy, chỉ đổi cách đọc tệp: tám trăm bảy mươi tám giây rơi xuống bốn mươi lăm giây.",
+      "source": "duckdb.org",
+      "video_id": "jPRUbmNwZe0",
+      "short_id": "qmWAhftT7fw",
+      "published_at": "2026-08-02T21:15:11"
+    },
+    {
       "date": "2026-07-31",
       "display_date": "31/07/2026",
       "title": "Nscale chi 1,65 tỷ đô mua Anyscale, chủ nhân của Ray",
