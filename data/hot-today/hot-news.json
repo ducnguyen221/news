@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-08-04",
+      "display_date": "04/08/2026",
+      "title": "Andy Pavlo đầu quân ClickHouse, lập phòng lab nghiên cứu database",
+      "summary": "Ngày 3 tháng 8, Andy Pavlo — người thầy database của cả một thế hệ kỹ sư — về ClickHouse lập phòng lab nghiên cứu riêng.",
+      "source": "clickhouse.com",
+      "video_id": "3xGXltbG_r8",
+      "short_id": "O_7VKS_HO2Y",
+      "published_at": "2026-08-04T19:31:28"
+    },
+    {
       "date": "2026-08-02",
       "display_date": "02/08/2026",
       "title": "DuckDB đọc bất đồng bộ, truy vấn S3 nhanh gấp 20 lần",
