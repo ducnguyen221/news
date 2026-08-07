@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI News – Tuần W32 (03/08 - 09/08/2026)</title>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="description" content="Bản tin AI tuần W32/2026: Meta ra Muse Code, AI thiết kế virus sống, Alphabet đảo lộn thượng tầng AI, ByteDance train model 10 nghìn tỷ tham số.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI News – Tuần W32: Meta vào cuộc chiến coding agent, Google mất người, AI thiết kế virus sống">
+<meta property="og:description" content="Tuần 32 là tuần của những cú xáo trộn lớn: Meta ra Muse Spark 1.2 và Muse Code, Alphabet thay thượng tầng AI, ByteDance train model 10 nghìn tỷ tham số, còn AI lần đầu thiết kế được bộ gene virus sống.">
+<meta property="og:image" content="https://ducnguyen.vn/news/ai/assets/og-banner.png">
+<meta property="og:url" content="https://ducnguyen.vn/news/ai/2026/08/w32.html">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;padding:0 16px 60px;background:#04060a;color:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.65;font-size:16px}
+.wrap{max-width:980px;margin:0 auto}
+a{color:#00f0ff}
+
+/* ---------- HEADER ---------- */
+.hdr{position:sticky;top:8px;z-index:60;background:rgba(6,9,16,.92);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:12px;margin:10px 0 4px;padding:12px 16px}
+.hdr-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:#f8fafc}
+.brand-mark{width:42px;height:42px;display:grid;place-items:center;flex:0 0 auto;border:1px solid rgba(0,240,255,.4);border-radius:50%;background:radial-gradient(circle,rgba(0,240,255,.22),rgba(189,0,255,.06) 55%,rgba(4,6,10,.95) 78%);box-shadow:0 0 18px rgba(0,240,255,.35);animation:brandPulse 3.2s ease-in-out infinite;transition:transform .45s cubic-bezier(.175,.885,.32,1.275)}
+.brand:hover .brand-mark{transform:rotate(180deg) scale(1.06);border-color:#00f0ff}
+@keyframes brandPulse{0%,100%{box-shadow:0 0 10px rgba(0,240,255,.22)}50%{box-shadow:0 0 26px rgba(0,240,255,.55)}}
+.brand-name{font-size:1.18rem;font-weight:700;letter-spacing:.4px}
+.brand-name b{color:#00f0ff}
+.brand-sub{display:inline;color:#94a3b8;font-size:.78rem;margin-left:4px}
+.hdr-row2{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-top:8px;position:relative}
+.hdr-row2 .toc{flex:1 1 auto}
+.vdiv{width:1px;height:22px;background:rgba(255,255,255,.16)}
+.toc{display:flex;gap:7px;flex-wrap:wrap}
+.toc a{display:inline-block;padding:5px 11px;border:1px solid rgba(255,255,255,.12);border-radius:999px;color:#cbd5e1;text-decoration:none;font-size:.79rem;background:rgba(12,18,30,.75)}
+.toc a:hover{border-color:rgba(0,240,255,.5);color:#00f0ff;background:rgba(0,240,255,.08)}
+.hdr-ctrls{display:flex;align-items:center;gap:8px;flex-wrap:nowrap}
+.ctrl{display:inline-flex;align-items:center;justify-content:center;gap:2px;padding:8px 14px;border:1px solid rgba(255,255,255,.14);border-radius:9px;background:rgba(12,18,30,.9);color:#e2e8f0;font-size:.82rem;font-weight:600;cursor:pointer;text-decoration:none;font-family:inherit}
+.ctrl:hover{border-color:rgba(0,240,255,.5);color:#00f0ff}
+.ctrl-acc{background:linear-gradient(90deg,#00f0ff,#39ff7a);color:#04060a;border-color:transparent}
+.ctrl-acc:hover{color:#04060a;filter:brightness(1.08)}
+.ctrl-ic{width:38px;height:36px;padding:0;flex:0 0 38px}
+.navpop-btn{display:none}
+.navpop{display:none}
+.navpop-t:checked ~ .navpop{display:flex;flex-direction:column;gap:2px;position:absolute;top:calc(100% + 10px);left:0;right:0;z-index:80;background:rgba(8,12,20,.98);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:8px;backdrop-filter:blur(16px)}
+.navpop a{padding:11px 14px;border-radius:8px;color:#cbd5e1;text-decoration:none;font-size:.9rem}
+.navpop a:hover{background:rgba(0,240,255,.1);color:#00f0ff}
+.navpop-t:checked ~ .hdr-ctrls .navpop-btn{color:#04060a;background:linear-gradient(90deg,#00f0ff,#39ff7a);border-color:transparent}
+
+/* ---------- RECAP VIDEO ---------- */
+#recap{scroll-margin-top:120px}
+.hot-video{margin-top:26px}
+.hot-video .hot-label{font-weight:700;margin-bottom:12px}
+.hot-video video,.hot-video iframe{width:100%;border-radius:12px;display:block}
+.vid-links{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.vbtn{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border:1px solid rgba(0,240,255,.35);border-radius:9px;color:#00f0ff;text-decoration:none;font-size:.88rem;font-weight:600;background:rgba(0,240,255,.07)}
+.vbtn:hover{background:rgba(0,240,255,.16)}
+
+/* ---------- TLDR + TIMELINE ---------- */
+.tldr{margin:26px 0 0;padding:18px 20px;background:rgba(10,15,26,.95);border:1px solid rgba(0,240,255,.22);border-left:3px solid #00f0ff;border-radius:12px}
+.tldr h2{margin:0 0 8px;font-size:1.02rem;color:#00f0ff;letter-spacing:.3px}
+.tldr p{margin:0;color:#dbe4ef;font-size:.95rem}
+.timeline{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 0}
+.tl-chip{display:flex;flex-direction:column;align-items:center;gap:1px;min-width:74px;padding:8px 10px;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:rgba(10,15,26,.95)}
+.tl-chip .d{font-size:.72rem;color:#94a3b8;letter-spacing:.3px}
+.tl-chip .n{font-size:1.05rem;font-weight:700;color:#00f0ff}
+.tl-chip.zero{opacity:.34}
+.tl-chip.zero .n{color:#94a3b8}
+
+/* ---------- SECTIONS + CARDS ---------- */
+.sec{margin-top:38px;scroll-margin-top:120px}
+.sec h2{font-size:1.24rem;margin:0 0 16px;padding-bottom:9px;border-bottom:1px solid rgba(255,255,255,.09);letter-spacing:.2px}
+.card{display:flex;gap:15px;padding:16px;margin-bottom:14px;background:rgba(10,15,26,.93);border:1px solid rgba(255,255,255,.08);border-radius:12px}
+.card[data-hot="1"]{border-color:rgba(0,240,255,.4);box-shadow:0 0 24px rgba(0,240,255,.11)}
+.thumb{width:96px;height:72px;flex:0 0 96px;object-fit:cover;border-radius:9px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07)}
+.thumb-fallback{object-fit:contain;padding:16px;background:rgba(255,255,255,.05)}
+.body{flex:1 1 auto;min-width:0}
+.rank{display:inline-block;margin-bottom:7px;padding:3px 10px;border-radius:999px;font-size:.7rem;font-weight:800;letter-spacing:.6px;color:#04060a;background:linear-gradient(90deg,#00f0ff,#bd00ff)}
+.title{display:block;font-size:1.04rem;font-weight:700;color:#f8fafc;text-decoration:none;line-height:1.42}
+.title:hover{color:#00f0ff}
+.sum{margin:8px 0 0;color:#cbd5e1;font-size:.92rem}
+.why{margin:8px 0 0;color:#a9b6c7;font-size:.88rem;padding-left:2px}
+.meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:11px}
+.when{font-size:.76rem;color:#94a3b8}
+.metabtn,.readbtn{display:inline-flex;align-items:center;gap:4px;padding:5px 11px;border:1px solid rgba(255,255,255,.13);border-radius:8px;background:rgba(12,18,30,.9);color:#cbd5e1;font-size:.76rem;text-decoration:none;cursor:pointer;font-family:inherit}
+.metabtn:hover,.readbtn:hover{border-color:rgba(0,240,255,.45);color:#00f0ff}
+.xt:checked ~ .meta .xbtn{background:rgba(0,240,255,.16);border-color:rgba(0,240,255,.55);color:#00f0ff}
+.more{display:none}
+.xt:checked ~ .more{display:block;margin-top:14px;border-top:1px dashed rgba(255,255,255,.12);padding-top:14px}
+.kb{margin:0;padding:0;list-style:none}
+.kb li{position:relative;padding-left:18px;margin-bottom:6px;font-size:.88rem;color:#cbd5e1}
+.kb li::before{content:"▸";position:absolute;left:0;color:#00f0ff}
+.facts{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0 0}
+.fact{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border:1px solid rgba(189,0,255,.28);border-radius:7px;background:rgba(189,0,255,.08);font-size:.74rem;color:#e2e8f0;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.fact b{color:#bd00ff;font-weight:700;letter-spacing:.4px}
+.deep{margin:12px 0 0;font-size:.88rem;color:#a9b6c7;line-height:1.68}
+
+/* ---------- FOOTER ---------- */
+.ft{margin-top:44px;padding:18px 20px;background:rgba(10,15,26,.93);border:1px solid rgba(255,255,255,.08);border-radius:12px;font-size:.82rem;color:#94a3b8;text-align:center}
+.ft b{color:#e2e8f0}
+
+@media(max-width:767px){
+  body{padding:0 11px 46px;font-size:15px}
+  .hdr{padding:10px 12px}
+  .brand-mark{width:36px;height:36px}
+  .brand-name{font-size:1.04rem}
+  .brand-sub{font-size:.71rem}
+  .hdr-row2 .toc,.vdiv{display:none}
+  .hdr-ctrls{width:100%;gap:6px;flex-wrap:nowrap}
+  .hdr-ctrls .ctrl{flex:1 1 auto;font-size:.78rem;padding:8px 6px;text-align:center}
+  .navpop-btn{display:grid;place-items:center}
+  .hdr-ctrls .ctrl-ic{flex:0 0 38px;width:38px;height:36px;padding:0}
+  .card{gap:12px;padding:13px}
+  .thumb{width:74px;height:58px;flex:0 0 74px}
+  .title{font-size:.98rem}
+  .vid-links .vbtn{flex:1 1 auto;justify-content:center}
+  .tl-chip{min-width:62px;padding:7px 8px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hdr" id="top">
+  <div class="hdr-row">
+    <a class="brand" href="../../index.html" title="Về trang chính AI News"><span class="brand-mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f0ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h12v14H6a2 2 0 0 1-2-2z"/><path d="M16 8h2.5a1.5 1.5 0 0 1 1.5 1.5V17a2 2 0 0 1-2 2"/><path d="M7 9h6M7 12.5h6M7 16h4"/></svg></span><span class="brand-name">AI <b>News</b></span><span class="brand-sub">Tuần W32 · 03/08 - 09/08/2026</span></a>
+  </div>
+  <div class="hdr-row2">
+    <input type="checkbox" id="navpop" class="navpop-t" hidden>
+    <nav class="toc">
+      <a href="#recap">🎬 Recap</a>
+      <a href="#sec-1">🚀 Mô hình</a>
+      <a href="#sec-2">🛠️ Công cụ</a>
+      <a href="#sec-3">🔬 Nghiên cứu</a>
+      <a href="#sec-4">📈 Trend</a>
+      <a href="#sec-5">🏢 Ngành</a>
+    </nav>
+    <span class="vdiv"></span>
+    <div class="hdr-ctrls">
+      <button id="readAll" class="ctrl ctrl-acc">🔊<span class="btxt"> Đọc tóm tắt</span></button>
+      <button id="readStop" class="ctrl">⏹<span class="btxt"> Dừng</span></button>
+      <label class="ctrl ctrl-ic navpop-btn" for="navpop" title="Mục lục">☰</label>
+      <a class="ctrl ctrl-ic" href="../../index.html" title="Quay lại AI News">←</a>
+    </div>
+    <div class="navpop">
+      <a href="#recap" onclick="document.getElementById('navpop').checked=false">🎬 Recap</a>
+      <a href="#sec-1" onclick="document.getElementById('navpop').checked=false">🚀 Mô hình &amp; Sản phẩm mới</a>
+      <a href="#sec-2" onclick="document.getElementById('navpop').checked=false">🛠️ Công cụ &amp; Framework</a>
+      <a href="#sec-3" onclick="document.getElementById('navpop').checked=false">🔬 Nghiên cứu &amp; Kỹ thuật mới</a>
+      <a href="#sec-4" onclick="document.getElementById('navpop').checked=false">📈 Hot trend &amp; Thảo luận</a>
+      <a href="#sec-5" onclick="document.getElementById('navpop').checked=false">🏢 Ngành &amp; Kinh doanh</a>
+    </div>
+  </div>
+</header>
+
+<div id="recap"></div>
+<div class="hot-video"><div class="hot-label">🎬 Video recap tuần — các tin nóng nhất</div><div style="position:relative;width:100%;padding-top:56.25%;border-radius:12px;overflow:hidden"><iframe src="https://www.youtube.com/embed/FSUSBFbwoDg" title="AI News recap" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><div class="vid-links"><a class="vbtn" href="https://youtu.be/FSUSBFbwoDg" target="_blank" rel="noopener">▶ Mở Youtube</a><a class="vbtn" href="https://www.youtube.com/shorts/vnUgf8fupCQ" target="_blank" rel="noopener">📱 Youtube Short</a></div></div>
+
+<div class="tldr">
+  <h2>📌 Tổng quan tuần này</h2>
+  <p>Tuần 32 là tuần của những cú xáo trộn lớn. Meta chính thức nhảy vào cuộc chiến coding agent với Muse Spark 1.2 và Muse Code, còn Alphabet thì đảo lộn cả thượng tầng AI khi Demis Hassabis rời vai trò quản lý và Jeff Dean dẫn theo ba kỹ sư kỳ cựu ra lập neolab riêng. Ở Trung Quốc, ByteDance bị lộ đang pre-train một model lên tới mười nghìn tỷ tham số, lớn gấp hơn ba lần Kimi K3. Giới khoa học ghi một cột mốc thật sự khi Stanford và Arc Institute dùng model ngôn ngữ bộ gene thiết kế virus mới hoàn toàn, mười sáu con trong số đó sống và diệt được vi khuẩn E. coli. Bù lại, báo cáo của SaferAI cảnh báo model mở đã gần bắt kịp frontier về năng lực nguy hiểm nhưng lại gần như không còn lớp an toàn nào, và Black Hat năm nay dành gần ba mươi phần trăm số bài nói cho việc khai thác chính các AI agent.</p>
+</div>
+
+<div class="timeline">
+  <div class="tl-chip"><span class="d">T2 03/08</span><span class="n">1</span></div>
+  <div class="tl-chip"><span class="d">T3 04/08</span><span class="n">3</span></div>
+  <div class="tl-chip"><span class="d">T4 05/08</span><span class="n">6</span></div>
+  <div class="tl-chip"><span class="d">T5 06/08</span><span class="n">8</span></div>
+  <div class="tl-chip"><span class="d">T6 07/08</span><span class="n">4</span></div>
+  <div class="tl-chip zero"><span class="d">T7 08/08</span><span class="n">0</span></div>
+  <div class="tl-chip zero"><span class="d">CN 09/08</span><span class="n">0</span></div>
+</div>
+
+<!-- ================= SECTION 1 ================= -->
+<section class="sec" id="sec-1">
+<h2>🚀 Mô hình &amp; Sản phẩm mới</h2>
+
+<article class="card" data-aid="1">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=releasebot.io&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-1" class="xt" hidden>
+    <a class="title" href="https://releasebot.io/updates/anthropic" target="_blank" rel="noopener">Anthropic nới safeguard sinh học cho Fable 5, giảm 85% cảnh báo nhầm</a>
+    <p class="sum">Anthropic tinh chỉnh lại bộ classifier an toàn sinh học của Claude Fable 5, cắt khoảng 85% số lần chặn nhầm. Người dùng hỏi về sinh học, sức khỏe và giáo dục thông thường sẽ ít bị đẩy xuống model yếu hơn, trong khi các yêu cầu lưỡng dụng về sinh học chuyên sâu và phát triển thuốc vẫn bị chặn.</p>
+    <p class="why">💡 Đây là ví dụ hiếm hoi về việc một lab công bố con số cụ thể cho bài toán cân bằng giữa an toàn và tính hữu dụng. False positive quá cao là lý do lớn nhất khiến người dùng bỏ model trong các ngành y tế, giáo dục.</p>
+    <div class="meta">
+      <span class="when">📅 07/08</span>
+      <a class="metabtn" href="https://releasebot.io/updates/anthropic" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-1">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="1">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Classifier sinh học của Fable 5 giảm khoảng 85% false positive.</li>
+        <li>Câu hỏi sức khỏe, giáo dục thông thường không còn bị hạ xuống model yếu.</li>
+        <li>Yêu cầu lưỡng dụng về sinh học chuyên sâu và phát triển thuốc vẫn bị chặn.</li>
+        <li>Cùng tuần Anthropic mở beta quét bảo mật skill và plugin bên thứ ba.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>GIẢM</b>~85% false positive</span>
+        <span class="fact"><b>MODEL</b>Claude Fable 5</span>
+        <span class="fact"><b>NGÀY</b>07/08/2026</span>
+        <span class="fact"><b>VẪN CHẶN</b>tác vụ lưỡng dụng</span>
+      </div>
+      <p class="deep">Đây là con số đáng chú ý vì hiếm lab nào dám công bố. False positive trong safety classifier là thứ giết chết trải nghiệm nhanh nhất: người dùng hỏi một câu sinh học phổ thông, model từ chối hoặc bị hạ cấp, và họ bỏ đi luôn. Với các ngành y tế, dược, giáo dục ở Việt Nam, đây từng là rào cản thật khi triển khai. Điểm cần hiểu là Anthropic không nới an toàn mà làm classifier chính xác hơn: ranh giới lưỡng dụng vẫn giữ nguyên. Bài học cho ai đang tự dựng lớp guardrail: đừng chỉ đo tỉ lệ chặn được, phải đo cả tỉ lệ chặn nhầm. Một guardrail chặn 100% nhưng làm hỏng 30% câu hỏi hợp lệ thì thực chất là guardrail hỏng. Nếu bạn đang xây chatbot nội bộ cho bệnh viện hay trường học, hãy lấy đây làm chuẩn để đàm phán yêu cầu với bên bảo mật.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="2">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://images.macrumors.com/t/TlCrSEYb_apobE302EvwVHP-JSc=/2763x/article-new/2026/05/OpenAI-vs-Apple-Feature.jpg" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=macrumors.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-2" class="xt" hidden>
+    <a class="title" href="https://www.macrumors.com/2026/08/06/openai-chatgpt-speaker/" target="_blank" rel="noopener">OpenAI hé lộ thiết bị đầu tay: loa thông minh cỡ cục hockey, giá trên 300 USD</a>
+    <p class="sum">Thiết bị phần cứng đầu tiên của OpenAI là một loa thông minh hình bánh donut, không màn hình, cỡ bằng cục hockey, có bộ phận chuyển động để tạo cảm giác có tính cách, kèm camera và cảm biến đọc môi trường xung quanh. Giá dự kiến khoảng 300 đến 400 USD.</p>
+    <p class="why">💡 OpenAI xác nhận thiết bị sẽ không đến tay khách trước cuối tháng 2 năm 2027, tức là cuộc đua phần cứng AI vẫn còn hơn một năm nữa mới thật sự bắt đầu. Camera luôn bật trong phòng khách cũng sẽ là chủ đề tranh cãi lớn về quyền riêng tư.</p>
+    <div class="meta">
+      <span class="when">📅 06/08</span>
+      <a class="metabtn" href="https://www.macrumors.com/2026/08/06/openai-chatgpt-speaker/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-2">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="2">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Hình donut, cỡ cục hockey, không màn hình, cầm được bằng một tay.</li>
+        <li>Có bộ phận chuyển động để thiết bị mang cảm giác có tính cách.</li>
+        <li>Camera và cảm biến thu thập thông tin môi trường xung quanh.</li>
+        <li>Chạy pin, di chuyển được giữa các phòng, vỏ kim loại cao cấp.</li>
+        <li>Không giao hàng trước cuối tháng 2 năm 2027.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>GIÁ</b>300-400 USD</span>
+        <span class="fact"><b>SHIP</b>sau 02/2027</span>
+        <span class="fact"><b>MÀN HÌNH</b>không có</span>
+        <span class="fact"><b>THIẾT KẾ</b>Jony Ive</span>
+      </div>
+      <p class="deep">Điểm đáng bàn không phải hình dáng mà là mốc thời gian. OpenAI tự xác nhận thiết bị không ship trước cuối tháng 2 năm 2027, nghĩa là toàn bộ câu chuyện phần cứng AI vẫn còn hơn một năm nữa mới có sản phẩm thật để đánh giá. Mọi so sánh với HomePod hay Echo lúc này đều là suy đoán. Thứ hai, camera cộng cảm biến môi trường trong phòng khách là một quyết định sản phẩm rất nặng. Ở Mỹ nó đã gây tranh cãi; ở châu Âu với GDPR nó sẽ khó hơn nữa. Với người dùng Việt, món này gần như chắc chắn không có bản chính hãng trong năm 2027, và một thiết bị luôn nghe luôn nhìn mà dữ liệu chạy về server nước ngoài là thứ nên cân nhắc kỹ. Góc nhìn thực dụng: đừng lên kế hoạch gì dựa trên thiết bị này, nhưng hãy để ý xu hướng mà nó đại diện, đó là AI rời khỏi màn hình để bước vào không gian sống.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="3">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=openai.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-3" class="xt" hidden>
+    <a class="title" href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener">OpenAI nâng GPT-5.6 Sol, đưa Luna thành model mặc định cho bản miễn phí</a>
+    <p class="sum">OpenAI tung bản GPT-5.6 Sol cập nhật với câu trả lời tập trung hơn và độ chính xác dữ kiện tốt hơn, kèm một thanh trượt cho phép người dùng chọn mức độ suy nghĩ của model. Song song, GPT-5.6 Luna trở thành model mặc định cho tài khoản Free và Go, thêm nút Think cho câu hỏi khó.</p>
+    <p class="why">💡 Việc đẩy model reasoning xuống tận bản miễn phí là tín hiệu rõ ràng rằng chi phí inference đã giảm đủ sâu. Người dùng Việt dùng bản free giờ có công cụ mạnh hơn hẳn mà không phải trả phí.</p>
+    <div class="meta">
+      <span class="when">📅 06/08</span>
+      <a class="metabtn" href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-3">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="3">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>GPT-5.6 Sol bản mới: dữ kiện đáng tin hơn, câu trả lời tập trung hơn.</li>
+        <li>Thanh trượt cho phép chọn mức độ suy nghĩ của model theo từng câu hỏi.</li>
+        <li>GPT-5.6 Luna thành mặc định cho tài khoản Free và Go.</li>
+        <li>Người dùng miễn phí có chat văn bản không giới hạn và nút Think.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>MẶC ĐỊNH FREE</b>GPT-5.6 Luna</span>
+        <span class="fact"><b>MỚI</b>nút Think</span>
+        <span class="fact"><b>PLUS/PRO</b>GPT-5.6 Sol bản mới</span>
+        <span class="fact"><b>NGÀY</b>06/08/2026</span>
+      </div>
+      <p class="deep">Chi tiết quan trọng nhất bị chôn ở cuối: chat văn bản không giới hạn cho tài khoản miễn phí. Đó là quyết định kinh tế, không phải quyết định sản phẩm. OpenAI chỉ làm được điều này khi giá inference của Luna đã rẻ tới mức chi phí biên gần bằng không. Với thị trường Việt Nam, nơi tỉ lệ chuyển đổi sang gói trả phí thấp, đây là thay đổi lớn hơn bất kỳ điểm benchmark nào: học sinh, sinh viên, nhân viên văn phòng giờ có model reasoning miễn phí. Thanh trượt chọn mức suy nghĩ cũng đáng chú ý vì nó thừa nhận một điều mà dân kỹ thuật đã biết: không phải câu hỏi nào cũng cần reasoning sâu, và ép model nghĩ nhiều cho câu dễ chỉ làm chậm và tốn. Nếu bạn đang gọi API, hãy áp đúng logic đó vào code của mình: định tuyến câu hỏi đơn giản sang model rẻ, chỉ đẩy lên tier cao khi thật sự cần. Đó là chỗ tiết kiệm chi phí lớn nhất mà đa số team bỏ quên.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="4">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=releasebot.io&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-4" class="xt" hidden>
+    <a class="title" href="https://releasebot.io/updates/anthropic/claude-code" target="_blank" rel="noopener">Claude Code chạy được trên hạ tầng riêng của doanh nghiệp</a>
+    <p class="sum">Anthropic mở public beta self-hosted environments cho Claude Code, cho phép phiên làm việc chạy ngay trong mạng nội bộ của doanh nghiệp, cạnh service, toolchain và lớp kiểm soát bảo mật của họ thay vì trên hạ tầng Anthropic. Bản 2.1.224 kèm theo cross-session messaging và quét bảo mật skill, plugin bên thứ ba.</p>
+    <p class="why">💡 Đây chính là rào cản lớn nhất khiến ngân hàng, bảo hiểm và khối nhà nước ở Việt Nam chưa dám đưa coding agent vào quy trình thật. Code không rời khỏi mạng nội bộ là điều kiện tiên quyết để qua được vòng compliance.</p>
+    <div class="meta">
+      <span class="when">📅 06/08</span>
+      <a class="metabtn" href="https://releasebot.io/updates/anthropic/claude-code" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-4">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="4">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Public beta: phiên Claude Code chạy trong mạng nội bộ doanh nghiệp.</li>
+        <li>Chỉ áp dụng cho gói Team và Enterprise.</li>
+        <li>Bản 2.1.224 thêm cross-session messaging giữa các phiên.</li>
+        <li>Quét bảo mật tự động cho skill và plugin bên thứ ba khi upload.</li>
+        <li>Cải thiện che giấu credential trong sandbox trên Linux, macOS, VS Code.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>GÓI</b>Team &amp; Enterprise</span>
+        <span class="fact"><b>PHIÊN BẢN</b>2.1.224</span>
+        <span class="fact"><b>TRẠNG THÁI</b>public beta</span>
+        <span class="fact"><b>NGÀY</b>06/08/2026</span>
+      </div>
+      <p class="deep">Đây là tin quan trọng nhất tuần với ai làm tư vấn triển khai cho doanh nghiệp lớn ở Việt Nam. Trong mọi cuộc họp về coding agent với ngân hàng, bảo hiểm hay khối công, câu hỏi chặn deal luôn giống nhau: code của chúng tôi có rời khỏi hệ thống không. Tới giờ câu trả lời trung thực là có, và cuộc nói chuyện dừng ở đó. Self-hosted environment gỡ đúng nút thắt này. Cần nói rõ để không hiểu nhầm: model vẫn chạy ở phía Anthropic, thứ chạy nội bộ là môi trường thực thi phiên làm việc, tức nơi agent đọc file, chạy lệnh, truy cập service. Với phần lớn yêu cầu compliance, đó đã đủ, vì thứ nhạy cảm nhất thường là quyền truy cập hệ thống nội bộ chứ không phải đoạn text gửi đi. Việc thêm quét bảo mật cho skill và plugin bên thứ ba cũng đúng lúc, ngay tuần Black Hat công bố hàng loạt lỗ hổng trong agent framework. Khuyến nghị: nếu bạn từng bị từ chối vì lý do dữ liệu, mang tin này quay lại bàn đàm phán trong tháng này.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-hot="1" data-aid="5">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=venturebeat.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-5" class="xt" hidden>
+    <span class="rank">🔥 TOP 1 TUẦN NÀY</span>
+    <a class="title" href="https://venturebeat.com/orchestration/meta-enters-the-ai-coding-wars-with-muse-spark-1-2-and-muse-code-with-persistent-async-background-agents" target="_blank" rel="noopener">Meta nhảy vào cuộc chiến coding agent với Muse Spark 1.2 và Muse Code</a>
+    <p class="sum">Meta Superintelligence Labs ra Muse Spark 1.2, bản nâng cấp tập trung vào sinh code, debug và hiểu codebase lớn, cùng Muse Code, một terminal coding agent chạy beta trên macOS và Linux có khả năng nhận trọn tác vụ kỹ thuật phần mềm từ lập kế hoạch tới kiểm chứng kết quả. Giá chuẩn là 1,25 USD mỗi triệu token input và 4,25 USD output, kèm một contributor tier chỉ 0,10 và 0,20 USD nếu người dùng cho phép Meta dùng dữ liệu của mình.</p>
+    <p class="why">💡 Meta là ông lớn cuối cùng bước vào mảng coding agent, và họ chọn đánh bằng giá. Mức contributor tier rẻ hơn hơn mười lần sẽ ép cả thị trường phải nhìn lại bảng giá, nhưng cái giá thật là dữ liệu code của bạn.</p>
+    <div class="meta">
+      <span class="when">📅 05/08</span>
+      <a class="metabtn" href="https://venturebeat.com/orchestration/meta-enters-the-ai-coding-wars-with-muse-spark-1-2-and-muse-code-with-persistent-async-background-agents" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-5">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="5">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Muse Spark 1.2 nâng cấp từ Muse Spark 1.1 ra hồi tháng 7.</li>
+        <li>Muse Code là terminal agent, beta cho macOS và Linux, có agent chạy nền.</li>
+        <li>Hơn 1.000 lượt gọi tool trong bài test tối ưu GPU kéo dài 24 giờ.</li>
+        <li>Meta so trực tiếp với Opus 5, GPT-5.6 Terra, Gemini 3.6 Flash, Grok 4.5.</li>
+        <li>Contributor tier rẻ hơn hơn 10 lần, đổi bằng quyền dùng dữ liệu người dùng.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>GIÁ CHUẨN</b>1,25 / 4,25 USD</span>
+        <span class="fact"><b>CONTRIBUTOR</b>0,10 / 0,20 USD</span>
+        <span class="fact"><b>NỀN TẢNG</b>macOS, Linux (beta)</span>
+        <span class="fact"><b>TOOL CALL</b>1.000+ trong 24h</span>
+        <span class="fact"><b>NGÀY</b>05/08/2026</span>
+      </div>
+      <p class="deep">Cái mới ở đây không phải là Meta có coding agent, vì ai cũng có rồi. Cái mới là bảng giá. Lần đầu một ông lớn niêm yết công khai giá của dữ liệu bạn, và niêm yết ở mức chênh hơn mười lần: 1,25 và 4,25 USD nếu bạn giữ dữ liệu, 0,10 và 0,20 USD nếu bạn cho Meta dùng. Bản chất là chuyển từ bán sản phẩm sang mua dữ liệu, chỉ khác là gói trong một dòng pricing. Tốt hay xấu tùy bạn đứng ở đâu. Dev tự học, startup nhỏ, lớp học code thì contributor tier là món hời thật, không có gì phải chê. Nhưng doanh nghiệp coi codebase là tài sản, hoặc team làm dự án cho khách hàng, thì đây là đường một chiều: dữ liệu đã đi ra thì không kéo về được, và điều khoản hợp đồng với khách gần như chắc chắn cấm. Con số 1.000 lượt gọi tool trong 24 giờ cũng đáng chú ý, vì nó cho thấy hướng thiết kế là agent chạy dài và tự chủ, chứ không phải autocomplete. Khuyến nghị rõ: thử Muse Code trên dự án cá nhân thì được, nhưng đừng bật contributor tier trên repo công ty khi chưa hỏi pháp chế.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<!-- ================= SECTION 2 ================= -->
+<section class="sec" id="sec-2">
+<h2>🛠️ Công cụ &amp; Framework</h2>
+
+<article class="card" data-aid="6">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=releasebot.io&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-6" class="xt" hidden>
+    <a class="title" href="https://releasebot.io/updates/openai" target="_blank" rel="noopener">Codex 0.147.0: Agent Plugins di động và hỗ trợ spec MCP mới</a>
+    <p class="sum">Bản Codex 0.147.0 giới thiệu Agent Plugins có thể mang đi giữa các môi trường, phần hội thoại được giữ bền, hỗ trợ spec MCP 2026-07-28, thêm cờ CLI approve-for-me để tự động duyệt các thao tác đã được review, và bổ sung lớp che giấu secret.</p>
+    <p class="why">💡 Plugin di động là bước đi để agent không còn bị khóa vào một máy hay một repo. Với team dev Việt Nam, đây là cách chuẩn hóa quy trình agent giữa nhiều dự án mà không phải cấu hình lại từ đầu.</p>
+    <div class="meta">
+      <span class="when">📅 07/08</span>
+      <a class="metabtn" href="https://releasebot.io/updates/openai" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-6">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="6">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Agent Plugins mang theo được giữa các môi trường khác nhau.</li>
+        <li>Hỗ trợ spec MCP 2026-07-28, phiên bản stateless mới nhất.</li>
+        <li>Cờ CLI approve-for-me tự duyệt thao tác đã qua review.</li>
+        <li>Bổ sung lớp che giấu secret trong output.</li>
+        <li>Bản 0.146.1 trước đó siết mặc định auto-review cho model có năng lực mạng.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>PHIÊN BẢN</b>0.147.0</span>
+        <span class="fact"><b>MCP</b>spec 2026-07-28</span>
+        <span class="fact"><b>CỜ MỚI</b>--approve-for-me</span>
+        <span class="fact"><b>NGÀY</b>07/08/2026</span>
+      </div>
+      <p class="deep">Hai chi tiết đáng để ý. Thứ nhất, Agent Plugins di động là lời thừa nhận rằng cấu hình agent đang trở thành tài sản của team chứ không phải của máy. Nếu bạn đang chép tay file cấu hình giữa các repo thì đây là lúc chuẩn hóa lại. Thứ hai, cờ approve-for-me là con dao hai lưỡi thật sự. Nó giải quyết nỗi khổ có thật là phải bấm duyệt hàng chục lần trong một phiên dài, nhưng nó cũng chính là lớp bảo vệ cuối cùng giữa agent và hệ thống của bạn. Đọc tin này cùng phần Black Hat trong bản tin sẽ thấy rõ vấn đề: tuần này người ta công bố lỗ hổng cho phép một prompt chạy mã trên máy chủ agent. Khuyến nghị thẳng: bật approve-for-me trong môi trường dev cá nhân thì được, nhưng đừng bật trên máy có credential production. Việc thêm che giấu secret cho thấy chính OpenAI cũng biết agent hay vô tình in token ra log.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="7">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://cdn.neonapi.io/public/images/pages/blog/how-castform-neon-beats-frontier-models-on-price-and-efficiency/cover.jpg" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=neon.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-7" class="xt" hidden>
+    <a class="title" href="https://neon.com/blog/how-castform-neon-beats-frontier-models-on-price-and-efficiency" target="_blank" rel="noopener">Castform và Neon: model mở 4B đuổi kịp GPT-5.6 Sol ở retrieval, rẻ hơn 100 lần</a>
+    <p class="sum">Neon công bố kết quả dùng Castform để RL post-train một model mở 4 tỷ tham số, đạt độ chính xác tương đương GPT-5.6 Sol trên tác vụ truy xuất kết quả tìm kiếm nhưng chi phí thấp hơn khoảng 100 lần. Một request search nhiều lượt với GPT-5.6 Sol mất hơn 10 giây và tốn khoảng 0,03 USD.</p>
+    <p class="why">💡 Đây là bằng chứng cụ thể cho luận điểm quan trọng nhất của năm 2026: với tác vụ hẹp, model nhỏ được post-train tốt đánh bại model frontier về cả giá lẫn tốc độ. Rất đáng thử cho team làm RAG với ngân sách hạn chế.</p>
+    <div class="meta">
+      <span class="when">📅 05/08</span>
+      <a class="metabtn" href="https://neon.com/blog/how-castform-neon-beats-frontier-models-on-price-and-efficiency" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-7">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="7">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Model mở 4 tỷ tham số, post-train bằng RL với Castform.</li>
+        <li>Độ chính xác retrieval ngang GPT-5.6 Sol, chi phí thấp hơn ~100 lần.</li>
+        <li>Request search nhiều lượt với GPT-5.6 Sol tốn hơn 10 giây và ~0,03 USD.</li>
+        <li>Castform nhắm tới dev không cần đụng vào nội bộ ML và GPU.</li>
+        <li>Bài lọt top thảo luận trên Hacker News trong tuần.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>MODEL</b>4B tham số, mở</span>
+        <span class="fact"><b>RẺ HƠN</b>~100 lần</span>
+        <span class="fact"><b>SO VỚI</b>GPT-5.6 Sol</span>
+        <span class="fact"><b>CHI PHÍ GỐC</b>~0,03 USD / request</span>
+      </div>
+      <p class="deep">Đây là tin thực dụng nhất tuần cho team làm sản phẩm. Con số 100 lần nghe như marketing, nhưng logic đằng sau rất chắc: retrieval là tác vụ hẹp, có đáp án đúng sai rõ ràng, tức là môi trường lý tưởng cho RL post-training. Model 4 tỷ tham số không thông minh bằng GPT-5.6 Sol ở mọi việc, nhưng ở đúng một việc thì nó không cần phải thông minh hơn, chỉ cần đúng. Áp vào thực tế Việt Nam: nếu bạn đang chạy RAG cho tài liệu nội bộ và mỗi truy vấn gọi model frontier vài lượt, hóa đơn tháng của bạn phần lớn là tiền trả cho năng lực bạn không dùng tới. Cách làm hợp lý là tách pipeline thành các bước, xác định bước nào là tác vụ hẹp lặp lại nhiều, rồi thay bằng model nhỏ được post-train. Điều kiện tiên quyết là bạn phải có dữ liệu đánh giá của chính mình, vì không có tập eval thì không biết model nhỏ có đủ tốt hay không. Đây cũng là chỗ nhiều team bỏ qua: họ đầu tư vào model mà không đầu tư vào cách đo.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="8">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=releasebot.io&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-8" class="xt" hidden>
+    <a class="title" href="https://releasebot.io/updates/anthropic/claude" target="_blank" rel="noopener">Claude Enterprise thêm inference hooks: soi mọi prompt và tool call trước khi tới model</a>
+    <p class="sum">Anthropic mở beta inference hooks cho gói Enterprise, cho phép đội compliance kiểm tra và áp chính sách lên từng prompt cũng như từng phản hồi tool call trước khi chúng đến được model, áp dụng xuyên suốt chat, Claude Code và Cowork.</p>
+    <p class="why">💡 Đây là lớp DLP thời gian thực đầu tiên được tích hợp thẳng vào đường đi của inference. Với doanh nghiệp có dữ liệu nhạy cảm, kiểm soát ở tầng hook thực tế hơn nhiều so với việc chỉ dặn nhân viên đừng dán dữ liệu vào chat.</p>
+    <div class="meta">
+      <span class="when">📅 05/08</span>
+      <a class="metabtn" href="https://releasebot.io/updates/anthropic/claude" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-8">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="8">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Hook chặn và soi từng prompt trước khi tới model.</li>
+        <li>Soi cả phản hồi tool call, không chỉ input người dùng.</li>
+        <li>Áp dụng xuyên suốt chat, Claude Code và Cowork.</li>
+        <li>Chỉ dành cho tổ chức dùng gói Enterprise, đang ở giai đoạn beta.</li>
+        <li>Cùng ngày, nền tảng developer khai tử Claude Opus 4.1.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>GÓI</b>Enterprise</span>
+        <span class="fact"><b>PHẠM VI</b>chat, Code, Cowork</span>
+        <span class="fact"><b>TRẠNG THÁI</b>beta</span>
+        <span class="fact"><b>KHAI TỬ</b>Claude Opus 4.1</span>
+      </div>
+      <p class="deep">Điểm kỹ thuật đáng giá nhất là hook soi cả phản hồi từ tool call chứ không chỉ prompt người dùng. Đa số giải pháp DLP hiện nay chỉ chặn ở đầu vào, trong khi rủi ro lớn nhất của agent nằm ở chỗ khác: agent gọi một tool nội bộ, tool trả về dữ liệu nhạy cảm, và dữ liệu đó chảy vào context rồi ra ngoài. Chặn ở đầu vào không giải quyết được kịch bản này. Với doanh nghiệp Việt đang triển khai agent nội bộ, đây là mô hình đáng học kể cả khi bạn không dùng Claude: hãy đặt lớp kiểm soát ở ranh giới giữa tool và model, không phải ở ranh giới giữa người dùng và giao diện. Về mặt tổ chức, thứ này chỉ hoạt động nếu đội compliance thật sự viết được chính sách cụ thể. Nếu chính sách của bạn hiện chỉ là một tài liệu Word nói chung chung về bảo mật dữ liệu, hook cũng không cứu được. Công nghệ ở đây là phần dễ, phần khó là định nghĩa cái gì được phép đi qua.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="9">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=releasebot.io&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-9" class="xt" hidden>
+    <a class="title" href="https://releasebot.io/updates/openai/chatgpt" target="_blank" rel="noopener">ChatGPT Work và Codex có bộ plugin giáo dục cho K-12, giảng viên và sinh viên</a>
+    <p class="sum">OpenAI bổ sung ba plugin K-12 Educator, College Educator và College Student cho ChatGPT Work và Codex, hỗ trợ soạn tài liệu phân hóa theo trình độ, dựng hình ảnh minh họa tương tác và rút ra các chỉ dấu hành động từ dữ liệu lớp học.</p>
+    <p class="why">💡 Cuộc đua giành thị trường giáo dục đang nóng lên rõ rệt sau khi Anthropic tung Claude for Teachers. Với giáo viên Việt Nam, phần soạn tài liệu phân hóa theo trình độ là thứ tiết kiệm thời gian thật sự.</p>
+    <div class="meta">
+      <span class="when">📅 04/08</span>
+      <a class="metabtn" href="https://releasebot.io/updates/openai/chatgpt" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-9">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="9">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Ba plugin: K-12 Educator, College Educator, College Student.</li>
+        <li>Soạn tài liệu phân hóa theo trình độ từng nhóm học sinh.</li>
+        <li>Dựng hình ảnh minh họa tương tác cho bài giảng.</li>
+        <li>Rút chỉ dấu hành động từ dữ liệu lớp học.</li>
+        <li>Cùng tuần, chuỗi text dài quá 10 nghìn ký tự tự chuyển thành file đính kèm.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>SỐ PLUGIN</b>3</span>
+        <span class="fact"><b>NỀN TẢNG</b>ChatGPT Work, Codex</span>
+        <span class="fact"><b>ĐỐI THỦ</b>Claude for Teachers</span>
+        <span class="fact"><b>NGÀY</b>04/08/2026</span>
+      </div>
+      <p class="deep">Giáo dục đang thành mặt trận cạnh tranh chính, và lý do rất rõ: ai chiếm được thói quen của học sinh sinh viên hôm nay thì có khách hàng của mười năm tới. Anthropic đã đi trước với Claude for Teachers miễn phí cho giáo viên K-12 ở Mỹ, giờ OpenAI đáp lại bằng plugin. Điều thực tế cho giáo viên Việt Nam: trong ba tính năng, phần soạn tài liệu phân hóa theo trình độ là thứ có giá trị ngay, vì nó giải đúng nỗi khổ dạy một lớp bốn mươi em với năm mức trình độ khác nhau. Hai tính năng còn lại phụ thuộc vào việc trường có dữ liệu lớp học ở dạng số hay không, mà ở phần lớn trường Việt Nam thì chưa. Đây cũng là điểm mình hay nhắc khi đi đào tạo: công cụ chỉ tạo ra giá trị khi chạm được cả ba lớp là kỹ thuật, giá trị công việc và thói quen người dùng. Một plugin phân tích dữ liệu lớp học rất hay về kỹ thuật, nhưng nếu điểm số vẫn ghi trong sổ giấy thì nó vô dụng. Bắt đầu từ chỗ tiết kiệm thời gian ngay, đừng bắt đầu từ chỗ nghe hiện đại nhất.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<!-- ================= SECTION 3 ================= -->
+<section class="sec" id="sec-3">
+<h2>🔬 Nghiên cứu &amp; Kỹ thuật mới</h2>
+
+<article class="card" data-aid="10">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://media.cnn.com/api/v1/images/stellar/prod/c-gettyimages-983949850.jpg?c=16x9&amp;q=w_800,c_fill" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=cnn.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-10" class="xt" hidden>
+    <span class="rank">🔥 TOP 2 TUẦN NÀY</span>
+    <a class="title" href="https://www.cnn.com/2026/08/06/health/ai-viruses-bacteriophages" target="_blank" rel="noopener">Stanford và Arc Institute dùng AI thiết kế virus mới, 16 con diệt được E. coli</a>
+    <p class="sum">Nhóm nghiên cứu ở Stanford và Arc Institute dùng model ngôn ngữ bộ gene Evo 2 sinh ra hàng trăm bộ gene bacteriophage hoàn toàn mới, in 302 thiết kế thành DNA vật lý rồi thả vào đĩa nuôi E. coli. Kết quả có 16 con virus thật sự sống, lây nhiễm và tiêu diệt được vi khuẩn. Nghiên cứu đăng trên Science.</p>
+    <p class="why">💡 Đây là lần đầu tiên AI thiết kế trọn vẹn một bộ gene sống được, mở đường cho liệu pháp phage chống vi khuẩn kháng thuốc. Nhưng nó cũng chứng minh rào cản kỹ thuật để tạo tác nhân sinh học mới đã thấp đi rất nhiều, trong khi khung pháp lý gần như chưa có gì.</p>
+    <div class="meta">
+      <span class="when">📅 06/08</span>
+      <a class="metabtn" href="https://www.cnn.com/2026/08/06/health/ai-viruses-bacteriophages" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-10">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="10">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Dùng Evo 2, model ngôn ngữ bộ gene train trên khối dữ liệu di truyền lớn.</li>
+        <li>Sinh hàng trăm bộ gene bacteriophage hoàn toàn mới, không sao chép tự nhiên.</li>
+        <li>302 thiết kế được in thành DNA vật lý và thử trong đĩa nuôi E. coli.</li>
+        <li>16 con virus hoạt động thật: lây nhiễm và tiêu diệt được vi khuẩn.</li>
+        <li>Chuyên gia cảnh báo công nghệ đang chạy nhanh hơn khung pháp lý.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>MODEL</b>Evo 2</span>
+        <span class="fact"><b>THIẾT KẾ THỬ</b>302</span>
+        <span class="fact"><b>THÀNH CÔNG</b>16 virus</span>
+        <span class="fact"><b>TẠP CHÍ</b>Science</span>
+        <span class="fact"><b>MỤC TIÊU</b>E. coli</span>
+      </div>
+      <p class="deep">Cần tách bạch hai chuyện để không hiểu sai. Thứ nhất, đây là bacteriophage, tức virus chỉ tấn công vi khuẩn, không lây sang người. Không phải AI vừa tạo ra mầm bệnh cho người. Thứ hai, và đây mới là điều đáng nhớ: lần đầu tiên một model sinh ra trọn vẹn một bộ gene và bộ gene đó hoạt động trong thực tế. Tỉ lệ 16 trên 302 nghe thấp, nhưng trong sinh học tổng hợp thì đó là con số rất cao, vì trước đây gần như bằng không. Ý nghĩa y học rõ ràng: vi khuẩn kháng kháng sinh là một trong những mối đe dọa y tế lớn nhất thế kỷ này, và liệu pháp phage bị kẹt lâu nay vì phải đi tìm phage phù hợp trong tự nhiên. Giờ có thể thiết kế. Mặt còn lại thì cũng thẳng thắn mà nói: cùng một công cụ, đổi mục tiêu là đổi bản chất, và hiện chưa có cơ chế quản lý nào cho việc này. Với người làm kỹ thuật ở Việt Nam, bài học rộng hơn là model ngôn ngữ không còn chỉ xử lý chữ. DNA cũng là một chuỗi ký tự có ngữ pháp, và cùng kiến trúc đó đang được áp vào những miền dữ liệu mà năm ngoái chưa ai nghĩ tới.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="11">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2608.05013/gradient.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=huggingface.co&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-11" class="xt" hidden>
+    <a class="title" href="https://huggingface.co/papers/2608.05013" target="_blank" rel="noopener">OneDayAgent: harness đo agent tự hành trên tác vụ kéo dài cả ngày</a>
+    <p class="sum">Nhóm ZJUNLP giới thiệu OneDayAgent, một benchmark và harness đánh giá agent tự hành trên chuỗi tác vụ kéo dài, thay vì các bài test ngắn chỉ vài bước như hiện nay.</p>
+    <p class="why">💡 Mọi benchmark agent hiện tại đều đo trên tác vụ ngắn, trong khi giá trị thật của agent nằm ở việc chạy liên tục nhiều giờ. Đây là hướng đo lường sát với cách doanh nghiệp thật sự muốn dùng agent.</p>
+    <div class="meta">
+      <span class="when">📅 06/08</span>
+      <a class="metabtn" href="https://huggingface.co/papers/2608.05013" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-11">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="11">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Benchmark và harness cho agent chạy dài, không chỉ vài bước.</li>
+        <li>Đo khả năng giữ mạch kế hoạch qua chuỗi tác vụ phụ thuộc nhau.</li>
+        <li>Nhóm tác giả từ ZJUNLP, công bố trên Hugging Face Papers.</li>
+        <li>Cùng tuần với ABSeeker và Recursive Synthesis, cùng chủ đề long-horizon.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>ARXIV</b>2608.05013</span>
+        <span class="fact"><b>NHÓM</b>ZJUNLP</span>
+        <span class="fact"><b>CHỦ ĐỀ</b>long-horizon agent</span>
+        <span class="fact"><b>NGÀY</b>06/08/2026</span>
+      </div>
+      <p class="deep">Ba bài long-horizon cùng lên trending trong một ngày không phải trùng hợp. Cả ngành đang nhận ra cùng một điều: agent làm tốt bài test năm bước nhưng hỏng ở bài năm trăm bước, và đó chính là khoảng cách giữa demo và sản phẩm. Với người triển khai, thông điệp thực dụng là đừng tin điểm benchmark khi chọn agent cho quy trình dài. Hãy tự dựng bài test riêng phản ánh đúng độ dài công việc thật của bạn, dù thô sơ. Kinh nghiệm mình thấy khi làm pipeline dữ liệu: agent hỏng không phải vì bước nào quá khó, mà vì tới bước thứ ba mươi nó đã quên ràng buộc đặt ra ở bước đầu. Cách chữa thực tế hiện nay không phải chờ model mạnh hơn, mà là chia nhỏ quy trình thành các đoạn có điểm kiểm tra rõ ràng, và ghi state ra ngoài context thay vì để model tự nhớ.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="12">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2608.04570/gradient.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=huggingface.co&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-12" class="xt" hidden>
+    <a class="title" href="https://huggingface.co/papers/2608.04570" target="_blank" rel="noopener">The Personalization Mirage: LLM bịa hồ sơ người dùng, và tự giám sát lại càng sai</a>
+    <p class="sum">Nghiên cứu của HKUST chỉ ra rằng khi cá nhân hóa, các model ngôn ngữ thường tự bịa ra sở thích và đặc điểm của người dùng mà không có căn cứ, và cơ chế để model tự đánh giá mức độ chắc chắn của mình lại càng làm sai lệch thêm.</p>
+    <p class="why">💡 Rất nhiều sản phẩm đang bán tính năng cá nhân hóa dựa trên suy đoán của model. Bài này cho thấy cần dữ liệu người dùng có thật làm nền, chứ không thể để model tự đoán rồi tự chấm điểm mình.</p>
+    <div class="meta">
+      <span class="when">📅 06/08</span>
+      <a class="metabtn" href="https://huggingface.co/papers/2608.04570" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-12">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="12">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>LLM tự bịa sở thích và đặc điểm người dùng khi được yêu cầu cá nhân hóa.</li>
+        <li>Cơ chế model tự giám sát độ chắc chắn làm tình hình sai lệch thêm.</li>
+        <li>Nhóm nghiên cứu từ HKUST, đăng trên Hugging Face Papers.</li>
+        <li>Cảnh báo trực tiếp cho các sản phẩm bán tính năng cá nhân hóa.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>ARXIV</b>2608.04570</span>
+        <span class="fact"><b>NHÓM</b>HKUST</span>
+        <span class="fact"><b>VẤN ĐỀ</b>bịa user profile</span>
+        <span class="fact"><b>NGÀY</b>06/08/2026</span>
+      </div>
+      <p class="deep">Phát hiện thứ hai của bài mới là phần đáng lo: để model tự đánh giá mức độ chắc chắn của mình không những không cứu được, mà còn làm sai lệch thêm. Điều đó phá vỡ một mẫu thiết kế đang rất phổ biến, đó là hỏi model chắc chắn bao nhiêu phần trăm rồi lọc theo ngưỡng. Áp vào thực tế: nhiều sản phẩm ở Việt Nam đang gắn nhãn cá nhân hóa cho những thứ thực chất chỉ là model suy đoán từ vài dòng lịch sử chat. Với hệ thống gợi ý sản phẩm, tư vấn tài chính hay chăm sóc khách hàng, một hồ sơ người dùng bịa ra không chỉ vô dụng mà còn gây hại, vì nó dẫn tới khuyến nghị sai với vẻ ngoài rất tự tin. Nguyên tắc mình vẫn theo: cá nhân hóa phải neo vào dữ liệu hành vi có thật đã ghi nhận, còn model chỉ được dùng để diễn đạt, không được dùng để suy ra sự thật về người dùng. Dashboard đẹp không có nghĩa là quyết định tốt, và profile chi tiết không có nghĩa là profile đúng.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="13">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2608.05000/gradient.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=huggingface.co&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-13" class="xt" hidden>
+    <a class="title" href="https://huggingface.co/papers/2608.05000" target="_blank" rel="noopener">Meta mổ xẻ vật lý của pre-training đa phương thức</a>
+    <p class="sum">Meta công bố nghiên cứu phân tích cơ chế nền tảng của việc pre-train đa phương thức, gồm cách tri thức chảy giữa các modality, sự cộng hưởng giữa chúng, thời điểm nên hợp nhất và các công thức huấn luyện cụ thể.</p>
+    <p class="why">💡 Phần lớn công thức train multimodal hiện nay vẫn là kinh nghiệm truyền miệng. Một bài phân tích cơ chế từ chính Meta giúp các team nhỏ tránh đốt tiền vào những lựa chọn kiến trúc đã được chứng minh là kém.</p>
+    <div class="meta">
+      <span class="when">📅 06/08</span>
+      <a class="metabtn" href="https://huggingface.co/papers/2608.05000" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-13">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="13">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Phân tích cách tri thức chảy giữa các modality trong quá trình pre-train.</li>
+        <li>Đo sự cộng hưởng giữa các modality thay vì chỉ cộng dồn dữ liệu.</li>
+        <li>Bàn về thời điểm hợp nhất sớm giữa các nhánh biểu diễn.</li>
+        <li>Đưa ra công thức huấn luyện cụ thể chứ không chỉ quan sát.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>ARXIV</b>2608.05000</span>
+        <span class="fact"><b>NHÓM</b>Meta</span>
+        <span class="fact"><b>CHỦ ĐỀ</b>multimodal pretraining</span>
+        <span class="fact"><b>NGÀY</b>06/08/2026</span>
+      </div>
+      <p class="deep">Giá trị thật của bài này nằm ở chỗ nó cố biến kinh nghiệm thành nguyên lý. Cho tới giờ, phần lớn công thức train multimodal được truyền miệng giữa các lab dưới dạng mẹo: trộn dữ liệu theo tỉ lệ nào, đóng băng nhánh nào, hợp nhất ở tầng nào. Không ai giải thích được vì sao, chỉ biết là chạy được. Khi một nhóm có tài nguyên như Meta ngồi phân tích cơ chế và công bố, các team nhỏ tiết kiệm được rất nhiều tiền thử sai. Thực tế ở Việt Nam thì rất ít đơn vị pre-train multimodal từ đầu, nên bài này không phải hướng dẫn thực hành trực tiếp. Nhưng nó hữu ích ở một điểm khác: giúp bạn đọc hiểu vì sao model multimodal hay kém ở một modality nào đó, và biết đặt câu hỏi đúng khi đánh giá nhà cung cấp. Ví dụ, khi một model quảng cáo là đa phương thức nhưng phần tiếng Việt trong ảnh nhận diện kém, bạn có cơ sở để hỏi họ hợp nhất modality ở giai đoạn nào, thay vì chỉ chấp nhận rằng nó vậy.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="14">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2608.05466/gradient.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=huggingface.co&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-14" class="xt" hidden>
+    <a class="title" href="https://huggingface.co/papers/2608.05466" target="_blank" rel="noopener">Tencent Hunyuan: Recursive Synthesis cho tác vụ terminal dài hơi</a>
+    <p class="sum">Tencent Hunyuan đề xuất phương pháp Recursive Synthesis, phân rã tác vụ terminal phức tạp thành các nhánh con theo cơ chế đệ quy để agent giữ được mạch kế hoạch qua chuỗi bước rất dài.</p>
+    <p class="why">💡 Tác vụ terminal dài hơi vẫn là điểm yếu chung của mọi coding agent, kể cả model mạnh nhất. Hướng phân rã đệ quy là cách tiếp cận thực dụng, không cần model lớn hơn mà cần harness thông minh hơn.</p>
+    <div class="meta">
+      <span class="when">📅 06/08</span>
+      <a class="metabtn" href="https://huggingface.co/papers/2608.05466" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-14">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="14">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Phân rã đệ quy tác vụ terminal phức tạp thành các nhánh con.</li>
+        <li>Giúp agent giữ mạch kế hoạch qua chuỗi bước rất dài.</li>
+        <li>Nhóm Tencent Hunyuan, đứng đầu trending Hugging Face Papers ngày 06/08.</li>
+        <li>Cùng nhóm chủ đề long-horizon với OneDayAgent và ABSeeker.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>ARXIV</b>2608.05466</span>
+        <span class="fact"><b>NHÓM</b>Tencent Hunyuan</span>
+        <span class="fact"><b>HƯỚNG</b>phân rã đệ quy</span>
+        <span class="fact"><b>NGÀY</b>06/08/2026</span>
+      </div>
+      <p class="deep">Ý tưởng cốt lõi rất cũ trong khoa học máy tính nhưng lại đúng lúc: chia để trị. Điều đáng nói là nó không đòi model to hơn. Toàn ngành đang phát hiện ra rằng nhiều giới hạn của agent là giới hạn của harness, không phải của model. Cùng một model, đổi cách tổ chức tác vụ là đổi kết quả. Với team dev Việt đang xây agent nội bộ, đây là tin tốt về mặt ngân sách: bạn không cần nhảy lên tier model đắt nhất, bạn cần thiết kế lại cách chia việc. Cụ thể là đừng ném một yêu cầu lớn vào agent rồi hy vọng, hãy để nó tự phân rã thành cây tác vụ với điều kiện hoàn thành rõ ràng ở mỗi nhánh, và kiểm tra từng nhánh trước khi đi tiếp. Vấn đề không nằm ở công cụ, mà ở cách mình thiết kế workflow. Bài của Tencent chỉ là bằng chứng học thuật cho điều nhiều người đã làm bằng tay.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<!-- ================= SECTION 4 ================= -->
+<section class="sec" id="sec-4">
+<h2>📈 Hot trend &amp; Thảo luận cộng đồng</h2>
+
+<article class="card" data-aid="15">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://cdn.prod.website-files.com/67e35850d44d18d58bb24073/6a68375d07a3038b09c35216_open-graph-black-hat-ai-security-talks-2026.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=straiker.ai&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-15" class="xt" hidden>
+    <a class="title" href="https://www.straiker.ai/blog/black-hat-usa-2026-ai-security-talks" target="_blank" rel="noopener">Black Hat USA 2026: gần 29% bài nói về AI, trọng tâm chuyển sang khai thác agent</a>
+    <p class="sum">Trong tổng số 121 bài trình bày tại Black Hat USA 2026, có 35 bài liên quan trực tiếp tới bảo mật AI, tức gần 29% hội nghị. Trọng tâm nghiên cứu tấn công đã dịch từ base model sang chính các agent tự hành, gồm lỗ hổng trong runtime của LangChain, CrewAI, AutoGen và Semantic Kernel, trong đó một prompt đủ để chạy mã trên máy chủ agent.</p>
+    <p class="why">💡 Prompt injection không còn là chuyện lạ mà đã thành một ngành khai thác có phương pháp. Bất kỳ team nào đang chạy agent framework trong production đều cần đọc lại phần runtime của mình ngay tuần này.</p>
+    <div class="meta">
+      <span class="when">📅 05/08</span>
+      <a class="metabtn" href="https://www.straiker.ai/blog/black-hat-usa-2026-ai-security-talks" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-15">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="15">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>35 trên 121 bài trình bày liên quan trực tiếp tới bảo mật AI.</li>
+        <li>Trọng tâm dịch từ base model sang khai thác agent tự hành.</li>
+        <li>Runtime của LangChain, CrewAI, AutoGen, Semantic Kernel đều có đường khai thác.</li>
+        <li>Một prompt đủ để chuyển thành thực thi mã trên máy chạy agent.</li>
+        <li>Nội dung độc hại chiếm quyền agent qua nội bộ framework, kể cả khi agent không có tool.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>TỔNG BÀI</b>121</span>
+        <span class="fact"><b>VỀ AI</b>35 (~29%)</span>
+        <span class="fact"><b>MỤC TIÊU</b>agent runtime</span>
+        <span class="fact"><b>SỰ KIỆN</b>Black Hat USA 2026</span>
+      </div>
+      <p class="deep">Chi tiết nguy hiểm nhất là câu này: nội dung được tiêm vào có thể chiếm quyền agent qua chính nội bộ framework, kể cả khi agent không được cấp tool nào. Nghĩa là mô hình phòng thủ phổ biến hiện nay đã sai. Rất nhiều team nghĩ rằng cứ không cấp quyền chạy lệnh cho agent là an toàn, nhưng lỗ hổng nằm ở lớp runtime bên dưới, chỗ framework diễn giải output của model. Với thực tế Việt Nam, nơi phần lớn dự án agent dựng trên LangChain hoặc tương đương và chạy thẳng trên server ứng dụng, đây là rủi ro cần xử lý ngay chứ không phải để sang quý sau. Ba việc nên làm trong tuần này: cập nhật framework lên bản mới nhất, chạy agent trong container riêng có quyền tối thiểu thay vì trên server chính, và rà lại xem agent của bạn đang được cấp credential gì. Con số 29% hội nghị nói lên điều quan trọng hơn cả bản thân các lỗ hổng: khai thác agent đã trở thành một chuyên ngành, và số người nghiên cứu tấn công đang tăng nhanh hơn số người xây phòng thủ.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="16">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.engadget.com/img/gallery/meta-apps-displayed-ads-that-contained-ai-generated-csam/l-intro-1785955165.jpg" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=engadget.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-16" class="xt" hidden>
+    <a class="title" href="https://www.engadget.com/2231100/meta-apps-displayed-ads-that-contained-ai-generated-csam/" target="_blank" rel="noopener">Meta chạy quảng cáo chứa ảnh lạm dụng trẻ em do AI tạo suốt chín tháng</a>
+    <p class="sum">Điều tra của Wired và Tech Transparency Project phát hiện hơn 50 quảng cáo hình ảnh và video chứa nội dung lạm dụng trẻ em do AI tạo ra, chạy trên Facebook, Instagram, Messenger và Threads từ tháng 11 năm 2025 tới đầu tháng 8 năm 2026, tiếp cận người dùng Mỹ, Anh và hơn chục nước châu Âu. Một số vẫn còn chạy sau khi Meta được báo trực tiếp.</p>
+    <p class="why">💡 Meta đã duyệt và thu tiền của những quảng cáo này, trong đó có nội dung trùng lặp với thứ họ từng gỡ vì cùng vi phạm. Đây là ví dụ nặng nề nhất về việc kiểm duyệt bằng tự động hóa thất bại ở đúng chỗ không được phép thất bại.</p>
+    <div class="meta">
+      <span class="when">📅 05/08</span>
+      <a class="metabtn" href="https://www.engadget.com/2231100/meta-apps-displayed-ads-that-contained-ai-generated-csam/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-16">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="16">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Hơn 50 quảng cáo ảnh và video vi phạm, tìm thấy trong chính thư viện quảng cáo Meta.</li>
+        <li>Chạy từ tháng 11/2025 tới đầu tháng 8/2026, tức khoảng chín tháng.</li>
+        <li>Tiếp cận người dùng Mỹ, Anh và hơn chục nước châu Âu.</li>
+        <li>Một quảng cáo tiếp cận hơn 2.500 tài khoản riêng ở châu Âu.</li>
+        <li>Một số vẫn chạy sau khi Meta được thông báo trực tiếp.</li>
+        <li>Tiếp nối một cuộc điều tra tương tự ở Ấn Độ hồi tháng 7.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>SỐ QUẢNG CÁO</b>hơn 50</span>
+        <span class="fact"><b>THỜI GIAN</b>11/2025 - 08/2026</span>
+        <span class="fact"><b>PHẠM VI</b>Mỹ, Anh, EU</span>
+        <span class="fact"><b>NGUỒN</b>Wired &amp; TTP</span>
+      </div>
+      <p class="deep">Điểm khiến vụ này nặng hơn một sự cố kiểm duyệt thông thường là ba chi tiết. Một, Meta đã chủ động duyệt và thu tiền, tức có một bước xét duyệt và bước đó đã cho qua. Hai, một số quảng cáo trùng với nội dung Meta từng gỡ vì cùng vi phạm, nghĩa là hệ thống không có bộ nhớ về thứ mình đã chặn. Ba, chúng nằm ngay trong thư viện quảng cáo công khai của chính Meta, tức là công cụ minh bạch mà họ tự xây lại trở thành nơi lưu trữ bằng chứng. Bài học cho ai xây hệ thống kiểm duyệt bằng AI: đừng để pipeline chỉ có một lớp phân loại. Nội dung đã bị gỡ phải vào danh sách chặn theo hash và được đối chiếu ở lần sau, đó là kỹ thuật có từ lâu và không đắt. Rộng hơn, đây là lời nhắc về giới hạn của tự động hóa kiểm duyệt ở quy mô lớn: khi tỉ lệ lọt lưới dù chỉ một phần nghìn nhân với hàng triệu quảng cáo, con số tuyệt đối vẫn là hàng nghìn. Với loại nội dung này, tỉ lệ chấp nhận được phải bằng không, và không có mô hình nào đạt được điều đó nếu không có con người ở khâu cuối.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="17">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://nelson.cloud/ai-generated-images-discourage-me-from-reading-your-blog/og.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=nelson.cloud&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-17" class="xt" hidden>
+    <a class="title" href="https://nelson.cloud/ai-generated-images-discourage-me-from-reading-your-blog/" target="_blank" rel="noopener">Ảnh do AI tạo khiến tôi không muốn đọc blog của bạn: 792 điểm trên Hacker News</a>
+    <p class="sum">Bài viết cá nhân lập luận rằng ảnh minh họa do AI sinh ra là tín hiệu cho thấy tác giả không thật sự đầu tư vào nội dung, khiến người đọc mất niềm tin ngay trước khi đọc chữ đầu tiên. Bài đạt 792 điểm và 465 bình luận trên Hacker News.</p>
+    <p class="why">💡 Đây là chỉ dấu rõ về sự đảo chiều thẩm mỹ: ảnh AI từ chỗ là dấu hiệu hiện đại giờ thành dấu hiệu cẩu thả. Ai đang làm content marketing nên cân nhắc lại thư viện ảnh của mình.</p>
+    <div class="meta">
+      <span class="when">📅 04/08</span>
+      <a class="metabtn" href="https://nelson.cloud/ai-generated-images-discourage-me-from-reading-your-blog/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-17">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="17">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>792 điểm và 465 bình luận trên Hacker News, dẫn đầu tuần về mức tranh luận.</li>
+        <li>Lập luận: ảnh AI là tín hiệu tác giả không đầu tư vào nội dung.</li>
+        <li>Người đọc mất niềm tin trước khi đọc câu đầu tiên.</li>
+        <li>Nằm cùng mạch với làn sóng đòi gắn cờ bài viết do AI sinh ra.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>ĐIỂM HN</b>792</span>
+        <span class="fact"><b>BÌNH LUẬN</b>465</span>
+        <span class="fact"><b>NGÀY</b>04/08/2026</span>
+        <span class="fact"><b>CHỦ ĐỀ</b>tín hiệu chất lượng</span>
+      </div>
+      <p class="deep">Điều đáng chú ý không phải là lập luận, mà là mức đồng thuận. Cách đây một năm, bài kiểu này sẽ bị phản đối là bảo thủ. Giờ nó lên gần 800 điểm trên một diễn đàn toàn dân kỹ thuật, tức là những người dùng AI nhiều nhất. Cơ chế đằng sau khá đơn giản: khi làm ảnh AI trở nên miễn phí và tức thời, nó mất giá trị làm tín hiệu. Tín hiệu chỉ có ý nghĩa khi nó tốn kém. Ảnh AI giờ báo cho người đọc biết rằng tác giả chọn con đường rẻ nhất, và họ suy ra phần chữ chắc cũng vậy. Với ai làm content ở Việt Nam, đây là thay đổi cần cập nhật ngay, đặc biệt với đối tượng độc giả kỹ thuật hoặc chuyên môn cao. Khuyến nghị cụ thể: dùng ảnh thật, ảnh chụp màn hình sản phẩm, biểu đồ từ dữ liệu của chính bạn, hoặc không ảnh còn hơn ảnh AI chung chung. Đây cũng là ví dụ hay cho một nguyên tắc rộng hơn: AI làm cho mọi thứ nó tạo ra rẻ đi, và thứ gì rẻ đi thì mất khả năng chứng minh nỗ lực. Ai làm thương hiệu cá nhân nên nghĩ kỹ về điều này.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="18">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://techcrunch.com/wp-content/uploads/2026/08/Z.ai-GLM-5.2-chat.png?resize=1200,576" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=techcrunch.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-18" class="xt" hidden>
+    <span class="rank">🔥 TOP 5 TUẦN NÀY</span>
+    <a class="title" href="https://techcrunch.com/2026/08/04/open-weight-ai-models-are-catching-up-to-the-frontier-the-safety-gap-remains/" target="_blank" rel="noopener">Model mở đã gần bắt kịp frontier, nhưng khoảng cách an toàn thì không</a>
+    <p class="sum">Báo cáo của SaferAI cho thấy model open-weight GLM-5.2 của Z.ai chỉ còn kém GPT-5.5 và Claude Opus 4.7 vài tháng về năng lực mạng và sinh học, nhưng từ chối đúng không tác vụ tấn công nào trong bộ test, trong khi Claude Opus 4.7 từ chối kiên định tới mức SaferAI không chạy nổi bài CyberGym.</p>
+    <p class="why">💡 Một khi trọng số đã tải về máy, mọi lớp an toàn đều có thể gỡ bỏ bằng fine-tune hoặc đổi system prompt. Như giám đốc SaferAI nói, biên giới của năng lực không phải là biên giới của rủi ro.</p>
+    <div class="meta">
+      <span class="when">📅 04/08</span>
+      <a class="metabtn" href="https://techcrunch.com/2026/08/04/open-weight-ai-models-are-catching-up-to-the-frontier-the-safety-gap-remains/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-18">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="18">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>GLM-5.2 của Z.ai chỉ kém GPT-5.5 và Claude Opus 4.7 vài tháng về năng lực.</li>
+        <li>Từ chối đúng 0 tác vụ tấn công mạng và sinh học trong bộ test.</li>
+        <li>Claude Opus 4.7 từ chối kiên định tới mức không chạy nổi bài CyberGym.</li>
+        <li>SaferAI cũng tìm thấy hàng trăm jailbreak phổ quát trên model đóng như Grok 4.5.</li>
+        <li>Trọng số đã tải về thì mọi safeguard đều gỡ được bằng fine-tune.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>MODEL</b>GLM-5.2 (Z.ai)</span>
+        <span class="fact"><b>TỪ CHỐI</b>0 tác vụ tấn công</span>
+        <span class="fact"><b>KHOẢNG CÁCH</b>vài tháng</span>
+        <span class="fact"><b>NGUỒN</b>báo cáo SaferAI</span>
+      </div>
+      <p class="deep">Câu đáng nhớ nhất của báo cáo là của Henry Papadatos, giám đốc điều hành SaferAI: biên giới của năng lực không phải là biên giới của rủi ro. Nó gói gọn vấn đề. Suốt hai năm qua, cuộc tranh luận mở hay đóng chủ yếu xoay quanh năng lực, và phe ủng hộ mở đã thắng khi khoảng cách năng lực gần như biến mất. Nhưng phần an toàn thì không đi cùng, và đó là bài toán không có lời giải kỹ thuật: một khi trọng số nằm trên máy bạn, không cơ chế nào cưỡng chế được từ xa. Fine-tune vài giờ là safeguard biến mất. Cần giữ sự công bằng: báo cáo cũng nói model đóng không sạch, khi họ tìm thấy hàng trăm jailbreak phổ quát trên các model frontier. Nghĩa là vấn đề không phải mở xấu đóng tốt, mà là hai loại rủi ro khác nhau. Với Việt Nam, nơi nhiều team chọn model mở Trung Quốc vì giá và vì chạy được nội bộ, thông điệp thực tế là: bạn đang tự nhận vai trò lớp an toàn. Nếu triển khai model mở cho người dùng cuối, guardrail phải do bạn xây và bạn kiểm thử, đừng giả định model tự lo phần đó.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<!-- ================= SECTION 5 ================= -->
+<section class="sec" id="sec-5">
+<h2>🏢 Ngành &amp; Kinh doanh</h2>
+
+<article class="card" data-aid="19">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/3/9/5/4/7/shutterstock_1818376286-dc0c7d0ea68372b7.jpg" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=heise.de&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-19" class="xt" hidden>
+    <span class="rank">🔥 TOP 4 TUẦN NÀY</span>
+    <a class="title" href="https://www.heise.de/en/news/Next-Big-China-AI-TikTok-Parent-ByteDance-Training-Giant-Model-11403069.html" target="_blank" rel="noopener">ByteDance đang train model 10 nghìn tỷ tham số, lớn gấp hơn ba lần Kimi K3</a>
+    <p class="sum">Theo Financial Times, ByteDance đang pre-train một model với quy mô lên tới 10 nghìn tỷ tham số, lớn hơn ba lần Kimi K3 của Moonshot vốn có 2,8 nghìn tỷ tham số. Giai đoạn pre-train dự kiến mất từ ba đến sáu tháng, và quy mô cuối cùng sẽ được chốt sau. Ước tính của giới trong ngành đặt Mythos 5 của Anthropic ở khoảng 8 nghìn tỷ tham số.</p>
+    <p class="why">💡 Trung Quốc vẫn đang đặt cược vào quy mô trong khi phương Tây chuyển dần sang hiệu quả. Nếu ByteDance làm được, cán cân model lớn nhất thế giới sẽ đổi chủ, và câu hỏi có mở trọng số hay không sẽ quan trọng hơn cả con số tham số.</p>
+    <div class="meta">
+      <span class="when">📅 07/08</span>
+      <a class="metabtn" href="https://www.heise.de/en/news/Next-Big-China-AI-TikTok-Parent-ByteDance-Training-Giant-Model-11403069.html" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-19">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="19">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Quy mô mục tiêu lên tới 10 nghìn tỷ tham số, theo Financial Times.</li>
+        <li>Gấp hơn ba lần Kimi K3 của Moonshot (2,8 nghìn tỷ tham số).</li>
+        <li>Đang ở giai đoạn pre-train, thường mất từ ba đến sáu tháng.</li>
+        <li>Kích thước cuối cùng sẽ chốt ở giai đoạn sau.</li>
+        <li>Mythos 5 của Anthropic được giới trong ngành ước khoảng 8 nghìn tỷ tham số.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>QUY MÔ</b>tối đa 10 nghìn tỷ</span>
+        <span class="fact"><b>SO KIMI K3</b>gấp hơn 3 lần</span>
+        <span class="fact"><b>PRE-TRAIN</b>3-6 tháng</span>
+        <span class="fact"><b>NGUỒN</b>Financial Times</span>
+      </div>
+      <p class="deep">Tin này đáng đọc như một chỉ dấu chiến lược hơn là một thông báo sản phẩm. Nó cho thấy hai hướng đi đang tách nhau rõ rệt: các lab phương Tây năm nay nói về hiệu quả, model nhỏ hơn, post-train tốt hơn, giá rẻ hơn, còn các lab Trung Quốc vẫn đặt cược vào quy mô thô. Cả hai đều có lý, và trong mười hai tháng tới ta sẽ biết hướng nào thắng ở đâu. Nhưng câu hỏi quan trọng nhất với cộng đồng thì chưa ai trả lời: ByteDance có mở trọng số hay không. Nếu có, đó là sự kiện lớn hơn nhiều so với bản thân con số tham số. Và ngay cả khi mở, bài học từ Kimi K3 vẫn còn nguyên: mở trọng số không đồng nghĩa với chạy được, vì một model cỡ đó cần hạ tầng mà rất ít nơi có. Với doanh nghiệp Việt, ý nghĩa thực tế gần bằng không trong ngắn hạn: bạn sẽ không chạy model 10 nghìn tỷ tham số trên máy của mình. Thứ đáng theo dõi là hệ quả gián tiếp, tức áp lực giá lên các model tầm trung mà bạn thật sự dùng.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="20">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=bloomberg.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-20" class="xt" hidden>
+    <a class="title" href="https://www.bloomberg.com/news/articles/2026-08-07/us-reviews-china-s-offshore-access-to-nvidia-chips-after-ai-breakthroughs" target="_blank" rel="noopener">Mỹ rà soát cách công ty AI Trung Quốc thuê chip Nvidia ở nước ngoài</a>
+    <p class="sum">Cục Công nghiệp và An ninh thuộc Bộ Thương mại Mỹ đang xem xét cách các công ty AI Trung Quốc tiếp cận chip Nvidia thông qua con đường hợp pháp là thuê năng lực tính toán đặt tại nước thứ ba, sau loạt đột phá công nghệ gần đây từ phía Trung Quốc.</p>
+    <p class="why">💡 Cấm bán chip nhưng không cấm thuê compute là lỗ hổng lớn nhất của cơ chế kiểm soát hiện tại. Nếu Mỹ bịt nốt, thị trường cloud GPU ở Đông Nam Á, trong đó có Việt Nam, sẽ chịu ảnh hưởng dây chuyền về quy định khách hàng.</p>
+    <div class="meta">
+      <span class="when">📅 07/08</span>
+      <a class="metabtn" href="https://www.bloomberg.com/news/articles/2026-08-07/us-reviews-china-s-offshore-access-to-nvidia-chips-after-ai-breakthroughs" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-20">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="20">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Cục Công nghiệp và An ninh (BIS) thuộc Bộ Thương mại Mỹ đứng ra rà soát.</li>
+        <li>Trọng tâm là con đường hợp pháp: thuê compute đặt tại nước thứ ba.</li>
+        <li>Động thái diễn ra sau loạt đột phá công nghệ từ phía Trung Quốc.</li>
+        <li>Trước đó Mỹ đã cấp phép cho khoảng 10 công ty Trung Quốc mua chip H200 có hạn mức.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>CƠ QUAN</b>BIS, Bộ Thương mại Mỹ</span>
+        <span class="fact"><b>LỖ HỔNG</b>thuê compute nước thứ ba</span>
+        <span class="fact"><b>CHIP</b>Nvidia H200</span>
+        <span class="fact"><b>NGÀY</b>07/08/2026</span>
+      </div>
+      <p class="deep">Đây là chỗ mà cơ chế kiểm soát xuất khẩu bộc lộ giới hạn cơ bản. Bạn có thể cấm bán một vật thể qua biên giới, nhưng compute không phải vật thể, nó là dịch vụ. Một công ty Trung Quốc thuê GPU đặt ở Singapore, Malaysia hay Trung Đông thì về mặt pháp lý không có con chip nào rời khỏi nước Mỹ tới Trung Quốc. Đó là lý do BIS phải rà soát, và cũng là lý do việc bịt lỗ hổng này sẽ rất khó về mặt kỹ thuật lập quy: bạn phải định nghĩa được thế nào là kiểm soát hiệu quả một cụm GPU từ xa. Với Việt Nam, đây là tin đáng theo dõi hơn nhiều người nghĩ. Khu vực Đông Nam Á đang thu hút đầu tư data center AI, và nếu Mỹ áp thêm nghĩa vụ xác minh danh tính khách hàng cuối lên các nhà cung cấp cloud GPU trong khu vực, chi phí tuân thủ sẽ tăng và một số mô hình kinh doanh sẽ khó hơn. Doanh nghiệp Việt đang cân nhắc thuê GPU nước ngoài nên đưa rủi ro pháp lý này vào bài toán, chứ không chỉ so giá thuê mỗi giờ.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="21">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://s.yimg.com/lo/mysterio/api/D2BA7CB5D3CD6BF5575561B125A2BF8C97E9415A2FD56E2C5861AEF702C663F4/subgraphmysterio/resizefill_w1200_h800;quality_80;format_webp/https:%2F%2Fmedia.zenfs.com%2Fen%2Freuters-finance.com%2F733572ef54d05e5c958272fc82d335e5" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=finance.yahoo.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-21" class="xt" hidden>
+    <span class="rank">🔥 TOP 3 TUẦN NÀY</span>
+    <a class="title" href="https://finance.yahoo.com/technology/ai/articles/google-shakes-up-ai-leadership-as-deepmind-chief-shifts-role-160227886.html" target="_blank" rel="noopener">Alphabet đảo lộn thượng tầng AI: Hassabis rời ghế quản lý, Jeff Dean lập Discovery Loop</a>
+    <p class="sum">Alphabet công bố tái cấu trúc mảng AI: Demis Hassabis rời vai trò quản lý chính, còn Jeff Dean rời công ty để lập một neolab tên Discovery Loop, kéo theo Sanjay Ghemawat, Quoc Le và Oriol Vinyals. Koray Kavukcuoglu, cựu CTO DeepMind, tiếp quản DeepMind và Gemini. Cổ phiếu Alphabet giảm 4% sau tin.</p>
+    <p class="why">💡 Cùng lúc bản flagship của Gemini vẫn chưa ra dù kế hoạch là tháng 6, cú ra đi tập thể này khiến thị trường lo Google đang tụt lại sau OpenAI và Anthropic. Đây là đợt chảy máu nhân tài nghiêm trọng nhất của Google trong nhiều năm.</p>
+    <div class="meta">
+      <span class="when">📅 05/08</span>
+      <a class="metabtn" href="https://finance.yahoo.com/technology/ai/articles/google-shakes-up-ai-leadership-as-deepmind-chief-shifts-role-160227886.html" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-21">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="21">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Demis Hassabis rời vai trò quản lý chính ở Google DeepMind.</li>
+        <li>Jeff Dean rời Google lập neolab Discovery Loop.</li>
+        <li>Sanjay Ghemawat, Quoc Le và Oriol Vinyals cùng đi theo.</li>
+        <li>Koray Kavukcuoglu, cựu CTO DeepMind, tiếp quản DeepMind và Gemini.</li>
+        <li>Cổ phiếu Alphabet giảm 4% sau công bố.</li>
+        <li>Bản flagship Gemini mới vẫn chưa ra dù kế hoạch là tháng 6.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>CỔ PHIẾU</b>giảm 4%</span>
+        <span class="fact"><b>NGƯỜI RỜI</b>4 lãnh đạo nghiên cứu</span>
+        <span class="fact"><b>NEOLAB</b>Discovery Loop</span>
+        <span class="fact"><b>NGƯỜI KẾ NHIỆM</b>Koray Kavukcuoglu</span>
+      </div>
+      <p class="deep">Chuyện này nặng hơn một đợt thay ghế bình thường vì bối cảnh. Bản flagship Gemini thế hệ mới lẽ ra ra mắt từ tháng 6 mà tới giờ vẫn chưa xuất hiện, và trong lúc đó bốn cái tên nghiên cứu nặng ký nhất cùng rời đi. Thị trường đọc ra tín hiệu đơn giản: người ở trong biết điều gì đó mà người ngoài chưa biết. Bốn phần trăm vốn hóa Alphabet không phải con số nhỏ. Điều đáng suy nghĩ về mặt tổ chức: các neolab đang hút người giỏi khỏi big tech không phải bằng tiền, mà bằng quyền tự quyết. Khi một tổ chức lớn tới mức mọi quyết định nghiên cứu phải qua nhiều tầng phê duyệt, người giỏi nhất sẽ đi. Đây là bài học cho bất kỳ ai xây đội ngũ kỹ thuật, kể cả ở quy mô Việt Nam. Về mặt thực dụng, nếu bạn đang chọn model nền cho một dự án dài hạn, đây là lúc nên có phương án dự phòng thay vì gắn chặt vào một nhà cung cấp. Không phải vì Gemini sẽ tệ đi, mà vì lộ trình sản phẩm của họ đang có độ bất định cao hơn bình thường, và kiến trúc của bạn nên chịu được việc đổi model mà không phải viết lại.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="22">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://techstartups.com/wp-content/uploads/2026/08/Balance-Theory-Founders-960x610.jpg" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=techstartups.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-22" class="xt" hidden>
+    <a class="title" href="https://techstartups.com/2026/08/03/venture-capital-startup-funding-roundup-august-3-2026-atreides-battery-ventures-nea-sequoia-point72-more/" target="_blank" rel="noopener">Horizon3.ai gọi 250 triệu USD Series E cho công cụ pentest tự hành</a>
+    <p class="sum">Horizon3.ai huy động 250 triệu USD vòng Series E để phát triển công cụ kiểm thử xâm nhập tự hành. Cùng tuần, Freehand ở San Francisco gọi 75 triệu USD cho nền tảng quản lý chuỗi cung ứng bằng AI, còn Active Technology ở Thượng Hải huy động khoảng 45 triệu USD vòng angel cho nền tảng giao diện não máy tính.</p>
+    <p class="why">💡 Dòng vốn đang chảy mạnh về AI ứng dụng chuyên ngành, đặc biệt là an ninh mạng, thay vì các sản phẩm chung chung. Pentest tự hành cũng là mặt kia của đồng xu Black Hat: cùng một năng lực, khác bên sử dụng.</p>
+    <div class="meta">
+      <span class="when">📅 03/08</span>
+      <a class="metabtn" href="https://techstartups.com/2026/08/03/venture-capital-startup-funding-roundup-august-3-2026-atreides-battery-ventures-nea-sequoia-point72-more/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-22">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="22">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Horizon3.ai: 250 triệu USD Series E cho pentest tự hành.</li>
+        <li>Freehand: 75 triệu USD cho nền tảng chuỗi cung ứng dùng AI.</li>
+        <li>Ellis AI: 10 triệu USD tự động hóa quy trình tín dụng tư nhân.</li>
+        <li>Active Technology (Thượng Hải): ~45 triệu USD vòng angel kỷ lục cho BCI.</li>
+        <li>Xu hướng chung: vốn đổ vào AI chuyên ngành và hạ tầng vật lý.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>HORIZON3.AI</b>250 triệu USD</span>
+        <span class="fact"><b>VÒNG</b>Series E</span>
+        <span class="fact"><b>FREEHAND</b>75 triệu USD</span>
+        <span class="fact"><b>NGÀY</b>03/08/2026</span>
+      </div>
+      <p class="deep">Đọc bảng gọi vốn tuần này thấy rõ một chuyển dịch: nhà đầu tư đang trả tiền cho AI giải bài toán vận hành cụ thể, không phải cho AI nói chung. Horizon3.ai lấy 250 triệu cho pentest tự hành là con số lớn cho một thị trường ngách, và nó nói lên rằng nhu cầu kiểm thử bảo mật liên tục đang tăng nhanh hơn số chuyên gia có thể tuyển. Điểm thú vị là đặt tin này cạnh phần Black Hat trong bản tin: cùng một năng lực khai thác lỗ hổng, đưa cho bên phòng thủ thì thành sản phẩm 250 triệu đô, đưa cho bên tấn công thì thành tiêu đề cảnh báo. Với thị trường Việt Nam, mảng này đáng chú ý vì bài toán rất thật: doanh nghiệp vừa và lớn đều cần pentest định kỳ nhưng không đủ người, và thuê ngoài thì đắt và chậm. Đây là chỗ tự động hóa tạo giá trị đo đếm được ngay, không cần thuyết phục ai về tương lai của AI. Bài học chung cho startup Việt: vốn đang ưu ái sản phẩm giải quyết một nỗi đau đo được, chứ không phải nền tảng đa năng.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<div class="ft">
+  <p>Bản tin tạo lúc <b>07/08/2026</b> · Tổng cộng <b>22 tin</b> trong tuần W32 (03/08 - 09/08/2026)</p>
+  <p>Tuyển chọn &amp; đọc bởi <b>Duc Nguyen</b> · <a href="https://ducnguyen.vn" target="_blank" rel="noopener">ducnguyen.vn</a></p>
+</div>
+
+</div>
+<script src="../../assets/bg.js" defer></script>
+<!--MEDIA_INJECTED-->
+<script>
+(function(){
+  var base="../../audio/2026-08-07/";
+  var cur=null;
+  function play(src){ if(cur){cur.pause();} cur=new Audio(src); cur.play().catch(function(){}); }
+  function stop(){ if(cur){cur.pause(); cur=null;} }
+  document.addEventListener("DOMContentLoaded",function(){
+    var ra=document.getElementById("readAll"); if(ra) ra.onclick=function(){ play(base+"all.mp3"); };
+    var rs=document.getElementById("readStop"); if(rs) rs.onclick=stop;
+    document.querySelectorAll(".readbtn").forEach(function(b){
+      b.onclick=function(){ var id=b.getAttribute("data-aid"); if(id) play(base+id+".mp3"); };
+    });
+  });
+})();
+</script>
+</body>
+</html>

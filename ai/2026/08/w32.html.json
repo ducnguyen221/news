@@ -1,0 +1,448 @@
+{
+ "date": "07/08/2026",
+ "week": "W32",
+ "range": "03/08 - 09/08/2026",
+ "tldr": "Tuần 32 là tuần của những cú xáo trộn lớn. Meta chính thức nhảy vào cuộc chiến coding agent với Muse Spark 1.2 và Muse Code, còn Alphabet thì đảo lộn cả thượng tầng AI khi Demis Hassabis rời vai trò quản lý và Jeff Dean dẫn theo ba kỹ sư kỳ cựu ra lập neolab riêng. Ở Trung Quốc, ByteDance bị lộ đang pre-train một model lên tới mười nghìn tỷ tham số, lớn gấp hơn ba lần Kimi K3. Giới khoa học ghi một cột mốc thật sự khi Stanford và Arc Institute dùng model ngôn ngữ bộ gene thiết kế virus mới hoàn toàn, mười sáu con trong số đó sống và diệt được vi khuẩn E. coli. Bù lại, báo cáo của SaferAI cảnh báo model mở đã gần bắt kịp frontier về năng lực nguy hiểm nhưng lại gần như không còn lớp an toàn nào, và Black Hat năm nay dành gần ba mươi phần trăm số bài nói cho việc khai thác chính các AI agent.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "Anthropic nới safeguard sinh học cho Fable 5, giảm 85% cảnh báo nhầm",
+   "title_en": "Improving Fable 5's Biology Safeguards",
+   "summary": "Anthropic tinh chỉnh lại bộ classifier an toàn sinh học của Claude Fable 5, cắt khoảng 85% số lần chặn nhầm. Người dùng hỏi về sinh học, sức khỏe và giáo dục thông thường sẽ ít bị đẩy xuống model yếu hơn, trong khi các yêu cầu lưỡng dụng về sinh học chuyên sâu và phát triển thuốc vẫn bị chặn.",
+   "why": "Đây là ví dụ hiếm hoi về việc một lab công bố con số cụ thể cho bài toán cân bằng giữa an toàn và tính hữu dụng. False positive quá cao là lý do lớn nhất khiến người dùng bỏ model trong các ngành y tế, giáo dục.",
+   "url": "https://releasebot.io/updates/anthropic",
+   "domain": "releasebot.io",
+   "date": "2026-08-07",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 2,
+   "title": "OpenAI hé lộ thiết bị đầu tay: loa thông minh cỡ cục hockey, giá trên 300 USD",
+   "title_en": "OpenAI's ChatGPT Speaker Will Be Hockey Puck-Sized and Cost Over $300",
+   "summary": "Thiết bị phần cứng đầu tiên của OpenAI là một loa thông minh hình bánh donut, không màn hình, cỡ bằng cục hockey, có bộ phận chuyển động để tạo cảm giác có tính cách, kèm camera và cảm biến đọc môi trường xung quanh. Giá dự kiến khoảng 300 đến 400 USD.",
+   "why": "OpenAI xác nhận thiết bị sẽ không đến tay khách trước cuối tháng 2 năm 2027, tức là cuộc đua phần cứng AI vẫn còn hơn một năm nữa mới thật sự bắt đầu. Camera luôn bật trong phòng khách cũng sẽ là chủ đề tranh cãi lớn về quyền riêng tư.",
+   "url": "https://www.macrumors.com/2026/08/06/openai-chatgpt-speaker/",
+   "domain": "macrumors.com",
+   "date": "2026-08-06",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 3,
+   "title": "OpenAI nâng GPT-5.6 Sol, đưa Luna thành model mặc định cho bản miễn phí",
+   "title_en": "GPT-5.6 Sol & Luna Updates",
+   "summary": "OpenAI tung bản GPT-5.6 Sol cập nhật với câu trả lời tập trung hơn và độ chính xác dữ kiện tốt hơn, kèm một thanh trượt cho phép người dùng chọn mức độ suy nghĩ của model. Song song, GPT-5.6 Luna trở thành model mặc định cho tài khoản Free và Go, thêm nút Think cho câu hỏi khó.",
+   "why": "Việc đẩy model reasoning xuống tận bản miễn phí là tín hiệu rõ ràng rằng chi phí inference đã giảm đủ sâu. Người dùng Việt dùng bản free giờ có công cụ mạnh hơn hẳn mà không phải trả phí.",
+   "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+   "domain": "help.openai.com",
+   "date": "2026-08-06",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 4,
+   "title": "Claude Code chạy được trên hạ tầng riêng của doanh nghiệp",
+   "title_en": "Run Claude Code Sessions on Your Own Compute",
+   "summary": "Anthropic mở public beta self-hosted environments cho Claude Code, cho phép phiên làm việc chạy ngay trong mạng nội bộ của doanh nghiệp, cạnh service, toolchain và lớp kiểm soát bảo mật của họ thay vì trên hạ tầng Anthropic. Bản 2.1.224 kèm theo cross-session messaging và quét bảo mật skill, plugin bên thứ ba.",
+   "why": "Đây chính là rào cản lớn nhất khiến ngân hàng, bảo hiểm và khối nhà nước ở Việt Nam chưa dám đưa coding agent vào quy trình thật. Code không rời khỏi mạng nội bộ là điều kiện tiên quyết để qua được vòng compliance.",
+   "url": "https://releasebot.io/updates/anthropic/claude-code",
+   "domain": "releasebot.io",
+   "date": "2026-08-06",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 5,
+   "title": "Meta nhảy vào cuộc chiến coding agent với Muse Spark 1.2 và Muse Code",
+   "title_en": "Meta enters the AI coding wars with Muse Spark 1.2 and Muse Code with persistent async background agents",
+   "summary": "Meta Superintelligence Labs ra Muse Spark 1.2, bản nâng cấp tập trung vào sinh code, debug và hiểu codebase lớn, cùng Muse Code, một terminal coding agent chạy beta trên macOS và Linux có khả năng nhận trọn tác vụ kỹ thuật phần mềm từ lập kế hoạch tới kiểm chứng kết quả. Giá chuẩn là 1,25 USD mỗi triệu token input và 4,25 USD output, kèm một contributor tier chỉ 0,10 và 0,20 USD nếu người dùng cho phép Meta dùng dữ liệu của mình.",
+   "why": "Meta là ông lớn cuối cùng bước vào mảng coding agent, và họ chọn đánh bằng giá. Mức contributor tier rẻ hơn hơn mười lần sẽ ép cả thị trường phải nhìn lại bảng giá, nhưng cái giá thật là dữ liệu code của bạn.",
+   "url": "https://venturebeat.com/orchestration/meta-enters-the-ai-coding-wars-with-muse-spark-1-2-and-muse-code-with-persistent-async-background-agents",
+   "domain": "venturebeat.com",
+   "date": "2026-08-05",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 1
+  },
+  {
+   "aid": 6,
+   "title": "Codex 0.147.0: Agent Plugins di động và hỗ trợ spec MCP mới",
+   "title_en": "Codex 0.147.0 introduces portable Agent Plugins and MCP 2026-07-28 support",
+   "summary": "Bản Codex 0.147.0 giới thiệu Agent Plugins có thể mang đi giữa các môi trường, phần hội thoại được giữ bền, hỗ trợ spec MCP 2026-07-28, thêm cờ CLI approve-for-me để tự động duyệt các thao tác đã được review, và bổ sung lớp che giấu secret.",
+   "why": "Plugin di động là bước đi để agent không còn bị khóa vào một máy hay một repo. Với team dev Việt Nam, đây là cách chuẩn hóa quy trình agent giữa nhiều dự án mà không phải cấu hình lại từ đầu.",
+   "url": "https://releasebot.io/updates/openai",
+   "domain": "releasebot.io",
+   "date": "2026-08-07",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "Castform và Neon: model mở 4B đuổi kịp GPT-5.6 Sol ở retrieval, rẻ hơn 100 lần",
+   "title_en": "Beating GPT-5.6 Sol on retrieval with 100x cheaper open models",
+   "summary": "Neon công bố kết quả dùng Castform để RL post-train một model mở 4 tỷ tham số, đạt độ chính xác tương đương GPT-5.6 Sol trên tác vụ truy xuất kết quả tìm kiếm nhưng chi phí thấp hơn khoảng 100 lần. Một request search nhiều lượt với GPT-5.6 Sol mất hơn 10 giây và tốn khoảng 0,03 USD.",
+   "why": "Đây là bằng chứng cụ thể cho luận điểm quan trọng nhất của năm 2026: với tác vụ hẹp, model nhỏ được post-train tốt đánh bại model frontier về cả giá lẫn tốc độ. Rất đáng thử cho team làm RAG với ngân sách hạn chế.",
+   "url": "https://neon.com/blog/how-castform-neon-beats-frontier-models-on-price-and-efficiency",
+   "domain": "neon.com",
+   "date": "2026-08-05",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "Claude Enterprise thêm inference hooks: soi mọi prompt và tool call trước khi tới model",
+   "title_en": "Inference Hooks Beta for Claude Enterprise",
+   "summary": "Anthropic mở beta inference hooks cho gói Enterprise, cho phép đội compliance kiểm tra và áp chính sách lên từng prompt cũng như từng phản hồi tool call trước khi chúng đến được model, áp dụng xuyên suốt chat, Claude Code và Cowork.",
+   "why": "Đây là lớp DLP thời gian thực đầu tiên được tích hợp thẳng vào đường đi của inference. Với doanh nghiệp có dữ liệu nhạy cảm, kiểm soát ở tầng hook thực tế hơn nhiều so với việc chỉ dặn nhân viên đừng dán dữ liệu vào chat.",
+   "url": "https://releasebot.io/updates/anthropic/claude",
+   "domain": "releasebot.io",
+   "date": "2026-08-05",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "ChatGPT Work và Codex có bộ plugin giáo dục cho K-12, giảng viên và sinh viên",
+   "title_en": "Education Plugins for ChatGPT Work and Codex",
+   "summary": "OpenAI bổ sung ba plugin K-12 Educator, College Educator và College Student cho ChatGPT Work và Codex, hỗ trợ soạn tài liệu phân hóa theo trình độ, dựng hình ảnh minh họa tương tác và rút ra các chỉ dấu hành động từ dữ liệu lớp học.",
+   "why": "Cuộc đua giành thị trường giáo dục đang nóng lên rõ rệt sau khi Anthropic tung Claude for Teachers. Với giáo viên Việt Nam, phần soạn tài liệu phân hóa theo trình độ là thứ tiết kiệm thời gian thật sự.",
+   "url": "https://releasebot.io/updates/openai/chatgpt",
+   "domain": "releasebot.io",
+   "date": "2026-08-04",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "Stanford và Arc Institute dùng AI thiết kế virus mới, 16 con diệt được E. coli",
+   "title_en": "AI creates 16 new viruses from scratch, showing promise for drug resistance and drawing warnings about potential for misuse",
+   "summary": "Nhóm nghiên cứu ở Stanford và Arc Institute dùng model ngôn ngữ bộ gene Evo 2 sinh ra hàng trăm bộ gene bacteriophage hoàn toàn mới, in 302 thiết kế thành DNA vật lý rồi thả vào đĩa nuôi E. coli. Kết quả có 16 con virus thật sự sống, lây nhiễm và tiêu diệt được vi khuẩn. Nghiên cứu đăng trên Science.",
+   "why": "Đây là lần đầu tiên AI thiết kế trọn vẹn một bộ gene sống được, mở đường cho liệu pháp phage chống vi khuẩn kháng thuốc. Nhưng nó cũng chứng minh rào cản kỹ thuật để tạo tác nhân sinh học mới đã thấp đi rất nhiều, trong khi khung pháp lý gần như chưa có gì.",
+   "url": "https://www.cnn.com/2026/08/06/health/ai-viruses-bacteriophages",
+   "domain": "cnn.com",
+   "date": "2026-08-06",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": 2
+  },
+  {
+   "aid": 11,
+   "title": "OneDayAgent: harness đo agent tự hành trên tác vụ kéo dài cả ngày",
+   "title_en": "OneDayAgent: Towards a Long-Horizon Harness for Autonomous Agents",
+   "summary": "Nhóm ZJUNLP giới thiệu OneDayAgent, một benchmark và harness đánh giá agent tự hành trên chuỗi tác vụ kéo dài, thay vì các bài test ngắn chỉ vài bước như hiện nay.",
+   "why": "Mọi benchmark agent hiện tại đều đo trên tác vụ ngắn, trong khi giá trị thật của agent nằm ở việc chạy liên tục nhiều giờ. Đây là hướng đo lường sát với cách doanh nghiệp thật sự muốn dùng agent.",
+   "url": "https://huggingface.co/papers/2608.05013",
+   "domain": "huggingface.co",
+   "date": "2026-08-06",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "The Personalization Mirage: LLM bịa hồ sơ người dùng, và tự giám sát lại càng sai",
+   "title_en": "The Personalization Mirage: How LLMs Fabricate User Profiles, and Why Self-Monitoring Misleads",
+   "summary": "Nghiên cứu của HKUST chỉ ra rằng khi cá nhân hóa, các model ngôn ngữ thường tự bịa ra sở thích và đặc điểm của người dùng mà không có căn cứ, và cơ chế để model tự đánh giá mức độ chắc chắn của mình lại càng làm sai lệch thêm.",
+   "why": "Rất nhiều sản phẩm đang bán tính năng cá nhân hóa dựa trên suy đoán của model. Bài này cho thấy cần dữ liệu người dùng có thật làm nền, chứ không thể để model tự đoán rồi tự chấm điểm mình.",
+   "url": "https://huggingface.co/papers/2608.04570",
+   "domain": "huggingface.co",
+   "date": "2026-08-06",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "Meta mổ xẻ vật lý của pre-training đa phương thức",
+   "title_en": "Towards Physics of Multimodal Pretraining: Knowledge Flow, Modality Synergy, Early Unification, and Recipes",
+   "summary": "Meta công bố nghiên cứu phân tích cơ chế nền tảng của việc pre-train đa phương thức, gồm cách tri thức chảy giữa các modality, sự cộng hưởng giữa chúng, thời điểm nên hợp nhất và các công thức huấn luyện cụ thể.",
+   "why": "Phần lớn công thức train multimodal hiện nay vẫn là kinh nghiệm truyền miệng. Một bài phân tích cơ chế từ chính Meta giúp các team nhỏ tránh đốt tiền vào những lựa chọn kiến trúc đã được chứng minh là kém.",
+   "url": "https://huggingface.co/papers/2608.05000",
+   "domain": "huggingface.co",
+   "date": "2026-08-06",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "Tencent Hunyuan: Recursive Synthesis cho tác vụ terminal dài hơi",
+   "title_en": "Recursive Synthesis for Long-Horizon Terminal Tasks",
+   "summary": "Tencent Hunyuan đề xuất phương pháp Recursive Synthesis, phân rã tác vụ terminal phức tạp thành các nhánh con theo cơ chế đệ quy để agent giữ được mạch kế hoạch qua chuỗi bước rất dài.",
+   "why": "Tác vụ terminal dài hơi vẫn là điểm yếu chung của mọi coding agent, kể cả model mạnh nhất. Hướng phân rã đệ quy là cách tiếp cận thực dụng, không cần model lớn hơn mà cần harness thông minh hơn.",
+   "url": "https://huggingface.co/papers/2608.05466",
+   "domain": "huggingface.co",
+   "date": "2026-08-06",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "Black Hat USA 2026: gần 29% bài nói về AI, trọng tâm chuyển sang khai thác agent",
+   "title_en": "AI Agents Take Center Stage at Black Hat USA 2026",
+   "summary": "Trong tổng số 121 bài trình bày tại Black Hat USA 2026, có 35 bài liên quan trực tiếp tới bảo mật AI, tức gần 29% hội nghị. Trọng tâm nghiên cứu tấn công đã dịch từ base model sang chính các agent tự hành, gồm lỗ hổng trong runtime của LangChain, CrewAI, AutoGen và Semantic Kernel, trong đó một prompt đủ để chạy mã trên máy chủ agent.",
+   "why": "Prompt injection không còn là chuyện lạ mà đã thành một ngành khai thác có phương pháp. Bất kỳ team nào đang chạy agent framework trong production đều cần đọc lại phần runtime của mình ngay tuần này.",
+   "url": "https://www.straiker.ai/blog/black-hat-usa-2026-ai-security-talks",
+   "domain": "straiker.ai",
+   "date": "2026-08-05",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 16,
+   "title": "Meta chạy quảng cáo chứa ảnh lạm dụng trẻ em do AI tạo suốt chín tháng",
+   "title_en": "Meta apps displayed ads that contained AI-generated CSAM",
+   "summary": "Điều tra của Wired và Tech Transparency Project phát hiện hơn 50 quảng cáo hình ảnh và video chứa nội dung lạm dụng trẻ em do AI tạo ra, chạy trên Facebook, Instagram, Messenger và Threads từ tháng 11 năm 2025 tới đầu tháng 8 năm 2026, tiếp cận người dùng Mỹ, Anh và hơn chục nước châu Âu. Một số vẫn còn chạy sau khi Meta được báo trực tiếp.",
+   "why": "Meta đã duyệt và thu tiền của những quảng cáo này, trong đó có nội dung trùng lặp với thứ họ từng gỡ vì cùng vi phạm. Đây là ví dụ nặng nề nhất về việc kiểm duyệt bằng tự động hóa thất bại ở đúng chỗ không được phép thất bại.",
+   "url": "https://www.engadget.com/2231100/meta-apps-displayed-ads-that-contained-ai-generated-csam/",
+   "domain": "engadget.com",
+   "date": "2026-08-05",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "Ảnh do AI tạo khiến tôi không muốn đọc blog của bạn: 792 điểm trên Hacker News",
+   "title_en": "AI-Generated Images Discourage Me from Reading Your Blog",
+   "summary": "Bài viết cá nhân lập luận rằng ảnh minh họa do AI sinh ra là tín hiệu cho thấy tác giả không thật sự đầu tư vào nội dung, khiến người đọc mất niềm tin ngay trước khi đọc chữ đầu tiên. Bài đạt 792 điểm và 465 bình luận trên Hacker News.",
+   "why": "Đây là chỉ dấu rõ về sự đảo chiều thẩm mỹ: ảnh AI từ chỗ là dấu hiệu hiện đại giờ thành dấu hiệu cẩu thả. Ai đang làm content marketing nên cân nhắc lại thư viện ảnh của mình.",
+   "url": "https://nelson.cloud/ai-generated-images-discourage-me-from-reading-your-blog/",
+   "domain": "nelson.cloud",
+   "date": "2026-08-04",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 18,
+   "title": "Model mở đã gần bắt kịp frontier, nhưng khoảng cách an toàn thì không",
+   "title_en": "Open-weight AI models are catching up to the frontier. The safety gap remains.",
+   "summary": "Báo cáo của SaferAI cho thấy model open-weight GLM-5.2 của Z.ai chỉ còn kém GPT-5.5 và Claude Opus 4.7 vài tháng về năng lực mạng và sinh học, nhưng từ chối đúng không tác vụ tấn công nào trong bộ test, trong khi Claude Opus 4.7 từ chối kiên định tới mức SaferAI không chạy nổi bài CyberGym.",
+   "why": "Một khi trọng số đã tải về máy, mọi lớp an toàn đều có thể gỡ bỏ bằng fine-tune hoặc đổi system prompt. Như giám đốc SaferAI nói, biên giới của năng lực không phải là biên giới của rủi ro.",
+   "url": "https://techcrunch.com/2026/08/04/open-weight-ai-models-are-catching-up-to-the-frontier-the-safety-gap-remains/",
+   "domain": "techcrunch.com",
+   "date": "2026-08-04",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": 5
+  },
+  {
+   "aid": 19,
+   "title": "ByteDance đang train model 10 nghìn tỷ tham số, lớn gấp hơn ba lần Kimi K3",
+   "title_en": "Next Big China AI: TikTok Parent ByteDance Training Giant Model",
+   "summary": "Theo Financial Times, ByteDance đang pre-train một model với quy mô lên tới 10 nghìn tỷ tham số, lớn hơn ba lần Kimi K3 của Moonshot vốn có 2,8 nghìn tỷ tham số. Giai đoạn pre-train dự kiến mất từ ba đến sáu tháng, và quy mô cuối cùng sẽ được chốt sau. Ước tính của giới trong ngành đặt Mythos 5 của Anthropic ở khoảng 8 nghìn tỷ tham số.",
+   "why": "Trung Quốc vẫn đang đặt cược vào quy mô trong khi phương Tây chuyển dần sang hiệu quả. Nếu ByteDance làm được, cán cân model lớn nhất thế giới sẽ đổi chủ, và câu hỏi có mở trọng số hay không sẽ quan trọng hơn cả con số tham số.",
+   "url": "https://www.heise.de/en/news/Next-Big-China-AI-TikTok-Parent-ByteDance-Training-Giant-Model-11403069.html",
+   "domain": "heise.de",
+   "date": "2026-08-07",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": 4
+  },
+  {
+   "aid": 20,
+   "title": "Mỹ rà soát cách công ty AI Trung Quốc thuê chip Nvidia ở nước ngoài",
+   "title_en": "US Reviews China's Offshore Access to Nvidia Chips After AI Breakthroughs",
+   "summary": "Cục Công nghiệp và An ninh thuộc Bộ Thương mại Mỹ đang xem xét cách các công ty AI Trung Quốc tiếp cận chip Nvidia thông qua con đường hợp pháp là thuê năng lực tính toán đặt tại nước thứ ba, sau loạt đột phá công nghệ gần đây từ phía Trung Quốc.",
+   "why": "Cấm bán chip nhưng không cấm thuê compute là lỗ hổng lớn nhất của cơ chế kiểm soát hiện tại. Nếu Mỹ bịt nốt, thị trường cloud GPU ở Đông Nam Á, trong đó có Việt Nam, sẽ chịu ảnh hưởng dây chuyền về quy định khách hàng.",
+   "url": "https://www.bloomberg.com/news/articles/2026-08-07/us-reviews-china-s-offshore-access-to-nvidia-chips-after-ai-breakthroughs",
+   "domain": "bloomberg.com",
+   "date": "2026-08-07",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  },
+  {
+   "aid": 21,
+   "title": "Alphabet đảo lộn thượng tầng AI: Hassabis rời ghế quản lý, Jeff Dean lập Discovery Loop",
+   "title_en": "Google shakes up AI leadership as DeepMind chief shifts role",
+   "summary": "Alphabet công bố tái cấu trúc mảng AI: Demis Hassabis rời vai trò quản lý chính, còn Jeff Dean rời công ty để lập một neolab tên Discovery Loop, kéo theo Sanjay Ghemawat, Quoc Le và Oriol Vinyals. Koray Kavukcuoglu, cựu CTO DeepMind, tiếp quản DeepMind và Gemini. Cổ phiếu Alphabet giảm 4% sau tin.",
+   "why": "Cùng lúc bản flagship của Gemini vẫn chưa ra dù kế hoạch là tháng 6, cú ra đi tập thể này khiến thị trường lo Google đang tụt lại sau OpenAI và Anthropic. Đây là đợt chảy máu nhân tài nghiêm trọng nhất của Google trong nhiều năm.",
+   "url": "https://finance.yahoo.com/technology/ai/articles/google-shakes-up-ai-leadership-as-deepmind-chief-shifts-role-160227886.html",
+   "domain": "finance.yahoo.com",
+   "date": "2026-08-05",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": 3
+  },
+  {
+   "aid": 22,
+   "title": "Horizon3.ai gọi 250 triệu USD Series E cho công cụ pentest tự hành",
+   "title_en": "Venture Capital & Startup Funding Roundup, August 3, 2026",
+   "summary": "Horizon3.ai huy động 250 triệu USD vòng Series E để phát triển công cụ kiểm thử xâm nhập tự hành. Cùng tuần, Freehand ở San Francisco gọi 75 triệu USD cho nền tảng quản lý chuỗi cung ứng bằng AI, còn Active Technology ở Thượng Hải huy động khoảng 45 triệu USD vòng angel cho nền tảng giao diện não máy tính.",
+   "why": "Dòng vốn đang chảy mạnh về AI ứng dụng chuyên ngành, đặc biệt là an ninh mạng, thay vì các sản phẩm chung chung. Pentest tự hành cũng là mặt kia của đồng xu Black Hat: cùng một năng lực, khác bên sử dụng.",
+   "url": "https://techstartups.com/2026/08/03/venture-capital-startup-funding-roundup-august-3-2026-atreides-battery-ventures-nea-sequoia-point72-more/",
+   "domain": "techstartups.com",
+   "date": "2026-08-03",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 5,
+ "weekly_video": {
+  "intro": "Chào các bạn, đây là bản tin AI tuần 32, từ mùng ba đến mùng chín tháng Tám năm 2026. Tuần này tóm lại bằng một chữ: xáo trộn. Meta bước vào cuộc chiến coding agent, Alphabet thay gần hết thượng tầng AI, ByteDance lộ tham vọng model mười nghìn tỷ tham số, còn khoa học thì lần đầu dùng AI thiết kế ra virus sống được. Mời các bạn cùng đi qua năm câu chuyện nóng nhất.",
+  "outro": "Đó là năm câu chuyện đáng chú ý nhất của tuần 32. Chi tiết đầy đủ cùng hơn hai mươi tin khác các bạn xem trong bản tin trên trang. Hẹn gặp lại các bạn tuần sau.",
+  "segments": [
+   {
+    "aid": 5,
+    "headline": "Meta nhảy vào cuộc chiến coding agent",
+    "narration": "Ngày mùng năm tháng Tám, Meta Superintelligence Labs công bố cùng lúc hai thứ: model Muse Spark 1.2 và công cụ Muse Code. Muse Spark 1.2 là bản nâng cấp từ Muse Spark 1.1 hồi tháng Bảy, tập trung vào sinh code, gỡ lỗi và hiểu codebase lớn. Muse Code thì là một coding agent chạy trên terminal, hiện ở giai đoạn beta cho macOS và Linux. Nó nhận trọn một tác vụ kỹ thuật phần mềm trên repo lớn: tự lập kế hoạch thay đổi, viết code, rồi kiểm chứng lại kết quả, và có agent chạy nền bất đồng bộ. Trong một bài test kéo dài hai mươi tư giờ về tối ưu GPU, Muse Spark 1.2 thực hiện hơn một nghìn lượt gọi công cụ. Meta so sánh model này trực tiếp với Opus 5, GPT 5.6 Terra, Gemini 3.6 Flash và Grok 4.5. Nhưng điểm gây chú ý nhất lại là giá. Giá chuẩn là một đô hai lăm cho mỗi triệu token đầu vào và bốn đô hai lăm cho đầu ra. Bên cạnh đó có một mức gọi là contributor tier, chỉ mười xu đầu vào và hai mươi xu đầu ra, với điều kiện bạn cho phép Meta dùng dữ liệu của bạn để cải thiện sản phẩm của họ. Rẻ hơn hơn mười lần, đổi lại là code và cách bạn làm việc trở thành dữ liệu huấn luyện.",
+    "bullets": [
+     "Muse Code là terminal agent, beta macOS và Linux",
+     "Hơn một nghìn lượt gọi tool trong bài test hai tư giờ",
+     "Contributor tier rẻ hơn mười lần, đổi bằng dữ liệu"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Hai mức giá Muse Spark 1.2",
+     "left": {
+      "h": "Giá chuẩn",
+      "items": [
+       "1,25 USD / triệu token input",
+       "4,25 USD / triệu token output",
+       "Dữ liệu của bạn giữ riêng"
+      ]
+     },
+     "right": {
+      "h": "Contributor tier",
+      "items": [
+       "0,10 USD / triệu token input",
+       "0,20 USD / triệu token output",
+       "Meta được dùng dữ liệu của bạn"
+      ]
+     }
+    },
+    "images": [
+     "https://www.marktechpost.com/wp-content/uploads/2026/08/blog6176-13.png"
+    ]
+   },
+   {
+    "aid": 10,
+    "headline": "AI thiết kế virus mới, mười sáu con sống thật",
+    "narration": "Ngày mùng sáu tháng Tám, tạp chí Science đăng một nghiên cứu có thể coi là cột mốc của sinh học tính toán. Nhóm khoa học ở Đại học Stanford và Arc Institute đã dùng Evo 2, một model ngôn ngữ bộ gene được huấn luyện trên khối lượng dữ liệu di truyền khổng lồ, để sinh ra hàng trăm bộ gene bacteriophage hoàn toàn mới. Bacteriophage là loại virus chỉ lây nhiễm vi khuẩn, không lây sang người. Điểm mấu chốt là những bộ gene này không sao chép từ virus có sẵn trong tự nhiên, mà do model tự sinh ra theo quy luật DNA nó đã học được. Nhóm nghiên cứu chọn ba trăm lẻ hai thiết kế, in thành DNA vật lý thật, rồi thả vào các đĩa nuôi vi khuẩn E. coli để xem con nào sống. Kết quả: mười sáu con virus hoạt động thật sự, lây nhiễm và tiêu diệt được vi khuẩn. Đây được coi là lần đầu tiên một bộ gene hoàn chỉnh do AI thiết kế hoạt động được trong thực tế. Ý nghĩa tích cực rất rõ: nó mở đường cho liệu pháp phage chống vi khuẩn kháng kháng sinh. Nhưng mặt kia thì các chuyên gia đã cảnh báo ngay: rào cản kỹ thuật để tạo tác nhân sinh học mới vừa hạ xuống đáng kể, trong khi khung pháp lý quản lý lĩnh vực này gần như vẫn là con số không.",
+    "bullets": [
+     "Evo 2 sinh hàng trăm bộ gene phage mới hoàn toàn",
+     "In 302 thiết kế thành DNA, 16 con sống thật",
+     "Mở đường trị vi khuẩn kháng thuốc, kèm rủi ro sinh học"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Từ model tới virus sống",
+     "items": [
+      {
+       "t": "Evo 2",
+       "d": "Model ngôn ngữ bộ gene"
+      },
+      {
+       "t": "Sinh thiết kế",
+       "d": "Hàng trăm bộ gene phage mới"
+      },
+      {
+       "t": "In DNA",
+       "d": "302 thiết kế thành DNA thật"
+      },
+      {
+       "t": "Thả vào E. coli",
+       "d": "Nuôi trong đĩa thí nghiệm"
+      },
+      {
+       "t": "Kết quả",
+       "d": "16 virus sống và diệt khuẩn"
+      }
+     ]
+    },
+    "images": [
+     "https://arcinstitute.org/news/hie-king-synthetic-phage/fig1.png"
+    ]
+   },
+   {
+    "aid": 21,
+    "headline": "Alphabet đảo lộn toàn bộ thượng tầng AI",
+    "narration": "Ngày mùng năm tháng Tám, Alphabet công bố một đợt tái cấu trúc mảng AI mà thị trường đọc ra ngay là tin xấu. Demis Hassabis rời vai trò quản lý chính ở Google DeepMind. Cùng lúc, Jeff Dean, cựu Chief Scientist của Google và đồng dẫn dắt dự án Gemini, rời công ty để lập một neolab mới tên Discovery Loop. Đi cùng Jeff Dean là ba cái tên nặng ký khác: Sanjay Ghemawat, Quoc Le và Oriol Vinyals. Người tiếp quản DeepMind và Gemini là Koray Kavukcuoglu, cựu giám đốc công nghệ của DeepMind và là đồng dẫn dắt Gemini còn lại. Cổ phiếu Alphabet giảm bốn phần trăm ngay sau tin. Bối cảnh khiến chuyện này nặng hơn nhiều so với một đợt thay ghế bình thường. Bản flagship của Gemini thế hệ mới lẽ ra phải ra mắt từ tháng Sáu nhưng tới giờ vẫn chưa xuất hiện. Nhà đầu tư và giới trong ngành đã lo Google tụt lại sau Anthropic và OpenAI, và việc bốn kỹ sư nghiên cứu hàng đầu cùng rời đi một lúc chỉ làm nỗi lo đó nặng thêm. Với người dùng và doanh nghiệp, điều đáng theo dõi không phải là ai ngồi ghế nào, mà là liệu lộ trình sản phẩm Gemini có bị chậm thêm nữa hay không. Nếu có, cán cân lựa chọn model nền cho các dự án dài hạn sẽ dịch chuyển tiếp.",
+    "bullets": [
+     "Hassabis rời vai trò quản lý, Kavukcuoglu tiếp quản",
+     "Jeff Dean lập Discovery Loop, kéo theo ba kỹ sư kỳ cựu",
+     "Cổ phiếu Alphabet giảm bốn phần trăm sau tin"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Cú xáo trộn ở Alphabet",
+     "items": [
+      {
+       "v": "4%",
+       "l": "Cổ phiếu Alphabet giảm"
+      },
+      {
+       "v": "4",
+       "l": "Lãnh đạo nghiên cứu cùng rời"
+      },
+      {
+       "v": "Tháng 6",
+       "l": "Hạn Gemini flagship đã lỡ"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 19,
+    "headline": "ByteDance train model mười nghìn tỷ tham số",
+    "narration": "Ngày mùng bảy tháng Tám, Financial Times đưa tin ByteDance, công ty mẹ của TikTok, đang huấn luyện một model AI với quy mô lên tới mười nghìn tỷ tham số. Để dễ hình dung, con số này lớn hơn ba lần Kimi K3 của Moonshot, model mở lớn nhất từng được công bố với hai phẩy tám nghìn tỷ tham số. Theo các nguồn tin, model đang ở giai đoạn pre-train, và riêng giai đoạn này thường mất từ ba đến sáu tháng. Quy mô cuối cùng vẫn chưa chốt và sẽ được quyết định ở bước sau. Mục tiêu được nhắc tới là cạnh tranh trực tiếp với Mythos của Anthropic, mà giới trong ngành ước tính khoảng tám nghìn tỷ tham số, dù Anthropic không công bố chính thức con số này. Câu chuyện nói lên một điều thú vị về hai hướng đi đang tách nhau. Các lab phương Tây năm nay nói nhiều về hiệu quả: model nhỏ hơn, rẻ hơn, hậu huấn luyện tốt hơn. Trong khi đó các lab Trung Quốc vẫn đặt cược mạnh vào quy mô thô. Nhưng điều quan trọng nhất với cộng đồng lại chưa có câu trả lời: ByteDance có mở trọng số hay không. Nếu có, đó sẽ là sự kiện lớn hơn nhiều so với bản thân con số tham số.",
+    "bullets": [
+     "Mười nghìn tỷ tham số, gấp hơn ba lần Kimi K3",
+     "Đang pre-train, giai đoạn này mất ba tới sáu tháng",
+     "Câu hỏi lớn là có mở trọng số hay không"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Thang quy mô model hiện nay",
+     "items": [
+      {
+       "t": "ByteDance (đang train)",
+       "d": "Tối đa 10 nghìn tỷ tham số"
+      },
+      {
+       "t": "Mythos 5 (ước tính)",
+       "d": "Khoảng 8 nghìn tỷ tham số"
+      },
+      {
+       "t": "Kimi K3 (đã mở)",
+       "d": "2,8 nghìn tỷ tham số"
+      }
+     ]
+    },
+    "images": [
+     "https://heise.cloudimg.io/bound/1200x1200/q85.png-lossy-85.webp-lossy-85.foil1/_www-heise-de_/imgs/18/5/1/3/9/5/4/7/shutterstock_1818376286-dc0c7d0ea68372b7.jpg"
+    ]
+   },
+   {
+    "aid": 18,
+    "headline": "Model mở bắt kịp năng lực, nhưng bỏ lại an toàn",
+    "narration": "Ngày mùng bốn tháng Tám, TechCrunch đăng kết quả một báo cáo của tổ chức SaferAI, và nó vẽ ra bức tranh khá đáng lo về xu hướng open weight. Model GLM 5.2 của công ty Z.ai bên Trung Quốc, một model mở tải về được, hiện chỉ còn cách các model frontier vài tháng về năng lực trong hai lĩnh vực nhạy cảm nhất là an ninh mạng và sinh học. Nghĩa là khoảng cách năng lực giữa mở và đóng gần như đã biến mất. Vấn đề nằm ở phần còn lại. Khi SaferAI cho GLM 5.2 làm các bài kiểm tra tác vụ tấn công mạng và sinh học, model này từ chối đúng không bài nào. Trong khi đó Claude Opus 4.7 của Anthropic từ chối kiên định tới mức nhóm nghiên cứu không hoàn thành nổi bộ test CyberGym trên model này. Nguyên nhân gốc thì ai làm kỹ thuật cũng hiểu: một khi trọng số đã nằm trên máy bạn, mọi lớp bảo vệ đều có thể gỡ bỏ. Đổi system prompt, fine tune lại, và các safeguard biến mất. Không có cơ chế nào cưỡng chế được từ xa. Ông Henry Papadatos, giám đốc điều hành SaferAI, tóm gọn bằng một câu đáng nhớ: biên giới của năng lực không phải là biên giới của rủi ro.",
+    "bullets": [
+     "GLM 5.2 chỉ kém frontier vài tháng về năng lực",
+     "Từ chối đúng không tác vụ tấn công nào trong bộ test",
+     "Trọng số đã tải về thì không cưỡng chế được an toàn"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Khoảng trống an toàn của model mở",
+     "items": [
+      {
+       "v": "0",
+       "l": "Tác vụ tấn công GLM 5.2 từ chối"
+      },
+      {
+       "v": "Vài tháng",
+       "l": "Khoảng cách năng lực với frontier"
+      },
+      {
+       "v": "Hàng trăm",
+       "l": "Jailbreak phổ quát trên model đóng"
+      }
+     ]
+    },
+    "images": [
+     "https://techcrunch.com/wp-content/uploads/2026/08/Z.ai-GLM-5.2-chat.png?resize=1200,576"
+    ]
+   }
+  ]
+ },
+ "facebook_post": "Tuần AI tóm gọn bằng một chữ: xáo trộn. Meta vào cuộc, Google mất người, AI thiết kế được virus sống\n\nMình vừa đọc lại toàn bộ tin AI tuần này và hơi choáng. Không phải vì có một tin quá to, mà vì bốn năm tin cùng cỡ lớn dồn vào một tuần. Có tuần viết mãi không đủ bài, tuần này thì cắt mãi không xuể. Mình chọn ra năm cái đáng để bạn dành thời gian.\n\n1️⃣ Meta nhảy vào cuộc chiến coding agent\nNgày 5/8, Meta Superintelligence Labs ra Muse Spark 1.2 và Muse Code, một coding agent chạy trên terminal, beta cho macOS và Linux. Nó nhận trọn tác vụ trên repo lớn: lập kế hoạch, viết code, tự kiểm chứng. Trong bài test tối ưu GPU kéo dài 24 giờ, model gọi hơn 1.000 lượt tool. Nhưng thứ làm mình dừng lại là bảng giá: chuẩn 1,25 USD input và 4,25 USD output mỗi triệu token, còn contributor tier chỉ 0,10 và 0,20 USD nếu bạn cho Meta dùng dữ liệu của mình.\n\n2️⃣ AI thiết kế virus mới, 16 con sống thật\nNghiên cứu đăng Science ngày 6/8: Stanford và Arc Institute dùng model ngôn ngữ bộ gene Evo 2 sinh hàng trăm bộ gene bacteriophage mới, in 302 thiết kế thành DNA thật, thả vào đĩa nuôi E. coli. Kết quả 16 con virus sống và diệt được vi khuẩn. Lần đầu một bộ gene hoàn chỉnh do AI thiết kế chạy được ngoài đời, mở đường cho liệu pháp phage chống vi khuẩn kháng kháng sinh.\n\n3️⃣ Alphabet đảo lộn thượng tầng AI\nNgày 5/8, Demis Hassabis rời vai trò quản lý chính, Jeff Dean rời Google lập neolab Discovery Loop, kéo theo Sanjay Ghemawat, Quoc Le và Oriol Vinyals. Cổ phiếu Alphabet giảm 4%. Nặng hơn ở chỗ bản Gemini flagship lẽ ra ra mắt từ tháng 6 mà giờ vẫn chưa thấy.\n\n4️⃣ ByteDance train model 10 nghìn tỷ tham số\nFinancial Times đưa tin ngày 7/8. Con số này gấp hơn ba lần Kimi K3 (2,8 nghìn tỷ). Đang pre-train, giai đoạn này thường mất 3 đến 6 tháng.\n\n5️⃣ Model mở bắt kịp năng lực nhưng bỏ lại an toàn\nBáo cáo SaferAI trên TechCrunch ngày 4/8: GLM 5.2 của Z.ai chỉ còn kém frontier vài tháng về năng lực mạng và sinh học, nhưng từ chối đúng 0 tác vụ tấn công trong bộ test. Claude Opus 4.7 thì từ chối kiên định tới mức không chạy nổi bài CyberGym.\n\n💭 Góc nhìn của mình về tuần này\nNếu chỉ được nhớ một điều, mình chọn bảng giá của Meta, chứ không phải benchmark. Cái thật sự mới không phải Meta có coding agent, ai chả có. Cái mới là lần đầu một ông lớn niêm yết công khai giá của dữ liệu bạn, ở mức chênh hơn mười lần. Bản chất họ chuyển từ bán sản phẩm sang mua dữ liệu, chỉ khác là gói trong một dòng pricing.\n\nTốt hay xấu thì tùy bạn đứng ở đâu. Với dev tự học, startup nhỏ, lớp học code, contributor tier là món hời thật. Nhưng với doanh nghiệp có codebase là tài sản, hay team làm dự án cho khách, đó là đường một chiều: dữ liệu đã đi ra thì không kéo về được. Mình làm tư vấn Data/BI đủ lâu để biết cái làm hợp đồng đổ vỡ hiếm khi là công nghệ, mà là câu hỏi dữ liệu của khách đang nằm ở đâu.\n\nHai tin nhỏ hơn trong tuần lại chỉ ra hướng đi thực tế nhất. Neon dùng Castform post-train một model mở chỉ 4 tỷ tham số, đạt độ chính xác ngang GPT-5.6 Sol ở tác vụ retrieval mà rẻ hơn 100 lần. Cùng lúc Anthropic mở beta cho Claude Code chạy trên hạ tầng riêng của doanh nghiệp. Ghép lại, đó là con đường cho team Việt: không đua model to, chọn model vừa, post-train cho đúng bài toán hẹp, và giữ trong mạng nội bộ. Đợt vừa rồi mình học và thi chứng chỉ Databricks, làm thực hành RAG trên lakehouse với Unity Catalog và vector search, thấy rõ điều này: khi dữ liệu và AI về chung một nền có quản trị, phần khó không còn là model mà là governance.\n\nNên làm gì? Nếu team bạn chạy agent framework trong production, đọc lại phần runtime ngay, vì Black Hat năm nay dành gần 29% số bài nói cho việc khai thác chính các agent. Không nên làm gì? Đừng đổi sang contributor tier chỉ vì rẻ khi chưa hỏi pháp chế.\n\nTuần này nhắc mình một điều cũ: thứ gì rẻ bất thường đều đang được trả bằng một loại tiền khác. Việc của mình là biết loại tiền đó là gì trước khi ký.\n\nGhé AI News và Data News của mình để đọc đầy đủ hơn hai mươi tin của tuần nhé, và subscribe để nhận bản tin hàng tuần.\n\n#AI #ArtificialIntelligence #CodingAgent #OpenWeights #LLM #AISafety #DataEngineering #RAG #Databricks #MachineLearning #TechNews #AINews #DucNguyenAI #DataAnalytics",
+ "bgm": "tech-pulse",
+ "youtube": {
+  "recap": "FSUSBFbwoDg",
+  "short": "vnUgf8fupCQ"
+ }
+}
