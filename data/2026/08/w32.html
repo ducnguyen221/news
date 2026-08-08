@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data News – Tuần W32 (03/08 - 09/08/2026)</title>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta name="description" content="Bản tin dữ liệu tuần W32/2026: cổng quản trị AI cho lakehouse, MCP lên GA, Iceberg duyệt kiểu Variant và cơn mệt mỏi của nghề data engineer.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data News – Tuần W32: Cổng quản trị AI khoá chặt lakehouse, MCP thành hạ tầng chuẩn">
+<meta property="og:description" content="Tuần W32/2026: Databricks Unity AI Gateway lên GA, Snowflake đưa Cortex Agents và MCP server vào Native Apps, Iceberg duyệt kiểu Variant, cộng đồng data engineer nói thẳng chuyện chán nghề.">
+<meta property="og:image" content="https://ducnguyen.vn/news/data/assets/og-banner.png">
+<meta property="og:url" content="https://ducnguyen.vn/news/data/2026/08/w32.html">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#04060a;color:#f8fafc;font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px 60px}
+a{color:#34f5a4}
+
+/* HEADER */
+.hdr{position:sticky;top:8px;z-index:60;background:rgba(6,9,16,.92);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:12px;margin:10px 0 4px;padding:12px 16px}
+.hdr-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:#f8fafc}
+.brand-mark{width:42px;height:42px;display:grid;place-items:center;flex:0 0 auto;border:1px solid rgba(52,245,164,.4);border-radius:50%;background:radial-gradient(circle,rgba(52,245,164,.22),rgba(56,189,248,.06) 55%,rgba(4,6,10,.95) 78%);box-shadow:0 0 18px rgba(52,245,164,.35);animation:brandPulse 3.2s ease-in-out infinite;transition:transform .45s cubic-bezier(.175,.885,.32,1.275)}
+.brand:hover .brand-mark{transform:rotate(180deg) scale(1.06);border-color:#34f5a4}
+@keyframes brandPulse{0%,100%{box-shadow:0 0 10px rgba(52,245,164,.22)}50%{box-shadow:0 0 26px rgba(52,245,164,.55)}}
+.brand-name{font-size:1.18rem;font-weight:600;letter-spacing:.2px}
+.brand-name b{color:#34f5a4}
+.brand-sub{display:inline;color:#94a3b8;font-size:.78rem;margin-left:4px}
+.hdr-row2{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-top:8px;position:relative}
+.hdr-row2 .toc{flex:1 1 auto}
+.vdiv{width:1px;height:22px;background:rgba(255,255,255,.16)}
+.toc{display:flex;gap:7px;flex-wrap:wrap}
+.toc a{display:inline-block;padding:5px 11px;border:1px solid rgba(255,255,255,.12);border-radius:20px;background:rgba(12,18,30,.9);color:#cbd5e1;text-decoration:none;font-size:.79rem;white-space:nowrap}
+.toc a:hover{border-color:#34f5a4;color:#34f5a4;background:rgba(52,245,164,.08)}
+.hdr-ctrls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ctrl{display:inline-flex;align-items:center;justify-content:center;gap:2px;padding:8px 13px;border:1px solid rgba(255,255,255,.14);border-radius:9px;background:rgba(12,18,30,.94);color:#e2e8f0;font-size:.82rem;font-weight:600;cursor:pointer;text-decoration:none;font-family:inherit}
+.ctrl:hover{border-color:rgba(52,245,164,.5);color:#34f5a4}
+.ctrl-acc{background:linear-gradient(90deg,#34f5a4,#38bdf8);color:#04060a;border-color:transparent}
+.ctrl-acc:hover{color:#04060a;filter:brightness(1.08)}
+.ctrl-ic{width:38px;height:36px;padding:0}
+.navpop-btn{display:none}
+.navpop{display:none}
+.navpop-t:checked ~ .navpop{display:flex;flex-direction:column;gap:2px;position:absolute;top:calc(100% + 10px);left:0;right:0;z-index:80;background:rgba(8,12,20,.98);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:8px;backdrop-filter:blur(16px)}
+.navpop a{padding:11px 14px;border-radius:8px;color:#cbd5e1;text-decoration:none;font-size:.9rem}
+.navpop a:hover{background:rgba(52,245,164,.1);color:#34f5a4}
+.navpop-t:checked ~ .hdr-ctrls .navpop-btn{color:#04060a;background:linear-gradient(90deg,#34f5a4,#38bdf8);border-color:transparent}
+
+/* RECAP VIDEO */
+#recap{scroll-margin-top:120px}
+.hot-video{margin-top:26px}
+.hot-video .hot-label{font-weight:700;margin-bottom:12px}
+.hot-video video,.hot-video iframe{width:100%;border-radius:12px;border:1px solid rgba(255,255,255,.08);display:block}
+.vid-links{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.vbtn{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border:1px solid rgba(52,245,164,.35);border-radius:9px;color:#34f5a4;text-decoration:none;font-size:.88rem;font-weight:600;background:rgba(52,245,164,.07)}
+.vbtn:hover{background:rgba(52,245,164,.16)}
+
+/* TLDR + TIMELINE */
+.tldr{margin-top:26px;background:rgba(10,15,26,.95);border:1px solid rgba(52,245,164,.24);border-left:3px solid #34f5a4;border-radius:12px;padding:18px 20px}
+.tldr h2{margin:0 0 8px;font-size:1.05rem;color:#34f5a4;letter-spacing:.3px}
+.tldr p{margin:0;color:#e2e8f0;font-size:.97rem}
+.timeline{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.tl{display:inline-flex;flex-direction:column;align-items:center;gap:1px;min-width:74px;padding:7px 10px;border:1px solid rgba(255,255,255,.1);border-radius:10px;background:rgba(10,15,26,.93)}
+.tl b{font-size:.76rem;color:#cbd5e1;font-weight:600;letter-spacing:.2px}
+.tl span{font-size:.72rem;color:#34f5a4;font-weight:700}
+.tl.zero{opacity:.38}
+.tl.zero span{color:#94a3b8}
+
+/* SECTIONS */
+.sec{margin-top:38px;scroll-margin-top:120px}
+.sec h2{font-size:1.24rem;margin:0 0 16px;padding-bottom:9px;border-bottom:1px solid rgba(255,255,255,.09);letter-spacing:.2px}
+
+/* CARD */
+.card{display:flex;gap:14px;background:rgba(10,15,26,.93);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px;margin-bottom:14px}
+.card[data-hot="1"]{border-color:rgba(52,245,164,.45);box-shadow:0 0 24px rgba(52,245,164,.12)}
+.thumb{width:96px;height:72px;flex:0 0 96px;object-fit:cover;border-radius:9px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07)}
+.thumb-fallback{object-fit:contain;padding:16px;background:rgba(255,255,255,.05)}
+.body{flex:1 1 auto;min-width:0}
+.rank{display:inline-block;margin-bottom:6px;padding:3px 10px;border-radius:20px;font-size:.7rem;font-weight:800;letter-spacing:.5px;color:#04060a;background:linear-gradient(90deg,#34f5a4,#38bdf8)}
+.title{display:block;font-size:1.04rem;font-weight:700;color:#f8fafc;text-decoration:none;line-height:1.42}
+.title:hover{color:#34f5a4}
+.sum{margin:7px 0 0;color:#cbd5e1;font-size:.93rem}
+.why{margin:7px 0 0;color:#94a3b8;font-size:.88rem}
+.meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:11px}
+.when{font-size:.78rem;color:#94a3b8}
+.metabtn,.readbtn{display:inline-flex;align-items:center;gap:4px;padding:5px 11px;border:1px solid rgba(255,255,255,.13);border-radius:8px;background:rgba(12,18,30,.9);color:#cbd5e1;text-decoration:none;font-size:.78rem;cursor:pointer;font-family:inherit}
+.metabtn:hover,.readbtn:hover{border-color:rgba(52,245,164,.45);color:#34f5a4}
+.xt:checked ~ .meta .xbtn{background:rgba(52,245,164,.16);border-color:#34f5a4;color:#34f5a4}
+.more{display:none}
+.xt:checked ~ .more{display:block;margin-top:14px;border-top:1px dashed rgba(255,255,255,.12);padding-top:14px}
+.kb{margin:0 0 12px;padding:0;list-style:none}
+.kb li{position:relative;padding-left:18px;margin-bottom:6px;font-size:.89rem;color:#cbd5e1}
+.kb li::before{content:"▸";position:absolute;left:0;color:#34f5a4;font-weight:700}
+.facts{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
+.fact{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border:1px solid rgba(56,189,248,.28);border-radius:7px;background:rgba(56,189,248,.07);font-family:ui-monospace,'Cascadia Code',Consolas,monospace;font-size:.75rem;color:#e2e8f0}
+.fact b{color:#38bdf8;font-weight:700;letter-spacing:.3px}
+.deep{margin:0;color:#a8b3c4;font-size:.89rem;line-height:1.68}
+
+/* FOOTER */
+footer{margin-top:44px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);color:#94a3b8;font-size:.84rem;text-align:center}
+footer a{color:#34f5a4}
+
+@media(max-width:767px){
+  .hdr{padding:10px 12px}
+  .brand-mark{width:36px;height:36px}
+  .brand-name{font-size:1.02rem}
+  .brand-sub{font-size:.7rem}
+  .hdr-row2 .toc,.vdiv{display:none}
+  .hdr-ctrls{width:100%;gap:6px;flex-wrap:nowrap}
+  .hdr-ctrls .ctrl{flex:1 1 auto;font-size:.78rem;padding:8px 6px;text-align:center}
+  .hdr-ctrls .ctrl-ic{flex:0 0 38px;width:38px;height:36px;padding:0}
+  .navpop-btn{display:grid;place-items:center}
+  .card{flex-direction:column}
+  .thumb{width:100%;height:150px;flex:0 0 auto}
+  .vid-links .vbtn{flex:1 1 auto;justify-content:center}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hdr" id="top">
+  <div class="hdr-row">
+    <a class="brand" href="../../index.html" title="Về trang chính Data News"><span class="brand-mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34f5a4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/><path d="M4.5 11.5v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/></svg></span><span class="brand-name">Data <b>News</b></span><span class="brand-sub">Tuần W32 · 03/08 - 09/08/2026</span></a>
+  </div>
+  <div class="hdr-row2">
+    <input type="checkbox" id="navpop" class="navpop-t" hidden>
+    <nav class="toc">
+      <a href="#recap">🎬 Recap</a>
+      <a href="#sec-1">🗄️ Hạ tầng</a>
+      <a href="#sec-2">🛠️ Công cụ</a>
+      <a href="#sec-3">🤖 AI × Data</a>
+      <a href="#sec-4">📈 Trend</a>
+      <a href="#sec-5">🏢 Ngành</a>
+    </nav>
+    <span class="vdiv"></span>
+    <div class="hdr-ctrls"><button id="readAll" class="ctrl ctrl-acc">🔊<span class="btxt"> Đọc tóm tắt</span></button> <button id="readStop" class="ctrl">⏹<span class="btxt"> Dừng</span></button> <label class="ctrl ctrl-ic navpop-btn" for="navpop" title="Mục lục">☰</label> <a class="ctrl ctrl-ic" href="../../index.html" title="Quay lại Data News">←</a></div>
+    <div class="navpop">
+      <a href="#recap" onclick="document.getElementById('navpop').checked=false">🎬 Recap tuần</a>
+      <a href="#sec-1" onclick="document.getElementById('navpop').checked=false">🗄️ Hạ tầng &amp; Kiến trúc dữ liệu</a>
+      <a href="#sec-2" onclick="document.getElementById('navpop').checked=false">🛠️ Công cụ &amp; Nền tảng</a>
+      <a href="#sec-3" onclick="document.getElementById('navpop').checked=false">🤖 AI × Data</a>
+      <a href="#sec-4" onclick="document.getElementById('navpop').checked=false">📈 Hot trend &amp; Thảo luận</a>
+      <a href="#sec-5" onclick="document.getElementById('navpop').checked=false">🏢 Ngành &amp; Doanh nghiệp</a>
+    </div>
+  </div>
+</header>
+
+<div id="recap"></div>
+<div class="hot-video"><div class="hot-label">🎬 Video recap tuần — các tin nóng nhất</div><div style="position:relative;width:100%;padding-top:56.25%;border-radius:12px;overflow:hidden"><iframe src="https://www.youtube.com/embed/4WmQbpy5ktc" title="AI News recap" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><div class="vid-links"><a class="vbtn" href="https://youtu.be/4WmQbpy5ktc" target="_blank" rel="noopener">▶ Mở Youtube</a><a class="vbtn" href="https://www.youtube.com/shorts/HSakdCFo0qc" target="_blank" rel="noopener">📱 Youtube Short</a></div></div>
+
+<div class="tldr">
+  <h2>⚡ Tổng quan tuần này</h2>
+  <p>Tuần W32 là tuần lớp quản trị dành cho AI chính thức lên sản xuất: Databricks đưa Unity AI Gateway lên GA để kiểm soát mọi mô hình, mọi MCP server và mọi đồng hồ tính tiền từ một chỗ, còn Snowflake cho Native Apps tự tạo Cortex Agents và MCP server ở mức GA. MCP đã hết là thí nghiệm, nó trở thành đường ống chuẩn để agent chạm vào dữ liệu doanh nghiệp. Bên dưới, phe open lakehouse tiếp tục dọn nền: Iceberg duyệt kiểu Variant vào REST catalog spec, Parquet mở lại lá phiếu versioning theo hướng feature flag, còn DataFusion Comet gọi phiếu 1.0.0. Databricks và Snowflake cũng siết mặt an toàn với Secrets trong Unity Catalog, Multi-party Approval và cột agents_info truy vết agent nào đã đọc dữ liệu. Trái ngược với tin sản phẩm dồn dập, cộng đồng lại nói chuyện mệt mỏi: một chủ đề về chán nghề data engineer thu 273 lượt ủng hộ và 114 bình luận chỉ trong vài ngày.</p>
+  <div class="timeline">
+    <div class="tl"><b>T2 03/08</b><span>6 tin</span></div>
+    <div class="tl"><b>T3 04/08</b><span>6 tin</span></div>
+    <div class="tl"><b>T4 05/08</b><span>2 tin</span></div>
+    <div class="tl"><b>T5 06/08</b><span>2 tin</span></div>
+    <div class="tl"><b>T6 07/08</b><span>4 tin</span></div>
+    <div class="tl zero"><b>T7 08/08</b><span>0 tin</span></div>
+    <div class="tl zero"><b>CN 09/08</b><span>0 tin</span></div>
+  </div>
+</div>
+
+<!-- ============ SECTION 1 ============ -->
+<section class="sec" id="sec-1">
+<h2>🗄️ Hạ tầng &amp; Kiến trúc dữ liệu</h2>
+
+<article class="card" data-aid="4">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=learn.microsoft.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-4" class="xt" hidden>
+    <a class="title" href="https://learn.microsoft.com/en-us/azure/databricks/release-notes/product/2026/august" target="_blank" rel="noopener">Databricks mở change data feed cho materialized view và cho JAR chạy trên serverless</a>
+    <p class="sum">Databricks bật bản beta cho phép đọc change data feed trực tiếp từ materialized view tạo bằng Lakeflow hoặc SQL, thêm luồng REPLACE USING để thay thế snapshot từng phần theo cột khoá, và cho phép chạy task JAR Scala/Java trên serverless mà không cần dựng cluster.</p>
+    <p class="why">💡 Ba mảnh này gỡ đúng ba chỗ đau kinh điển của pipeline: materialized view trước nay là ngõ cụt vì không đọc được delta phía sau, snapshot đổ đầy bảng mỗi lần chạy, và job JVM luôn phải chờ cluster khởi động.</p>
+    <div class="meta">
+      <span class="when">📅 07/08</span>
+      <a class="metabtn" href="https://learn.microsoft.com/en-us/azure/databricks/release-notes/product/2026/august" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-4">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="4">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Change data feed trên materialized view: bản Beta, áp dụng cho MV tạo bằng Lakeflow hoặc SQL.</li>
+        <li>REPLACE USING flows (Beta): thay thế snapshot từng phần, khoá theo cột chỉ định.</li>
+        <li>JAR task trên serverless: chạy Scala/Java không cần provision cluster.</li>
+        <li>Tìm và thay thế đa file trong Git folders, tiện refactor pipeline hàng loạt.</li>
+        <li>Lakebase hỗ trợ workspace có kiểm soát HIPAA, C5 hoặc TISAX.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>05-07/08/2026</span>
+        <span class="fact"><b>CDF trên MV</b>Beta</span>
+        <span class="fact"><b>JAR serverless</b>Scala/Java</span>
+        <span class="fact"><b>COMPLIANCE</b>HIPAA · C5 · TISAX</span>
+      </div>
+      <p class="deep">Đây là loại release note ít ai đọc nhưng lại đổi cách dựng pipeline. Trước đây, materialized view của Databricks tiện cho tầng phục vụ nhưng bịt đường downstream: muốn biết cái gì vừa đổi thì phải so bảng hoặc chạy lại từ đầu. Có change data feed, MV trở thành một mắt xích thật trong chuỗi incremental. REPLACE USING thì cứu những team làm việc với nguồn chỉ trả snapshot từng phần, ví dụ ERP xuất theo chi nhánh hoặc theo kỳ. Trước đây phải viết logic merge thủ công và cầu trời không sót khoá. JAR trên serverless là món tiết kiệm tiền rõ nhất cho team Việt: job Spark viết bằng Scala thường phải giữ cluster riêng, giờ chỉ trả tiền lúc chạy. Còn Lakebase được duyệt HIPAA, C5, TISAX là tín hiệu cho các doanh nghiệp có dữ liệu nhạy cảm rằng cơ sở dữ liệu OLTP trong lakehouse đã đủ điều kiện đưa vào hệ thống thật. Lời khuyên: đừng đổi kiến trúc vì một feature Beta, nhưng nên dựng một nhánh thử nghiệm CDF trên MV ngay, vì nếu ổn thì nó cắt được cả một tầng bảng trung gian.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="1">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F2ajtt7eiy36kvueub4rz.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=dev.to&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-1" class="xt" hidden>
+    <span class="rank">🔥 TOP 3 TUẦN NÀY</span>
+    <a class="title" href="https://dev.to/alexmercedcoder/apache-data-lakehouse-weekly-july-29-to-august-5-2026-4499" target="_blank" rel="noopener">Tuần lakehouse: Iceberg duyệt kiểu Variant vào REST catalog, Parquet bỏ phiếu lại chuyện versioning</a>
+    <p class="sum">Bản tin lakehouse tuần 29/07 đến 05/08 ghi nhận Iceberg khoá phiếu đưa kiểu Variant vào REST catalog spec với 7 phiếu binding và 15 phiếu non-binding, không ai phản đối; Parquet mở lại lá phiếu major version theo hướng feature flag; DataFusion gọi phiếu Comet 1.0.0 RC1 và Polaris 1.7.0 về đích sau khi RC1 bị huỷ.</p>
+    <p class="why">💡 Cả ba dự án đang chuyển từ "thêm tính năng" sang "làm cho việc thay đổi có quy trình" — dấu hiệu open lakehouse đã đủ lớn để không ai được phá vỡ tương thích một mình.</p>
+    <div class="meta">
+      <span class="when">📅 05/08</span>
+      <a class="metabtn" href="https://dev.to/alexmercedcoder/apache-data-lakehouse-weekly-july-29-to-august-5-2026-4499" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-1">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="1">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Kiểu Variant vào REST catalog spec: 7 phiếu binding, 15 non-binding, không phiếu chống.</li>
+        <li>Remote signing config qua với 5 phiếu binding: client xin catalog ký thay vì giữ credential.</li>
+        <li>Iceberg Rust 0.10.1 phát hành, 9 committer ủng hộ.</li>
+        <li>Bàn chuyện đổi mặc định từ fast append sang merging append ở bản 1.13.</li>
+        <li>Parquet: sort order IEEE_754_TOTAL_ORDER gây lệch giữa Java và Arrow, cân nhắc revert.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>PHIẾU VARIANT</b>7 binding + 15 non-binding</span>
+        <span class="fact"><b>POLARIS</b>1.7.0 (RC2)</span>
+        <span class="fact"><b>COMET</b>1.0.0 RC1</span>
+        <span class="fact"><b>ICEBERG RUST</b>0.10.1</span>
+        <span class="fact"><b>nanoarrow</b>0.10.0</span>
+      </div>
+      <p class="deep">Điểm quan trọng nhất tuần này không phải tính năng, mà là cách các dự án xử lý tương thích. Variant vào REST catalog spec nghĩa là dữ liệu bán cấu trúc — thứ mà mọi log, mọi event, mọi payload API đều thuộc về — cuối cùng có một cách mô tả chung giữa catalog và engine, thay vì mỗi bên tự bịa. Parquet quay lại lá phiếu versioning với luật rõ hơn: thay đổi phá vỡ tương thích thì dồn vào major version tiếp theo, tính năng mới phải đánh dấu preview kèm feature flag và cần hai implementation trước khi vào spec. Đó là bài học đau: sort order IEEE_754_TOTAL_ORDER vừa làm Java và Arrow đọc khác nhau, đúng loại lỗi âm thầm mà đội data chỉ phát hiện khi số liệu lệch. Comet 1.0.0 RC1 thì đáng chú ý với ai đang trả tiền cho Spark: Comet dịch physical plan của Spark sang DataFusion, giữ Arrow từ đầu đến cuối, và số công bố là nhanh khoảng 2 lần trên TPC-DS 1TB. Gọi 1.0.0 nghĩa là dự án tin API đã đủ ổn định để người khác xây lên trên. Với team Việt đang cân nhắc mở lakehouse: đây là lúc bám Iceberg và Parquet ở phiên bản có feature flag rõ ràng, đừng chạy theo tính năng preview trong hệ thống sản xuất.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="3">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.snowflake.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-3" class="xt" hidden>
+    <a class="title" href="https://docs.snowflake.com/en/release-notes/new-features" target="_blank" rel="noopener">Snowflake đưa Openflow Connector cho SQL Server (CDC) lên GA</a>
+    <p class="sum">Connector Openflow cho SQL Server dùng cơ chế Change Data Capture gốc của SQL Server để phát hiện thay đổi và nhân bản sang Snowflake gần thời gian thực hoặc theo lịch, nay đã lên general availability.</p>
+    <p class="why">💡 SQL Server vẫn là nguồn dữ liệu lõi của rất nhiều doanh nghiệp Việt; có CDC chính hãng nghĩa là bớt một lớp tool trung gian và bớt một hoá đơn.</p>
+    <div class="meta">
+      <span class="when">📅 05/08</span>
+      <a class="metabtn" href="https://docs.snowflake.com/en/release-notes/new-features" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-3">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="3">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Dùng CDC gốc của SQL Server, không cần agent cài thêm trên máy chủ nguồn.</li>
+        <li>Chọn bảng cần nhân bản, chạy near real-time hoặc theo lịch.</li>
+        <li>Nối tiếp connector Oracle đã GA hồi tháng 2/2026 trong cùng bộ Openflow.</li>
+        <li>Tự áp thay đổi vào bảng đích, không cần viết logic merge riêng.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY GA</b>05/08/2026</span>
+        <span class="fact"><b>NGUỒN</b>SQL Server CDC</span>
+        <span class="fact"><b>ĐỘ TRỄ</b>near real-time</span>
+        <span class="fact"><b>CÙNG BỘ</b>Openflow Oracle (GA 02/2026)</span>
+      </div>
+      <p class="deep">Đây là tin nhỏ nhưng chạm thẳng vào ví tiền của nhiều doanh nghiệp Việt. Kịch bản phổ biến ở đây là ERP hoặc core banking chạy SQL Server on-prem, rồi phải mua thêm một công cụ CDC bên thứ ba để đẩy sang cloud warehouse. Khi Snowflake đưa connector CDC vào chính nền tảng và lên GA, bài toán biến thành cấu hình thay vì tích hợp. Điểm cần cẩn trọng: CDC gốc của SQL Server đòi bật ở cấp database và cấp bảng, sinh thêm tải ghi và cần dọn log định kỳ — DBA phải đồng ý trước, đừng để đội data tự bật. Điểm nữa là "gần thời gian thực" không phải là "thời gian thực": nếu bài toán cần dưới một giây thì đây không phải công cụ đúng, hãy đi đường streaming. Với đa số báo cáo vận hành và dashboard, độ trễ vài phút là quá đủ và rẻ hơn nhiều. Theo kinh nghiệm triển khai, chốt chặn thật sự không nằm ở connector mà ở việc mô hình hoá lại dữ liệu sau khi nó chảy sang: CDC đổ vào lakehouse một dòng thay đổi thô, còn báo cáo cần bảng sự kiện sạch.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="2">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-2" class="xt" hidden>
+    <a class="title" href="https://docs.databricks.com/aws/en/release-notes/product/2026/august" target="_blank" rel="noopener">Delta Sharing lên GA cho bảng bật Iceberg reads, deletion vectors và column mapping</a>
+    <p class="sum">Databricks đưa lên GA khả năng chia sẻ bảng Delta đã bật đọc kiểu Iceberg, cũng như bảng có deletion vectors hoặc column mapping — ba tính năng trước đây thường khiến bảng không chia sẻ ra ngoài được.</p>
+    <p class="why">💡 Chia sẻ dữ liệu liên tổ chức lâu nay vỡ trận vì bảng nào tối ưu tốt thì lại không share được; giờ bảng production không phải chọn giữa nhanh và chia sẻ.</p>
+    <div class="meta">
+      <span class="when">📅 04/08</span>
+      <a class="metabtn" href="https://docs.databricks.com/aws/en/release-notes/product/2026/august" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-2">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="2">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Chia sẻ bảng Delta có bật Iceberg reads: bên nhận đọc bằng engine Iceberg bất kỳ.</li>
+        <li>Bảng có deletion vectors nay chia sẻ được, không cần rewrite file.</li>
+        <li>Bảng bật column mapping (đổi tên, xoá cột) cũng vào diện GA.</li>
+        <li>Cùng đợt: connector SharePoint và Google Drive lên GA.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY GA</b>04/08/2026</span>
+        <span class="fact"><b>ĐỌC ĐƯỢC BẰNG</b>engine Iceberg</span>
+        <span class="fact"><b>GỠ RÀO</b>deletion vectors</span>
+        <span class="fact"><b>GỠ RÀO</b>column mapping</span>
+      </div>
+      <p class="deep">Ai từng dựng data sharing giữa hai công ty đều gặp cảnh trớ trêu: bảng chạy tốt nhất trong hệ thống lại là bảng không chia sẻ được. Deletion vectors giúp xoá dòng mà không phải ghi lại cả file, column mapping cho phép đổi tên cột mà không phá lịch sử — cả hai đều là thực hành chuẩn, và cả hai từng chặn Delta Sharing. Đưa lên GA nghĩa là Databricks đã xử lý xong phần dịch metadata phía người nhận. Phần Iceberg reads mới là điểm chiến lược: bên nhận không cần dùng Databricks, chỉ cần một engine đọc Iceberg là lấy được dữ liệu. Nói cách khác, Databricks đang chấp nhận đánh đổi khoá chân người dùng để lấy vai trò nguồn dữ liệu chuẩn. Với doanh nghiệp Việt, đây là thứ nên tận dụng khi làm dữ liệu chuỗi cung ứng hoặc dữ liệu đối tác: thay vì xuất file CSV hàng đêm rồi cãi nhau về phiên bản, chia sẻ bảng sống có kiểm soát quyền. Nhưng đừng quên phần khó nhất vẫn nằm ngoài công nghệ — thoả thuận ai được xem cột nào và ai chịu trách nhiệm khi số sai.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<!-- ============ SECTION 2 ============ -->
+<section class="sec" id="sec-2">
+<h2>🛠️ Công cụ &amp; Nền tảng</h2>
+
+<article class="card" data-aid="5">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-5" class="xt" hidden>
+    <a class="title" href="https://docs.databricks.com/gcp/en/release-notes/product/2026/august" target="_blank" rel="noopener">Databricks ra Tag automations: tự gắn và gỡ nhãn quản trị theo điều kiện</a>
+    <p class="sum">Tính năng Tag automations bản Beta cho phép định nghĩa điều kiện, rồi hệ thống tự động gán hoặc gỡ governed tag trên các bảng và volume trong Unity Catalog khớp điều kiện đó.</p>
+    <p class="why">💡 Gắn nhãn thủ công là lý do chính khiến mọi chương trình data governance chết yểu sau sáu tháng; tự động hoá đúng chỗ này là tự động hoá đúng chỗ đau nhất.</p>
+    <div class="meta">
+      <span class="when">📅 07/08</span>
+      <a class="metabtn" href="https://docs.databricks.com/gcp/en/release-notes/product/2026/august" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-5">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="5">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Áp dụng cho bảng và volume trong Unity Catalog, dùng governed tags.</li>
+        <li>Điều kiện do người dùng định nghĩa, tag được gán hoặc gỡ tự động.</li>
+        <li>Đang ở trạng thái Beta, công bố ngày 07/08/2026.</li>
+        <li>Cùng đợt có hàm ai_search và change data feed trên materialized view.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>TRẠNG THÁI</b>Beta</span>
+        <span class="fact"><b>ĐỐI TƯỢNG</b>bảng · volume</span>
+        <span class="fact"><b>NỀN</b>Unity Catalog</span>
+        <span class="fact"><b>NGÀY</b>07/08/2026</span>
+      </div>
+      <p class="deep">Mọi dự án governance đều bắt đầu bằng một buổi workshop hào hứng và kết thúc bằng một bảng Excel không ai cập nhật. Lý do rất đơn giản: gắn nhãn là việc thủ công, lặp lại, không ai được thưởng khi làm và không ai bị phạt khi bỏ. Tag automations đánh đúng chỗ đó — biến chính sách thành quy tắc chạy máy. Nhưng đây cũng là chỗ dễ tự bắn vào chân. Nếu điều kiện viết ẩu, ví dụ gắn nhãn PII cho mọi cột có chữ "email" trong tên, thì sẽ có hàng loạt bảng bị siết quyền sai và người dùng mất truy cập giữa giờ làm việc. Khuyến nghị thực chiến: chạy ở chế độ quan sát trước, xuất danh sách bảng sẽ bị ảnh hưởng, cho chủ dữ liệu duyệt, rồi mới bật thật. Và đừng dùng nó để thay cho việc định nghĩa quyền sở hữu dữ liệu — máy gắn được nhãn chứ không quyết được ai chịu trách nhiệm. Với doanh nghiệp đang chuẩn bị cho agent chạm vào dữ liệu, đây là bước hạ tầng phải làm trước, vì agent đọc nhãn để biết chỗ nào không được vào.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="6">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=businesswire.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-6" class="xt" hidden>
+    <a class="title" href="https://www.businesswire.com/news/home/20260804768459/en/Acceldata-Brings-AI-Observability-to-Its-xLake-Data-Platform" target="_blank" rel="noopener">Acceldata đưa AI Observability vào nền tảng xLake: truy vết từng prompt và từng lượt gọi công cụ</a>
+    <p class="sum">Acceldata bổ sung AI Observability vào nền tảng dữ liệu xLake, ghi vết mọi prompt, lượt gọi mô hình, lượt gọi tool và bước truy xuất trong quy trình agentic, đồng thời chấm liên tục độ đúng và độ liên quan của đầu ra.</p>
+    <p class="why">💡 Đây là bước hợp nhất hai thứ lâu nay tách rời: chất lượng dữ liệu và chất lượng đầu ra AI — vì phần lớn agent trả lời sai là do dữ liệu sai chứ không phải mô hình dốt.</p>
+    <div class="meta">
+      <span class="when">📅 04/08</span>
+      <a class="metabtn" href="https://www.businesswire.com/news/home/20260804768459/en/Acceldata-Brings-AI-Observability-to-Its-xLake-Data-Platform" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-6">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="6">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Truy vết prompt, model call, tool invocation và bước retrieval trong luồng agentic.</li>
+        <li>Chấm đầu ra theo độ đúng, độ liên quan và mức bám ý định người dùng.</li>
+        <li>Chạy trên môi trường lai: on-premises và nhiều public cloud.</li>
+        <li>Tích hợp LangChain, LangGraph, LlamaIndex, CrewAI, AutoGen, ADK, OpenAI, Anthropic.</li>
+        <li>Nối trực tiếp với data quality, lineage và pipeline monitoring có sẵn của nền tảng.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>04/08/2026</span>
+        <span class="fact"><b>NỀN TẢNG</b>xLake</span>
+        <span class="fact"><b>TÍCH HỢP</b>8+ framework agent</span>
+        <span class="fact"><b>MÔI TRƯỜNG</b>on-prem + multi-cloud</span>
+      </div>
+      <p class="deep">Cái hay của tin này nằm ở chỗ nối dây, không nằm ở tính năng. Thị trường đang có hai loại observability sống tách nhau: một bên theo dõi pipeline và chất lượng dữ liệu, một bên theo dõi trace của LLM. Khi agent trả lời sai, đội AI đổ cho dữ liệu, đội data đổ cho mô hình, và không ai chứng minh được. Nối lineage của bảng vào trace của agent nghĩa là truy được đến tận cùng: câu trả lời này lấy từ bảng nào, bảng đó lần cập nhật cuối khi nào, test chất lượng có pass không. Đó là điều kiện tối thiểu để đưa agent vào quy trình có tiền bạc và trách nhiệm. Phần cần cẩn trọng: chấm "độ đúng" bằng máy vẫn là chấm bằng mô hình, và mô hình chấm cũng sai. Đừng biến điểm số đó thành KPI báo cáo lên ban lãnh đạo; hãy dùng nó làm bộ lọc để lôi ra các ca đáng cho người xem. Với doanh nghiệp Việt mới bắt đầu RAG, bài học thực tế là: dựng lineage cho dữ liệu nguồn trước, dựng trace cho agent sau — làm ngược lại thì có trace đẹp mà không biết lỗi từ đâu.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="7">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.snowflake.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-7" class="xt" hidden>
+    <a class="title" href="https://docs.snowflake.com/en/release-notes/all-release-notes" target="_blank" rel="noopener">Snowflake đưa Multi-party Approval lên GA: bắt buộc bốn mắt cho thao tác nguy hiểm</a>
+    <p class="sum">Chính sách Multi-party Approval khi gắn vào tài khoản Snowflake sẽ bắt buộc bước xác nhận của người thứ hai cho các thao tác trọng yếu ở cấp tài khoản, nay đã lên general availability.</p>
+    <p class="why">💡 Trong thời agent có quyền chạy lệnh, "một tài khoản bị chiếm là mất sạch" không còn là kịch bản lý thuyết — bốn mắt là hàng rào rẻ nhất chống xoá dữ liệu diện rộng.</p>
+    <div class="meta">
+      <span class="when">📅 04/08</span>
+      <a class="metabtn" href="https://docs.snowflake.com/en/release-notes/all-release-notes" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-7">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="7">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Gắn policy MPA vào tài khoản để bật cơ chế bốn mắt bắt buộc.</li>
+        <li>Áp cho các thao tác trọng yếu ở cấp account, không phải mọi truy vấn.</li>
+        <li>Lên GA ngày 04/08/2026.</li>
+        <li>Là một phần của hướng chống ransomware và chống xoá dữ liệu diện rộng.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY GA</b>04/08/2026</span>
+        <span class="fact"><b>CƠ CHẾ</b>xác nhận người thứ hai</span>
+        <span class="fact"><b>PHẠM VI</b>thao tác cấp account</span>
+      </div>
+      <p class="deep">Bốn mắt là khái niệm cũ trong ngân hàng, mới trong data platform. Lý do nó quay lại đúng lúc này rất thực tế: khi agent và automation cầm được credential có quyền cao, một prompt sai hoặc một token rò rỉ có thể xoá cả tài khoản trong vài giây, và tính năng time travel không cứu được nếu chính sách retention bị đổi trước. MPA chèn một con người vào giữa. Cái giá phải trả là ma sát: mỗi lần đổi cấu hình trọng yếu là một lần chờ duyệt, và nếu quy trình duyệt thiết kế dở thì đội vận hành sẽ tìm cách lách. Cách làm đúng là chỉ bật MPA cho một danh sách hẹp thao tác thật sự không thể hoàn tác, đặt SLA duyệt rõ ràng, và có đường xử lý sự cố khẩn. Với doanh nghiệp Việt, tôi thấy phần lớn tổ chức chưa từng liệt kê được "những thao tác nào trên kho dữ liệu là không thể quay lui" — làm cái danh sách đó trước, rồi hãy bật tính năng. Công nghệ chỉ thực thi được chính sách mà mình đã nghĩ rõ.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="8">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-8" class="xt" hidden>
+    <a class="title" href="https://docs.databricks.com/aws/en/security/secrets/" target="_blank" rel="noopener">Secrets về ở trong Unity Catalog: quản trị secret theo namespace ba cấp, lên GA</a>
+    <p class="sum">Databricks đưa Secrets in Unity Catalog lên GA, lưu trữ secret có quản trị theo namespace ba cấp giống bảng dữ liệu; cùng ngày, kiểm soát truy cập cho serverless compute cũng lên GA và quyền MANAGE không còn đòi quyền usage trên cùng đối tượng.</p>
+    <p class="why">💡 Secret lâu nay sống ngoài hệ thống quản trị dữ liệu, nên phân quyền dữ liệu chặt bao nhiêu cũng vô nghĩa nếu ai cũng đọc được key kết nối.</p>
+    <div class="meta">
+      <span class="when">📅 03/08</span>
+      <a class="metabtn" href="https://docs.databricks.com/aws/en/security/secrets/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-8">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="8">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Secret lưu trong Unity Catalog với namespace ba cấp, lên GA ngày 03/08/2026.</li>
+        <li>Serverless compute access control lên GA cho cả Interactive và Automated Compute.</li>
+        <li>Quyền MANAGE không còn yêu cầu quyền usage trên cùng đối tượng.</li>
+        <li>Custom tag của materialized view và streaming table nay chảy sang bề mặt tính tiền.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY GA</b>03/08/2026</span>
+        <span class="fact"><b>NAMESPACE</b>ba cấp</span>
+        <span class="fact"><b>KÈM THEO</b>serverless access control GA</span>
+        <span class="fact"><b>CHI PHÍ</b>tag chảy vào billing</span>
+      </div>
+      <p class="deep">Đây là kiểu tin dễ bị bỏ qua nhưng lại quyết định độ an toàn thật của một nền tảng dữ liệu. Trước đây secret scope sống ở một cơ chế riêng, phân quyền riêng, audit riêng — nghĩa là bạn có thể siết row-level security rất công phu trên bảng khách hàng, trong khi key kết nối tới chính nguồn dữ liệu đó lại nằm ở chỗ ai trong workspace cũng mò được. Đưa secret vào cùng cây quản trị với bảng và volume là hợp nhất đúng chỗ: một mô hình quyền, một dòng audit, một chỗ để trả lời câu hỏi "ai đã đọc cái gì". Món kèm theo cũng đáng tiền: custom tag của materialized view và streaming table giờ chảy sang bề mặt tính tiền, tức là cuối cùng cũng quy được chi phí về từng phòng ban thay vì nhìn một hoá đơn tổng rồi đoán. Kinh nghiệm triển khai cho doanh nghiệp Việt: hãy làm chuẩn đặt tên tag trước khi bật, vì tag đặt loạn thì báo cáo chi phí cũng loạn, và sửa về sau tốn hơn làm đúng từ đầu.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<!-- ============ SECTION 3 ============ -->
+<section class="sec" id="sec-3">
+<h2>🤖 AI × Data</h2>
+
+<article class="card" data-aid="10">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.snowflake.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-10" class="xt" hidden>
+    <span class="rank">🔥 TOP 2 TUẦN NÀY</span>
+    <a class="title" href="https://docs.snowflake.com/en/developer-guide/native-apps/agents-mcp-servers" target="_blank" rel="noopener">Snowflake Native Apps được tạo Cortex Agents và MCP server, lên GA</a>
+    <p class="sum">Từ ngày 07/08, Snowflake Native Apps có thể tự tạo Cortex Agents và MCP server do Snowflake quản lý ở mức GA; nhà cung cấp app còn đăng ký được endpoint dịch vụ SPCS làm MCP server tự vận hành.</p>
+    <p class="why">💡 Nghĩa là mọi ứng dụng chạy trên dữ liệu của bạn giờ có thể xuất ra giao diện chuẩn cho agent — MCP chính thức thành lớp API mặc định của kho dữ liệu.</p>
+    <div class="meta">
+      <span class="when">📅 07/08</span>
+      <a class="metabtn" href="https://docs.snowflake.com/en/developer-guide/native-apps/agents-mcp-servers" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-10">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="10">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Native App tạo được Cortex Agents và MCP server do Snowflake quản lý, mức GA.</li>
+        <li>Nhà cung cấp đăng ký được endpoint SPCS làm MCP server tự host.</li>
+        <li>MCP server phục vụ Cortex Analyst, Cortex Search, Cortex Agents làm tool.</li>
+        <li>Xác thực qua dịch vụ OAuth có sẵn, phân quyền bằng RBAC của Snowflake.</li>
+        <li>Hỗ trợ cả tool tuỳ biến và thực thi SQL trên cùng giao diện chuẩn.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY GA</b>07/08/2026</span>
+        <span class="fact"><b>CHUẨN</b>Model Context Protocol</span>
+        <span class="fact"><b>XÁC THỰC</b>OAuth + RBAC</span>
+        <span class="fact"><b>TOOL</b>Analyst · Search · Agents · SQL</span>
+      </div>
+      <p class="deep">Điều thật sự mới ở đây không phải MCP — cái đó có từ trước — mà là MCP được đóng gói vào Native App và bán qua marketplace. Trước đây, muốn một agent dùng được dữ liệu của phần mềm đối tác, bạn phải đàm phán API, dựng ETL, đồng bộ schema. Giờ nhà cung cấp app đẩy luôn một MCP server chạy ngay cạnh dữ liệu, với OAuth và RBAC của chính Snowflake. Đó là chuyển từ "tích hợp dữ liệu" sang "phân phối năng lực". Bản chất dễ hiểu: thay vì chép dữ liệu ra ngoài cho AI đọc, bạn mang AI vào trong hàng rào và chỉ cho nó cái cửa đã khoá sẵn. Ai hưởng lợi: doanh nghiệp có dữ liệu nhạy cảm và các ISV muốn bán trên nền Snowflake. Ai nên cẩn trọng: team nhỏ dễ tưởng bật MCP là xong việc, trong khi phần khó nằm ở chỗ định nghĩa tool cho đúng nghiệp vụ và giới hạn phạm vi truy vấn. Khuyến nghị: đừng mở một MCP server vạn năng chạy SQL tự do. Hãy định nghĩa vài tool hẹp, có tham số rõ, gắn semantic view — agent tốt không phải agent được quyền nhiều, mà là agent bị giới hạn đúng.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="12">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-12" class="xt" hidden>
+    <a class="title" href="https://docs.databricks.com/aws/en/release-notes/product/2026/august" target="_blank" rel="noopener">Databricks ra hàm SQL ai_search và kéo MCP connector về dưới Unity AI Gateway</a>
+    <p class="sum">Hàm ai_search bản Beta cho phép truy xuất thông tin từ một hoặc nhiều AI Search index được cấu hình làm knowledge source ngay trong câu SQL; song song, các MCP connector do Databricks quản lý được chuyển về Unity AI Gateway để quản trị tập trung.</p>
+    <p class="why">💡 RAG viết bằng SQL nghĩa là người làm phân tích không cần một stack Python riêng để hỏi dữ liệu phi cấu trúc.</p>
+    <div class="meta">
+      <span class="when">📅 07/08</span>
+      <a class="metabtn" href="https://docs.databricks.com/aws/en/release-notes/product/2026/august" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-12">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="12">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>ai_search (Beta): hàm SQL truy xuất từ một hoặc nhiều AI Search index.</li>
+        <li>Index được khai báo làm knowledge source, gọi thẳng trong truy vấn.</li>
+        <li>MCP connector do Databricks quản lý chuyển sang Unity AI Gateway (Beta).</li>
+        <li>Genie Code thêm khả năng tìm kiếm web công khai, mặc định tắt.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>06-07/08/2026</span>
+        <span class="fact"><b>ai_search</b>Beta</span>
+        <span class="fact"><b>MCP</b>về Unity AI Gateway</span>
+        <span class="fact"><b>WEB SEARCH</b>mặc định tắt</span>
+      </div>
+      <p class="deep">Đưa retrieval vào SQL là một quyết định kiến trúc chứ không phải một tiện ích. Nó nói rằng dữ liệu phi cấu trúc không còn là thế giới riêng của đội AI, mà là một nguồn nữa mà analyst gọi được bằng ngôn ngữ họ đã biết. Cái lợi rõ nhất là bỏ được một tầng dịch vụ: trước đây muốn kết hợp bảng doanh thu với nội dung hợp đồng, phải viết job Python, đẩy sang vector store, rồi ghép lại. Giờ là một câu truy vấn. Cái cần cảnh giác là chi phí và độ lặp lại: mỗi lần gọi ai_search là một lần chạy mô hình, và câu SQL chạy trên bảng triệu dòng sẽ đốt tiền rất nhanh nếu không lọc trước. Kinh nghiệm khi tôi làm thực hành RAG trên nền lakehouse: retrieval bằng SQL rất tiện để khám phá, nhưng lên sản xuất thì phải chốt tập ứng viên bằng bộ lọc quan hệ trước, rồi mới cho mô hình xử lý phần còn lại. Việc kéo MCP connector về một cổng quản trị chung cũng cùng một mạch tư duy: cho tiện trước, nhưng phải đếm được và chặn được.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="11">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=learn.microsoft.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-11" class="xt" hidden>
+    <a class="title" href="https://learn.microsoft.com/en-us/azure/databricks/release-notes/product/2026/august" target="_blank" rel="noopener">Kimi K3 của Moonshot AI lên Databricks: MoE 2,8 nghìn tỷ tham số, context 1 triệu token</a>
+    <p class="sum">Databricks bổ sung mô hình Kimi K3 của Moonshot AI vào danh mục có sẵn: kiến trúc Mixture-of-Experts 2,8 nghìn tỷ tham số, có khả năng thị giác và cửa sổ ngữ cảnh 1 triệu token, chạy ngay trong hàng rào quản trị của lakehouse.</p>
+    <p class="why">💡 Cửa sổ 1 triệu token cộng thị giác nghĩa là đọc nguyên bộ hợp đồng scan hoặc cả tập báo cáo PDF mà không cần chia nhỏ — thay đổi cách thiết kế pipeline xử lý tài liệu.</p>
+    <div class="meta">
+      <span class="when">📅 06/08</span>
+      <a class="metabtn" href="https://learn.microsoft.com/en-us/azure/databricks/release-notes/product/2026/august" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-11">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="11">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Kimi K3: kiến trúc Mixture-of-Experts, 2,8 nghìn tỷ tham số.</li>
+        <li>Cửa sổ ngữ cảnh 1 triệu token, có khả năng xử lý hình ảnh.</li>
+        <li>Có sẵn trên Databricks từ ngày 06/08/2026.</li>
+        <li>Chạy trong phạm vi quản trị của Unity Catalog, không phải gọi API ra ngoài.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>THAM SỐ</b>2,8 nghìn tỷ (MoE)</span>
+        <span class="fact"><b>CONTEXT</b>1 triệu token</span>
+        <span class="fact"><b>VISION</b>có</span>
+        <span class="fact"><b>NGÀY</b>06/08/2026</span>
+      </div>
+      <p class="deep">Cái đáng chú ý không phải con số 2,8 nghìn tỷ tham số — MoE nghĩa là mỗi lượt suy luận chỉ kích hoạt một phần nhỏ, nên đừng đọc con số đó như chi phí. Cái đáng chú ý là mô hình mạnh, đa phương thức, context dài đã nằm sẵn trong hàng rào dữ liệu thay vì phải gọi API ra ngoài. Với doanh nghiệp Việt trong ngành có quy định chặt về dữ liệu, khác biệt giữa "dữ liệu rời khỏi hệ thống" và "mô hình chạy cạnh dữ liệu" là khác biệt giữa được duyệt và không được duyệt. Về mặt kỹ thuật, context 1 triệu token thay đổi thiết kế pipeline tài liệu: nhiều bài toán trước đây bắt buộc phải chunk và xây vector index, giờ có thể nhét thẳng cả bộ tài liệu vào. Nhưng đừng vội bỏ RAG. Nhét cả triệu token vào mỗi câu hỏi thì đắt gấp bội và chậm hơn nhiều so với truy xuất đúng vài đoạn. Nguyên tắc tôi dùng: context dài để hiểu tài liệu lần đầu và trích xuất cấu trúc, RAG để phục vụ hàng nghìn câu hỏi lặp lại sau đó. Chọn sai chỗ là hoá đơn đội lên mà chất lượng không tăng.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-hot="1" data-aid="9">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-9" class="xt" hidden>
+    <span class="rank">🔥 TOP 1 TUẦN NÀY</span>
+    <a class="title" href="https://docs.databricks.com/aws/en/ai-gateway/" target="_blank" rel="noopener">Unity AI Gateway lên GA: một cổng duy nhất kiểm soát mô hình, MCP server và chi phí AI</a>
+    <p class="sum">Databricks đưa Unity AI Gateway lên general availability như một phần của Unity Catalog: doanh nghiệp chọn được dịch vụ AI nào đội ngũ được dùng, định tuyến lưu lượng AI giữa các nhà cung cấp, quản trị MCP server để kiểm soát truy cập và chi phí, đồng thời theo dõi usage, cost, access và lineage từ một chỗ.</p>
+    <p class="why">💡 Đây là lúc quản trị AI được đặt vào đúng nơi nó thuộc về — cùng cây quản trị với dữ liệu, thay vì một dashboard rời rạc dựng vội.</p>
+    <div class="meta">
+      <span class="when">📅 04/08</span>
+      <a class="metabtn" href="https://docs.databricks.com/aws/en/ai-gateway/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-9">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="9">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Lên GA ngày 04/08/2026, là thành phần của Unity Catalog.</li>
+        <li>Kiểm soát dịch vụ AI nào từng nhóm được phép sử dụng.</li>
+        <li>Định tuyến và quản lý lưu lượng AI giữa nhiều nhà cung cấp.</li>
+        <li>Quản trị MCP server: kiểm soát quyền truy cập và chi phí.</li>
+        <li>Theo dõi usage, cost, access, lineage trên cùng một mặt bảng.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY GA</b>04/08/2026</span>
+        <span class="fact"><b>THUỘC</b>Unity Catalog</span>
+        <span class="fact"><b>QUẢN TRỊ</b>model + MCP server</span>
+        <span class="fact"><b>THEO DÕI</b>usage · cost · access · lineage</span>
+      </div>
+      <p class="deep">Đây là tin lớn nhất tuần, và lý do không nằm ở tính năng mà ở vị trí đặt tính năng. Unity AI Gateway không phải một cổng proxy dựng riêng, nó là một phần của Unity Catalog — cùng cây quản trị với bảng, volume, secret. Nghĩa là câu hỏi "agent nào gọi mô hình nào để đọc bảng nào, tốn bao nhiêu tiền" có một câu trả lời duy nhất thay vì ba hệ thống rời nhau. Nói cho người không rành kỹ thuật: trước đây mỗi đội tự cắm điện vào ổ riêng, giờ có một tủ điện tổng có cầu dao và công tơ. Ai hưởng lợi rõ nhất là doanh nghiệp vừa và lớn đang có ba bốn nhóm cùng nghịch AI mà tài chính không biết tiền đi đâu. Nhóm nào thiệt? Team nhỏ, vì thêm một tầng quản trị là thêm ma sát khi họ chỉ muốn thử nhanh. Cái cốt lõi phải nhớ: quản trị AI không phải là chặn, mà là đếm được và truy được. Khuyến nghị thẳng: nếu doanh nghiệp bạn đã có hơn hai nhóm gọi LLM trên dữ liệu nội bộ, hãy bật cổng này ngay và bắt buộc mọi lời gọi đi qua đó, ngay cả khi ban đầu chỉ để quan sát. Không nên làm điều ngược lại — dựng chính sách chặt trước khi có số liệu, vì rồi sẽ chặn nhầm và cả tổ chức quay lại đi cửa sau.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="13">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.snowflake.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-13" class="xt" hidden>
+    <a class="title" href="https://docs.snowflake.com/en/release-notes/new-features" target="_blank" rel="noopener">ACCESS_HISTORY của Snowflake thêm cột agents_info: biết agent nào đã đọc dữ liệu thay người dùng</a>
+    <p class="sum">View ACCESS_HISTORY ở cả Account Usage và Organization Usage nay có cột agents_info, mô tả chi tiết những agent đã truy cập dữ liệu thay mặt một người dùng; cùng ngày, Inline Stored Procedures cho hybrid table vào public preview.</p>
+    <p class="why">💡 Khi agent chạy dưới danh nghĩa người dùng, audit log cũ chỉ thấy tên người — mất hoàn toàn khả năng phân biệt con người thật với automation.</p>
+    <div class="meta">
+      <span class="when">📅 03/08</span>
+      <a class="metabtn" href="https://docs.snowflake.com/en/release-notes/new-features" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-13">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="13">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Cột agents_info có ở ACCESS_HISTORY của Account Usage và Organization Usage.</li>
+        <li>Ghi chi tiết agent đã truy cập dữ liệu thay mặt người dùng nào.</li>
+        <li>Inline Stored Procedures cho hybrid table vào public preview cùng ngày.</li>
+        <li>Nhắm vào workload vận hành chạy trên hybrid table.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>03/08/2026</span>
+        <span class="fact"><b>VIEW</b>ACCESS_HISTORY</span>
+        <span class="fact"><b>CỘT MỚI</b>agents_info</span>
+        <span class="fact"><b>KÈM</b>Inline SP cho hybrid table (preview)</span>
+      </div>
+      <p class="deep">Một cột thêm vào view audit nghe rất nhỏ, nhưng nó xử lý một lỗ hổng đang lớn dần. Khi agent chạy dưới quyền của người dùng, mọi log truy cập đều ghi tên người đó. Đến lúc kiểm toán hỏi "vì sao tài khoản này đọc bảng lương lúc hai giờ sáng", không ai trả lời được là con người hay một automation nào đó. Có agents_info nghĩa là tách được hai lớp danh tính: ai chịu trách nhiệm và cái gì thực thi. Với doanh nghiệp phải tuân thủ, đây là điều kiện cần để được duyệt cho agent đụng vào dữ liệu thật. Lời khuyên thực tế: đừng chờ đến khi có sự cố mới đi tìm cột này. Hãy dựng ngay một báo cáo giám sát đơn giản — mỗi tuần bao nhiêu truy vấn đến từ agent, chạm bảng nào, khối lượng bao nhiêu — và cho chủ dữ liệu xem. Việc này rẻ, mất một buổi, và nó biến câu chuyện quản trị AI từ khẩu hiệu thành số liệu. Data không chỉ để báo cáo, data phải giúp hành động, và audit log cũng vậy.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<!-- ============ SECTION 4 ============ -->
+<section class="sec" id="sec-4">
+<h2>📈 Hot trend &amp; Thảo luận cộng đồng</h2>
+
+<article class="card" data-aid="16">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://motherduck.com/images/mother-duck-large-logo.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=motherduck.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-16" class="xt" hidden>
+    <a class="title" href="https://motherduck.com/duckdb-news/" target="_blank" rel="noopener">Bản tin hệ sinh thái DuckDB tháng 8: DuckDB tăng 50,7% mỗi năm qua phân tích 1,8 triệu tiêu đề Hacker News</a>
+    <p class="sum">Bản tin DuckDB Ecosystem tháng 8/2026 dẫn một phân tích 1,8 triệu tiêu đề Hacker News cho thấy DuckDB dẫn đầu về tốc độ tăng trưởng nhắc đến với 50,7% so với cùng kỳ, cùng loạt bài về pipeline phân tích dựng bằng AI và AI tự sửa SQL của chính nó.</p>
+    <p class="why">💡 Xu hướng rất rõ: cơ sở dữ liệu tự host, nhúng được, dev tự cầm được đang lấy lại tâm trí lập trình viên từ tay nền tảng đám mây được quản lý.</p>
+    <div class="meta">
+      <span class="when">📅 06/08</span>
+      <a class="metabtn" href="https://motherduck.com/duckdb-news/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-16">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="16">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>DuckDB tăng 50,7% lượt nhắc so với cùng kỳ, dẫn đầu bảng tăng trưởng.</li>
+        <li>Phân tích dựa trên 1,8 triệu tiêu đề Hacker News.</li>
+        <li>ClickHouse tăng 24,1%, PostgreSQL giữ quỹ đạo ổn định nhất ba năm.</li>
+        <li>Các bài nổi bật: pipeline phân tích Spotify dựng bằng AI, AI tự debug SQL.</li>
+        <li>Nhóm cloud được quản lý như Redshift, BigQuery, DynamoDB giảm thảo luận tự nhiên.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>DUCKDB</b>+50,7% YoY</span>
+        <span class="fact"><b>CLICKHOUSE</b>+24,1%</span>
+        <span class="fact"><b>MẪU</b>1,8 triệu tiêu đề HN</span>
+        <span class="fact"><b>NGÀY</b>06/08/2026</span>
+      </div>
+      <p class="deep">Con số này nên đọc như tín hiệu về hành vi lập trình viên, không phải thị phần doanh nghiệp. DuckDB thắng vì nó xoá bỏ ma sát: không cần cụm, không cần tài khoản, không cần chờ IT duyệt — cài một thư viện là chạy được truy vấn phân tích trên máy cá nhân. Trong thời mà mỗi lập trình viên có một agent viết code, thứ chạy được ngay trong một tiến trình nhỏ có lợi thế cực lớn. Điều này không có nghĩa kho dữ liệu đám mây sắp chết, nó có nghĩa là ranh giới đang dịch: khám phá, tiền xử lý và kiểm thử chạy tại chỗ, còn dữ liệu chung và quản trị vẫn ở nền tảng tập trung. Với team data nhỏ ở Việt Nam, đây là cơ hội thật để cắt chi phí: rất nhiều tác vụ đang chạy trên warehouse tính tiền theo giây thực ra xử lý vài chục triệu dòng, hoàn toàn nằm gọn trong DuckDB trên một máy. Điều không nên làm là đem tư duy máy cá nhân vào hệ thống sản xuất nhiều người dùng — DuckDB không giải bài toán đồng thời và quản trị, và cố ép nó làm việc đó là chuốc nợ kỹ thuật.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="14">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=reddit.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-14" class="xt" hidden>
+    <span class="rank">🔥 TOP 5 TUẦN NÀY</span>
+    <a class="title" href="https://www.reddit.com/r/dataengineering/comments/1veof8v/is_anyone_else_losing_interest_in_data_engineering/" target="_blank" rel="noopener">"Có ai khác cũng đang mất hứng với data engineering không?" — chủ đề nổ trên r/dataengineering</a>
+    <p class="sum">Một bài đăng trên r/dataengineering ngày 03/08 thu 273 lượt ủng hộ và 114 bình luận, với nhiều senior kể chuyện kiệt sức, sống trong nỗi lo bị cắt giảm, và cảm giác công việc không tạo ra giá trị thật cho ai.</p>
+    <p class="why">💡 Đây là mặt trái ít ai nói của làn sóng nền tảng dồn dập: công cụ mạnh lên rất nhanh nhưng cảm giác về ý nghĩa công việc thì không.</p>
+    <div class="meta">
+      <span class="when">📅 03/08</span>
+      <a class="metabtn" href="https://www.reddit.com/r/dataengineering/comments/1veof8v/is_anyone_else_losing_interest_in_data_engineering/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-14">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="14">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>273 lượt ủng hộ, 114 bình luận chỉ trong vài ngày đầu tháng 8.</li>
+        <li>Bình luận top: senior kiệt sức, đã qua một đợt cắt giảm, chờ đợt tiếp theo.</li>
+        <li>Một người mười năm nghề nói chưa từng thấy mình tạo ra giá trị rõ ràng.</li>
+        <li>Nhiều người tự gọi nghề mình là "data janitor" — dọn dẹp không hồi kết.</li>
+        <li>Chủ đề song song ở r/dataengineeringjobs: bốn năm kinh nghiệm khó kiếm phỏng vấn.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>03/08/2026</span>
+        <span class="fact"><b>ỦNG HỘ</b>273</span>
+        <span class="fact"><b>BÌNH LUẬN</b>114</span>
+        <span class="fact"><b>DIỄN ĐÀN</b>r/dataengineering</span>
+      </div>
+      <p class="deep">Đọc kỹ các bình luận thì vấn đề không phải công nghệ chán, mà là vòng phản hồi bị đứt. Người làm data hiếm khi thấy kết quả công việc của mình biến thành quyết định của ai đó; họ thấy ticket, thấy pipeline hỏng lúc ba giờ sáng, thấy yêu cầu đổi cột lần thứ tám. Đó là công thức chuẩn để kiệt sức, dù lương có tốt. Có một nghịch lý đáng suy nghĩ: đây đúng tuần các nền tảng ra hàng loạt tính năng tự động hoá, mà cảm giác của người trong nghề lại đi xuống. Theo tôi, tự động hoá không chữa được cái đau này, vì cái đau nằm ở chỗ tổ chức không nối được dữ liệu với hành động. Điều nên làm, cả cho cá nhân và cho quản lý: chọn một bài toán có người dùng thật, đo được kết quả kinh doanh, và đi cùng nó từ đầu đến cuối — kể cả phần thuyết phục người ta đổi cách làm. Điều không nên làm là học thêm một công cụ nữa để hy vọng hết chán. Dashboard đẹp không có nghĩa là đang ra quyết định tốt, và pipeline chạy xanh cũng vậy.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="15">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://substackcdn.com/image/fetch/$s_!AdQk!,w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6f51c1bf-abc9-4cd3-ad69-22cc8e3f1ef2_1080x1080.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=dataengineeringweekly.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-15" class="xt" hidden>
+    <a class="title" href="https://www.dataengineeringweekly.com/p/data-engineering-weekly-281" target="_blank" rel="noopener">Data Engineering Weekly #281: Netflix làm gợi ý bằng LLM, Atlassian chuyển 145 tỷ sự kiện mỗi ngày từ Kinesis sang Kafka</a>
+    <p class="sum">Số 281 ra ngày 03/08 gom loạt bài kỹ thuật đáng đọc: Netflix giới thiệu GenRec dùng LLM nền tảng diễn giải lịch sử người dùng và đạt kết quả tốt hơn với ít nhãn hơn 40 lần, Atlassian kể chuyện chuyển StreamHub từ Kinesis sang Kafka ở quy mô 145 tỷ sự kiện mỗi ngày, Spotify chia sẻ cách đánh index cho data lake để truy vấn điểm.</p>
+    <p class="why">💡 Cả ba bài đều nói một điều: kỹ thuật dữ liệu 2026 đang xoay quanh việc chuẩn bị ngữ cảnh cho mô hình, chứ không còn là dựng thêm bảng.</p>
+    <div class="meta">
+      <span class="when">📅 03/08</span>
+      <a class="metabtn" href="https://www.dataengineeringweekly.com/p/data-engineering-weekly-281" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-15">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="15">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Netflix GenRec: LLM nền tảng diễn giải lịch sử người dùng, tốt hơn với ít nhãn hơn 40 lần.</li>
+        <li>Atlassian StreamHub: chuyển Kinesis sang Kafka ở mức 145 tỷ sự kiện mỗi ngày.</li>
+        <li>Spotify: đánh index data lake để phục vụ truy vấn điểm cho dịch vụ online và agent.</li>
+        <li>Airbnb: phát triển theo hướng eval-driven, LLM judge hiệu chỉnh về mức đồng thuận cao.</li>
+        <li>Thoughtworks: ontology cộng LLM để hiện đại hoá dữ liệu cho AI.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>SỐ</b>#281</span>
+        <span class="fact"><b>NGÀY</b>03/08/2026</span>
+        <span class="fact"><b>ATLASSIAN</b>145 tỷ sự kiện/ngày</span>
+        <span class="fact"><b>NETFLIX</b>ít nhãn hơn 40 lần</span>
+      </div>
+      <p class="deep">Nếu chỉ đọc một thứ tuần này thì đọc số này. Ba bài lớn nhất kể cùng một câu chuyện từ ba góc. Netflix bỏ cách xây feature thủ công để chuyển sang cho mô hình đọc lịch sử người dùng ở dạng ngôn ngữ — họ gọi đó là dịch chuyển từ feature engineering sang context engineering, và con số ít nhãn hơn 40 lần là lý do kinh tế đằng sau. Atlassian thì cho thấy quy mô thật của streaming hiện đại và lý do rời một dịch vụ được quản lý: chi phí, độ tin cậy API và thời gian giữ dữ liệu. Spotify chạm vào điểm mà nhiều team đang gặp: agent cần lấy dữ liệu của một người dùng cụ thể thật nhanh, nhưng dữ liệu nằm ở data lake chứ không phải key-value store, và không ai đủ tiền chép hết vào bộ nhớ. Bài học chung cho doanh nghiệp Việt: trước khi mơ agent, hãy trả lời được câu "lấy toàn bộ dữ liệu của một khách hàng mất bao lâu". Nếu câu trả lời là mấy chục giây thì mọi trải nghiệm AI phía trên sẽ chậm và đắt, bất kể mô hình nào.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="17">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://media.licdn.com/dms/image/v2/D4E12AQGaNuEDHA7G4g/article-cover_image-shrink_720_1280/B4EZ_IAKGlH4AQ-/0/1785766915798?e=2147483647&amp;v=beta&amp;t=smUGzzTDltW1bN5fZoiAmc2-3525HctReDbTXh3SbiE" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=linkedin.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-17" class="xt" hidden>
+    <a class="title" href="https://www.linkedin.com/pulse/all-data-ai-weekly-253-03-august-2026-tim-spann-wdqre" target="_blank" rel="noopener">All Data and AI Weekly #253: bản đồ tuần của hệ sinh thái dữ liệu mở</a>
+    <p class="sum">Số 253 ra ngày 03/08 tiếp tục tổng hợp chuyển động tuần qua khắp hệ sinh thái dữ liệu và AI mở — từ engine, streaming, định dạng bảng đến các dự án cộng đồng.</p>
+    <p class="why">💡 Bản tin dạng này là cách rẻ nhất để không bỏ sót các thay đổi nhỏ trong hệ sinh thái mở — nơi một dòng release note có thể phá vỡ pipeline của bạn.</p>
+    <div class="meta">
+      <span class="when">📅 03/08</span>
+      <a class="metabtn" href="https://www.linkedin.com/pulse/all-data-ai-weekly-253-03-august-2026-tim-spann-wdqre" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-17">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="17">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Số 253, phát hành ngày 03/08/2026, do Tim Spann tổng hợp.</li>
+        <li>Bao quát engine xử lý, streaming, định dạng bảng mở và dự án cộng đồng.</li>
+        <li>Ra đều đặn hàng tuần, là nguồn theo dõi hệ sinh thái mở lâu năm.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>SỐ</b>#253</span>
+        <span class="fact"><b>NGÀY</b>03/08/2026</span>
+        <span class="fact"><b>CHỦ ĐỀ</b>data + AI mã nguồn mở</span>
+      </div>
+      <p class="deep">Giá trị của những bản tin kiểu này không nằm ở bài nào cụ thể, mà ở việc chúng giữ cho bạn một bản đồ liên tục về hệ sinh thái mở. Đây là chỗ khác biệt lớn giữa dùng nền tảng thương mại và dùng thành phần mở: nền tảng thương mại có người báo cho bạn khi có gì đổi, còn hệ sinh thái mở thì bạn phải tự theo dõi. Một thay đổi mặc định trong định dạng bảng, một bản vá encoding, một dự án đổi cách đóng gói — mỗi thứ đều nhỏ, nhưng gộp lại đủ làm hỏng một pipeline chạy êm hai năm. Với team data ở Việt Nam đang tự vận hành Spark, Kafka hay Iceberg, tôi khuyên phân công rõ một người đọc một bản tin tuần và mỗi tháng báo lại trong mười lăm phút. Đó là chi phí rất nhỏ để tránh cái giá rất lớn của một lần nâng cấp mù. Đừng biến nó thành phong trào, hãy biến nó thành hệ thống.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<!-- ============ SECTION 5 ============ -->
+<section class="sec" id="sec-5">
+<h2>🏢 Ngành &amp; Doanh nghiệp</h2>
+
+<article class="card" data-aid="18">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://mmx.prnewswire.com/media/MS1963174/Convex-logo.jpg?id=OA2822509&amp;p=facebook" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=prnewswire.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-18" class="xt" hidden>
+    <span class="rank">🔥 TOP 4 TUẦN NÀY</span>
+    <a class="title" href="https://www.prnewswire.com/news-releases/convex-raises-57m-series-b-led-by-insight-partners-to-scale-the-reliable-backend-for-the-ai-era-302841686.html" target="_blank" rel="noopener">Convex gọi 57 triệu USD Series B để làm backend đáng tin cho phần mềm do agent viết</a>
+    <p class="sum">Convex, nền tảng backend do các kỹ sư hạ tầng cũ của Dropbox lập ra, công bố vòng Series B 57 triệu USD do Insight Partners dẫn dắt, nâng tổng vốn lên 110,5 triệu USD; công ty nói nền tảng đang chạy gần 2 triệu ứng dụng, trong đó có khách hàng OpenAI và Zapier.</p>
+    <p class="why">💡 Khi agent viết phần lớn code, thứ đắt giá không còn là framework mà là cơ sở dữ liệu đủ chặt để agent không làm hỏng dữ liệu.</p>
+    <div class="meta">
+      <span class="when">📅 04/08</span>
+      <a class="metabtn" href="https://www.prnewswire.com/news-releases/convex-raises-57m-series-b-led-by-insight-partners-to-scale-the-reliable-backend-for-the-ai-era-302841686.html" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-18">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="18">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Series B 57 triệu USD do Insight Partners dẫn, công bố ngày 04/08/2026.</li>
+        <li>Etna Labs, Spark Capital, Andreessen Horowitz và Justin Kan tham gia.</li>
+        <li>Tổng vốn huy động đạt 110,5 triệu USD.</li>
+        <li>Nền tảng gồm database có kiểu TypeScript, đảm bảo ACID, live sync, auth và RAG.</li>
+        <li>Gần 2 triệu ứng dụng đang chạy; OpenAI và Zapier nằm trong nhóm khách hàng.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>VÒNG</b>Series B 57 triệu USD</span>
+        <span class="fact"><b>TỔNG VỐN</b>110,5 triệu USD</span>
+        <span class="fact"><b>DẪN VÒNG</b>Insight Partners</span>
+        <span class="fact"><b>QUY MÔ</b>gần 2 triệu ứng dụng</span>
+        <span class="fact"><b>NGÀY</b>04/08/2026</span>
+      </div>
+      <p class="deep">Luận điểm của Convex đáng chú ý hơn con số. Họ đặt cược rằng khi agent sinh ra phần lớn code, điểm gãy sẽ chuyển từ tốc độ viết sang độ tin cậy của trạng thái. Một agent viết nhanh gấp mười lần cũng vô nghĩa nếu nó tạo ra một cập nhật không nguyên tử làm lệch số dư tài khoản. Vì vậy họ bán một database có kiểu chặt theo TypeScript, có ACID, có đồng bộ thời gian thực và có sẵn phần RAG — tức là dựng sẵn hàng rào để code do máy sinh khó phá. Đây là góc nhìn tôi đồng tình phần lớn: AI không thay người giỏi, nó khuếch đại người biết làm việc rõ ràng, và cách làm việc rõ ràng trong dữ liệu chính là ràng buộc kiểu và giao dịch. Chỗ cần cẩn trọng là khoá chân: chọn một backend độc quyền cho ứng dụng lõi nghĩa là mọi thứ về sau phải sống theo mô hình của họ. Với startup Việt làm sản phẩm nhanh, đổi lấy tốc độ có thể xứng đáng. Với doanh nghiệp có hệ thống lâu năm, hãy lấy bài học kiến trúc chứ đừng vội đổi nền.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="19">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=prnewswire.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-19" class="xt" hidden>
+    <a class="title" href="http://www.prnewswire.com/news-releases/teradata-reports-second-quarter-2026-financial-results-302842929.html" target="_blank" rel="noopener">Teradata báo cáo quý 2/2026: doanh thu 410 triệu USD, biên hoạt động lên 21,5%</a>
+    <p class="sum">Teradata công bố kết quả quý 2 năm 2026 ngày 04/08 với doanh thu 410 triệu USD, đi ngang so với cùng kỳ nhưng vượt dự báo, EPS non-GAAP 0,69 USD; doanh thu định kỳ đạt 363 triệu USD, tăng 3%, và biên hoạt động non-GAAP mở rộng lên 21,5%.</p>
+    <p class="why">💡 Một hãng data warehouse truyền thống giữ được biên lợi nhuận trong lúc xoay trục sang agentic AI là dữ liệu tham chiếu đáng giá cho cả ngành.</p>
+    <div class="meta">
+      <span class="when">📅 04/08</span>
+      <a class="metabtn" href="http://www.prnewswire.com/news-releases/teradata-reports-second-quarter-2026-financial-results-302842929.html" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-19">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="19">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Doanh thu 410 triệu USD, vượt dự báo 396 triệu; EPS non-GAAP 0,69 so với ước tính 0,55.</li>
+        <li>Doanh thu định kỳ 363 triệu USD, tăng 3% theo báo cáo, 2% theo tỷ giá cố định.</li>
+        <li>Biên hoạt động non-GAAP mở rộng lên 21,5%.</li>
+        <li>AI Studio lên general availability ngay đầu quý 3.</li>
+        <li>Giới thiệu Teradata Factory: hệ thống on-premise do Dell dựng, tích hợp CPU và GPU.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>DOANH THU</b>410 triệu USD</span>
+        <span class="fact"><b>EPS non-GAAP</b>0,69 USD</span>
+        <span class="fact"><b>ĐỊNH KỲ</b>363 triệu USD (+3%)</span>
+        <span class="fact"><b>BIÊN</b>21,5%</span>
+        <span class="fact"><b>NGÀY</b>04/08/2026</span>
+      </div>
+      <p class="deep">Câu chuyện Teradata là câu chuyện của một lớp doanh nghiệp mà nhiều người tưởng đã hết thời. Doanh thu đi ngang nhưng vượt dự báo, doanh thu định kỳ nhích lên, biên mở rộng — đó là hồ sơ của công ty đang cắt gọt để mua thời gian cho một cú xoay trục. Cú xoay đó là nền tảng tri thức tự vận hành cho agentic AI, cộng AI Studio, cộng Teradata Factory do Dell dựng chạy on-premise với cả CPU lẫn GPU. Đọc kỹ hướng đi này rất đáng cho thị trường Việt Nam: nhiều ngân hàng, viễn thông và tập đoàn nhà nước ở đây vẫn có ràng buộc dữ liệu phải ở trong nước và trong trung tâm dữ liệu của mình. Một hệ thống AI đóng gói chạy tại chỗ, ngay cạnh kho dữ liệu đã có sẵn, là lựa chọn thực tế hơn nhiều so với việc chuyển toàn bộ lên cloud rồi cãi nhau về tuân thủ. Điều cần tỉnh táo: nền tảng cũ mà gắn nhãn agentic vẫn là nền tảng cũ nếu mô hình dữ liệu bên dưới không đổi. Hãy hỏi nhà cung cấp một câu duy nhất — agent lấy ngữ cảnh nghiệp vụ từ đâu, và ai duyệt định nghĩa đó.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="20">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.databricks.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-20" class="xt" hidden>
+    <a class="title" href="https://docs.databricks.com/aws/en/release-notes/product/2026/august" target="_blank" rel="noopener">Databricks gia hạn miễn phí Genie One và Genie Agents tới 31/01/2027</a>
+    <p class="sum">Databricks kéo dài chương trình dùng miễn phí Genie One và Genie Agents đến ngày 31/01/2027, thay vì kết thúc vào 31/07/2026 như công bố trước đó; cùng lúc Genie One được nhúng vào Databricks Excel Add-in và Google Sheets Connector.</p>
+    <p class="why">💡 Gia hạn nửa năm miễn phí ngay sau khi vừa bật đồng hồ tính tiền là tín hiệu rõ: cuộc chiến giành thói quen người dùng BI vẫn quan trọng hơn doanh thu ngắn hạn.</p>
+    <div class="meta">
+      <span class="when">📅 03/08</span>
+      <a class="metabtn" href="https://docs.databricks.com/aws/en/release-notes/product/2026/august" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-20">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="20">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Miễn phí Genie One và Genie Agents gia hạn tới 31/01/2027, trước đó dự kiến hết 31/07/2026.</li>
+        <li>Genie One vào Databricks Excel Add-in: hỏi bằng ngôn ngữ tự nhiên, kết quả về dạng hàng cột gốc.</li>
+        <li>Genie One cũng có trong Databricks Connector cho Google Sheets.</li>
+        <li>Excel Add-in bổ sung bộ lọc phân tầng và so khớp chuỗi không phân biệt hoa thường.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>HẠN MỚI</b>31/01/2027</span>
+        <span class="fact"><b>HẠN CŨ</b>31/07/2026</span>
+        <span class="fact"><b>KÊNH MỚI</b>Excel · Google Sheets</span>
+        <span class="fact"><b>NGÀY</b>03/08/2026</span>
+      </div>
+      <p class="deep">Hai tin này phải đọc chung mới thấy chiến lược. Đưa Genie One vào Excel và Google Sheets là đi thẳng vào nơi phần lớn người dùng doanh nghiệp thật sự làm việc — không phải trong công cụ BI, mà trong bảng tính. Và ngay khi mở kênh đó, họ gia hạn miễn phí thêm sáu tháng. Đây là bài toán thói quen chứ không phải bài toán tính năng: ai chiếm được ô nhập liệu của người dùng cuối thì sau này định giá kiểu gì cũng được. Với doanh nghiệp Việt, đây vừa là cơ hội vừa là bẫy. Cơ hội vì bạn có nửa năm dùng thật miễn phí để đánh giá nghiêm túc xem hỏi đáp bằng ngôn ngữ tự nhiên có tạo giá trị hay không. Bẫy vì rất dễ để người dùng quen tay rồi đến tháng 2/2027 mới phát hiện chi phí. Lời khuyên thẳng: dùng ngay, nhưng đo ngay từ đầu — bao nhiêu câu hỏi mỗi tuần, ai hỏi, câu trả lời có dẫn tới quyết định nào không. Nếu sau sáu tháng không trả lời được ba câu đó thì đừng trả tiền. Công nghệ chỉ có giá trị khi chạm được lớp nghiệp vụ và lớp con người.</p>
+    </div>
+  </div>
+</article>
+</section>
+
+<footer>
+  <p>Bản tin tạo lúc 08/08/2026 · 20 tin trong tuần W32 (03/08 - 09/08/2026)</p>
+  <p>Tuyển chọn &amp; đọc bởi Duc Nguyen · <a href="https://ducnguyen.vn" target="_blank" rel="noopener">ducnguyen.vn</a></p>
+</footer>
+
+</div>
+<script src="../../assets/bg.js" defer></script>
+<!--MEDIA_INJECTED-->
+<script>
+(function(){
+  var base="../../audio/2026-08-08/";
+  var cur=null;
+  function play(src){ if(cur){cur.pause();} cur=new Audio(src); cur.play().catch(function(){}); }
+  function stop(){ if(cur){cur.pause(); cur=null;} }
+  document.addEventListener("DOMContentLoaded",function(){
+    var ra=document.getElementById("readAll"); if(ra) ra.onclick=function(){ play(base+"all.mp3"); };
+    var rs=document.getElementById("readStop"); if(rs) rs.onclick=stop;
+    document.querySelectorAll(".readbtn").forEach(function(b){
+      b.onclick=function(){ var id=b.getAttribute("data-aid"); if(id) play(base+id+".mp3"); };
+    });
+  });
+})();
+</script>
+</body>
+</html>

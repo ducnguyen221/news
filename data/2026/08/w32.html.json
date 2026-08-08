@@ -1,0 +1,428 @@
+{
+ "date": "08/08/2026",
+ "week": "W32",
+ "range": "03/08 - 09/08/2026",
+ "tldr": "Tuần 32 là tuần lớp quản trị dành cho AI chính thức lên sản xuất: Databricks đưa Unity AI Gateway lên GA để kiểm soát mọi mô hình, mọi MCP server và mọi đồng hồ tính tiền từ một chỗ, còn Snowflake cho Native Apps tự tạo Cortex Agents và MCP server ở mức GA. MCP đã hết là thí nghiệm, nó trở thành đường ống chuẩn để agent chạm vào dữ liệu doanh nghiệp. Bên dưới, phe open lakehouse tiếp tục dọn nền: Iceberg duyệt kiểu Variant vào REST catalog spec, Parquet mở lại lá phiếu versioning theo hướng feature flag, còn DataFusion Comet gọi phiếu bản 1.0.0. Databricks và Snowflake cũng siết mặt an toàn với Secrets trong Unity Catalog, Multi-party Approval và cột agents_info truy vết agent nào đã đọc dữ liệu. Trái ngược với tin sản phẩm dồn dập, cộng đồng lại nói chuyện mệt mỏi: một chủ đề về chán nghề data engineer thu 273 lượt ủng hộ và 114 bình luận chỉ trong vài ngày.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "Tuần lakehouse: Iceberg duyệt kiểu Variant vào REST catalog, Parquet bỏ phiếu lại chuyện versioning",
+   "title_en": "Apache Data Lakehouse Weekly: July 29 to August 5, 2026",
+   "summary": "Bản tin lakehouse tuần 29 tháng 7 đến 5 tháng 8 ghi nhận Iceberg khoá phiếu đưa kiểu Variant vào REST catalog spec với 7 phiếu binding và 15 phiếu non-binding, không ai phản đối; Parquet mở lại lá phiếu major version theo hướng feature flag; DataFusion gọi phiếu Comet 1.0.0 RC1 và Polaris 1.7.0 về đích sau khi RC1 bị huỷ.",
+   "why": "Cả ba dự án đang chuyển từ thêm tính năng sang làm cho việc thay đổi có quy trình, dấu hiệu open lakehouse đã đủ lớn để không ai được phá vỡ tương thích một mình.",
+   "url": "https://dev.to/alexmercedcoder/apache-data-lakehouse-weekly-july-29-to-august-5-2026-4499",
+   "domain": "dev.to",
+   "date": "2026-08-05",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 3
+  },
+  {
+   "aid": 2,
+   "title": "Delta Sharing lên GA cho bảng bật Iceberg reads, deletion vectors và column mapping",
+   "title_en": "Sharing Delta tables with Iceberg reads, deletion vectors and column mapping is now GA",
+   "summary": "Databricks đưa lên GA khả năng chia sẻ bảng Delta đã bật đọc kiểu Iceberg, cũng như bảng có deletion vectors hoặc column mapping, ba tính năng trước đây thường khiến bảng không chia sẻ ra ngoài được.",
+   "why": "Chia sẻ dữ liệu liên tổ chức lâu nay vỡ trận vì bảng nào tối ưu tốt thì lại không share được, giờ bảng production không phải chọn giữa nhanh và chia sẻ.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/august",
+   "domain": "docs.databricks.com",
+   "date": "2026-08-04",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 3,
+   "title": "Snowflake đưa Openflow Connector cho SQL Server (CDC) lên GA",
+   "title_en": "Openflow Connector for SQL Server (CDC) — General availability",
+   "summary": "Connector Openflow cho SQL Server dùng cơ chế Change Data Capture gốc của SQL Server để phát hiện thay đổi và nhân bản sang Snowflake gần thời gian thực hoặc theo lịch, nay đã lên general availability.",
+   "why": "SQL Server vẫn là nguồn dữ liệu lõi của rất nhiều doanh nghiệp Việt, có CDC chính hãng nghĩa là bớt một lớp công cụ trung gian và bớt một hoá đơn.",
+   "url": "https://docs.snowflake.com/en/release-notes/new-features",
+   "domain": "docs.snowflake.com",
+   "date": "2026-08-05",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 4,
+   "title": "Databricks mở change data feed cho materialized view và cho JAR chạy trên serverless",
+   "title_en": "Change data feed on materialized views, REPLACE USING flows, JAR tasks on serverless",
+   "summary": "Databricks bật bản beta cho phép đọc change data feed trực tiếp từ materialized view tạo bằng Lakeflow hoặc SQL, thêm luồng REPLACE USING để thay thế snapshot từng phần theo cột khoá, và cho phép chạy task JAR Scala hoặc Java trên serverless mà không cần dựng cluster.",
+   "why": "Ba mảnh này gỡ đúng ba chỗ đau kinh điển của pipeline: materialized view trước nay là ngõ cụt vì không đọc được delta phía sau, snapshot đổ đầy bảng mỗi lần chạy, và job JVM luôn phải chờ cluster khởi động.",
+   "url": "https://learn.microsoft.com/en-us/azure/databricks/release-notes/product/2026/august",
+   "domain": "learn.microsoft.com",
+   "date": "2026-08-07",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 5,
+   "title": "Databricks ra Tag automations: tự gắn và gỡ nhãn quản trị theo điều kiện",
+   "title_en": "Tag automations (Beta) for Unity Catalog tables and volumes",
+   "summary": "Tính năng Tag automations bản Beta cho phép định nghĩa điều kiện, rồi hệ thống tự động gán hoặc gỡ governed tag trên các bảng và volume trong Unity Catalog khớp điều kiện đó.",
+   "why": "Gắn nhãn thủ công là lý do chính khiến mọi chương trình data governance chết yểu sau sáu tháng, tự động hoá đúng chỗ này là tự động hoá đúng chỗ đau nhất.",
+   "url": "https://docs.databricks.com/gcp/en/release-notes/product/2026/august",
+   "domain": "docs.databricks.com",
+   "date": "2026-08-07",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "Acceldata đưa AI Observability vào nền tảng xLake: truy vết từng prompt và từng lượt gọi công cụ",
+   "title_en": "Acceldata Brings AI Observability to Its xLake Data Platform",
+   "summary": "Acceldata bổ sung AI Observability vào nền tảng dữ liệu xLake, ghi vết mọi prompt, lượt gọi mô hình, lượt gọi tool và bước truy xuất trong quy trình agentic, đồng thời chấm liên tục độ đúng và độ liên quan của đầu ra.",
+   "why": "Đây là bước hợp nhất hai thứ lâu nay tách rời là chất lượng dữ liệu và chất lượng đầu ra AI, vì phần lớn agent trả lời sai là do dữ liệu sai chứ không phải mô hình dốt.",
+   "url": "https://www.businesswire.com/news/home/20260804768459/en/Acceldata-Brings-AI-Observability-to-Its-xLake-Data-Platform",
+   "domain": "businesswire.com",
+   "date": "2026-08-04",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "Snowflake đưa Multi-party Approval lên GA: bắt buộc bốn mắt cho thao tác nguy hiểm",
+   "title_en": "Multi-party Approval (MPA) is now generally available",
+   "summary": "Chính sách Multi-party Approval khi gắn vào tài khoản Snowflake sẽ bắt buộc bước xác nhận của người thứ hai cho các thao tác trọng yếu ở cấp tài khoản, nay đã lên general availability.",
+   "why": "Trong thời agent có quyền chạy lệnh, chuyện một tài khoản bị chiếm là mất sạch không còn là kịch bản lý thuyết, bốn mắt là hàng rào rẻ nhất chống xoá dữ liệu diện rộng.",
+   "url": "https://docs.snowflake.com/en/release-notes/all-release-notes",
+   "domain": "docs.snowflake.com",
+   "date": "2026-08-04",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "Secrets về ở trong Unity Catalog: quản trị secret theo namespace ba cấp, lên GA",
+   "title_en": "Secrets in Unity Catalog is now generally available",
+   "summary": "Databricks đưa Secrets in Unity Catalog lên GA, lưu trữ secret có quản trị theo namespace ba cấp giống bảng dữ liệu; cùng ngày, kiểm soát truy cập cho serverless compute cũng lên GA và quyền MANAGE không còn đòi quyền usage trên cùng đối tượng.",
+   "why": "Secret lâu nay sống ngoài hệ thống quản trị dữ liệu, nên phân quyền dữ liệu chặt bao nhiêu cũng vô nghĩa nếu ai cũng đọc được khoá kết nối.",
+   "url": "https://docs.databricks.com/aws/en/security/secrets/",
+   "domain": "docs.databricks.com",
+   "date": "2026-08-03",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "Unity AI Gateway lên GA: một cổng duy nhất kiểm soát mô hình, MCP server và chi phí AI",
+   "title_en": "Unity AI Gateway is now generally available",
+   "summary": "Databricks đưa Unity AI Gateway lên general availability như một phần của Unity Catalog: doanh nghiệp chọn được dịch vụ AI nào đội ngũ được dùng, định tuyến lưu lượng AI giữa các nhà cung cấp, quản trị MCP server để kiểm soát truy cập và chi phí, đồng thời theo dõi usage, cost, access và lineage từ một chỗ.",
+   "why": "Đây là lúc quản trị AI được đặt vào đúng nơi nó thuộc về, cùng cây quản trị với dữ liệu, thay vì một bảng theo dõi rời rạc dựng vội.",
+   "url": "https://docs.databricks.com/aws/en/ai-gateway/",
+   "domain": "docs.databricks.com",
+   "date": "2026-08-04",
+   "section": "🤖 AI × Data",
+   "hot_rank": 1
+  },
+  {
+   "aid": 10,
+   "title": "Snowflake Native Apps được tạo Cortex Agents và MCP server, lên GA",
+   "title_en": "Snowflake Native Apps: Cortex Agents and MCP servers (General availability)",
+   "summary": "Từ ngày 7 tháng 8, Snowflake Native Apps có thể tự tạo Cortex Agents và MCP server do Snowflake quản lý ở mức GA; nhà cung cấp app còn đăng ký được endpoint dịch vụ SPCS làm MCP server tự vận hành.",
+   "why": "Nghĩa là mọi ứng dụng chạy trên dữ liệu của bạn giờ có thể xuất ra giao diện chuẩn cho agent, MCP chính thức thành lớp API mặc định của kho dữ liệu.",
+   "url": "https://docs.snowflake.com/en/developer-guide/native-apps/agents-mcp-servers",
+   "domain": "docs.snowflake.com",
+   "date": "2026-08-07",
+   "section": "🤖 AI × Data",
+   "hot_rank": 2
+  },
+  {
+   "aid": 11,
+   "title": "Kimi K3 của Moonshot AI lên Databricks: MoE 2,8 nghìn tỷ tham số, context 1 triệu token",
+   "title_en": "Moonshot AI Kimi K3 model now available on Databricks",
+   "summary": "Databricks bổ sung mô hình Kimi K3 của Moonshot AI vào danh mục có sẵn: kiến trúc Mixture-of-Experts 2,8 nghìn tỷ tham số, có khả năng thị giác và cửa sổ ngữ cảnh 1 triệu token, chạy ngay trong hàng rào quản trị của lakehouse.",
+   "why": "Cửa sổ một triệu token cộng thị giác nghĩa là đọc nguyên bộ hợp đồng scan hoặc cả tập báo cáo PDF mà không cần chia nhỏ, thay đổi cách thiết kế pipeline xử lý tài liệu.",
+   "url": "https://learn.microsoft.com/en-us/azure/databricks/release-notes/product/2026/august",
+   "domain": "learn.microsoft.com",
+   "date": "2026-08-06",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "Databricks ra hàm SQL ai_search và kéo MCP connector về dưới Unity AI Gateway",
+   "title_en": "ai_search function (Beta) and MCP connectors move to Unity AI Gateway",
+   "summary": "Hàm ai_search bản Beta cho phép truy xuất thông tin từ một hoặc nhiều AI Search index được cấu hình làm knowledge source ngay trong câu SQL; song song, các MCP connector do Databricks quản lý được chuyển về Unity AI Gateway để quản trị tập trung.",
+   "why": "RAG viết bằng SQL nghĩa là người làm phân tích không cần một stack Python riêng để hỏi dữ liệu phi cấu trúc.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/august",
+   "domain": "docs.databricks.com",
+   "date": "2026-08-07",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "ACCESS_HISTORY của Snowflake thêm cột agents_info: biết agent nào đã đọc dữ liệu thay người dùng",
+   "title_en": "ACCESS_HISTORY view adds an agents_info column",
+   "summary": "View ACCESS_HISTORY ở cả Account Usage và Organization Usage nay có cột agents_info, mô tả chi tiết những agent đã truy cập dữ liệu thay mặt một người dùng; cùng ngày, Inline Stored Procedures cho hybrid table vào public preview.",
+   "why": "Khi agent chạy dưới danh nghĩa người dùng, nhật ký kiểm toán cũ chỉ thấy tên người, mất hoàn toàn khả năng phân biệt con người thật với tự động hoá.",
+   "url": "https://docs.snowflake.com/en/release-notes/new-features",
+   "domain": "docs.snowflake.com",
+   "date": "2026-08-03",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "Có ai khác cũng đang mất hứng với data engineering không — chủ đề nổ trên r/dataengineering",
+   "title_en": "Is anyone else losing interest in data engineering?",
+   "summary": "Một bài đăng trên r/dataengineering ngày 3 tháng 8 thu 273 lượt ủng hộ và 114 bình luận, với nhiều senior kể chuyện kiệt sức, sống trong nỗi lo bị cắt giảm, và cảm giác công việc không tạo ra giá trị thật cho ai.",
+   "why": "Đây là mặt trái ít ai nói của làn sóng nền tảng dồn dập: công cụ mạnh lên rất nhanh nhưng cảm giác về ý nghĩa công việc thì không.",
+   "url": "https://www.reddit.com/r/dataengineering/comments/1veof8v/is_anyone_else_losing_interest_in_data_engineering/",
+   "domain": "reddit.com",
+   "date": "2026-08-03",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": 5
+  },
+  {
+   "aid": 15,
+   "title": "Data Engineering Weekly #281: Netflix làm gợi ý bằng LLM, Atlassian chuyển 145 tỷ sự kiện mỗi ngày từ Kinesis sang Kafka",
+   "title_en": "Data Engineering Weekly #281",
+   "summary": "Số 281 ra ngày 3 tháng 8 gom loạt bài kỹ thuật đáng đọc: Netflix giới thiệu GenRec dùng LLM nền tảng diễn giải lịch sử người dùng và đạt kết quả tốt hơn với ít nhãn hơn 40 lần, Atlassian kể chuyện chuyển StreamHub từ Kinesis sang Kafka ở quy mô 145 tỷ sự kiện mỗi ngày, Spotify chia sẻ cách đánh index cho data lake để truy vấn điểm.",
+   "why": "Cả ba bài đều nói một điều: kỹ thuật dữ liệu năm 2026 đang xoay quanh việc chuẩn bị ngữ cảnh cho mô hình, chứ không còn là dựng thêm bảng.",
+   "url": "https://www.dataengineeringweekly.com/p/data-engineering-weekly-281",
+   "domain": "dataengineeringweekly.com",
+   "date": "2026-08-03",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 16,
+   "title": "Bản tin hệ sinh thái DuckDB tháng 8: DuckDB tăng 50,7% mỗi năm qua phân tích 1,8 triệu tiêu đề Hacker News",
+   "title_en": "DuckDB Ecosystem Newsletter — August 2026",
+   "summary": "Bản tin DuckDB Ecosystem tháng 8 năm 2026 dẫn một phân tích 1,8 triệu tiêu đề Hacker News cho thấy DuckDB dẫn đầu về tốc độ tăng trưởng nhắc đến với 50,7% so với cùng kỳ, cùng loạt bài về pipeline phân tích dựng bằng AI và AI tự sửa SQL của chính nó.",
+   "why": "Xu hướng rất rõ: cơ sở dữ liệu tự host, nhúng được, dev tự cầm được đang lấy lại tâm trí lập trình viên từ tay nền tảng đám mây được quản lý.",
+   "url": "https://motherduck.com/duckdb-news/",
+   "domain": "motherduck.com",
+   "date": "2026-08-06",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "All Data and AI Weekly #253: bản đồ tuần của hệ sinh thái dữ liệu mở",
+   "title_en": "All Data and AI Weekly #253 — 03 August 2026",
+   "summary": "Số 253 ra ngày 3 tháng 8 tiếp tục tổng hợp chuyển động tuần qua khắp hệ sinh thái dữ liệu và AI mở, từ engine, streaming, định dạng bảng đến các dự án cộng đồng.",
+   "why": "Bản tin dạng này là cách rẻ nhất để không bỏ sót các thay đổi nhỏ trong hệ sinh thái mở, nơi một dòng ghi chú phát hành có thể phá vỡ pipeline của bạn.",
+   "url": "https://www.linkedin.com/pulse/all-data-ai-weekly-253-03-august-2026-tim-spann-wdqre",
+   "domain": "linkedin.com",
+   "date": "2026-08-03",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 18,
+   "title": "Convex gọi 57 triệu USD Series B để làm backend đáng tin cho phần mềm do agent viết",
+   "title_en": "Convex Raises $57M Series B Led by Insight Partners to Scale the Reliable Backend for the AI Era",
+   "summary": "Convex, nền tảng backend do các kỹ sư hạ tầng cũ của Dropbox lập ra, công bố vòng Series B 57 triệu USD do Insight Partners dẫn dắt, nâng tổng vốn lên 110,5 triệu USD; công ty nói nền tảng đang chạy gần 2 triệu ứng dụng, trong đó có khách hàng OpenAI và Zapier.",
+   "why": "Khi agent viết phần lớn code, thứ đắt giá không còn là framework mà là cơ sở dữ liệu đủ chặt để agent không làm hỏng dữ liệu.",
+   "url": "https://www.prnewswire.com/news-releases/convex-raises-57m-series-b-led-by-insight-partners-to-scale-the-reliable-backend-for-the-ai-era-302841686.html",
+   "domain": "prnewswire.com",
+   "date": "2026-08-04",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": 4
+  },
+  {
+   "aid": 19,
+   "title": "Teradata báo cáo quý 2/2026: doanh thu 410 triệu USD, biên hoạt động lên 21,5%",
+   "title_en": "Teradata Reports Second Quarter 2026 Financial Results",
+   "summary": "Teradata công bố kết quả quý 2 năm 2026 ngày 4 tháng 8 với doanh thu 410 triệu USD, đi ngang so với cùng kỳ nhưng vượt dự báo, lợi nhuận trên cổ phiếu non-GAAP 0,69 USD; doanh thu định kỳ đạt 363 triệu USD, tăng 3%, và biên hoạt động non-GAAP mở rộng lên 21,5%.",
+   "why": "Một hãng data warehouse truyền thống giữ được biên lợi nhuận trong lúc xoay trục sang agentic AI là dữ liệu tham chiếu đáng giá cho cả ngành.",
+   "url": "http://www.prnewswire.com/news-releases/teradata-reports-second-quarter-2026-financial-results-302842929.html",
+   "domain": "prnewswire.com",
+   "date": "2026-08-04",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 20,
+   "title": "Databricks gia hạn miễn phí Genie One và Genie Agents tới 31/01/2027",
+   "title_en": "Free usage of Genie One and Genie Agents extended through January 31, 2027",
+   "summary": "Databricks kéo dài chương trình dùng miễn phí Genie One và Genie Agents đến ngày 31 tháng 1 năm 2027, thay vì kết thúc vào 31 tháng 7 năm 2026 như công bố trước đó; cùng lúc Genie One được nhúng vào Databricks Excel Add-in và Google Sheets Connector.",
+   "why": "Gia hạn nửa năm miễn phí ngay sau khi vừa bật đồng hồ tính tiền là tín hiệu rõ: cuộc chiến giành thói quen người dùng BI vẫn quan trọng hơn doanh thu ngắn hạn.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/august",
+   "domain": "docs.databricks.com",
+   "date": "2026-08-03",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 9,
+ "weekly_video": {
+  "intro": "Xin chào, đây là bản tin dữ liệu tuần 32, từ ngày ba đến ngày chín tháng tám năm hai nghìn không trăm hai mươi sáu. Chủ đề xuyên suốt tuần này rất rõ: lớp quản trị dành cho AI đã rời phòng thí nghiệm và bước vào môi trường sản xuất thật. Databricks và Snowflake cùng đưa cổng kiểm soát agent lên bản chính thức, còn phe lakehouse mở tiếp tục dọn nền móng cho một hệ sinh thái ngày càng lớn. Mời bạn nghe năm câu chuyện đáng chú ý nhất.",
+  "outro": "Đó là năm tin nổi bật của tuần 32. Chi tiết đầy đủ hai mươi tin, cùng phần phân tích mở rộng cho từng câu chuyện, bạn xem trong bản tin trên trang. Hẹn gặp lại bạn tuần sau.",
+  "segments": [
+   {
+    "aid": 9,
+    "headline": "Unity AI Gateway lên GA, một cổng kiểm soát toàn bộ AI",
+    "narration": "Tin lớn nhất tuần này thuộc về Databricks. Ngày bốn tháng tám, họ đưa Unity AI Gateway lên bản chính thức, tức là general availability. Điểm mấu chốt không nằm ở tính năng, mà nằm ở vị trí đặt tính năng. Unity AI Gateway không phải một cổng proxy dựng riêng bên cạnh, nó là một thành phần của Unity Catalog, cùng cây quản trị với bảng dữ liệu, với volume và với secret. Cổng này cho phép doanh nghiệp quyết định dịch vụ AI nào từng nhóm được dùng, định tuyến lưu lượng AI giữa nhiều nhà cung cấp, quản trị các MCP server để kiểm soát cả quyền truy cập lẫn chi phí, và theo dõi bốn thứ trên cùng một mặt bảng: mức sử dụng, chi phí, quyền truy cập và lineage. Nói cho dễ hiểu, trước đây mỗi đội trong công ty tự cắm điện vào ổ riêng, giờ có một tủ điện tổng, có cầu dao và có công tơ. Vì sao điều này quan trọng? Vì câu hỏi mà mọi giám đốc công nghệ đang hỏi là agent nào đã gọi mô hình nào, để đọc bảng nào, và tốn bao nhiêu tiền. Trước đây câu đó cần ba hệ thống rời rạc mới trả lời được. Lời khuyên thẳng thắn: nếu công ty bạn đã có hơn hai nhóm gọi mô hình ngôn ngữ trên dữ liệu nội bộ, hãy bật cổng này ngay, ngay cả khi ban đầu chỉ để quan sát.",
+    "bullets": [
+     "Lên bản chính thức ngày bốn tháng tám",
+     "Thuộc Unity Catalog, cùng cây quản trị dữ liệu",
+     "Theo dõi mức dùng, chi phí, quyền và lineage"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Unity AI Gateway trong Unity Catalog",
+     "items": [
+      {
+       "t": "Agent & ứng dụng",
+       "d": "gọi qua một cổng duy nhất"
+      },
+      {
+       "t": "Unity AI Gateway",
+       "d": "chọn dịch vụ, định tuyến, chặn chi phí"
+      },
+      {
+       "t": "MCP server",
+       "d": "quản trị quyền truy cập tập trung"
+      },
+      {
+       "t": "Unity Catalog",
+       "d": "bảng, volume, secret cùng một quyền"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 10,
+    "headline": "Snowflake Native Apps tạo được Cortex Agents và MCP server",
+    "narration": "Câu chuyện thứ hai đến từ Snowflake, và nó là mảnh ghép còn lại của cùng một bức tranh. Ngày bảy tháng tám, Snowflake đưa lên bản chính thức khả năng cho Native Apps tự tạo Cortex Agents và MCP server do Snowflake quản lý. Nhà cung cấp ứng dụng còn đăng ký được một endpoint dịch vụ SPCS để làm MCP server tự vận hành. MCP server này phục vụ Cortex Analyst, Cortex Search và Cortex Agents dưới dạng công cụ, kèm cả công cụ tuỳ biến và khả năng thực thi SQL. Phần xác thực dùng dịch vụ OAuth có sẵn, phần phân quyền dùng đúng cơ chế phân quyền theo vai trò của Snowflake. Điều thật sự mới ở đây không phải giao thức MCP, cái đó đã có từ trước. Điều mới là MCP được đóng gói vào ứng dụng và phân phối qua marketplace. Trước đây, muốn một agent dùng được dữ liệu của phần mềm đối tác, bạn phải đàm phán API, dựng đường ống, đồng bộ schema, mất vài tháng. Giờ nhà cung cấp đẩy luôn một MCP server chạy ngay cạnh dữ liệu, nằm trong hàng rào bảo mật của bạn. Bản chất là thay vì chép dữ liệu ra ngoài cho AI đọc, bạn mang AI vào trong nhà và chỉ mở đúng một cái cửa đã khoá sẵn. Nhưng có một cạm bẫy: nhiều đội sẽ mở một MCP server vạn năng chạy SQL tự do. Đừng làm vậy.",
+    "bullets": [
+     "Bản chính thức từ ngày bảy tháng tám",
+     "Xác thực OAuth, phân quyền theo vai trò sẵn có",
+     "Phục vụ Analyst, Search, Agents và SQL"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Đường đi của agent tới dữ liệu Snowflake",
+     "items": [
+      {
+       "t": "Native App",
+       "d": "đóng gói và phân phối qua marketplace"
+      },
+      {
+       "t": "MCP server",
+       "d": "Snowflake quản lý hoặc tự host SPCS"
+      },
+      {
+       "t": "OAuth + RBAC",
+       "d": "xác thực và giới hạn quyền"
+      },
+      {
+       "t": "Cortex tools",
+       "d": "Analyst, Search, Agents, SQL"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 1,
+    "headline": "Iceberg duyệt kiểu Variant, Parquet siết lại luật versioning",
+    "narration": "Câu chuyện thứ ba nằm ở tầng nền móng, nơi ít ai nhìn nhưng lại quyết định mọi thứ phía trên. Bản tin lakehouse tuần từ hai mươi chín tháng bảy đến năm tháng tám ghi nhận một loạt chuyển động quan trọng. Apache Iceberg khoá lá phiếu đưa kiểu Variant vào đặc tả REST catalog, với bảy phiếu binding và mười lăm phiếu non-binding, không một phiếu phản đối. Kiểu Variant là cách mô tả dữ liệu bán cấu trúc, tức là mọi log, mọi event, mọi payload API. Có nó nghĩa là catalog và engine cuối cùng nói chung một ngôn ngữ, thay vì mỗi bên tự bịa một cách. Bên Parquet, cộng đồng mở lại lá phiếu về versioning với luật rõ hơn: thay đổi phá vỡ tương thích thì dồn vào phiên bản major tiếp theo, tính năng mới phải đánh dấu preview kèm feature flag, và cần hai bản triển khai độc lập trước khi vào đặc tả. Đây là bài học đau vừa xảy ra: một thay đổi về sort order làm bản Java và bản Arrow đọc khác nhau, đúng loại lỗi âm thầm mà đội dữ liệu chỉ phát hiện khi con số đã lệch. Cuối cùng, DataFusion gọi phiếu cho Comet phiên bản một chấm không. Comet dịch kế hoạch thực thi của Spark sang DataFusion và giữ định dạng Arrow từ đầu đến cuối, cho tốc độ nhanh khoảng hai lần trên bộ đo TPC-DS một terabyte.",
+    "bullets": [
+     "Variant vào REST catalog, bảy phiếu binding thuận",
+     "Parquet buộc feature flag và hai bản triển khai",
+     "Comet một chấm không, nhanh gấp khoảng hai lần"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Con số của tuần lakehouse",
+     "items": [
+      {
+       "v": "7 + 15",
+       "l": "phiếu thuận kiểu Variant"
+      },
+      {
+       "v": "1.0.0",
+       "l": "Comet ứng viên đầu tiên"
+      },
+      {
+       "v": "1.7.0",
+       "l": "Polaris về đích"
+      },
+      {
+       "v": "0.10.1",
+       "l": "Iceberg Rust"
+      }
+     ]
+    },
+    "images": [
+     "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F2ajtt7eiy36kvueub4rz.png"
+    ]
+   },
+   {
+    "aid": 18,
+    "headline": "Convex gọi năm mươi bảy triệu đô cho backend thời agent",
+    "narration": "Câu chuyện thứ tư là tin gọi vốn, nhưng luận điểm đằng sau đáng chú ý hơn con số. Ngày bốn tháng tám, Convex công bố vòng Series B trị giá năm mươi bảy triệu đô la, do Insight Partners dẫn dắt, với sự tham gia của Etna Labs, Spark Capital, Andreessen Horowitz và Justin Kan. Tổng vốn huy động của công ty đạt một trăm mười triệu rưỡi đô la. Convex do các kỹ sư hạ tầng cũ của Dropbox lập ra, và họ nói nền tảng hiện chạy gần hai triệu ứng dụng, trong đó có OpenAI và Zapier. Sản phẩm của họ là một backend gồm cơ sở dữ liệu có kiểu chặt theo TypeScript, đảm bảo giao dịch ACID, đồng bộ dữ liệu thời gian thực, kèm sẵn phần xác thực và phần truy xuất cho RAG. Luận điểm của họ thế này: khi agent sinh ra phần lớn mã nguồn, điểm gãy chuyển từ tốc độ viết sang độ tin cậy của trạng thái dữ liệu. Một agent viết nhanh gấp mười lần cũng vô nghĩa nếu nó tạo ra một cập nhật không nguyên tử làm lệch số dư tài khoản. Theo góc nhìn của mình, đây là hướng đúng, vì AI không thay thế người giỏi, nó khuếch đại người biết làm việc rõ ràng.",
+    "bullets": [
+     "Năm mươi bảy triệu đô, Insight Partners dẫn vòng",
+     "Tổng vốn một trăm mười triệu rưỡi đô la",
+     "Gần hai triệu ứng dụng đang chạy trên nền tảng"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Convex sau vòng Series B",
+     "items": [
+      {
+       "v": "57 triệu $",
+       "l": "vòng Series B"
+      },
+      {
+       "v": "110,5 triệu $",
+       "l": "tổng vốn huy động"
+      },
+      {
+       "v": "~2 triệu",
+       "l": "ứng dụng đang chạy"
+      },
+      {
+       "v": "ACID",
+       "l": "đảm bảo giao dịch"
+      }
+     ]
+    },
+    "images": [
+     "https://mmx.prnewswire.com/media/MS1963174/Convex-logo.jpg?id=OA2822509&p=facebook"
+    ]
+   },
+   {
+    "aid": 14,
+    "headline": "Cộng đồng data engineer nói thẳng chuyện chán nghề",
+    "narration": "Câu chuyện cuối cùng không phải tin sản phẩm, mà là tiếng nói của những người làm nghề. Ngày ba tháng tám, một bài đăng trên diễn đàn r dataengineering đặt câu hỏi rất thẳng: có ai khác cũng đang mất hứng với data engineering không. Chỉ trong vài ngày, bài viết thu hai trăm bảy mươi ba lượt ủng hộ và một trăm mười bốn bình luận. Đọc các bình luận được ủng hộ nhiều nhất thì thấy một bức tranh khá nặng. Một kỹ sư cấp cao nói mình kiệt sức, đã trải qua một đợt cắt giảm và đang chuẩn bị tinh thần cho đợt tiếp theo. Một người khác có hơn mười năm trong nghề nói thật lòng rằng chưa từng thấy mình tạo ra giá trị rõ ràng cho ai. Nhiều người tự gọi công việc của mình là dọn dẹp dữ liệu không hồi kết. Điều đáng suy nghĩ là chuyện này xảy ra đúng tuần các nền tảng lớn ra hàng loạt tính năng tự động hoá. Theo mình, vấn đề không nằm ở công nghệ chán, mà nằm ở vòng phản hồi bị đứt. Người làm dữ liệu hiếm khi thấy kết quả công việc của mình biến thành quyết định của ai đó. Tự động hoá không chữa được cái đau này, vì cái đau nằm ở chỗ tổ chức không nối được dữ liệu với hành động.",
+    "bullets": [
+     "Hai trăm bảy mươi ba lượt ủng hộ, một trăm mười bốn bình luận",
+     "Kiệt sức, lo cắt giảm, thấy công việc thiếu ý nghĩa",
+     "Gốc rễ là vòng phản hồi giữa dữ liệu và quyết định bị đứt"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Công cụ mạnh lên, cảm giác đi xuống",
+     "left": {
+      "h": "Nền tảng tuần này",
+      "items": [
+       "Cổng quản trị AI lên chính thức",
+       "MCP thành chuẩn kết nối",
+       "Tự động gắn nhãn dữ liệu"
+      ]
+     },
+     "right": {
+      "h": "Người làm nghề",
+      "items": [
+       "Kiệt sức và lo cắt giảm",
+       "Không thấy giá trị công việc",
+       "Tự gọi mình là người dọn dữ liệu"
+      ]
+     }
+    },
+    "images": []
+   }
+  ]
+ },
+ "facebook_post": "Tuần mà công cụ AI mạnh lên rất nhanh, còn người làm dữ liệu thì mệt\n\nMình vừa soát lại hai mươi tin dữ liệu tuần này và có một cảm giác lạ. Một bên là các nền tảng lớn thi nhau đưa lớp quản trị AI lên bản chính thức. Bên kia là một chủ đề trên diễn đàn data engineer, hàng trăm người vào kể chuyện chán nghề. Hai thứ đó xảy ra cùng một tuần.\n\n1️⃣ Databricks đưa Unity AI Gateway lên GA\nNgày 4/8. Điểm mấu chốt là nó nằm trong Unity Catalog, cùng cây quản trị với bảng, volume và secret. Chọn được dịch vụ AI nào từng nhóm được dùng, định tuyến giữa các nhà cung cấp, quản trị MCP server, theo dõi mức dùng, chi phí, quyền truy cập và lineage ở một chỗ. Nghĩa là câu hỏi agent nào gọi mô hình nào để đọc bảng nào và tốn bao nhiêu tiền, cuối cùng đã có chỗ trả lời.\n\n2️⃣ Snowflake cho Native Apps tạo Cortex Agents và MCP server, lên GA\nNgày 7/8, xác thực OAuth và phân quyền RBAC sẵn có. MCP hết là thí nghiệm, nó thành lớp API mặc định để agent chạm vào kho dữ liệu. Thay vì chép dữ liệu ra ngoài cho AI đọc, bạn mang AI vào trong hàng rào.\n\n3️⃣ Iceberg duyệt kiểu Variant, Parquet siết luật versioning\nTheo bản tin lakehouse tuần 29/7 đến 5/8: Variant vào REST catalog spec với 7 phiếu binding và 15 non-binding, không ai chống. Parquet buộc tính năng mới phải có feature flag và hai bản triển khai trước khi vào spec. DataFusion gọi phiếu Comet 1.0.0 RC1.\n\n4️⃣ Convex gọi 57 triệu USD Series B\nNgày 4/8, Insight Partners dẫn vòng, tổng vốn 110,5 triệu USD, gần 2 triệu ứng dụng đang chạy, có OpenAI và Zapier trong danh sách khách. Luận điểm: khi agent viết phần lớn code, điểm gãy chuyển từ tốc độ viết sang độ tin cậy của trạng thái dữ liệu.\n\n5️⃣ Cộng đồng data engineer nói thẳng chuyện chán nghề\nNgày 3/8, một bài trên r/dataengineering hỏi có ai cũng đang mất hứng không, thu 273 lượt ủng hộ và 114 bình luận. Nhiều senior kể chuyện kiệt sức, đã qua một đợt cắt giảm.\n\n💭 Góc nhìn của mình về tuần này\n\nTheo mình, cái THẬT SỰ mới tuần này không phải một tính năng nào, mà là chỗ người ta đặt lớp quản trị AI. Databricks nhét nó vào Unity Catalog. Snowflake cho MCP server sống trong Native App với đúng OAuth và RBAC cũ. Cả hai nói cùng một câu: quản trị AI là phần mở rộng của quản trị dữ liệu, không phải sản phẩm mới. Vừa rồi mình học và thi chứng chỉ Databricks, làm thực hành RAG trên nền lakehouse với Delta, Unity Catalog và vector search, thứ đọng lại rõ nhất không phải mô hình chạy nhanh cỡ nào, mà là cảm giác yên tâm khi mọi thứ nằm chung một hàng rào quyền.\n\nNhưng phải nói thẳng mặt trái: cùng một tin, tốt cho doanh nghiệp lớn và khó cho team nhỏ. Khuyến nghị cụ thể của mình là nếu đã có hơn hai nhóm gọi LLM trên dữ liệu nội bộ thì bật cổng ngay, nhưng bật ở chế độ quan sát trước. Đừng dựng chính sách chặt khi chưa có số liệu, vì sẽ chặn nhầm và cả tổ chức quay ra đi cửa sau. Và đừng mở một MCP server vạn năng chạy SQL tự do, hãy định nghĩa vài tool hẹp gắn với semantic view. Agent tốt không phải agent được quyền nhiều, mà là agent bị giới hạn đúng.\n\nCòn bài Reddit kia, mình nghĩ nó đáng đọc hơn cả tin sản phẩm. Cái đau của người làm data không phải công nghệ chán, mà là vòng phản hồi bị đứt: họ hiếm khi thấy công việc của mình biến thành quyết định của ai đó. Nếu bạn đang chán, đừng học thêm một công cụ nữa để mong hết chán. Hãy chọn một bài toán có người dùng thật, đo được kết quả kinh doanh, rồi đi cùng nó từ đầu tới cuối.\n\nCông nghệ tuần này tiến rất nhanh ở lớp technical, nhưng giá trị chỉ xuất hiện khi nó chạm được lớp business và lớp con người. Dashboard đẹp không có nghĩa là đang ra quyết định tốt, và cổng quản trị AI xịn cũng vậy.\n\nGhé AI News và Data News của mình để đọc bản đầy đủ nhé, subscribe nếu bạn muốn nhận bản tin mỗi tuần.\n\n#Data #DataEngineering #Databricks #Snowflake #Iceberg #Lakehouse #UnityCatalog #MCP #DataGovernance #Analytics #BI #AIAgents #DataNews #DucNguyenAI",
+ "bgm": "minimal-tech",
+ "youtube": {
+  "recap": "4WmQbpy5ktc",
+  "short": "HSakdCFo0qc"
+ }
+}
