@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI News – Tuần W33 · 10/08 - 16/08/2026</title>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI News – Tuần W33: Phố Wall bơm 500 tỷ đô vào hạ tầng AI, Meta quay lại open-weight">
+<meta property="og:description" content="Tuần 33: Nvidia bắt tay sáu quỹ lớn huy động hơn 500 tỷ USD, Anthropic thuê 191 MW trong 20 năm, Meta mở trọng số Muse Glimmer, OpenAI bán model tấn công mạng.">
+<meta property="og:image" content="https://ducnguyen.vn/news/ai/assets/og-banner.png">
+<meta property="og:url" content="https://ducnguyen.vn/news/ai/2026/08/w33.html">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;padding:0 16px 40px;background:#04060a;color:#f8fafc;font-family:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;line-height:1.62;font-size:16px}
+.wrap{max-width:960px;margin:0 auto}
+a{color:#00f0ff}
+
+/* HEADER */
+.hdr{position:sticky;top:8px;z-index:60;background:rgba(6,9,16,.92);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:12px;margin:10px 0 4px;padding:10px 14px}
+.hdr-row{display:flex;align-items:center}
+.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:#f8fafc}
+.brand-mark{width:42px;height:42px;display:grid;place-items:center;flex:0 0 auto;border:1px solid rgba(0,240,255,.4);border-radius:50%;background:radial-gradient(circle,rgba(0,240,255,.22),rgba(189,0,255,.06) 55%,rgba(4,6,10,.95) 78%);box-shadow:0 0 18px rgba(0,240,255,.35);animation:brandPulse 3.2s ease-in-out infinite;transition:transform .45s cubic-bezier(.175,.885,.32,1.275)}
+.brand:hover .brand-mark{transform:rotate(180deg) scale(1.06);border-color:#00f0ff}
+@keyframes brandPulse{0%,100%{box-shadow:0 0 10px rgba(0,240,255,.22)}50%{box-shadow:0 0 26px rgba(0,240,255,.55)}}
+.brand-name{font-size:1.16rem;font-weight:600;letter-spacing:.3px}
+.brand-name b{color:#00f0ff}
+.brand-sub{display:inline;color:#94a3b8;font-size:.78rem;margin-left:4px}
+.hdr-row2{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-top:8px;position:relative}
+.hdr-row2 .toc{flex:1 1 auto}
+.vdiv{width:1px;height:22px;background:rgba(255,255,255,.16)}
+.toc{display:flex;gap:7px;flex-wrap:wrap}
+.toc a{display:inline-block;padding:5px 11px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(12,18,30,.9);color:#cbd5e1;text-decoration:none;font-size:.79rem;white-space:nowrap}
+.toc a:hover{border-color:#00f0ff;color:#00f0ff;background:rgba(0,240,255,.08)}
+.hdr-ctrls{display:flex;align-items:center;gap:8px}
+.ctrl{display:inline-flex;align-items:center;justify-content:center;gap:2px;padding:8px 14px;border:1px solid rgba(255,255,255,.14);border-radius:9px;background:rgba(12,18,30,.92);color:#e2e8f0;font-size:.83rem;font-weight:600;cursor:pointer;text-decoration:none;font-family:inherit}
+.ctrl:hover{border-color:#00f0ff;color:#00f0ff}
+.ctrl-acc{background:linear-gradient(90deg,#00f0ff,#39ff7a);color:#04060a;border-color:transparent}
+.ctrl-acc:hover{color:#04060a;filter:brightness(1.08)}
+.ctrl-ic{width:38px;height:36px;padding:0;flex:0 0 38px}
+.navpop-btn{display:none}
+.navpop{display:none}
+.navpop-t:checked ~ .navpop{display:flex;flex-direction:column;gap:2px;position:absolute;top:calc(100% + 10px);left:0;right:0;z-index:80;background:rgba(8,12,20,.98);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:8px;backdrop-filter:blur(16px)}
+.navpop a{padding:11px 14px;border-radius:8px;color:#cbd5e1;text-decoration:none;font-size:.9rem}
+.navpop a:hover{background:rgba(0,240,255,.1);color:#00f0ff}
+.navpop-t:checked ~ .hdr-ctrls .navpop-btn{color:#04060a;background:linear-gradient(90deg,#00f0ff,#39ff7a);border-color:transparent}
+
+/* RECAP VIDEO */
+#recap{scroll-margin-top:120px}
+.hot-video{margin-top:26px}
+.hot-video .hot-label{font-weight:700;margin-bottom:12px}
+.hot-video video,.hot-video iframe{width:100%;border-radius:12px;display:block}
+.vid-links{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.vbtn{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border:1px solid rgba(0,240,255,.35);border-radius:9px;color:#00f0ff;text-decoration:none;font-size:.88rem;font-weight:600;background:rgba(0,240,255,.07)}
+.vbtn:hover{background:rgba(0,240,255,.16)}
+
+/* TLDR */
+.tldr{margin:26px 0 14px;padding:18px 20px;background:rgba(10,15,26,.95);border:1px solid rgba(0,240,255,.24);border-left:3px solid #00f0ff;border-radius:12px}
+.tldr h2{margin:0 0 8px;font-size:1.04rem;color:#00f0ff;letter-spacing:.3px}
+.tldr p{margin:0;color:#e2e8f0;font-size:.97rem}
+
+/* TIMELINE */
+.timeline{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 26px}
+.tl-chip{display:flex;flex-direction:column;align-items:center;gap:1px;min-width:72px;padding:8px 10px;background:rgba(10,15,26,.95);border:1px solid rgba(255,255,255,.1);border-radius:10px}
+.tl-chip .d{font-size:.74rem;color:#94a3b8;letter-spacing:.4px}
+.tl-chip .n{font-size:1.02rem;font-weight:700;color:#00f0ff}
+.tl-chip.on{border-color:rgba(0,240,255,.4);box-shadow:0 0 14px rgba(0,240,255,.12)}
+.tl-chip.off{opacity:.38}
+.tl-chip.off .n{color:#64748b}
+
+/* SECTIONS */
+.sec{margin:34px 0 0;scroll-margin-top:120px}
+.sec h2{font-size:1.24rem;margin:0 0 14px;padding-bottom:9px;border-bottom:1px solid rgba(255,255,255,.1);letter-spacing:.2px}
+
+/* CARD */
+.card{display:flex;gap:14px;padding:16px;margin-bottom:14px;background:rgba(10,15,26,.93);border:1px solid rgba(255,255,255,.08);border-radius:12px}
+.card[data-hot="1"]{border-color:rgba(0,240,255,.42);box-shadow:0 0 26px rgba(0,240,255,.1)}
+.thumb{width:96px;height:72px;flex:0 0 96px;object-fit:cover;border-radius:9px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+.thumb-fallback{object-fit:contain;padding:16px;background:rgba(255,255,255,.04)}
+.body{flex:1 1 auto;min-width:0}
+.rank{display:inline-block;margin-bottom:6px;padding:3px 10px;border-radius:999px;font-size:.7rem;font-weight:800;letter-spacing:.6px;background:linear-gradient(90deg,#00f0ff,#bd00ff);color:#04060a}
+.title{display:block;font-size:1.05rem;font-weight:700;color:#f8fafc;text-decoration:none;line-height:1.4}
+.title:hover{color:#00f0ff}
+.sum{margin:8px 0 0;color:#cbd5e1;font-size:.94rem}
+.why{margin:8px 0 0;color:#94a3b8;font-size:.9rem}
+.meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:11px}
+.when{font-size:.78rem;color:#94a3b8;font-family:ui-monospace,"Cascadia Mono",Consolas,monospace}
+.metabtn,.readbtn{display:inline-flex;align-items:center;gap:5px;padding:5px 11px;border:1px solid rgba(255,255,255,.13);border-radius:8px;background:rgba(12,18,30,.9);color:#cbd5e1;font-size:.78rem;text-decoration:none;cursor:pointer;font-family:inherit}
+.metabtn:hover,.readbtn:hover{border-color:#00f0ff;color:#00f0ff}
+.xt:checked ~ .meta .xbtn{background:rgba(0,240,255,.16);border-color:#00f0ff;color:#00f0ff}
+
+/* EXPAND */
+.more{display:none}
+.xt:checked ~ .more{display:block;margin-top:14px;border-top:1px dashed rgba(255,255,255,.12);padding-top:14px}
+.kb{list-style:none;margin:0 0 12px;padding:0}
+.kb li{position:relative;padding-left:18px;margin-bottom:6px;color:#cbd5e1;font-size:.9rem}
+.kb li::before{content:"▸";position:absolute;left:0;color:#00f0ff}
+.facts{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}
+.fact{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border:1px solid rgba(255,255,255,.1);border-radius:999px;background:rgba(255,255,255,.035);font-size:.76rem;color:#e2e8f0;font-family:ui-monospace,"Cascadia Mono",Consolas,monospace}
+.fact b{color:#00f0ff;font-weight:700;letter-spacing:.4px}
+.deep{margin:0;color:#a8b4c4;font-size:.9rem;line-height:1.68}
+
+/* FOOTER */
+.foot{margin-top:40px;padding:20px 0 0;border-top:1px solid rgba(255,255,255,.1);color:#94a3b8;font-size:.84rem;text-align:center}
+.foot b{color:#e2e8f0}
+
+@media (max-width:767px){
+  body{font-size:15px;padding:0 12px 32px}
+  .hdr{padding:9px 11px}
+  .brand-mark{width:36px;height:36px}
+  .brand-name{font-size:1.04rem}
+  .brand-sub{font-size:.7rem}
+  .hdr-row2 .toc,.vdiv{display:none}
+  .hdr-ctrls{width:100%;gap:7px}
+  .hdr-ctrls .ctrl{flex:1 1 auto;font-size:.78rem;padding:8px 6px;text-align:center}
+  .hdr-ctrls .ctrl-ic{flex:0 0 38px;width:38px;height:36px;padding:0}
+  .navpop-btn{display:grid;place-items:center}
+  .card{flex-direction:row;gap:11px;padding:13px}
+  .thumb{width:72px;height:56px;flex:0 0 72px}
+  .title{font-size:1rem}
+  .vid-links .vbtn{flex:1 1 auto;justify-content:center}
+  .tl-chip{min-width:0;flex:1 1 auto;padding:7px 6px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hdr" id="top">
+  <div class="hdr-row">
+    <a class="brand" href="../../index.html" title="Về trang chính AI News"><span class="brand-mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00f0ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h12v14H6a2 2 0 0 1-2-2z"/><path d="M16 8h2.5a1.5 1.5 0 0 1 1.5 1.5V17a2 2 0 0 1-2 2"/><path d="M7 9h6M7 12.5h6M7 16h4"/></svg></span><span class="brand-name">AI <b>News</b></span><span class="brand-sub">Tuần W33 · 10/08 - 16/08/2026</span></a>
+  </div>
+  <div class="hdr-row2">
+    <input type="checkbox" id="navpop" class="navpop-t" hidden>
+    <nav class="toc">
+      <a href="#recap">🎬 Recap</a>
+      <a href="#sec-1">🚀 Mô hình</a>
+      <a href="#sec-2">🛠️ Công cụ</a>
+      <a href="#sec-3">🔬 Nghiên cứu</a>
+      <a href="#sec-4">📈 Trend</a>
+      <a href="#sec-5">🏢 Ngành</a>
+    </nav>
+    <span class="vdiv"></span>
+    <div class="hdr-ctrls"><button id="readAll" class="ctrl ctrl-acc">🔊<span class="btxt"> Đọc tóm tắt</span></button> <button id="readStop" class="ctrl">⏹<span class="btxt"> Dừng</span></button> <label class="ctrl ctrl-ic navpop-btn" for="navpop" title="Mục lục">☰</label> <a class="ctrl ctrl-ic" href="../../index.html" title="Quay lại AI News">←</a></div>
+    <div class="navpop">
+      <a href="#recap" onclick="document.getElementById('navpop').checked=false">🎬 Recap tuần</a>
+      <a href="#sec-1" onclick="document.getElementById('navpop').checked=false">🚀 Mô hình &amp; Sản phẩm mới</a>
+      <a href="#sec-2" onclick="document.getElementById('navpop').checked=false">🛠️ Công cụ &amp; Framework</a>
+      <a href="#sec-3" onclick="document.getElementById('navpop').checked=false">🔬 Nghiên cứu &amp; Kỹ thuật mới</a>
+      <a href="#sec-4" onclick="document.getElementById('navpop').checked=false">📈 Hot trend &amp; Thảo luận</a>
+      <a href="#sec-5" onclick="document.getElementById('navpop').checked=false">🏢 Ngành &amp; Kinh doanh</a>
+    </div>
+  </div>
+</header>
+
+<div id="recap"></div>
+<div class="hot-video"><div class="hot-label">🎬 Video recap tuần — các tin nóng nhất</div><div style="position:relative;width:100%;padding-top:56.25%;border-radius:12px;overflow:hidden"><iframe src="https://www.youtube.com/embed/B4WjwpQEdqQ" title="AI News recap" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><div class="vid-links"><a class="vbtn" href="https://youtu.be/B4WjwpQEdqQ" target="_blank" rel="noopener">▶ Mở Youtube</a><a class="vbtn" href="https://www.youtube.com/shorts/kCgv7kNpgmA" target="_blank" rel="noopener">📱 Youtube Short</a></div></div>
+
+<div class="tldr">
+  <h2>📌 Tổng quan tuần này</h2>
+  <p>Tuần 33 là tuần tiền và hạ tầng lên tiếng to hơn cả model. Nvidia bắt tay sáu nhà quản lý tài sản lớn nhất Phố Wall để huy động hơn năm trăm tỷ đô cho hạ tầng AI, còn Anthropic ký hợp đồng hai mươi năm trị giá chín phẩy một tỷ đô thuê một trăm chín mươi mốt megawatt từ một công ty vốn đi đào bitcoin. Ở mặt trận model, Meta quay lại con đường mở với Muse Glimmer ba mươi tỷ tham số chạy được trên một GPU tiêu dùng, kèm bài luận sáu nghìn rưỡi chữ của Mark Zuckerberg công kích các phòng lab đóng. Google ra Gemini 3.7 Flash chỉ ba tuần sau bản trước, OpenAI mở GPT-5.6-Cyber cho công việc tấn công mạng có kiểm soát, còn Cerebras đẩy GPT-5.6 Sol lên bảy trăm năm mươi token mỗi giây. Cộng đồng thì tranh cãi dữ dội về một luận điểm khó chịu: AI đang bào mòn tầng lớp giữa của nghề kỹ sư phần mềm.</p>
+</div>
+
+<div class="timeline">
+  <div class="tl-chip on"><span class="d">T2 10/08</span><span class="n">10</span></div>
+  <div class="tl-chip on"><span class="d">T3 11/08</span><span class="n">3</span></div>
+  <div class="tl-chip on"><span class="d">T4 12/08</span><span class="n">5</span></div>
+  <div class="tl-chip on"><span class="d">T5 13/08</span><span class="n">4</span></div>
+  <div class="tl-chip off"><span class="d">T6 14/08</span><span class="n">0</span></div>
+  <div class="tl-chip off"><span class="d">T7 15/08</span><span class="n">0</span></div>
+  <div class="tl-chip off"><span class="d">CN 16/08</span><span class="n">0</span></div>
+</div>
+
+<section class="sec" id="sec-1">
+<h2>🚀 Mô hình &amp; Sản phẩm mới</h2>
+
+<article class="card" data-aid="1">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://d15shllkswkct0.cloudfront.net/wp-content/blogs.dir/1/files/2026/08/Gemini.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=siliconangle.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-1" class="xt" hidden>
+    <span class="rank">🔥 TOP 4 TUẦN NÀY</span>
+    <a class="title" href="https://siliconangle.com/2026/08/13/google-launches-gemini-3-7-flash-coding-ai-agent-projects/" target="_blank" rel="noopener">Google ra Gemini 3.7 Flash: rẻ hơn một nửa, nhắm thẳng vào coding và agent</a>
+    <p class="sum">Google DeepMind phát hành Gemini 3.7 Flash ngày 13/08, chỉ ba tuần sau Gemini 3.6 Flash, tập trung vào lập trình, tác vụ agent và xử lý tài liệu. Giá giới thiệu đến hết 31/12/2026 là 0,75 USD mỗi triệu token input và 3,75 USD mỗi triệu token output, sau đó tăng lên gấp đôi.</p>
+    <p class="why">💡 Nhịp ra model của Google giờ tính bằng tuần chứ không phải quý, và Logan Kilpatrick nói phần lớn mức tăng đến từ cải tiến thuật toán chứ không phải thêm compute. Với giá bằng khoảng một nửa thế hệ trước, đây là lựa chọn đáng cân nhắc cho các pipeline agent chạy khối lượng lớn.</p>
+    <div class="meta">
+      <span class="when">📅 13/08</span>
+      <a class="metabtn" href="https://siliconangle.com/2026/08/13/google-launches-gemini-3-7-flash-coding-ai-agent-projects/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-1">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="1">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Ra mắt 13/08, chỉ ba tuần sau Gemini 3.6 Flash.</li>
+        <li>Google nói vượt model tương đương của Anthropic và OpenAI trên chín benchmark.</li>
+        <li>Giá giới thiệu 0,75 và 3,75 USD mỗi triệu token, hết hạn 31/12/2026.</li>
+        <li>Sau đó tăng lên 1,50 và 7,50 USD mỗi triệu token.</li>
+        <li>Có mặt ngay trong API, AI Studio, Antigravity và GitHub Copilot.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>13/08/2026</span>
+        <span class="fact"><b>INPUT</b>0,75 $/1M</span>
+        <span class="fact"><b>OUTPUT</b>3,75 $/1M</span>
+        <span class="fact"><b>SAU 31/12</b>1,50 / 7,50 $</span>
+        <span class="fact"><b>KHOẢNG CÁCH</b>3 tuần</span>
+      </div>
+      <p class="deep">Ba tuần giữa hai bản Flash là con số đáng chú ý hơn cả benchmark. Nó nói rằng Google đã công nghiệp hóa được quy trình huấn luyện và đánh giá, chứ không còn coi mỗi bản model là một dự án lớn. Với đội kỹ thuật, hệ quả thực tế là bạn không nên hardcode tên model ở đâu cả. Hãy để nó trong config, có lớp adapter, và giữ một bộ eval của riêng bạn trên đúng use case của mình để chạy lại mỗi lần đổi. Về giá, 0,75 USD mỗi triệu token input là mức đủ rẻ để chạy các pipeline xử lý tài liệu quy mô lớn, nhưng nhớ rằng đây là giá giới thiệu và sẽ tăng gấp đôi từ tháng 1. Nếu bạn xây mô hình chi phí cho một sản phẩm chạy sang năm, hãy tính bằng giá 1,50 chứ đừng tính bằng 0,75. Còn về việc Google tuyên bố thắng chín benchmark, mình khuyên nên coi đó là tín hiệu tham khảo. Benchmark do chính nhà sản xuất chọn thì luôn đẹp; thứ quyết định là nó chạy thế nào trên dữ liệu và prompt của bạn.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="2">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://cdn.sanity.io/images/e4qjo92p/production/fdfac76baee0b174ea63df807f9d4f975341caea-1672x941.png?rect=0,32,1672,878&amp;w=1200&amp;h=630&amp;fit=max&amp;auto=format" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=cerebras.ai&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-2" class="xt" hidden>
+    <a class="title" href="https://www.cerebras.ai/blog/accelerating-gpt-5-6-sol-ultrafast-with-openai" target="_blank" rel="noopener">Cerebras đẩy GPT-5.6 Sol lên 750 token mỗi giây trong tier Ultrafast của OpenAI</a>
+    <p class="sum">OpenAI mở một service tier mới tên Ultrafast, chạy GPT-5.6 Sol trên phần cứng wafer-scale của Cerebras với tốc độ tới 750 token output mỗi giây, nhanh gấp 14 lần chế độ Standard. Trong bài test nội bộ, model trả xong 2.500 câu của Humanity's Last Exam trong 11 giờ 11 phút.</p>
+    <p class="why">💡 Tốc độ đến từ việc giữ toàn bộ trọng số trong 44 GB SRAM ngay trên chip, bỏ qua nút thắt băng thông bộ nhớ mà GPU phải chịu. Với agent chạy vòng lặp dài, độ trễ mới là chi phí thật, và đây là lần đầu một tier tốc độ cao được bán như sản phẩm chính thức của OpenAI.</p>
+    <div class="meta">
+      <span class="when">📅 13/08</span>
+      <a class="metabtn" href="https://www.cerebras.ai/blog/accelerating-gpt-5-6-sol-ultrafast-with-openai" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-2">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="2">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Tới 750 token output mỗi giây, gấp 14 lần chế độ Standard.</li>
+        <li>Chạy trên Wafer-Scale Engine, 44 GB SRAM ngay trên chip.</li>
+        <li>Trả xong 2.500 câu Humanity's Last Exam trong 11 giờ 11 phút.</li>
+        <li>Cerebras nói Claude Fable 5 cần 78 giờ 27 phút cho kết quả tương đương.</li>
+        <li>Mở trước ở API dạng preview giới hạn cho nhóm khách chọn lọc.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>TỐC ĐỘ</b>750 tok/s</span>
+        <span class="fact"><b>SO VỚI STANDARD</b>×14</span>
+        <span class="fact"><b>SRAM</b>44 GB/chip</span>
+        <span class="fact"><b>HLE</b>11h11m</span>
+        <span class="fact"><b>NGÀY</b>13/08/2026</span>
+      </div>
+      <p class="deep">Điểm kỹ thuật cốt lõi rất dễ hiểu: GPU phải liên tục kéo trọng số từ bộ nhớ ngoài vào nhân tính toán, và chính đường ống đó là nút thắt. Cerebras làm chip to bằng cả tấm wafer nên nhét được 44 GB SRAM ngay trên chip, trọng số không phải đi đâu cả. Với người dùng cuối, ý nghĩa nằm ở chỗ khác: khi agent chạy vòng lặp mười lăm bước, mỗi bước chờ ba giây thì tổng thời gian mới là thứ giết trải nghiệm, không phải giá token. Con số 11 giờ so với 78 giờ trên Humanity's Last Exam là do Cerebras công bố nên cần đọc có bảo lưu, nhưng hướng đi thì rõ. Với doanh nghiệp Việt Nam, đây chưa phải thứ dùng ngay vì mới là preview giới hạn. Cái đáng làm bây giờ là đo xem trong workflow của bạn, chi phí thật nằm ở token hay ở thời gian chờ. Nếu là thời gian chờ, thì tối ưu prompt để giảm số vòng lặp sẽ có tác dụng ngay, không cần đợi phần cứng mới.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="3">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://d.techtimes.com/en/full/472529/photograph-shows-logo-chinese-app-deepseek-paris.jpg" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=techtimes.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-3" class="xt" hidden>
+    <a class="title" href="https://www.techtimes.com/articles/324241/20260813/deepseek-v4-pro-0813-goes-ga-benchmark-claims-await-independent-proof.htm" target="_blank" rel="noopener">DeepSeek V4 Pro 0813 lên bản chính thức: điểm nhảy vọt nhưng chưa ai kiểm chứng</a>
+    <p class="sum">DeepSeek chốt bản GA cho V4 Pro 0813 ngày 12/08, kết thúc gần bốn tháng preview. Nhà phát triển công bố mức tăng rất lớn ở nhóm coding agent: DeepSWE từ 12,8 lên 62,7, CyberGym từ 52,7 lên 83,3 và Terminal Bench 2.1 từ 72,1 lên 87,9.</p>
+    <p class="why">💡 Không có blog chính thức, không có trang thông báo, benchmark lan ra từ nhóm WeChat rồi mới tới Reddit và Hacker News, và chưa bên thứ ba nào tái lập được con số. Artificial Analysis chấm model ở mức 53 điểm, tức là khoảng cách giữa con số nhà sản xuất công bố và điểm độc lập vẫn rất đáng ngờ.</p>
+    <div class="meta">
+      <span class="when">📅 12/08</span>
+      <a class="metabtn" href="https://www.techtimes.com/articles/324241/20260813/deepseek-v4-pro-0813-goes-ga-benchmark-claims-await-independent-proof.htm" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-3">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="3">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>GA ngày 12/08, kết thúc preview kéo dài từ 24/04.</li>
+        <li>DeepSWE nhảy từ 12,8 lên 62,7 so với bản preview.</li>
+        <li>CyberGym từ 52,7 lên 83,3; Terminal Bench 2.1 từ 72,1 lên 87,9.</li>
+        <li>Artificial Analysis Intelligence Index chấm 53 điểm.</li>
+        <li>Không có blog hay trang công bố chính thức từ DeepSeek.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>GA</b>12/08/2026</span>
+        <span class="fact"><b>DEEPSWE</b>12,8 → 62,7</span>
+        <span class="fact"><b>CYBERGYM</b>52,7 → 83,3</span>
+        <span class="fact"><b>AA INDEX</b>53</span>
+        <span class="fact"><b>PREVIEW TỪ</b>24/04/2026</span>
+      </div>
+      <p class="deep">Mức tăng gần năm mươi điểm trên DeepSWE là con số nếu đúng thì rất đáng nể, nhưng cách nó được công bố lại là vấn đề. Benchmark đi từ nhóm WeChat sang Reddit rồi thành bảng ASCII trên Hacker News, không có blog, không có model card, không có ai bên ngoài tái lập. Trong ngành này, quy trình công bố cũng là một dạng bằng chứng, và ở đây quy trình gần như không tồn tại. Lời khuyên thực dụng: nếu bạn đang cân nhắc DeepSeek cho pipeline coding agent, đừng ra quyết định dựa trên bảng số này. Hãy lấy đúng hai mươi task thật trong repo của bạn, chạy song song với model hiện tại, đo tỷ lệ pass và số vòng sửa. Mất một buổi chiều nhưng đáng hơn nhiều so với việc tin một bảng số không nguồn. Một điểm nữa cần lưu ý: DeepSeek đã bắt đầu áp giá theo giờ cao điểm và thấp điểm, nên chi phí thực tế của bạn có thể khác xa bảng giá niêm yết tùy múi giờ vận hành.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-hot="1" data-aid="4">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://techcrunch.com/wp-content/uploads/2024/09/GettyImages-2173579243.jpg?resize=1200,799" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=techcrunch.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-4" class="xt" hidden>
+    <span class="rank">🔥 TOP 2 TUẦN NÀY</span>
+    <a class="title" href="https://techcrunch.com/2026/08/10/metas-new-glimmer-ai-model-offers-a-hint-at-zuckerbergs-personal-intelligence-vision/" target="_blank" rel="noopener">Meta mở trọng số Muse Glimmer: model đa phương thức 30B chạy trên một GPU, giấy phép Apache 2.0</a>
+    <p class="sum">Ngày 10/08 Meta phát hành Muse Glimmer, họ model open-weight đa phương thức 30 tỷ tham số theo giấy phép Apache 2.0, tải miễn phí trên Hugging Face và chỉ cần một GPU tiêu dùng để chạy. Model được tối ưu cho tác vụ agent chạy cục bộ như quản lý lịch, sắp xếp file và viết code.</p>
+    <p class="why">💡 Apache 2.0 nghĩa là dùng thương mại thoải mái, không có điều khoản giới hạn người dùng như các bản Llama cũ. Meta còn tuyên bố sẽ mở luôn trọng số của Muse Spark 1.2, model mạnh nhất của họ, đảo ngược hẳn hướng đóng dần suốt hơn một năm qua.</p>
+    <div class="meta">
+      <span class="when">📅 10/08</span>
+      <a class="metabtn" href="https://techcrunch.com/2026/08/10/metas-new-glimmer-ai-model-offers-a-hint-at-zuckerbergs-personal-intelligence-vision/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-4">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="4">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>30 tỷ tham số, đa phương thức, giấy phép Apache 2.0.</li>
+        <li>Tải miễn phí trên Hugging Face, chạy trên một GPU tiêu dùng.</li>
+        <li>Tối ưu cho tác vụ agent chạy cục bộ: lịch, file, code.</li>
+        <li>Meta cam kết mở luôn trọng số Muse Spark 1.2.</li>
+        <li>Công bố kèm quỹ 1 tỷ USD cho cộng đồng quanh data center.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>THAM SỐ</b>30 tỷ</span>
+        <span class="fact"><b>GIẤY PHÉP</b>Apache 2.0</span>
+        <span class="fact"><b>PHẦN CỨNG</b>1 GPU tiêu dùng</span>
+        <span class="fact"><b>NGÀY</b>10/08/2026</span>
+        <span class="fact"><b>CAPEX 2026</b>tới 145 tỷ $</span>
+      </div>
+      <p class="deep">Chi tiết quan trọng nhất của tin này là giấy phép, không phải số tham số. Apache 2.0 không có điều khoản giới hạn số người dùng hoạt động hàng tháng như các bản Llama trước, nghĩa là doanh nghiệp có thể triển khai thương mại mà không phải đọc lại hợp đồng với luật sư. Với các đội data ở Việt Nam, đây là điểm mở khóa thật sự: rất nhiều khách hàng của mình không hỏi model nào thông minh nhất, họ hỏi dữ liệu có phải rời khỏi hệ thống nội bộ không. Một model 30B chạy trên một card tiêu dùng trả lời được đúng câu đó. Nhưng đừng kỳ vọng nó thay được model frontier cho bài toán suy luận khó; hãy dùng nó cho lớp việc chiếm phần lớn khối lượng thực tế: phân loại, trích xuất, tóm tắt, gọi tool đơn giản, tất cả trên dữ liệu nhạy cảm. Và nhớ rằng chạy được model chỉ là bước một; phần quyết định chất lượng vẫn nằm ở dữ liệu đã được chuẩn hóa và quản trị tới đâu.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="5">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=venturebeat.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-5" class="xt" hidden>
+    <span class="rank">🔥 TOP 3 TUẦN NÀY</span>
+    <a class="title" href="https://venturebeat.com/technology/openai-launches-gpt-5-6-cyber-with-reduced-refusals-95-completion-on-advanced-cybersecurity-tasks" target="_blank" rel="noopener">OpenAI ra GPT-5.6-Cyber: model tấn công mạng đầu tiên, hạ ngưỡng từ chối xuống rất thấp</a>
+    <p class="sum">Ngày 10/08 OpenAI công bố GPT-5.6-Cyber, xây trên nền GPT-5.6 Sol và huấn luyện riêng cho nghiên cứu lỗ hổng, pentest và ứng cứu sự cố. Model hoàn thành 95% các prompt về dựng chuỗi khai thác, leo thang đặc quyền và vượt xác thực, so với chỉ 1,5% của GPT-5.6 Sol.</p>
+    <p class="why">💡 OpenAI dùng chính model này tìm ra hai lỗ hổng chưa từng biết trong V8 của Chrome, đã được Google vá dưới mã CVE-2026-15903. Model chỉ phát qua tier Daybreak Red cho đối tác tin cậy, nhưng việc một lab lớn công khai bán năng lực tấn công là bước ngoặt về chuẩn mực ngành.</p>
+    <div class="meta">
+      <span class="when">📅 10/08</span>
+      <a class="metabtn" href="https://venturebeat.com/technology/openai-launches-gpt-5-6-cyber-with-reduced-refusals-95-completion-on-advanced-cybersecurity-tasks" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-5">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="5">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Xây trên GPT-5.6 Sol, train riêng cho vulnerability research và pentest.</li>
+        <li>95% hoàn thành prompt khai thác, so với 1,5% của bản Sol thường.</li>
+        <li>Tìm ra hai zero-day trong V8, Google vá dưới CVE-2026-15903.</li>
+        <li>Chỉ phát qua tier Daybreak Red cho đối tác được xác minh.</li>
+        <li>Mở rộng chương trình Daybreak sang khách hàng bên ngoài.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>HOÀN THÀNH</b>95%</span>
+        <span class="fact"><b>BẢN THƯỜNG</b>1,5%</span>
+        <span class="fact"><b>ZERO-DAY</b>2 lỗi trên V8</span>
+        <span class="fact"><b>CVE</b>2026-15903</span>
+        <span class="fact"><b>KÊNH PHÁT</b>Daybreak Red</span>
+      </div>
+      <p class="deep">Con số 95% so với 1,5% không phải là chuyện model giỏi hơn, mà là chuyện OpenAI chủ động gỡ bỏ lớp từ chối cho đúng nhóm tác vụ họ từng chặn gắt nhất. Đây là quyết định về chính sách chứ không phải về kỹ thuật, và nó dựa trên một lập luận thực dụng: nếu bên phòng thủ không có công cụ này thì bên tấn công vẫn sẽ có, chỉ là bằng model không kiểm soát. Việc tìm ra hai zero-day trong V8 là bằng chứng thuyết phục rằng năng lực là thật. Với doanh nghiệp Việt Nam, cái cần đổi ngay là giả định về tốc độ: chu kỳ từ lúc một CVE được công bố tới lúc có exploit chạy được đang rút ngắn mạnh, nên chính sách vá lỗi theo quý là không còn đủ. Điều nên làm là ưu tiên tự động hóa việc phát hiện và vá cho các thành phần internet-facing, và kiểm tra xem nhà cung cấp phần mềm của bạn cam kết SLA vá lỗi bao lâu. Không nên làm: hoảng hốt đi mua công cụ AI security mới; phần lớn rủi ro của các tổ chức vẫn nằm ở những thứ cũ như credential lộ và hệ thống chưa vá.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="6">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://developer.puter.com/card.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=developer.puter.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-6" class="xt" hidden>
+    <a class="title" href="https://developer.puter.com/ai/bytedance-seed/seed-2-1-turbo/" target="_blank" rel="noopener">ByteDance đưa Seed 2.1 Turbo lên các nền tảng API: 262K context, giá bằng nửa bản Pro</a>
+    <p class="sum">Seed 2.1 Turbo của ByteDance có mặt trên các nền tảng API từ ngày 10/08, mang cửa sổ ngữ cảnh 262 nghìn token và cùng bộ năng lực với bản Pro gồm coding trọn vòng đời dự án, workflow agent nhiều bước và hiểu đa phương thức text, ảnh, video.</p>
+    <p class="why">💡 Giá khoảng một nửa bản Pro cho cùng tập tính năng, nhắm thẳng vào nhóm chạy pipeline agent hoặc xử lý tài liệu khối lượng lớn nơi chi phí và độ trễ quan trọng hơn đỉnh năng lực. Đây là hướng phân tầng giá mà cả Google, OpenAI và ByteDance đang hội tụ.</p>
+    <div class="meta">
+      <span class="when">📅 10/08</span>
+      <a class="metabtn" href="https://developer.puter.com/ai/bytedance-seed/seed-2-1-turbo/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-6">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="6">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Cửa sổ ngữ cảnh 262 nghìn token.</li>
+        <li>Cùng tập tính năng với Seed 2.1 Pro.</li>
+        <li>Hỗ trợ đa phương thức: text, ảnh và video.</li>
+        <li>Giá khoảng một nửa bản Pro trên mỗi token.</li>
+        <li>Nhắm vào workload doanh nghiệp chạy khối lượng lớn.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>CONTEXT</b>262K token</span>
+        <span class="fact"><b>GIÁ</b>~½ bản Pro</span>
+        <span class="fact"><b>ĐA PHƯƠNG THỨC</b>text/ảnh/video</span>
+        <span class="fact"><b>NGÀY</b>10/08/2026</span>
+      </div>
+      <p class="deep">Điểm đáng học ở đây không phải Seed 2.1 Turbo mạnh cỡ nào, mà là mô hình phân tầng đang trở thành chuẩn: mọi nhà cung cấp giờ đều có một bản đắt cho việc khó và một bản rẻ cho khối lượng lớn, cùng tính năng, khác giá và khác tốc độ. Nếu kiến trúc của bạn chỉ gọi một model duy nhất cho mọi việc thì bạn đang trả giá cao cho phần lớn các request đơn giản. Cách làm thực dụng là định tuyến theo độ khó: gọi model rẻ trước, có tiêu chí xác định khi nào cần leo thang lên model mạnh. Riêng với ByteDance, doanh nghiệp Việt Nam nên cân nhắc thêm yếu tố quản trị dữ liệu và nơi đặt endpoint trước khi đưa vào hệ thống có dữ liệu khách hàng, chứ đừng chỉ nhìn bảng giá.</p>
+    </div>
+  </div>
+</article>
+
+</section>
+
+<section class="sec" id="sec-2">
+<h2>🛠️ Công cụ &amp; Framework</h2>
+
+<article class="card" data-aid="7">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://github.blog/wp-content/uploads/2026/08/github-copilot-social-card-13-1.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=github.blog&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-7" class="xt" hidden>
+    <a class="title" href="https://github.blog/changelog/2026-08-13-gemini-3-7-flash-is-now-available-in-github-copilot/" target="_blank" rel="noopener">Gemini 3.7 Flash có mặt trong GitHub Copilot ngay ngày ra mắt</a>
+    <p class="sum">GitHub đưa Gemini 3.7 Flash vào Copilot ngay trong ngày 13/08, cùng ngày Google công bố model. Người dùng chọn được model này trong khung chat và các chế độ agent của Copilot.</p>
+    <p class="why">💡 Khoảng cách giữa ngày một lab ra model và ngày nó xuất hiện trong IDE của bạn đã rút xuống bằng không. Với team dev, điều này nghĩa là việc chọn model không còn là quyết định kiến trúc dài hạn mà là một dropdown đổi được hàng tuần.</p>
+    <div class="meta">
+      <span class="when">📅 13/08</span>
+      <a class="metabtn" href="https://github.blog/changelog/2026-08-13-gemini-3-7-flash-is-now-available-in-github-copilot/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-7">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="7">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Có mặt trong Copilot đúng ngày Google công bố model.</li>
+        <li>Chọn được trong khung chat và các chế độ agent.</li>
+        <li>Nối dài danh sách model có thể đổi qua lại trong Copilot.</li>
+        <li>Không cần đổi cấu hình phía người dùng cuối.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>13/08/2026</span>
+        <span class="fact"><b>ĐỘ TRỄ</b>0 ngày</span>
+        <span class="fact"><b>PHẠM VI</b>chat + agent</span>
+      </div>
+      <p class="deep">Tin nhỏ nhưng nói lên một thay đổi cấu trúc: IDE đang trở thành nơi các lab cạnh tranh trực tiếp, và người dùng cuối là bên được lợi vì đổi model chỉ tốn một cú click. Hệ quả cho team kỹ thuật là chuẩn đánh giá phải đổi. Đừng tranh luận model nào tốt nhất dựa trên bài viết trên mạng; hãy để mỗi người trong team dùng thử trên đúng codebase của công ty trong một tuần rồi so sánh cảm nhận cụ thể: nó có hiểu convention nội bộ không, nó có bịa API không, nó có làm hỏng test không. Đó là loại dữ liệu duy nhất đáng để ra quyết định.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="8">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.engadget.com/img/gallery/claude-cowork-can-now-run-in-a-chrome-sidebar/l-intro-1786572241.jpg" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=engadget.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-8" class="xt" hidden>
+    <a class="title" href="https://www.engadget.com/2235919/claude-cowork-can-now-run-in-a-chrome-sidebar/" target="_blank" rel="noopener">Claude Cowork chạy thẳng trong side panel của Chrome</a>
+    <p class="sum">Từ ngày 12/08, side panel Claude trong Chrome trở thành một phiên Cowork đầy đủ: hội thoại lưu vào lịch sử, skill và connector hoạt động ngay trong trình duyệt, và việc bắt đầu ở một tab có thể tiếp tục trên desktop, web hoặc mobile.</p>
+    <p class="why">💡 Đây là bước đưa agent ra khỏi cửa sổ chat riêng và đặt vào đúng nơi người ta làm việc thật. Hiện mới có trên gói Max và Team, đang mở dần cho Pro.</p>
+    <div class="meta">
+      <span class="when">📅 12/08</span>
+      <a class="metabtn" href="https://www.engadget.com/2235919/claude-cowork-can-now-run-in-a-chrome-sidebar/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-8">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="8">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Side panel Chrome giờ là một phiên Cowork đầy đủ.</li>
+        <li>Hội thoại lưu vào lịch sử chung, không mất khi đóng tab.</li>
+        <li>Skill và connector hoạt động ngay trong trình duyệt.</li>
+        <li>Bắt đầu ở tab, tiếp tục trên desktop, web hoặc mobile.</li>
+        <li>Có trên gói Max và Team, đang mở dần cho Pro.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>12/08/2026</span>
+        <span class="fact"><b>GÓI</b>Max, Team</span>
+        <span class="fact"><b>ĐANG MỞ</b>Pro</span>
+        <span class="fact"><b>ĐỒNG BỘ</b>desktop/web/mobile</span>
+      </div>
+      <p class="deep">Cái mới ở đây không phải là có thêm một sidebar chat nữa, mà là phiên làm việc liên tục xuyên thiết bị. Trước đây mỗi cửa sổ agent là một ốc đảo, đóng lại là mất ngữ cảnh. Giờ bạn có thể mở một trang báo cáo, nhờ agent trích số, rồi mở laptop khác tiếp tục cùng phiên đó. Với công việc tư vấn và phân tích, đó là khác biệt thật sự vì phần lớn thời gian nằm ở việc gom ngữ cảnh chứ không phải ở việc hỏi. Một lưu ý về quản trị: nếu tổ chức của bạn dùng gói Enterprise, tính năng này mặc định tắt và admin phải bật cũng như giới hạn theo danh sách domain được duyệt. Đó là mặc định đúng, và mình khuyên nên giữ nguyên cách làm đó rồi mở dần theo nhóm.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="9">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://techcrunch.com/wp-content/uploads/2026/02/EU-ai-1258475609.jpg?w=1024" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=techcrunch.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-9" class="xt" hidden>
+    <a class="title" href="https://techcrunch.com/2026/08/11/openai-launches-chatgpt-desktop-app-for-linux/" target="_blank" rel="noopener">OpenAI phát hành app ChatGPT cho Linux, kèm Codex ở bản preview</a>
+    <p class="sum">Ngày 11/08 OpenAI mở bản preview app desktop ChatGPT cho Linux, hỗ trợ Ubuntu 24.04 và 26.04 LTS, Debian 13, Fedora 43 và 44, đóng gói DEB và RPM cho cả x64 lẫn ARM64. App chạy được ChatGPT, ChatGPT Work và Codex.</p>
+    <p class="why">💡 Linux là nền tảng bị yêu cầu nhiều nhất và cũng là nơi phần lớn dev backend và data engineer thật sự làm việc. Phản hồi ban đầu khá lẫn lộn về hiệu năng và tích hợp, nhưng ít nhất Codex đã có cửa vào máy trạm Linux mà không cần trình duyệt.</p>
+    <div class="meta">
+      <span class="when">📅 11/08</span>
+      <a class="metabtn" href="https://techcrunch.com/2026/08/11/openai-launches-chatgpt-desktop-app-for-linux/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-9">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="9">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Bản preview phát hành toàn cầu ngày 11/08.</li>
+        <li>Hỗ trợ Ubuntu 24.04 và 26.04 LTS, Debian 13, Fedora 43 và 44.</li>
+        <li>Gói DEB và RPM cho cả kiến trúc x64 và ARM64.</li>
+        <li>Chạy được ChatGPT, ChatGPT Work và Codex.</li>
+        <li>Phản hồi ban đầu phàn nàn về hiệu năng và tích hợp.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>NGÀY</b>11/08/2026</span>
+        <span class="fact"><b>DISTRO</b>5 bản</span>
+        <span class="fact"><b>GÓI</b>DEB + RPM</span>
+        <span class="fact"><b>KIẾN TRÚC</b>x64 + ARM64</span>
+        <span class="fact"><b>TRẠNG THÁI</b>preview</span>
+      </div>
+      <p class="deep">Việc này tưởng nhỏ nhưng quan trọng với đúng nhóm người dùng khó tính nhất. Data engineer, DevOps và phần lớn backend team chạy Linux, và trước đây họ phải dùng ChatGPT qua trình duyệt hoặc chỉ dùng Codex CLI. Có app native nghĩa là Codex tiếp cận được filesystem và workflow cục bộ theo cách nhất quán với macOS và Windows. Đây mới là preview và phản hồi cộng đồng khá hỗn hợp, nên đừng vội đưa vào quy trình chuẩn của team. Cách dùng hợp lý bây giờ là để một hai người thử trước, ghi lại chỗ vướng, rồi quyết định sau vài bản cập nhật. Với môi trường có dữ liệu nhạy cảm, hãy kiểm tra kỹ app truy cập những thư mục nào trước khi cấp quyền rộng.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="10">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.docker.com/app/uploads/2024/02/docker-default-meta-image-1110x583.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docker.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-10" class="xt" hidden>
+    <a class="title" href="https://www.docker.com/products/docker-sandboxes/" target="_blank" rel="noopener">Docker Sandboxes: microVM dùng một lần cho coding agent chạy không cần giám sát</a>
+    <p class="sum">Docker ra bản thử nghiệm Docker Sandboxes, chạy các coding agent như Claude Code, Copilot CLI, Codex, OpenCode và Kiro trong microVM cô lập với kernel riêng, Docker daemon riêng, filesystem và network riêng. Mỗi sandbox đã cài sẵn Docker CLI, Git, GitHub CLI, Node.js, Python 3, Go, uv và jq.</p>
+    <p class="why">💡 Bài toán năm nay không còn là agent có viết được code không, mà là cho nó chạy tự do ở đâu mà không mất credential hay hỏng máy. Bản tin đứng trong nhóm dẫn đầu Hacker News với gần 700 điểm và 396 bình luận, cho thấy đây đúng là điểm đau chung.</p>
+    <div class="meta">
+      <span class="when">📅 10/08</span>
+      <a class="metabtn" href="https://www.docker.com/products/docker-sandboxes/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-10">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="10">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Mỗi phiên là một microVM với kernel riêng trên hypervisor gốc của hệ điều hành.</li>
+        <li>Chạy trên Hypervisor.framework, WHP hoặc KVM tùy nền tảng.</li>
+        <li>Agent build container, cài package, sửa file mà không đụng máy host.</li>
+        <li>Cài sẵn Docker CLI, Git, GitHub CLI, Node.js, Python 3, Go, uv, jq.</li>
+        <li>Hỗ trợ Claude Code, Copilot CLI, Codex, OpenCode và Kiro.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>CÔ LẬP</b>microVM</span>
+        <span class="fact"><b>HN</b>692 điểm</span>
+        <span class="fact"><b>BÌNH LUẬN</b>396</span>
+        <span class="fact"><b>NGÀY</b>10/08/2026</span>
+        <span class="fact"><b>TRẠNG THÁI</b>thử nghiệm</span>
+      </div>
+      <p class="deep">Điểm khác biệt so với container thường là mỗi sandbox có kernel riêng, tức là mức cô lập cao hơn hẳn namespace của Docker truyền thống. Điều này quan trọng vì agent hiện đại có quyền chạy lệnh tùy ý, và một prompt injection từ trang web hay từ file trong repo đủ để nó làm chuyện bạn không muốn. Cách làm đúng bây giờ là: agent không bao giờ chạy trực tiếp trên máy có credential thật. Cho nó vào sandbox, cấp secret theo phạm vi hẹp nhất, và review diff trước khi merge. Mình thấy nhiều team bỏ qua bước này vì thấy phiền, rồi chỉ sửa sau khi có sự cố. Với chi phí thiết lập chỉ vài phút, đây là thứ nên làm ngay chứ không nên đợi. Lưu ý bản này còn là thử nghiệm, nên đừng đặt cược cả CI pipeline vào nó vội.</p>
+    </div>
+  </div>
+</article>
+
+</section>
+
+<section class="sec" id="sec-3">
+<h2>🔬 Nghiên cứu &amp; Kỹ thuật mới</h2>
+
+<article class="card" data-aid="11">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=arxiv.org&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-11" class="xt" hidden>
+    <a class="title" href="https://arxiv.org/abs/2608.12307" target="_blank" rel="noopener">AI4AI at Test-Time: model mạnh tự dựng harness để nâng model yếu, không cần train lại</a>
+    <p class="sum">Nhóm của Cheng Qian nghiên cứu việc để một model mạnh tự xây harness ở thời điểm inference cho một model yếu hơn, không đụng đến tham số. Mỗi builder dùng 5% dữ liệu làm validation để tinh chỉnh harness qua nhiều vòng, rồi đánh giá trên toàn bộ test set của bốn benchmark Theory-of-Mind.</p>
+    <p class="why">💡 Kết quả cho thấy GPT-5.4-mini cải thiện tới 87% tương đối, đạt 0,912 macro-average, tiệm cận harness do người thiết kế. Nghĩa là phần lớn khoảng cách giữa model rẻ và model đắt có thể lấp bằng scaffolding chứ không phải bằng tiền train.</p>
+    <div class="meta">
+      <span class="when">📅 12/08</span>
+      <a class="metabtn" href="https://arxiv.org/abs/2608.12307" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-11">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="11">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Builder model mạnh tự sinh harness cho target model yếu hơn.</li>
+        <li>Không cập nhật tham số của model đích, chỉ can thiệp ở inference.</li>
+        <li>Dùng 5% dữ liệu làm validation, tinh chỉnh harness qua nhiều vòng.</li>
+        <li>Thử trên bốn benchmark Theory-of-Mind tiêu biểu.</li>
+        <li>GPT-5.4-mini tăng tới 87% tương đối, đạt 0,912 macro-average.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>ARXIV</b>2608.12307</span>
+        <span class="fact"><b>CẢI THIỆN</b>+87% tương đối</span>
+        <span class="fact"><b>ĐIỂM</b>0,912</span>
+        <span class="fact"><b>VALIDATION</b>5% dữ liệu</span>
+        <span class="fact"><b>NGÀY</b>12/08/2026</span>
+      </div>
+      <p class="deep">Đây là bài mình thấy có giá trị ứng dụng cao nhất tuần. Ý tưởng rất thực dụng: thay vì trả tiền gọi model đắt cho mọi request, bạn dùng model đắt một lần để nó tự thiết kế cái khung prompt, cách chia bước và cách kiểm tra kết quả, rồi chạy sản xuất bằng model rẻ trong cái khung đó. Với một use case ổn định, chi phí thiết kế là một lần còn tiết kiệm thì lặp lại mãi. Bài chỉ thử trên nhóm benchmark Theory-of-Mind nên đừng vội tổng quát hóa sang mọi tác vụ, nhưng cơ chế thì áp dụng được ngay. Điều cần lưu ý là bạn phải có tập validation thật của mình, dù nhỏ, vì harness được tối ưu cho phân phối dữ liệu nào thì chỉ tốt trên phân phối đó. Đây cũng là lý do mình hay nói: vấn đề thường không nằm ở model, mà ở cách mình thiết kế workflow và dữ liệu quanh nó.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="12">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=arxiv.org&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-12" class="xt" hidden>
+    <a class="title" href="https://arxiv.org/abs/2608.10915" target="_blank" rel="noopener">ComBodied Agents: đề xuất chuyển agent từ làm xong việc sang chăm trạng thái con người</a>
+    <p class="sum">Bài viết của 22 tác giả đề xuất khung ComBodied Agents, gộp agent số và agent có thân thể vào một hệ thống theo dõi và hỗ trợ quỹ đạo trạng thái của từng người theo thời gian. Bốn thành phần lõi gồm cảm nhận đa phương thức các sự kiện cá nhân, bộ nhớ dài hạn sửa được, Personal World Model dự đoán kết quả theo từng can thiệp, và chính sách can thiệp tôn trọng quyền đồng ý của người dùng.</p>
+    <p class="why">💡 Đây là bài đứng đầu Hugging Face Papers tuần này với 184 lượt vote, cho thấy hướng nghiên cứu đang dịch từ tối ưu benchmark tác vụ sang tối ưu kết quả cho người. Với ai làm sản phẩm, thứ đáng lấy là ý tưởng bộ nhớ dài hạn sửa được và ràng buộc can thiệp phải có đồng thuận.</p>
+    <div class="meta">
+      <span class="when">📅 12/08</span>
+      <a class="metabtn" href="https://arxiv.org/abs/2608.10915" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-12">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="12">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>22 tác giả, đứng đầu Hugging Face Papers với 184 vote.</li>
+        <li>Gộp agent số và agent có thân thể vào một khung chung.</li>
+        <li>Cảm nhận đa phương thức các sự kiện cá nhân theo thời gian.</li>
+        <li>Bộ nhớ dài hạn có thể sửa lại khi thông tin sai.</li>
+        <li>Personal World Model dự đoán kết quả theo từng can thiệp.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>ARXIV</b>2608.10915</span>
+        <span class="fact"><b>VOTE HF</b>184</span>
+        <span class="fact"><b>TÁC GIẢ</b>22</span>
+        <span class="fact"><b>THÀNH PHẦN</b>4 lõi</span>
+        <span class="fact"><b>NGÀY</b>12/08/2026</span>
+      </div>
+      <p class="deep">Bài này thiên về đề xuất khung tư duy hơn là kết quả đo được, nên đừng đọc nó như một paper có state of the art. Nhưng có hai ý đáng mang về ngay cho người làm sản phẩm. Thứ nhất, bộ nhớ dài hạn phải sửa được. Rất nhiều hệ thống RAG và agent hiện nay chỉ biết thêm vào chứ không biết đính chính, và sau vài tháng thì kho ngữ cảnh đầy thông tin lỗi thời mà không ai dọn. Thứ hai, chính sách can thiệp phải có ranh giới đồng thuận rõ ràng. Một agent chủ động nhắc việc thì hữu ích, nhưng một agent chủ động hành động thay bạn mà không hỏi thì rất nhanh trở thành phiền toái hoặc rủi ro. Nếu bạn đang thiết kế trợ lý cho nhân viên trong doanh nghiệp, hai nguyên tắc này đáng đưa vào từ bản thiết kế đầu tiên chứ không phải vá sau.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="13">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://pathway.com/assets/blog/arc-agi-1-press-release/cost-accuracy-chart.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=pathway.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-13" class="xt" hidden>
+    <a class="title" href="https://pathway.com/blog/pathway-150m-model-breaks-arc-agi-1-cost-efficiency-frontier" target="_blank" rel="noopener">Pathway BDH-CQ: model 150M phá kỷ lục chi phí trên ARC-AGI-1, rẻ hơn GPT-5.6 Luna 11 lần</a>
+    <p class="sum">Pathway công bố BDH-CQ, kiến trúc hậu transformer suy luận bằng trạng thái ẩn hồi quy thay vì sinh chuỗi chain-of-thought. Bản 150 triệu tham số đạt 29,5% pass@2 trên ARC-AGI-1 với chi phí 0,0007 USD mỗi tác vụ, tức chưa tới một phần mười xu.</p>
+    <p class="why">💡 Rẻ hơn khoảng 11 lần so với GPT-5.6 Luna bản Low ngay cả sau khi OpenAI giảm giá 80%, dù điểm thấp hơn chút, 29,5 so với 34,2. Điểm này nằm ngoài đường Pareto từng được ghi nhận, nhắc rằng không phải bài toán nào cũng cần model nghìn tỷ tham số.</p>
+    <div class="meta">
+      <span class="when">📅 11/08</span>
+      <a class="metabtn" href="https://pathway.com/blog/pathway-150m-model-breaks-arc-agi-1-cost-efficiency-frontier" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-13">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="13">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>150 triệu tham số, kiến trúc hậu transformer.</li>
+        <li>Suy luận trong trạng thái ẩn hồi quy, không sinh chuỗi văn bản trung gian.</li>
+        <li>Đạt 29,5% pass@2 trên ARC-AGI-1.</li>
+        <li>Chi phí 0,0007 USD mỗi tác vụ, chưa tới một phần mười xu.</li>
+        <li>Rẻ hơn GPT-5.6 Luna bản Low khoảng 11 lần; Luna đạt 34,2%.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>ARXIV</b>2608.09888</span>
+        <span class="fact"><b>THAM SỐ</b>150 triệu</span>
+        <span class="fact"><b>ĐIỂM</b>29,5% pass@2</span>
+        <span class="fact"><b>CHI PHÍ</b>0,0007 $/task</span>
+        <span class="fact"><b>RẺ HƠN</b>×11</span>
+      </div>
+      <p class="deep">Điểm thú vị về kỹ thuật là model này không viết ra bước suy nghĩ, nó suy luận bằng cách cập nhật một trạng thái ẩn nhiều chiều qua nhiều vòng. Nghĩa là toàn bộ chi phí token của chain-of-thought biến mất. Với 150 triệu tham số, nó đạt gần bằng model frontier trên ARC-AGI-1 với chi phí thấp hơn cả chục lần. Đừng đọc tin này thành model nhỏ sắp thay model lớn, vì ARC-AGI là một loại bài toán suy luận trừu tượng rất đặc thù. Nhưng nó nhắc một điều mình luôn nói với khách hàng: đừng mặc định lấy model to nhất cho mọi việc. Hãy phân loại workload của bạn, và với những tác vụ lặp lại hàng triệu lần, chênh lệch mười một lần chi phí là khác biệt giữa có lãi và lỗ. Hướng kiến trúc hậu transformer đáng theo dõi trong sáu tháng tới, nhất là cho các bài toán chạy trên biên hoặc trên thiết bị.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="14">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=arxiv.org&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-14" class="xt" hidden>
+    <a class="title" href="https://arxiv.org/abs/2608.10299" target="_blank" rel="noopener">Co-Evolution in Agentic Systems: khảo sát hướng agent tự tiến hóa vượt khỏi thiết kế của người</a>
+    <p class="sum">Nhóm tác giả từ HKUST và cộng sự khảo sát cách nhiều agent và môi trường của chúng cùng thích nghi và cải thiện lẫn nhau. Bài đề xuất khung ba tầng gồm agent với agent, agent với môi trường, và meta co-evolution, mỗi tầng giảm dần ràng buộc do con người thiết kế.</p>
+    <p class="why">💡 Bài chỉ thẳng ba điểm nghẽn còn bỏ ngỏ: đánh giá thế nào, mở rộng quy mô ra sao và kiểm soát an toàn kiểu gì khi hệ thống tự sửa chính mình. Với doanh nghiệp, đây là bản đồ rủi ro nên đọc trước khi thả agent tự chỉnh workflow trong môi trường sản xuất.</p>
+    <div class="meta">
+      <span class="when">📅 10/08</span>
+      <a class="metabtn" href="https://arxiv.org/abs/2608.10299" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-14">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="14">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Khảo sát toàn diện về co-evolution trong hệ thống nhiều agent.</li>
+        <li>Ba tầng: agent–agent, agent–môi trường và meta co-evolution.</li>
+        <li>Mỗi tầng giảm dần ràng buộc do con người thiết kế sẵn.</li>
+        <li>Nêu rõ ba thách thức: đánh giá, mở rộng quy mô và an toàn.</li>
+        <li>Đạt 125 vote trên Hugging Face Papers.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>ARXIV</b>2608.10299</span>
+        <span class="fact"><b>VOTE HF</b>125</span>
+        <span class="fact"><b>TẦNG</b>3</span>
+        <span class="fact"><b>NGÀY</b>10/08/2026</span>
+      </div>
+      <p class="deep">Đây là bài khảo sát, tức là giá trị nằm ở bản đồ chứ không ở kết quả mới. Nhưng bản đồ này đáng đọc với ai đang cân nhắc để agent tự điều chỉnh quy trình. Điểm mấu chốt là khi hệ thống tự sửa chính nó, bạn mất khả năng dự đoán hành vi bằng cách đọc code, và mọi phương pháp đánh giá tĩnh đều lỗi thời ngay sau vòng tiến hóa đầu tiên. Với doanh nghiệp Việt Nam, khuyến nghị của mình rất thẳng: đừng thả agent tự sửa workflow trong môi trường production. Hãy để nó đề xuất thay đổi, còn việc áp dụng thì qua một cổng duyệt của con người, đúng như cách bạn quản lý pull request. Tự động hóa việc đề xuất thì được, tự động hóa việc phê duyệt thì chưa. Đây không phải sợ công nghệ, mà là vì hiện chưa có cách đánh giá tin cậy cho hệ thống tự tiến hóa, và chính bài này thừa nhận điều đó.</p>
+    </div>
+  </div>
+</article>
+
+</section>
+
+<section class="sec" id="sec-4">
+<h2>📈 Hot trend &amp; Thảo luận cộng đồng</h2>
+
+<article class="card" data-aid="15">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=reddit.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-15" class="xt" hidden>
+    <a class="title" href="https://www.reddit.com/r/technology/comments/1vndqit/young_americans_dont_trust_billionaire_ai_leaders/" target="_blank" rel="noopener">Khảo sát: người trẻ Mỹ không tin các tỷ phú đang dẫn dắt AI</a>
+    <p class="sum">Một khảo sát mới cho thấy người trẻ Mỹ có mức tin tưởng rất thấp vào giới lãnh đạo tỷ phú của ngành AI. Bài đăng trên r/technology ngày 13/08 thu gần 27 nghìn upvote và hơn 1.400 bình luận, thuộc nhóm thảo luận sôi nổi nhất tuần.</p>
+    <p class="why">💡 Khoảng cách giữa cái ngành AI tự nói về mình và cái công chúng cảm nhận đang giãn rất nhanh. Với ai làm sản phẩm AI cho người dùng cuối, đây là tín hiệu rằng thông điệp tầm nhìn không còn bán được, thứ bán được là kết quả cụ thể.</p>
+    <div class="meta">
+      <span class="when">📅 13/08</span>
+      <a class="metabtn" href="https://www.reddit.com/r/technology/comments/1vndqit/young_americans_dont_trust_billionaire_ai_leaders/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-15">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="15">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Gần 27 nghìn upvote trên r/technology chỉ trong một ngày.</li>
+        <li>Hơn 1.400 bình luận, thuộc nhóm sôi nổi nhất tuần.</li>
+        <li>Nhóm được khảo sát là người trẻ tại Mỹ.</li>
+        <li>Nằm cùng cụm với các thảo luận phản đối AI khác trong tháng.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>UPVOTE</b>~27.000</span>
+        <span class="fact"><b>BÌNH LUẬN</b>1.432</span>
+        <span class="fact"><b>NGUỒN</b>r/technology</span>
+        <span class="fact"><b>NGÀY</b>13/08/2026</span>
+      </div>
+      <p class="deep">Con số upvote nói lên cảm xúc, không nói lên tỷ lệ dân số, nên đừng đọc nó như một điều tra xã hội học. Nhưng tín hiệu vẫn rõ: sự hoài nghi với ngành AI đang trở thành mặc định trong nhóm người dùng trẻ, không còn là ý kiến thiểu số. Với người làm sản phẩm, hệ quả rất thực tế. Cách marketing kiểu tầm nhìn vĩ đại và cách mạng hóa mọi thứ giờ phản tác dụng, nó kích hoạt phản xạ phòng thủ. Thứ hiệu quả hơn là nói cụ thể sản phẩm tiết kiệm được bao nhiêu phút cho việc gì, dữ liệu đi đâu, và người dùng tắt nó bằng cách nào. Mình thấy điều này đúng cả ở Việt Nam khi triển khai công cụ AI nội bộ: nhóm dùng nhiều nhất luôn là nhóm được giải thích rõ ràng chuyện gì đang diễn ra, chứ không phải nhóm được nghe pitch hay nhất.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="16">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=blog.florianherrengt.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-16" class="xt" hidden>
+    <a class="title" href="https://blog.florianherrengt.com/ai-removing-middle-class-software-engineering.html" target="_blank" rel="noopener">AI đang xóa sổ tầng lớp giữa của nghề kỹ sư phần mềm: 978 điểm trên Hacker News</a>
+    <p class="sum">Kỹ sư Florian Herrengt lập luận rằng công cụ coding agent nhanh đã gỡ bỏ cái phanh tốc độ tự nhiên vốn kìm hãm các quyết định kỹ thuật tồi, khiến team yếu tích tụ độ phức tạp không review nổi nhanh hơn trước rất nhiều. Bài đạt 978 điểm và hơn 900 bình luận trên Hacker News ngày 12/08.</p>
+    <p class="why">💡 Luận điểm cốt lõi: senior vẫn thiết kế hệ thống, junior vẫn học nền tảng, người bị ép mạnh nhất là tầng giữa, tức nhóm dịch yêu cầu thành code bảo trì được và đặt câu hỏi khó lúc review. Kỹ năng khan hiếm chuyển từ tốc độ viết sang khả năng phán đoán và kiểm chứng output.</p>
+    <div class="meta">
+      <span class="when">📅 12/08</span>
+      <a class="metabtn" href="https://blog.florianherrengt.com/ai-removing-middle-class-software-engineering.html" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-16">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="16">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>978 điểm và hơn 900 bình luận trên Hacker News.</li>
+        <li>Agent nhanh gỡ bỏ phanh tốc độ vốn kìm hãm quyết định kỹ thuật tồi.</li>
+        <li>Team yếu tích tụ độ phức tạp không review nổi nhanh hơn trước.</li>
+        <li>Tầng giữa chịu áp lực lớn nhất, không phải junior hay senior.</li>
+        <li>Tác giả dự đoán khoảng cách lương giữa các nhóm sẽ giãn ra.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>ĐIỂM HN</b>978</span>
+        <span class="fact"><b>BÌNH LUẬN</b>904</span>
+        <span class="fact"><b>NGÀY</b>12/08/2026</span>
+        <span class="fact"><b>TÁC GIẢ</b>Florian Herrengt</span>
+      </div>
+      <p class="deep">Mình đồng ý một nửa với bài này. Phần đúng: khi tốc độ viết code không còn là ràng buộc, thứ khan hiếm trở thành khả năng phán đoán, tức là nhìn vào output của AI và biết ngay chỗ nào sai, chỗ nào sẽ vỡ khi scale. Phần mình dè dặt: bài mô tả tầng giữa như một nhóm cố định, trong khi thực tế đó là một giai đoạn nghề nghiệp mà ai cũng đi qua. Nếu tầng giữa biến mất thì câu hỏi thật là junior học lên bằng con đường nào. Với các team ở Việt Nam, khuyến nghị của mình rất cụ thể: đừng cắt junior để tiết kiệm chi phí rồi kỳ vọng AI bù vào, vì hai năm nữa bạn sẽ không có senior. Thay vào đó hãy đổi cách đào tạo, chuyển trọng tâm từ dạy viết code sang dạy đọc code, dạy review, dạy đặt câu hỏi về ràng buộc và rủi ro. AI không thay người giỏi, nó khuếch đại người biết làm việc rõ ràng, và cũng khuếch đại luôn cái bừa bộn của người làm việc không rõ ràng.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="17">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=thewalrus.ca&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-17" class="xt" hidden>
+    <a class="title" href="https://thewalrus.ca/google-search-is-dying/" target="_blank" rel="noopener">AI ăn dần web, và trí nhớ tập thể của internet đang biến mất</a>
+    <p class="sum">Bài trên The Walrus phân tích việc Google gói câu trả lời thành AI Overview khiến người dùng không còn nhấp vào trang gốc, tước đi giọng điệu, ký ức và cộng đồng đằng sau nội dung. Bài đạt 933 điểm và 976 bình luận trên Hacker News ngày 10/08.</p>
+    <p class="why">💡 Sau khi các nhà xuất bản kiện Internet Archive, nhiều tòa soạn bắt đầu chặn cả crawler của Wayback Machine, làm mất luôn lớp lưu trữ dự phòng. Vòng lặp nguy hiểm là chính các model AI rồi cũng sẽ có ít dữ liệu chính xác, kịp thời và thú vị hơn để học.</p>
+    <div class="meta">
+      <span class="when">📅 10/08</span>
+      <a class="metabtn" href="https://thewalrus.ca/google-search-is-dying/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-17">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="17">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>933 điểm và 976 bình luận trên Hacker News.</li>
+        <li>AI Overview trả lời trọn gói, người dùng không ghé trang gốc.</li>
+        <li>Nhiều tòa soạn chặn cả crawler của Wayback Machine sau vụ kiện Internet Archive.</li>
+        <li>Nội dung dạng phù du như Stories không bao giờ được lưu trữ.</li>
+        <li>Hệ quả vòng lặp: model AI cũng mất nguồn dữ liệu chất lượng.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>ĐIỂM HN</b>933</span>
+        <span class="fact"><b>BÌNH LUẬN</b>976</span>
+        <span class="fact"><b>NGUỒN</b>The Walrus</span>
+        <span class="fact"><b>NGÀY</b>10/08/2026</span>
+      </div>
+      <p class="deep">Đây là bài đáng đọc kỹ vì nó chỉ ra một vòng lặp mà ai làm nội dung hoặc làm dữ liệu đều nên hiểu. Google lấy nội dung để tổng hợp câu trả lời, người dùng không ghé trang gốc, người viết mất động lực, kho tri thức mới ít đi, và cuối cùng chính các model cũng nghèo dữ liệu hơn. Phần về lưu trữ còn đáng lo hơn: khi các tòa soạn chặn cả Wayback Machine thì lớp bảo hiểm cuối cùng cho trí nhớ của internet cũng mất. Với người làm nội dung ở Việt Nam, bài học thực dụng là đừng đặt toàn bộ phân phối vào tay tìm kiếm. Hãy xây kênh trực tiếp: newsletter, cộng đồng, kênh riêng. Với người làm dữ liệu, đây là lời nhắc rằng nguồn dữ liệu công khai đang co lại, nên dữ liệu nội bộ đã được chuẩn hóa của chính doanh nghiệp bạn ngày càng có giá trị hơn so với việc đi lấy ngoài.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="18">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=fortune.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-18" class="xt" hidden>
+    <a class="title" href="https://fortune.com/2026/08/10/meta-brandishes-open-source-ai-models-again-as-zuckerberg-media-blitz-emphasizes-battle-against-chinese-rivals/" target="_blank" rel="noopener">Zuckerberg viết luận 6.500 chữ công kích các lab AI đóng, đòi Mỹ gỡ rào cho open-source</a>
+    <p class="sum">Cùng ngày Meta ra Muse Glimmer, Mark Zuckerberg đăng bài luận 6.500 chữ tựa The Future is for Everyone, cho rằng model mở của Mỹ phải trở thành tốt nhất thế giới và chỉ trích các đối thủ lấy lý do an toàn để khóa model mạnh nhất. Ông nói đối thủ nước ngoài ít ràng buộc hơn nên chính sách Mỹ phải giảm ma sát về dữ liệu huấn luyện.</p>
+    <p class="why">💡 Bài lọt top Hacker News với 640 điểm và hơn 600 bình luận, đúng vào lúc Washington đang cân nhắc siết model open-weight Trung Quốc. Đây là cuộc chiến chuẩn mực chứ không chỉ chuyện kỹ thuật, và kết quả sẽ quyết định team nhỏ ở Việt Nam năm sau còn được tải model gì về chạy.</p>
+    <div class="meta">
+      <span class="when">📅 10/08</span>
+      <a class="metabtn" href="https://fortune.com/2026/08/10/meta-brandishes-open-source-ai-models-again-as-zuckerberg-media-blitz-emphasizes-battle-against-chinese-rivals/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-18">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="18">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Bài luận 6.500 chữ tựa The Future is for Everyone.</li>
+        <li>640 điểm và hơn 600 bình luận trên Hacker News.</li>
+        <li>Chỉ trích các lab lấy an toàn làm lý do khóa model mạnh nhất.</li>
+        <li>Đòi chính sách Mỹ giảm ràng buộc về dữ liệu huấn luyện.</li>
+        <li>Không nêu đích danh nhưng được hiểu là nhắm OpenAI và Anthropic.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>ĐỘ DÀI</b>6.500 chữ</span>
+        <span class="fact"><b>ĐIỂM HN</b>640</span>
+        <span class="fact"><b>BÌNH LUẬN</b>601</span>
+        <span class="fact"><b>NGÀY</b>10/08/2026</span>
+      </div>
+      <p class="deep">Cần tách hai lớp khi đọc tin này. Lớp thứ nhất là lợi ích: Meta không dẫn đầu ở model đóng nên mở là chiến lược cạnh tranh hợp lý, hệt như cách họ từng dùng với Llama. Lớp thứ hai là lập luận, và lập luận này có phần đúng thật: nếu model mở tốt nhất thế giới đến từ Trung Quốc thì tiêu chuẩn kỹ thuật và hệ sinh thái công cụ sẽ hình thành quanh đó. Điều đáng chú ý cho Việt Nam là hệ quả thực tế của cuộc tranh luận này. Chúng ta là bên hưởng lợi thuần từ model mở, dù nó đến từ Mỹ hay Trung Quốc, vì nó cho phép chạy cục bộ, kiểm soát dữ liệu và không bị khóa vào một nhà cung cấp. Nên điều nên làm là xây năng lực triển khai model mở ngay bây giờ, chứ đừng chờ xem bên nào thắng. Kỹ năng vận hành một model open-weight trên hạ tầng riêng có giá trị bất kể nhãn hiệu trên model đó là gì.</p>
+    </div>
+  </div>
+</article>
+
+</section>
+
+<section class="sec" id="sec-5">
+<h2>🏢 Ngành &amp; Kinh doanh</h2>
+
+<article class="card" data-aid="19">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://w.media/wp-content/uploads/2026/02/Anthropic-Logo-Image-Courtesy-Anthropic-1024x538.webp" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=cnbc.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-19" class="xt" hidden>
+    <span class="rank">🔥 TOP 5 TUẦN NÀY</span>
+    <a class="title" href="https://www.cnbc.com/2026/08/11/riot-platforms-signs-anthropic-deal-as-miners-shift-to-ai-infrastructure-.html" target="_blank" rel="noopener">Anthropic ký hợp đồng 9,1 tỷ USD trong 20 năm với Riot Platforms để lấy 191 MW</a>
+    <p class="sum">Anthropic ký thỏa thuận 20 năm trị giá 9,1 tỷ USD với công ty đào bitcoin Riot Platforms để lấy 191 megawatt công suất tính toán từ campus Rockdale ở Texas, kéo dài đến tháng 6 năm 2048. Hợp đồng kèm hai quyền gia hạn 5 năm, nếu dùng cả hai thì tổng doanh thu có thể lên 16,1 tỷ USD.</p>
+    <p class="why">💡 Cổ phiếu Riot tăng 25% sau tin, và đây là ví dụ rõ nhất cho làn sóng thợ đào bitcoin chuyển thành nhà cung cấp hạ tầng AI. Điều đáng chú ý là Anthropic đang khóa nguồn điện và mặt bằng đến tận năm 2048, tức compute giờ được mua như bất động sản chứ không như dịch vụ cloud.</p>
+    <div class="meta">
+      <span class="when">📅 11/08</span>
+      <a class="metabtn" href="https://www.cnbc.com/2026/08/11/riot-platforms-signs-anthropic-deal-as-miners-shift-to-ai-infrastructure-.html" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-19">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="19">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Hợp đồng 20 năm, doanh thu dự kiến 9,1 tỷ USD.</li>
+        <li>191 megawatt từ campus Rockdale, bang Texas.</li>
+        <li>Chạy đến tháng 6 năm 2048, kèm hai quyền gia hạn 5 năm.</li>
+        <li>Nếu gia hạn hết, tổng doanh thu có thể đạt 16,1 tỷ USD.</li>
+        <li>Riot công bố ngày 10/08, cổ phiếu tăng 25% lên 24,40 USD.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>GIÁ TRỊ</b>9,1 tỷ $</span>
+        <span class="fact"><b>CÔNG SUẤT</b>191 MW</span>
+        <span class="fact"><b>THỜI HẠN</b>đến 2048</span>
+        <span class="fact"><b>TỐI ĐA</b>16,1 tỷ $</span>
+        <span class="fact"><b>CỔ PHIẾU RIOT</b>+25%</span>
+      </div>
+      <p class="deep">Hai điều đáng suy nghĩ ở đây. Thứ nhất, thợ đào bitcoin đang trở thành nhà cung cấp hạ tầng AI vì họ sở hữu đúng thứ khó kiếm nhất: hợp đồng điện dài hạn, mặt bằng đã có trạm biến áp và giấy phép. GPU thì mua được bằng tiền, còn 191 megawatt đấu nối sẵn thì phải mất nhiều năm mới có. Thứ hai, độ dài hợp đồng nói lên tất cả. Khóa đến năm 2048 nghĩa là Anthropic tin nhu cầu compute sẽ tăng liên tục hai thập kỷ, và họ chấp nhận trả giá cố định để tránh rủi ro giá điện. Với doanh nghiệp Việt Nam, bài học rút ra không phải là đi ký hợp đồng điện, mà là hiểu rằng giá inference bạn đang trả sẽ chịu ảnh hưởng của chi phí điện và hạ tầng dài hạn chứ không chỉ của cạnh tranh giữa các lab. Đừng xây mô hình kinh doanh dựa trên giả định giá token sẽ giảm mãi mãi.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="20">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2285692712.jpg?c=16x9&amp;q=w_800,c_fill" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=nvidia.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-20" class="xt" hidden>
+    <span class="rank">🔥 TOP 1 TUẦN NÀY</span>
+    <a class="title" href="https://nvidianews.nvidia.com/news/nvidia-partners-with-apollo-blackrock-blackstone-brookfield-goldman-sachs-and-kkr-to-establish-ai-compute-infrastructure-financing-platforms-to-mobilize-over-500-billion-of-third-party-capital" target="_blank" rel="noopener">Nvidia bắt tay Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs và KKR huy động hơn 500 tỷ USD</a>
+    <p class="sum">Ngày 10/08 Nvidia công bố lập các nền tảng tài trợ hạ tầng compute độc lập cùng sáu nhà quản lý tài sản lớn nhất Phố Wall, nhằm huy động hơn 500 tỷ USD vốn bên thứ ba cho data center, điện và hạ tầng AI. Các thỏa thuận ở dạng biên bản ghi nhớ, thiết kế để nhà đầu tư ngoài rót tiền mà không phình bảng cân đối của Nvidia.</p>
+    <p class="why">💡 Jensen Huang gọi chip của mình là tài sản đầu tư được, tức Nvidia đang cố biến GPU thành một lớp tài sản có thể thế chấp giống bất động sản thương mại hay đường thu phí. Nếu thành công, nút thắt của ngành AI chuyển từ vốn sang điện và đất, còn nếu vỡ thì rủi ro giờ nằm rải khắp hệ thống tài chính chứ không riêng bảng cân đối một công ty.</p>
+    <div class="meta">
+      <span class="when">📅 10/08</span>
+      <a class="metabtn" href="https://nvidianews.nvidia.com/news/nvidia-partners-with-apollo-blackrock-blackstone-brookfield-goldman-sachs-and-kkr-to-establish-ai-compute-infrastructure-financing-platforms-to-mobilize-over-500-billion-of-third-party-capital" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-20">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="20">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Sáu đối tác: Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs, KKR.</li>
+        <li>Mục tiêu huy động hơn 500 tỷ USD vốn bên thứ ba.</li>
+        <li>Dòng tiền dành cho data center, hệ thống điện và hạ tầng AI.</li>
+        <li>Cấu trúc dạng biên bản ghi nhớ, không nằm trên bảng cân đối Nvidia.</li>
+        <li>Phục vụ hyperscaler, các lab frontier và doanh nghiệp lớn.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>QUY MÔ</b>500 tỷ $</span>
+        <span class="fact"><b>ĐỐI TÁC</b>6 quỹ lớn</span>
+        <span class="fact"><b>CẤU TRÚC</b>MOU</span>
+        <span class="fact"><b>NGÀY</b>10/08/2026</span>
+      </div>
+      <p class="deep">Đây là tin quan trọng nhất tuần và cũng dễ bị đọc lướt nhất, vì nó là tin tài chính chứ không phải tin công nghệ. Bản chất là Nvidia đang cố biến GPU thành một lớp tài sản mà quỹ hưu trí và quỹ đầu tư tổ chức có thể rót tiền vào, giống hệt cách người ta tài trợ cho tòa nhà văn phòng hay đường thu phí. Cấu trúc rất khéo: vốn từ bên ngoài nên bảng cân đối của Nvidia vẫn sạch, nhưng nhu cầu GPU thì được bơm bằng tiền của người khác. Tốt cho ai? Tốt cho các lab lớn vì có compute rẻ hơn và dài hạn hơn. Rủi ro cho ai? Nếu chu kỳ đảo chiều, người chịu là nhà đầu tư tổ chức, tức là những người chưa từng chạy một job training nào. Với doanh nghiệp Việt Nam, điều thực dụng cần rút ra: nguồn cung compute trong hai đến ba năm tới sẽ dồi dào và giá có thể còn dễ chịu. Nhưng đừng thiết kế mô hình kinh doanh dựa trên giả định giá sẽ rẻ mãi, vì cấu trúc này chỉ bền chừng nào nhu cầu còn tăng.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="21">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://roboticsandautomationnews.com/wp-content/uploads/2025/07/unitree-r1-humanoid-1.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=finance.yahoo.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-21" class="xt" hidden>
+    <a class="title" href="https://finance.yahoo.com/markets/stocks/articles/unitrees-shanghai-ipo-more-8-112909363.html" target="_blank" rel="noopener">IPO Unitree bị đăng ký vượt hơn 8.000 lần, định giá gấp 219 lần lợi nhuận</a>
+    <p class="sum">Đợt IPO khoảng 900 triệu USD của Unitree Robotics trên sàn Thượng Hải bị nhà đầu tư cá nhân đăng ký vượt 8.288 lần, với 53,64 tỷ lệnh đặt mua. Giá chào bán 150,8 nhân dân tệ mỗi cổ phiếu đưa định giá công ty lên khoảng 61 tỷ nhân dân tệ, tương đương 9,04 tỷ USD.</p>
+    <p class="why">💡 Unitree là công ty robot hình người thuần túy đầu tiên niêm yết trên sàn Trung Quốc đại lục, và tỷ lệ trúng của nhà đầu tư lẻ chỉ khoảng 0,018%. Mức 219 lần lợi nhuận cho thấy embodied AI đang được định giá theo kỳ vọng chứ không theo dòng tiền.</p>
+    <div class="meta">
+      <span class="when">📅 10/08</span>
+      <a class="metabtn" href="https://finance.yahoo.com/markets/stocks/articles/unitrees-shanghai-ipo-more-8-112909363.html" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-21">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="21">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>Đăng ký vượt 8.288 lần với 53,64 tỷ lệnh đặt mua từ nhà đầu tư lẻ.</li>
+        <li>Giá chào bán 150,8 nhân dân tệ, định giá khoảng 9,04 tỷ USD.</li>
+        <li>Bán 40,45 triệu cổ phiếu mới, tương đương 10% vốn sau phát hành.</li>
+        <li>Tỷ lệ trúng của nhà đầu tư lẻ chỉ khoảng 0,018%.</li>
+        <li>Công ty robot hình người thuần túy đầu tiên niêm yết ở đại lục.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>VƯỢT ĐĂNG KÝ</b>8.288 lần</span>
+        <span class="fact"><b>ĐỊNH GIÁ</b>9,04 tỷ $</span>
+        <span class="fact"><b>HUY ĐỘNG</b>~904 triệu $</span>
+        <span class="fact"><b>P/E</b>219 lần</span>
+        <span class="fact"><b>TỶ LỆ TRÚNG</b>0,018%</span>
+      </div>
+      <p class="deep">Mức 219 lần lợi nhuận và 8.288 lần đăng ký vượt là những con số của một thị trường đang mua kỳ vọng chứ không mua dòng tiền. Điều đó không tự động nghĩa là bong bóng, nhưng nó cho biết định giá hiện tại đã gói sẵn giả định rằng robot hình người sẽ thành sản phẩm đại chúng trong vài năm tới. Điều đáng chú ý hơn với người làm công nghệ là tín hiệu chính sách: Trung Quốc đang mở đường vốn công khai cho embodied AI, và Unitree sẽ có tiền để đẩy nhanh chu kỳ phần cứng. Với Việt Nam, hệ quả gần nhất là giá robot và cánh tay robot nhập từ Trung Quốc nhiều khả năng tiếp tục giảm, mở cửa cho các ứng dụng tự động hóa quy mô nhỏ trong sản xuất và kho vận mà trước đây không đủ hiệu quả kinh tế. Đó mới là cơ hội thực tế, chứ không phải chuyện mua cổ phiếu.</p>
+    </div>
+  </div>
+</article>
+
+<article class="card" data-aid="22">
+  <img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=techstartups.com&sz=128';this.classList.add('thumb-fallback')">
+  <div class="body">
+    <input type="checkbox" id="x-22" class="xt" hidden>
+    <a class="title" href="https://techstartups.com/2026/08/10/venture-capital-startup-funding-roundup-august-10-2026-accel-coatue-management-general-atlantic-khosla-ventures-sequoia-capital-more/" target="_blank" rel="noopener">Firmus Grid gọi 2 tỷ USD Series G từ Nvidia, Coatue và Blackstone ở định giá 10,5 tỷ</a>
+    <p class="sum">Firmus Grid, công ty xây các nhà máy AI làm mát bằng ngâm chất lỏng cho cụm GPU, gọi 2 tỷ USD vòng Series G từ Nvidia, Coatue và Blackstone ở định giá 10,5 tỷ USD. Đây là vòng gọi vốn đơn lẻ lớn nhất được công bố trong tháng 8 năm 2026.</p>
+    <p class="why">💡 Tuần này vốn mạo hiểm gần như chỉ chảy về hạ tầng chứ không về ứng dụng: Hadrian gọi 1,37 tỷ USD, Lumilens hơn 700 triệu USD, đều là lớp vật lý bên dưới AI. Với startup ứng dụng, điều này nghĩa là định giá dựa trên mô hình AI thuần đang khó bán hơn hẳn so với thứ có tài sản cứng.</p>
+    <div class="meta">
+      <span class="when">📅 10/08</span>
+      <a class="metabtn" href="https://techstartups.com/2026/08/10/venture-capital-startup-funding-roundup-august-10-2026-accel-coatue-management-general-atlantic-khosla-ventures-sequoia-capital-more/" target="_blank" rel="noopener">🔗 Website</a>
+      <label class="metabtn xbtn" for="x-22">📖 Mở rộng</label>
+      <button class="readbtn" type="button" data-aid="22">▶ Audio</button>
+    </div>
+    <div class="more">
+      <ul class="kb">
+        <li>2 tỷ USD Series G, định giá 10,5 tỷ USD.</li>
+        <li>Nhà đầu tư gồm Nvidia, Coatue và Blackstone.</li>
+        <li>Xây nhà máy AI làm mát bằng ngâm chất lỏng cho cụm GPU.</li>
+        <li>Vòng đơn lẻ lớn nhất công bố trong tháng 8 năm 2026.</li>
+        <li>Cùng tuần: Hadrian 1,37 tỷ USD, Lumilens hơn 700 triệu USD.</li>
+      </ul>
+      <div class="facts">
+        <span class="fact"><b>VÒNG</b>Series G</span>
+        <span class="fact"><b>SỐ TIỀN</b>2 tỷ $</span>
+        <span class="fact"><b>ĐỊNH GIÁ</b>10,5 tỷ $</span>
+        <span class="fact"><b>DẪN DẮT</b>Nvidia, Coatue, Blackstone</span>
+        <span class="fact"><b>NGÀY</b>10/08/2026</span>
+      </div>
+      <p class="deep">Đọc danh sách các vòng lớn nhất tuần này thì thấy một điểm chung rất rõ: gần như toàn bộ tiền chảy vào lớp vật lý dưới AI, tức là điện, làm mát, kết nối, nhà máy. Không có startup ứng dụng AI thuần nào lọt vào nhóm dẫn đầu. Với founder Việt Nam đang gọi vốn, đây là tín hiệu nên đọc kỹ: câu chuyện chúng tôi dùng AI để làm X đang mất giá nhanh vì ai cũng dùng được AI. Thứ nhà đầu tư trả tiền là những gì khó sao chép, gồm dữ liệu độc quyền, quan hệ phân phối, tài sản vật lý hoặc quy trình vận hành đã chạy được. Việc Nvidia trực tiếp đầu tư vào Firmus cũng đáng chú ý, vì nó cho thấy chiến lược của họ không dừng ở bán chip mà là tài trợ cả nhu cầu mua chip, khớp với thương vụ 500 tỷ USD cùng tuần.</p>
+    </div>
+  </div>
+</article>
+
+</section>
+
+<div class="foot">
+  <p>Bản tin tạo lúc <b>14/08/2026</b> · tổng cộng <b>22 tin</b> trong tuần W33 (10/08 - 16/08/2026)</p>
+  <p>Tuyển chọn &amp; đọc bởi <b>Duc Nguyen</b> · <a href="https://ducnguyen.vn" target="_blank" rel="noopener">ducnguyen.vn</a></p>
+</div>
+
+</div>
+<script src="../../assets/bg.js" defer></script>
+<!--MEDIA_INJECTED-->
+<script>
+(function(){
+  var base="../../audio/2026-08-14/";
+  var cur=null;
+  function play(src){ if(cur){cur.pause();} cur=new Audio(src); cur.play().catch(function(){}); }
+  function stop(){ if(cur){cur.pause(); cur=null;} }
+  document.addEventListener("DOMContentLoaded",function(){
+    var ra=document.getElementById("readAll"); if(ra) ra.onclick=function(){ play(base+"all.mp3"); };
+    var rs=document.getElementById("readStop"); if(rs) rs.onclick=stop;
+    document.querySelectorAll(".readbtn").forEach(function(b){
+      b.onclick=function(){ var id=b.getAttribute("data-aid"); if(id) play(base+id+".mp3"); };
+    });
+  });
+})();
+</script>
+</body>
+</html>

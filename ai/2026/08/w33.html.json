@@ -1,0 +1,452 @@
+{
+ "date": "14/08/2026",
+ "week": "W33",
+ "range": "10/08 - 16/08/2026",
+ "tldr": "Tuần 33 là tuần tiền và hạ tầng lên tiếng to hơn cả model. Nvidia bắt tay sáu nhà quản lý tài sản lớn nhất Phố Wall để huy động hơn năm trăm tỷ đô cho hạ tầng AI, còn Anthropic ký hợp đồng hai mươi năm trị giá chín phẩy một tỷ đô thuê một trăm chín mươi mốt megawatt từ một công ty vốn đi đào bitcoin. Ở mặt trận model, Meta quay lại con đường mở với Muse Glimmer ba mươi tỷ tham số chạy được trên một GPU tiêu dùng, kèm bài luận sáu nghìn rưỡi chữ của Mark Zuckerberg công kích các phòng lab đóng. Google ra Gemini 3.7 Flash chỉ ba tuần sau bản trước, OpenAI mở GPT-5.6-Cyber cho công việc tấn công mạng có kiểm soát, còn Cerebras đẩy GPT-5.6 Sol lên bảy trăm năm mươi token mỗi giây. Cộng đồng thì tranh cãi dữ dội về một luận điểm khó chịu: AI đang bào mòn tầng lớp giữa của nghề kỹ sư phần mềm.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "Google ra Gemini 3.7 Flash: rẻ hơn một nửa, nhắm thẳng vào coding và agent",
+   "title_en": "Google launches Gemini 3.7 Flash for coding, AI agent projects",
+   "summary": "Google DeepMind phát hành Gemini 3.7 Flash ngày 13/08, chỉ ba tuần sau Gemini 3.6 Flash, tập trung vào lập trình, tác vụ agent và xử lý tài liệu. Giá giới thiệu đến hết 31/12/2026 là 0,75 USD mỗi triệu token input và 3,75 USD mỗi triệu token output, sau đó tăng lên gấp đôi.",
+   "why": "Nhịp ra model của Google giờ tính bằng tuần chứ không phải quý, và Logan Kilpatrick nói phần lớn mức tăng đến từ cải tiến thuật toán chứ không phải thêm compute. Với giá bằng khoảng một nửa thế hệ trước, đây là lựa chọn đáng cân nhắc cho các pipeline agent chạy khối lượng lớn.",
+   "url": "https://siliconangle.com/2026/08/13/google-launches-gemini-3-7-flash-coding-ai-agent-projects/",
+   "domain": "siliconangle.com",
+   "date": "2026-08-13",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 4
+  },
+  {
+   "aid": 2,
+   "title": "Cerebras đẩy GPT-5.6 Sol lên 750 token mỗi giây trong tier Ultrafast của OpenAI",
+   "title_en": "Accelerating GPT-5.6 Sol Ultrafast with OpenAI",
+   "summary": "OpenAI mở một service tier mới tên Ultrafast, chạy GPT-5.6 Sol trên phần cứng wafer-scale của Cerebras với tốc độ tới 750 token output mỗi giây, nhanh gấp 14 lần chế độ Standard. Trong bài test nội bộ, model trả xong 2.500 câu của Humanity's Last Exam trong 11 giờ 11 phút.",
+   "why": "Tốc độ đến từ việc giữ toàn bộ trọng số trong 44 GB SRAM ngay trên chip, bỏ qua nút thắt băng thông bộ nhớ mà GPU phải chịu. Với agent chạy vòng lặp dài, độ trễ mới là chi phí thật, và đây là lần đầu một tier tốc độ cao được bán như sản phẩm chính thức của OpenAI.",
+   "url": "https://www.cerebras.ai/blog/accelerating-gpt-5-6-sol-ultrafast-with-openai",
+   "domain": "cerebras.ai",
+   "date": "2026-08-13",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 3,
+   "title": "DeepSeek V4 Pro 0813 lên bản chính thức: điểm nhảy vọt nhưng chưa ai kiểm chứng",
+   "title_en": "DeepSeek V4 Pro 0813 Goes GA: Benchmark Claims Await Independent Proof",
+   "summary": "DeepSeek chốt bản GA cho V4 Pro 0813 ngày 12/08, kết thúc gần bốn tháng preview. Nhà phát triển công bố mức tăng rất lớn ở nhóm coding agent: DeepSWE từ 12,8 lên 62,7, CyberGym từ 52,7 lên 83,3 và Terminal Bench 2.1 từ 72,1 lên 87,9.",
+   "why": "Không có blog chính thức, không có trang thông báo, benchmark lan ra từ nhóm WeChat rồi mới tới Reddit và Hacker News, và chưa bên thứ ba nào tái lập được con số. Artificial Analysis chấm model ở mức 53 điểm, tức là khoảng cách giữa con số nhà sản xuất công bố và điểm độc lập vẫn rất đáng ngờ.",
+   "url": "https://www.techtimes.com/articles/324241/20260813/deepseek-v4-pro-0813-goes-ga-benchmark-claims-await-independent-proof.htm",
+   "domain": "techtimes.com",
+   "date": "2026-08-12",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 4,
+   "title": "Meta mở trọng số Muse Glimmer: model đa phương thức 30B chạy trên một GPU, giấy phép Apache 2.0",
+   "title_en": "Meta's new Glimmer AI model offers a hint at Zuckerberg's personal intelligence vision",
+   "summary": "Ngày 10/08 Meta phát hành Muse Glimmer, họ model open-weight đa phương thức 30 tỷ tham số theo giấy phép Apache 2.0, tải miễn phí trên Hugging Face và chỉ cần một GPU tiêu dùng để chạy. Model được tối ưu cho tác vụ agent chạy cục bộ như quản lý lịch, sắp xếp file và viết code.",
+   "why": "Apache 2.0 nghĩa là dùng thương mại thoải mái, không có điều khoản giới hạn người dùng như các bản Llama cũ. Meta còn tuyên bố sẽ mở luôn trọng số của Muse Spark 1.2, model mạnh nhất của họ, đảo ngược hẳn hướng đóng dần suốt hơn một năm qua.",
+   "url": "https://techcrunch.com/2026/08/10/metas-new-glimmer-ai-model-offers-a-hint-at-zuckerbergs-personal-intelligence-vision/",
+   "domain": "techcrunch.com",
+   "date": "2026-08-10",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 2
+  },
+  {
+   "aid": 5,
+   "title": "OpenAI ra GPT-5.6-Cyber: model tấn công mạng đầu tiên, hạ ngưỡng từ chối xuống rất thấp",
+   "title_en": "OpenAI launches GPT-5.6-Cyber with reduced refusals, 95% completion on advanced cybersecurity tasks",
+   "summary": "Ngày 10/08 OpenAI công bố GPT-5.6-Cyber, xây trên nền GPT-5.6 Sol và huấn luyện riêng cho nghiên cứu lỗ hổng, pentest và ứng cứu sự cố. Model hoàn thành 95% các prompt về dựng chuỗi khai thác, leo thang đặc quyền và vượt xác thực, so với chỉ 1,5% của GPT-5.6 Sol.",
+   "why": "OpenAI dùng chính model này tìm ra hai lỗ hổng chưa từng biết trong V8 của Chrome, đã được Google vá dưới mã CVE-2026-15903. Model chỉ phát qua tier Daybreak Red cho đối tác tin cậy, nhưng việc một lab lớn công khai bán năng lực tấn công là bước ngoặt về chuẩn mực ngành.",
+   "url": "https://venturebeat.com/technology/openai-launches-gpt-5-6-cyber-with-reduced-refusals-95-completion-on-advanced-cybersecurity-tasks",
+   "domain": "venturebeat.com",
+   "date": "2026-08-10",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 3
+  },
+  {
+   "aid": 6,
+   "title": "ByteDance đưa Seed 2.1 Turbo lên các nền tảng API: 262K context, giá bằng nửa bản Pro",
+   "title_en": "ByteDance Seed 2.1 Turbo hits API platforms",
+   "summary": "Seed 2.1 Turbo của ByteDance có mặt trên các nền tảng API từ ngày 10/08, mang cửa sổ ngữ cảnh 262 nghìn token và cùng bộ năng lực với bản Pro gồm coding trọn vòng đời dự án, workflow agent nhiều bước và hiểu đa phương thức text, ảnh, video.",
+   "why": "Giá khoảng một nửa bản Pro cho cùng tập tính năng, nhắm thẳng vào nhóm chạy pipeline agent hoặc xử lý tài liệu khối lượng lớn nơi chi phí và độ trễ quan trọng hơn đỉnh năng lực. Đây là hướng phân tầng giá mà cả Google, OpenAI và ByteDance đang hội tụ.",
+   "url": "https://developer.puter.com/ai/bytedance-seed/seed-2-1-turbo/",
+   "domain": "developer.puter.com",
+   "date": "2026-08-10",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "Gemini 3.7 Flash có mặt trong GitHub Copilot ngay ngày ra mắt",
+   "title_en": "Gemini 3.7 Flash is now available in GitHub Copilot",
+   "summary": "GitHub đưa Gemini 3.7 Flash vào Copilot ngay trong ngày 13/08, cùng ngày Google công bố model. Người dùng chọn được model này trong khung chat và các chế độ agent của Copilot.",
+   "why": "Khoảng cách giữa ngày một lab ra model và ngày nó xuất hiện trong IDE của bạn đã rút xuống bằng không. Với team dev, điều này nghĩa là việc chọn model không còn là quyết định kiến trúc dài hạn mà là một dropdown đổi được hàng tuần.",
+   "url": "https://github.blog/changelog/2026-08-13-gemini-3-7-flash-is-now-available-in-github-copilot/",
+   "domain": "github.blog",
+   "date": "2026-08-13",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "Claude Cowork chạy thẳng trong side panel của Chrome",
+   "title_en": "Claude Cowork can now run in a Chrome sidebar",
+   "summary": "Từ ngày 12/08, side panel Claude trong Chrome trở thành một phiên Cowork đầy đủ: hội thoại lưu vào lịch sử, skill và connector hoạt động ngay trong trình duyệt, và việc bắt đầu ở một tab có thể tiếp tục trên desktop, web hoặc mobile.",
+   "why": "Đây là bước đưa agent ra khỏi cửa sổ chat riêng và đặt vào đúng nơi người ta làm việc thật. Hiện mới có trên gói Max và Team, đang mở dần cho Pro.",
+   "url": "https://www.engadget.com/2235919/claude-cowork-can-now-run-in-a-chrome-sidebar/",
+   "domain": "engadget.com",
+   "date": "2026-08-12",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "OpenAI phát hành app ChatGPT cho Linux, kèm Codex ở bản preview",
+   "title_en": "OpenAI launches ChatGPT desktop app for Linux",
+   "summary": "Ngày 11/08 OpenAI mở bản preview app desktop ChatGPT cho Linux, hỗ trợ Ubuntu 24.04 và 26.04 LTS, Debian 13, Fedora 43 và 44, đóng gói DEB và RPM cho cả x64 lẫn ARM64. App chạy được ChatGPT, ChatGPT Work và Codex.",
+   "why": "Linux là nền tảng bị yêu cầu nhiều nhất và cũng là nơi phần lớn dev backend và data engineer thật sự làm việc. Phản hồi ban đầu khá lẫn lộn về hiệu năng và tích hợp, nhưng ít nhất Codex đã có cửa vào máy trạm Linux mà không cần trình duyệt.",
+   "url": "https://techcrunch.com/2026/08/11/openai-launches-chatgpt-desktop-app-for-linux/",
+   "domain": "techcrunch.com",
+   "date": "2026-08-11",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "Docker Sandboxes: microVM dùng một lần cho coding agent chạy không cần giám sát",
+   "title_en": "Docker Sandboxes – Disposable, isolated sandboxes for AI agents",
+   "summary": "Docker ra bản thử nghiệm Docker Sandboxes, chạy các coding agent như Claude Code, Copilot CLI, Codex, OpenCode và Kiro trong microVM cô lập với kernel riêng, Docker daemon riêng, filesystem và network riêng. Mỗi sandbox đã cài sẵn Docker CLI, Git, GitHub CLI, Node.js, Python 3, Go, uv và jq.",
+   "why": "Bài toán năm nay không còn là agent có viết được code không, mà là cho nó chạy tự do ở đâu mà không mất credential hay hỏng máy. Bản tin đứng trong nhóm dẫn đầu Hacker News với gần 700 điểm và 396 bình luận, cho thấy đây đúng là điểm đau chung.",
+   "url": "https://www.docker.com/products/docker-sandboxes/",
+   "domain": "docker.com",
+   "date": "2026-08-10",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "AI4AI at Test-Time: model mạnh tự dựng harness để nâng model yếu, không cần train lại",
+   "title_en": "AI4AI at Test-Time: Strong-to-Weak Capability Transfer via Harnesses",
+   "summary": "Nhóm của Cheng Qian nghiên cứu việc để một model mạnh tự xây harness ở thời điểm inference cho một model yếu hơn, không đụng đến tham số. Mỗi builder dùng 5% dữ liệu làm validation để tinh chỉnh harness qua nhiều vòng, rồi đánh giá trên toàn bộ test set của bốn benchmark Theory-of-Mind.",
+   "why": "Kết quả cho thấy GPT-5.4-mini cải thiện tới 87% tương đối, đạt 0,912 macro-average, tiệm cận harness do người thiết kế. Nghĩa là phần lớn khoảng cách giữa model rẻ và model đắt có thể lấp bằng scaffolding chứ không phải bằng tiền train.",
+   "url": "https://arxiv.org/abs/2608.12307",
+   "domain": "arxiv.org",
+   "date": "2026-08-12",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "ComBodied Agents: đề xuất chuyển agent từ làm xong việc sang chăm trạng thái con người",
+   "title_en": "ComBodied Agents: a New Paradigm of Human-Centric Agentic AI",
+   "summary": "Bài viết của 22 tác giả đề xuất khung ComBodied Agents, gộp agent số và agent có thân thể vào một hệ thống theo dõi và hỗ trợ quỹ đạo trạng thái của từng người theo thời gian. Bốn thành phần lõi gồm cảm nhận đa phương thức các sự kiện cá nhân, bộ nhớ dài hạn sửa được, Personal World Model dự đoán kết quả theo từng can thiệp, và chính sách can thiệp tôn trọng quyền đồng ý của người dùng.",
+   "why": "Đây là bài đứng đầu Hugging Face Papers tuần này với 184 lượt vote, cho thấy hướng nghiên cứu đang dịch từ tối ưu benchmark tác vụ sang tối ưu kết quả cho người. Với ai làm sản phẩm, thứ đáng lấy là ý tưởng bộ nhớ dài hạn sửa được và ràng buộc can thiệp phải có đồng thuận.",
+   "url": "https://arxiv.org/abs/2608.10915",
+   "domain": "arxiv.org",
+   "date": "2026-08-12",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "Pathway BDH-CQ: model 150M phá kỷ lục chi phí trên ARC-AGI-1, rẻ hơn GPT-5.6 Luna 11 lần",
+   "title_en": "Pathway's 150M-Parameter Model Breaks the ARC-AGI-1 Cost-Efficiency Frontier",
+   "summary": "Pathway công bố BDH-CQ, kiến trúc hậu transformer suy luận bằng trạng thái ẩn hồi quy thay vì sinh chuỗi chain-of-thought. Bản 150 triệu tham số đạt 29,5% pass@2 trên ARC-AGI-1 với chi phí 0,0007 USD mỗi tác vụ, tức chưa tới một phần mười xu.",
+   "why": "Rẻ hơn khoảng 11 lần so với GPT-5.6 Luna bản Low ngay cả sau khi OpenAI giảm giá 80%, dù điểm thấp hơn chút, 29,5 so với 34,2. Điểm này nằm ngoài đường Pareto từng được ghi nhận, nhắc rằng không phải bài toán nào cũng cần model nghìn tỷ tham số.",
+   "url": "https://pathway.com/blog/pathway-150m-model-breaks-arc-agi-1-cost-efficiency-frontier",
+   "domain": "pathway.com",
+   "date": "2026-08-11",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "Co-Evolution in Agentic Systems: khảo sát hướng agent tự tiến hóa vượt khỏi thiết kế của người",
+   "title_en": "Co-Evolution in Agentic Systems: Toward Self-Directed Evolution Beyond Human Design",
+   "summary": "Nhóm tác giả từ HKUST và cộng sự khảo sát cách nhiều agent và môi trường của chúng cùng thích nghi và cải thiện lẫn nhau. Bài đề xuất khung ba tầng gồm agent với agent, agent với môi trường, và meta co-evolution, mỗi tầng giảm dần ràng buộc do con người thiết kế.",
+   "why": "Bài chỉ thẳng ba điểm nghẽn còn bỏ ngỏ: đánh giá thế nào, mở rộng quy mô ra sao và kiểm soát an toàn kiểu gì khi hệ thống tự sửa chính mình. Với doanh nghiệp, đây là bản đồ rủi ro nên đọc trước khi thả agent tự chỉnh workflow trong môi trường sản xuất.",
+   "url": "https://arxiv.org/abs/2608.10299",
+   "domain": "arxiv.org",
+   "date": "2026-08-10",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "Khảo sát: người trẻ Mỹ không tin các tỷ phú đang dẫn dắt AI",
+   "title_en": "Young Americans Don't Trust Billionaire AI Leaders, New Poll Finds",
+   "summary": "Một khảo sát mới cho thấy người trẻ Mỹ có mức tin tưởng rất thấp vào giới lãnh đạo tỷ phú của ngành AI. Bài đăng trên r/technology ngày 13/08 thu gần 27 nghìn upvote và hơn 1.400 bình luận, thuộc nhóm thảo luận sôi nổi nhất tuần.",
+   "why": "Khoảng cách giữa cái ngành AI tự nói về mình và cái công chúng cảm nhận đang giãn rất nhanh. Với ai làm sản phẩm AI cho người dùng cuối, đây là tín hiệu rằng thông điệp tầm nhìn không còn bán được, thứ bán được là kết quả cụ thể.",
+   "url": "https://www.reddit.com/r/technology/comments/1vndqit/young_americans_dont_trust_billionaire_ai_leaders/",
+   "domain": "reddit.com",
+   "date": "2026-08-13",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 16,
+   "title": "AI đang xóa sổ tầng lớp giữa của nghề kỹ sư phần mềm: 978 điểm trên Hacker News",
+   "title_en": "AI is removing the middle class of software engineering",
+   "summary": "Kỹ sư Florian Herrengt lập luận rằng công cụ coding agent nhanh đã gỡ bỏ cái phanh tốc độ tự nhiên vốn kìm hãm các quyết định kỹ thuật tồi, khiến team yếu tích tụ độ phức tạp không review nổi nhanh hơn trước rất nhiều. Bài đạt 978 điểm và hơn 900 bình luận trên Hacker News ngày 12/08.",
+   "why": "Luận điểm cốt lõi: senior vẫn thiết kế hệ thống, junior vẫn học nền tảng, người bị ép mạnh nhất là tầng giữa, tức nhóm dịch yêu cầu thành code bảo trì được và đặt câu hỏi khó lúc review. Kỹ năng khan hiếm chuyển từ tốc độ viết sang khả năng phán đoán và kiểm chứng output.",
+   "url": "https://blog.florianherrengt.com/ai-removing-middle-class-software-engineering.html",
+   "domain": "blog.florianherrengt.com",
+   "date": "2026-08-12",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "AI ăn dần web, và trí nhớ tập thể của internet đang biến mất",
+   "title_en": "Google Search Is Dying. What Comes Next Is Worse",
+   "summary": "Bài trên The Walrus phân tích việc Google gói câu trả lời thành AI Overview khiến người dùng không còn nhấp vào trang gốc, tước đi giọng điệu, ký ức và cộng đồng đằng sau nội dung. Bài đạt 933 điểm và 976 bình luận trên Hacker News ngày 10/08.",
+   "why": "Sau khi các nhà xuất bản kiện Internet Archive, nhiều tòa soạn bắt đầu chặn cả crawler của Wayback Machine, làm mất luôn lớp lưu trữ dự phòng. Vòng lặp nguy hiểm là chính các model AI rồi cũng sẽ có ít dữ liệu chính xác, kịp thời và thú vị hơn để học.",
+   "url": "https://thewalrus.ca/google-search-is-dying/",
+   "domain": "thewalrus.ca",
+   "date": "2026-08-10",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 18,
+   "title": "Zuckerberg viết luận 6.500 chữ công kích các lab AI đóng, đòi Mỹ gỡ rào cho open-source",
+   "title_en": "Mark Zuckerberg makes his case for American open-source AI over Chinese rivals",
+   "summary": "Cùng ngày Meta ra Muse Glimmer, Mark Zuckerberg đăng bài luận 6.500 chữ tựa The Future is for Everyone, cho rằng model mở của Mỹ phải trở thành tốt nhất thế giới và chỉ trích các đối thủ lấy lý do an toàn để khóa model mạnh nhất. Ông nói đối thủ nước ngoài ít ràng buộc hơn nên chính sách Mỹ phải giảm ma sát về dữ liệu huấn luyện.",
+   "why": "Bài lọt top Hacker News với 640 điểm và hơn 600 bình luận, đúng vào lúc Washington đang cân nhắc siết model open-weight Trung Quốc. Đây là cuộc chiến chuẩn mực chứ không chỉ chuyện kỹ thuật, và kết quả sẽ quyết định team nhỏ ở Việt Nam năm sau còn được tải model gì về chạy.",
+   "url": "https://fortune.com/2026/08/10/meta-brandishes-open-source-ai-models-again-as-zuckerberg-media-blitz-emphasizes-battle-against-chinese-rivals/",
+   "domain": "fortune.com",
+   "date": "2026-08-10",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 19,
+   "title": "Anthropic ký hợp đồng 9,1 tỷ USD trong 20 năm với Riot Platforms để lấy 191 MW",
+   "title_en": "Riot Platforms strikes deal with Anthropic as bitcoin miners shift focus to AI infrastructure",
+   "summary": "Anthropic ký thỏa thuận 20 năm trị giá 9,1 tỷ USD với công ty đào bitcoin Riot Platforms để lấy 191 megawatt công suất tính toán từ campus Rockdale ở Texas, kéo dài đến tháng 6 năm 2048. Hợp đồng kèm hai quyền gia hạn 5 năm, nếu dùng cả hai thì tổng doanh thu có thể lên 16,1 tỷ USD.",
+   "why": "Cổ phiếu Riot tăng 25% sau tin, và đây là ví dụ rõ nhất cho làn sóng thợ đào bitcoin chuyển thành nhà cung cấp hạ tầng AI. Điều đáng chú ý là Anthropic đang khóa nguồn điện và mặt bằng đến tận năm 2048, tức compute giờ được mua như bất động sản chứ không như dịch vụ cloud.",
+   "url": "https://www.cnbc.com/2026/08/11/riot-platforms-signs-anthropic-deal-as-miners-shift-to-ai-infrastructure-.html",
+   "domain": "cnbc.com",
+   "date": "2026-08-11",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": 5
+  },
+  {
+   "aid": 20,
+   "title": "Nvidia bắt tay Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs và KKR huy động hơn 500 tỷ USD",
+   "title_en": "NVIDIA Partners With Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs and KKR to Establish AI Compute Infrastructure Financing Platforms",
+   "summary": "Ngày 10/08 Nvidia công bố lập các nền tảng tài trợ hạ tầng compute độc lập cùng sáu nhà quản lý tài sản lớn nhất Phố Wall, nhằm huy động hơn 500 tỷ USD vốn bên thứ ba cho data center, điện và hạ tầng AI. Các thỏa thuận ở dạng biên bản ghi nhớ, thiết kế để nhà đầu tư ngoài rót tiền mà không phình bảng cân đối của Nvidia.",
+   "why": "Jensen Huang gọi chip của mình là tài sản đầu tư được, tức Nvidia đang cố biến GPU thành một lớp tài sản có thể thế chấp giống bất động sản thương mại hay đường thu phí. Nếu thành công, nút thắt của ngành AI chuyển từ vốn sang điện và đất, còn nếu vỡ thì rủi ro giờ nằm rải khắp hệ thống tài chính chứ không riêng bảng cân đối một công ty.",
+   "url": "https://nvidianews.nvidia.com/news/nvidia-partners-with-apollo-blackrock-blackstone-brookfield-goldman-sachs-and-kkr-to-establish-ai-compute-infrastructure-financing-platforms-to-mobilize-over-500-billion-of-third-party-capital",
+   "domain": "nvidianews.nvidia.com",
+   "date": "2026-08-10",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": 1
+  },
+  {
+   "aid": 21,
+   "title": "IPO Unitree bị đăng ký vượt hơn 8.000 lần, định giá gấp 219 lần lợi nhuận",
+   "title_en": "Unitree's Shanghai IPO more than 8,000 times oversubscribed by retail investors",
+   "summary": "Đợt IPO khoảng 900 triệu USD của Unitree Robotics trên sàn Thượng Hải bị nhà đầu tư cá nhân đăng ký vượt 8.288 lần, với 53,64 tỷ lệnh đặt mua. Giá chào bán 150,8 nhân dân tệ mỗi cổ phiếu đưa định giá công ty lên khoảng 61 tỷ nhân dân tệ, tương đương 9,04 tỷ USD.",
+   "why": "Unitree là công ty robot hình người thuần túy đầu tiên niêm yết trên sàn Trung Quốc đại lục, và tỷ lệ trúng của nhà đầu tư lẻ chỉ khoảng 0,018%. Mức 219 lần lợi nhuận cho thấy embodied AI đang được định giá theo kỳ vọng chứ không theo dòng tiền.",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/unitrees-shanghai-ipo-more-8-112909363.html",
+   "domain": "finance.yahoo.com",
+   "date": "2026-08-10",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  },
+  {
+   "aid": 22,
+   "title": "Firmus Grid gọi 2 tỷ USD Series G từ Nvidia, Coatue và Blackstone ở định giá 10,5 tỷ",
+   "title_en": "Firmus Grid raises $2B Series G at $10.5B valuation",
+   "summary": "Firmus Grid, công ty xây các nhà máy AI làm mát bằng ngâm chất lỏng cho cụm GPU, gọi 2 tỷ USD vòng Series G từ Nvidia, Coatue và Blackstone ở định giá 10,5 tỷ USD. Đây là vòng gọi vốn đơn lẻ lớn nhất được công bố trong tháng 8 năm 2026.",
+   "why": "Tuần này vốn mạo hiểm gần như chỉ chảy về hạ tầng chứ không về ứng dụng: Hadrian gọi 1,37 tỷ USD, Lumilens hơn 700 triệu USD, đều là lớp vật lý bên dưới AI. Với startup ứng dụng, điều này nghĩa là định giá dựa trên mô hình AI thuần đang khó bán hơn hẳn so với thứ có tài sản cứng.",
+   "url": "https://techstartups.com/2026/08/10/venture-capital-startup-funding-roundup-august-10-2026-accel-coatue-management-general-atlantic-khosla-ventures-sequoia-capital-more/",
+   "domain": "techstartups.com",
+   "date": "2026-08-10",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 20,
+ "weekly_video": {
+  "intro": "Chào các bạn, đây là bản điểm tin AI tuần 33, từ mùng mười đến mười sáu tháng tám năm hai nghìn không trăm hai mươi sáu. Tuần này chủ đề xuyên suốt không nằm ở model mà nằm ở tiền và hạ tầng: Phố Wall chính thức bước vào cuộc chơi AI với những con số nghìn tỷ, còn cuộc chiến mở và đóng thì bùng lại dữ dội hơn bao giờ hết. Mình sẽ đi qua năm câu chuyện lớn nhất.",
+  "outro": "Đó là năm tin lớn nhất tuần 33. Chi tiết đầy đủ của hai mươi hai tin còn lại các bạn xem trong bản tin nhé. Hẹn gặp lại các bạn tuần sau.",
+  "segments": [
+   {
+    "aid": 20,
+    "headline": "Nvidia và Phố Wall huy động hơn 500 tỷ đô",
+    "narration": "Câu chuyện lớn nhất tuần này không phải là một model mới, mà là một cấu trúc tài chính. Ngày mùng mười tháng tám, Nvidia công bố bắt tay với sáu nhà quản lý tài sản lớn nhất Phố Wall gồm Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs và KKR để lập ra các nền tảng tài trợ hạ tầng compute độc lập. Mục tiêu là huy động hơn năm trăm tỷ đô la vốn từ bên thứ ba cho việc xây data center, hệ thống điện và hạ tầng AI. Điểm tinh vi nằm ở chỗ các thỏa thuận này ở dạng biên bản ghi nhớ và được thiết kế để nhà đầu tư bên ngoài bỏ tiền mà không làm phình bảng cân đối kế toán của chính Nvidia. Jensen Huang nói thẳng với CNBC rằng chip của ông giờ là một tài sản đầu tư được. Nói cách khác, Nvidia đang cố biến GPU thành một lớp tài sản có thể đem đi thế chấp và vay vốn, giống hệt cách người ta làm với bất động sản thương mại hay đường thu phí. Nếu chuyện này thành công, nút thắt của cả ngành AI sẽ chuyển từ vốn sang điện và đất đai. Còn nếu nó vỡ, rủi ro giờ đã nằm rải khắp hệ thống tài chính chứ không còn gói gọn trong bảng cân đối của một công ty duy nhất.",
+    "bullets": [
+     "Hơn 500 tỷ đô vốn bên thứ ba",
+     "Sáu nhà quản lý tài sản lớn nhất tham gia",
+     "GPU thành tài sản thế chấp được"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Quy mô thương vụ",
+     "items": [
+      {
+       "v": "500 tỷ $",
+       "l": "vốn huy động"
+      },
+      {
+       "v": "6",
+       "l": "nhà quản lý tài sản"
+      },
+      {
+       "v": "10/08",
+       "l": "ngày công bố"
+      }
+     ]
+    },
+    "images": [
+     "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2285692712.jpg?c=16x9&q=w_800,c_fill"
+    ]
+   },
+   {
+    "aid": 4,
+    "headline": "Meta mở trọng số Muse Glimmer chạy trên một GPU",
+    "narration": "Tin lớn thứ hai là Meta quay đầu về con đường mở. Ngày mùng mười tháng tám, công ty phát hành Muse Glimmer, một họ model open-weight đa phương thức ba mươi tỷ tham số, giấy phép Apache hai chấm không, tải miễn phí trên Hugging Face và chỉ cần một GPU tiêu dùng là chạy được. Model được tối ưu cho các tác vụ agent chạy ngay trên máy như quản lý lịch, sắp xếp file và viết code. Chi tiết quan trọng nhất chính là giấy phép: Apache hai chấm không nghĩa là dùng thương mại thoải mái, không có điều khoản giới hạn số người dùng như các bản Llama trước đây. Meta còn tuyên bố sẽ mở luôn trọng số của Muse Spark một chấm hai, tức là model mạnh nhất của họ, đảo ngược hoàn toàn hướng đóng dần mà công ty theo đuổi suốt hơn một năm qua. Cùng ngày, Mark Zuckerberg đăng một bài luận sáu nghìn năm trăm chữ tên là Tương lai dành cho tất cả mọi người, công kích các phòng lab đóng và kêu gọi chính sách Mỹ giảm bớt ràng buộc về dữ liệu huấn luyện. Với các team nhỏ ở Việt Nam, đây là tin thực sự tốt: một model ba mươi tỷ tham số chạy cục bộ, giấy phép sạch, là nền rất hợp cho các bài toán dữ liệu nhạy cảm không được đẩy lên cloud.",
+    "bullets": [
+     "30 tỷ tham số, giấy phép Apache 2.0",
+     "Chạy trên một GPU tiêu dùng",
+     "Meta hứa mở luôn Muse Spark 1.2"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Mở và đóng",
+     "left": {
+      "h": "Muse Glimmer",
+      "items": [
+       "Trọng số tải tự do",
+       "Apache 2.0, dùng thương mại",
+       "Chạy cục bộ, một GPU"
+      ]
+     },
+     "right": {
+      "h": "Model đóng",
+      "items": [
+       "Chỉ gọi qua API",
+       "Ràng buộc điều khoản",
+       "Dữ liệu phải rời máy"
+      ]
+     }
+    },
+    "images": [
+     "https://techcrunch.com/wp-content/uploads/2024/09/GettyImages-2173579243.jpg?resize=1200,799"
+    ]
+   },
+   {
+    "aid": 5,
+    "headline": "OpenAI ra model tấn công mạng GPT-5.6-Cyber",
+    "narration": "Tin thứ ba gây tranh cãi nhất. Ngày mùng mười tháng tám, OpenAI công bố GPT năm chấm sáu Cyber, xây trên nền GPT năm chấm sáu Sol và huấn luyện riêng cho nghiên cứu lỗ hổng, kiểm thử xâm nhập và ứng cứu sự cố. Con số đáng chú ý nhất là tỷ lệ hoàn thành: với các prompt về dựng chuỗi khai thác, leo thang đặc quyền và vượt qua xác thực, model mới hoàn thành chín mươi lăm phần trăm, trong khi bản Sol thông thường chỉ làm được một phẩy năm phần trăm. Tức là OpenAI đã chủ động hạ ngưỡng từ chối xuống rất thấp cho đúng nhóm tác vụ mà trước đây họ chặn gắt nhất. Để chứng minh, OpenAI dùng chính model này tìm ra hai lỗ hổng chưa từng ai biết trong V tám, tức engine JavaScript của Chrome, và Google đã vá dưới mã CVE hai nghìn không trăm hai mươi sáu, một năm chín trăm lẻ ba. Model chỉ phát qua tier Daybreak Red cho các đối tác được xác minh. Nhưng ý nghĩa lớn hơn nằm ở chuẩn mực ngành: đây là lần đầu một phòng lab hàng đầu công khai bán năng lực tấn công như một sản phẩm. Với đội bảo mật doanh nghiệp, giả định phải đổi ngay, vì phía tấn công giờ cũng có công cụ tương đương.",
+    "bullets": [
+     "95% hoàn thành tác vụ khai thác",
+     "Tìm hai zero-day trong V8 của Chrome",
+     "Chỉ phát qua tier Daybreak Red"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Đường đi của model",
+     "items": [
+      {
+       "t": "Nền GPT-5.6 Sol",
+       "d": "model gốc"
+      },
+      {
+       "t": "Train chuyên cyber",
+       "d": "hạ ngưỡng từ chối"
+      },
+      {
+       "t": "Thử trên V8",
+       "d": "tìm 2 zero-day"
+      },
+      {
+       "t": "Daybreak Red",
+       "d": "chỉ đối tác tin cậy"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 1,
+    "headline": "Gemini 3.7 Flash ra sau bản trước đúng ba tuần",
+    "narration": "Tin thứ tư là nhịp độ. Ngày mười ba tháng tám, Google DeepMind phát hành Gemini ba chấm bảy Flash, chỉ đúng ba tuần sau Gemini ba chấm sáu Flash. Model nhắm thẳng vào ba việc: lập trình, tác vụ agent và xử lý tài liệu. Google nói nó vượt các model tương đương của Anthropic và OpenAI trên chín benchmark. Giá giới thiệu áp dụng đến hết ngày ba mươi mốt tháng mười hai năm nay là không phẩy bảy lăm đô cho một triệu token đầu vào và ba phẩy bảy lăm đô cho một triệu token đầu ra, sau đó tăng lên gấp đôi. Logan Kilpatrick, người phụ trách sản phẩm của Google AI Studio, nói phần lớn mức tăng năng lực đến từ cải tiến thuật toán chứ không phải từ việc đổ thêm compute. Model có mặt ngay trong API, AI Studio, Antigravity, và đáng chú ý là xuất hiện trong GitHub Copilot ngay cùng ngày. Điều này nói lên một thay đổi thực tế cho các đội kỹ thuật: khoảng cách giữa ngày một lab công bố model và ngày nó nằm trong IDE của bạn giờ bằng không. Việc chọn model không còn là quyết định kiến trúc dài hạn nữa, nó chỉ là một dropdown mà bạn có thể đổi hàng tuần. Cái cần thiết kế cẩn thận là lớp trừu tượng bên dưới, không phải cái tên model.",
+    "bullets": [
+     "Ra sau bản trước đúng ba tuần",
+     "0,75 đô mỗi triệu token input",
+     "Vào GitHub Copilot ngay ngày đầu"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Nơi model có mặt",
+     "items": [
+      {
+       "t": "Gemini API",
+       "d": "gọi trực tiếp"
+      },
+      {
+       "t": "AI Studio",
+       "d": "thử nghiệm nhanh"
+      },
+      {
+       "t": "Antigravity",
+       "d": "môi trường agent"
+      },
+      {
+       "t": "GitHub Copilot",
+       "d": "ngay ngày ra mắt"
+      }
+     ]
+    },
+    "images": [
+     "https://d15shllkswkct0.cloudfront.net/wp-content/blogs.dir/1/files/2026/08/Gemini.png"
+    ]
+   },
+   {
+    "aid": 19,
+    "headline": "Anthropic thuê điện từ thợ đào bitcoin trong hai mươi năm",
+    "narration": "Tin thứ năm khép lại chủ đề hạ tầng của tuần. Ngày mười một tháng tám, Anthropic ký một thỏa thuận hai mươi năm trị giá chín phẩy một tỷ đô la với Riot Platforms, vốn là một công ty đào bitcoin, để lấy một trăm chín mươi mốt megawatt công suất tính toán từ campus Rockdale ở bang Texas. Hợp đồng chạy đến tháng sáu năm hai nghìn không trăm bốn mươi tám và kèm hai quyền gia hạn năm năm mỗi lần. Nếu dùng cả hai, tổng doanh thu cho Riot có thể lên tới mười sáu phẩy một tỷ đô. Riot công bố hợp đồng từ ngày mùng mười nhưng chỉ mô tả khách hàng là một công ty AI tiên phong, và cổ phiếu của họ tăng hai mươi lăm phần trăm ngay sau đó. Có hai điều đáng suy nghĩ ở đây. Thứ nhất, làn sóng thợ đào bitcoin chuyển thành nhà cung cấp hạ tầng AI giờ đã thành xu hướng rõ ràng, vì họ đã có sẵn thứ khó nhất là hợp đồng điện và mặt bằng. Thứ hai, việc Anthropic khóa nguồn điện đến tận năm hai nghìn không trăm bốn mươi tám cho thấy compute giờ được mua như bất động sản dài hạn, chứ không còn như một dịch vụ cloud thuê theo tháng.",
+    "bullets": [
+     "9,1 tỷ đô, hợp đồng hai mươi năm",
+     "191 megawatt tại Rockdale, Texas",
+     "Cổ phiếu Riot tăng 25% sau tin"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Điều khoản hợp đồng",
+     "items": [
+      {
+       "v": "9,1 tỷ $",
+       "l": "giá trị hợp đồng"
+      },
+      {
+       "v": "191 MW",
+       "l": "công suất"
+      },
+      {
+       "v": "2048",
+       "l": "năm kết thúc"
+      },
+      {
+       "v": "16,1 tỷ $",
+       "l": "nếu gia hạn hết"
+      }
+     ]
+    },
+    "images": [
+     "https://w.media/wp-content/uploads/2026/02/Anthropic-Logo-Image-Courtesy-Anthropic-1024x538.webp"
+    ]
+   }
+  ]
+ },
+ "facebook_post": "Tuần AI kỳ lạ: model ra ít hơn, nhưng tiền và điện thì nhiều chưa từng thấy\n\nMình ngồi tổng hợp tin tuần này mà cứ có cảm giác lạ. Mọi tuần đọc tin AI là đọc benchmark, đọc model mới. Tuần 33 này thì khác: mấy tin lớn nhất đều là hợp đồng điện, thỏa thuận tài chính và tranh cãi về giấy phép. Nó giống như đang xem một ngành công nghiệp trưởng thành đúng nghĩa, khi phần khó không còn là làm ra thứ mới mà là kiếm đủ chỗ cắm điện cho nó.\n\nĐây là năm tin mình thấy đáng đọc nhất.\n\n1️⃣ Nvidia kéo cả Phố Wall vào cuộc, hơn 500 tỷ đô\nNgày 10/08, Nvidia công bố lập các nền tảng tài trợ hạ tầng compute cùng Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs và KKR, mục tiêu huy động hơn 500 tỷ USD vốn bên thứ ba cho data center và hệ thống điện. Jensen Huang nói thẳng chip của ông giờ là một tài sản đầu tư được. Nghĩa là gì? Nghĩa là GPU đang được đối xử như bất động sản thương mại: mua bằng vốn vay, đem đi thế chấp, chia rủi ro ra thị trường.\n\n2️⃣ Meta quay lại con đường mở với Muse Glimmer\nMeta phát hành Muse Glimmer, model đa phương thức 30 tỷ tham số, giấy phép Apache 2.0, tải tự do trên Hugging Face và chạy được trên một GPU tiêu dùng. Họ còn hứa mở luôn trọng số của Muse Spark 1.2. Kèm theo là bài luận 6.500 chữ của Mark Zuckerberg công kích các lab đóng. Nghĩa là gì? Với team nhỏ, đây là món quà thật: giấy phép sạch, chạy cục bộ, không phải đẩy dữ liệu khách hàng ra ngoài.\n\n3️⃣ OpenAI bán năng lực tấn công mạng\nGPT-5.6-Cyber ra ngày 10/08, hoàn thành 95% các prompt dựng chuỗi khai thác và leo thang đặc quyền, so với 1,5% của bản thường. OpenAI dùng nó tìm ra hai lỗ hổng chưa ai biết trong V8 của Chrome, đã vá dưới mã CVE-2026-15903. Nghĩa là gì? Đội bảo mật doanh nghiệp phải đổi giả định ngay, vì phía bên kia giờ cũng có công cụ tương đương.\n\n4️⃣ Gemini 3.7 Flash ra sau bản trước đúng ba tuần\nGoogle ra Gemini 3.7 Flash ngày 13/08, giá giới thiệu 0,75 USD mỗi triệu token input, và nó nằm trong GitHub Copilot ngay cùng ngày. Nghĩa là gì? Khoảng cách từ lúc lab công bố model tới lúc nó nằm trong IDE của bạn đã bằng không.\n\n5️⃣ Anthropic thuê điện của thợ đào bitcoin đến năm 2048\nHợp đồng 20 năm, 9,1 tỷ USD, 191 MW từ campus Rockdale của Riot Platforms ở Texas. Cổ phiếu Riot tăng 25%. Nghĩa là gì? Compute giờ được mua như bất động sản dài hạn chứ không như dịch vụ thuê theo tháng.\n\n💭 Góc nhìn của mình về tuần này\n\nTheo mình, thứ thật sự mới của tuần 33 không nằm ở bất kỳ model nào, mà ở chỗ ngành AI vừa chính thức đổi loại rủi ro. Trước đây rủi ro là kỹ thuật: model có đủ giỏi không. Giờ rủi ro là tài chính và vật lý: có đủ điện không, ai gánh nợ nếu nhu cầu hụt. Cấu trúc của Nvidia rất khéo, vốn từ bên ngoài nên bảng cân đối của họ vẫn đẹp, nhưng rủi ro thì đã rải ra khắp thị trường. Cái này tốt cho ai và xấu cho ai thì tùy chỗ đứng: tốt cho các lab lớn vì có compute rẻ và dài hạn, nhưng nếu chu kỳ đảo chiều thì người chịu lại là quỹ hưu trí và nhà đầu tư tổ chức, tức là những người chưa từng bấm nút chạy một job training nào.\n\nCòn với anh em làm nghề như mình, tin đáng dùng nhất tuần này lại là Muse Glimmer. Mình làm tư vấn data cho doanh nghiệp, và câu hỏi mình nghe nhiều nhất không phải model nào thông minh nhất, mà là dữ liệu của em có phải rời khỏi hệ thống không. Một model 30B chạy trên một GPU với giấy phép Apache 2.0 trả lời được đúng câu hỏi đó. Mình vừa học và thi chứng chỉ Databricks, làm thực hành RAG trên nền lakehouse, và càng làm càng thấy rõ: phần quyết định chất lượng không phải model, mà là dữ liệu đã được chuẩn hóa và quản trị tới đâu. Model mở càng tốt thì cái nút thắt càng lộ ra rõ ràng ở chỗ dữ liệu.\n\nNên làm gì: nếu team bạn đang có bài toán dữ liệu nhạy cảm, tuần này là lúc đáng thử một model mở chạy cục bộ, đo thật trên use case của mình chứ đừng tin benchmark. Không nên làm gì: đừng đổi model theo tuần chỉ vì có bản mới. Hãy thiết kế lớp trừu tượng để đổi model là chuyện một dòng config, rồi quên nó đi mà tập trung vào dữ liệu.\n\nTuần này còn một bài trên Hacker News được gần một nghìn điểm, nói rằng AI đang xóa sổ tầng lớp giữa của nghề kỹ sư phần mềm. Mình đồng ý một nửa. Cái bị xóa không phải con người, mà là loại công việc chỉ dịch yêu cầu thành code. Thứ còn lại và ngày càng đắt là khả năng phán đoán: nhìn output của AI và biết chỗ nào sai. AI không thay người giỏi, nó khuếch đại người biết làm việc rõ ràng.\n\nGhé AI News và Data News của mình để đọc chi tiết cả 22 tin tuần này nhé, và subscribe để không bỏ lỡ số tuần sau.\n\n#AI #ArtificialIntelligence #OpenSourceAI #Nvidia #Meta #OpenAI #Anthropic #GoogleGemini #DataEngineering #RAG #AIAgent #PowerBI #DataAnalytics #AINews #DucNguyenAI",
+ "bgm": "tech-pulse",
+ "youtube": {
+  "recap": "B4WjwpQEdqQ",
+  "short": "kCgv7kNpgmA"
+ }
+}
