@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-08-14",
+      "display_date": "14/08/2026",
+      "title": "Comet 1.0: tăng tốc Spark gấp đôi, không sửa dòng code",
+      "summary": "Một bộ tăng tốc vừa ra bản chính thức, hứa làm Apache Spark chạy nhanh gấp đôi mà bạn không phải sửa một dòng code nào.",
+      "source": "datafusion.apache.org",
+      "video_id": "QS863A99KAk",
+      "short_id": "kIOBIcnO6JQ",
+      "published_at": "2026-08-14T19:19:02"
+    },
+    {
       "date": "2026-08-12",
       "display_date": "12/08/2026",
       "title": "Databricks mua Electric, mỗi AI agent có Postgres riêng",
