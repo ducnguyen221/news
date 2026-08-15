@@ -1,0 +1,418 @@
+{
+ "date": "15/08/2026",
+ "week": "W33",
+ "range": "10/08 - 16/08/2026",
+ "tldr": "Tuần 33 là tuần tiền và tuần kiến trúc. Databricks đóng vòng gọi vốn 5 tỷ đô ở định giá 190 tỷ, công bố doanh thu chạm mốc 7 tỷ đô một năm và tăng hơn 80% so với cùng kỳ. Cloudera khảo sát 1.500 kiến trúc sư dữ liệu và tìm ra con số đáng suy nghĩ: 95% doanh nghiệp từng hoãn hoặc huỷ dự án AI vì quản trị dữ liệu, chứ không phải vì mô hình yếu. Ở tầng nền, cộng đồng Iceberg gần như đã chốt bỏ Avro và chỉ dùng Parquet cho manifest phiên bản 4, kèm bản vá giúp đọc manifest nhanh hơn 25 đến 55%. Phía công cụ, MongoDB mở Atlas Managed MCP Server để agent code chạm thẳng dữ liệu vận hành đang sống, Splunk đưa Machine Data Lake lên GA, còn MotherDuck ra CLI. Chủ đề xuyên suốt: dữ liệu đang được xếp lại để agent dùng được, và ai không dọn quản trị trước thì sẽ trả giá sau.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "Snowflake mở CREATE OR ALTER cho dynamic Iceberg table, đưa tích hợp Amazon S3 Tables REST catalog lên GA",
+   "title_en": "CREATE OR ALTER support for dynamic Apache Iceberg tables; Amazon S3 Tables Iceberg REST catalog integration (General availability)",
+   "summary": "Ngày 13/08 Snowflake cho phép dùng CREATE OR ALTER với dynamic Apache Iceberg table, và trước đó ngày 10/08 đưa tích hợp Amazon S3 Tables qua Iceberg REST catalog lên General Availability. Cùng tuần còn có bản cập nhật Data Clean Rooms và CoCo Desktop v1.21.0.",
+   "why": "CREATE OR ALTER là thứ nhỏ mà đội data engineering thấy ngay: định nghĩa bảng khai báo được trong một câu lệnh, hết cảnh viết script drop rồi tạo lại. Cộng với S3 Tables REST catalog GA, Snowflake đang bỏ dần rào giữa kho của mình và Iceberg do người khác quản.",
+   "url": "https://docs.snowflake.com/en/release-notes/new-features",
+   "domain": "docs.snowflake.com",
+   "date": "2026-08-13",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 2,
+   "title": "Iceberg v4 nghiêng hẳn về manifest chỉ dùng Parquet, bản vá EagerInputFile giảm 25-55% thời gian đọc manifest",
+   "title_en": "Apache Data Lakehouse Weekly: August 5 - August 12, 2026",
+   "summary": "Bản tin lakehouse tuần 5-12/08 ghi nhận cộng đồng Iceberg đang hình thành đồng thuận bỏ Avro và chỉ dùng Parquet cho manifest v4, vì Avro không hỗ trợ đọc theo projection. Bản vá EagerInputFile của Varun Lakhyani cho thấy giảm 25 đến 55% thời gian đọc manifest Parquet trên S3; PyIceberg 0.12.0rc1 bị chặn phát hành vì lỗi tính đúng đắn, nhánh 1.12.0 dự kiến cắt từ 26/08.",
+   "why": "Manifest là thứ mọi truy vấn Iceberg phải đọc trước khi chạm dữ liệu. Đổi định dạng manifest sang Parquet là đổi nền móng, ảnh hưởng trực tiếp tới độ trễ planning của mọi engine đọc Iceberg, và cũng là dấu hiệu Iceberg đang tối ưu cho kiểu truy vấn điểm mà workload AI hay sinh ra.",
+   "url": "https://dev.to/alexmercedcoder/apache-data-lakehouse-weekly-august-5-august-12-2026-2j40",
+   "domain": "dev.to",
+   "date": "2026-08-12",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 4
+  },
+  {
+   "aid": 3,
+   "title": "Splunk đưa Machine Data Lake và Catalog lên GA cho kiến trúc Cisco Data Fabric",
+   "title_en": "From Vision to Value: New Splunk Platform Innovations Supporting Cisco Data Fabric Are Generally Available",
+   "summary": "Splunk công bố Machine Data Lake, Data Catalog, Agent Launchpad cùng phần mở rộng Federated Search và data management đã lên General Availability. Machine Data Lake và Catalog GA trên Splunk Cloud Platform 10.5.2605.5 tại US-East, Frankfurt, Tokyo và Sydney từ 04/08.",
+   "why": "Ý tưởng cốt lõi: giữ dữ liệu máy ở quy mô petabyte với chi phí thấp mà không phải gom hết về một chỗ, rồi tìm và kích hoạt chúng qua catalog và federated search. Đây đúng là bài toán mọi team observability và bảo mật đang đau khi log phình theo AI.",
+   "url": "https://www.splunk.com/en_us/blog/platform/splunk-platform-innovations-cisco-data-fabric-generally-available.html",
+   "domain": "splunk.com",
+   "date": "2026-08-11",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 5
+  },
+  {
+   "aid": 4,
+   "title": "AWS và Oracle đưa Exadata trên Exascale lên GA cho Oracle AI Database@AWS, phủ 22 region",
+   "title_en": "Introducing Oracle Exadata on Exascale for Oracle AI Database@AWS",
+   "summary": "Oracle Exadata Database Service trên hạ tầng Exascale đã General Availability cho Oracle AI Database@AWS, chạy ngay trong Availability Zone của AWS và mua được qua AWS Marketplace. Dịch vụ tách rời compute và storage, tính tiền theo mức dùng, khởi điểm có mặt ở 22 AWS Region.",
+   "why": "Trước đây muốn hiệu năng Exadata thì phải bao trọn cụm máy chủ database và storage. Giờ mô hình trả theo dùng và scale rời từng lớp mở cửa cho doanh nghiệp Việt còn nặng Oracle nhưng muốn kéo dữ liệu về gần workload phân tích và AI trên AWS.",
+   "url": "https://aws.amazon.com/blogs/database/introducing-oracle-exadata-on-exascale-for-oracle-ai-databaseaws/",
+   "domain": "aws.amazon.com",
+   "date": "2026-08-11",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 5,
+   "title": "MotherDuck ra CLI bản preview, cho tạo database thẳng từ file DuckDB trên cloud storage",
+   "title_en": "MotherDuck release notes - August 14, 2026",
+   "summary": "Bản phát hành 14/08 giới thiệu CLI motherduck ở dạng preview: đăng nhập, chạy SQL, dựng Dives và Flights ngay từ terminal với đầu ra dạng bảng, JSON hoặc CSV. Kèm theo là script cài DuckDB CLI cho Windows bằng một dòng lệnh, khả năng CREATE DATABASE từ file .db trên S3, và tính năng Favorites trong Object Explorer.",
+   "why": "CLI với đầu ra JSON hoặc CSV nghĩa là MotherDuck cắm được vào script và CI, không còn là công cụ chỉ dùng bằng chuột. Với team data nhỏ ở Việt Nam, đây là con đường tự động hoá rẻ mà không phải dựng cụm.",
+   "url": "https://motherduck.com/docs/about-motherduck/release-notes/",
+   "domain": "motherduck.com",
+   "date": "2026-08-14",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "Alation bắt tay PwC Canada làm bộ tăng tốc quản trị dữ liệu cho ngành bị quản chặt",
+   "title_en": "Alation and PwC Canada forge data governance partnership for regulated industries",
+   "summary": "Alation và PwC Canada lập quan hệ đối tác chiến lược giúp tổ chức trong ngành bị quản chặt siết lại quản trị dữ liệu, khởi đầu bằng hướng dẫn OSFI E-21 của Canada. Bộ tăng tốc gồm chính sách bám E-21, định nghĩa critical data element, template curation và nền tảng data intelligence của Alation để dựng lineage, quyền sở hữu, kiểm soát và bằng chứng tuân thủ.",
+   "why": "Xu hướng rõ dần: catalog không còn bán như công cụ tra cứu mà bán kèm bộ khung tuân thủ theo từng quy định cụ thể. Ngân hàng và bảo hiểm Việt Nam đang sống với Thông tư và chuẩn Basel cũng đi đúng hướng này.",
+   "url": "https://www.computerweekly.com/blog/CW-Developer-Network/Alation-PwC-Canada-forge-data-governance-partnership-for-regulated-industries",
+   "domain": "computerweekly.com",
+   "date": "2026-08-12",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "Airbyte ra dịch vụ migration đưa pipeline production từ Core lên Cloud mà không phải dựng lại",
+   "title_en": "Airbyte launches migration service from Core to Cloud",
+   "summary": "Airbyte mở dịch vụ migration giúp khách hàng chuyển pipeline đang chạy production từ bản Airbyte Core tự vận hành sang Airbyte Cloud mà không phải tạo lại connection hay đứt nhịp đồng bộ. Dữ liệu vẫn nằm ở warehouse đích hiện tại, phần state đồng bộ incremental được chuyển sang Cloud.",
+   "why": "Chuyển state incremental là chỗ khó nhất khi rời một công cụ ELT, vì làm sai là full refresh lại toàn bộ. Airbyte gánh phần đó chính là gỡ rào chuyển từ tự host sang managed cho những team đã mệt vì phải nuôi hạ tầng tích hợp.",
+   "url": "https://finance.yahoo.com/technology/articles/airbyte-launches-migration-airbyte-open-160000758.html",
+   "domain": "finance.yahoo.com",
+   "date": "2026-08-12",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "Precisely ra Automate Evolve Cloud Essentials, đưa quản trị automation SAP lên SaaS",
+   "title_en": "Precisely closes the SAP automation governance gap",
+   "summary": "Precisely giới thiệu Automate Evolve Cloud Essentials, bản SaaS cloud-native cho đội IT và trung tâm chuyên môn SAP kiểm soát tập trung chương trình automation mà không phải nuôi hạ tầng on-premises. Gói này gồm quản lý license tập trung, luồng duyệt script, lập lịch job phía server, audit trail đầy đủ, tự động cập nhật và hạ tầng được quản lý.",
+   "why": "Automation quanh SAP thường mọc tự phát ở từng phòng ban rồi không ai biết script nào đang chạy. Đưa audit trail và luồng duyệt vào giữa là cách thực dụng để mở rộng automation mà không đánh đổi tuân thủ.",
+   "url": "https://finance.yahoo.com/technology/articles/precisely-closes-sap-automation-governance-130000626.html",
+   "domain": "finance.yahoo.com",
+   "date": "2026-08-12",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "Arctera mở rộng Unified Platform: đối soát end-to-end, legal hold rõ hơn, dịch inline trong eDiscovery",
+   "title_en": "Arctera Unified Platform expands capabilities to strengthen defensible compliance",
+   "summary": "Arctera bổ sung khả năng thu thập tin nhắn di động LeapXpert và LSEG Messenger, đối soát end-to-end để phát hiện bản ghi bị thiếu hoặc trễ, tăng khả năng nhìn thấy trạng thái legal hold, thêm tệp đính kèm và dịch inline khi review eDiscovery. Nền tảng cũng báo cáo hoạt động của người review, hot word và vai trò.",
+   "why": "Đối soát để biết bản ghi nào bị thiếu hoặc về trễ là bài toán data quality kinh điển, chỉ khoác áo compliance. Ai làm pipeline ghi âm, chat, giao dịch cho ngân hàng đều hiểu giá trị của việc chứng minh được mình không mất dữ liệu.",
+   "url": "https://finance.yahoo.com/technology/articles/arctera-unified-platform-expands-capabilities-120000904.html",
+   "domain": "finance.yahoo.com",
+   "date": "2026-08-12",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "MongoDB ra Atlas Managed MCP Server: cắm dữ liệu vận hành đang sống vào Claude Code, Codex, Grok Build và Devin",
+   "title_en": "MongoDB Brings Live Operational Data to the Agentic Coding Stack",
+   "summary": "Tại MongoDB.local Build Fest ngày 13/08, MongoDB công bố Atlas Managed MCP Server, dịch vụ được host trọn gói giúp nối agent code với dữ liệu Atlas đang sống mà không cần dựng thêm hạ tầng. Lập trình viên truy vấn, xem và cập nhật dữ liệu vận hành ngay trong công cụ AI, dùng đúng credential và quyền Atlas sẵn có; MongoDB cho biết MCP server của họ đang có hơn 30.000 lượt cài mỗi tuần.",
+   "why": "Đây là bước dịch chuyển từ agent đọc bản chụp dữ liệu cũ sang agent đọc trạng thái thật của hệ thống. Điểm đáng khen là họ không đẻ thêm lớp quyền mới mà dùng lại RBAC của Atlas, tức là bảo mật không bị bỏ lại phía sau.",
+   "url": "https://www.mongodb.com/company/newsroom/press-releases/mongodb-brings-live-operational-data-to-the-agentic-coding-stack",
+   "domain": "mongodb.com",
+   "date": "2026-08-13",
+   "section": "🤖 AI × Data",
+   "hot_rank": 3
+  },
+  {
+   "aid": 11,
+   "title": "Alteryx: 53% tổ chức bế tắc khi đưa business context vào hệ thống AI",
+   "title_en": "53% of organizations struggle to translate business context into AI despite rising AI investment",
+   "summary": "Nghiên cứu IT Leader 2026 của Alteryx cho thấy 53% tổ chức chật vật khi chuyển bối cảnh nghiệp vụ như quy tắc, định nghĩa và tri thức vận hành vào hệ thống mà AI dựa vào, dù đầu tư vẫn tăng. 77% lãnh đạo IT nói bối cảnh này là điều kiện để AI cho ra kết quả chính xác và liên quan.",
+   "why": "Con số này nói đúng thứ nhiều nơi né tránh: mô hình không thiếu, thứ thiếu là định nghĩa nghiệp vụ được viết ra ở dạng máy đọc được. Semantic layer, data dictionary và metric store không còn là việc phụ, chúng là điều kiện cần để agent trả lời đúng.",
+   "url": "https://www.prnewswire.com/news-releases/53-of-organizations-struggle-to-translate-business-context-into-ai-despite-rising-ai-investment-302850216.html",
+   "domain": "prnewswire.com",
+   "date": "2026-08-13",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "Cloudera: 95% doanh nghiệp từng hoãn hoặc huỷ dự án AI vì quản trị dữ liệu, mở màn \"Great AI Re-Architecture\"",
+   "title_en": "95% of Enterprises Have Delayed AI Projects as Infrastructure Limitations Spark \"The Great AI Re-Architecture\"",
+   "summary": "Khảo sát 1.500 enterprise architect, cloud infrastructure lead và data architect ở 9 thị trường thuộc 3 khu vực cho thấy 77% tổ chức đang dùng AI thật, nhưng 95% từng hoãn hoặc huỷ sáng kiến AI trong năm qua vì quản trị dữ liệu, tuân thủ hoặc quy định. 72% tin kiến trúc dữ liệu hiện tại phải thay đổi đáng kể mới đáp ứng được yêu cầu AI, và 75% đã đổi cách làm storage và kiến trúc vì AI.",
+   "why": "Đây là bằng chứng số cho điều nhiều team đã cảm nhận: dự án AI chết vì dữ liệu và quản trị, không phải vì mô hình. Nếu doanh nghiệp bạn đang định mua thêm GPU trước khi dọn lineage và phân quyền thì con số 95% này đáng đọc lại hai lần.",
+   "url": "https://www.cloudera.com/about/news-and-blogs/press-releases/2026-08-11-ninety-five-percent-of-enterprises-have-delayed-ai-projects-as-infrastructure-limitations-spark-the-great-ai-re-architecture.html",
+   "domain": "cloudera.com",
+   "date": "2026-08-11",
+   "section": "🤖 AI × Data",
+   "hot_rank": 2
+  },
+  {
+   "aid": 13,
+   "title": "Tailscale truy ra bug WAL-reset 16 năm tuổi trong SQLite, bài viết nổ trên Hacker News",
+   "title_en": "Tracking down the 16-year-old WAL-reset SQLite bug",
+   "summary": "Bài kỹ thuật của Tailscale mổ xẻ hành trình truy vết một lỗi liên quan tới cơ chế reset write-ahead log của SQLite đã tồn tại 16 năm. Bài đạt hơn 1.200 điểm và hơn 230 bình luận trên Hacker News ngày 12/08, thành chủ đề kỹ thuật nóng nhất tuần trong giới hạ tầng dữ liệu.",
+   "why": "SQLite nằm dưới gần như mọi thứ, từ ứng dụng di động tới DuckDB-style embedded analytics. Bài này là lớp học miễn phí về cách debug tầng storage, và cũng là lời nhắc rằng phần mềm được tin tưởng nhất vẫn có góc tối nằm im hàng chục năm.",
+   "url": "https://tailscale.com/blog/sqlite-wal-reset-bug",
+   "domain": "tailscale.com",
+   "date": "2026-08-12",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "\"AI đang xoá tầng lớp trung lưu của nghề kỹ sư phần mềm?\" — tranh luận gần 1.000 bình luận trên Hacker News",
+   "title_en": "AI is removing the middle class of software engineering?",
+   "summary": "Bài viết của Florian Herrengt lập luận rằng AI đang bào mòn nhóm kỹ sư tầm trung, khi việc dễ được tự động hoá còn việc khó vẫn cần người rất giỏi. Chủ đề đạt gần 1.000 điểm và hơn 900 bình luận trên Hacker News ngày 12/08.",
+   "why": "Ngành dữ liệu đang đi đúng nếp đó: ingest và transform lặp lại bị agent nuốt dần, còn mô hình hoá dữ liệu, thiết kế semantic layer và phán đoán nghiệp vụ thì càng đắt giá. Ai đang làm data engineer tầm trung nên đọc và tính đường đi tiếp.",
+   "url": "https://blog.florianherrengt.com/ai-removing-middle-class-software-engineering.html",
+   "domain": "blog.florianherrengt.com",
+   "date": "2026-08-12",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "Data Engineering Weekly #282: Netflix mở tầng graph phân tán, Flink chạm 300 triệu bản ghi mỗi phút",
+   "title_en": "Data Engineering Weekly #282",
+   "summary": "Số 282 ra ngày 10/08 điểm loạt bài đáng đọc: Netflix kể phần 3 về truy vấn graph phân tán qua gRPC với tối ưu I/O, kiểm soát đồng thời và lọc sớm, cùng hành trình tiered storage cho dữ liệu chuỗi thời gian quy mô petabyte; Mohamed El Zein chia sẻ 13 tối ưu để đẩy Flink lên hơn 300 triệu bản ghi mỗi phút; Flipkart dùng LLM gán nhãn độ liên quan cho kết quả tìm kiếm; OLX chỉ ra tương quan đánh lừa ra sao và dùng Propensity Score Matching thay thế.",
+   "why": "Đây là loại nội dung ít marketing nhất trong tuần. Bài Flink 300 triệu bản ghi mỗi phút và bài tiered storage của Netflix là tài liệu thực chiến hiếm, đọc xong áp dụng được ngay vào bài toán chi phí lưu trữ và tuning streaming.",
+   "url": "https://www.dataengineeringweekly.com/p/data-engineering-weekly-282",
+   "domain": "dataengineeringweekly.com",
+   "date": "2026-08-10",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 16,
+   "title": "Databricks gọi 5 tỷ USD ở định giá 190 tỷ, doanh thu vượt mốc 7 tỷ USD một năm và tăng hơn 80%",
+   "title_en": "Databricks Grows >80% YoY, Surpasses $7B Revenue Run-Rate, Scales Lakebase, Genie, and Unity AI Gateway",
+   "summary": "Ngày 13/08 Databricks công bố vượt mốc doanh thu chạy 7 tỷ USD một năm với mức tăng hơn 80% so với cùng kỳ trong quý 2, đồng thời chốt vòng gọi vốn chiến lược 5 tỷ USD ở định giá 190 tỷ USD. Vòng này do Coatue dẫn dắt cùng Blackstone, MGX, các quỹ do T. Rowe Price tư vấn và nhà đầu tư mới Sixth Street Growth; theo TechCrunch, công ty ban đầu chỉ định gọi 1 tỷ còn nhà đầu tư muốn rót tới 15 tỷ. Tiền sẽ đổ vào Lakebase, Genie và Unity AI Gateway.",
+   "why": "Chỉ chưa đầy một tháng sau vòng ở định giá 188 tỷ, con số nhảy lên 190 tỷ và quy mô vòng gấp hơn rưỡi. Điều đáng chú ý không phải định giá mà là chỗ tiền đi: Postgres cho agent, trợ lý phân tích và cổng quản trị AI. Databricks đang cược rằng lakehouse tiếp theo được thiết kế cho agent dùng, không phải cho người mở dashboard.",
+   "url": "https://www.databricks.com/company/newsroom/press-releases/databricks-grows-80-yoy-surpasses-7b-revenue-run-rate-scales",
+   "domain": "databricks.com",
+   "date": "2026-08-13",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": 1
+  },
+  {
+   "aid": 17,
+   "title": "Skan AI gọi 63 triệu USD Series C để dựng Context Graph of Work cho AI agent",
+   "title_en": "Skan AI Raises $63 Million to Give Enterprise AI the Context It's Missing: How Work Actually Gets Done",
+   "summary": "Skan AI huy động 63 triệu USD vòng Series C do Cathay Innovation và Dell Technologies Capital đồng dẫn dắt, để mở rộng Context Graph of Work, bản ghi luôn được cập nhật về cách quy trình, quyết định, ngoại lệ và tri thức nội bộ vận hành trong doanh nghiệp. Nền tảng quan sát công việc xuyên vai trò, hệ thống và ứng dụng để cấp bối cảnh vận hành cho AI agent.",
+   "why": "Cùng thông điệp với nghiên cứu của Alteryx trong tuần: agent thiếu bối cảnh thì làm việc theo giả định chung chung. Có tiền đổ vào lớp bối cảnh nghĩa là thị trường bắt đầu định giá phần metadata quy trình, chứ không chỉ dữ liệu giao dịch.",
+   "url": "https://www.prnewswire.com/news-releases/skan-ai-raises-63-million-to-give-enterprise-ai-the-context-its-missing-how-work-actually-gets-done-302849114.html",
+   "domain": "prnewswire.com",
+   "date": "2026-08-12",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 18,
+   "title": "Oppenheimer nâng giá mục tiêu Snowflake lên 400 USD nhờ đà tiêu thụ và agent lập trình CoCo",
+   "title_en": "Oppenheimer Revamps Snowflake Stock Target For 2026",
+   "summary": "Oppenheimer nâng giá mục tiêu cổ phiếu Snowflake từ 295 USD lên 400 USD, với lý do xu hướng tiêu thụ mạnh hơn và tốc độ áp dụng agent lập trình CoCo tăng nhanh, báo hiệu tăng trưởng nhanh hơn phía trước. Cổ phiếu đã chạy tốt từ cuối tháng 5, được hỗ trợ bởi hợp tác nhiều năm trị giá 6 tỷ USD với AWS; Snowflake dự kiến báo cáo kết quả ngày 02/09.",
+   "why": "Điểm đáng chú ý là lý do phân tích viên đưa ra: một công cụ AI cho lập trình viên đang được tính vào luận điểm doanh thu của công ty dữ liệu. Trợ lý AI không còn là quà tặng kèm, nó bắt đầu kéo mức tiêu thụ compute thật.",
+   "url": "https://ca.finance.yahoo.com/news/oppenheimer-revamps-snowflake-stock-target-200242396.html",
+   "domain": "ca.finance.yahoo.com",
+   "date": "2026-08-12",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 19,
+   "title": "UVA Wise mở thạc sĩ online về Technology Management và Data Analytics cho kỳ mùa thu 2026",
+   "title_en": "UVA Wise launches Master of Science in Technology Management and Data Analytics for fall 2026",
+   "summary": "UVA Wise ra chương trình Master of Science ngành Technology Management and Data Analytics học hoàn toàn online cho kỳ mùa thu 2026. Chương trình 30 tín chỉ, không luận văn, kết hợp quản trị công nghệ, tài chính và fintech, data analytics, AI, chiến lược kinh doanh và quản trị công nghệ có trách nhiệm.",
+   "why": "Mô hình đào tạo đang dịch chuyển: không dạy analytics tách rời mà ghép luôn với quản trị và tài chính. Đây cũng là gợi ý cho chương trình đào tạo dữ liệu ở Việt Nam, nơi người học thường giỏi công cụ nhưng yếu phần đọc bài toán kinh doanh.",
+   "url": "https://www.uvawise.edu/news/2026/08/uva-wise-launches-master-science-technology-management-and-data-analytics-fall-2026",
+   "domain": "uvawise.edu",
+   "date": "2026-08-11",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 16,
+ "weekly_video": {
+  "intro": "Chào mọi người, đây là bản tin dữ liệu tuần 33, từ ngày mười tháng tám đến ngày mười sáu tháng tám năm hai nghìn không trăm hai mươi sáu. Tuần này có hai mạch chảy song song: tiền đổ mạnh vào nền tảng dữ liệu cho AI, và nền móng kỹ thuật của lakehouse đang được xếp lại. Mình sẽ đi qua năm câu chuyện nóng nhất, từ vòng gọi vốn kỷ lục của Databricks tới con số khiến nhiều lãnh đạo phải giật mình về quản trị dữ liệu.",
+  "outro": "Đó là năm câu chuyện lớn nhất của tuần 33. Chi tiết từng tin, nguồn gốc và phần phân tích sâu mọi người xem trong bản tin đầy đủ. Hẹn gặp lại tuần sau.",
+  "segments": [
+   {
+    "aid": 16,
+    "headline": "Databricks gọi 5 tỷ đô, định giá 190 tỷ",
+    "narration": "Câu chuyện lớn nhất tuần thuộc về Databricks. Ngày mười ba tháng tám, công ty công bố doanh thu đã vượt mốc bảy tỷ đô la một năm tính theo tốc độ chạy, tăng hơn tám mươi phần trăm so với cùng kỳ trong quý hai. Cùng lúc, họ chốt vòng gọi vốn chiến lược năm tỷ đô la ở định giá một trăm chín mươi tỷ đô la. Vòng này do Coatue dẫn dắt, cùng với Blackstone, MGX, các quỹ do T. Rowe Price tư vấn và nhà đầu tư mới là Sixth Street Growth. Theo TechCrunch, công ty ban đầu chỉ định gọi một tỷ, nhưng nhà đầu tư muốn rót tới mười lăm tỷ, và hai bên dừng lại ở năm tỷ. Điều đáng chú ý hơn định giá là chỗ tiền sẽ đi. Databricks nói sẽ đổ vào ba sản phẩm: Lakebase, tức Postgres serverless dựng riêng cho AI agent; Genie, trợ lý biến dữ liệu kinh doanh thành câu trả lời và hành động; và Unity AI Gateway, cổng quản trị và kiểm soát chi phí cho nhiều mô hình AI. Nhìn ba cái tên đó, thông điệp khá rõ: họ không cược vào lakehouse cho người mở dashboard, họ cược vào lakehouse cho agent đọc và ghi. Tín hiệu thực dụng cho người làm dữ liệu là kiến trúc của bạn sắp phải trả lời một câu hỏi mới: dữ liệu này đã sẵn sàng cho máy tự động dùng chưa.",
+    "bullets": [
+     "Vòng 5 tỷ đô, định giá 190 tỷ đô",
+     "Doanh thu chạy vượt 7 tỷ, tăng hơn 80%",
+     "Tiền đổ vào Lakebase, Genie, Unity AI Gateway"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Databricks tháng 8/2026",
+     "items": [
+      {
+       "v": "5 tỷ $",
+       "l": "quy mô vòng gọi vốn"
+      },
+      {
+       "v": "190 tỷ $",
+       "l": "định giá công ty"
+      },
+      {
+       "v": "7 tỷ $",
+       "l": "doanh thu chạy mỗi năm"
+      },
+      {
+       "v": ">80%",
+       "l": "tăng trưởng so cùng kỳ"
+      }
+     ]
+    },
+    "images": [
+     "https://www.databricks.com/sites/default/files/2026-08/funding-round-1200x628-og-1.png"
+    ]
+   },
+   {
+    "aid": 12,
+    "headline": "95% doanh nghiệp từng hoãn dự án AI vì dữ liệu",
+    "narration": "Câu chuyện thứ hai là một con số làm nhiều người phải ngồi thẳng lưng. Ngày mười một tháng tám, Cloudera công bố khảo sát mang tên Cuộc tái kiến trúc lớn vì AI, thực hiện với một nghìn năm trăm kiến trúc sư doanh nghiệp, phụ trách hạ tầng đám mây và kiến trúc sư dữ liệu, trải trên chín thị trường thuộc ba khu vực. Kết quả: bảy mươi bảy phần trăm tổ chức đang thực sự dùng AI, nhưng chín mươi lăm phần trăm đã từng hoãn hoặc huỷ ít nhất một sáng kiến AI trong năm qua vì vấn đề quản trị dữ liệu, tuân thủ hoặc quy định. Bảy mươi hai phần trăm tin rằng kiến trúc dữ liệu hiện tại phải thay đổi đáng kể mới đáp ứng được yêu cầu AI, và bảy mươi lăm phần trăm đã thay đổi cách làm lưu trữ vì AI. Nói cách khác, thứ chặn dự án AI không phải mô hình yếu, mà là dữ liệu chưa sạch, chưa rõ chủ, chưa rõ ai được xem gì. Đây là bằng chứng bằng số cho điều nhiều đội dữ liệu đã cảm nhận từ lâu. Nếu doanh nghiệp đang định mua thêm phần cứng hoặc ký thêm giấy phép AI trước khi dọn lineage, phân quyền và định nghĩa dữ liệu, thì con số chín mươi lăm phần trăm này đáng đọc lại vài lần.",
+    "bullets": [
+     "1.500 kiến trúc sư, 9 thị trường",
+     "95% từng hoãn hoặc huỷ dự án AI",
+     "72% nói kiến trúc dữ liệu phải đổi lớn"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Khảo sát Cloudera 2026",
+     "items": [
+      {
+       "v": "77%",
+       "l": "đang dùng AI thật"
+      },
+      {
+       "v": "95%",
+       "l": "từng hoãn hoặc huỷ dự án AI"
+      },
+      {
+       "v": "72%",
+       "l": "kiến trúc dữ liệu phải đổi lớn"
+      },
+      {
+       "v": "1.500",
+       "l": "người tham gia khảo sát"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 10,
+    "headline": "MongoDB mở MCP Server cho agent đọc dữ liệu sống",
+    "narration": "Câu chuyện thứ ba đến từ MongoDB. Ngày mười ba tháng tám, tại sự kiện MongoDB.local Build Fest, hãng công bố Atlas Managed MCP Server. Đây là dịch vụ được host trọn gói, cho phép nối các agent lập trình với dữ liệu Atlas đang chạy thật mà không phải dựng thêm bất kỳ hạ tầng nào. Lập trình viên có thể thêm MongoDB Atlas vào Claude Code, Codex, Grok Build hay Devin, rồi truy vấn, xem và cập nhật dữ liệu vận hành ngay trong công cụ AI mình đang dùng. Điểm mình đánh giá cao là cách họ xử lý quyền: dịch vụ dùng lại đúng credential và cơ chế kiểm soát truy cập sẵn có của Atlas, nghĩa là không đẻ thêm một lớp phân quyền song song để rồi không ai quản nổi. MongoDB cho biết MCP server của họ đang ghi nhận hơn ba mươi nghìn lượt cài mỗi tuần, kèm theo các tính năng mới như tự động sinh embedding và API xếp hạng lại kết quả. Ý nghĩa lớn hơn nằm ở chỗ này: agent đang chuyển từ đọc bản chụp dữ liệu cũ sang đọc trạng thái thật của hệ thống. Khi đó, chất lượng dữ liệu vận hành và độ chặt của phân quyền không còn là chuyện nội bộ đội dữ liệu, mà thành thứ trực tiếp quyết định agent làm đúng hay làm sai.",
+    "bullets": [
+     "Agent nối thẳng dữ liệu Atlas đang sống",
+     "Dùng lại credential và quyền Atlas sẵn có",
+     "Hơn 30.000 lượt cài MCP mỗi tuần"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Đường đi của một truy vấn agent",
+     "items": [
+      {
+       "t": "Coding agent",
+       "d": "Claude Code, Codex, Grok Build, Devin"
+      },
+      {
+       "t": "Managed MCP Server",
+       "d": "MongoDB host trọn gói"
+      },
+      {
+       "t": "Quyền Atlas",
+       "d": "credential và RBAC sẵn có"
+      },
+      {
+       "t": "Dữ liệu sống",
+       "d": "đọc và ghi trạng thái thật"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 2,
+    "headline": "Iceberg v4 chốt hướng manifest chỉ dùng Parquet",
+    "narration": "Câu chuyện thứ tư nằm ở tầng nền, ít ồn ào nhưng ảnh hưởng rất rộng. Bản tin lakehouse tuần từ mùng năm đến mười hai tháng tám ghi nhận cộng đồng Apache Iceberg đang hình thành đồng thuận cho phiên bản bốn của định dạng: bỏ Avro và chỉ dùng Parquet cho manifest. Lý do kỹ thuật khá thẳng, Avro không hỗ trợ đọc theo projection, tức là không thể chỉ đọc vài cột cần thiết mà phải nạp nhiều hơn mức cần. Manifest là thứ mọi truy vấn Iceberg phải đọc trước khi chạm vào dữ liệu thật, nên đây là thay đổi ở móng nhà chứ không phải ở lớp sơn. Cùng tuần, bản vá EagerInputFile do Varun Lakhyani đóng góp cho thấy giảm từ hai mươi lăm đến năm mươi lăm phần trăm thời gian đọc manifest Parquet trên S3, một mức cải thiện rất đáng kể với những bảng lớn. Ở phía công cụ, bản PyIceberg không chấm mười hai chấm không rc một bị chặn phát hành vì phát hiện lỗi ảnh hưởng tính đúng đắn, và bản rc hai sẽ ra sau. Nhánh phiên bản một chấm mười hai dự kiến cắt từ ngày hai mươi sáu tháng tám, giữ nhịp ba tháng một lần. Với người dùng, thông điệp là: độ trễ lập kế hoạch truy vấn đang được tối ưu mạnh, và Iceberg đang chuẩn bị cho kiểu truy vấn điểm mà workload AI sinh ra rất nhiều.",
+    "bullets": [
+     "Manifest v4 nghiêng về chỉ dùng Parquet",
+     "Đọc manifest nhanh hơn 25 đến 55%",
+     "PyIceberg 0.12.0rc1 bị chặn vì lỗi đúng đắn"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Manifest Iceberg: Avro và Parquet",
+     "left": {
+      "h": "Avro (v2, v3)",
+      "items": [
+       "Không đọc theo projection",
+       "Phải nạp dư dữ liệu",
+       "Đang được đề xuất bỏ ở v4"
+      ]
+     },
+     "right": {
+      "h": "Parquet (hướng v4)",
+      "items": [
+       "Đọc chọn cột cần thiết",
+       "Nhanh hơn 25-55% trên S3",
+       "Hợp truy vấn điểm cho AI"
+      ]
+     }
+    },
+    "images": [
+     "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F1zud41tc4yqov7h6alac.png"
+    ]
+   },
+   {
+    "aid": 3,
+    "headline": "Splunk đưa Machine Data Lake lên GA",
+    "narration": "Câu chuyện thứ năm là Splunk. Trong tuần, hãng công bố loạt năng lực nền tảng hỗ trợ kiến trúc Cisco Data Fabric đã chính thức lên bản dùng chung, gồm Machine Data Lake, Data Catalog, Agent Launchpad, cùng phần mở rộng của Federated Search và các chức năng quản lý dữ liệu. Cụ thể, Machine Data Lake và Catalog đã sẵn dùng trên Splunk Cloud Platform phiên bản mười chấm năm tại bốn khu vực là US East, Frankfurt, Tokyo và Sydney. Ý tưởng cốt lõi rất đáng chú ý với các đội vận hành: giữ dữ liệu máy ở quy mô petabyte với chi phí kiểm soát được, nhưng không bắt buộc phải gom hết mọi thứ về một kho trung tâm. Thay vào đó, tổ chức tìm, kết nối, quản trị và kích hoạt dữ liệu ở nơi nó đang nằm, kể cả khi dữ liệu nằm trong data lake, kho dữ liệu hay nền tảng AI của bên khác. Đây là hướng đi ngược với tư duy tập trung hoá kiểu cũ, và nó phản ánh một thực tế: chi phí di chuyển dữ liệu giờ thường lớn hơn chi phí lưu trữ. Với các doanh nghiệp Việt Nam đang khổ vì log phình theo mỗi hệ thống mới, mô hình giữ tại chỗ và tra cứu liên kết đáng để cân nhắc nghiêm túc trước khi ký thêm hợp đồng lưu trữ tập trung.",
+    "bullets": [
+     "Machine Data Lake và Catalog lên GA",
+     "Giữ dữ liệu petabyte, không phải gom một chỗ",
+     "Có mặt ở US East, Frankfurt, Tokyo, Sydney"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Các tầng Splunk cho Cisco Data Fabric",
+     "items": [
+      {
+       "t": "Agent Launchpad",
+       "d": "nơi agent khai thác dữ liệu máy"
+      },
+      {
+       "t": "Federated Search",
+       "d": "tra cứu xuyên kho, không phải di chuyển"
+      },
+      {
+       "t": "Data Catalog",
+       "d": "tìm và quản trị nguồn dữ liệu"
+      },
+      {
+       "t": "Machine Data Lake",
+       "d": "lưu petabyte với chi phí kiểm soát"
+      }
+     ]
+    },
+    "images": [
+     "https://www.splunk.com/content/dam/splunk-blogs/images/media_1b8088d25b655d545637bbc267a2b9f2f17fd153a/from-vision-to-value-new-splunk-platform-innovatio.jpg?width=1200&format=pjpg&optimize=medium"
+    ]
+   }
+  ]
+ },
+ "facebook_post": "Tuần của tiền lớn và của móng nhà: Databricks 190 tỷ đô, còn 95% doanh nghiệp vẫn tắc vì dữ liệu\n\nTuần này mình đọc tin mà thấy hơi lệch pha. Một bên là những con số tỷ đô bay vèo vèo, một bên là khảo sát nói gần như ai cũng mắc kẹt ở chỗ cũ mèm: dữ liệu chưa sạch, chưa rõ chủ, chưa rõ ai được xem gì.\n\n1️⃣ Databricks gọi 5 tỷ đô ở định giá 190 tỷ\nNgày 13/08, Databricks công bố doanh thu vượt mốc 7 tỷ đô một năm, tăng hơn 80% so với cùng kỳ trong quý 2, kèm vòng gọi vốn 5 tỷ đô do Coatue dẫn dắt. Theo TechCrunch, công ty ban đầu chỉ định gọi 1 tỷ, nhà đầu tư muốn rót 15 tỷ, cuối cùng dừng ở 5 tỷ. Tiền đi vào Lakebase (Postgres cho agent), Genie và Unity AI Gateway. Nghĩa là gì với người làm dữ liệu: lakehouse thế hệ tới được thiết kế cho agent đọc ghi, không phải cho người mở dashboard.\n\n2️⃣ Cloudera: 95% doanh nghiệp từng hoãn hoặc huỷ dự án AI\nKhảo sát 1.500 kiến trúc sư ở 9 thị trường, công bố ngày 11/08: 77% đang dùng AI thật, nhưng 95% từng hoãn hoặc huỷ sáng kiến AI trong năm qua vì quản trị dữ liệu, tuân thủ hoặc quy định. 72% nói kiến trúc dữ liệu hiện tại phải đổi đáng kể. Con số này mình sẽ còn trích lại nhiều lần khi đi tư vấn.\n\n3️⃣ MongoDB mở Atlas Managed MCP Server\nNgày 13/08, MongoDB cho cắm dữ liệu Atlas đang sống vào Claude Code, Codex, Grok Build, Devin mà không phải dựng hạ tầng, dùng lại đúng credential và phân quyền sẵn có. Họ nói MCP server đang có hơn 30.000 lượt cài mỗi tuần. Agent bắt đầu đọc trạng thái thật thay vì bản chụp cũ.\n\n4️⃣ Iceberg v4 nghiêng về manifest chỉ dùng Parquet\nÍt ồn ào nhưng đây là chuyện móng nhà. Cộng đồng Iceberg đang đồng thuận bỏ Avro cho manifest v4 vì Avro không đọc được theo projection. Bản vá EagerInputFile giảm 25 đến 55% thời gian đọc manifest Parquet trên S3. PyIceberg 0.12.0rc1 bị chặn phát hành vì lỗi tính đúng đắn.\n\n5️⃣ Splunk đưa Machine Data Lake lên GA\nMachine Data Lake, Data Catalog và Agent Launchpad đã lên bản dùng chung cho kiến trúc Cisco Data Fabric. Triết lý: giữ dữ liệu máy quy mô petabyte ở nơi nó đang nằm, tra cứu liên kết thay vì gom hết về một kho. Ai đang khổ vì log phình nên đọc.\n\n💭 Góc nhìn của mình về tuần này\nTheo mình, thứ đáng chú ý nhất không phải con số 190 tỷ, mà là sự đối lập giữa tin 1 và tin 2. Tiền chảy rất mạnh vào hạ tầng để AI dùng được dữ liệu, trong khi 95% doanh nghiệp vẫn chết ở khâu quản trị. Cốt lõi phải nhớ: dự án AI thất bại chủ yếu vì dữ liệu, không phải vì mô hình yếu.\n\nMình vừa học và thi chứng chỉ Databricks, có làm thực hành RAG trên nền lakehouse với Delta, Unity Catalog và vector search. Cảm nhận thật là điểm mạnh của họ không nằm ở mô hình xịn, mà ở chỗ gộp data và AI về một nền quản trị thống nhất. Khi catalog đã biết ai được xem bảng nào thì mở cho agent truy cập đỡ đáng sợ hơn nhiều so với bê một con RAG cắm thẳng vào kho không ai quản.\n\nTốt hay xấu thì tuỳ góc nhìn. Với doanh nghiệp lớn, đây là tin tốt: có tiền, có nền tảng, có bộ khung tuân thủ. Với team data nhỏ, rủi ro thật là bị cuốn theo phong trào agent trong khi chưa có nổi một data dictionary tử tế. Nghiên cứu Alteryx tuần này nói đúng chỗ đó: 53% tổ chức bế tắc khi đưa business context vào hệ thống AI.\n\nNên làm: dọn định nghĩa nghiệp vụ, phân quyền và lineage rồi hãy mở cửa cho agent. Không nên làm: mua thêm giấy phép AI rồi hy vọng nó tự hiểu dữ liệu của bạn. Nó không hiểu đâu.\n\nCông nghệ chạy rất nhanh, nhưng chỗ tắc vẫn nằm đúng nơi cũ. Đừng biến AI thành phong trào, hãy biến nó thành hệ thống.\n\nGhé AI News và Data News của mình để đọc bản đầy đủ, có nguồn từng tin và phân tích sâu. Subscribe để tuần sau khỏi lỡ nhé.\n\n#Data #DataEngineering #DataAnalytics #BusinessIntelligence #Lakehouse #ApacheIceberg #Databricks #MongoDB #Cloudera #Splunk #DataGovernance #AIAgent #RAG #DataNews #DucNguyenAI",
+ "bgm": "tech-pulse",
+ "youtube": {
+  "recap": "eoh6rixWe_Y",
+  "short": "xphfmnXU0Ys"
+ }
+}
