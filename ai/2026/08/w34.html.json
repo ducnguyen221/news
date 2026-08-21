@@ -1,0 +1,509 @@
+{
+ "date": "21/08/2026",
+ "week": "W34",
+ "range": "17/08 - 23/08/2026",
+ "tldr": "Tuần 34 là tuần của tiền và của bằng chứng. Anthropic báo doanh thu quy năm vượt 65 tỷ đô la, có lợi nhuận hoạt động điều chỉnh dương và đã nộp hồ sơ IPO kín, đặt lại toàn bộ câu chuyện về kinh tế của các phòng lab AI. Ở phía năng lực, Claude tự chạy một chiến dịch thiết kế protein và trúng 14 trên 15 mục tiêu, được hai đơn vị độc lập kiểm nghiệm trong phòng lab, gấp đôi tỷ lệ trúng thông thường của ngành. Hạ tầng và công cụ cũng chuyển động mạnh: Cerebras ra CS-4 tuyên bố nhanh gấp 30 lần GPU, Grok 4.6 lên Amazon Bedrock, Slack kéo coding agent vào channel chung của cả team, còn Cursor cho agent trực một mục tiêu dài hạn. Mặt trái cũng rõ hơn bao giờ hết, với lỗ hổng CoSnitch của Copilot, lỗi RCE trong Ray bị khai thác thật, một think tank giả dựng lên để lái câu trả lời của chatbot, và Pennsylvania ký sắc lệnh siết data center AI nghiêm nhất nước Mỹ.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "Slack ra mắt Slack Code: đưa Claude Code, Devin và Copilot vào thẳng channel của cả team",
+   "title_en": "Slack Code Puts AI Coding Agents in Dedicated Project Channels",
+   "summary": "Slack mở một loại channel mới nơi cả team và các coding agent cùng làm việc: Claude Code của Anthropic, Devin của Cognition, GitHub Copilot và agent của Vercel. Mọi người xem agent chạy, chen vào chỉnh hướng, review rồi ship code mà không rời Slack.",
+   "why": "Coding agent đang rời khỏi terminal của một người để bước vào không gian chung của cả team. Review và trách nhiệm với code do máy viết trở thành việc tập thể nhìn thấy được, thay vì hộp đen trên máy một dev.",
+   "url": "https://www.unite.ai/slack-code-puts-ai-coding-agents-in-dedicated-project-channels/",
+   "domain": "unite.ai",
+   "date": "2026-08-20",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 4
+  },
+  {
+   "aid": 2,
+   "title": "Cerebras ra CS-4: ghép ba wafer song song, tuyên bố inference nhanh gấp 30 lần GPU",
+   "title_en": "Introducing Cerebras CS-4: The Fastest AI Gets Faster",
+   "summary": "Tại sự kiện Supernova ở San Francisco ngày 19/08, Cerebras giới thiệu CS-4 gồm ba chip WSE-3 Turbo, tổng 750 petaFLOPs và 129,6 PB/s băng thông bộ nhớ. Hãng nói CS-4 đạt hơn 4.400 token mỗi giây cho mỗi người dùng trên GPT-OSS-120B, so với khoảng 350 token/giây ở dịch vụ GPU nhanh nhất.",
+   "why": "Nếu con số trụ được ngoài phòng lab, thế độc quyền inference của GPU bị đe dọa thật. Agent chạy dài hơi đang bị chặn bởi độ trễ chứ không phải bởi chất lượng model.",
+   "url": "https://www.cerebras.ai/blog/introducing-cerebras-cs-4",
+   "domain": "cerebras.ai",
+   "date": "2026-08-19",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 3
+  },
+  {
+   "aid": 3,
+   "title": "Grok 4.6 lên Amazon Bedrock: context 500K, bốn mức reasoning, giá 2,2 USD mỗi triệu token input",
+   "title_en": "Grok 4.6 on Amazon Bedrock",
+   "summary": "AWS công bố ngày 19/08 rằng Bedrock đã hỗ trợ Grok 4.6 với cửa sổ context 500K token và bốn nấc reasoning là low, medium, high, xhigh, mặc định low. Giá chuẩn 2,20 USD mỗi triệu token input và 6,60 USD output, bản Global rẻ hơn còn 2,00 và 6,00.",
+   "why": "Doanh nghiệp đã đứng trên AWS giờ gọi được Grok mà không cần ký hợp đồng riêng với xAI, lại có hai profile inference để chọn theo yêu cầu lưu trú dữ liệu.",
+   "url": "https://x.ai/news/grok-4-6-amazon-bedrock",
+   "domain": "x.ai",
+   "date": "2026-08-19",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 4,
+   "title": "Xiaomi trình làng robot hình người thế hệ mới: 98% chính xác sau 4 tháng làm việc trong nhà máy ô tô",
+   "title_en": "Xiaomi Robot set to make public debut at 2026 World Robot Conference",
+   "summary": "Robot cao khoảng 1,70 m, nặng 66 kg với 66 bậc tự do, trong đó 33 nằm ở hai bàn tay, ra mắt công chúng tại World Robot Conference ở Bắc Kinh ngày 19/08. Sau bốn tháng huấn luyện thực chiến trong nhà máy xe của Xiaomi, tỷ lệ thành công khi bắt vít tự tháo hai mặt tăng từ 90,2% lên 98%.",
+   "why": "Xiaomi nói rõ không bán lẻ con robot này. Đây là ván cược B2B vào dây chuyền sản xuất, nơi ROI đo bằng ca làm việc chứ không bằng lượt xem video demo.",
+   "url": "https://www.gizmochina.com/2026/08/18/xiaomi-robot-set-to-make-public-debut-at-2026-world-robot-conference-on-august-19/",
+   "domain": "gizmochina.com",
+   "date": "2026-08-19",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 5,
+   "title": "Google mở Student Hub trong Gemini và tặng sinh viên đại học một năm gói AI",
+   "title_en": "Gemini Live adds Deep Research as Notebooks come to AI Mode",
+   "summary": "Từ 19/08 Google triển khai dần khu học tập riêng trong Gemini: study notebook, flashcard, đề luyện tập, đọc syllabus rồi tự thêm lịch thi vào Google Calendar, và Deep Research chạy trong Gemini Live để hỏi đáp bằng giọng nói. Sinh viên đủ điều kiện ở Mỹ được Google AI Pro miễn phí 12 tháng, ngoài Mỹ là Google AI Plus tại hơn 140 thị trường.",
+   "why": "Cuộc chiến giành người dùng trẻ đang chuyển từ tính năng sang trợ cấp. Ai chiếm được thói quen học tập của sinh viên hôm nay thì giữ được họ khi đi làm.",
+   "url": "https://9to5google.com/2026/08/19/gemini-app-ai-mode-study-tools/",
+   "domain": "9to5google.com",
+   "date": "2026-08-19",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "Z.AI ra GLM-5.2 Turbo, nối dài chuỗi model mở của Trung Quốc trong tháng 8",
+   "title_en": "Z.AI releases GLM-5.2 Turbo",
+   "summary": "Z.AI phát hành GLM-5.2 Turbo ngày 17/08, bản tăng tốc của dòng GLM-5.2 vốn là model trọng số mở với cửa sổ context 1M và chế độ reasoning bật tắt tường minh. Đây là model thứ 12 ra mắt trong tháng 8/2026, đến từ 7 nhà cung cấp khác nhau.",
+   "why": "Model giờ ship theo nhịp bản vá phần mềm. Lợi thế cạnh tranh không còn nằm ở việc dùng model mạnh nhất, mà ở việc chọn đúng model cho từng tác vụ với đúng mức giá và đúng ràng buộc dữ liệu.",
+   "url": "https://docs.z.ai/release-notes/new-released",
+   "domain": "docs.z.ai",
+   "date": "2026-08-17",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "Cursor cho cloud agent tự thức dậy theo PR và Slack thread, thêm lệnh /goal giữ mục tiêu dài hạn",
+   "title_en": "Cloud Agents and Cursor Harness Improvements",
+   "summary": "Changelog ngày 19/08 của Cursor thêm Subscriptions để cloud agent tự kích hoạt khi có pull request, Slack thread hoặc lịch định sẵn thay vì phải gọi từng lần. Lệnh /goal giữ một mục tiêu xuyên nhiều phiên, còn subagent chạy trên VM cách ly với bản copy sạch của project.",
+   "why": "Đây là bước dịch chuyển từ agent chạy một việc sang agent trực một mục tiêu, mô hình vận hành gần với một nhân sự trực ca hơn là một câu lệnh.",
+   "url": "https://cursor.com/changelog/08-19-26",
+   "domain": "cursor.com",
+   "date": "2026-08-19",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "Microsoft vá lỗ hổng CoSnitch: một cú click là Copilot rò dữ liệu từ mọi app đã kết nối",
+   "title_en": "Microsoft Copilot Personal Flaws Could Let One Click Exfiltrate Data From Connected Apps",
+   "summary": "CVE-2026-24301, do Varonis Threat Labs phát hiện, ghép ba lỗi trong Copilot Personal: prompt tự chạy khi tải trang qua một tham số không có tài liệu, rút dữ liệu từ app đã kết nối bằng chính khả năng fetch URL của Copilot, và đầu độc bộ nhớ dài hạn qua tính năng tóm tắt web. Microsoft vá ngày 18/08, gần tám tháng sau khi được báo cáo.",
+   "why": "Đây là bài học nguyên mẫu về rủi ro của trợ lý AI có quyền rộng: mỗi connector bạn bật là một cửa mới, và prompt injection biến chính tính năng hợp lệ thành kênh rò rỉ.",
+   "url": "https://thehackernews.com/2026/08/microsoft-copilot-personal-flaws-could.html",
+   "domain": "thehackernews.com",
+   "date": "2026-08-18",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "Alipay mở nền tảng agentic commerce đầu tiên của Trung Quốc, kèm giao thức AHA nối agent giữa các thiết bị",
+   "title_en": "Alipay launches agentic commerce platform in China to bring AI tools to merchants",
+   "summary": "Tại hội nghị hệ sinh thái AI đầu tiên ở Hàng Châu, Alipay giới thiệu hạ tầng thương mại agent full-stack: nền tảng mở tự chuyển trang, danh mục sản phẩm và quy trình dịch vụ của merchant thành các Skill và MCP server mà agent gọi được, cộng bộ giao thức AHA cho agent liên thông giữa các thiết bị.",
+   "why": "Trung Quốc đang dựng lớp thanh toán, định danh và kiểm soát rủi ro cho agent trước khi phương Tây thống nhất được chuẩn. Ai nắm cổng thanh toán của agent thì nắm luôn phễu thương mại.",
+   "url": "https://technode.global/2026/08/18/alipay-launches-agentic-commerce-platform-in-china-to-bring-ai-tools-to-merchants/",
+   "domain": "technode.global",
+   "date": "2026-08-18",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "CISA đưa lỗ hổng RCE của Ray vào danh mục đang bị khai thác, cho cơ quan liên bang 3 ngày để vá",
+   "title_en": "CISA Flags Actively Exploited Ray Flaw That Can Trigger Browser-Based RCE",
+   "summary": "Ngày 17/08 CISA chuyển đánh giá CVE-2025-62593 từ có mã khai thác mẫu sang đang bị khai thác thực tế và đưa vào danh mục KEV, hạn khắc phục 20/08. Lỗi tiêm mã trong Ray bản trước 2.52.0, CVSS 4.0 là 9,4, cho phép tấn công DNS rebinding: nạn nhân chỉ cần vào một trang độc là mã chạy được trên instance Ray đang chạy nội bộ.",
+   "why": "Ray là xương sống của rất nhiều pipeline train và serve model. Đây là lần hiếm hoi một framework hạ tầng AI bị xếp ngang mức khẩn cấp với lỗ hổng hệ điều hành.",
+   "url": "https://thehackernews.com/2026/08/cisa-flags-actively-exploited-ray-flaw.html",
+   "domain": "thehackernews.com",
+   "date": "2026-08-18",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "Vercel Labs mở mã fx: coding agent viết bằng Zig, binary 6,4 MB, khởi động trong 10 micro giây",
+   "title_en": "fx: Unix like coding agent",
+   "summary": "fx vốn là công cụ nội bộ của Vercel, được mở mã ngày 17/08 dưới giấy phép Apache-2.0. Đó là một harness kiêm CLI viết bằng Zig, đóng gói thành một binary native 6,39 MiB, dùng vài megabyte RAM lúc nghỉ, không phụ thuộc nhà cung cấp model và chạy được cả với model local lẫn cloud.",
+   "why": "Ngược dòng với các agent nặng nề chạy trên Node. Khi bạn cần nhét agent vào sandbox, CI runner hay thiết bị biên, kích thước và thời gian khởi động mới là thứ quyết định.",
+   "url": "https://github.com/vercel-labs/fx",
+   "domain": "github.com",
+   "date": "2026-08-17",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "Anthropic công bố Claude tự thiết kế protein binder, trúng 14 trên 15 mục tiêu trong kiểm nghiệm phòng lab",
+   "title_en": "How Claude is accelerating protein design and analytical chemistry",
+   "summary": "Trong chiến dịch thiết kế protein nhiều nhánh, Mythos Preview và Opus 4.8 đạt tỷ lệ trúng lần lượt 26,7% và 22,6% qua phiên chạy 48 giờ, tạo ra 354 binder được xác nhận từ 1.320 thiết kế trên 15 mục tiêu. Adaptyv Bio và Twist Bioscience độc lập tổng hợp rồi thử nghiệm; ở cuộc thi của Adaptyv, model đạt 40% trên mục tiêu RBX1 so với 3,7% của người tham dự.",
+   "why": "Ngành thiết kế protein hiện có tỷ lệ trúng điển hình 10-15%. Một model đa dụng chạy trọn vòng mà gấp đôi con số đó, không cần chuyên gia dẫn từng bước, là tín hiệu AI đang bước vào vòng thực nghiệm chứ không chỉ đọc tài liệu.",
+   "url": "https://www.anthropic.com/research/Claude-accelerates-protein-design",
+   "domain": "anthropic.com",
+   "date": "2026-08-20",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": 2
+  },
+  {
+   "aid": 13,
+   "title": "Zetta ζ: harness vòng kín cho robot tự nâng cấp năng lực vật lý, dẫn đầu Hugging Face",
+   "title_en": "Zetta: An Efficient Closed-Loop Embodied Harness for Self-Evolving Physical Intelligence",
+   "summary": "Bài 2608.16590 giới thiệu một harness embodied khép kín, cho phép robot tự cải thiện kỹ năng vận động qua các vòng học lặp thay vì chờ người gắn nhãn từng bước. Bài đứng đầu bảng Daily Papers ngày 20/08 với 205 upvote.",
+   "why": "Điểm nghẽn của robot học không phải model mà là dữ liệu tương tác thật. Vòng kín tự sinh dữ liệu là hướng khả dĩ duy nhất để scale mà không thuê thêm hàng nghìn người vận hành.",
+   "url": "https://huggingface.co/papers/2608.16590",
+   "domain": "huggingface.co",
+   "date": "2026-08-20",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "SemComp-Bench: đo xem model sinh video có thật sự hoàn thành nhiệm vụ ngữ nghĩa hay chỉ trông đẹp",
+   "title_en": "SemComp-Bench: Benchmarking Semantic Task Completion in Video Generation",
+   "summary": "Bộ benchmark 2608.17426 chấm khả năng model video hoàn thành đúng yêu cầu ngữ nghĩa của prompt thay vì chỉ đánh giá chất lượng hình ảnh. Bài nhận 154 upvote trên Hugging Face Daily Papers ngày 20/08.",
+   "why": "Video AI đã qua giai đoạn trông có thật. Câu hỏi thương mại tiếp theo là có làm đúng việc mình bảo không, và đó là thứ các benchmark cũ không đo.",
+   "url": "https://huggingface.co/papers/2608.17426",
+   "domain": "huggingface.co",
+   "date": "2026-08-20",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "Demystifying Agent Skills: vì sao skill của agent hiệu quả, cho tới lúc không",
+   "title_en": "Demystifying Agent Skills: Why They Work-Until They Don't",
+   "summary": "Bài 2608.14036 mổ xẻ cơ chế đằng sau việc nạp skill cho agent: khi nào phần hướng dẫn dạng skill thật sự cải thiện hành vi và khi nào nó gãy. Bài dẫn đầu Daily Papers ngày 19/08 với 157 upvote.",
+   "why": "Rất nhiều team đang đổ công viết skill và quy trình cho agent mà không có mô hình lý giải khi nào cách đó phản tác dụng. Đây là bài hiếm hoi nói thẳng vào giới hạn.",
+   "url": "https://huggingface.co/papers/2608.14036",
+   "domain": "huggingface.co",
+   "date": "2026-08-19",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 16,
+   "title": "Benchmark chống nhiễm dữ liệu: model frontier chỉ đạt 3-15% khi phải tự dựng lại ý tưởng nghiên cứu",
+   "title_en": "Blind Benchmark Catches Frontier AI at Just Three Percent on Research Idea Recovery",
+   "summary": "Bộ benchmark Reconstruction bắt model khôi phục ý tưởng của một bài báo chỉ từ danh mục tài liệu tham khảo, cắt đường nhớ lại từ dữ liệu huấn luyện. Model frontier chạy đơn lẻ chỉ đạt 3 đến 15%; một thiết kế giải đấu Swiss nhiều agent nâng lên 42%. Bài vẫn là preprint chưa qua bình duyệt.",
+   "why": "Khoảng cách giữa tóm tắt tài liệu giỏi và đặt được giả thuyết mới vẫn rất rộng. Ai đang bán câu chuyện AI tự nghiên cứu nên đọc con số này trước.",
+   "url": "https://www.techtimes.com/articles/324932/20260819/blind-benchmark-catches-frontier-ai-just-three-percent-research-idea-recovery.htm",
+   "domain": "techtimes.com",
+   "date": "2026-08-19",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "FreeToken: chạy model MoE trọng số mở trên máy cá nhân bằng cách phân bổ động theo băng thông",
+   "title_en": "FreeToken: Efficient Edge-Native MoE Serving with Bandwidth-Adaptive Execution",
+   "summary": "Bài 2608.16157 đề xuất hệ thống phục vụ Mixture-of-Experts cho thiết bị biên, ánh xạ động phần tính toán và trạng thái model lên phần cứng cục bộ không đồng nhất để chạy model trọng số mở lớn trên máy cá nhân. Bài đạt 70 upvote trên Hugging Face ngày 17/08.",
+   "why": "MoE lớn thường bị coi là chỉ chạy nổi trên cụm GPU. Nếu kỹ thuật này trụ được, ranh giới giữa model đám mây và model chạy tại chỗ sẽ mờ đi đáng kể với doanh nghiệp cần dữ liệu ở lại nội bộ.",
+   "url": "https://huggingface.co/papers/2608.16157",
+   "domain": "huggingface.co",
+   "date": "2026-08-17",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 18,
+   "title": "Don't paste the AI, please: bài viết 1.021 điểm trên Hacker News về thói dán thẳng output của AI",
+   "title_en": "Don't paste the AI, please",
+   "summary": "Bài phản đối việc copy nguyên câu trả lời của AI rồi dán vào Slack hay email: hành vi đó đẩy gánh nặng đọc hiểu sang người khác, và tệ hơn là chính người dán cũng bỏ qua bước hiểu. Bài đạt 1.021 điểm với 568 bình luận trên Hacker News ngày 20/08.",
+   "why": "Đây là chuẩn mực văn hóa làm việc đang hình thành. Ở nhiều team, dán output thô đã bắt đầu bị đọc là dấu hiệu của lười tư duy chứ không phải của năng suất.",
+   "url": "https://dontpastetheai.com/",
+   "domain": "dontpastetheai.com",
+   "date": "2026-08-20",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 19,
+   "title": "Chiến dịch De-Flock America kêu gọi phá camera AI đêm Halloween lan rộng trên Reddit",
+   "title_en": "Viral De-Flock America campaign urging people to destroy AI cameras on Halloween night gains momentum",
+   "summary": "Bài trên r/technology ngày 18/08 về phong trào kêu gọi phá các camera nhận dạng biển số vào đêm Halloween thu hơn 42.000 upvote và gần 1.400 bình luận. Phong trào không có người tổ chức rõ ràng và không ai biết thực sự bao nhiêu người sẽ tham gia.",
+   "why": "Phản ứng dữ dội với giám sát bằng AI đã vượt khỏi phạm vi tranh luận chính sách. Doanh nghiệp triển khai camera thông minh cần tính cả rủi ro phá hoại vật lý và phản ứng cộng đồng.",
+   "url": "https://www.reddit.com/r/technology/comments/1vrszc5/viral_deflock_america_campaign_urging_people_to/",
+   "domain": "reddit.com",
+   "date": "2026-08-18",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 20,
+   "title": "Điều tra: một think tank giả được dựng lên để lái câu trả lời của chatbot AI",
+   "title_en": "Israel creates fake think tank in likely attempt to dupe AI chatbots",
+   "summary": "Hanover Institute for Public Policy xuất hiện quanh ngày 06/08 và xuất bản hơn 100 báo cáo chỉ trong một tuần. GPTZero gắn cờ 12 trên 12 bài lấy ngẫu nhiên là do AI viết; trang có dòng miễn trừ ghi rõ được tạo thay mặt cơ quan quảng cáo chính phủ Israel bởi nhà thầu Piro Inc., đơn vị nhận 900.000 USD. Các nhà nghiên cứu thấy trợ lý AI đã trích dẫn báo cáo này.",
+   "why": "Đây là mặt trận SEO mới: tối ưu nội dung cho chatbot đọc thay vì cho người đọc. Khi RAG lấy nguồn từ web mở, ai bơm đủ nội dung trông đáng tin thì lái được câu trả lời.",
+   "url": "https://responsiblestatecraft.org/israel-influence-chatgpt/",
+   "domain": "responsiblestatecraft.org",
+   "date": "2026-08-17",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 21,
+   "title": "AI;DR: cụm từ mới cho thứ người ta lướt qua vì biết là do AI viết, 1.101 điểm Hacker News",
+   "title_en": "AI;DR (AI; Didn't Read)",
+   "summary": "Bài viết đặt tên cho một phản xạ đang lan rộng: thấy nội dung do AI sinh ra thì bỏ qua, tương tự TL;DR nhưng lý do là nguồn gốc chứ không phải độ dài. Bài đạt 1.101 điểm và 689 bình luận trên Hacker News ngày 17/08.",
+   "why": "Chi phí sản xuất nội dung về gần 0 thì niềm tin trở thành tài nguyên khan hiếm. Với người làm marketing và đào tạo, dấu vết con người trong nội dung đang từ điểm cộng thành điều kiện cần.",
+   "url": "https://www.rickmanelius.com/p/aidr-ai-didnt-read",
+   "domain": "rickmanelius.com",
+   "date": "2026-08-17",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 22,
+   "title": "Vòng gọi vốn 19/08: Rillet huy động 100 triệu USD ở định giá 1 tỷ, ALSO gọi 150 triệu USD Series D",
+   "title_en": "Venture Capital & Startup Funding Roundup, August 19, 2026",
+   "summary": "Rillet, công ty tự động hóa kế toán, chốt Series C 100 triệu USD do ICONIQ dẫn dắt ở định giá 1 tỷ USD, nâng tổng vốn lên trên 200 triệu. Cùng ngày, ALSO, công ty xe tự hành và robot, gọi 150 triệu USD Series D do Prysm Capital, Eclipse, Greenoaks và MVP Ventures dẫn dắt, tổng vốn khoảng 455 triệu USD.",
+   "why": "Dòng tiền đang rời khỏi lớp wrapper AI để chảy vào chỗ có hệ thống khó sao chép: quy trình nghiệp vụ sâu và phần cứng. Đó là tín hiệu định vị đáng đọc cho startup Việt.",
+   "url": "https://techstartups.com/2026/08/19/venture-capital-startup-funding-roundup-august-19-2026-andreessen-horowitz-battery-ventures-iconiq-jpmorgan-chase-prosus-more/",
+   "domain": "techstartups.com",
+   "date": "2026-08-19",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  },
+  {
+   "aid": 23,
+   "title": "Thống đốc Pennsylvania ký sắc lệnh siết data center AI: địa phương không duyệt thì bang không cấp phép",
+   "title_en": "Governor Shapiro Signs Executive Order on Data Center Development in PA",
+   "summary": "Ngày 18/08, Thống đốc Josh Shapiro ký sắc lệnh mà ông gọi là rào chắn nghiêm nhất nước Mỹ với data center AI: Sở Môi trường chỉ xét hồ sơ khi chủ đầu tư đã có phê duyệt của cộng đồng địa phương, mọi dự án bị loại khỏi luồng cấp phép nhanh, và cấm dùng thỏa thuận bảo mật cho dự án data center.",
+   "why": "Không phải lệnh cấm, nhưng trao quyền phủ quyết cho địa phương thì trên thực tế chặn được rất nhiều dự án. Đây là mô hình các bang khác sẽ sao chép, và là rủi ro tiến độ mới cho kế hoạch mở rộng compute.",
+   "url": "https://www.pa.gov/governor/newsroom/2026-press-releases/governor-shapiro-signs-executive-order-on-data-center-developmen",
+   "domain": "pa.gov",
+   "date": "2026-08-18",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": 5
+  },
+  {
+   "aid": 24,
+   "title": "ByteDance ký thỏa thuận bản quyền với Motion Picture Association cho Seedance và Seedream",
+   "title_en": "Motion Picture Association Strikes Deal with ByteDance for IP Protections in AI Video, Image Models",
+   "summary": "Hai bên ký biên bản ghi nhớ về khung toàn cầu bảo vệ sở hữu trí tuệ cho model sinh video và ảnh của ByteDance, áp dụng cho Seedance và Seedream trên TikTok, liên doanh TikTok USDS, CapCut và Dreamina. Thỏa thuận đến sau lá thư yêu cầu ngừng vi phạm mà MPA gửi hồi tháng 2.",
+   "why": "Hollywood chọn đàm phán thay vì kiện đến cùng. Mô hình thỏa thuận khung này nhiều khả năng thành chuẩn cho các lab video khác, nhưng chưa bên nào công bố guardrail cụ thể là gì.",
+   "url": "https://variety.com/2026/biz/news/motion-picture-association-deal-bytedance-ip-ai-seedance-1236836240/",
+   "domain": "variety.com",
+   "date": "2026-08-18",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  },
+  {
+   "aid": 25,
+   "title": "Bộ Tư pháp Mỹ điều tra a16z vì các partner ngồi hội đồng quản trị nhiều công ty AI đối thủ",
+   "title_en": "DOJ's probe into Andreessen Horowitz over board seats baffles VCs",
+   "summary": "Andreessen Horowitz là tâm điểm một cuộc điều tra chống độc quyền kéo dài gần một năm, xoay quanh ghế hội đồng quản trị tại Databricks với Ben Horowitz và Fivetran với Martin Casado. Cơ sở pháp lý là điều khoản hiếm khi được viện dẫn trong luật năm 1914 cấm interlocking directorates. DOJ chưa đưa ra kết luận cuối cùng.",
+   "why": "Ghế hội đồng quản trị chéo là chuyện thường ngày của giới VC. Nếu án lệ hình thành, cấu trúc đầu tư của toàn ngành AI phải viết lại và startup mất một kênh cố vấn quen thuộc.",
+   "url": "https://techcrunch.com/2026/08/18/dojs-probe-into-andreessen-horowitz-over-board-seats-baffles-vcs/",
+   "domain": "techcrunch.com",
+   "date": "2026-08-18",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  },
+  {
+   "aid": 26,
+   "title": "Doanh thu quy năm của Anthropic vượt 65 tỷ USD, gấp hơn bảy lần cuối 2025, dọn đường cho IPO",
+   "title_en": "Anthropic's annualized revenue surges to $65B",
+   "summary": "Anthropic báo với nhà đầu tư rằng run rate doanh thu đã vượt 65 tỷ USD tính tới cuối tháng 7, tăng hơn bảy lần so với cuối năm 2025. Doanh thu sơ bộ quý 2 vượt 11,5 tỷ USD so với 787 triệu USD cùng kỳ năm trước, và công ty báo lợi nhuận hoạt động điều chỉnh dương. Anthropic đã nộp hồ sơ IPO kín cùng Morgan Stanley, Goldman Sachs và JPMorgan.",
+   "why": "Đây là lần đầu một lab AI hàng đầu vừa tăng trưởng dựng đứng vừa có lãi hoạt động điều chỉnh. Nó đổi hẳn câu chuyện AI chỉ đốt tiền và đặt mốc định giá cho cả ngành trước khi OpenAI lên sàn.",
+   "url": "https://techcrunch.com/2026/08/17/anthropics-annualized-revenue-surges-to-65b/",
+   "domain": "techcrunch.com",
+   "date": "2026-08-17",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": 1
+  }
+ ],
+ "hot_aid": 26,
+ "weekly_video": {
+  "intro": "Chào anh em, đây là bản tin tuần 34, từ ngày 17 đến 23 tháng 8 năm 2026. Một tuần mà tiền và bằng chứng cùng lên tiếng: Anthropic công bố doanh thu quy năm vượt 65 tỷ đô la và đã nộp hồ sơ IPO, Claude thiết kế protein trúng 14 trên 15 mục tiêu trong phòng lab thật, còn Cerebras tuyên bố nhanh gấp 30 lần GPU. Cùng mình điểm qua năm tin nóng nhất.",
+  "outro": "Đó là năm tin nóng nhất tuần 34. Còn hơn hai mươi tin khác về công cụ, nghiên cứu và thảo luận cộng đồng, anh em xem đầy đủ trong bản tin nhé. Hẹn gặp lại tuần sau.",
+  "segments": [
+   {
+    "aid": 26,
+    "headline": "Anthropic vượt 65 tỷ đô doanh thu, dọn đường IPO",
+    "narration": "Câu chuyện lớn nhất tuần 34 đến từ Anthropic. Công ty báo với nhà đầu tư rằng doanh thu quy năm đã vượt 65 tỷ đô la tính tới cuối tháng 7, tăng hơn bảy lần so với thời điểm cuối năm 2025. Con số quý hai còn ấn tượng hơn: doanh thu sơ bộ vượt 11 tỷ rưỡi đô la, trong khi cùng kỳ năm trước chỉ là 787 triệu. Nghĩa là gấp khoảng mười bốn lần chỉ sau một năm. Quan trọng hơn cả tốc độ, Anthropic báo lợi nhuận hoạt động điều chỉnh dương trong quý. Đây là điểm cần dừng lại. Suốt hai năm qua, câu chuyện quen thuộc về các phòng lab AI là đốt tiền vô tận để mua chip và điện. Giờ có ít nhất một công ty cho thấy mô hình kinh doanh này chạy được. Anthropic cũng đã nộp hồ sơ IPO kín, làm việc cùng Morgan Stanley, Goldman Sachs và JPMorgan, và nhiều khả năng lên sàn ngay trong mùa thu này, tức là trước cả OpenAI. Với doanh nghiệp, ý nghĩa thực tế là gì? Là nhà cung cấp mà bạn đang gọi API mỗi ngày sắp trở thành công ty đại chúng, phải công bố số liệu và chịu áp lực biên lợi nhuận từ cổ đông. Giá token, rate limit và lộ trình sản phẩm từ nay sẽ chịu ảnh hưởng của báo cáo quý, chứ không chỉ của nghiên cứu.",
+    "bullets": [
+     "Doanh thu quy năm vượt 65 tỷ đô la",
+     "Lợi nhuận hoạt động điều chỉnh dương quý 2",
+     "Đã nộp hồ sơ IPO kín"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Anthropic: số liệu trước IPO",
+     "items": [
+      {
+       "v": "65 tỷ USD",
+       "l": "doanh thu quy năm"
+      },
+      {
+       "v": "11,5 tỷ USD",
+       "l": "doanh thu quý 2"
+      },
+      {
+       "v": "7 lần",
+       "l": "tăng so với cuối 2025"
+      },
+      {
+       "v": "787 triệu",
+       "l": "quý 2 năm trước"
+      }
+     ]
+    },
+    "images": [
+     "https://techcrunch.com/wp-content/uploads/2026/06/GettyImages-2278736523.jpeg?resize=1200,798"
+    ]
+   },
+   {
+    "aid": 12,
+    "headline": "Claude thiết kế protein trúng 14 trên 15 mục tiêu",
+    "narration": "Tin thứ hai thuộc về khoa học. Anthropic công bố kết quả một chiến dịch thiết kế protein mà Claude chạy gần như tự động từ đầu đến cuối. Trong phiên chạy 48 giờ, hai model Mythos Preview và Opus 4.8 đạt tỷ lệ trúng lần lượt 26,7 phần trăm và 22,6 phần trăm, tạo ra 354 binder được xác nhận từ 1.320 thiết kế trên 15 mục tiêu. Có 14 trên 15 mục tiêu cho ra ít nhất một binder hoạt động. Điểm mấu chốt là hai công ty độc lập, Adaptyv Bio và Twist Bioscience, đã tổng hợp thật rồi thử nghiệm trong phòng lab. Đây không phải điểm số trên benchmark mà là protein bám thật vào đích thật. Để so sánh, tỷ lệ trúng điển hình của ngành hiện nay chỉ khoảng mười tới mười lăm phần trăm. Khi Mythos Preview tập trung vào một mục tiêu trong phiên 24 giờ, con số lên tới 35 phần trăm. Ở một cuộc thi do Adaptyv Bio tổ chức, model đạt 40 phần trăm trên mục tiêu RBX1, trong khi trung bình người tham dự chỉ đạt 3,7 phần trăm. Điều đáng chú ý không phải là AI thay thế nhà khoa học, mà là một model đa dụng, không được huấn luyện riêng cho sinh học cấu trúc, lại chạy trọn vòng đặt giả thuyết rồi lặp lại tốt hơn quy trình chuyên biệt. Thứ đang được rút ngắn là vòng lặp thực nghiệm.",
+    "bullets": [
+     "Trúng 14 trên 15 mục tiêu protein",
+     "Adaptyv Bio và Twist Bioscience thử nghiệm thật",
+     "Gấp đôi tỷ lệ trúng của ngành"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Thiết kế protein: cách cũ và Claude",
+     "left": {
+      "h": "Chiến dịch thông thường",
+      "items": [
+       "Tỷ lệ trúng 10 đến 15%",
+       "Chuyên gia dẫn từng bước",
+       "Vòng lặp thủ công, chậm"
+      ]
+     },
+     "right": {
+      "h": "Claude chạy tự động",
+      "items": [
+       "Trúng 26,7% và 22,6%",
+       "14 trên 15 mục tiêu",
+       "354 binder từ 1.320 thiết kế"
+      ]
+     }
+    },
+    "images": [
+     "https://cdn.sanity.io/images/4zrzovbb/website/e3758f1bc27af0786f4249cc1ab194fc2c6cce63-3840x2160.png"
+    ]
+   },
+   {
+    "aid": 2,
+    "headline": "Cerebras CS-4 tuyên bố nhanh gấp 30 lần GPU",
+    "narration": "Tin thứ ba là phần cứng. Tại sự kiện Supernova ở San Francisco ngày 19 tháng 8, Cerebras giới thiệu CS-4, hệ thống tăng tốc AI quy mô tủ rack, ghép ba chip WSE-3 Turbo chạy song song. Mỗi chip cho 250 petaflop và 43,2 petabyte mỗi giây băng thông bộ nhớ. Cộng lại là 750 petaflop và gần 130 petabyte mỗi giây. Con số Cerebras đưa ra để so sánh rất thẳng: trên model GPT-OSS-120B, CS-4 cho hơn 4.400 token mỗi giây cho mỗi người dùng, trong khi dịch vụ chạy trên GPU nhanh nhất chỉ khoảng 350 token mỗi giây. Tức là nhanh hơn khoảng 30 lần. So với thế hệ CS-3, hệ thống mới nhanh gấp đôi và cho thông lượng trên mỗi watt cao gấp mười lần. Lô hàng đầu tiên dự kiến giao trong quý này. Cần nói rõ đây là số liệu do chính nhà sản xuất công bố và chưa có bên thứ ba kiểm chứng độc lập. Nhưng nếu nó đứng vững, hệ quả rất cụ thể. Agent chạy dài hơi, vòng lặp suy luận nhiều bước, và các workflow đọc rồi viết liên tục hiện đang bị chặn bởi độ trễ chứ không phải bởi chất lượng model. Tốc độ token trên mỗi người dùng chính là biến số quyết định trải nghiệm agent có mượt hay không. Và đó cũng là điểm mà thế độc quyền inference của GPU dễ bị tấn công nhất.",
+    "bullets": [
+     "Ba wafer WSE-3 Turbo trong một rack",
+     "4.400 token mỗi giây mỗi người dùng",
+     "Số liệu chưa có bên thứ ba kiểm chứng"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Cerebras CS-4 xếp tầng",
+     "items": [
+      {
+       "t": "3 chip WSE-3 Turbo",
+       "d": "ghép song song trong một rack"
+      },
+      {
+       "t": "750 petaFLOPs",
+       "d": "tổng năng lực tính toán"
+      },
+      {
+       "t": "129,6 PB/s",
+       "d": "băng thông bộ nhớ"
+      },
+      {
+       "t": "4.400 token/giây",
+       "d": "mỗi người dùng, GPT-OSS-120B"
+      }
+     ]
+    },
+    "images": [
+     "https://cdn.sanity.io/images/e4qjo92p/production/d109d095daa0d697a3929226431d9f206f14e73d-2697x1568.png?rect=0,76,2697,1416&w=1200&h=630&fit=max&auto=format"
+    ]
+   },
+   {
+    "aid": 1,
+    "headline": "Slack Code đưa coding agent vào channel cả team",
+    "narration": "Tin thứ tư là về cách chúng ta làm việc với coding agent. Ngày 20 tháng 8, Slack ra mắt Slack Code, một loại channel mới nơi cả team và các agent lập trình cùng ngồi chung. Danh sách agent được hỗ trợ khá đầy đủ: Claude Code của Anthropic, Devin của Cognition, GitHub Copilot và agent của Vercel. Trong channel đó, mọi người xem agent làm việc theo thời gian thực, chen vào chỉnh hướng, review kết quả rồi ship code, tất cả không rời Slack. Tính năng có sẵn trên mọi gói Slack ngay từ ngày đầu, nhưng khách hàng vẫn phải tự có quyền truy cập từng agent đối tác. Vì sao điều này đáng chú ý? Vì cho tới giờ, coding agent chủ yếu chạy trong terminal của một người. Ai đó bảo agent viết code, agent viết, rồi kết quả xuất hiện dưới dạng một pull request mà cả team không biết đã sinh ra thế nào. Đưa agent vào channel chung nghĩa là biến quá trình đó thành thứ nhìn thấy được. Người mới vào nghề học được cách người giỏi ra lệnh cho agent. Người review thấy được ngữ cảnh chứ không chỉ thấy diff. Và trách nhiệm với đoạn code do máy viết trở thành việc tập thể. Đây là bước chuyển từ công cụ cá nhân sang quy trình có kiểm soát, và đó mới là thứ doanh nghiệp cần trước khi dám để agent chạm vào code sản xuất.",
+    "bullets": [
+     "Claude Code, Devin, Copilot trong channel chung",
+     "Cả team xem và chỉnh hướng agent",
+     "Có trên mọi gói Slack"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Slack Code hoạt động ra sao",
+     "items": [
+      {
+       "t": "Tạo channel",
+       "d": "kênh riêng cho từng project"
+      },
+      {
+       "t": "Gọi agent",
+       "d": "Claude Code, Devin, Copilot"
+      },
+      {
+       "t": "Team theo dõi",
+       "d": "xem và chen vào chỉnh hướng"
+      },
+      {
+       "t": "Review chung",
+       "d": "thấy ngữ cảnh, không chỉ diff"
+      },
+      {
+       "t": "Ship code",
+       "d": "không rời Slack"
+      }
+     ]
+    },
+    "images": [
+     "https://www.unite.ai/wp-content/uploads/2026/08/slack-code-puts-ai-coding-agents-in-dedicated-project-channels.jpg"
+    ]
+   },
+   {
+    "aid": 23,
+    "headline": "Pennsylvania siết data center AI mạnh nhất nước Mỹ",
+    "narration": "Tin cuối trong nhóm nóng nhất tuần là chuyện chính sách. Ngày 18 tháng 8, Thống đốc bang Pennsylvania Josh Shapiro ký một sắc lệnh mà ông gọi là rào chắn nghiêm nhất nước Mỹ đối với data center AI. Nội dung có ba điểm chính. Thứ nhất, Sở Môi trường của bang chỉ xét hồ sơ cấp phép khi chủ đầu tư đã có phê duyệt của cộng đồng địa phương. Ông Shapiro nói thẳng: nếu cộng đồng không đồng ý thì bang cũng không đồng ý. Thứ hai, mọi đề xuất data center AI bị loại khỏi luồng cấp phép nhanh. Thứ ba, cấm sử dụng thỏa thuận bảo mật cho các dự án data center, tức là không còn chuyện đàm phán kín với chính quyền địa phương. Ngoài ra chủ đầu tư phải cam kết ràng buộc pháp lý theo bộ tiêu chuẩn GRID về giá điện, bảo vệ môi trường, việc làm và minh bạch. Sắc lệnh không phải là lệnh cấm, nhưng trao quyền phủ quyết cho địa phương thì trên thực tế chặn được rất nhiều dự án. Đây là điều đáng theo dõi vì nó đi ngược hoàn toàn với xu hướng vài tháng qua, khi các bang đua nhau trải thảm đỏ mời data center. Áp lực từ hóa đơn tiền điện và nguồn nước của cư dân đang đủ lớn để đảo chiều chính sách. Và mô hình này nhiều khả năng sẽ được các bang khác sao chép.",
+    "bullets": [
+     "Địa phương không duyệt thì bang từ chối",
+     "Cấm thỏa thuận bảo mật cho data center",
+     "Loại khỏi luồng cấp phép nhanh"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Quy trình mới ở Pennsylvania",
+     "items": [
+      {
+       "t": "Cộng đồng duyệt trước",
+       "d": "không duyệt thì bang từ chối"
+      },
+      {
+       "t": "Bỏ luồng cấp phép nhanh",
+       "d": "mọi dự án AI xét thường"
+      },
+      {
+       "t": "Cấm thỏa thuận bảo mật",
+       "d": "không đàm phán kín"
+      },
+      {
+       "t": "Cam kết GRID",
+       "d": "giá điện, môi trường, việc làm"
+      }
+     ]
+    },
+    "images": []
+   }
+  ]
+ },
+ "facebook_post": "𝐁𝐀̉𝐍 𝐓𝐈𝐍 𝐀𝐈 𝐓𝐔𝐀̂̀𝐍 𝟑𝟒: 𝐓𝐈𝐄̂̀𝐍 𝐓𝐇𝐀̣̂𝐓, 𝐁𝐀̆̀𝐍𝐆 𝐂𝐇𝐔̛́𝐍𝐆 𝐓𝐇𝐀̣̂𝐓 🚀\n\nTuần này có một anh học viên nhắn cho Đức: \"Anh ơi em thấy tin AI mỗi ngày một kiểu, đọc xong chả biết cái nào quan trọng.\"\nĐức hiểu cảm giác đó. Mỗi tuần cả trăm tin, phần lớn là thông cáo báo chí xào lại.\nNhưng tuần 34 thì khác. Có hai con số làm mình phải ngồi đọc kỹ, vì nó không phải hype — nó là tiền vào tài khoản và protein bám thật trong ống nghiệm.\n\n---\n\n1️⃣ 𝐀𝐍𝐓𝐇𝐑𝐎𝐏𝐈𝐂: 𝟔𝟓 𝐓𝐘̉ Đ𝐎̂ 𝐃𝐎𝐀𝐍𝐇 𝐓𝐇𝐔 𝐐𝐔𝐘 𝐍𝐀̆𝐌 𝐕𝐀̀ Đ𝐀̃ 𝐍𝐎̣̂𝐏 𝐇𝐎̂̀ 𝐒𝐎̛ 𝐈𝐏𝐎\nTheo TechCrunch và Bloomberg, Anthropic báo với nhà đầu tư rằng doanh thu quy năm đã vượt 65 tỷ đô, tăng hơn 7 lần chỉ sau hơn nửa năm.\nDoanh thu quý 2 vượt 11,5 tỷ đô — cùng kỳ năm ngoái mới 787 triệu.\nVà quan trọng nhất: quý này họ báo có lợi nhuận hoạt động điều chỉnh dương.\n👉 Suốt 2 năm ai cũng bảo lab AI chỉ biết đốt tiền mua chip. Giờ có ít nhất một công ty chứng minh ngược lại.\n\n2️⃣ 𝐂𝐋𝐀𝐔𝐃𝐄 𝐓𝐔̛̣ 𝐓𝐇𝐈𝐄̂́𝐓 𝐊𝐄̂́ 𝐏𝐑𝐎𝐓𝐄𝐈𝐍, 𝐓𝐑𝐔́𝐍𝐆 𝟏𝟒 𝐓𝐑𝐄̂𝐍 𝟏𝟓 𝐌𝐔̣𝐂 𝐓𝐈𝐄̂𝐔\nCái này mới là tin làm mình bất ngờ nhất tuần.\nAnthropic công bố kết quả một chiến dịch thiết kế protein mà model chạy gần như tự động: 354 binder được xác nhận từ 1.320 thiết kế, trên 15 mục tiêu thì 14 mục tiêu có kết quả.\nHai công ty độc lập là Adaptyv Bio và Twist Bioscience tổng hợp thật rồi thử trong phòng lab. Không phải điểm benchmark — protein bám thật hoặc không bám, thế thôi.\nTỷ lệ trúng điển hình của ngành là 10-15%. Model đạt 22-27%, có mục tiêu lên 40%.\n👉 Điểm mấu chốt: đây là model đa dụng, không train riêng cho sinh học cấu trúc.\n\n3️⃣ 𝐂𝐄𝐑𝐄𝐁𝐑𝐀𝐒 𝐂𝐒-𝟒: 𝐓𝐔𝐘𝐄̂𝐍 𝐁𝐎̂́ 𝐍𝐇𝐀𝐍𝐇 𝐆𝐀̂́𝐏 𝟑𝟎 𝐋𝐀̂̀𝐍 𝐆𝐏𝐔\nGhép 3 chip wafer-scale trong một rack, tổng 750 petaFLOPs. Trên GPT-OSS-120B, họ nói đạt hơn 4.400 token/giây cho mỗi user, so với khoảng 350 của dịch vụ GPU nhanh nhất.\nSố này do chính hãng công bố, chưa có bên thứ ba kiểm chứng — cứ đọc với đúng mức hoài nghi.\n👉 Nhưng hướng đi thì đúng: agent chạy dài hơi đang tắc vì độ trễ, không phải vì model kém.\n\n4️⃣ 𝐒𝐋𝐀𝐂𝐊 𝐂𝐎𝐃𝐄: 𝐊𝐄́𝐎 𝐂𝐎𝐃𝐈𝐍𝐆 𝐀𝐆𝐄𝐍𝐓 𝐕𝐀̀𝐎 𝐂𝐇𝐀𝐍𝐍𝐄𝐋 𝐂𝐔̉𝐀 𝐂𝐀̉ 𝐓𝐄𝐀𝐌\nSlack mở loại channel mới cho Claude Code, Devin, GitHub Copilot và agent của Vercel cùng làm việc với team. Xem agent chạy, chen vào chỉnh hướng, review rồi ship — không rời Slack.\n👉 Trước giờ agent chạy trong terminal của một người, cả team chỉ thấy cái pull request từ trên trời rơi xuống. Giờ quá trình đó nhìn thấy được.\n\n5️⃣ 𝐏𝐄𝐍𝐍𝐒𝐘𝐋𝐕𝐀𝐍𝐈𝐀 𝐒𝐈𝐄̂́𝐓 𝐃𝐀𝐓𝐀 𝐂𝐄𝐍𝐓𝐄𝐑 𝐀𝐈 𝐌𝐀̣𝐍𝐇 𝐍𝐇𝐀̂́𝐓 𝐍𝐔̛𝐎̛́𝐂 𝐌𝐘̃\nThống đốc Josh Shapiro ký sắc lệnh: địa phương không duyệt thì bang không cấp phép, bỏ luồng cấp phép nhanh, và cấm ký thỏa thuận bảo mật cho dự án data center.\n👉 Sau 2 năm các bang đua nhau trải thảm đỏ, đây là lần đảo chiều rõ ràng đầu tiên. Nguyên nhân rất đời: hóa đơn tiền điện của dân.\n\n---\n\n💭 𝐆𝐨́𝐜 𝐧𝐡𝐢̀𝐧 𝐜𝐮̉𝐚 𝐦𝐢̀𝐧𝐡 𝐯𝐞̂̀ 𝐭𝐮𝐚̂̀𝐧 𝐧𝐚̀𝐲\n\nĐức chỉ chia sẻ dưới góc nhìn kỹ thuật của một người làm Data & AI, không phải góc nhìn đầu tư nhé.\n\nCái mình thấy rõ nhất tuần này là ranh giới giữa \"AI biết nói\" và \"AI làm được việc\" đang tách ra rất nhanh.\n\nĐặt hai tin cạnh nhau sẽ thấy: Claude thiết kế protein trúng 14/15 mục tiêu, nhưng cùng tuần có một benchmark khác cho thấy model frontier chỉ đạt 3-15% khi phải tự dựng lại ý tưởng nghiên cứu từ con số không.\nKhông mâu thuẫn đâu. Model rất mạnh khi có vòng phản hồi khách quan để lặp — thử, đo, sửa, thử lại. Và rất yếu khi phải nhảy một bước sáng tạo mà không ai nói đúng hay sai.\n👉 Nguyên tắc mình vẫn dùng khi tư vấn: đừng giao cho AI phần đặt câu hỏi chiến lược. Hãy giao phần chạy vòng lặp. Nó không giỏi hơn người ở từng bước, nó chỉ chạy được nhiều vòng hơn với chi phí thấp hơn. Đó mới là chỗ ROI có thật.\n\nChuyện thứ hai ít người để ý nhưng với anh em làm RAG và AI Agent thì còn quan trọng hơn: tuần này có điều tra chỉ ra một think tank giả được dựng lên, hơn 100 báo cáo trong một tuần, viết bằng AI, tối ưu để chatbot trích dẫn. Chi phí khoảng 900 nghìn đô. Rẻ đến mức đáng sợ.\n👉 Nếu bạn xây RAG mà để agent lấy nguồn tự do từ web mở, bạn đang mở cửa cho người khác viết câu trả lời hộ mình.\nMình luôn nói với học viên: chọn model là quyết định dễ nhất trong một hệ RAG. Phần khó là kiểm soát nguồn — danh sách nguồn được duyệt, trọng số theo uy tín, và log để truy ngược mọi câu trả lời về đúng tài liệu gốc. Thiếu ba thứ đó thì hệ thống đẹp mà không đáng tin.\n\nCuối cùng, chuyện Anthropic sắp IPO. Nó nhắc một điều rất thực dụng: nhà cung cấp mà bạn gọi API mỗi ngày sắp phải trả lời cổ đông từng quý.\n👉 Nếu code của bạn đang gọi thẳng SDK của một hãng ở khắp nơi, tuần này là lúc tốt để bọc lại một lớp trừu tượng. Bảo hiểm rẻ nhất bạn mua được lúc này 😅\n\n---\n\nTuần này làm mình nghĩ tới chuyện xây nhà. Ai cũng thích khoe mặt tiền — model mới, benchmark cao, demo lung linh.\nNhưng thứ quyết định nhà ở được lâu hay không lại là móng và đường ống: nguồn dữ liệu sạch, quy trình review rõ, và khả năng đổi nhà cung cấp mà không phải đập đi xây lại.\n\nAnh em nào đang xây RAG hoặc AI Agent cho doanh nghiệp thì comment cho mình biết đang vướng khâu nào nhé 👌\n\n#AINews #TuanW34 #Anthropic #ClaudeAI #Cerebras #SlackCode #RAG #AIAgent #DataAI #HocCungAI #CongNgheAI #ChuyenDoiSo #DuLieu",
+ "facebook_reel": "1.320 thiết kế. 15 mục tiêu. Trúng 14. 🧬\n\nClaude tự chạy một chiến dịch thiết kế protein, hai phòng lab độc lập tổng hợp thật rồi thử nghiệm.\nTỷ lệ trúng của ngành là 10-15%. Model đạt 22-27%.\n\nCùng tuần, doanh thu quy năm của Anthropic vượt 65 tỷ đô.\n\nCâu chuyện \"AI chỉ biết đốt tiền\" hình như hết hiệu lực rồi. Bạn nghĩ sao?\n\n#AINews #Anthropic #ClaudeAI #TuanW34 #DataAI",
+ "bgm": "tech-pulse",
+ "youtube": {
+  "recap": "MKgLHyWedzI",
+  "short": "7aU46StbAFM"
+ }
+}
