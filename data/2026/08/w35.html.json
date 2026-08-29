@@ -1,0 +1,517 @@
+{
+ "date": "29/08/2026",
+ "week": "W35",
+ "range": "24/08 - 30/08/2026",
+ "tldr": "Tuần 35 là tuần các nền móng dữ liệu mở chốt lại những quyết định lớn: Apache Iceberg bỏ phiếu cấm ghi equality delete mới trong định dạng V4 và lập kho apache/iceberg-verification để mọi bản cài đặt chạy chung một bộ test tương thích, còn Apache Software Foundation đưa Iggy, nền tảng streaming viết bằng Rust, lên hàng Top-Level Project. Ở phía nền tảng thương mại, agent bước hẳn vào bên trong pipeline: Databricks cho Genie Code chạy như một task trong Lakeflow Jobs, Snowflake đưa Cortex Agents Coding Agent lên GA, còn Airbyte gắn semantic search kèm chính sách phân quyền chi tiết vào nền tảng agent của mình. Thị trường tiếp tục dồn lực vào lớp dữ liệu cho AI: Grafana Labs vượt mười nghìn khách hàng và sáu trăm triệu đô doanh thu định kỳ, Elastic hoàn tất thâu tóm Deductive AI, Nasuni mua DryvIQ, còn Thomson Reuters chi bốn mươi triệu đô tự huấn luyện mô hình riêng từ kho dữ liệu của mình. Trong nước, Bộ Khoa học và Công nghệ chính thức vận hành Cổng thông tin và cơ sở dữ liệu quốc gia về trí tuệ nhân tạo tại ai.dda.gov.vn.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "Apache Iggy và Apache Sourcelume lên Top-Level Project: đối thủ streaming viết bằng Rust có dấu ASF",
+   "title_en": "The Apache Software Foundation Announces New Top-Level Projects",
+   "summary": "Ngày 27/08, Apache Software Foundation công bố Apache Iggy và Apache Sourcelume tốt nghiệp thành Top-Level Project. Iggy là nền tảng message streaming có lưu trữ bền viết bằng Rust, kiến trúc thread-per-core shared-nothing trên io_uring, hỗ trợ sẵn TCP, QUIC, HTTP và WebSocket.",
+   "why": "Phần lớn kiến trúc real-time hôm nay vẫn mặc định là Kafka kèm JVM. Một lựa chọn Rust, không có khoảng dừng do garbage collection, dấu chân hạ tầng nhỏ và nay có quản trị cộng đồng chính thức của ASF là cửa đáng thử cho đội nhỏ.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/the-apache-software-foundation-announces-new-top-level-projects-2/",
+   "domain": "hpcwire.com",
+   "date": "2026-08-27",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 3
+  },
+  {
+   "aid": 2,
+   "title": "Iceberg V4 chốt cấm ghi equality delete mới, lập kho apache/iceberg-verification cho test tương thích",
+   "title_en": "Apache Data Lakehouse Weekly: August 19 to 26, 2026",
+   "summary": "Cộng đồng Apache Iceberg bỏ phiếu cấm ghi equality delete mới trong định dạng bảng V4, chuyển hẳn sang deletion vector cho các writer streaming. Cùng tuần, kho apache/iceberg-verification ra đời với năm phiếu thuận ràng buộc để chứa bộ test tương thích dùng chung cho mọi ngôn ngữ.",
+   "why": "Đây là lúc V4 chuyển từ nguyên tắc trên giấy thành đặc tả triển khai được. Cuộc đánh đổi nhiều năm giữa tiện khi ghi và nhanh khi đọc đã ngã ngũ về phía đọc.",
+   "url": "https://dev.to/alexmercedcoder/apache-data-lakehouse-weekly-august-19-to-26-2026-4emn",
+   "domain": "dev.to",
+   "date": "2026-08-26",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 1
+  },
+  {
+   "aid": 3,
+   "title": "Nghiên cứu SQLite is Enough: gộp tìm kiếm lexical, semantic và hybrid vào một file SQLite",
+   "title_en": "SQLite is Enough. Lexical, Semantic, and Hybrid Search with scrydb",
+   "summary": "Bài trên arXiv giới thiệu scrydb, cho thấy có thể làm cả tìm kiếm từ khoá, tìm kiếm ngữ nghĩa lẫn hybrid ngay trên SQLite thay vì dựng thêm một vector database riêng.",
+   "why": "Rất nhiều dự án RAG bắt đầu bằng việc dựng cụm vector database trước khi biết mình cần gì. Bài này đẩy ngưỡng khi nào thực sự cần hạ tầng riêng lên cao hơn đáng kể.",
+   "url": "https://arxiv.org/abs/2608.24060",
+   "domain": "arxiv.org",
+   "date": "2026-08-25",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 4,
+   "title": "PicoMQ: durable stream chạy qua HTTP, lưu thẳng trên object storage",
+   "title_en": "Show HN: PicoMQ - Durable Streams over HTTP, on object storage",
+   "summary": "Dự án PicoMQ lên Hacker News ngày 24/08 và đạt 159 điểm: một lớp message stream bền, giao tiếp bằng HTTP thuần và dùng object storage làm tầng lưu trữ, thay vì cụm broker có trạng thái.",
+   "why": "Hướng lưu trữ trên object storage còn tính toán không trạng thái đang lan từ warehouse sang streaming. Đây là một ví dụ nhỏ nhưng rất đúng xu hướng.",
+   "url": "https://picomq.com/",
+   "domain": "picomq.com",
+   "date": "2026-08-24",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 5,
+   "title": "Nghiên cứu EXPLAIN Yourself: săn lỗi query planner đứng hình trên nhiều DBMS",
+   "title_en": "EXPLAIN Yourself! Finding Query Planner Stalls Across DBMSes",
+   "summary": "Bài trên arXiv ngày 24/08 đề xuất cách phát hiện các tình huống bộ tối ưu truy vấn bị đứng hình, tức tốn thời gian lập kế hoạch bất thường, trên nhiều hệ quản trị cơ sở dữ liệu khác nhau.",
+   "why": "Query chậm vì planner chứ không vì dữ liệu là loại lỗi rất khó đổ tội đúng chỗ, và hầu như không có công cụ chuẩn để săn.",
+   "url": "https://arxiv.org/abs/2608.23402",
+   "domain": "arxiv.org",
+   "date": "2026-08-24",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "Snowflake đưa CoCo trong extension Visual Studio Code lên GA, nới giới hạn file cho dbt project",
+   "title_en": "CoCo in the Snowflake Extension for Visual Studio Code - General Availability",
+   "summary": "Ngày 27/08, Snowflake công bố CoCo trong extension cho Visual Studio Code đạt trạng thái GA, đồng thời nâng giới hạn số file cho các đối tượng dbt project được triển khai lên Snowflake.",
+   "why": "Trợ lý code của Snowflake rời khỏi trình duyệt để về đúng nơi kỹ sư dữ liệu ngồi cả ngày, còn giới hạn file lớn hơn tháo nút thắt cho các repo dbt cỡ doanh nghiệp.",
+   "url": "https://docs.snowflake.com/en/user-guide/vscode-ext",
+   "domain": "docs.snowflake.com",
+   "date": "2026-08-27",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "Lakeflow Designer bản tháng 8: toán tử Unique, chọn cột động và xem diff canvas trong lịch sử phiên bản",
+   "title_en": "Lakeflow Designer August release",
+   "summary": "Databricks phát hành bản tháng 8 của Lakeflow Designer ngày 27/08, bổ sung toán tử Unique, chọn cột động, chế độ xem trước bằng Python, tô sáng lineage theo từng toán tử và so sánh trực quan canvas giữa các phiên bản.",
+   "why": "Công cụ dựng pipeline kéo thả lâu nay yếu nhất ở khâu kiểm soát thay đổi. Có diff trực quan trong lịch sử phiên bản là bước đưa nó tới gần thói quen làm việc của kỹ sư.",
+   "url": "https://learn.microsoft.com/en-us/azure/databricks/release-notes/product/2026/august",
+   "domain": "learn.microsoft.com",
+   "date": "2026-08-27",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "Databricks đưa Zerobus Ingest cho streaming table lên GA, che query text trong system table theo mặc định",
+   "title_en": "Zerobus Ingest for streaming tables is GA; Query text masking by default",
+   "summary": "Ngày 26/08, Databricks cho biết ghi vào streaming table qua Zerobus Ingest đã lên GA và hoạt động y như ghi vào managed Delta table. Cùng ngày, nội dung query trong system table mặc định trả về REDACTED, chỉ account admin và nhóm được chỉ định mới đọc được.",
+   "why": "Một bên gỡ rào cho ingest thời gian thực, một bên siết lại rò rỉ dữ liệu nhạy cảm nằm ngay trong câu lệnh SQL - thứ rất nhiều tổ chức quên mất là có tồn tại.",
+   "url": "https://docs.databricks.com/gcp/en/release-notes/product/2026/august",
+   "domain": "docs.databricks.com",
+   "date": "2026-08-26",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "Airbyte mở rộng nền tảng agentic: semantic search cộng entity policy phân quyền chi tiết",
+   "title_en": "Airbyte Expands Agentic Data Platform with Semantic Search and Fine-Grained Governance",
+   "summary": "Ngày 25/08, Airbyte bổ sung tìm kiếm ngữ nghĩa cho Airbyte Agents trên Google Drive, bản ghi cuộc gọi Gong, ghi chú Granola và issue Linear, kèm entity policy cho từng workspace, tất cả gắn thẳng vào Context Store là chỉ mục tối ưu cho tìm kiếm.",
+   "why": "Theo CEO Michel Tricot, doanh nghiệp không cần thêm một vector database rời rạc hay một hệ phân quyền thứ hai - họ cần agent hiểu dữ liệu đang có mà vẫn tuân đúng chính sách nhân viên đang dùng.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/airbyte-expands-agentic-data-platform-with-semantic-search-and-fine-grained-governance/",
+   "domain": "hpcwire.com",
+   "date": "2026-08-25",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "NeverBlink ra AI database administrator đầu tiên cho ClickHouse",
+   "title_en": "NeverBlink Launches 1st AI Database Administrator for ClickHouse",
+   "summary": "Ngày 25/08, NeverBlink mở rộng nền tảng vận hành database AI-native của mình sang cụm ClickHouse, cung cấp kiểm tra sức khoẻ liên tục, phân tích nguyên nhân gốc tự động và gợi ý khắc phục theo thứ tự ưu tiên.",
+   "why": "CEO Itamar Syn-Hershko nói thẳng rằng doanh nghiệp không thể giao hạ tầng database cho mô hình ngôn ngữ vì không có chỗ cho ảo giác. Đây là hướng dùng AI có rào chắn thay vì thả trôi.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/neverblink-launches-1st-ai-database-administrator-for-clickhouse/",
+   "domain": "hpcwire.com",
+   "date": "2026-08-25",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "Genie One có app desktop native cho macOS ở bản Beta",
+   "title_en": "Genie One desktop app for macOS is in Beta",
+   "summary": "Ngày 25/08, Databricks đưa Genie One lên ứng dụng macOS chạy native ở trạng thái Beta, cho người dùng nghiệp vụ hỏi dữ liệu bằng ngôn ngữ tự nhiên, làm việc với thread và tài liệu mà không cần mở trình duyệt.",
+   "why": "Rào cản lớn nhất của self-service BI chưa bao giờ là mô hình, mà là thói quen. Một app desktop nằm sẵn trên Dock đổi hành vi nhiều hơn một tab trình duyệt bị quên.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/august#august-25-2026",
+   "domain": "docs.databricks.com",
+   "date": "2026-08-25",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "Databricks cho Genie Code chạy như một task trong Lakeflow Jobs, mở Genie Code cho AI Runtime",
+   "title_en": "Genie Code as a Lakeflow Jobs task (Beta); Genie Code for AI Runtime (Public Preview)",
+   "summary": "Ngày 27/08, Databricks cho phép Genie Code chạy như một task bên trong Lakeflow Jobs ở bản beta: task tự chạy prompt, đọc được output của các task phía trước, gọi công cụ khi cần và trả về link tới hội thoại tương ứng. Cùng ngày, Genie Code cho AI Runtime vào public preview, sinh code huấn luyện phân tán và tự gỡ vướng môi trường lẫn dependency.",
+   "why": "Agent không còn đứng ngoài quan sát pipeline mà bước vào bên trong pipeline production đã lên lịch. Năng suất là thật, nhưng câu hỏi về kiểm soát, audit và trách nhiệm cũng thật.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/august#august-27-2026",
+   "domain": "docs.databricks.com",
+   "date": "2026-08-27",
+   "section": "🤖 AI × Data",
+   "hot_rank": 2
+  },
+  {
+   "aid": 13,
+   "title": "Dun & Bradstreet đưa D&B Commercial Graph vào Perplexity qua MCP server",
+   "title_en": "Dun & Bradstreet Brings the D&B Commercial Graph to Perplexity",
+   "summary": "Ngày 27/08, Dun & Bradstreet hợp tác với Perplexity để đưa D&B Commercial Graph vào Perplexity và nền tảng agent Perplexity Computer thông qua Model Context Protocol, phục vụ các luồng công việc rủi ro, tài chính, tuân thủ, mua sắm và bán hàng.",
+   "why": "Đây là ví dụ rõ về việc dữ liệu tham chiếu có kiểm chứng, neo bằng mã định danh D-U-N-S, trở thành lớp ngữ cảnh bán được cho agent thay vì chỉ là một file tải về.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/dun-bradstreet-brings-the-db-commercial-graph-to-perplexity-powering-research-risk-and-growth-workflows/",
+   "domain": "hpcwire.com",
+   "date": "2026-08-27",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "Snowflake đưa Cortex Agents Coding Agent lên GA",
+   "title_en": "Cortex Agents Coding Agent - General Availability",
+   "summary": "Ngày 26/08, Snowflake công bố Cortex Agents Coding Agent đạt trạng thái GA, cùng với việc tham chiếu Cortex Extension trong agent skill cũng lên GA.",
+   "why": "Agent viết code chạy sát dữ liệu, trong ranh giới bảo mật của nền tảng, là hướng đi khác hẳn với việc bê dữ liệu ra ngoài cho một công cụ bên thứ ba.",
+   "url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents",
+   "domain": "docs.snowflake.com",
+   "date": "2026-08-26",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "Nghiên cứu PolyMemDB: hệ cơ sở dữ liệu đa hệ chuyên quản lý memory cho AI",
+   "title_en": "PolyMemDB: A Polyglot Database System for AI Memory Management",
+   "summary": "Bài arXiv ngày 26/08 đề xuất PolyMemDB, một hệ cơ sở dữ liệu đa hệ được thiết kế riêng cho bài toán quản lý bộ nhớ của hệ thống AI thay vì ép memory vào một mô hình lưu trữ duy nhất.",
+   "why": "Memory của agent đang thành một loại tải công việc dữ liệu riêng, có yêu cầu truy vấn và vòng đời khác hẳn bảng phân tích truyền thống.",
+   "url": "https://arxiv.org/abs/2608.25577",
+   "domain": "arxiv.org",
+   "date": "2026-08-26",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 16,
+   "title": "Nghiên cứu DataKernelBench: LLM có tối ưu nổi truy vấn database trên GPU không?",
+   "title_en": "DataKernelBench: Can LLMs Optimize Database Queries on GPUs?",
+   "summary": "Bài arXiv ngày 25/08 xây dựng bộ đánh giá riêng cho câu hỏi mô hình ngôn ngữ lớn có sinh và tối ưu được kernel xử lý truy vấn database trên GPU hay không.",
+   "why": "Nếu câu trả lời là có ở mức đủ dùng, chi phí phần khó nhất của engine phân tích sẽ giảm mạnh. Nếu không, đây là ranh giới rõ ràng cho biết AI chưa thay được kỹ sư hệ thống.",
+   "url": "https://arxiv.org/abs/2608.25061",
+   "domain": "arxiv.org",
+   "date": "2026-08-25",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "Cloudflare tiết kiệm 100 terabyte RAM nhờ tối ưu cache DNS của 1.1.1.1",
+   "title_en": "Saving 100 terabytes of memory by optimizing 1.1.1.1's DNS cache",
+   "summary": "Bài kỹ thuật của Cloudflare đăng ngày 27/08 kể lại quá trình tối ưu cấu trúc lưu trữ cache DNS cho dịch vụ 1.1.1.1 và thu về 100 terabyte bộ nhớ trên toàn hệ thống. Bài đạt gần 900 điểm trên Hacker News.",
+   "why": "Ở quy mô lớn, tiền không nằm ở thuật toán mới mà ở việc mỗi bản ghi tốn bao nhiêu byte. Đây là bài học chung cho mọi hệ dữ liệu chạy nóng trong RAM.",
+   "url": "https://blog.cloudflare.com/dns-cache-memory-optimization-1111/",
+   "domain": "blog.cloudflare.com",
+   "date": "2026-08-27",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 18,
+   "title": "LatticeDB: SQLite nhưng dành cho graph database",
+   "title_en": "Show HN: LatticeDB - Like SQLite but for graph databases",
+   "summary": "Dự án LatticeDB lên Hacker News ngày 25/08 và đạt 186 điểm với định vị đơn giản: một engine đồ thị nhúng, chạy trong tiến trình ứng dụng, không cần dựng server riêng.",
+   "why": "Mô hình nhúng đã thắng ở phân tích cột với DuckDB. Cùng công thức đó đang được thử cho dữ liệu đồ thị, mảng lâu nay bị coi là phải có hạ tầng nặng.",
+   "url": "https://github.com/jeffhajewski/latticedb",
+   "domain": "github.com",
+   "date": "2026-08-25",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 19,
+   "title": "Bài viết gây bão: file thực thi của bạn thật ra là một database SQLite",
+   "title_en": "Your Executable Is a SQLite Database",
+   "summary": "Bài của Farid Zakaria đăng cuối tuần trước và bùng lên ngày 24/08 với 561 điểm trên Hacker News, chỉ ra rằng có thể coi và thao tác chính file nhị phân thực thi như một cơ sở dữ liệu SQLite.",
+   "why": "Ngoài phần thú vị, bài này đẩy một câu hỏi thực tế cho dân data: ranh giới giữa file, định dạng và database đang mờ đi rất nhanh.",
+   "url": "https://fzakaria.com/2026/08/23/your-executable-is-a-sqlite-database",
+   "domain": "fzakaria.com",
+   "date": "2026-08-24",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 20,
+   "title": "Làm dashboard drilldown nhanh chỉ từ đúng một file Parquet",
+   "title_en": "Fast drilldown dashboards from a single Parquet file",
+   "summary": "Bài của Hamilton Ulmer đạt 173 điểm trên Hacker News ngày 24/08, mô tả cách dựng dashboard cho khách hàng có khả năng khoan sâu, đọc trực tiếp một file Parquet đặt trên object storage, không cần backend truy vấn.",
+   "why": "Với phần lớn dashboard nội bộ ở doanh nghiệp Việt, dữ liệu chỉ vài trăm megabyte. Kiến trúc kiểu này cắt gần hết chi phí vận hành mà người dùng không thấy khác biệt.",
+   "url": "https://www.hamiltonulmer.com/customer-dashboards-r2-hyparquet/",
+   "domain": "hamiltonulmer.com",
+   "date": "2026-08-24",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 21,
+   "title": "Data Engineering Weekly số 284: CDC từ 3.000 xuống 150 đô mỗi tháng, streaming chuyển sang xử lý theo cột",
+   "title_en": "Data Engineering Weekly #284",
+   "summary": "Bản tin ngày 24/08 điểm loạt bài đáng chú ý: Jimdo kéo chi phí pipeline CDC từ 3.000 đô xuống 150 đô mỗi tháng nhờ khớp lại capacity, StreamFusion đưa toán tử Arrow và DataFusion vào Flink để xử lý theo cột, Booking.com chọn vector database bằng bài kiểm tra trên khoảng 100 triệu embedding, và Chroma thiết kế write-ahead log trên object storage với riêng chi phí PUT khoảng 131 đô mỗi tháng.",
+   "why": "Một lát cắt rất thật của nghề: cùng một tuần vừa có chuyện cắt chi phí hai chục lần, vừa có chuyện engine batch và streaming đang hội tụ về cùng một mô hình cột.",
+   "url": "https://www.dataengineeringweekly.com/p/data-engineering-weekly-284",
+   "domain": "dataengineeringweekly.com",
+   "date": "2026-08-24",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 22,
+   "title": "Việt Nam vận hành Cổng thông tin và cơ sở dữ liệu quốc gia về trí tuệ nhân tạo tại ai.dda.gov.vn",
+   "title_en": "Vietnam launches national AI portal and database",
+   "summary": "Bộ Khoa học và Công nghệ công bố chính thức vận hành Cổng thông tin điện tử và cơ sở dữ liệu quốc gia về trí tuệ nhân tạo, do Cục Công nghệ số và Trí tuệ nhân tạo vận hành tại địa chỉ ai.dda.gov.vn.",
+   "why": "Lần đầu tiên việc phân loại rủi ro, đăng ký hệ thống AI và báo cáo sự cố nghiêm trọng có một cửa chính thức. Doanh nghiệp sắp đưa mô hình hoặc agent vào chạy thật nên coi đây là một phần của kế hoạch triển khai.",
+   "url": "https://mst.gov.vn/chinh-thuc-van-hanh-cong-thong-tin-dien-tu-va-co-so-du-lieu-quoc-gia-ve-tri-tue-nhan-tao-197260828221343433.htm",
+   "domain": "mst.gov.vn",
+   "date": "2026-08-29",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": 5
+  },
+  {
+   "aid": 23,
+   "title": "Grafana Labs vượt 10.000 khách hàng và 600 triệu đô doanh thu định kỳ, 57% tổ chức đã làm LLM observability",
+   "title_en": "Grafana Labs Tops 10,000 Customers as AI Fuels Growth in Grafana Cloud",
+   "summary": "Ngày 27/08, Grafana Labs công bố vượt mười nghìn khách hàng toàn cầu và hơn 600 triệu đô doanh thu định kỳ hàng năm. Trợ lý AI Grafana Assistant hiện được hơn 18.000 tổ chức dùng, và khảo sát Observability 2026 của hãng cho thấy 57% tổ chức đang triển khai observability cho mô hình ngôn ngữ lớn ở mức độ nào đó.",
+   "why": "Dữ liệu vận hành của chính hệ AI đang thành một loại tải công việc dữ liệu mới: mô hình trôi, agent hành động ngoài dự đoán, chi phí token vọt lên mà tín hiệu độ trễ cũ không giải thích được.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/grafana-labs-tops-10000-customers-as-ai-fuels-growth-in-grafana-cloud/",
+   "domain": "hpcwire.com",
+   "date": "2026-08-27",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": 4
+  },
+  {
+   "aid": 24,
+   "title": "Nasuni mua DryvIQ để mở rộng phân loại và quản trị dữ liệu phi cấu trúc",
+   "title_en": "Nasuni Acquires DryvIQ to Expand Unstructured Data Intelligence and Governance",
+   "summary": "Ngày 27/08, Nasuni công bố mua DryvIQ, bổ sung khả năng khám phá và phân loại ở mức nội dung, phát hiện dữ liệu nhạy cảm và quản trị tự động theo chính sách cho hơn 40 kho lưu trữ trên cloud lẫn on-premises.",
+   "why": "Dữ liệu phi cấu trúc là phần nhiên liệu chính cho RAG doanh nghiệp, và cũng là phần ít được quản trị nhất. Thị trường đang mua gom đúng chỗ đó.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/nasuni-acquires-dryviq-to-expand-unstructured-data-intelligence-and-governance/",
+   "domain": "hpcwire.com",
+   "date": "2026-08-27",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 25,
+   "title": "Dataminr ra First Alert Advanced, trúng hợp đồng 318 triệu đô 5 năm với Bộ Quốc phòng Mỹ",
+   "title_en": "Dataminr Launches First Alert Advanced and Secures $318M Pentagon Contract",
+   "summary": "Ngày 27/08, Dataminr giới thiệu First Alert Advanced, đưa cảnh báo thời gian thực từ nguồn công khai lên mức tình báo tự vận hành có đối chiếu chéo bằng agent, đồng thời công bố hợp đồng 5 năm trị giá 318 triệu đô với Bộ Quốc phòng Mỹ.",
+   "why": "Đây là mức giá thị trường sẵn sàng trả cho một pipeline dữ liệu công khai được xử lý đủ nhanh và đủ tin cậy. Giá trị nằm ở tốc độ và độ tin, không ở dữ liệu thô.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/dataminr-launches-first-alert-advanced-and-secures-318m-pentagon-contract/",
+   "domain": "hpcwire.com",
+   "date": "2026-08-27",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 26,
+   "title": "Elastic hoàn tất thâu tóm Deductive AI để đưa phân tích nguyên nhân gốc vào Observability",
+   "title_en": "Elastic Completes Acquisition of Deductive AI",
+   "summary": "Ngày 24/08, Elastic hoàn tất mua Deductive AI, nền tảng điều tra sự cố có khả năng tự làm phần lớn công việc lần nguyên nhân gốc thay vì chỉ tóm tắt cảnh báo. Elastic mô tả công nghệ này dùng một cơ chế học tăng cường cho phân tích nguyên nhân gốc.",
+   "why": "CEO Ash Kulkarni tóm gọn vấn đề của ngành: đội kỹ thuật đang chết đuối trong telemetry nhưng đói câu trả lời. Đây là bài toán dữ liệu, không phải bài toán dashboard.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/elastic-completes-acquisition-of-deductive-ai/",
+   "domain": "hpcwire.com",
+   "date": "2026-08-24",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 27,
+   "title": "Thomson Reuters chi 40 triệu đô huấn luyện mô hình riêng mang tên Thomson từ kho dữ liệu của mình",
+   "title_en": "Thomson Reuters Leverages Its World-Class Data Assets to Launch Frontier Model",
+   "summary": "Ngày 24/08, Thomson Reuters công bố Thomson, mô hình ngôn ngữ lớn đầu tiên do hãng tự phát triển. Thay vì chi hàng tỉ đô như các phòng lab frontier, hãng khởi đi từ nền mã nguồn mở và đầu tư 40 triệu đô cho nhân sự lẫn compute.",
+   "why": "Đây là câu trả lời cho câu hỏi doanh nghiệp có dữ liệu tốt nên làm gì: không đua huấn luyện từ đầu, mà lấy nền mở rồi bơm lợi thế dữ liệu riêng vào để giữ quyền kiểm soát và cắt chi phí suy luận.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/thomson-reuters-leverages-its-world-class-data-assets-to-launch-frontier-model/",
+   "domain": "hpcwire.com",
+   "date": "2026-08-24",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 2,
+ "weekly_video": {
+  "intro": "Chào anh em, đây là bản tổng kết tuần 35, từ ngày 24 đến 30 tháng 8 năm 2026, của thế giới dữ liệu. Tuần này có một mạch chung rất rõ: các nền móng mở chốt lại những quyết định lớn về định dạng và về hạ tầng streaming, còn ở phía nền tảng thương mại thì agent bắt đầu bước hẳn vào bên trong pipeline production. Mình sẽ đi qua năm câu chuyện nóng nhất.",
+  "outro": "Đó là năm câu chuyện đáng nhớ nhất của tuần 35. Chi tiết đầy đủ, kèm nguồn và phần phân tích sâu cho từng tin, anh em xem trong bản tin nhé. Hẹn gặp lại tuần sau.",
+  "segments": [
+   {
+    "aid": 2,
+    "headline": "Iceberg V4 chốt bỏ equality delete",
+    "narration": "Tin lớn nhất tuần 35 của thế giới dữ liệu đến từ cộng đồng Apache Iceberg. Trong tuần này, cộng đồng đã bỏ phiếu cấm ghi equality delete mới trong định dạng bảng phiên bản bốn, chuyển hẳn sang deletion vector cho các luồng ghi streaming. Đây là một cuộc tranh luận kéo dài nhiều năm, giữa một bên là sự tiện lợi khi ghi và một bên là tốc độ khi đọc, và lần này phía đọc đã thắng. Cùng tuần, Iceberg lập một kho mã riêng tên iceberg-verification, với năm phiếu thuận ràng buộc, để chứa bộ test tương thích không phụ thuộc ngôn ngữ. Nghĩa là bản Java, Python, Rust, Go và C cộng cộng từ nay đều chạy chung một bộ bài kiểm tra, thay vì mỗi bản hiểu đặc tả một kiểu rồi vỡ trận khi lên production. Cộng đồng cũng chốt rằng bảng phiên bản bốn cần một endpoint loadTable có đánh version riêng, thay vì cơi nới endpoint cũ, để client đời trước không gãy khi gặp metadata mới như check constraint hay default expression. Song song, PyIceberg bản không chấm mười hai đã có view, kiểu geometry và cơ chế làm mới credential, còn Iceberg một chấm mười hai merge hỗ trợ đường cong Hilbert. Ý nghĩa với người làm dữ liệu rất rõ: phiên bản bốn của Iceberg không còn là bản vẽ trên giấy, nó đã thành đặc tả có thể triển khai được.",
+    "bullets": [
+     "V4 cấm ghi equality delete mới",
+     "Deletion vector thắng vì tốc độ đọc",
+     "Lập kho test tương thích dùng chung"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Equality delete và deletion vector",
+     "left": {
+      "h": "Equality delete",
+      "items": [
+       "Ghi rất nhanh",
+       "Đọc phải so khớp lại",
+       "Bị cấm ghi mới ở V4"
+      ]
+     },
+     "right": {
+      "h": "Deletion vector",
+      "items": [
+       "Đánh dấu theo vị trí",
+       "Đọc nhanh và ổn định",
+       "Hướng chuẩn của V4"
+      ]
+     }
+    },
+    "images": [
+     "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fjuk32mp4pgw2xg8yur4x.png"
+    ]
+   },
+   {
+    "aid": 12,
+    "headline": "Agent chạy thẳng trong pipeline Databricks",
+    "narration": "Ngày 27 tháng 8, Databricks cho phép Genie Code chạy như một task bên trong Lakeflow Jobs, ở trạng thái beta. Nói đơn giản thế này: trước đây bạn viết prompt trong một cửa sổ chat rồi tự tay bê kết quả sang pipeline. Giờ thì chính cái prompt đó trở thành một mắt xích trong job đã lên lịch. Task này đọc được output của các task phía trước, tự gọi công cụ khi cần, và khi chạy xong trả về đường link tới hội thoại tương ứng để người ta lần lại được nó đã làm những gì. Cùng ngày, Databricks mở Genie Code cho AI Runtime ở dạng public preview, nhắm vào khối lượng công việc deep learning: nó sinh code huấn luyện phân tán và tự gỡ các vướng mắc về môi trường, về dependency. Trước đó hai ngày, Genie One có thêm ứng dụng desktop chạy native trên macOS ở bản beta, để người dùng nghiệp vụ hỏi dữ liệu bằng ngôn ngữ tự nhiên mà không cần mở trình duyệt. Cộng lại, đây là một bước dịch chuyển đáng chú ý: agent không còn đứng ngoài quan sát pipeline, nó bước vào bên trong pipeline production. Điều đó mở ra năng suất thật, nhưng cũng đặt ra câu hỏi rất thật về kiểm soát, về audit, và về việc ai chịu trách nhiệm khi một task do agent chạy làm hỏng dữ liệu.",
+    "bullets": [
+     "Prompt thành một task trong job",
+     "Đọc output task trước, tự gọi công cụ",
+     "Genie One có app macOS bản beta"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Genie Code trong Lakeflow Jobs",
+     "items": [
+      {
+       "t": "Task phía trước",
+       "d": "Sinh dữ liệu đầu vào"
+      },
+      {
+       "t": "Genie Code task",
+       "d": "Chạy prompt tự động"
+      },
+      {
+       "t": "Gọi công cụ",
+       "d": "Truy vấn và xử lý"
+      },
+      {
+       "t": "Trả link hội thoại",
+       "d": "Lần lại được việc đã làm"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 1,
+    "headline": "Apache Iggy lên Top-Level Project",
+    "narration": "Ngày 27 tháng 8, Apache Software Foundation công bố hai dự án tốt nghiệp lên hàng Top-Level Project, trong đó cái tên đáng chú ý nhất với dân dữ liệu là Apache Iggy. Iggy là nền tảng message streaming có lưu trữ bền, viết bằng Rust, thiết kế xoay quanh kiến trúc thread-per-core và shared-nothing, khai thác io_uring của Linux hiện đại. Cách làm đó giúp Iggy bỏ được khoá ở tầng userspace trên đường đi nóng, không có khoảng dừng do garbage collection, và giảm tranh chấp luồng không cần thiết. Khác với nhiều nền tảng streaming truyền thống chỉ hỗ trợ một giao thức, Iggy nói được cả TCP, QUIC, HTTP lẫn WebSocket, kèm bộ SDK cho nhiều ngôn ngữ, hệ connector mở rộng được, và cơ chế clustering dựa trên Viewstamped Replication Revisited. Dự án còn lại tốt nghiệp cùng đợt là Apache Sourcelume. Vì sao đáng chú ý? Vì phần lớn kiến trúc dữ liệu thời gian thực hôm nay vẫn mặc định là Kafka, mà Kafka thì kéo theo máy ảo Java, kéo theo chi phí hạ tầng và độ trễ đuôi khó đoán. Một lựa chọn viết bằng Rust, dấu chân hạ tầng nhỏ, độ trễ đuôi ổn định, giờ đã có con dấu Top-Level Project của Apache, tức là có quản trị cộng đồng đàng hoàng chứ không còn là dự án của một cá nhân. Với đội nhỏ, đó là một cửa rất đáng thử.",
+    "bullets": [
+     "Streaming viết bằng Rust, không có GC pause",
+     "Thread-per-core trên io_uring",
+     "Nói được TCP, QUIC, HTTP, WebSocket"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Kiến trúc Apache Iggy",
+     "items": [
+      {
+       "t": "Giao thức",
+       "d": "TCP, QUIC, HTTP, WebSocket"
+      },
+      {
+       "t": "Lõi xử lý",
+       "d": "Thread-per-core, shared-nothing"
+      },
+      {
+       "t": "Hệ điều hành",
+       "d": "io_uring, không khoá userspace"
+      },
+      {
+       "t": "Cụm",
+       "d": "Viewstamped Replication Revisited"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 23,
+    "headline": "Grafana Labs vượt 600 triệu đô doanh thu",
+    "narration": "Ngày 27 tháng 8, Grafana Labs công bố đã vượt mốc mười nghìn khách hàng trên toàn cầu và vượt sáu trăm triệu đô doanh thu định kỳ hàng năm. Con số đáng nói không nằm ở quy mô, mà ở nguyên nhân tăng trưởng. Theo Grafana, trợ lý Grafana Assistant, tức trợ lý hiểu ngữ cảnh dùng để khám phá và gỡ rối dữ liệu observability, hiện đã được hơn mười tám nghìn tổ chức sử dụng. Khảo sát Observability năm 2026 của chính họ cho thấy độ phức tạp và chi phí vận hành vẫn là mối lo số một, và năm mươi bảy phần trăm tổ chức đang triển khai observability cho mô hình ngôn ngữ lớn ở mức độ nào đó. Đây là chỗ thú vị. Khi hệ thống AI vào production, mô hình trôi, agent hành động ngoài dự đoán, chi phí token vọt lên mà không báo trước, và những tín hiệu độ trễ hay tỉ lệ lỗi vốn đủ dùng suốt mười năm qua không còn giải thích được chuyện gì đã xảy ra. Nói cách khác, dữ liệu vận hành của chính hệ AI đang trở thành một loại tải công việc dữ liệu mới. Ai đang xây pipeline hoặc hệ agent cho doanh nghiệp thì nên nhìn con số năm mươi bảy phần trăm này như một lời nhắc: đo đạc không còn là việc làm sau, nó là một phần của thiết kế.",
+    "bullets": [
+     "Hơn 10.000 khách hàng toàn cầu",
+     "Doanh thu định kỳ vượt 600 triệu đô",
+     "57% tổ chức đã làm LLM observability"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Grafana Labs theo số liệu",
+     "items": [
+      {
+       "v": "10.000+",
+       "l": "Khách hàng toàn cầu"
+      },
+      {
+       "v": "600 triệu đô",
+       "l": "Doanh thu định kỳ"
+      },
+      {
+       "v": "18.000+",
+       "l": "Tổ chức dùng trợ lý"
+      },
+      {
+       "v": "57%",
+       "l": "Làm LLM observability"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 22,
+    "headline": "Việt Nam mở cổng dữ liệu quốc gia về AI",
+    "narration": "Ở trong nước, Bộ Khoa học và Công nghệ công bố chính thức vận hành Cổng thông tin điện tử và cơ sở dữ liệu quốc gia về trí tuệ nhân tạo, đặt tại địa chỉ ai chấm dda chấm gov chấm vn, do Cục Công nghệ số và Trí tuệ nhân tạo vận hành. Theo Cục trưởng Nguyễn Khắc Lịch, nền tảng này là một địa chỉ trực tuyến duy nhất để doanh nghiệp, nhà phát triển và cơ quan nhà nước thực hiện thủ tục, khai báo và tra cứu. Các chức năng chính gồm tiếp nhận đăng ký thử nghiệm có kiểm soát, thông báo phân loại rủi ro và đăng ký hệ thống trí tuệ nhân tạo, báo cáo sự cố nghiêm trọng, công khai thông tin xử lý vi phạm, và kết nối nguồn lực để phát triển hệ sinh thái. Đây là tin đáng chú ý với bất kỳ ai làm dữ liệu tại Việt Nam. Vì lần đầu tiên, việc phân loại rủi ro và đăng ký một hệ thống trí tuệ nhân tạo có một cửa chính thức, có hồ sơ, có dấu vết. Doanh nghiệp nào đang chuẩn bị đưa mô hình hoặc agent vào chạy thật thì nên xem đây là một phần của kế hoạch triển khai, chứ không phải thủ tục làm sau cùng. Quản trị dữ liệu và quản trị trí tuệ nhân tạo ở Việt Nam vừa có thêm một điểm neo rất cụ thể.",
+    "bullets": [
+     "Một cửa duy nhất tại ai.dda.gov.vn",
+     "Đăng ký thử nghiệm có kiểm soát",
+     "Phân loại rủi ro và báo cáo sự cố"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Cổng quốc gia về AI làm gì",
+     "items": [
+      {
+       "t": "Đăng ký",
+       "d": "Thử nghiệm có kiểm soát"
+      },
+      {
+       "t": "Phân loại",
+       "d": "Thông báo mức rủi ro"
+      },
+      {
+       "t": "Khai báo",
+       "d": "Đăng ký hệ thống AI"
+      },
+      {
+       "t": "Báo cáo",
+       "d": "Sự cố nghiêm trọng"
+      },
+      {
+       "t": "Công khai",
+       "d": "Thông tin xử lý vi phạm"
+      }
+     ]
+    },
+    "images": [
+     "https://mic.mediacdn.vn/thumb_w/1200/639352410187198464/2026/8/28/thumb-photo-1787929670239-1787929670441468071869-1787929891672992223859-211-3-722-821-crop-178792991862154904795.png"
+    ]
+   }
+  ]
+ },
+ "facebook_post": "𝐓𝐔𝐀̂̀𝐍 𝐍𝐀̀𝐘 𝐍𝐆𝐀̀𝐍𝐇 𝐃𝐔̛̃ 𝐋𝐈𝐄̣̂𝐔 𝐂𝐇𝐎̂́𝐓 𝐌𝐀̂́𝐘 𝐕𝐈𝐄̣̂𝐂 𝐋𝐎̛́𝐍 🗄️\n\nTuần rồi Đức đi dạy, có bạn học viên hỏi một câu rất thật: \"Anh ơi, em học Iceberg với Delta xong rồi mai mốt nó lại đổi thì sao?\"\n\nMình cười, vì đúng tuần này câu trả lời rơi xuống ngay trước mặt 😄\n\nTuần 35 (24 - 30/08/2026) là tuần mấy nền móng dữ liệu mở ngồi lại chốt những thứ trước giờ toàn cãi. Còn phía nền tảng thương mại, agent chính thức bước vào bên trong pipeline production.\n\n---\n\n1️⃣ 𝐈𝐜𝐞𝐛𝐞𝐫𝐠 𝐕𝟒 𝐜𝐚̂́𝐦 𝐠𝐡𝐢 𝐞𝐪𝐮𝐚𝐥𝐢𝐭𝐲 𝐝𝐞𝐥𝐞𝐭𝐞 𝐦𝐨̛́𝐢\n\nCộng đồng Apache Iceberg bỏ phiếu: từ định dạng bảng V4, không cho ghi equality delete mới nữa, chuyển hẳn sang deletion vector.\n\nNói cho dễ hiểu: equality delete là kiểu \"xoá theo điều kiện giá trị\" - ghi cực nhanh, nhưng mỗi lần đọc phải so khớp lại từ đầu, nên chạy càng lâu query càng ì. Deletion vector đánh dấu thẳng dòng bị xoá theo vị trí, đọc nhanh hơn hẳn.\n\n👉 Cuộc đánh đổi nhiều năm giữa \"tiện khi ghi\" và \"nhanh khi đọc\" đã ngã ngũ về phía đọc. Mà phần lớn tổ chức thì đọc nhiều hơn ghi.\n\nCùng tuần, Iceberg lập kho apache/iceberg-verification chứa bộ test tương thích dùng chung cho Java, Python, Rust, Go, C++. Trước giờ mỗi bản hiểu spec một kiểu, lệch đúng những chỗ chỉ vỡ khi lên production 😅\n\n---\n\n2️⃣ 𝐃𝐚𝐭𝐚𝐛𝐫𝐢𝐜𝐤𝐬 𝐜𝐡𝐨 𝐚𝐠𝐞𝐧𝐭 𝐜𝐡𝐚̣𝐲 𝐭𝐡𝐚̆̉𝐧𝐠 𝐭𝐫𝐨𝐧𝐠 𝐩𝐢𝐩𝐞𝐥𝐢𝐧𝐞\n\nNgày 27/08, Genie Code được chạy như một task bên trong Lakeflow Jobs (bản beta). Task này đọc được output của các task phía trước, tự gọi công cụ khi cần, chạy xong trả về link hội thoại để mình lần lại nó đã làm gì. Cùng ngày, Genie Code cho AI Runtime vào preview.\n\n👉 Trước đây agent đứng ngoài nhìn pipeline. Giờ nó nằm trong pipeline production, có lịch chạy.\n\n---\n\n3️⃣ 𝐀𝐩𝐚𝐜𝐡𝐞 𝐈𝐠𝐠𝐲 𝐥𝐞̂𝐧 𝐓𝐨𝐩-𝐋𝐞𝐯𝐞𝐥 𝐏𝐫𝐨𝐣𝐞𝐜𝐭\n\nApache Software Foundation đưa Iggy (và Sourcelume) lên hàng Top-Level Project ngày 27/08. Iggy là nền tảng message streaming có lưu trữ bền, viết bằng Rust, kiến trúc thread-per-core shared-nothing trên io_uring, nói được cả TCP, QUIC, HTTP lẫn WebSocket. Không JVM, không GC pause, hạ tầng nhẹ.\n\n👉 Với team nhỏ đang nuôi cụm Kafka chỉ để chuyển vài triệu event mỗi ngày, đây là cửa đáng thử. Nhưng nói thật: hệ sinh thái quanh Kafka vẫn lớn hơn nhiều lần. Đang chạy ổn thì đừng đổi.\n\n---\n\n4️⃣ 𝐆𝐫𝐚𝐟𝐚𝐧𝐚 𝐋𝐚𝐛𝐬: 𝟏𝟎.𝟎𝟎𝟎 𝐤𝐡𝐚́𝐜𝐡 𝐡𝐚̀𝐧𝐠, 𝟔𝟎𝟎 𝐭𝐫𝐢𝐞̣̂𝐮 đ𝐨̂ 𝐀𝐑𝐑\n\nCon số đáng nói không phải quy mô mà là lý do: khảo sát Observability 2026 của họ cho thấy 57% tổ chức đang triển khai observability cho LLM ở mức độ nào đó. Trợ lý Grafana Assistant có hơn 18.000 tổ chức dùng.\n\n👉 Dữ liệu vận hành của chính hệ AI đang thành một loại workload mới. Mô hình trôi, agent làm chuyện ngoài dự đoán, token cost vọt lên mà latency với error rate cũ không giải thích nổi.\n\n---\n\n5️⃣ 𝐕𝐢𝐞̣̂𝐭 𝐍𝐚𝐦 𝐦𝐨̛̉ 𝐜𝐨̂̉𝐧𝐠 𝐝𝐮̛̃ 𝐥𝐢𝐞̣̂𝐮 𝐪𝐮𝐨̂́𝐜 𝐠𝐢𝐚 𝐯𝐞̂̀ 𝐀𝐈\n\nBộ Khoa học và Công nghệ chính thức vận hành Cổng thông tin điện tử và cơ sở dữ liệu quốc gia về trí tuệ nhân tạo tại ai.dda.gov.vn. Các chức năng chính: đăng ký thử nghiệm có kiểm soát, thông báo phân loại rủi ro và đăng ký hệ thống AI, báo cáo sự cố nghiêm trọng, công khai thông tin xử lý vi phạm.\n\n👉 Lần đầu tiên việc đăng ký và phân loại rủi ro một hệ thống AI có một cửa chính thức, có hồ sơ, có dấu vết.\n\n---\n\n💭 𝐆𝐨́𝐜 𝐧𝐡𝐢̀𝐧 𝐜𝐮̉𝐚 𝐦𝐢̀𝐧𝐡 𝐯𝐞̂̀ 𝐭𝐮𝐚̂̀𝐧 𝐧𝐚̀𝐲\n\nĐức chia sẻ dưới góc nhìn kỹ thuật của người làm Data & AI cho doanh nghiệp.\n\nCái mình thấy THẬT SỰ mới tuần này không phải mấy tính năng bóng bẩy, mà là chuyện Iceberg chốt bỏ equality delete. Đó là lần hiếm hoi một cộng đồng chịu chấp nhận đau ở phía ghi để đổi lấy tốc độ phía đọc. Mình vừa học và thi chứng chỉ Databricks xong, đang làm thực hành RAG trên nền lakehouse với Delta, Unity Catalog và vector search, nên nhìn cái này thấy rất rõ: tầng định dạng đang dần ổn định. Đó là tin tốt cho người đi sau như doanh nghiệp Việt - học bây giờ không sợ phí.\n\nNhưng có một chỗ mình muốn nói thẳng. Cái tin Databricks cho agent chạy như một task trong job production, nhiều anh em sẽ đọc ra là \"tuyệt vời, khỏi làm nữa\". Theo mình thì không phải vậy đâu. Một prompt nằm trong job đã lên lịch nghĩa là nó chạy lúc 2 giờ sáng, không ai nhìn, và nếu nó ghi sai một bảng thì sáng ra cả chuỗi báo cáo phía sau sai theo. Databricks làm đúng khi trả về link hội thoại để lần lại - đó là dấu vết audit. Nhưng dấu vết chỉ có ích nếu team có thói quen đi soi nó.\n\n👉 Khuyến nghị của mình rất cụ thể: nếu định cho agent vào pipeline, hãy bắt đầu ở nhánh KHÔNG ghi đè dữ liệu vàng. Cho nó làm khâu chuẩn bị, khâu kiểm tra, khâu sinh báo cáo phụ. Đừng cho nó cầm bút viết vào bảng mà giám đốc đang nhìn.\n\nCòn con số 57% tổ chức làm LLM observability, theo mình là số liệu quan trọng nhất tuần mà ít người để ý. Thị trường đã qua giai đoạn \"làm cho có AI\" và bước vào giai đoạn \"AI này tốn bao nhiêu, sai ở đâu\".\n\nCông nghệ tuần này chốt xong phần móng. Phần khó còn lại vẫn là con người: ai đọc, ai hiểu, ai dám quyết dựa trên nó.\n\nAnh em nào đang cân nhắc đưa agent vào pipeline thật thì comment cho mình biết đang vướng ở khâu nào nhé 👌\n\n#DataEngineering #DataNews #Lakehouse #ApacheIceberg #Databricks #DuLieu #HocCungAI #DataGovernance #AIAgent #KPIM",
+ "facebook_reel": "Một cộng đồng vừa tự cấm chính mình dùng một tính năng.\n\nApache Iceberg bỏ phiếu: từ V4, không ghi equality delete nữa. Ghi nhanh nhưng đọc ì, nên họ chọn phía đọc.\n\nCùng tuần đó, Databricks cho agent chạy thẳng như một task trong pipeline production. Prompt của bạn giờ có lịch chạy lúc 2 giờ sáng...\n\nBạn thấy ổn chứ? Chi tiết mình để ở bài viết nhé.\n\n#DataEngineering #Iceberg #Databricks #DuLieu #HocCungAI",
+ "bgm": "minimal-tech",
+ "youtube": {
+  "recap": "yuddVIXHifQ",
+  "short": "W17R0cYO8gA"
+ }
+}
