@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-09-01",
+      "display_date": "01/09/2026",
+      "title": "ClickHouse 26.8 LTS: nhanh gấp 105 lần, 57 thay đổi phá vỡ",
+      "summary": "ClickHouse vừa phát hành bản 26.8 LTS — bản mà doanh nghiệp sẽ ghim cả năm. Nhanh hơn rất nhiều, nhưng kèm 57 cái bẫy.",
+      "source": "presentations.clickhouse.com",
+      "video_id": "lWZh811l3tE",
+      "short_id": "Dk6OyeTrlTc",
+      "published_at": "2026-09-01T19:30:49"
+    },
+    {
       "date": "2026-08-30",
       "display_date": "30/08/2026",
       "title": "Amazon mua DuckLabs, thu nạp cha đẻ DuckDB",
