@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-09-02",
+      "display_date": "02/09/2026",
+      "title": "OpenAI khóa bớt Astra: AI đầu tiên tự tìm zero-day",
+      "summary": "OpenAI vừa xếp mô hình sắp ra mắt Astra vào mức nguy hiểm cao nhất về an ninh mạng, rồi tự khóa bớt nó trước khi bán.",
+      "source": "openai.com",
+      "video_id": "Q6oZ1VFE4SE",
+      "short_id": "JabxREZIYyA",
+      "published_at": "2026-09-02T18:38:21"
+    },
+    {
       "date": "2026-08-31",
       "display_date": "31/08/2026",
       "title": "Mã độc trộm phiên Claude, hút sạch quota người dùng trả tiền",
