@@ -4,3 +4,6 @@ ai/video/
 ai/hot-news/
 data/video/
 data/hot-news/
+
+# Plan/thiet ke noi bo -> quan ly tap trung o ~/.opcos/repo/<repo>/plans/ (repo opc-os, PRIVATE)
+docs/plans/
