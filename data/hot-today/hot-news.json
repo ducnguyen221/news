@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-09-03",
+      "display_date": "03/09/2026",
+      "title": "PyIceberg 0.12: Iceberg vào thẳng Python, không cần Spark",
+      "summary": "Một thư viện dữ liệu vừa lên bản mới với 186 pull request và 40 người lần đầu góp code. Vì sao nó đáng chú ý?",
+      "source": "github.com/apache/iceberg-python",
+      "video_id": "WUO10YnM-g8",
+      "short_id": "YOd77AxMYqM",
+      "published_at": "2026-09-03T19:29:58"
+    },
+    {
       "date": "2026-09-01",
       "display_date": "01/09/2026",
       "title": "ClickHouse 26.8 LTS: nhanh gấp 105 lần, 57 thay đổi phá vỡ",
