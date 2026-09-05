@@ -1,0 +1,475 @@
+{
+ "date": "05/09/2026",
+ "week": "W36",
+ "range": "31/08 - 06/09/2026",
+ "tldr": "Tuần 36 của thế giới dữ liệu xoay quanh một chữ: độ tin cậy. PostgreSQL vá lỗ hổng logical decoding tồn tại mười hai năm, đánh thẳng vào chính những tài khoản REPLICATION mà mọi pipeline CDC đang dùng. MLCommons phát hành MLPerf Storage 3.0, lần đầu đưa vector database và KV cache thành bài đo tiêu chuẩn của ngành. Institute of Foundation Models mở trọn bộ sáu mô hình K2 Horizon kèm cả dữ liệu huấn luyện. Bên trong Apache, Iceberg chốt quyền đọc chi tiết cho REST catalog, Arrow khai tử Tensor, Parquet cắt bản vá mới. Còn giới nghiên cứu, dẫn đầu là nhóm Matei Zaharia và Ion Stoica, đặt lại câu hỏi nền tảng: khi mô hình tự nuốt hết các lớp kỹ thuật, data agent còn lại gì để nghiên cứu.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "PostgreSQL vá PostGREShell: lỗ hổng logical decoding 12 năm tuổi bắn thẳng vào pipeline CDC",
+   "title_en": "PostgreSQL Fixes 12-Year-Old Logical Decoding Flaw Enabling Replication-Role Code Execution",
+   "summary": "CVE-2026-6471, được đặt biệt danh PostGREShell, cho phép một tài khoản chỉ có thuộc tính REPLICATION ép PostgreSQL dlopen thư viện bất kỳ rồi chạy mã tùy ý dưới quyền tài khoản hệ điều hành đang chạy database. Lỗi tồn tại từ khi logical decoding ra đời ở PostgreSQL 9.4 năm 2014, điểm CVSS 7.2.",
+   "why": "REPLICATION chính là thuộc tính mà pipeline CDC, công cụ backup, standby và hệ giám sát thường xuyên được cấp. Nói cách khác, tài khoản đội data tự tạo cho Debezium hay Fivetran lại đang là bề mặt tấn công leo thang lên superuser.",
+   "url": "https://thehackernews.com/2026/09/postgresql-fixes-12-year-old-logical.html",
+   "domain": "thehackernews.com",
+   "date": "2026-09-03",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 1
+  },
+  {
+   "aid": 2,
+   "title": "Tuần lakehouse Apache: Iceberg chốt quyền đọc chi tiết cho REST catalog, Arrow khai tử Tensor",
+   "title_en": "Apache Data Lakehouse Weekly: August 26 to September 2, 2026",
+   "summary": "Iceberg thông qua đề xuất giới hạn quyền đọc ở mức chi tiết trong REST catalog kèm bộ compatibility kit, và duyệt bản phát hành đầu tiên cho Iceberg Terraform provider. Arrow bỏ phiếu loại Tensor và SparseTensor khỏi format, đồng thời ra Arrow Rust 59.3.0; Parquet cắt RC1 cho bản vá 1.18.1.",
+   "why": "Ba dự án nền của lakehouse cùng siết chuẩn kiểm định trong một tuần: đặc tả phải đi kèm bộ test, bản phát hành phải qua kiểm toán giấy phép. Đây là dấu hiệu hệ sinh thái mở đang chuyển từ giai đoạn đua tính năng sang giai đoạn đua độ tin cậy.",
+   "url": "https://dev.to/alexmercedcoder/apache-data-lakehouse-weekly-august-26-to-september-2-2026-40i1",
+   "domain": "dev.to",
+   "date": "2026-09-02",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 5
+  },
+  {
+   "aid": 3,
+   "title": "Nghiên cứu: vector search dựa trên graph thật ra chỉ là power law đội lốt logarit",
+   "title_en": "A Power Law in Logarithm's Clothing: On the Scalability of Graph-Based Vector Search",
+   "summary": "Nhóm Maghrebi và cộng sự phân tích lại giả định lâu nay rằng chi phí truy vấn của các chỉ mục vector dạng graph như HNSW tăng theo logarit của kích thước dữ liệu, và chỉ ra rằng hành vi thực tế bám sát một power law hơn.",
+   "why": "Nếu chi phí thật sự tăng theo power law chứ không phải logarit, mọi bài toán ước lượng công suất cho vector database ở quy mô tỷ vector đều đang tính thiếu. Đây là con số ảnh hưởng trực tiếp tới ngân sách hạ tầng RAG.",
+   "url": "https://arxiv.org/abs/2609.02143",
+   "domain": "arxiv.org",
+   "date": "2026-09-02",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 4,
+   "title": "MLPerf Storage 3.0: lần đầu có bài đo Vector Database và KV Cache, thêm tầng truy cập S3",
+   "title_en": "MLCommons Releases New MLPerf Storage v3.0 Benchmark Results",
+   "summary": "MLCommons công bố kết quả MLPerf Storage v3.0 với hai bài test mới: KV Cache đo hiệu năng đọc ghi bộ nhớ đệm suy luận LLM, và Vector Database đo hiệu năng lập chỉ mục và truy vấn vector. Bộ đo bổ sung tầng S3 bên cạnh POSIX; 19 tổ chức gửi kết quả, 11 trong đó là người mới gồm Azure, NVIDIA và OpenLake.",
+   "why": "Khi benchmark tiêu chuẩn của ngành bắt đầu đo vector database và KV cache, tức là hạ tầng lưu trữ cho AI đã chính thức được coi là một hạng mục riêng chứ không còn ăn theo benchmark training cũ.",
+   "url": "https://mlcommons.org/2026/09/mlperf-storage-v3-0-results/",
+   "domain": "mlcommons.org",
+   "date": "2026-09-01",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 2
+  },
+  {
+   "aid": 5,
+   "title": "Nghiên cứu Relational-Core Graph Analytics: mô hình node/edge là thuế hiệu năng, không phải chân lý",
+   "title_en": "Relational-Core Graph Analytics: Querying graphs at SQL scale, and why the node/edge model is a performance tax",
+   "summary": "Gene Zhang giới thiệu ClickGraph và DeltaGraph, hai hệ dịch truy vấn Cypher thẳng sang SQL chạy trên engine cột sẵn có, và báo cáo mức chênh 2 đến 4 bậc độ lớn so với Neo4j trên các benchmark đối chiếu.",
+   "why": "Nếu kết quả đứng vững, doanh nghiệp không cần dựng thêm một graph database riêng cạnh lakehouse: quan hệ vốn đã nằm trong bảng, việc re-encode thành node/edge chỉ thêm chi phí import và vận hành.",
+   "url": "https://arxiv.org/abs/2609.01525",
+   "domain": "arxiv.org",
+   "date": "2026-09-01",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "Snowflake: External lineage lên GA, Restricted Session Scope cho agent, mở công cụ chuyển SAS sang Snowflake",
+   "title_en": "Snowflake New Features - September 2026",
+   "summary": "Snowflake đưa external lineage và Restricted Session Scope cho agent lên GA ngày 3/9, bổ sung theo dõi lineage cho Cortex Agents, đưa Openflow Connector cho Jira Cloud lên GA và mở bản preview công cụ migration từ SAS sang Snowflake.",
+   "why": "External lineage nghĩa là bản đồ dòng dữ liệu không dừng ở biên giới Snowflake nữa. Còn công cụ chuyển SAS là đòn nhắm rất rõ vào khối ngân hàng, bảo hiểm và dược đang mắc kẹt trong hàng chục nghìn dòng SAS macro.",
+   "url": "https://docs.snowflake.com/en/release-notes/new-features",
+   "domain": "docs.snowflake.com",
+   "date": "2026-09-04",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "Databricks tháng 9: Auto CDF lên GA, Arrow cho Zerobus Ingest lên GA, metric view chia sẻ chéo account",
+   "title_en": "Databricks Platform Release Notes - September 2026",
+   "summary": "Databricks đưa Automatic change data feed và hỗ trợ Apache Arrow cho Zerobus Ingest lên GA ngày 1/9, mở beta cho việc chia sẻ metric view chéo metastore và account qua Open Sharing, cùng Git Folder Serverless beta quản lý môi trường bằng pyproject.toml.",
+   "why": "Metric view chia sẻ chéo account là bước đưa semantic layer ra khỏi bức tường của một tổ chức. Còn Auto CDF lên GA nghĩa là change data feed không còn là thứ phải bật thủ công từng bảng nữa.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/september",
+   "domain": "docs.databricks.com",
+   "date": "2026-09-03",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "IBM và Confluent đưa mô hình Granite Time Series vào dữ liệu streaming",
+   "title_en": "IBM and Confluent Bring Granite Time Series Models to Streaming Data",
+   "summary": "IBM và Confluent hợp tác đưa họ mô hình nền tảng Granite Time Series của IBM vào nền tảng streaming của Confluent, phục vụ phát hiện bất thường và dự báo ngay trên luồng sự kiện đang chạy.",
+   "why": "Đây là hướng đi đáng chú ý: thay vì đẩy dữ liệu về warehouse rồi mới chấm điểm, mô hình chạy ngay tại tầng streaming. Với bài toán giám sát thiết bị hay phát hiện gian lận, độ trễ giảm từ phút xuống giây.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/ibm-and-confluent-bring-granite-time-series-models-to-streaming-data/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-03",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "Trust3 AI mở rộng kiểm soát bảo mật agent sang Databricks Unity AI Gateway",
+   "title_en": "Trust3 AI Extends Agent Security Controls to Databricks Unity AI Gateway",
+   "summary": "Trust3 AI công bố tích hợp bộ kiểm soát bảo mật cho AI agent vào Databricks Unity AI Gateway, cho phép áp chính sách và giám sát hành vi agent ngay tại cổng điều phối mô hình và MCP server của Databricks.",
+   "why": "Unity AI Gateway mới lên GA cách đây không lâu và lập tức có lớp bảo mật bên thứ ba cắm vào. Đó là tín hiệu thị trường: doanh nghiệp không chấp nhận cho agent chạm dữ liệu nếu không có lớp kiểm soát riêng.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/trust3-ai-extends-agent-security-controls-to-databricks-unity-ai-gateway/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-03",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "NetApp và AWS dùng AWS Transform để rút ngắn migration lưu trữ doanh nghiệp",
+   "title_en": "NetApp and AWS Accelerate Storage Migrations with AWS Transform",
+   "summary": "NetApp và AWS công bố hợp tác dùng AWS Transform để tự động hóa phần đánh giá và lập kế hoạch cho các dự án di chuyển dữ liệu lưu trữ doanh nghiệp lên đám mây.",
+   "why": "Phần tốn thời gian nhất của một dự án migration hiếm khi là copy dữ liệu, mà là kiểm kê xem đang có gì, ai dùng, phụ thuộc vào đâu. Tự động hóa đúng khúc đó mới là thứ rút được lịch dự án.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/netapp-and-aws-accelerate-storage-migrations-with-aws-transform/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-03",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "Elastic đưa nhóm mô hình GPT chuyên an ninh mạng của OpenAI vào Elastic Security",
+   "title_en": "Elastic to Bring OpenAI GPT Cyber Models into Elastic Security",
+   "summary": "Elastic công bố sẽ tích hợp các mô hình GPT chuyên biệt cho an ninh mạng của OpenAI vào Elastic Security, phục vụ phân loại cảnh báo và điều tra sự cố trên kho log và telemetry sẵn có.",
+   "why": "SIEM là một trong những khối lượng dữ liệu lớn nhất và ồn nhất trong doanh nghiệp. Đây là ví dụ rất rõ của việc mô hình chuyên ngành đọc dữ liệu vận hành thay vì đọc tài liệu chung chung.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/elastic-to-bring-openai-gpt-cyber-models-into-elastic-security/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-04",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "Institute of Foundation Models ra K2 Horizon: 6 mô hình mở kèm cả dữ liệu huấn luyện và log",
+   "title_en": "Institute of Foundation Models Releases Fully Open K2 Horizon Models with Weights, Code and Training Data",
+   "summary": "IFM phát hành K2 Horizon gồm sáu mô hình từ 0,9 tỷ tới 375 tỷ tham số, tất cả dưới giấy phép Apache 2.0 và đi kèm trọng số, mã huấn luyện, công thức dữ liệu, checkpoint, log và bộ đánh giá. Ba mô hình nhỏ nhất được công bố đạt mức tốt nhất trong hạng cân của mình.",
+   "why": "Phần lớn mô hình gọi là mở chỉ mở trọng số, tức là cho bạn kết quả mà giấu cách đi tới. Mở cả dữ liệu huấn luyện mới là thứ cho phép kiểm toán nguồn gốc và tái lập, điều mà doanh nghiệp bị quản chặt bắt buộc phải có.",
+   "url": "https://ifm.ai/k2/",
+   "domain": "ifm.ai",
+   "date": "2026-09-03",
+   "section": "🤖 AI × Data",
+   "hot_rank": 3
+  },
+  {
+   "aid": 13,
+   "title": "Nghiên cứu D²: chuyển từ Text-to-SQL sang điều tra dữ liệu nhiều bước",
+   "title_en": "From Data Querying to Data Investigations: Rethinking Natural Language Interfaces for Databases",
+   "summary": "Fabian Wenz, Zixuan Chen và Carsten Binnig lập luận rằng Text-to-SQL đang tối ưu sai bài toán: người dùng thật sự cần hệ thống giải quyết vấn đề nhiều bước chứ không phải trả lời một câu hỏi. Nguyên mẫu D² tự chạy chuỗi truy vấn, suy luận trên kết quả trung gian và thu thập bằng chứng.",
+   "why": "Đây đúng là khoảng cách mà ai từng triển khai chatbot BI đều gặp: người dùng hỏi một câu, nhưng câu trả lời đúng cần năm truy vấn nối nhau. Chuyển bài toán từ dịch câu sang điều tra là hướng thực tế hơn nhiều.",
+   "url": "https://arxiv.org/abs/2609.03898",
+   "domain": "arxiv.org",
+   "date": "2026-09-03",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "Zaharia và Stoica đặt lại đề bài: khi mô hình nuốt cả stack thì data agent còn gì để nghiên cứu",
+   "title_en": "What Happens When the Model Eats the Stack? Rethinking the Research Agenda for Data Agents to Withstand the Bitter Lesson",
+   "summary": "Nhóm Liana Patel, Carlos Guestrin, Ion Stoica và Matei Zaharia lập luận rằng mỗi thế hệ mô hình lại tự nuốt thêm các lớp kỹ thuật từng phải xây tay quanh data agent, và đề xuất chuyển trọng tâm sang ngữ cảnh ngữ nghĩa bền vững như một trừu tượng lõi của hệ thống dữ liệu.",
+   "why": "Nếu bài học cay đắng đúng ở đây, mọi khoản đầu tư vào heuristic chọn bảng hay bộ định tuyến công cụ đều có hạn dùng. Thứ mô hình không tự sinh ra được là ngữ cảnh nghiệp vụ của chính doanh nghiệp bạn.",
+   "url": "https://arxiv.org/abs/2609.03141",
+   "domain": "arxiv.org",
+   "date": "2026-09-02",
+   "section": "🤖 AI × Data",
+   "hot_rank": 4
+  },
+  {
+   "aid": 15,
+   "title": "Git4Data: đưa branch, diff và merge kiểu Git vào thẳng trong database cho AI agent",
+   "title_en": "Git4Data: Database-Native Version Control for AI Agents",
+   "summary": "Nhóm nghiên cứu đề xuất Git4Data, hệ mở rộng SQL để có snapshot, tag, branch, diff và merge ngay trong database, xây trên MatrixOne với lưu trữ bất biến và MVCC. Nhóm báo cáo hiệu năng vượt DoltDB tới một bậc độ lớn trên khối lượng công việc agentic.",
+   "why": "Agent cần thử nhiều nhánh trạng thái dữ liệu song song rồi bỏ nhánh sai. Git không kham nổi dataset lớn, còn database thì không có branch. Vá đúng khoảng trống này là điều kiện cần để agent được phép ghi vào dữ liệu thật.",
+   "url": "https://arxiv.org/abs/2609.02106",
+   "domain": "arxiv.org",
+   "date": "2026-09-02",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 16,
+   "title": "DataHub: đội dẫn đầu về context engineering có khả năng dẫn đầu AI cao gấp 4 lần",
+   "title_en": "DataHub: Context Engineering Leaders Are 4 Times More Likely to Lead in AI",
+   "summary": "Báo cáo mới của DataHub cho thấy các tổ chức đầu tư nghiêm túc vào context engineering, tức là lớp metadata, lineage và định nghĩa nghiệp vụ, có khả năng tự đánh giá mình dẫn đầu về AI cao gấp bốn lần nhóm còn lại.",
+   "why": "Con số này khớp với thứ nhiều đội đang trải qua: mô hình không thiếu, dữ liệu cũng không thiếu, thứ thiếu là ngữ cảnh để mô hình hiểu bảng nào nghĩa là gì. Catalog đang từ chỗ là công cụ tuân thủ chuyển thành hạ tầng AI.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/datahub-context-engineering-leaders-are-4-times-more-likely-to-lead-in-ai/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-03",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "Data center đang bị phản đối khắp nơi: cơn giận đó có chính đáng không",
+   "title_en": "Data Centers Are Under Attack. Is the Anger Justified?",
+   "summary": "BigDATAwire phân tích làn sóng phản đối xây data center AI đang khiến nhiều lãnh đạo chính trị kêu gọi cấm hoặc tạm dừng cấp phép, và đặt câu hỏi phần nào trong cơn giận đó là do hóa đơn điện tăng, phần nào là do cảm nhận về môi trường.",
+   "why": "Với người làm data, đây không phải chuyện chính trị xa xôi. Nếu địa phương siết cấp phép, giá compute và giá lưu trữ khu vực sẽ đổi, và bài toán chọn region cho lakehouse sẽ có thêm biến số mới.",
+   "url": "https://www.hpcwire.com/bigdatawire/2026/09/01/data-centers-are-under-attack-is-the-anger-justified/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-01",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 18,
+   "title": "Data Engineering Weekly #285: Grab tự động vá data mesh, Airbnb mở thư viện k-anonymity",
+   "title_en": "Data Engineering Weekly #285",
+   "summary": "Số 285 điểm loạt bài đáng đọc: Grab dựng hệ tự phát hiện vi phạm data contract rồi tự chẩn đoán và khôi phục, Airbnb mở mã thư viện k-anonymity của Project Lighthouse, Booking.com làm tầng ngữ nghĩa cho truy vấn bằng ngôn ngữ tự nhiên, và Chris Douglas giới thiệu compaction map rút thời gian giải xung đột table format từ phút xuống mili giây.",
+   "why": "Điểm chung của cả số này là dữ liệu đang được đối xử như một hệ thống vận hành có SLA, chứ không phải một tập báo cáo. Data contract, tự khôi phục, tầng ngữ nghĩa: cả ba đều là hạ tầng chứ không phải dự án.",
+   "url": "https://www.dataengineeringweekly.com/p/data-engineering-weekly-285",
+   "domain": "dataengineeringweekly.com",
+   "date": "2026-08-31",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 19,
+   "title": "Chi phí trên mỗi token hay chi phí trên mỗi tác vụ: cái nào thật sự quyết định ROI của AI",
+   "title_en": "Cost per Token vs. Cost per Task: What Really Determines AI ROI",
+   "summary": "Bài phân tích trên BigDATAwire lập luận rằng giá trên mỗi token là chỉ số dễ đo nhưng dễ đánh lừa, vì một mô hình rẻ hơn trên token có thể tốn nhiều lượt hơn để hoàn thành cùng một tác vụ, khiến tổng chi phí cao hơn.",
+   "why": "Đây là bài toán FinOps mà rất nhiều đội đang tính sai. Nếu KPI của bạn là giảm giá token, bạn có thể tối ưu đúng chỉ số mà vẫn đốt thêm tiền. Đơn vị đo đúng là chi phí để hoàn thành một việc.",
+   "url": "https://www.hpcwire.com/bigdatawire/2026/08/31/cost-per-token-vs-cost-per-task-what-really-determines-ai-roi/",
+   "domain": "hpcwire.com",
+   "date": "2026-08-31",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 20,
+   "title": "Sayari dựng lại commercial world model trên Snowflake, mở khóa một thập kỷ dữ liệu deep web cho AI",
+   "title_en": "Sayari Rebuilds Its Commercial World Model on Snowflake, Making a Decade of Deep Web Records AI-Ready",
+   "summary": "Sayari công bố đã tái kiến trúc mô hình dữ liệu thương mại toàn cầu của mình trên Snowflake, đưa kho hồ sơ deep web tích lũy suốt một thập kỷ về dạng sẵn sàng cho AI khai thác.",
+   "why": "Đây là mẫu case study kinh điển: giá trị không nằm ở việc có dữ liệu hiếm, mà ở việc dữ liệu hiếm đó có ở dạng mà mô hình truy vấn được hay không. Rất nhiều doanh nghiệp Việt cũng đang ngồi trên kho dữ liệu chưa dùng được.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/sayari-rebuilds-its-commercial-world-model-on-snowflake-making-a-decade-of-deep-web-records-ai-ready/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-04",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 21,
+   "title": "VAST Data tích hợp CrowdStrike Falcon vào AI Operating System của mình",
+   "title_en": "VAST Data Integrates CrowdStrike Falcon Protection with Its AI Operating System",
+   "summary": "VAST Data công bố tích hợp lớp bảo vệ CrowdStrike Falcon vào AI Operating System, đưa phát hiện và phản ứng mối đe dọa xuống tận tầng nền tảng dữ liệu chứ không chỉ ở endpoint.",
+   "why": "Khi kho dữ liệu huấn luyện và kho vector trở thành tài sản đắt nhất trong nhà, bảo mật không thể dừng ở tầng ứng dụng. Đây là xu hướng đưa security xuống sát chỗ dữ liệu nằm.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/vast-data-integrates-crowdstrike-falcon-protection-with-its-ai-operating-system/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-04",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 22,
+   "title": "Ataccama chọn Systemation làm nhà phân phối chính thức tại Benelux",
+   "title_en": "Ataccama Selects Systemation as Authorized Distributor Across Benelux",
+   "summary": "Hãng quản trị và chất lượng dữ liệu Ataccama công bố chọn Systemation làm nhà phân phối được ủy quyền tại thị trường Bỉ, Hà Lan và Luxembourg.",
+   "why": "Tin nhỏ nhưng cho thấy một xu hướng: các hãng data governance đang mở rộng bằng kênh phân phối địa phương thay vì bán trực tiếp, vì bài toán tuân thủ dữ liệu luôn mang màu sắc pháp lý từng vùng.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/ataccama-selects-systemation-as-authorized-distributor-across-benelux/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-04",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 23,
+   "title": "Verisk ra cơ sở dữ liệu phơi nhiễm rủi ro cho hơn 2.500 data center tại Mỹ",
+   "title_en": "Amid AI Boom, Verisk Launches New View of U.S. Data Center Exposure",
+   "summary": "Verisk công bố U.S. Data Center Exposure Database với geocode tới mức mái nhà, footprint công trình, loại kết cấu, diện tích sàn, công suất và đặc tính dự phòng cho hơn 2.500 cơ sở, kèm lưới phân rã 90 mét phục vụ mô hình thảm họa.",
+   "why": "Phí bảo hiểm data center toàn cầu được dự báo tăng từ khoảng 10 tỷ đô năm 2026 lên 23 tỷ đô năm 2030. Khi rủi ro tập trung tới mức đó, bản thân bản đồ hạ tầng dữ liệu trở thành một sản phẩm dữ liệu có giá.",
+   "url": "https://www.globenewswire.com/news-release/2026/09/03/3355672/0/en/amid-ai-boom-verisk-launches-new-view-of-u-s-data-center-exposure-helping-insurers-assess-growing-concentrations-of-risk.html",
+   "domain": "globenewswire.com",
+   "date": "2026-09-03",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 1,
+ "weekly_video": {
+  "intro": "Chào anh em, đây là bản tin Data News tuần 36, từ ngày ba mươi mốt tháng tám tới ngày sáu tháng chín năm hai nghìn không trăm hai mươi sáu. Chủ đề xuyên suốt tuần này là quản trị và độ tin cậy. Một lỗ hổng PostgreSQL mười hai năm tuổi đánh thẳng vào pipeline dữ liệu, benchmark lưu trữ tiêu chuẩn ngành lần đầu đo vector database, và các dự án Apache nền tảng của lakehouse cùng siết chuẩn kiểm định. Mời anh em cùng đi qua năm tin nóng nhất.",
+  "outro": "Đó là năm tin nóng nhất của tuần 36. Chi tiết đầy đủ hai mươi ba tin, kèm phân tích và nguồn gốc, anh em xem trong bản tin đầy đủ trên trang. Hẹn gặp lại anh em tuần sau.",
+  "segments": [
+   {
+    "aid": 1,
+    "headline": "PostgreSQL vá lỗ hổng logical decoding 12 năm tuổi",
+    "narration": "Tin đáng lo nhất tuần này không nằm ở một sản phẩm mới, mà ở một lỗ hổng đã sống trong PostgreSQL suốt mười hai năm. Lỗ hổng mang mã CVE hai không hai sáu, sáu bốn bảy một, được giới bảo mật đặt biệt danh PostGREShell, chấm điểm CVSS bảy phẩy hai. Cơ chế logical decoding của PostgreSQL không kiểm tra quyền khi nạp thư viện output plugin. Một tài khoản chỉ cần có thuộc tính REPLICATION, không cần superuser, là có thể chỉ định bất kỳ file thư viện nào mà tiến trình PostgreSQL nhìn thấy, khiến máy chủ nạp file đó và chạy mã tùy ý dưới quyền tài khoản hệ điều hành đang chạy database. Điều khiến tin này đặc biệt liên quan tới dân data: thuộc tính REPLICATION chính là thứ mà công cụ backup, máy chủ standby, pipeline change data capture và hệ thống giám sát thường xuyên được cấp. Nói cách khác, chính những tài khoản mà đội data tự tạo ra cho các công cụ đồng bộ lại đang là bề mặt tấn công. Lỗi có từ PostgreSQL chín chấm bốn, năm hai nghìn không trăm mười bốn. Bản vá đã phát hành, thêm tham số output plugin libraries mặc định chỉ cho phép hai plugin. Các phiên bản cần nâng là mười tám chấm sáu, mười bảy chấm mười một, mười sáu chấm mười lăm, mười lăm chấm mười chín và mười bốn chấm hai tư.",
+    "bullets": [
+     "CVSS 7,2, tồn tại từ PostgreSQL 9.4 năm 2014",
+     "Chỉ cần quyền REPLICATION, không cần superuser",
+     "Pipeline CDC và backup là nhóm rủi ro cao nhất"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Chuỗi khai thác PostGREShell",
+     "items": [
+      {
+       "t": "Tài khoản REPLICATION",
+       "d": "Không cần superuser"
+      },
+      {
+       "t": "Chọn output plugin",
+       "d": "Trỏ tới thư viện bất kỳ"
+      },
+      {
+       "t": "Server nạp thư viện",
+       "d": "Không kiểm tra quyền"
+      },
+      {
+       "t": "Chạy mã tùy ý",
+       "d": "Quyền user chạy database"
+      },
+      {
+       "t": "Superuser vĩnh viễn",
+       "d": "Cửa hậu bền trong DB"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 4,
+    "headline": "MLPerf Storage 3.0 lần đầu đo Vector Database và KV Cache",
+    "narration": "Ngày một tháng chín, MLCommons công bố kết quả bộ benchmark MLPerf Storage phiên bản ba chấm không, và đây là lần đầu tiên bộ đo tiêu chuẩn của ngành thừa nhận rằng hạ tầng lưu trữ cho AI đã đổi hình dạng. Hai bài test hoàn toàn mới được thêm vào. Bài thứ nhất đo hiệu năng lưu trữ cho KV cache, tức là bộ nhớ đệm key value mà mô hình ngôn ngữ đọc ghi liên tục trong lúc suy luận. Bài thứ hai đo hiệu năng cho vector database, cụ thể là khối lượng công việc lập chỉ mục và truy vấn vector. Phiên bản này cũng bổ sung tầng truy cập S3 bên cạnh POSIX; khoảng một phần sáu kết quả gửi về đã dùng tầng S3. Về quy mô, mười chín tổ chức gửi kết quả, trong đó mười một là người mới, gồm cả Azure, NVIDIA và OpenLake. Về hiệu suất điện năng, bài ghi checkpoint đạt trung vị mười bốn gigabyte trên giây cho mỗi watt, cao nhất là hai trăm lẻ một. Bài đọc UNet ba chiều đạt trung vị ba mươi tư gigabyte trên giây mỗi watt, cao nhất hai trăm bảy mươi bảy. Với người mua hạ tầng, đây là lần đầu có căn cứ trung lập để so sánh chứ không phải chỉ nghe hãng nói.",
+    "bullets": [
+     "Hai bài test mới: KV Cache và Vector Database",
+     "19 tổ chức gửi kết quả, 11 là người mới",
+     "Thêm tầng truy cập S3 bên cạnh POSIX"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "MLPerf Storage v3.0 qua con số",
+     "items": [
+      {
+       "v": "19",
+       "l": "tổ chức gửi kết quả"
+      },
+      {
+       "v": "11",
+       "l": "người gửi lần đầu"
+      },
+      {
+       "v": "2",
+       "l": "bài test hoàn toàn mới"
+      },
+      {
+       "v": "34 GB/s/W",
+       "l": "trung vị đọc UNet3D"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 12,
+    "headline": "K2 Horizon mở cả trọng số lẫn dữ liệu huấn luyện",
+    "narration": "Ngày ba tháng chín, Institute of Foundation Models công bố K2 Horizon, và điểm đáng chú ý không nằm ở điểm benchmark mà nằm ở chữ mở. Đây là bộ sáu mô hình nền tảng, trải từ không phẩy chín tỷ tham số cho tới ba trăm bảy mươi lăm tỷ tham số, và cả sáu đều phát hành kèm trọng số, mã nguồn huấn luyện, công thức dữ liệu, checkpoint, log huấn luyện và bộ đánh giá, tất cả dưới giấy phép Apache hai chấm không. Phần lớn mô hình được gọi là mở hiện nay chỉ mở trọng số, tức là bạn nhận được kết quả cuối cùng mà không biết họ đi tới đó bằng cách nào. K2 Horizon công bố cả nhật ký hành trình. Với người làm data, đây là chuyện đáng quan tâm hơn nhiều người nghĩ, vì dữ liệu huấn luyện mở nghĩa là có thể kiểm toán được nguồn gốc, có thể tái lập kết quả, và có thể tinh chỉnh với hiểu biết đầy đủ về phân phối dữ liệu gốc. Về năng lực, nhóm ba mô hình nhỏ nhất là không phẩy chín tỷ, ba phẩy bảy tỷ và bảy tỷ tham số được công bố đạt mức tốt nhất trong hạng cân của mình ở các bài suy luận, toán, lập trình và tác vụ agentic. Mô hình nhỏ nhất nhắm tới đồng hồ và kính thông minh, hai mô hình kế tiếp nhắm tới điện thoại.",
+    "bullets": [
+     "Sáu mô hình từ 0,9 tỷ tới 375 tỷ tham số",
+     "Apache 2.0, có cả dữ liệu và log huấn luyện",
+     "Ba mô hình nhỏ dẫn đầu trong hạng cân"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Mức độ mở của K2 Horizon",
+     "items": [
+      {
+       "t": "Trọng số",
+       "d": "Sáu mô hình 0,9B tới 375B"
+      },
+      {
+       "t": "Mã huấn luyện",
+       "d": "Toàn bộ pipeline training"
+      },
+      {
+       "t": "Dữ liệu",
+       "d": "Công thức và tập dữ liệu gốc"
+      },
+      {
+       "t": "Checkpoint và log",
+       "d": "Dấu vết cả quá trình chạy"
+      },
+      {
+       "t": "Bộ đánh giá",
+       "d": "Eval để tái lập kết quả"
+      }
+     ]
+    },
+    "images": [
+     "https://ifm.ai/k2/assets/images/social/k2-horizon-3c3eb77bd6ac.webp"
+    ]
+   },
+   {
+    "aid": 14,
+    "headline": "Khi mô hình nuốt cả stack thì data agent còn gì",
+    "narration": "Bài nghiên cứu gây suy nghĩ nhất tuần này đến từ nhóm tác giả rất nặng ký, trong đó có Carlos Guestrin, Ion Stoica và Matei Zaharia. Tiêu đề đặt thẳng câu hỏi: chuyện gì xảy ra khi mô hình nuốt luôn cả stack. Lập luận của họ như sau. Suốt hai năm qua giới nghiên cứu data agent bỏ rất nhiều công xây các lớp kỹ thuật bao quanh mô hình: pipeline chia nhỏ câu hỏi, bộ định tuyến công cụ, heuristic chọn bảng nào để đọc. Nhưng mô hình cứ mỗi thế hệ lại tự nuốt thêm một phần trong số đó. Đây chính là bài học cay đắng: thứ dựa vào tính toán và dữ liệu quy mô lớn cuối cùng luôn thắng tri thức thủ công. Thay vì chống lại xu hướng đó, nhóm tác giả đề xuất chuyển trọng tâm nghiên cứu sang thứ mô hình không tự sinh ra được, gọi là ngữ cảnh ngữ nghĩa bền vững. Đó là lớp thông tin được chưng cất và giữ lại giữa các truy vấn: định nghĩa nghiệp vụ, quan hệ giữa các bảng, những gì hệ thống đã học được từ lần hỏi trước. Họ đề nghị coi lớp ngữ cảnh này là một trừu tượng lõi của hệ thống dữ liệu, và mở ra hướng nghiên cứu về cấu trúc dữ liệu, cách lưu trữ, cách nén và giao thức giữ cho ngữ cảnh đó luôn đúng và nhất quán.",
+    "bullets": [
+     "Tác giả gồm Matei Zaharia và Ion Stoica",
+     "Mô hình đang nuốt dần các lớp kỹ thuật thủ công",
+     "Hướng mới: ngữ cảnh ngữ nghĩa bền vững"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Hai hướng nghiên cứu data agent",
+     "left": {
+      "h": "Lớp kỹ thuật thủ công",
+      "items": [
+       "Chia nhỏ câu hỏi theo luật",
+       "Bộ định tuyến công cụ",
+       "Heuristic chọn bảng",
+       "Mô hình mới là nuốt mất"
+      ]
+     },
+     "right": {
+      "h": "Ngữ cảnh bền vững",
+      "items": [
+       "Định nghĩa nghiệp vụ",
+       "Quan hệ giữa các bảng",
+       "Tri thức tích lũy qua truy vấn",
+       "Mô hình không tự sinh được"
+      ]
+     }
+    },
+    "images": []
+   },
+   {
+    "aid": 2,
+    "headline": "Tuần siết chuẩn của Iceberg, Arrow và Parquet",
+    "narration": "Tuần này bên trong các dự án Apache của thế giới lakehouse là một tuần rất bận, và nếu đọc kỹ thì thấy một chủ đề chung: quản trị đang thắng tính năng. Ở Apache Iceberg, đề xuất giới hạn quyền đọc ở mức chi tiết trong REST catalog đã qua bỏ phiếu ngày ba mươi mốt tháng tám, kèm luôn một bộ kiểm tra tương thích để các bên tự chứng minh mình cài đặt đúng chứ không chỉ nói suông. Cùng ngày, Iceberg Terraform provider được duyệt bản phát hành đầu tiên. Ở Apache Arrow, cộng đồng bỏ phiếu khai tử Tensor và SparseTensor khỏi format, lý do là chỉ có bản C plus plus cài đặt đầy đủ nên không đạt chuẩn để giữ trong đặc tả. Arrow Rust năm mươi chín chấm ba chấm không cũng ra bản chính thức trong tuần. Ở Apache Parquet, bản vá một chấm mười tám chấm một đã cắt ứng viên phát hành, và cuộc tranh luận về cách đánh phiên bản format vẫn chưa ngã ngũ giữa hai phe: một phe muốn dùng magic bytes theo kiểu PAR ba rồi PAR bốn, một phe muốn định nghĩa yêu cầu trước đã. Điểm chung của cả ba dự án là chuẩn mực kiểm định đang lên rất nhanh: đặc tả phải đi kèm bộ test, bản phát hành phải qua kiểm toán giấy phép chứ không chỉ chạy được là xong.",
+    "bullets": [
+     "Iceberg chốt quyền đọc chi tiết cho REST catalog",
+     "Arrow bỏ Tensor, ra Arrow Rust 59.3.0",
+     "Parquet cắt RC cho bản vá 1.18.1"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Nhịp phát hành Apache tuần 36",
+     "items": [
+      {
+       "t": "31/08 Iceberg",
+       "d": "Duyệt read restrictions REST"
+      },
+      {
+       "t": "31/08 Terraform",
+       "d": "Provider ra bản đầu tiên"
+      },
+      {
+       "t": "31/08 Parquet",
+       "d": "Cắt RC1 cho 1.18.1"
+      },
+      {
+       "t": "01/09 Arrow",
+       "d": "Khai tử Tensor, ra Rust 59.3.0"
+      }
+     ]
+    },
+    "images": [
+     "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fdl7fdbcod3u160h7rvk6.png"
+    ]
+   }
+  ]
+ },
+ "facebook_post": "𝐓𝐔𝐀̂̀𝐍 𝐍𝐀̀𝐘 𝐍𝐆𝐇𝐄̂̀ 𝐃𝐀𝐓𝐀 𝐆𝐈𝐀̣̂𝐓 𝐌𝐈̀𝐍𝐇 𝐕𝐈̀ 𝐌𝐎̣̂𝐓 𝐋𝐎̂̃ 𝐇𝐎̂̉𝐍𝐆 𝟏𝟐 𝐍𝐀̆𝐌 𝐓𝐔𝐎̂̉𝐈 🔐\n\nSáng thứ Năm, Đức đang ngồi review một pipeline CDC cho khách thì đọc được tin PostgreSQL vá một lỗ hổng có từ năm 2014.\n\nPhản xạ đầu tiên: \"Chắc lại lỗi gì đó ở tầng ứng dụng thôi.\"\n\nĐọc kỹ hơn thì lạnh gáy. Nó nằm đúng chỗ mà 90% pipeline dữ liệu đang cắm vào.\n\nTuần 36 này (31/08 - 06/09/2026) có 23 tin đáng chú ý, nhưng mình chọn ra 5 tin mà anh em làm Data nên biết.\n\n---\n\n1️⃣ 𝐏𝐨𝐬𝐭𝐠𝐫𝐞𝐒𝐐𝐋 𝐯𝐚́ 𝐏𝐨𝐬𝐭𝐆𝐑𝐄𝐒𝐡𝐞𝐥𝐥: 𝐥𝐨̂̃ 𝐡𝐨̂̉𝐧𝐠 𝟏𝟐 𝐧𝐚̆𝐦 𝐭𝐮𝐨̂̉𝐢 𝐛𝐚̆́𝐧 𝐭𝐡𝐚̆̉𝐧𝐠 𝐯𝐚̀𝐨 𝐩𝐢𝐩𝐞𝐥𝐢𝐧𝐞 𝐂𝐃𝐂\n\nMã CVE-2026-6471, điểm CVSS 7.2. Cơ chế logical decoding của PostgreSQL không kiểm tra quyền khi nạp thư viện output plugin.\n\nHệ quả: một tài khoản chỉ cần có thuộc tính REPLICATION - KHÔNG cần superuser - là có thể ép server nạp thư viện bất kỳ rồi chạy mã tùy ý dưới quyền tài khoản hệ điều hành đang chạy database.\n\nMà REPLICATION là thuộc tính gì? Là thứ mà Debezium, Fivetran, Airbyte, công cụ backup, máy chủ standby và hệ giám sát đều xin.\n\n👉 Nghĩa là: chính cái account anh em tạo ra cho pipeline CDC có thể là đường vào. Bản vá thêm tham số output_plugin_libraries, cần lên PostgreSQL 18.6, 17.11, 16.15, 15.19 hoặc 14.24.\n\n2️⃣ 𝐌𝐋𝐏𝐞𝐫𝐟 𝐒𝐭𝐨𝐫𝐚𝐠𝐞 𝟑.𝟎: 𝐥𝐚̂̀𝐧 đ𝐚̂̀𝐮 𝐜𝐨́ 𝐛𝐚̀𝐢 đ𝐨 𝐕𝐞𝐜𝐭𝐨𝐫 𝐃𝐚𝐭𝐚𝐛𝐚𝐬𝐞 𝐯𝐚̀ 𝐊𝐕 𝐂𝐚𝐜𝐡𝐞\n\nMLCommons công bố kết quả ngày 01/09. Lần đầu tiên benchmark lưu trữ tiêu chuẩn ngành có hai bài test mới: KV Cache (bộ nhớ đệm suy luận LLM) và Vector Database (lập chỉ mục + truy vấn vector). Thêm cả tầng truy cập S3 bên cạnh POSIX.\n\n19 tổ chức gửi kết quả, 11 trong đó là người mới - có cả Azure, NVIDIA và OpenLake.\n\n👉 Khi benchmark chuẩn của ngành bắt đầu đo vector DB, tức là hạ tầng lưu trữ cho AI đã chính thức được coi là một hạng mục riêng, chứ không còn ăn theo benchmark training cũ.\n\n3️⃣ 𝐊𝟐 𝐇𝐨𝐫𝐢𝐳𝐨𝐧: 𝟔 𝐦𝐨̂ 𝐡𝐢̀𝐧𝐡 𝐦𝐨̛̉ 𝐤𝐞̂̉ 𝐜𝐚̉ 𝐝𝐮̛̃ 𝐥𝐢𝐞̣̂𝐮 𝐡𝐮𝐚̂́𝐧 𝐥𝐮𝐲𝐞̣̂𝐧\n\nInstitute of Foundation Models phát hành 6 mô hình từ 0,9 tỷ tới 375 tỷ tham số, tất cả Apache 2.0. Điểm khác biệt: không chỉ mở trọng số mà mở cả mã huấn luyện, công thức dữ liệu, checkpoint, log và bộ eval.\n\n👉 Phần lớn mô hình gọi là \"mở\" hiện nay chỉ cho bạn cái kết quả. Cái này cho luôn nhật ký hành trình. Với ngân hàng, bảo hiểm, y tế thì đây mới là thứ đủ điều kiện đưa vào production.\n\n4️⃣ 𝐙𝐚𝐡𝐚𝐫𝐢𝐚 𝐯𝐚̀ 𝐒𝐭𝐨𝐢𝐜𝐚 đ𝐚̣̆𝐭 𝐥𝐚̣𝐢 đ𝐞̂̀ 𝐛𝐚̀𝐢 𝐜𝐡𝐨 𝐝𝐚𝐭𝐚 𝐚𝐠𝐞𝐧𝐭\n\nBài arXiv của nhóm Liana Patel, Carlos Guestrin, Ion Stoica và Matei Zaharia đặt câu hỏi: chuyện gì xảy ra khi mô hình nuốt luôn cả stack?\n\nLập luận: suốt 2 năm qua ta xây rất nhiều lớp kỹ thuật quanh mô hình - chia nhỏ câu hỏi, định tuyến công cụ, heuristic chọn bảng. Nhưng mỗi thế hệ mô hình lại nuốt thêm một phần. Đó là \"bài học cay đắng\" kinh điển.\n\n👉 Đề xuất của họ: chuyển trọng tâm sang thứ mô hình KHÔNG tự sinh ra được - ngữ cảnh ngữ nghĩa bền vững của chính doanh nghiệp bạn.\n\n5️⃣ 𝐓𝐮𝐚̂̀𝐧 𝐬𝐢𝐞̂́𝐭 𝐜𝐡𝐮𝐚̂̉𝐧 𝐜𝐮̉𝐚 𝐈𝐜𝐞𝐛𝐞𝐫𝐠, 𝐀𝐫𝐫𝐨𝐰 𝐯𝐚̀ 𝐏𝐚𝐫𝐪𝐮𝐞𝐭\n\nIceberg chốt quyền đọc chi tiết cho REST catalog kèm compatibility kit. Iceberg Terraform provider ra bản đầu tiên. Arrow bỏ phiếu khai tử Tensor/SparseTensor, ra Arrow Rust 59.3.0. Parquet cắt RC cho bản vá 1.18.1.\n\n👉 Điểm chung: đặc tả bây giờ phải đi kèm bộ test, bản phát hành phải qua kiểm toán giấy phép. Hệ sinh thái mở đang chuyển từ đua tính năng sang đua độ tin cậy.\n\n---\n\n💭 𝐆𝐨́𝐜 𝐧𝐡𝐢̀𝐧 𝐜𝐮̉𝐚 𝐦𝐢̀𝐧𝐡 𝐯𝐞̂̀ 𝐭𝐮𝐚̂̀𝐧 𝐧𝐚̀𝐲\n\nĐức chỉ chia sẻ dưới góc nhìn kỹ thuật của một người đang làm Data & AI cho doanh nghiệp, không phải chuyên gia bảo mật.\n\nĐiều mình thấy rõ nhất tuần này: ngành data đang trả giá cho việc coi \"kết nối được là xong\".\n\nCái lỗ hổng PostgreSQL kia không phải lỗi mới. Nó có từ 2014. Nhưng nó chỉ trở thành vấn đề lớn khi CDC trở thành mặc định - khi mọi công ty đều có 3-4 pipeline cắm thẳng vào database production bằng account REPLICATION. Mình đi tư vấn thì thấy 8/10 chỗ cấp account đó một lần rồi... quên luôn. Không rà, không rotate, không biết ai đang dùng.\n\n👉 Theo mình, việc nên làm ngay tuần này không phải là hoảng lên, mà là mở sổ ra liệt kê: hiện có bao nhiêu account REPLICATION, ai cấp, còn dùng không. Riêng cái danh sách đó đã đáng giá rồi, có vá hay chưa vá cũng vậy.\n\nÝ thứ hai, mình thích cách nhóm Zaharia đặt vấn đề. Đợt vừa rồi Đức học và thi chứng chỉ Databricks, có làm thực hành ứng dụng RAG trên nền lakehouse - Delta, Unity Catalog, vector search gộp về một chỗ. Cái mình rút ra rất trùng với bài báo: phần khó nhất KHÔNG phải chọn model, cũng không phải chỉnh chunk size. Phần khó nhất là làm sao để hệ thống hiểu \"doanh thu\" ở công ty này nghĩa là gì, bảng nào là bảng thật, con số nào là con số được duyệt.\n\nMô hình sẽ ngày càng giỏi hơn ở phần kỹ thuật. Nhưng ngữ cảnh nghiệp vụ của công ty bạn thì không có mô hình nào sinh ra hộ được. Đó là lý do mình vẫn nói với các đội: đừng vội đi mua agent, hãy đi dọn định nghĩa nghiệp vụ trước.\n\nÝ thứ ba, con số từ báo cáo DataHub tuần này khá thú vị - đội đầu tư vào context engineering (metadata, lineage, định nghĩa) có khả năng dẫn đầu về AI cao gấp 4 lần. Mình đọc con số này với thái độ thận trọng vì đó là tự đánh giá, nhưng hướng thì đúng với thực tế mình gặp.\n\n\"Data catalog\" từ chỗ là món ai cũng biết là nên có nhưng không ai muốn làm, giờ bỗng thành hạ tầng bắt buộc - vì không có nó thì agent mù.\n\nNói cho gọn: tuần này không có sản phẩm nào gây choáng. Nhưng cả 5 tin đều chỉ về một chỗ - độ tin cậy của nền móng. Và nền móng thì chỉ được chú ý khi nó nứt 😅\n\nAnh em nào đang chạy CDC trên PostgreSQL thì kiểm tra version giúp mình nhé, comment cho mình biết tình hình bên anh em thế nào 👌\n\n#DataEngineering #PostgreSQL #Lakehouse #ApacheIceberg #DataGovernance #Databricks #Snowflake #VectorDatabase #AIAgent #HocCungAI #DuLieuDoanhNghiep #DataNews #KyThuatDuLieu",
+ "facebook_reel": "Cái account bạn tạo cho pipeline CDC có thể là cửa sau.\n\nPostgreSQL vừa vá lỗ hổng có từ năm 2014. Chỉ cần quyền REPLICATION - không cần superuser - là chạy được mã tùy ý trên máy chủ database.\n\nMà REPLICATION là thứ Debezium, Fivetran, backup, standby... đều xin. Cấp một lần rồi quên luôn.\n\nTuần này còn 4 tin nữa: MLPerf lần đầu đo vector database, K2 Horizon mở cả dữ liệu huấn luyện...\n\nBạn có nhớ mình đang cấp bao nhiêu account REPLICATION không?\n\n#DataEngineering #PostgreSQL #CDC #DataNews #HocCungAI",
+ "bgm": "minimal-tech",
+ "youtube": {
+  "recap": "TgndL0Bl0Z0",
+  "short": "scVzm5YaPl4"
+ }
+}
