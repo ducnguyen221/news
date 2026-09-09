@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-09-09",
+      "display_date": "09/09/2026",
+      "title": "Google tính sẵn 9 tỷ đột biến, gói thành kho 1 petabyte",
+      "summary": "Google vừa tính sẵn chín tỷ đột biến DNA và gói thành kho một petabyte. Bài học thật sự lại dành cho dân dữ liệu.",
+      "source": "deepmind.google",
+      "video_id": "qQbPraCzu54",
+      "short_id": "WKRzPYlZLBA",
+      "published_at": "2026-09-09T19:31:07"
+    },
+    {
       "date": "2026-09-03",
       "display_date": "03/09/2026",
       "title": "PyIceberg 0.12: Iceberg vào thẳng Python, không cần Spark",
