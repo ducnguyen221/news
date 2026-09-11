@@ -1,0 +1,473 @@
+{
+ "date": "11/09/2026",
+ "week": "W37",
+ "range": "07/09 - 13/09/2026",
+ "tldr": "Tuần 37 là tuần AI bước ra khỏi màn hình chat để tự làm việc thay người dùng. Meta ra mắt Muse, trợ lý cá nhân chạy trên máy ảo riêng biết tự đặt vé và mua hàng, còn OpenAI mở Agents API bản beta công khai đưa nguyên bộ khung Codex thành một lời gọi API. Ở phía mã nguồn mở, DeepSeek phát hành V4.1-Flash với 552 tỷ tham số giấy phép MIT, Tencent mở AuK cho giọng nói, và tiền tiếp tục đổ vào hạ tầng với Cognition gọi 2 tỷ đô ở định giá 48 tỷ, Mistral gọi 3 tỷ euro. Đối trọng là một tuần nặng nề về an toàn: Anthropic công bố báo cáo tình báo mối đe dọa chi tiết nhất từ trước tới nay, còn một cựu nghiên cứu viên nghỉ việc kèm cảnh báo lan tới gần 76 triệu lượt xem. Tuần này cho thấy năng lực và lo ngại đang tăng cùng tốc độ.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "SenseNova-U1.5: SenseTime công bố kiến trúc thị giác hợp nhất native",
+   "title_en": "SenseNova-U1.5: Towards Native Unified Visual Intelligence",
+   "summary": "SenseTime công bố báo cáo kỹ thuật SenseNova-U1.5, hướng tới gộp hiểu ảnh và sinh ảnh vào một kiến trúc thống nhất thay vì ghép hai mô hình rời. Báo cáo có 65 tác giả và đạt 94 lượt vote trên Hugging Face ngày ra mắt.",
+   "why": "Hợp nhất hiểu và sinh trong một mô hình giúp giảm chi phí vận hành và tránh lệch ngữ nghĩa giữa hai giai đoạn, hướng đi mà cả OpenAI lẫn Google đều đang theo đuổi.",
+   "url": "https://huggingface.co/papers/2609.11929",
+   "domain": "huggingface.co",
+   "date": "2026-09-11",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 2,
+   "title": "DeepSeek mở trọng số V4.1-Flash: MoE 552B, context 1 triệu token, giấy phép MIT",
+   "title_en": "DeepSeek V4.1 Flash open weights land on Hugging Face",
+   "summary": "DeepSeek phát hành V4.1-Flash ngày 10/09 với trọng số mở trên Hugging Face theo giấy phép MIT: mô hình MoE đa phương thức 552 tỷ tham số, kiến trúc Causal Encoder-Decoder mới, chỉ 8 tỷ tham số kích hoạt cho đầu vào và 16 tỷ cho đầu ra, context 1 triệu token. Từ 14/09 mọi request tới deepseek-v4-pro được phục vụ bằng V4.1-Flash và tính giá Flash.",
+   "why": "Một mô hình vượt bản Pro của chính hãng trên mọi chỉ số nhưng chỉ kích hoạt 8 tỷ tham số mỗi token, lại kèm giấy phép MIT, kéo chi phí tự host xuống mức mà đội nhỏ ở Việt Nam cũng cân được.",
+   "url": "https://api-docs.deepseek.com/updates/",
+   "domain": "api-docs.deepseek.com",
+   "date": "2026-09-10",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 3
+  },
+  {
+   "aid": 3,
+   "title": "Tencent Hunyuan mở mã AuK: một model 1,5B thay cả bộ công cụ xử lý giọng nói",
+   "title_en": "AuK Technical Report: An Open-Source Foundational Model for Speech Generation and Editing",
+   "summary": "Tencent Hunyuan mở mã AuK ngày 09/09, mô hình nền 1,5 tỷ tham số gộp sinh và chỉnh sửa giọng nói sau một giao diện ngôn ngữ tự nhiên duy nhất, phủ năm nhóm tác vụ gồm TTS zero-shot, sửa nội dung, khử nhiễu, tách nguồn và đổi giọng thì thầm. Trên Seed-TTS-Eval, AuK đạt tỷ lệ lỗi từ trung bình 2,65 so với 3,07 của Qwen3-TTS.",
+   "why": "Thay vì ghép mười mấy công cụ rời cho pipeline âm thanh, đội làm nội dung chỉ cần một model MIT chạy tại chỗ, và bản AuK-Flash rút còn 4 bước suy luận nhanh gấp 4,5 lần.",
+   "url": "https://github.com/Tencent-Hunyuan/AuK",
+   "domain": "github.com",
+   "date": "2026-09-09",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 4,
+   "title": "Meta ra mắt Muse: trợ lý AI cá nhân chạy trên máy ảo riêng, tự đặt vé và mua hàng",
+   "title_en": "Introducing Muse: The World's First Personal AI Agent Built for Everyone",
+   "summary": "Meta ra mắt Muse ngày 08/09 tại Mỹ, một agent cá nhân không chỉ trả lời mà tự thao tác thay người dùng: mua sắm online, đặt vé xem phim, đặt lịch hẹn. Muse chạy trên Muse Secure VM, một máy ảo riêng có trình duyệt riêng, và Meta khẳng định không chia sẻ hội thoại hay dữ liệu trong VM sang hệ thống quảng cáo.",
+   "why": "Đây là lần đầu một nền tảng ba tỷ người dùng đẩy agent tự hành xuống tay người dùng phổ thông, và mô hình máy ảo cách ly là câu trả lời trực diện cho nỗi sợ agent cầm dữ liệu cá nhân.",
+   "url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+   "domain": "about.fb.com",
+   "date": "2026-09-08",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 1
+  },
+  {
+   "aid": 5,
+   "title": "OpenAI ra ChatGPT Images 2.5 và hai model API GPT-Image-2.5 Flare, Sunburst",
+   "title_en": "Introducing ChatGPT Images 2.5",
+   "summary": "OpenAI phát hành ChatGPT Images 2.5 ngày 08/09 cho toàn bộ người dùng ChatGPT, ChatGPT Work và Codex trên desktop, mobile và web, kèm hai model API mới. Flare là lựa chọn mặc định với chất lượng cao hơn GPT-Image-2 mà độ trễ thấp hơn 50%, còn Sunburst nhắm vào quy trình sáng tạo cần kiểm soát chặt từng lần chỉnh sửa.",
+   "why": "Tách một dòng nhanh rẻ và một dòng kiểm soát cao là cách OpenAI thừa nhận sinh ảnh hàng loạt và làm creative sản xuất là hai bài toán khác nhau, giúp đội marketing chọn đúng mức chi phí.",
+   "url": "https://openai.com/index/introducing-chatgpt-images-2-5/",
+   "domain": "openai.com",
+   "date": "2026-09-08",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "OpenAI mở Agents API bản beta công khai, đưa nguyên bộ khung Codex sau một lời gọi API",
+   "title_en": "OpenAI Launches the Agents API in Public Beta, Putting the Codex Harness Behind One API Call",
+   "summary": "Từ 10/09 Agents API của OpenAI vào beta công khai, không thu phí ngoài chi phí sử dụng token. API này phơi bày chính bộ khung Codex mà OpenAI dùng nội bộ, cho agent chạy trong sandbox do OpenAI host, tự host, hoặc 9 sandbox đối tác, kèm sẵn compaction, tool search, gọi tool bằng code và subagent.",
+   "why": "Những thứ đội kỹ thuật phải tự xây mất hàng tháng như nén context, chọn tool và điều phối subagent nay thành tham số mặc định, rút thời gian dựng agent production xuống còn vài ngày.",
+   "url": "https://www.marktechpost.com/2026/09/10/openai-launches-the-agents-api-in-public-beta-putting-the-codex-harness-behind-one-api-call/",
+   "domain": "marktechpost.com",
+   "date": "2026-09-10",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "Miles v0.1: RadixArk công bố framework RL post-training cấp production, dựng trên SGLang",
+   "title_en": "Miles v0.1: Production-Level Post-Training",
+   "summary": "RadixArk, công ty do chính đội phát triển SGLang lập ra, đăng báo cáo 12 tác giả ngày 08/09 mô tả Miles, hệ thống RL post-training cho cả mô hình ngôn ngữ và thị giác. Miles gồm rollout engine dựng trên SGLang, trainer chọn được giữa NVIDIA Megatron-LM và PyTorch FSDP, cùng ba cơ chế đồng bộ trọng số cho các kiểu triển khai khác nhau.",
+   "why": "Bài báo đạt gần 2.800 lượt vote trên Hugging Face, mức hiếm thấy, cho thấy nhu cầu thật về một pipeline RL mở đủ cứng để chạy production thay vì script nghiên cứu.",
+   "url": "https://arxiv.org/abs/2609.08368",
+   "domain": "arxiv.org",
+   "date": "2026-09-08",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "OpenAI chuẩn bị ra Managed Agents tại DevDay 2026 ngày 29/09",
+   "title_en": "OpenAI prepares managed agents for DevDay 2026",
+   "summary": "Dấu vết trong nền tảng OpenAI lộ ra ngày 07/09 cho thấy hãng sắp công bố Managed Agents tại DevDay 2026 tổ chức ngày 29/09 ở Fort Mason, San Francisco. Nền tảng cho phép tạo Agents, Environments và Agent Sessions ngay trên OpenAI Platform, với môi trường, skill và plugin tùy biến, kèm tùy chọn tự host.",
+   "why": "Nếu OpenAI vận hành luôn cả vòng đời agent thì lớp orchestration mà hàng loạt startup đang bán sẽ bị nuốt vào nền tảng, một rủi ro nền tảng mà đội đang chọn stack cần cân nhắc ngay.",
+   "url": "https://www.testingcatalog.com/openai-prepares-managed-agents-for-devday-2026/",
+   "domain": "testingcatalog.com",
+   "date": "2026-09-07",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "OpenWAM: stack mở module hóa cho pretraining World-Action Model",
+   "title_en": "OpenWAM: An Open, Modular Exploration Towards Systematic World-Action Model Pretraining",
+   "summary": "Công bố ngày 07/09, OpenWAM biến việc pretraining world-action model thành một chương trình thí nghiệm có kiểm soát. Phần OpenWAM-Infra chẻ không gian thiết kế WAM thành các module ghép được, thống nhất huấn luyện, suy luận, triển khai và đánh giá trong một khung duy nhất. Bài đạt 518 lượt vote.",
+   "why": "Lĩnh vực robot và embodied AI lâu nay mỗi nhóm một pipeline riêng nên không so sánh được với nhau, một stack chuẩn hóa là điều kiện cần để đo tiến bộ thật.",
+   "url": "https://arxiv.org/abs/2609.07398",
+   "domain": "arxiv.org",
+   "date": "2026-09-07",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "NCP-ArchPreview: dự đoán khái niệm kế tiếp thay vì token kế tiếp",
+   "title_en": "NCP-ArchPreview Technical Report: Moving towards Latent Space Language Models through Next Concept Prediction",
+   "summary": "Báo cáo kỹ thuật công bố ngày 11/09 với 28 tác giả đề xuất chuyển mục tiêu huấn luyện từ dự đoán token kế tiếp sang dự đoán khái niệm kế tiếp trong không gian ẩn. Hướng đi này nhắm tới lớp mô hình ngôn ngữ hoạt động ở tầng latent thay vì tầng ký tự.",
+   "why": "Nếu mô hình suy luận theo khái niệm chứ không theo token thì chi phí cho chuỗi suy luận dài giảm mạnh, đúng chỗ đang đắt nhất của reasoning model hiện nay.",
+   "url": "https://huggingface.co/papers/2609.10715",
+   "domain": "huggingface.co",
+   "date": "2026-09-11",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "EvoSafeHarness: harness bảo mật tự tiến hóa theo từng model và từng lĩnh vực",
+   "title_en": "EvoSafeHarness: Evolving Model- and Domain-Specific Harnesses for Securing Agents",
+   "summary": "Nhóm Johns Hopkins University công bố EvoSafeHarness, khung bảo mật cho agent tự tiến hóa để khớp với từng model và từng lĩnh vực triển khai thay vì dùng một bộ luật cứng chung. Bài xuất hiện trên bảng xếp hạng Hugging Face ngày 11/09.",
+   "why": "Đặt cạnh báo cáo mối đe dọa của Anthropic cùng tuần, đây là hướng phòng thủ thực tế: lớp bảo vệ phải thay đổi theo model, vì mỗi model có kiểu vượt rào riêng.",
+   "url": "https://huggingface.co/papers/2609.05903",
+   "domain": "huggingface.co",
+   "date": "2026-09-11",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "NeoHorse-1: nguyên mẫu tự cải tiến đệ quy bằng post-training có routing harness",
+   "title_en": "NeoHorse-1: Towards Recursive Self-Improvement via Agentic Post-Training with Routing Harness",
+   "summary": "NeoHorse-1 là họ mô hình ngôn ngữ nhân quả kèm nguyên mẫu đầu tiên trên đường tới tự cải tiến đệ quy, với checkpoint 4B và 9B post-train từ Qwen3.5 cho harness agent dạng văn bản, dùng tool, lập trình và làm theo chỉ dẫn. Bài đạt 390 lượt vote ngày 09/09.",
+   "why": "Chủ đề tự cải tiến đệ quy đang là tâm điểm tranh cãi về an toàn, và đây là một trong các nỗ lực mở đầu tiên đưa nó thành checkpoint tải được để cộng đồng kiểm chứng thay vì chỉ bàn lý thuyết.",
+   "url": "https://huggingface.co/papers/2609.08183",
+   "domain": "huggingface.co",
+   "date": "2026-09-09",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "Marigold V2: Huawei quay lại diffusion transformer cho ước lượng độ sâu đơn ảnh",
+   "title_en": "Marigold V2: Revisiting Diffusion Transformers for Monocular Depth Estimation",
+   "summary": "Nhóm HUAWEI Bayer Lab công bố Marigold V2 ngày 09/09, dùng kiến trúc diffusion transformer để ước lượng độ sâu từ một ảnh đơn. Bài đạt 257 lượt vote trên Hugging Face.",
+   "why": "Ước lượng độ sâu từ camera thường là nền cho AR, robot và xe tự lái mà không cần cảm biến LiDAR đắt tiền, nên mỗi bước tiến ở đây đều kéo chi phí phần cứng xuống.",
+   "url": "https://huggingface.co/papers/2609.08084",
+   "domain": "huggingface.co",
+   "date": "2026-09-09",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "DriveZero: lái tự động đầu cuối vượt qua giới hạn dữ liệu người lái mẫu",
+   "title_en": "DriveZero: End-to-End Driving Beyond Human Demonstrations",
+   "summary": "DriveZero đề xuất hệ lái tự động đầu cuối học vượt ra ngoài dữ liệu hành vi do người thu thập, thay vì bắt chước tài xế mẫu như cách làm phổ biến. Bài công bố ngày 09/09 và đạt 88 lượt vote.",
+   "why": "Học bắt chước người lái luôn bị chặn trần ở mức người lái giỏi nhất trong tập dữ liệu, phá được trần đó là điều kiện để xe tự lái an toàn hơn người chứ không chỉ ngang người.",
+   "url": "https://huggingface.co/papers/2609.06055",
+   "domain": "huggingface.co",
+   "date": "2026-09-09",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "Washington Post: người cảnh báo về thảm họa AI trở thành mục tiêu công kích chính trị",
+   "title_en": "AI researcher who warned of 'disaster' is now a target of the right",
+   "summary": "Washington Post tường thuật ngày 10/09 rằng sau lời cảnh báo lan truyền, Jacob Coxon trở thành mục tiêu công kích từ phía cánh hữu Mỹ, trong khi một số nghị sĩ lại lấy đó làm căn cứ kêu gọi siết quản lý AI. Cuộc tranh luận nhanh chóng rời địa hạt kỹ thuật để thành xung đột chính trị.",
+   "why": "Khi rủi ro AI bị kéo vào trận tuyến đảng phái, chính sách sẽ được định hình bởi phe nào thắng chứ không bởi bằng chứng, và doanh nghiệp phải sống chung với luật thay đổi khó lường.",
+   "url": "https://www.washingtonpost.com/technology/2026/09/10/ai-researcher-who-warned-disaster-is-now-target-right/",
+   "domain": "washingtonpost.com",
+   "date": "2026-09-10",
+   "section": "🔥 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 16,
+   "title": "Cựu nghiên cứu viên Anthropic nghỉ việc, cảnh báo ngành AI đang đánh cược mạng sống",
+   "title_en": "He Helped Build Powerful AI at OpenAI and Anthropic. Now He's Afraid It Could Kill Us",
+   "summary": "Jacob Coxon, người có ba năm làm nghiên cứu pretraining tại cả OpenAI và Anthropic, nghỉ việc và đăng chuỗi bảy phần trên X đạt gần 76 triệu lượt xem chỉ sau một đêm. Anh viết rằng cả hai công ty đang lao thẳng tới siêu trí tuệ tự cải tiến và đánh cược mạng sống của tất cả. Evan Hubinger, trưởng bộ phận nghiên cứu của Anthropic, công khai nói Jacob nói đúng.",
+   "why": "Không phải người ngoài chỉ trích mà là người trong lõi pretraining của hai phòng lab hàng đầu, và việc đồng nghiệp cũ công khai đồng tình khiến lời cảnh báo khó bị gạt đi như tiếng ồn thường lệ.",
+   "url": "https://time.com/article/2026/09/09/ai-anthropic-openai-jacob-coxon/",
+   "domain": "time.com",
+   "date": "2026-09-09",
+   "section": "🔥 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": 2
+  },
+  {
+   "aid": 17,
+   "title": "Fortune: làn sóng phản đối data center AI lan tới châu Á, buộc thiết kế phải đổi",
+   "title_en": "Developers are rethinking data center design as the AI backlash makes its way to Asia",
+   "summary": "Fortune tường thuật ngày 09/09 rằng làn sóng phản đối trung tâm dữ liệu AI đã lan từ Mỹ sang châu Á, buộc các nhà phát triển phải tính lại thiết kế về nước làm mát, điện năng và quan hệ với cộng đồng địa phương thay vì chỉ tối ưu chi phí xây dựng.",
+   "why": "Chi phí xã hội và giấy phép địa phương đang thành ràng buộc thật cho việc mở rộng compute ở châu Á, ảnh hưởng trực tiếp tới tham vọng hạ tầng số của các nước trong khu vực.",
+   "url": "https://fortune.com/2026/09/09/asia-ai-data-center-backlash/",
+   "domain": "fortune.com",
+   "date": "2026-09-09",
+   "section": "🔥 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 18,
+   "title": "TechCrunch đặt câu hỏi: người dùng có dám tin Muse của Meta không?",
+   "title_en": "Meta debuts its Muse AI agent. Will consumers trust it?",
+   "summary": "Ngay trong ngày Muse ra mắt, TechCrunch đặt vấn đề liệu người dùng phổ thông có trao quyền mua sắm và đặt lịch cho một agent của Meta hay không, khi lịch sử quyền riêng tư của công ty vẫn là gánh nặng. Bài lên Hacker News cùng ngày và thu hút 655 điểm cùng 735 bình luận.",
+   "why": "Rào cản lớn nhất của agent tiêu dùng không còn là năng lực kỹ thuật mà là niềm tin, và tỷ lệ bình luận cao hơn thường lệ cho thấy giới kỹ thuật chia rẽ sâu về chuyện này.",
+   "url": "https://techcrunch.com/2026/09/08/meta-debuts-its-muse-ai-agent-will-consumers-trust-it/",
+   "domain": "techcrunch.com",
+   "date": "2026-09-08",
+   "section": "🔥 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 19,
+   "title": "Anthropic công bố báo cáo tình báo mối đe dọa chi tiết nhất, lần đầu nói về ngưỡng vũ khí sinh học",
+   "title_en": "Countering misuse of AI: September 2026",
+   "summary": "Anthropic công bố ngày 10/09 báo cáo bao trùm hoạt động lạm dụng bị chặn từ tháng 12/2025 tới tháng 8/2026 trên bảy nhóm nguy hại, từ tấn công mạng, chiến dịch thao túng thông tin, giám sát, lừa đảo tới vũ khí sinh học và chưng cất mô hình. Một nhóm gián điệp nhà nước Nga đã tiếp cận 24 trong 27 mục tiêu suốt 130 ngày, gồm các bộ ngành và chuỗi cung ứng drone của Ukraine.",
+   "why": "Lần đầu một hãng AI lớn công khai nói không còn có thể mặc định model mới của mình nằm dưới ngưỡng hỗ trợ vũ khí sinh học, và trọng tâm tấn công đã chuyển từ lạm dụng chat sang agent tự hành.",
+   "url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+   "domain": "anthropic.com",
+   "date": "2026-09-10",
+   "section": "📈 Ngành & Kinh doanh",
+   "hot_rank": 4
+  },
+  {
+   "aid": 20,
+   "title": "Positron AI gọi 875 triệu USD ở định giá 5 tỷ, đặt cược chip inference dùng bộ nhớ phổ thông",
+   "title_en": "Positron AI Raises $875 Million at a $5 Billion Valuation to Bring Its Next-Generation Inference Silicon to Market",
+   "summary": "Positron AI huy động 875 triệu USD chia hai đợt ở định giá sau đầu tư 5 tỷ USD, công bố ngày 10/09. Chip Asimov ghép 288 GB tới 2.304 GB bộ nhớ LPDDR5X phổ thông cho mỗi chip, né hoàn toàn nút thắt nguồn cung HBM và đóng gói tiên tiến, dự kiến tape-out trên tiến trình TSMC N3P cuối 2026 và sản xuất nửa cuối 2027.",
+   "why": "Nếu bỏ HBM mà vẫn chạy được inference thì nút cổ chai đắt nhất của ngành bị tháo, và đây là đòn đánh thẳng vào thế độc quyền của NVIDIA ở mảng suy luận.",
+   "url": "https://www.prnewswire.com/news-releases/positron-ai-raises-875-million-at-a-5-billion-valuation-to-bring-its-next-generation-inference-silicon-to-market-302874601.html",
+   "domain": "prnewswire.com",
+   "date": "2026-09-10",
+   "section": "📈 Ngành & Kinh doanh",
+   "hot_rank": null
+  },
+  {
+   "aid": 21,
+   "title": "Microsoft nhắm 38 GW công suất data center vào 2032, gấp hơn ba lần hiện tại",
+   "title_en": "Microsoft targets 38GW of data center capacity in 2032 - report",
+   "summary": "Theo Bloomberg dẫn nguồn thân cận, Microsoft đặt mục tiêu nâng tổng công suất tính toán từ khoảng 12 GW hiện nay lên hơn 38 GW vào năm 2032, gồm cả cơ sở tự vận hành lẫn thuê lại. Phần dành riêng cho AI dự kiến tăng từ 2 GW lên khoảng một phần ba tổng công suất.",
+   "why": "Microsoft vừa phải từ chối khách cloud và hạn chế đăng ký vì thiếu phần cứng, nên con số này là thước đo thật của việc cầu AI đang vượt cung tới mức nào.",
+   "url": "https://www.datacenterdynamics.com/en/news/microsoft-targets-38gw-of-data-center-capacity-in-2032-report/",
+   "domain": "datacenterdynamics.com",
+   "date": "2026-09-10",
+   "section": "📈 Ngành & Kinh doanh",
+   "hot_rank": null
+  },
+  {
+   "aid": 22,
+   "title": "Cognition gọi hơn 2 tỷ USD Series E ở định giá 48 tỷ, gần gấp đôi sau bốn tháng",
+   "title_en": "Cognition raises $2B Series E at $48B valuation to scale Devin",
+   "summary": "Cognition, công ty đứng sau kỹ sư phần mềm AI Devin, công bố ngày 08/09 huy động hơn 2 tỷ USD Series E ở định giá 48 tỷ USD, do Andreessen Horowitz và Accel dẫn dắt cùng Founders Fund, General Catalyst, Avenir và cả NVIDIA. Doanh thu run-rate tăng từ 492 triệu USD hồi tháng 5/2026 lên gần 900 triệu USD.",
+   "why": "Định giá gần gấp đôi trong bốn tháng và doanh thu tăng gần gấp đôi cùng kỳ cho thấy agent lập trình đã qua giai đoạn thử nghiệm và đang được doanh nghiệp trả tiền thật.",
+   "url": "https://techfundingnews.com/devin-maker-cognition-raises-over-2b-at-48b-valuation-nearly-doubling-its-price-tag-in-four-months/",
+   "domain": "techfundingnews.com",
+   "date": "2026-09-08",
+   "section": "📈 Ngành & Kinh doanh",
+   "hot_rank": 5
+  },
+  {
+   "aid": 23,
+   "title": "Mistral gọi 3 tỷ euro do Samsung dẫn dắt, định giá vượt 21 tỷ euro",
+   "title_en": "Mistral raises €3B as sovereign AI becomes big business",
+   "summary": "Mistral công bố ngày 08/09 huy động 3 tỷ euro vòng Series D ở định giá sau đầu tư hơn 21 tỷ euro, vòng gọi vốn tư nhân lớn nhất lịch sử ngành công nghệ châu Âu. Samsung Electronics dẫn dắt cùng Scaleup Europe Fund do EQT quản lý và PSG Equity, với sự tham gia của NVIDIA, ASML, BlackRock và Đại công quốc Luxembourg.",
+   "why": "Định giá gần gấp đôi sau một năm và có cả ASML lẫn một chính phủ tham gia cho thấy AI chủ quyền đã thành hạng mục đầu tư chiến lược quốc gia chứ không còn là khẩu hiệu chính trị.",
+   "url": "https://techcrunch.com/2026/09/08/mistral-raises-e3b-as-sovereign-ai-becomes-big-business/",
+   "domain": "techcrunch.com",
+   "date": "2026-09-08",
+   "section": "📈 Ngành & Kinh doanh",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 4,
+ "weekly_video": {
+  "intro": "Chào anh em, đây là bản tin AI tuần 37, từ mùng 7 đến 13 tháng 9 năm 2026. Tuần này có một chủ đề xuyên suốt rất rõ: AI bước ra khỏi khung chat để tự làm việc thay người dùng, và đúng lúc đó thì những cảnh báo nặng nhất từ trước tới nay cũng xuất hiện. Mình sẽ đi qua năm câu chuyện lớn nhất, từ trợ lý cá nhân của Meta, tới lời cảnh báo gây bão, mô hình mở khổng lồ của DeepSeek, báo cáo an ninh của Anthropic và vòng gọi vốn kỷ lục.",
+  "outro": "Đó là năm câu chuyện lớn nhất của tuần 37. Chi tiết từng tin, kèm nguồn và phần mở rộng, anh em xem đầy đủ trong bản tin nhé. Hẹn gặp lại anh em tuần sau.",
+  "segments": [
+   {
+    "aid": 4,
+    "headline": "Meta ra mắt Muse, trợ lý AI tự làm việc thay bạn",
+    "narration": "Ngày mùng 8 tháng 9, Meta chính thức ra mắt Muse tại thị trường Mỹ. Điểm khác biệt lớn nhất so với mọi trợ lý trước đây là Muse không chỉ trả lời câu hỏi, mà tự thao tác thay người dùng. Nó mua sắm trực tuyến, đặt vé xem phim, đặt lịch hẹn, và biến mục tiêu dài hạn thành kế hoạch hành động cụ thể. Về mặt kỹ thuật, thứ đáng chú ý nhất là Muse chạy trên một môi trường gọi là Muse Secure VM, tức một máy tính ảo riêng biệt có trình duyệt riêng của nó. Meta khẳng định hội thoại và dữ liệu nằm trong máy ảo đó không được chia sẻ sang hệ thống quảng cáo của công ty. Về giá, Muse có bản miễn phí mà theo Mark Zuckerberg là dùng được tới 100 triệu token mỗi tuần, cùng hai gói trả phí: gói Power giá 20 đô một tháng và gói Maximum giá 100 đô một tháng. Hiện Muse mới chỉ mở ở Mỹ. Vì sao quan trọng? Vì đây là lần đầu tiên một nền tảng có quy mô ba tỷ người dùng đẩy agent tự hành xuống tay người dùng phổ thông, chứ không phải dân kỹ thuật. Và kiến trúc máy ảo cách ly chính là câu trả lời trực diện cho câu hỏi lớn nhất: làm sao để một con agent cầm được thẻ tín dụng và lịch cá nhân của bạn mà bạn vẫn ngủ ngon.",
+    "bullets": [
+     "Tự mua hàng, đặt vé, đặt lịch hẹn",
+     "Chạy trên máy ảo riêng Muse Secure VM",
+     "Miễn phí, 20 đô và 100 đô mỗi tháng"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Kiến trúc Muse",
+     "items": [
+      {
+       "t": "Giao diện",
+       "d": "Chat và mục tiêu dài hạn"
+      },
+      {
+       "t": "Agent",
+       "d": "Lập kế hoạch, chia tác vụ"
+      },
+      {
+       "t": "Secure VM",
+       "d": "Máy ảo riêng, trình duyệt riêng"
+      },
+      {
+       "t": "Rào dữ liệu",
+       "d": "Không đẩy sang hệ quảng cáo"
+      }
+     ]
+    },
+    "images": [
+     "https://about.fb.com/wp-content/uploads/2026/09/Introducing-Muse_-Personal-AI-Agent_SocialShare.jpg?w=1200"
+    ]
+   },
+   {
+    "aid": 16,
+    "headline": "Cựu nghiên cứu viên Anthropic cảnh báo, gần 76 triệu lượt xem",
+    "narration": "Câu chuyện gây chấn động nhất tuần không đến từ một sản phẩm, mà từ một lá đơn nghỉ việc. Jacob Coxon, người đã có ba năm làm nghiên cứu pretraining tại cả OpenAI và Anthropic, rời Anthropic và đăng một chuỗi bảy phần trên mạng xã hội X. Chuỗi bài đó đạt gần 76 triệu lượt xem chỉ sau một đêm, một phần nhờ bài phỏng vấn độc quyền trên Wall Street Journal. Nội dung cốt lõi rất thẳng: anh viết rằng những người đang xây AI thật sự tin rằng nó có thể giết tất cả chúng ta trước khi thập kỷ này kết thúc, và rằng cả hai công ty đang lao thẳng tới siêu trí tuệ tự cải tiến, đánh cược mạng sống của tất cả mọi người. Điều khiến câu chuyện không thể bị gạt đi như tiếng ồn thường lệ là phản ứng từ chính bên trong. Một số đồng nghiệp cũ chia sẻ lại bài viết, trong đó Evan Hubinger, trưởng bộ phận nghiên cứu của Anthropic, công khai nói rằng Jacob nói đúng. Lời cảnh báo nhanh chóng vượt khỏi giới công nghệ: nhiều nghị sĩ Mỹ lấy đó làm căn cứ kêu gọi siết quản lý. Đến ngày mùng 10, Washington Post tường thuật Coxon đã trở thành mục tiêu công kích từ phía cánh hữu, cho thấy tranh luận về rủi ro AI đang bị kéo vào trận tuyến chính trị.",
+    "bullets": [
+     "Ba năm pretraining tại OpenAI và Anthropic",
+     "Gần 76 triệu lượt xem sau một đêm",
+     "Trưởng nghiên cứu Anthropic công khai đồng tình"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Diễn biến lan truyền",
+     "items": [
+      {
+       "t": "Nghỉ việc",
+       "d": "Rời Anthropic sau ba năm"
+      },
+      {
+       "t": "Chuỗi bảy phần",
+       "d": "Đăng công khai trên X"
+      },
+      {
+       "t": "Bùng nổ",
+       "d": "Gần 76 triệu lượt xem"
+      },
+      {
+       "t": "Nội bộ đồng tình",
+       "d": "Evan Hubinger lên tiếng"
+      },
+      {
+       "t": "Chính trị hóa",
+       "d": "Nghị sĩ và phe đối lập vào cuộc"
+      }
+     ]
+    },
+    "images": [
+     "https://static.time.com/v3/assets/bltea6093859af6183b/blt55298ed2a0fb5462/6aa1bf874c634a542a27bbd8/GettyImages-2276547281.jpg?branch=production&width=1024&quality=75&auto=webp&crop=16:9"
+    ]
+   },
+   {
+    "aid": 2,
+    "headline": "DeepSeek mở trọng số V4.1-Flash, 552 tỷ tham số giấy phép MIT",
+    "narration": "Ngày mùng 10 tháng 9, DeepSeek phát hành V4.1-Flash và thả trọng số lên Hugging Face theo giấy phép MIT. Đây là mô hình hỗn hợp chuyên gia đa phương thức với 552 tỷ tham số, dùng một kiến trúc mới mà họ gọi là Causal Encoder-Decoder. Con số đáng chú ý nhất nằm ở phần kích hoạt: chỉ 8 tỷ tham số hoạt động cho mỗi token đầu vào và 16 tỷ cho mỗi token đầu ra. Cửa sổ ngữ cảnh đạt 1 triệu token và mô hình hiểu ảnh natively. DeepSeek tuyên bố V4.1-Flash vượt toàn diện bản V4 Pro của chính họ trên mọi chỉ số: hiệu năng, chi phí, tốc độ và tổng thời gian hoàn thành. Hệ quả rất cụ thể: từ 12 giờ trưa giờ Bắc Kinh ngày 14 tháng 9, mọi request gửi tới deepseek v4 pro sẽ được phục vụ bằng V4.1-Flash và tính theo giá Flash rẻ hơn, cho tới khi bản V4.1 Pro ra mắt. Giá API cũng đã được giảm tương ứng. Với người làm kỹ thuật ở Việt Nam, ý nghĩa nằm ở chỗ này: một mô hình mạnh hơn bản Pro nhưng chỉ kích hoạt 8 tỷ tham số mỗi token, lại kèm giấy phép MIT cho phép dùng thương mại thoải mái, kéo chi phí tự vận hành xuống mức mà một đội nhỏ cũng có thể cân nhắc nghiêm túc.",
+    "bullets": [
+     "552 tỷ tham số, giấy phép MIT",
+     "Chỉ 8 tỷ tham số kích hoạt mỗi token",
+     "Context 1 triệu token, hiểu ảnh gốc"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Thông số V4.1-Flash",
+     "items": [
+      {
+       "v": "552B",
+       "l": "Tổng tham số"
+      },
+      {
+       "v": "8B",
+       "l": "Kích hoạt đầu vào"
+      },
+      {
+       "v": "16B",
+       "l": "Kích hoạt đầu ra"
+      },
+      {
+       "v": "1M",
+       "l": "Context token"
+      }
+     ]
+    },
+    "images": [
+     "https://api-docs.deepseek.com/img/deepseek-social-card.jpeg"
+    ]
+   },
+   {
+    "aid": 19,
+    "headline": "Anthropic công bố báo cáo mối đe dọa chi tiết nhất từ trước tới nay",
+    "narration": "Ngày mùng 10 tháng 9, Anthropic công bố báo cáo tình báo mối đe dọa chi tiết nhất họ từng phát hành. Báo cáo bao trùm các hoạt động lạm dụng bị phát hiện và chặn từ tháng 12 năm 2025 tới tháng 8 năm 2026, trải trên bảy nhóm nguy hại: tấn công mạng, chiến dịch thao túng thông tin, giám sát, lừa đảo, vũ khí sinh học, phát triển vũ khí thông thường, và chưng cất mô hình. Phát hiện lớn nhất về mặt xu hướng: môi trường tấn công đã dịch chuyển từ lạm dụng hội thoại sang thực thi tự hành bằng agent. Tội phạm mạng và nhóm được nhà nước hậu thuẫn không còn dùng AI để hỗ trợ từng bước, mà giao cho nó điều phối và thực hiện phần lớn chiến dịch. Một ví dụ cụ thể: một nhóm gián điệp nhà nước Nga đã tiếp cận 24 trên 27 mục tiêu trong suốt 130 ngày, bao gồm các bộ ngành, cơ quan quốc phòng và nhà sản xuất trong chuỗi cung ứng drone của Ukraine. Nhưng chi tiết gây chấn động nhất nằm ở mảng sinh học: Anthropic nói không còn có thể mặc định các mô hình mới của mình nằm dưới ngưỡng hỗ trợ có ý nghĩa cho việc chế tạo vũ khí sinh học. Lần đầu một công ty AI lớn phát biểu công khai như vậy. Anthropic cho biết đã chặn được mọi chiến dịch nêu trong báo cáo.",
+    "bullets": [
+     "Bảy nhóm nguy hại, chín tháng dữ liệu",
+     "Nga tiếp cận 24 trên 27 mục tiêu, 130 ngày",
+     "Lần đầu thừa nhận ngưỡng vũ khí sinh học"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Kiểu tấn công đang đổi",
+     "left": {
+      "h": "Trước đây",
+      "items": [
+       "Lạm dụng qua hội thoại",
+       "Người dẫn từng bước",
+       "Phạm vi hẹp, thủ công"
+      ]
+     },
+     "right": {
+      "h": "Hiện nay",
+      "items": [
+       "Agent thực thi tự hành",
+       "AI điều phối chiến dịch",
+       "Kéo dài 130 ngày, đa mục tiêu"
+      ]
+     }
+    },
+    "images": [
+     "https://cdn.sanity.io/images/4zrzovbb/website/7a4426f8ffe57e7de23ff36906fb1cc3efe2a82b-1200x630.jpg"
+    ]
+   },
+   {
+    "aid": 22,
+    "headline": "Cognition gọi 2 tỷ đô, định giá 48 tỷ sau bốn tháng",
+    "narration": "Ngày mùng 8 tháng 9, Cognition, công ty đứng sau Devin, công bố huy động hơn 2 tỷ đô la vòng Series E ở định giá 48 tỷ đô la. Vòng này do Andreessen Horowitz và Accel dẫn dắt, cùng các nhà đầu tư hiện hữu là Founders Fund, General Catalyst và Avenir. Danh sách tham gia dài bất thường, gồm cả Benchmark, Kleiner Perkins, Greylock, Lightspeed, T. Rowe Price, Bain Capital Ventures và đáng chú ý là cả NVIDIA. Con số quan trọng nhất không phải định giá, mà là doanh thu. Doanh thu run-rate của Cognition đã tăng từ 492 triệu đô ở vòng gọi vốn trước hồi tháng 5 năm 2026 lên gần 900 triệu đô hiện nay. Tức là trong khoảng bốn tháng, doanh thu tăng gần gấp đôi, và định giá cũng gần gấp đôi theo. Devin được giới thiệu hai năm trước như kỹ sư phần mềm AI đầu tiên, và thời điểm đó nhận không ít hoài nghi về việc demo có phản ánh năng lực thật hay không. Theo mình, con số doanh thu gần 900 triệu đô trả lời câu hỏi đó rõ hơn mọi bản demo: doanh nghiệp đang trả tiền thật, đều đặn, cho agent viết code. Đặt cạnh việc OpenAI mở Agents API trong cùng tuần, bức tranh khá rõ: lớp agent lập trình đã rời giai đoạn thử nghiệm để bước vào giai đoạn hạ tầng.",
+    "bullets": [
+     "Hơn 2 tỷ đô, định giá 48 tỷ đô",
+     "Doanh thu run-rate gần 900 triệu đô",
+     "Gần gấp đôi chỉ sau bốn tháng"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Cognition tăng tốc",
+     "items": [
+      {
+       "v": "2 tỷ",
+       "l": "Vốn Series E (USD)"
+      },
+      {
+       "v": "48 tỷ",
+       "l": "Định giá (USD)"
+      },
+      {
+       "v": "900 triệu",
+       "l": "Doanh thu run-rate"
+      },
+      {
+       "v": "4 tháng",
+       "l": "Thời gian gần gấp đôi"
+      }
+     ]
+    },
+    "images": []
+   }
+  ]
+ },
+ "facebook_post": "🚀 𝐀𝐈 𝐓𝐔𝐀̂̀𝐍 𝐖𝟑𝟕: 𝐀𝐈 𝐁𝐔̛𝐎̛́𝐂 𝐑𝐀 𝐊𝐇𝐎̉𝐈 𝐊𝐇𝐔𝐍𝐆 𝐂𝐇𝐀𝐓 — 𝐕𝐀̀ 𝐍𝐆𝐔̛𝐎̛̀𝐈 𝐗𝐀̂𝐘 𝐍𝐎́ 𝐁𝐀̆́𝐓 𝐄𝐀̂̀𝐔 𝐋𝐎 𝐒𝐎̛̣\n\nTuần này Đức có một buổi ngồi với khách hàng, họ hỏi một câu rất thật: \"Anh ơi, con AI này bao giờ thì nó tự làm được, chứ không phải em ngồi copy paste từng đoạn?\"\n\nMình cười, bảo chờ thêm chút. Ba ngày sau thì Meta ra Muse. 😅\n\nVà cũng đúng tuần đó, một người từng làm ở cả OpenAI lẫn Anthropic nghỉ việc, viết một chuỗi bài mà gần 76 triệu người đã đọc, đại ý: các anh đang đánh cược mạng sống của tất cả chúng ta.\n\nHai chuyện xảy ra cách nhau đúng hai ngày. Đó là chân dung tuần 37.\n\n---\n\n1️⃣ 𝐌𝐄𝐓𝐀 𝐑𝐀 𝐌𝐀̆́𝐓 𝐌𝐔𝐒𝐄 — 𝐓𝐑𝐎̛̣ 𝐋𝐘́ 𝐓𝐔̛̣ 𝐋𝐀̀𝐌 𝐕𝐈𝐄̣̂𝐂 𝐓𝐇𝐀𝐘 𝐁𝐀̣𝐍\n\nNgày 8/9, Meta tung Muse tại Mỹ. Nó không trả lời câu hỏi, nó làm việc: mua hàng online, đặt vé xem phim, đặt lịch hẹn.\n\nĐiểm mình thấy đáng nói nhất về mặt kỹ thuật: Muse chạy trên \"Muse Secure VM\" — một máy tính ảo riêng, có trình duyệt riêng. Meta nói dữ liệu trong cái VM đó không chảy sang hệ thống quảng cáo.\n\nGiá: bản free (Zuckerberg nói dùng được tới 100 triệu token/tuần), gói Power 20 đô, gói Maximum 100 đô mỗi tháng.\n\nNghĩa là gì? Lần đầu một nền tảng ba tỷ người dùng đẩy agent tự hành xuống tay người dùng bình thường, không phải dân IT.\n\n2️⃣ 𝐃𝐄𝐄𝐏𝐒𝐄𝐄𝐊 𝐌𝐎̛̉ 𝐕𝟒.𝟏-𝐅𝐋𝐀𝐒𝐇 — 𝟓𝟓𝟐 𝐓𝐘̉ 𝐓𝐇𝐀𝐌 𝐒𝐎̂́, 𝐆𝐈𝐀̂́𝐘 𝐏𝐇𝐄́𝐏 𝐌𝐈𝐓\n\nNgày 10/9, DeepSeek thả trọng số lên Hugging Face. MoE đa phương thức 552 tỷ tham số, context 1 triệu token, hiểu ảnh gốc.\n\nNhưng con số mình quan tâm nhất là: chỉ 8 tỷ tham số kích hoạt mỗi token đầu vào, 16 tỷ cho đầu ra.\n\nDeepSeek nói bản này vượt toàn diện V4 Pro của chính họ. Nên từ 14/9, mọi request gửi tới v4-pro được phục vụ bằng Flash và tính giá Flash — tức là rẻ hơn.\n\n3️⃣ 𝐀𝐍𝐓𝐇𝐑𝐎𝐏𝐈𝐂 𝐂𝐎̂𝐍𝐆 𝐁𝐎̂́ 𝐁𝐀́𝐎 𝐂𝐀́𝐎 𝐌𝐎̂́𝐈 Đ𝐄 𝐃𝐎̣𝐀 — 𝐕𝐀̀ 𝐌𝐎̣̂𝐓 𝐂𝐀̂𝐔 𝐑𝐀̂́𝐓 𝐍𝐀̣̆𝐍𝐆\n\nNgày 10/9, Anthropic ra báo cáo chi tiết nhất từ trước tới nay, phủ 9 tháng dữ liệu và 7 nhóm nguy hại.\n\nXu hướng chính: tấn công đã chuyển từ \"lạm dụng chatbot\" sang \"agent tự thực thi\". Một nhóm gián điệp nhà nước Nga tiếp cận 24 trên 27 mục tiêu suốt 130 ngày.\n\nVà câu nặng nhất: Anthropic nói không còn có thể mặc định model mới của họ nằm dưới ngưỡng hỗ trợ chế tạo vũ khí sinh học. Lần đầu một hãng lớn nói công khai như vậy.\n\n4️⃣ 𝐓𝐈𝐄̂̀𝐍 𝐕𝐀̂̃𝐍 Đ𝐎̂̉ 𝐕𝐀̀𝐎 — 𝐕𝐀̀ Đ𝐎̂̉ 𝐑𝐀̂́𝐓 𝐌𝐀̣𝐍𝐇\n\n- Cognition (công ty làm Devin): gọi hơn 2 tỷ đô, định giá 48 tỷ. Doanh thu run-rate từ 492 triệu (tháng 5) lên gần 900 triệu.\n- Mistral: gọi 3 tỷ euro, định giá hơn 21 tỷ euro — vòng gọi vốn tư nhân lớn nhất lịch sử công nghệ châu Âu. Samsung dẫn dắt, có cả NVIDIA, ASML, BlackRock.\n- Positron AI: 875 triệu đô, định giá 5 tỷ, cho con chip inference né hoàn toàn bộ nhớ HBM.\n\nTheo TechCrunch, Mistral gần gấp đôi định giá chỉ sau một năm.\n\n5️⃣ 𝐎𝐏𝐄𝐍𝐀𝐈 𝐌𝐎̛̉ 𝐀𝐆𝐄𝐍𝐓𝐒 𝐀𝐏𝐈\n\nNgày 10/9, Agents API vào beta công khai, không thu phí ngoài token. Nó phơi luôn bộ khung Codex mà OpenAI dùng nội bộ: compaction, tool search, gọi tool bằng code, subagent — có sẵn.\n\n---\n\n💡 𝐆𝐨́𝐜 𝐧𝐡𝐢̀𝐧 𝐜𝐮̉𝐚 𝐦𝐢̀𝐧𝐡 𝐯𝐞̂̀ 𝐭𝐮𝐚̂̀𝐧 𝐧𝐚̀𝐲\n\nĐức chia sẻ dưới góc nhìn của một người làm Data & AI, đang tư vấn triển khai cho doanh nghiệp và đứng lớp đào tạo.\n\n𝐂𝐚́𝐢 𝐠𝐢̀ 𝐭𝐡𝐚̣̂𝐭 𝐬𝐮̛̣ 𝐦𝐨̛́𝐢 𝐨̛̉ 𝐭𝐮𝐚̂̀𝐧 𝐧𝐚̀𝐲?\n\nKhông phải \"AI mạnh hơn\". Cái mới là 𝐫𝐚𝐧𝐡 𝐠𝐢𝐨̛́𝐢 𝐭𝐫𝐚́𝐜𝐡 𝐧𝐡𝐢𝐞̣̂𝐦 đang dịch chuyển.\n\nTrước đây bạn hỏi, AI trả lời, bạn quyết định. Giờ Muse tự bấm nút mua. Agents API tự gọi tool. Nếu nó làm sai, ai chịu?\n\nĐể ý cả ba tin lớn tuần này đều xoay quanh đúng một chữ: 𝐛𝐢𝐞̂𝐧 𝐠𝐢𝐨̛́𝐢. Meta dựng Secure VM để nhốt agent lại. OpenAI cho chọn 9 loại sandbox. Anthropic thì báo cáo rằng kẻ tấn công đã dùng agent tự hành suốt 130 ngày.\n\nBa công ty, ba góc, cùng một bài toán: 𝐤𝐡𝐢 𝐀𝐈 𝐭𝐮̛̣ 𝐡𝐚̀𝐧𝐡 đ𝐨̣̂𝐧𝐠, 𝐛𝐚̣𝐧 𝐧𝐡𝐨̂́𝐭 𝐧𝐨́ 𝐨̛̉ đ𝐚̂𝐮?\n\n𝐓𝐨̂́𝐭 𝐡𝐚𝐲 𝐱𝐚̂́𝐮 — 𝐭𝐮̀𝐲 𝐛𝐚̣𝐧 đ𝐮̛́𝐧𝐠 đ𝐚̂𝐮\n\nVới doanh nghiệp lớn có đội bảo mật: tin tốt. Sandbox chuẩn hóa, có audit log, có nơi để chỉ tay khi sự cố.\n\nVới team nhỏ 5-10 người: hơi đuối. Bạn không có người ngồi review log agent mỗi ngày. Mình đã thấy vài đội bật agent chạy tự động rồi ba tuần sau mới phát hiện nó ghi sai dữ liệu suốt từ đầu.\n\nVới anh em làm data: DeepSeek V4.1-Flash mở MIT, 552 tỷ tham số mà chỉ kích hoạt 8 tỷ mỗi token — đây là tin vui thật. Chi phí self-host xuống mức đội nhỏ ở Việt Nam cân được.\n\n𝐍𝐞̂𝐧 𝐥𝐚̀𝐦 𝐠𝐢̀, 𝐤𝐡𝐨̂𝐧𝐠 𝐧𝐞̂𝐧 𝐥𝐚̀𝐦 𝐠𝐢̀\n\n𝐍𝐞̂𝐧: thử agent ở những việc 𝐜𝐨́ 𝐭𝐡𝐞̂̉ 𝐡𝐨𝐚̀𝐧 𝐭𝐚́𝐜 — soạn nháp, tổng hợp, phân loại. Ghi log đầy đủ ngay từ ngày đầu, đừng để sau mới thêm.\n\n𝐊𝐡𝐨̂𝐧𝐠 𝐧𝐞̂𝐧: cho agent chạm thẳng vào hệ thống ghi dữ liệu production khi chưa có sandbox và chưa có người duyệt. Cái giá của một lần agent ghi sai vào data warehouse đắt hơn nhiều so với thời gian bạn tiết kiệm được.\n\nCòn chuyện lời cảnh báo gần 76 triệu view kia? Mình không đủ thẩm quyền phán ai đúng ai sai về rủi ro tồn vong. Nhưng mình để ý một chi tiết: chính trưởng bộ phận nghiên cứu của Anthropic công khai nói \"Jacob nói đúng\". Khi người trong nhà lên tiếng, ít nhất nó đáng để mình đọc kỹ thay vì lướt qua.\n\n\"𝐂𝐨̂𝐧𝐠 𝐧𝐠𝐡𝐞̣̂ 𝐜𝐡𝐚̣𝐲 𝐧𝐡𝐚𝐧𝐡 𝐛𝐚𝐨 𝐧𝐡𝐢𝐞̂𝐮 𝐤𝐡𝐨̂𝐧𝐠 𝐪𝐮𝐚𝐧 𝐭𝐫𝐨̣𝐧𝐠 𝐛𝐚̆̀𝐧𝐠 𝐯𝐢𝐞̣̂𝐜 𝐛𝐚̣𝐧 𝐜𝐨́ 𝐩𝐡𝐚𝐧𝐡 𝐡𝐚𝐲 𝐤𝐡𝐨̂𝐧𝐠.\" Tuần này AI vừa được lắp thêm chân, vừa có người hét lên rằng vách núi ở ngay phía trước. Cả hai đều đúng. 🚀\n\nAnh em nào đang thử cho agent chạy tự động trong công việc thật thì comment cho mình biết đang vướng ở đâu nhé, mình hay đi tư vấn nên cũng tò mò xem thực tế mọi người gặp gì. 👇\n\n#AI #DataAndAI #AIAgent #DeepSeek #MetaMuse #OpenAI #Anthropic #Mistral #HocCungAI #ChuyenDoiSo #CongNgheAI #AINews",
+ "facebook_reel": "Một người vừa nghỉ việc ở Anthropic. Bài viết của anh ấy đạt gần 76 triệu lượt xem sau một đêm.\n\nNội dung: \"Họ đang đánh cược mạng sống của tất cả chúng ta.\"\n\nLạ ở chỗ, trưởng bộ phận nghiên cứu của chính Anthropic lên tiếng đồng tình. 😳\n\nCùng tuần, Meta ra Muse, con AI tự mua hàng thay bạn.\n\nAI vừa được lắp thêm chân, vừa có người hét lên rằng vách núi ở ngay trước mặt.\n\nBạn nghiêng về phía nào? 👇\n\n#AI #AIAgent #DeepSeek #CongNgheAI #HocCungAI",
+ "bgm": "tech-pulse",
+ "youtube": {
+  "recap": "7gqjHhS0sVQ",
+  "short": "wtTJLdx2sLc"
+ }
+}
