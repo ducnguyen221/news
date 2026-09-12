@@ -1,0 +1,445 @@
+{
+ "date": "12/09/2026",
+ "week": "W37",
+ "range": "07/09 - 13/09/2026",
+ "tldr": "Tuần 37 của thế giới dữ liệu có một câu hỏi xuyên suốt: ai đang giữ quyền kiểm soát. Oracle công bố quý đầu năm tài khoá 2027 với doanh thu 19,3 tỷ đô, hạ tầng cloud tăng 121 phần trăm, nhưng chi đầu tư trong một quý vọt lên 28,5 tỷ và nợ chạm 125 tỷ, tức là hoá đơn thật của làn sóng hạ tầng AI đã lộ ra. Databricks đưa Excel Add-in lên GA, lần đầu cho pivot table chạy truy vấn sống trên lakehouse có Unity Catalog canh cửa, còn Snowflake mở Iceberg Scan Plan API để chính sách masking của mình còn hiệu lực khi Spark hay Trino đọc dữ liệu từ bên ngoài. Bên trong Apache, DataFusion được trao repo Iceberg riêng để chấm dứt cảnh mỗi vendor tự fork, Parquet cắt bản format 2.14.0 RC1 và công bố lỗ hổng CVE-2026-73334 trong lớp mã hoá keytools. Giới nghiên cứu tuần này thì rất thực dụng: chứng minh hợp đồng đúng đắn cho CDC, đo cái giá của việc viết tắt trong text-to-SQL, và dựng bản thiết kế quản trị dữ liệu huấn luyện ở quy mô petabyte.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "Databricks đưa chia sẻ foreign Iceberg table qua OpenSharing lên GA, mở Zerobus ghi vào default storage",
+   "title_en": "Foreign Iceberg tables and foreign schemas sharing with OpenSharing now generally available",
+   "summary": "Ngày 11/09 Databricks tuyên bố GA cho việc chia sẻ foreign Iceberg table cùng foreign schema và table qua OpenSharing, đồng thời bật Standard performance mode cho các lần chạy một lần của Jobs API và đưa DeepSeek V4.1 Flash lên Unity Gateway. Bốn ngày trước đó, Zerobus Ingest ghi vào default storage vào Public Preview qua Lakeflow Connect.",
+   "why": "Foreign Iceberg table là bảng Databricks không sở hữu, chỉ đọc qua catalog ngoài. Cho chia sẻ nhóm bảng đó qua OpenSharing nghĩa là dữ liệu nằm ở Snowflake hay AWS Glue vẫn đi ra được bên thứ ba mà không phải sao chép thêm một bản, đúng hướng mà mọi đội data đang muốn: bớt bản sao, bớt pipeline đồng bộ.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/september#september-11-2026",
+   "domain": "docs.databricks.com",
+   "date": "2026-09-11",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 2,
+   "title": "DataFusion được trao repo Iceberg riêng để chấm dứt cảnh mỗi vendor tự fork, Parquet cắt format 2.14.0 RC1",
+   "title_en": "Apache Data Lakehouse Weekly: September 3-9, 2026",
+   "summary": "Cộng đồng bỏ phiếu thông qua việc chuyển phần tích hợp Iceberg Rust với DataFusion từ iceberg-rust sang repo mới apache/datafusion-iceberg, đặt dưới quyền quản trị của DataFusion. Cùng tuần, Parquet cắt format 2.14.0 RC1 với FILE logical type, thứ tự timestamp INT96 theo thời gian và encoding Adaptive Lossless Floating-Point, còn Arrow ra ArrowMetal 0.1.0 làm compute kernel GPU cho chip Apple.",
+   "why": "Andrew Lamb kể ở VLDB ông gặp ít nhất ba công ty đang thêm Iceberg vào sản phẩm và cả ba đều đã fork iceberg-rust. Một repo chung trong ASF nghĩa là công sức đó hợp lại thay vì phân tán vào các bản fork riêng của từng vendor rồi chết dần.",
+   "url": "https://dev.to/alexmercedcoder/apache-data-lakehouse-weekly-september-3-9-2026-4h3m",
+   "domain": "dev.to",
+   "date": "2026-09-10",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 3
+  },
+  {
+   "aid": 3,
+   "title": "CVE-2026-73334: URL của KMS do chính file Parquet điều khiển, token mã hoá có thể bay sang host của kẻ tấn công",
+   "title_en": "CVE-2026-73334: Apache Parquet Hadoop file-controlled KMS URL forwarded to pluggable KmsClient that skips host validation",
+   "summary": "Gói org.apache.parquet.crypto.keytools trong parquet-java từ bản 1.12 đến 1.18.0 lưu URL của Key Management Service vào trong file. Nếu reader không tự chỉ định URL ở tầng ứng dụng, URL do file quyết định sẽ được chuyển thẳng cho KmsClient tự cài, và nếu lớp đó không kiểm tra host thì token KMS được gửi tới địa chỉ mà kẻ tấn công ghi trong file.",
+   "why": "Đây là kiểu lỗ hổng rất khó phát hiện bằng review thông thường: mã của bạn đúng, cấu hình của bạn đúng, nhưng một file Parquet lạ đưa vào data lake lại quyết định được nơi gửi credential. Bản 1.18.1 chặn URL do file điều khiển theo mặc định.",
+   "url": "https://www.openwall.com/lists/oss-security/2026/09/08/11",
+   "domain": "openwall.com",
+   "date": "2026-09-08",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 4
+  },
+  {
+   "aid": 4,
+   "title": "Generalized DBLog: chứng minh toán học cho việc trộn snapshot với change log trong CDC",
+   "title_en": "Generalized DBLog: A Verified Contract for Interleaving Database Rows with a Change Log",
+   "summary": "Nghiên cứu mở rộng thuật toán DBLog do Netflix phát triển, thứ mà Debezium và Flink CDC đều đã mượn lại, và nêu rõ điều kiện mà database nguồn cùng lớp capture phải thoả để kết quả vẫn đúng. Kết luận quan trọng nhất: không cần một snapshot duy nhất của cả database, các bảng và dải khoá đọc ở thời điểm khác nhau vẫn hợp lại đúng.",
+   "why": "Bài toán copy-to-log handoff là nỗi kinh hoàng kinh điển của CDC: bootstrap một bảng mới, thay đổi trôi qua kẽ, hoặc bản ghi cũ vừa copy ghi đè lên bản update mới hơn, thậm chí làm sống lại một dòng đã xoá. Có hợp đồng được chứng minh nghĩa là đội data thôi phải dựa vào niềm tin rằng công cụ chắc làm đúng.",
+   "url": "https://arxiv.org/abs/2609.08160",
+   "domain": "arxiv.org",
+   "date": "2026-09-08",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 5,
+   "title": "FFX: engine đầu tiên gộp được factorized execution vào xử lý vectorized mà không hy sinh bên nào",
+   "title_en": "Factorized and Vectorized Execution: Optimizing Analytical and Semantic Queries over Relations",
+   "summary": "Join nhiều-nhiều trong phát hiện gian lận, phân tích mạng và gợi ý thường sinh ra kết quả trung gian lớn hơn input vài bậc độ lớn. FFX giới thiệu packed factorized vector, giữ layout liền mạch thân thiện với cache, và là engine pipelined đầu tiên hỗ trợ mọi sơ đồ factorization mà vẫn vectorized trọn vẹn.",
+   "why": "Factorized representation có thể ép kích thước trung gian xuống dưới cả mức tệ nhất về mặt tiệm cận, nhưng nó phân cấp còn vectorized execution lại xử lý theo khối phẳng, nên hai bên vốn không đi cùng nhau. FFX cũng tối ưu luôn semantic operator bằng cách serialize trung gian thành prompt gọn.",
+   "url": "https://arxiv.org/abs/2609.09002",
+   "domain": "arxiv.org",
+   "date": "2026-09-08",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "Databricks Excel Add-in lên GA: pivot table chạy Live query thẳng trên lakehouse có Unity Catalog canh cửa",
+   "title_en": "The Databricks Excel Add-in is now generally available, with Live query for pivot tables",
+   "summary": "Ngày 10/09 Databricks đưa Excel Add-in từ public preview lên GA, kèm khả năng Live query cho pivot table. Người dùng nghiệp vụ chọn bảng hoặc metric view của Unity Catalog rồi dựng pivot table ngay trong Excel, không xuất file, không viết SQL, và quyền vẫn do Unity Catalog quyết định. Cùng ngày, pipeline liên tục có thêm maintenance window một giờ để hẹn giờ cập nhật nền tảng.",
+   "why": "Excel vẫn là nơi phần lớn quyết định kinh doanh thực sự diễn ra, kể cả ở doanh nghiệp đã mua BI đắt tiền. Đưa metric view có quản trị vào thẳng pivot table là cách chấm dứt cảnh mỗi phòng ban tự xuất CSV rồi tự tính lại doanh thu theo công thức của riêng mình.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/september#september-10-2026",
+   "domain": "docs.databricks.com",
+   "date": "2026-09-10",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": 2
+  },
+  {
+   "aid": 7,
+   "title": "Snowflake mở Iceberg Scan Plan API trong Horizon Catalog, Openflow gen 2 lên GA và khai tử gen 1",
+   "title_en": "Snowflake new features: Iceberg Scan Plan API in Horizon Catalog, second generation Openflow GA",
+   "summary": "Ngày 10/09, Iceberg Scan Plan API trở nên công khai trong Horizon Catalog, còn khả năng dùng dbt artifact cho luồng continuous integration lên GA. Trước đó ngày 08/09, Openflow deployment thế hệ hai lên GA và việc thêm hoặc bỏ ràng buộc của hybrid table online cũng lên GA; ngày 09/09 Snowflake ngừng cho tạo Openflow gen 1.",
+   "why": "Scan Plan API là cơ chế để chính sách masking cột và row access của Snowflake còn hiệu lực khi Spark, Trino hay DuckDB đọc bảng Iceberg từ bên ngoài. Mở nó ra công khai nghĩa là quản trị đi theo dữ liệu chứ không dừng ở cửa của một engine.",
+   "url": "https://docs.snowflake.com/en/release-notes/new-features#september-10-2026",
+   "domain": "docs.snowflake.com",
+   "date": "2026-09-10",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "Unity Catalog nối thẳng vào AWS Secrets Manager, Databricks thêm connector Anaplan, Celigo và Anysphere",
+   "title_en": "External secrets in Unity Catalog Beta, plus Celigo, Anysphere Organization and Anaplan connectors",
+   "summary": "Ngày 09/09 Databricks mở Beta cho external secrets trong Unity Catalog, cho phép nối một schema vào AWS Secrets Manager với quyền chỉ đọc và quản trị đi kèm. Cùng ngày, ba connector mới vào Beta: Celigo lấy audit log của integrator.io, Anysphere Organization chụp snapshot thành viên và nhóm theo ngày, Anaplan nhập audit trail cùng bản ghi tài khoản người dùng.",
+   "why": "Secret nằm rải trong notebook, trong job config và trong biến môi trường là bệnh mãn tính của mọi workspace đã chạy vài năm. Đưa secret về một schema có quản trị nghĩa là quyền đọc secret cuối cùng cũng nằm cùng hệ thống quyền với dữ liệu.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/september#september-9-2026",
+   "domain": "docs.databricks.com",
+   "date": "2026-09-09",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "Consort: framework agent chạy test bắt buộc trên branch database sống, agent không sửa được cổng kiểm",
+   "title_en": "Introducing Consort: A Spec-First Agent Framework for Enforced, Test-Driven Development on Live Database Branches",
+   "summary": "Nhóm tác giả phân loại các framework agent spec-first hiện có thành ba kiểu cưỡng chế kỷ luật: bằng thuyết phục qua prompt mà mô hình có thể bỏ qua, bằng cấu trúc dồn về đầu, và bằng cơ chế mà agent chạy bên trong nhưng không sửa được. Consort đi kiểu thứ ba, với orchestrator tất định, cổng người duyệt, test bất biến và kết quả xanh phải đạt trên một branch database sống.",
+   "why": "Bài này gọi tên đúng vấn đề mà ai dùng agent viết code đều gặp: framework không còn là thư viện, nó là hệ thống điều khiển cho một nhân công phi tất định. Và nó đặt Consort cạnh GitHub Spec Kit, superpowers, BMAD, GSD để so cách cưỡng chế, không so tính năng.",
+   "url": "https://arxiv.org/abs/2609.09671",
+   "domain": "arxiv.org",
+   "date": "2026-09-09",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "OmniTable: gom hàng trăm bảng rời thành một wide-table logic để chuẩn bị dữ liệu huấn luyện LLM ở mức petabyte",
+   "title_en": "OmniTable: A Unified Wide-Table System for Petabyte-Scale LLM Data Curation and Exploration",
+   "summary": "Nhóm tác giả chỉ ra nút thắt thật của việc huấn luyện LLM cỡ công nghiệp không phải GPU mà là curation: corpus phi cấu trúc cỡ petabyte nằm rải trên hàng trăm bảng vật lý, feature engineering phụ thuộc pipeline dựng tay theo từng bảng, và lineage gần như không có. OmniTable đề xuất tầng wide-table hợp nhất theo nguyên tắc hợp nhất về logic, tách biệt về vật lý.",
+   "why": "Đây là lần đầu có một bản thiết kế công khai cho việc quản trị dữ liệu huấn luyện ở quy mô đó, và nó nói bằng đúng ngôn ngữ của data engineering: schema logic, lineage, dependency resolution, materialized view, chứ không phải ngôn ngữ ML.",
+   "url": "https://arxiv.org/abs/2609.11148",
+   "domain": "arxiv.org",
+   "date": "2026-09-10",
+   "section": "🤖 AI ↔ Data",
+   "hot_rank": 5
+  },
+  {
+   "aid": 11,
+   "title": "VikingRAG: giữ độ chính xác của RAG nhưng chỉ tiêu tốn 5 đến 32 phần trăm số token",
+   "title_en": "VikingRAG: Accurate and Token-efficient Retrieval-augmented Generation over Structured Documents",
+   "summary": "VikingRAG là hệ quản trị dữ liệu ngữ nghĩa hiểu cấu trúc thư mục, gắn chặt truy cập theo ngữ nghĩa với truy cập theo cấu trúc để retrieval nhiều vòng bớt tốn token ngữ cảnh cấu trúc. Hệ này vật chất hoá các lượt retrieval của agent thành experience edge để dùng lại cho truy vấn tương tự, kèm chiến lược leo thang thích ứng chỉ gọi nhiều vòng khi bằng chứng chưa đủ.",
+   "why": "Bản gốc đã ngang độ chính xác của các phương pháp tốt nhất mà chỉ dùng 11,6 đến 51,9 phần trăm số token. Bật thêm tái dùng vết retrieval và leo thang thích ứng thì chi phí token rơi xuống còn 5,1 đến 32,5 phần trăm.",
+   "url": "https://arxiv.org/abs/2609.11390",
+   "domain": "arxiv.org",
+   "date": "2026-09-10",
+   "section": "🤖 AI ↔ Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "SQLMorph: viết tắt nhiều trong câu hỏi làm text-to-SQL mất tới 17 phần trăm độ chính xác",
+   "title_en": "SQLMorph: Query Mutation and Fine-Grained Metrics for Text-to-SQL Evaluation",
+   "summary": "SQLMorph sinh tập đánh giá text-to-SQL bằng cách đột biến truy vấn, với Join Query Expansion tăng độ phức tạp cấu trúc qua việc thêm join hợp lệ, và Textual Query Augmentation tạo nhiễu ngôn ngữ có kiểm soát. Kết quả cho thấy độ chính xác tụt dần khi số join tăng, còn việc viết tắt nhiều làm giảm độ chính xác tới 17 phần trăm.",
+   "why": "Benchmark công khai không tả nổi độ phức tạp của schema doanh nghiệp, còn tự dựng tập đánh giá riêng thì đắt và không tất định nên khó tái lập kết quả. SQLMorph biến việc đánh giá thành thứ sinh ra được và đo lại được.",
+   "url": "https://arxiv.org/abs/2609.08950",
+   "domain": "arxiv.org",
+   "date": "2026-09-08",
+   "section": "🤖 AI ↔ Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "TrajectoryDB: đề xuất coi trajectory của AI agent là một kiểu dữ liệu riêng, cần database riêng",
+   "title_en": "TrajectoryDB: A New Database for Agent Trajectories",
+   "summary": "Agent sinh ra trajectory rất giàu thông tin, ghi lại toàn bộ tương tác với mô hình, với tool và với môi trường ngoài, và dữ liệu đó ngày càng giá trị cho trích xuất memory, fine-tune, tối ưu lúc chạy cùng giám sát bảo mật và chi phí. Nhưng hiện nó nằm rải trong file, database và hệ observability, không có hệ quản trị nào thiết kế riêng cho cấu trúc và cách truy cập của nó.",
+   "why": "Trajectory trộn ba thứ khó cùng lúc: cấu trúc thực thi phân cấp, khối lượng lớn văn bản cần suy luận ngữ nghĩa mới phân tích được, và mạng dependency cùng lineage giữa event, trạng thái trung gian và sản phẩm dẫn xuất. Không có kiểu dữ liệu nào hiện có gánh nổi cả ba.",
+   "url": "https://arxiv.org/abs/2609.07782",
+   "domain": "arxiv.org",
+   "date": "2026-09-07",
+   "section": "🤖 AI ↔ Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "Nghiên cứu OpenTI: các cộng đồng làm hỏi đáp trên bảng dữ liệu trích dẫn nhau ít hơn sáu lần so với tự trích",
+   "title_en": "Open Tabular Insight Extraction: Where Do We Stand, and Where Should We Go?",
+   "summary": "Nhóm tác giả dựng khung tổng thể mang tên Open Tabular Insight Extraction cho việc dân chủ hoá tri thức nằm trong các kho bảng dữ liệu như data lake. Họ chỉ ra các nhánh table question answering, text-to-SQL và data analysis agent đang đóng khung cùng một bài toán theo quy ước riêng, và một công trình có xu hướng trích dẫn trong cùng nhãn nhiệm vụ cao gấp sáu lần so với trích dẫn chéo nhãn.",
+   "why": "Hệ quả thực tế: các hệ hiện có chỉ mạnh ở phần phân tích, không phủ được trọn vẹn hành trình từ nhu cầu hiểu biết của người dùng tới kết quả dùng được, và phần lớn benchmark không phù hợp để đo điều đó.",
+   "url": "https://arxiv.org/abs/2609.07629",
+   "domain": "arxiv.org",
+   "date": "2026-09-07",
+   "section": "🤖 AI ↔ Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "Vì sao quantize vector xuống bit thấp có lúc ngon có lúc sập: recall không nằm ở sai số trung bình",
+   "title_en": "When Does Low-Bit Quantization Preserve the Decisions of Vector Search?",
+   "summary": "Quantize xuống bit thấp đạt recall cao trên một số cách biểu diễn vector nhưng sập hẳn trên số khác, và cả sai số trung bình lẫn tương quan hạng toàn cục đều không giải thích được khác biệt đó. Nhóm tác giả phân tích ở mức các phép so sánh mà thuật toán xếp hạng và cắt tỉa đồ thị thực sự tiêu thụ, rồi chứng minh định lý ghép đôi tất định cho việc chọn neighbour của Vamana.",
+   "why": "Đây là câu hỏi tiền bạc rất thực: quantize là cách rẻ nhất để hạ chi phí vector database, nhưng hiện ai cũng bật rồi cầu nguyện. Bài này cho biết nên đo cái gì để biết trước mình sắp mất recall.",
+   "url": "https://arxiv.org/abs/2609.09854",
+   "domain": "arxiv.org",
+   "date": "2026-09-09",
+   "section": "🔥 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 16,
+   "title": "Kiểm tương đương hai câu SQL: tìm hoài không thấy phản ví dụ thật ra chẳng chứng minh được gì, đến giờ thì có",
+   "title_en": "Few Rows Tell Them Apart: Equivalence of Queries Mixing Set and Bag Semantics",
+   "summary": "Các công cụ kiểm tương đương SQL có giới hạn đi tìm một database phản ví dụ cỡ nhỏ, và khi tìm không ra thì kết quả rỗng đó không chứng minh được điều gì. Bài này cung cấp phần lý thuyết còn thiếu: một chặn tính được sao cho hai câu trùng nhau trên mọi database có số tuple mỗi quan hệ dưới chặn đó thì chúng tương đương.",
+   "why": "Với truy vấn conjunctive, chặn là tuyến tính theo kích thước truy vấn ở một multiset width cố định, cụ thể hai câu không tương đương sẽ khác nhau trên một database chỉ cần tối đa hai lũy thừa w nhân kích thước truy vấn, trong đó w chỉ đếm những cột mà câu truy vấn thực sự đọc.",
+   "url": "https://arxiv.org/abs/2609.09978",
+   "domain": "arxiv.org",
+   "date": "2026-09-09",
+   "section": "🔥 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "Hạ ngân sách memory của agent xuống 8 nghìn token thì 100 phần trăm lỗi là không thể cứu",
+   "title_en": "What Eviction Destroys: A Restore-Counterfactual Audit of Forgetting in Agent Memory",
+   "summary": "Nhóm tác giả giới thiệu restore counterfactual, phép can thiệp theo cặp trên từng câu hỏi: đưa lại bằng chứng chuẩn vào ngữ cảnh lúc đọc rồi chạy lại cùng một reader, để phân loại mỗi lỗi thành cứu được, không thể cứu, hay còn lại. Với top-k retrieval ở ngân sách 80 nghìn token, tỷ lệ không thể cứu là 0,67 đến 0,73 cho FIFO, random và loại theo trùng lặp, so với 0,60 cho chính sách theo mức quan trọng do mô hình đánh giá.",
+   "why": "Ở ngân sách 8 nghìn token, tỷ lệ không thể cứu lên đúng 1,00 cho cả bốn chính sách. Nói thẳng: dưới ngưỡng đó thì chọn chính sách xoá nào cũng vô nghĩa, vì thông tin đã mất vĩnh viễn chứ không phải tìm chưa ra.",
+   "url": "https://arxiv.org/abs/2609.08279",
+   "domain": "arxiv.org",
+   "date": "2026-09-08",
+   "section": "🔥 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 18,
+   "title": "Agent chạy dài phải đối mặt vấn đề mới: trạng thái đổi không có nghĩa là quyết định đã sai",
+   "title_en": "From Version Conflicts to Decision Conflicts: Selective Revalidation for Long-Running AI Agents",
+   "summary": "Agent chạy dài đọc trạng thái, suy luận, chờ tool hoặc chờ người duyệt, rồi mới thực hiện hành động ra bên ngoài, và trạng thái biện minh cho hành động đó có thể đã đổi trong lúc chờ. Nhóm tác giả tách hai khái niệm: mọi thay đổi phiên bản phát hiện được là version conflict, còn chỉ khi thay đổi đó làm mất hiệu lực của biện minh thì nó mới là decision conflict.",
+   "why": "Ví dụ trong bài rất dễ hiểu: agent đề xuất hoàn 80 bảng dưới hạn mức 100, thì đổi tên khách hàng chỉ ảnh hưởng metadata trình bày, hạn mức mới 90 vẫn cho phép, hạn mức 50 thì vô hiệu, còn nếu người khác đã hoàn rồi thì phải chặn để khỏi trùng.",
+   "url": "https://arxiv.org/abs/2609.08015",
+   "domain": "arxiv.org",
+   "date": "2026-09-07",
+   "section": "🔥 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 19,
+   "title": "Oracle báo doanh thu quý tăng 30 phần trăm nhờ AI cloud, nhưng capex vọt lên 28,5 tỷ đô và nợ chạm 125 tỷ",
+   "title_en": "Oracle posts 30% revenue growth fueled by AI cloud demand as debt hits $125 billion",
+   "summary": "Quý một năm tài khoá 2027 của Oracle đạt doanh thu 19,3 tỷ đô, tăng 30 phần trăm, trong đó cloud infrastructure tăng 121 phần trăm lên 7,4 tỷ và tổng doanh thu cloud tăng 62 phần trăm lên 11,6 tỷ. Lãi ròng tăng 60 phần trăm lên 4,7 tỷ, nhưng chi đầu tư trong quý nhảy từ 8,5 tỷ lên 28,5 tỷ và nợ đã chạm 125 tỷ đô.",
+   "why": "Đây là hoá đơn thật của làn sóng hạ tầng AI, viết bằng dòng tiền của một công ty database lâu năm. Oracle hướng dẫn doanh thu cả năm tài khoá 2027 tối thiểu 90 tỷ đô, nghĩa là cược này còn phải chạy nhiều năm mới biết thắng thua.",
+   "url": "https://www.cnbc.com/2026/09/11/oracle-stock-q1-earnings-ai-cloud.html",
+   "domain": "cnbc.com",
+   "date": "2026-09-11",
+   "section": "💼 Ngành & Doanh nghiệp",
+   "hot_rank": 1
+  },
+  {
+   "aid": 20,
+   "title": "Databricks bỏ công tắc tắt partner-powered AI trên giao diện, đồng thời mở ABAC DENY policy trong Unity Catalog",
+   "title_en": "Partner-powered AI features setting can no longer be disabled in the UI, ABAC DENY policies in Beta",
+   "summary": "Từ ngày 08/09, thiết lập cho các tính năng AI dùng đối tác không còn tắt được trên giao diện, dù Settings API vẫn cho thay đổi cho tới ngày 01/11/2026. Cùng ngày, Unity Catalog mở Beta cho ABAC DENY policy, cho phép chặn tường minh quyền MANAGE ACCESS CONTROL với thứ tự ưu tiên cao hơn mọi grant, và tính năng ai_search có thêm lựa chọn generate_citations để hiện chunk nào đã chống lưng cho câu trả lời.",
+   "why": "Hai động thái trái chiều thú vị trong một ngày: một bên siết quyền kiểm soát của khách hàng với tính năng AI, bên kia trao thêm quyền kiểm soát ở tầng dữ liệu. Mốc 01/11/2026 là thời hạn thật mà đội quản trị cần đưa vào lịch.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/september#september-8-2026",
+   "domain": "docs.databricks.com",
+   "date": "2026-09-08",
+   "section": "💼 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 21,
+   "title": "Data Engineering Weekly số 286: Wix chuyển 5 tỷ bản ghi trong bốn tuần, Pinot mở đường tới 10 triệu segment",
+   "title_en": "Data Engineering Weekly #286",
+   "summary": "Số 286 gom một loạt case study đáng đọc: Wix kể cách chuyển 5 tỷ bản ghi và 10 terabyte trong bốn tuần bằng CDC, Kafka và kiểm đối chiếu, StarTree giới thiệu Segment Group giúp Pinot mở tới 10 triệu segment mà không phải trộn dữ liệu, còn Netflix công bố vòng đời LLM-as-a-Judge với quy trình tinh chỉnh rubric mang tên RART.",
+   "why": "Bản tin này là lát cắt hiếm về việc các đội data lớn thật sự đang làm gì, chứ không phải họ nói gì trên sân khấu hội nghị. Instacart cũng góp phần về việc để agent tự sinh và tự đánh giá giả thuyết mô hình bên trong nền tảng Griffin của họ.",
+   "url": "https://www.dataengineeringweekly.com/p/data-engineering-weekly-286",
+   "domain": "dataengineeringweekly.com",
+   "date": "2026-09-07",
+   "section": "💼 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 19,
+ "weekly_video": {
+  "intro": "Xin chào anh chị em, đây là bản tổng kết tuần 37 của thế giới dữ liệu, từ ngày mùng bảy đến mười ba tháng chín. Chủ đề lớn của tuần nay là quyền kiểm soát: ai trả tiền cho hạ tầng AI, ai giữ được chính sách quản trị khi dữ liệu đi ra ngoài, và ai sở hữu những dự án mã nguồn mở mà cả ngành đang dựa vào. Mình đã chọn ra năm câu chuyện đáng nhớ nhất, xếp theo độ nóng. Chúng ta bắt đầu nhé.",
+  "outro": "Đó là năm câu chuyện lớn nhất của tuần 37. Chi tiết từng tin, kèm số liệu và nguồn gốc, mình đã để đầy đủ trong bản tin trên trang. Hẹn gặp lại anh chị em tuần sau.",
+  "segments": [
+   {
+    "aid": 19,
+    "headline": "Oracle: doanh thu tăng 30 phần trăm, nợ 125 tỷ",
+    "narration": "Câu chuyện nóng nhất tuần này là báo cáo quý một năm tài khoá 2027 của Oracle, công bố ngày mười một tháng chín. Doanh thu quý đạt mười chín phẩy ba tỷ đô, tăng ba mươi phần trăm. Phần gây choáng là hạ tầng cloud: tăng một trăm hai mươi mốt phần trăm, lên bảy phẩy bốn tỷ đô. Tổng doanh thu cloud tăng sáu mươi hai phần trăm. Lãi ròng tăng sáu mươi phần trăm, lên bốn phẩy bảy tỷ. Nhưng có một cột thứ hai phải đọc cùng lúc. Chi đầu tư trong chỉ một quý là hai mươi tám phẩy năm tỷ đô, so với tám phẩy năm tỷ cùng kỳ năm trước. Gấp hơn ba lần. Và tổng nợ đã chạm một trăm hai mươi lăm tỷ đô. Oracle hướng dẫn doanh thu cả năm tối thiểu chín mươi tỷ. Theo mình, đây là hoá đơn thật của làn sóng hạ tầng AI, viết bằng dòng tiền của một công ty database lâu năm. Họ đang đi vay để dựng công suất cho những hợp đồng nhiều năm, và mô hình đó chỉ đứng vững nếu nhu cầu giữ nhịp đủ lâu để khấu hao xong đống phần cứng. Với người làm data ở Việt Nam, hệ quả rất thực tế: chính cuộc đua này đang định giá compute và lưu trữ mà bạn thuê, nên đừng lập ngân sách ba năm dựa trên giá hôm nay.",
+    "bullets": [
+     "Doanh thu 19,3 tỷ đô, tăng 30 phần trăm",
+     "Hạ tầng cloud tăng 121 phần trăm",
+     "Chi đầu tư một quý 28,5 tỷ đô"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Oracle quý 1 năm tài khoá 2027",
+     "items": [
+      {
+       "v": "19,3 tỷ",
+       "l": "doanh thu, tăng 30%"
+      },
+      {
+       "v": "+121%",
+       "l": "hạ tầng cloud"
+      },
+      {
+       "v": "28,5 tỷ",
+       "l": "chi đầu tư một quý"
+      },
+      {
+       "v": "125 tỷ",
+       "l": "tổng nợ"
+      }
+     ]
+    },
+    "images": [
+     "https://image.cnbcfm.com/api/v1/image/108348677-1786560865437-gettyimages-2289704306-US_STOCKS.jpeg?v=1786560938&w=1920&h=1080"
+    ]
+   },
+   {
+    "aid": 6,
+    "headline": "Excel nối thẳng lakehouse, quyền do Unity Catalog gác",
+    "narration": "Câu chuyện thứ hai là món mình nghĩ đội data Việt Nam cảm nhận được nhanh nhất. Ngày mười tháng chín, Databricks đưa Excel Add-in từ bản thử nghiệm lên chính thức, kèm khả năng truy vấn sống cho pivot table. Nghĩa là người dùng nghiệp vụ mở Excel, chọn một bảng hoặc một metric view trong Unity Catalog, rồi dựng pivot table ngay tại đó. Không xuất file, không viết một dòng SQL, và quyền truy cập vẫn do Unity Catalog quyết định tập trung. Vì sao chuyện này quan trọng? Làm tư vấn Data và BI nhiều năm, mình thấy một vòng lặp rất quen. Đội data dựng model chuẩn, dựng dashboard đẹp, rồi người dùng vẫn bấm xuất ra Excel, vì họ cần cắt lát theo cách dashboard không lường trước. Từ giây đó, con số rời khỏi tầm quản trị và sống đời riêng. Mỗi phòng ban một bảng doanh thu, họp thì tranh nhau xem bảng nào đúng. Add-in này không sửa văn hoá đó, nó chấp nhận văn hoá đó rồi kéo đường ống về đúng chỗ. Nhưng có một điều cần cảnh giác. Nếu metric view của bạn định nghĩa lỏng, giờ bạn chỉ phát tán cái lỏng đó nhanh hơn thôi. Việc nên làm trước khi mở cho người dùng là dọn metric view và đặt tên theo ngôn ngữ nghiệp vụ.",
+    "bullets": [
+     "Excel Add-in lên bản chính thức ngày 10 tháng 9",
+     "Pivot table truy vấn sống, không xuất file",
+     "Quyền do Unity Catalog gác tập trung"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Đường đi của một con số",
+     "items": [
+      {
+       "t": "Lakehouse",
+       "d": "bảng gốc trong Unity Catalog"
+      },
+      {
+       "t": "Metric view",
+       "d": "định nghĩa nghiệp vụ duy nhất"
+      },
+      {
+       "t": "Add-in",
+       "d": "kiểm quyền rồi truy vấn sống"
+      },
+      {
+       "t": "Pivot table",
+       "d": "người dùng tự cắt lát"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 2,
+    "headline": "DataFusion nhận repo Iceberg, hết thời mỗi vendor tự fork",
+    "narration": "Câu chuyện thứ ba đến từ bên trong Apache, và nó là chuyện quản trị chứ không phải chuyện tính năng. Cộng đồng đã bỏ phiếu chuyển phần tích hợp giữa Iceberg Rust và DataFusion ra khỏi kho iceberg-rust, sang một kho mới tên là datafusion-iceberg, đặt dưới quyền quản trị của chính dự án DataFusion. Lý do rất cụ thể. Andrew Lamb kể ở hội nghị VLDB, ông gặp ít nhất ba công ty đang thêm Iceberg vào sản phẩm, và cả ba đều đã tự fork kho iceberg-rust. Ba bản fork riêng nghĩa là ba lần làm cùng một việc, rồi cả ba dần lệch khỏi bản gốc và chết mòn. Một kho chung trong nền tảng Apache thì công sức đó hợp lại. Cùng tuần, Parquet cắt bản format hai phẩy mười bốn, bản ứng viên đầu tiên, mang theo kiểu logic FILE và một kiểu mã hoá số thực không mất mát. Còn Arrow ra ArrowMetal phiên bản không phẩy một, là các kernel tính toán trên GPU cho chip Apple, dùng bộ nhớ chia sẻ nên không phải tải dữ liệu xuống rồi tải về. Theo mình, tín hiệu đáng đọc nhất là hệ sinh thái lakehouse mở đang chuyển từ đua tính năng sang siết chuẩn kiểm định và làm rõ ai sở hữu cái gì. Đó là hệ sinh thái đáng cược dài hạn.",
+    "bullets": [
+     "Tích hợp Iceberg dời sang kho datafusion-iceberg",
+     "Ba công ty từng tự fork cùng một kho",
+     "Parquet cắt bản format 2.14.0 ứng viên một"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Trước và sau khi có kho chung",
+     "left": {
+      "h": "Trước",
+      "items": [
+       "Mỗi vendor tự fork iceberg-rust",
+       "Ba lần làm cùng một việc",
+       "Bản fork lệch dần rồi chết mòn"
+      ]
+     },
+     "right": {
+      "h": "Sau",
+      "items": [
+       "Một kho trong nền tảng Apache",
+       "DataFusion quản trị trực tiếp",
+       "Người sửa hiểu sâu DataFusion"
+      ]
+     }
+    },
+    "images": [
+     "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2Fucwk9lubetrtu9a10rmg.png"
+    ]
+   },
+   {
+    "aid": 3,
+    "headline": "File Parquet lạ có thể lấy được token mã hoá của bạn",
+    "narration": "Câu chuyện thứ tư là một lỗ hổng bảo mật công bố ngày mùng tám tháng chín, mã CVE hai không hai sáu, bảy ba ba ba bốn, mức độ vừa. Nó nằm trong gói keytools của thư viện parquet-java, ảnh hưởng từ bản một phẩy mười hai đến một phẩy mười tám. Cơ chế bị lợi dụng là mã hoá kiểu phong bì. Khi ghi file Parquet có mã hoá, khoá dữ liệu được bọc qua một dịch vụ quản lý khoá, và địa chỉ của dịch vụ đó được lưu vào trong file. Vấn đề ở phía đọc. Nếu ứng dụng đọc không tự chỉ định địa chỉ đó, thì địa chỉ do chính file quyết định sẽ được chuyển thẳng cho lớp kết nối mà bạn tự cài. Và nếu lớp đó không kiểm tra tên máy, thì token xác thực bị gửi tới địa chỉ mà kẻ tấn công đã ghi sẵn trong file. Cái đáng sợ là mã của bạn đúng, cấu hình của bạn đúng, nhưng một file lạ đưa vào data lake lại quyết định được nơi gửi thông tin xác thực. Mà file thì đến từ đối tác, từ người dùng tải lên, từ pipeline của đội khác, và gần như không ai coi metadata của file Parquet là dữ liệu cần kiểm duyệt. Việc cần làm rất gọn: tra xem bạn có dùng keytools không, rồi nâng lên bản một phẩy mười tám một.",
+    "bullets": [
+     "Ảnh hưởng parquet-java từ 1.12 đến 1.18.0",
+     "Bản 1.18.1 tắt theo mặc định, nên nâng ngay",
+     "Metadata của file cũng là dữ liệu cần kiểm duyệt"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Chuỗi khai thác lỗ hổng",
+     "items": [
+      {
+       "t": "File lạ",
+       "d": "kẻ tấn công ghi địa chỉ giả"
+      },
+      {
+       "t": "Reader",
+       "d": "không ép địa chỉ ở tầng ứng dụng"
+      },
+      {
+       "t": "KmsClient",
+       "d": "không kiểm tra tên máy"
+      },
+      {
+       "t": "Token bay",
+       "d": "gửi sang máy của kẻ tấn công"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 10,
+    "headline": "OmniTable: nút thắt của LLM là curation, không phải GPU",
+    "narration": "Câu chuyện thứ năm là một nghiên cứu công bố ngày mười tháng chín, và nó đảo lại một định kiến khá phổ biến. Nhóm tác giả của OmniTable nói rằng nút thắt thật của việc phát triển mô hình ngôn ngữ ở mức công nghiệp không phải là GPU, mà là việc chuẩn bị và quản trị dữ liệu. Mô tả tình trạng của họ nghe y hệt một dự án kho dữ liệu tệ. Dữ liệu phi cấu trúc cỡ petabyte rải trên hàng trăm bảng vật lý. Việc tạo đặc trưng phụ thuộc pipeline dựng tay theo từng bảng. Và gần như không có lineage, tức là không ai biết một cột được tính ra từ đâu. Giải pháp họ đề xuất cũng chính là giải pháp của giới data. Một là tầng bảng rộng hợp nhất, gom nhiều nguồn và hàng nghìn đặc trưng dưới một lược đồ logic duy nhất. Hai là quản lý vòng đời đặc trưng theo kiểu khai báo, tự giải phụ thuộc và tự theo dõi lineage. Ba là một engine chịu lỗi ở mức từng hàm, chứ không phải mức cả lượt chạy. Chi tiết đó mình đánh giá cao nhất, vì ai từng backfill đặc trưng trên vài trăm terabyte đều biết nỗi đau một hàm lỗi ở phút thứ chín mươi làm mất cả lượt chạy. Thông điệp cho người làm data ở Việt Nam khá rõ: mô hình hoá và lineage đang thành kỹ năng của tầng chuẩn bị dữ liệu cho AI, chứ không bị AI xoá đi.",
+    "bullets": [
+     "Nút thắt là curation, không phải sức tính toán",
+     "Bảng rộng hợp nhất hàng nghìn đặc trưng",
+     "Chịu lỗi ở mức từng hàm, không mất cả lượt chạy"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Các tầng của OmniTable",
+     "items": [
+      {
+       "t": "Khám phá",
+       "d": "point lookup mức giây, đẩy OLAP"
+      },
+      {
+       "t": "Engine thích ứng",
+       "d": "định tuyến CPU và GPU, chịu lỗi mức hàm"
+      },
+      {
+       "t": "Vòng đời đặc trưng",
+       "d": "khai báo, tự giải phụ thuộc, có lineage"
+      },
+      {
+       "t": "Bảng rộng logic",
+       "d": "một lược đồ cho hàng trăm bảng vật lý"
+      },
+      {
+       "t": "Lưu trữ vật lý",
+       "d": "corpus petabyte rải nhiều nơi"
+      }
+     ]
+    },
+    "images": []
+   }
+  ]
+ },
+ "facebook_post": "𝐓𝐔𝐀𝐍 𝟑𝟕: 𝐇𝐎𝐀 𝐃𝐎𝐍 𝐓𝐇𝐀𝐓 𝐂𝐔𝐀 𝐇𝐀 𝐓𝐀𝐍𝐆 𝐀𝐈 𝐃𝐀 𝐋𝐎 𝐑𝐀\n\nTuần rồi có anh làm IT một công ty sản xuất nhắn cho mình: \"Anh ơi sếp em vừa hỏi sang năm chi phí cloud có giảm không, em trả lời sao?\"\n\nMình cười. Câu đó tuần này có câu trả lời, mà không nằm ở bảng giá. Nó nằm trong báo cáo tài chính của Oracle. 😄\n\nTuần 37 của thế giới dữ liệu (mùng 7 đến 13 tháng 9) có một sợi chỉ xuyên suốt: quyền kiểm soát. Ai trả tiền cho hạ tầng AI, và ai sở hữu những dự án mã nguồn mở mà cả ngành đang dựa vào.\n\n---\n\n𝟏️⃣ 𝐎𝐑𝐀𝐂𝐋𝐄: 𝐓𝐀𝐍𝐆 𝟑𝟎 𝐏𝐇𝐀𝐍 𝐓𝐑𝐀𝐌, 𝐍𝐎 𝟏𝟐𝟓 𝐓𝐘 𝐃𝐎 💸\n\nNgày 11/9, Oracle báo quý đầu năm tài khóa 2027. Doanh thu 19,3 tỷ đô, tăng 30%. Hạ tầng cloud tăng 121%, lên 7,4 tỷ.\n\nNghe thì đẹp. Nhưng phải đọc cột thứ hai.\n\nChi đầu tư trong MỘT quý: 28,5 tỷ đô. Cùng kỳ năm trước là 8,5 tỷ. Gấp hơn ba lần. Tổng nợ chạm 125 tỷ đô.\n\nNói dễ hiểu: Oracle đang vay tiền dựng nhà máy tính toán cho hợp đồng nhiều năm. Giống xưởng may vay mua 300 máy vì có đơn 5 năm. Đơn chạy đủ lâu thì lãi to. Đơn hủy giữa đường thì máy vẫn phải trả nợ.\n\nCâu trả lời cho anh IT kia: đừng lập ngân sách ba năm dựa trên giá hôm nay. 🙂\n\n𝟐️⃣ 𝐄𝐗𝐂𝐄𝐋 𝐍𝐎𝐈 𝐓𝐇𝐀𝐍𝐆 𝐋𝐀𝐊𝐄𝐇𝐎𝐔𝐒𝐄, 𝐐𝐔𝐘𝐄𝐍 𝐕𝐀𝐍 𝐃𝐔𝐎𝐂 𝐆𝐀𝐂 📊\n\nNgày 10/9, Databricks đưa Excel Add-in lên bản chính thức, kèm truy vấn sống cho pivot table.\n\nCụ thể: mở Excel, chọn một bảng hoặc một metric view trong Unity Catalog, dựng pivot table ngay tại đó. Không xuất file, không viết SQL, và quyền vẫn do Unity Catalog gác.\n\nCái này Đức thấy đúng chỗ đau nhất của nghề BI. Đội data dựng model chuẩn, dashboard đẹp. Rồi người dùng vẫn bấm Export to Excel, vì họ cần cắt lát theo cách dashboard không lường trước. Từ giây đó con số rời khỏi tầm quản trị. Mỗi phòng một bảng doanh thu, họp thì tranh nhau xem bảng nào đúng.\n\nAdd-in này không sửa văn hóa đó. Nó chấp nhận rồi kéo đường ống về đúng chỗ. 👍 Nhưng cẩn thận: nếu metric view của bạn định nghĩa lỏng, giờ bạn chỉ phát tán cái lỏng đó nhanh hơn thôi.\n\n𝟑️⃣ 𝐀𝐏𝐀𝐂𝐇𝐄 𝐃𝐎𝐍 𝐋𝐀𝐈 𝐒𝐀𝐍 𝐍𝐇𝐀: 𝐇𝐄𝐓 𝐓𝐇𝐎𝐈 𝐌𝐎𝐈 𝐕𝐄𝐍𝐃𝐎𝐑 𝐓𝐔 𝐅𝐎𝐑𝐊 🗄\n\nCộng đồng Apache bỏ phiếu chuyển phần tích hợp Iceberg Rust với DataFusion sang một kho mới. Lý do rất người: Andrew Lamb kể ở hội nghị VLDB ông gặp ít nhất ba công ty đang thêm Iceberg vào sản phẩm, và cả ba đều đã tự fork cùng một kho. Ba lần làm cùng một việc, rồi cả ba lệch dần khỏi bản gốc và chết mòn.\n\n𝟒️⃣ 𝐌𝐎𝐓 𝐅𝐈𝐋𝐄 𝐏𝐀𝐑𝐐𝐔𝐄𝐓 𝐋𝐀 𝐂𝐎 𝐓𝐇𝐄 𝐋𝐀𝐘 𝐓𝐎𝐊𝐄𝐍 𝐂𝐔𝐀 𝐁𝐀𝐍 🔐\n\nNgày 8/9 công bố CVE-2026-73334 trong thư viện parquet-java, từ bản 1.12 đến 1.18.0.\n\nNói cho người không chuyên bảo mật: khi ghi file Parquet có mã hóa, địa chỉ dịch vụ quản lý khóa được lưu vào TRONG file. Lúc đọc, nếu ứng dụng không tự ép địa chỉ đó thì file nói gửi đi đâu là gửi đi đó. Kẻ tấn công đặt một file vào data lake của bạn, thế là token xác thực bay sang máy họ.\n\nMã của bạn đúng. Cấu hình đúng. Nhưng một file lạ quyết định nơi gửi credential. 😅 Việc cần làm: tra xem có dùng keytools không, nâng lên 1.18.1.\n\n𝟓️⃣ 𝐍𝐔𝐓 𝐓𝐇𝐀𝐓 𝐂𝐔𝐀 𝐋𝐋𝐌 𝐋𝐀 𝐂𝐔𝐑𝐀𝐓𝐈𝐎𝐍, 𝐊𝐇𝐎𝐍𝐆 𝐏𝐇𝐀𝐈 𝐆𝐏𝐔 🧩\n\nMột nghiên cứu ngày 10/9 nói thẳng: nút thắt của việc huấn luyện mô hình lớn không phải GPU, mà là chuẩn bị dữ liệu. Dữ liệu petabyte rải trên hàng trăm bảng, đặc trưng dựng tay từng bảng, không có lineage nên không ai biết một cột tính ra từ đâu.\n\nNghe quen không? Đó đúng là mô tả một dự án data warehouse tệ. 😄\n\n---\n\n💡 𝐆𝐨𝐜 𝐧𝐡𝐢𝐧 𝐜𝐮𝐚 𝐦𝐢𝐧𝐡 𝐯𝐞 𝐭𝐮𝐚𝐧 𝐧𝐚𝐲\n\nTheo mình, mấy tin trên tuy khác chủ đề nhưng chung một bài học: 𝐜𝐨𝐧𝐠 𝐧𝐠𝐡𝐞 𝐜𝐡𝐢 𝐜𝐨 𝐠𝐢𝐚 𝐭𝐫𝐢 𝐤𝐡𝐢 𝐥𝐨𝐩 𝐪𝐮𝐚𝐧 𝐭𝐫𝐢 𝐩𝐡𝐢𝐚 𝐝𝐮𝐨𝐢 𝐝𝐚 𝐯𝐮𝐧𝐠.\n\nOracle tăng trưởng nhờ AI nhưng phải vay 125 tỷ. Databricks cho Excel nối lakehouse, nhưng giá trị chỉ có nếu metric view phía dưới đã chuẩn. Apache dời một kho code, nghe nhỏ, nhưng nó quyết định năm năm tới ai còn duy trì thư viện mà sản phẩm bạn đang phụ thuộc.\n\nĐức nói cái này từ trải nghiệm rất gần. Vừa rồi mình học và thi chứng chỉ Databricks, làm thực hành ứng dụng RAG trên nền lakehouse với Delta, Unity Catalog và vector search. Điều đọng lại không phải tính năng nào hay, mà là: phần khó nhất luôn là lớp quản trị. Cấp quyền cho ai, định nghĩa metric ở đâu, khi số lệch thì lần ngược bằng gì.\n\nTuần này củng cố đúng cái đó. Snowflake mở Iceberg Scan Plan API để chính sách masking còn hiệu lực khi Trino đọc dữ liệu. Databricks mở ABAC DENY để diễn đạt được ngoại lệ phân quyền. Đều là công cụ cho lớp quản trị, chứ không phải cho lớp chạy nhanh hơn.\n\nMột chi tiết nữa cho anh em làm hỏi đáp dữ liệu bằng tiếng tự nhiên. Nghiên cứu tuần này đo được: người dùng viết tắt nhiều thì độ chính xác text-to-SQL giảm tới 17%. Ở Việt Nam chắc còn nặng hơn, vì không ai viết \"doanh thu tháng chín\", họ viết \"DT T9\". 😅\n\nVà phát hiện thứ hai còn quan trọng hơn: độ chính xác tụt dần theo số lượng join. Model cần năm join để trả lời một câu hỏi thường gặp thì vấn đề nằm ở mô hình dữ liệu, không nằm ở mô hình ngôn ngữ. 😊\n\n---\n\nTuần này không có món nào \"wow\". Nhưng nó là loại tuần mà người làm nghề thích: toàn những thứ quyết định hệ thống sống được năm năm hay chỉ sống một quý.\n\n\"Dashboard đẹp không có nghĩa là đang ra quyết định tốt. Và cloud rẻ hôm nay không có nghĩa là rẻ sang năm.\"\n\nAnh em nào đang xây lớp semantic, hoặc đang đau đầu vụ mỗi phòng một bảng doanh thu, thì comment cho mình biết nhé. 🙌\n\n#DataEngineering #Databricks #Snowflake #PowerBI #DataGovernance #Lakehouse #ApacheIceberg #TextToSQL #DuLieuDoanhNghiep #HocCungAI #KienTrucDuLieu #DataAnalytics",
+ "facebook_reel": "Viết tắt một chữ, mất 17% độ chính xác.\n\nNghiên cứu tuần này đo được con số đó cho text-to-SQL. Ở Việt Nam chắc còn nặng hơn, vì không ai gõ \"doanh thu tháng chín\"... họ gõ \"DT T9\". 😅\n\nDemo bằng câu hỏi trang trọng, rồi đưa vào production, rồi mất tin trong hai tuần.\n\nBạn đã test bằng câu hỏi thật của người dùng chưa?\n\n#DataEngineering #TextToSQL #PowerBI #DataAnalytics #HocCungAI",
+ "bgm": "minimal-tech",
+ "youtube": {
+  "recap": "gTJi0axi8mw",
+  "short": "a2Txmd7HCWE"
+ }
+}
