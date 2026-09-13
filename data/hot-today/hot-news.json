@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-09-13",
+      "display_date": "13/09/2026",
+      "title": "Pandas nên tuyệt chủng? Benchmark 1 tỷ dòng gây tranh cãi",
+      "summary": "Cùng một tỷ dòng dữ liệu, Pandas mất hơn bốn phút, hai thư viện mới chỉ mất năm giây. Và bài viết này đang khiến dân dữ liệu cãi nhau.",
+      "source": "eddie.codes",
+      "video_id": "I9VAPw9110A",
+      "short_id": "I4OwP87iZ64",
+      "published_at": "2026-09-13T19:24:45"
+    },
+    {
       "date": "2026-09-09",
       "display_date": "09/09/2026",
       "title": "Google tính sẵn 9 tỷ đột biến, gói thành kho 1 petabyte",
