@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-09-15",
+      "display_date": "15/09/2026",
+      "title": "dbt Labs mở mã nguồn dbt Charts, kéo dashboard ra khỏi BI",
+      "summary": "dbt Labs vừa mở mã nguồn dbt Charts: cả một dashboard gói trong một file YAML, để AI viết ra và con người kiểm lại được.",
+      "source": "dbtcharts.com",
+      "video_id": "fGqlNwmlM_I",
+      "short_id": "yDuid6yiH_8",
+      "published_at": "2026-09-15T19:28:25"
+    },
+    {
       "date": "2026-09-13",
       "display_date": "13/09/2026",
       "title": "Pandas nên tuyệt chủng? Benchmark 1 tỷ dòng gây tranh cãi",
