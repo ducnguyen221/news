@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-09-17",
+      "display_date": "17/09/2026",
+      "title": "Mô hình 4B vượt bộ tối ưu Postgres, nhanh gấp 1,81 lần",
+      "summary": "Một mô hình AI 4 tỷ tham số, tốn khoảng 1.200 đô, giúp Postgres chạy truy vấn join nhanh gấp 1,81 lần.",
+      "source": "rohanbansal.com",
+      "video_id": "KvsXEaAQ7Gg",
+      "short_id": "0oP2_i4GF_o",
+      "published_at": "2026-09-17T19:21:07"
+    },
+    {
       "date": "2026-09-15",
       "display_date": "15/09/2026",
       "title": "dbt Labs mở mã nguồn dbt Charts, kéo dashboard ra khỏi BI",
