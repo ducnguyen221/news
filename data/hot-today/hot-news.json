@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-09-19",
+      "display_date": "19/09/2026",
+      "title": "DuckDB trong trình duyệt: dữ liệu sống sót sau khi đóng tab",
+      "summary": "Đóng tab là mất sạch dữ liệu — cái giá DuckDB trong trình duyệt trả suốt năm năm. Hôm 18/09, chuyện đó vừa hết.",
+      "source": "duckdb.org",
+      "video_id": "rITQ6J2xOO8",
+      "short_id": "MjTJKnQLLog",
+      "published_at": "2026-09-19T19:33:37"
+    },
+    {
       "date": "2026-09-17",
       "display_date": "17/09/2026",
       "title": "Mô hình 4B vượt bộ tối ưu Postgres, nhanh gấp 1,81 lần",
