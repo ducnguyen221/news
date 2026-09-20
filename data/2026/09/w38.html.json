@@ -1,0 +1,537 @@
+{
+ "date": "20/09/2026",
+ "week": "W38",
+ "range": "14/09 - 20/09/2026",
+ "tldr": "Tuần 38 là tuần của dbt Summit tại Las Vegas: Fivetran và dbt Labs đưa dbt v2 viết lại hoàn toàn bằng Rust lên chính thức, parse một project mười nghìn model nhanh gấp mười lần, kèm dbt State giúp một khách hàng cắt năm mươi chín phần trăm chi phí warehouse. Song song đó Snowflake mở Cortex AI Gateway để quản mọi lượt agent gọi model, còn Databricks đưa Unity Gateway API và telemetry cho Databricks Apps lên chính thức. Ở tầng định dạng, Arrow Rust 60.0.0 là bản Parquet production đầu tiên có ALP, nhưng Iceberg Rust 0.11.0 trượt hai vòng bỏ phiếu vì file do Rust ghi ra thì Java đọc không nổi. Khảo sát của Collibra kéo mọi người về mặt đất: bảy mươi sáu phần trăm tổ chức tắc khi đưa AI agent từ thử nghiệm vào vận hành thật, và bảy mươi hai phần trăm nói gốc rễ nằm ở nền dữ liệu. Gartner dự báo chi tiêu AI toàn cầu năm hai nghìn không trăm hai mươi sáu chạm hai nghìn bảy trăm tỷ đô, tăng gần năm mươi phần trăm.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "Snowflake đưa partition evolution cho bảng Apache Iceberg lên GA",
+   "title_en": "Apache Iceberg tables: Partition evolution (General availability)",
+   "summary": "Ngày 18/09, Snowflake công bố partition evolution cho bảng Apache Iceberg chính thức lên general availability, cho phép đổi sơ đồ phân vùng của một bảng đang chạy mà không phải ghi lại toàn bộ dữ liệu cũ. Cùng ngày, database role được nối vào chức năng backup của tài khoản.",
+   "why": "Đổi partition là việc trước đây phải làm bằng cách tạo bảng mới rồi copy hàng tỷ dòng sang. Lên GA nghĩa là mô hình phân vùng không còn là quyết định một lần lúc thiết kế bảng nữa.",
+   "url": "https://docs.snowflake.com/en/release-notes/new-features",
+   "domain": "docs.snowflake.com",
+   "date": "2026-09-18",
+   "section": "🏗️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 2,
+   "title": "Arrow Rust 60.0.0 là bản Parquet production đầu tiên có ALP, còn Iceberg Rust 0.11.0 trượt hai vòng",
+   "title_en": "Apache Data Lakehouse Weekly: Arrow Rust 60.0.0 ships ALP, Iceberg Rust 0.11.0 fails twice",
+   "summary": "Arrow Rust 60.0.0 phát hành ngày 15/09 và là bản cài đặt Parquet production đầu tiên ship ALP, kiểu nén chuyên cho số thực dựa vào đặc tả Parquet Format 2.14.0 vừa được bỏ phiếu thông qua ngày 11/09. Cùng tuần, Iceberg Rust 0.11.0 trượt hai vòng release: RC1 chết vì macro crate tạo vòng phụ thuộc khiến cargo publish không chạy, RC2 chết vì file mã hoá Rust ghi ra thì Java đọc không nổi dù mọi test Rust đều xanh.",
+   "why": "Một format chỉ thực sự tồn tại khi mọi ngôn ngữ đọc được của nhau. Tuần này cho thấy chỗ gãy nhất của lakehouse không còn là spec, mà là chỗ giáp ranh giữa các bản cài đặt.",
+   "url": "https://dev.to/alexmercedcoder/apache-data-lakehouse-weekly-september-9-to-17-2026-1509",
+   "domain": "dev.to",
+   "date": "2026-09-17",
+   "section": "🏗️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 5
+  },
+  {
+   "aid": 3,
+   "title": "DAT: kiểm thử database phân tán phải biết dữ liệu đang nằm ở đâu mới tìm ra bug",
+   "title_en": "Distribution-Aware Distributed Database Testing (Extended Version)",
+   "summary": "Nhóm tác giả chỉ ra rằng các công cụ fuzzing database hiện nay được thiết kế cho DBMS tập trung, nên sinh ra truy vấn vừa ít chạy được vừa không chạm tới các đường thực thi đặc thù của hệ phân tán. Họ đề xuất DAT, cách kiểm thử có nhận thức về chiến lược phân mảnh: sinh tổ hợp schema và chiến lược phân bố dữ liệu, rồi đột biến truy vấn có định hướng để kích hoạt nhiều kiểu tối ưu phân tán.",
+   "why": "Bug của database phân tán thường không nằm ở câu SQL, mà nằm ở chỗ optimizer chọn sai cách di chuyển dữ liệu giữa các node. Kiểm thử không biết chuyện đó thì không bao giờ chạm tới.",
+   "url": "https://arxiv.org/abs/2609.18501",
+   "domain": "arxiv.org",
+   "date": "2026-09-16",
+   "section": "🏗️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 4,
+   "title": "Apache Flink Kubernetes Operator 1.16.0: mở ba điểm cắm cho autoscaler tự viết",
+   "title_en": "Apache Flink Kubernetes Operator 1.16.0 Release Announcement",
+   "summary": "Bản 1.16.0 ra ngày 15/09 tập trung vào khả năng mở rộng: ba SPI cắm được cho autoscaler gồm custom evaluator, scaling executor và alignment mode, cộng với ResourceRequirements kiểu Kubernetes gắn thẳng vào pod. Tài liệu được tổ chức lại toàn bộ, kèm loạt sửa lỗi cho Blue/Green, session job, savepoint và bảo mật.",
+   "why": "Autoscaler mặc định của Flink hợp với workload chung chung. Mở SPI nghĩa là đội vận hành có thể cắm logic scale theo đặc thù nghiệp vụ của mình thay vì chịu trần của vendor.",
+   "url": "https://flink.apache.org/2026/09/15/apache-flink-kubernetes-operator-1.16.0-release-announcement/",
+   "domain": "flink.apache.org",
+   "date": "2026-09-15",
+   "section": "🏗️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 5,
+   "title": "Snowflake đưa Elastic Channels cho Snowpipe Streaming lên GA: hết phải tự quản channel và offset",
+   "title_en": "Elastic Channels for Snowpipe Streaming (General availability)",
+   "summary": "Từ 15/09, Elastic Channels chính thức GA trên mọi region thương mại của AWS, GCP và Azure. Mỗi pipe có đúng một đường nạp ngầm do server tự co giãn, nên nhiều producer ghi song song thẳng vào bảng Snowflake hoặc bảng Iceberg do Snowflake quản lý mà không phải đặt tên channel, quản vòng đời, thứ tự hay offset token.",
+   "why": "Phần lớn sự cố của Snowpipe Streaming trước đây đến từ code tự quản channel và offset của chính khách hàng. Bỏ được lớp đó là bỏ được một nguồn lỗi kinh niên.",
+   "url": "https://docs.snowflake.com/en/release-notes/2026/other/2026-09-15-snowpipe-streaming-elastic-channels-ga",
+   "domain": "docs.snowflake.com",
+   "date": "2026-09-15",
+   "section": "🏗️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "Databricks cho chia sẻ bảng Delta ngoại trú qua OpenSharing, mở API snapshot cho Lakebase",
+   "title_en": "Sharing foreign Delta tables with OpenSharing (GA); Lakebase snapshots API (Beta)",
+   "summary": "Ngày 15/09, Databricks đưa việc chia sẻ bảng định dạng Delta nằm ngoài nền tảng lên GA: provider chia sẻ bảng từ OneLake, Hive metastore hay AWS Glue qua OpenSharing mà không phải copy dữ liệu. Cùng ngày, Lakebase snapshots API lên Beta cho phép quản lý bằng chương trình các bản chụp theo thời điểm của branch trong project.",
+   "why": "Đây là bước tiếp sau việc chia sẻ bảng Iceberg ngoại trú hồi đầu tháng: Databricks đang biến Delta Sharing thành cổng cho dữ liệu không nằm trong nhà mình.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/september#september-15-2026",
+   "domain": "docs.databricks.com",
+   "date": "2026-09-15",
+   "section": "🏗️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "Databricks Apps telemetry lên GA: trace, log và metric đổ thẳng vào bảng Unity Catalog qua OpenTelemetry",
+   "title_en": "Databricks Apps telemetry (GA)",
+   "summary": "Ngày 18/09, Databricks đưa telemetry cho Databricks Apps lên GA: ứng dụng thu trace, log và metric rồi ghi bền vào bảng Unity Catalog bằng giao thức OpenTelemetry. Cùng ngày, Databricks Apps được bật mặc định cho các workspace có compliance security profile.",
+   "why": "Khi quan sát ứng dụng nằm luôn trong bảng của lakehouse, việc đo hành vi người dùng và chi phí vận hành trở thành một câu SQL chứ không phải một hệ thống giám sát riêng.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/september#september-18-2026",
+   "domain": "docs.databricks.com",
+   "date": "2026-09-18",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "Alation mở rộng AIOS với 6 sản phẩm mới, đặt cược vào quản trị AI có thể kiểm toán",
+   "title_en": "Alation Launches AIOS Expansion with 6 Products that Accelerate AI Transformation",
+   "summary": "Ngày 17/09 tại hội nghị người dùng revAlation, Alation công bố mở rộng nền tảng AIOS với sáu sản phẩm nhắm vào việc đưa AI vào doanh nghiệp một cách có quản trị. Hãng dẫn khảo sát của Grant Thornton trên 950 lãnh đạo cấp C cho thấy 78 phần trăm không tự tin có thể qua một cuộc kiểm toán quản trị AI độc lập trong vòng 90 ngày.",
+   "why": "Catalog đang tự định nghĩa lại thành hệ điều hành cho AI doanh nghiệp. Con số 78 phần trăm cho thấy lý do: thị trường đang thiếu bằng chứng tuân thủ chứ không thiếu mô hình.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/alation-launches-aios-expansion-with-6-products-that-accelerate-ai-transformation/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-17",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "Unity Gateway API và bộ công cụ lập trình của Databricks lên GA, hỗ trợ đủ chuẩn compliance",
+   "title_en": "Unity Gateway API and developer tools (GA)",
+   "summary": "Ngày 16/09, Databricks đưa Unity Gateway API cùng bộ công cụ lập trình lên GA với hỗ trợ đầy đủ thao tác CRUD. Ngày 17/09, Unity Gateway được công bố hỗ trợ mọi chuẩn compliance security profile và bật mặc định. Cũng trong ngày 16/09, client secret OAuth không dùng tới sẽ bị tự động xoá sau 90 ngày.",
+   "why": "Gateway là chỗ mọi lượt gọi model đi qua. Có API và bật mặc định cho workspace compliance nghĩa là quản trị AI chuyển từ tuỳ chọn thành mặc định của nền tảng.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/september#september-16-2026",
+   "domain": "docs.databricks.com",
+   "date": "2026-09-16",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "dbt v2 lên GA: viết lại toàn bộ engine bằng Rust, parse project 10.000 model nhanh gấp 10 lần",
+   "title_en": "Fivetran + dbt Labs Announces New Capabilities to Make Enterprise Data Agent-Ready at dbt Summit 2026",
+   "summary": "Tại dbt Summit 2026 ở Las Vegas ngày 16/09, Fivetran và dbt Labs đưa dbt v2 lên general availability. Đây là bản viết lại hoàn toàn engine dbt bằng Rust: nơi bản Python cũ parse một project 10.000 model ở một tốc độ, v2 làm việc đó nhanh gấp mười lần và trả phản hồi thời gian thực về lỗi, kiểm tra cột và lineage trước khi chạy.",
+   "why": "Vòng lặp chờ dbt parse là thứ ăn thời gian thật của mọi analytics engineer. Nhanh gấp mười lần và báo lỗi trước khi chạy đổi hẳn cách làm việc, nhất là khi người viết SQL là agent.",
+   "url": "https://www.getdbt.com/blog/fivetran-dbt-labs-announces-new-capabilities-to-make-enterprise-data-agent-ready-at-dbt-summit",
+   "domain": "getdbt.com",
+   "date": "2026-09-16",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": 1
+  },
+  {
+   "aid": 11,
+   "title": "dbt State lên GA cắt 59% chi phí warehouse, Lake Compute chạy dbt thẳng trên Iceberg bằng DuckDB",
+   "title_en": "Fivetran and dbt Labs release dbt v2 and open context standard for AI agents at dbt Summit",
+   "summary": "Cùng ngày 16/09, dbt State lên GA: nó dùng metadata của warehouse để xác định cái gì thật sự đổi, biến pipeline thành có cache. RxBenefits báo giảm 59 phần trăm chi phí warehouse cho job theo lịch, tương đương 8.173 đô trong 60 ngày đầu và tái dùng 716 nghìn model thay vì build lại; Virgin Media O2 báo tiết kiệm 25 phần trăm thời gian chạy job và compute BigQuery. Lake Compute vào Private Beta: engine SQL một node dựng trên DuckDB, chạy model dbt thẳng trên bảng Apache Iceberg, tính giá riêng cho transform.",
+   "why": "Đây là đòn đánh trực diện vào hoá đơn warehouse. Nếu transform chạy được trên một node DuckDB đọc Iceberg, phần lớn model nhỏ không còn lý do gì phải đánh thức một cluster.",
+   "url": "https://www.comparethecloud.net/news/fivetran-and-dbt-labs-release-dbt-v2-and-open-context-standard-for-ai-agents-at-dbt-summit",
+   "domain": "comparethecloud.net",
+   "date": "2026-09-16",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "Snowflake thay Database Explorer bằng Horizon Catalog Explorer trong Snowsight",
+   "title_en": "Horizon Catalog Explorer UI (Preview)",
+   "summary": "Từ 15/09, Horizon Catalog Explorer trở thành trải nghiệm mặc định để duyệt đối tượng Snowflake trong Snowsight, thay cho Database Explorer. Giao diện mới có cây điều hướng cố định, breadcrumb, kết quả tìm kiếm được thiết kế lại và trang chi tiết đối tượng thống nhất gồm mô tả, cột, tag và người phụ trách.",
+   "why": "Đổi từ Database Explorer sang Catalog Explorer không chỉ là đổi giao diện: nó đặt tag, người phụ trách và ngữ cảnh quản trị ngang hàng với cột và kiểu dữ liệu.",
+   "url": "https://docs.snowflake.com/en/release-notes/2026/other/2026-09-15-horizon-catalog-explorer-ui",
+   "domain": "docs.snowflake.com",
+   "date": "2026-09-15",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "DualSQL: cho hai agent text-to-SQL dùng chung một bộ trọng số rồi huấn luyện cùng lúc",
+   "title_en": "DualSQL: Text-to-SQL with Multi-Agent Reinforcement Learning",
+   "summary": "Các hệ text-to-SQL tốt nhất hiện nay là pipeline nhiều agent xoay quanh hai việc: nối schema và sinh SQL, nhưng mỗi việc lại huấn luyện một model riêng nên bỏ phí sự cộng hưởng giữa chúng. DualSQL cho hai agent dùng chung một model backbone và cùng một khung agentic, tối ưu chung bằng reinforcement learning đa agent, kèm ba công cụ truy cập database để suy luận nhiều bước và một bộ cơ chế rào chắn rollout chống sập khi huấn luyện.",
+   "why": "Nối schema và viết SQL vốn là một việc chứ không phải hai. Ép chúng học chung là hướng đúng, và cơ chế rào chắn rollout là phần thật sự khó mà bài này đụng tới.",
+   "url": "https://arxiv.org/abs/2609.18135",
+   "domain": "arxiv.org",
+   "date": "2026-09-16",
+   "section": "🤖 AI ↔ Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "DASE: gộp lọc thuộc tính, vector search và join quan hệ vào một engine truy vấn cho agent",
+   "title_en": "Efficiently Linking Unstructured Data for Multi-step Reasoning",
+   "summary": "Bài báo chỉ ra rằng pipeline data engineering có LLM tham gia thường phải làm cùng lúc bốn việc: lọc nhiều thuộc tính, tìm kiếm trên nhiều vector, join quan hệ chính xác và join theo ngưỡng độ tương đồng embedding. Engine DASE gộp cả bốn vào một mô hình truy vấn, với SemJI là chỉ mục join tương đồng thưa dành cho các cặp lân cận hiếm, cộng một lớp thực thi duyệt ANN có nhận biết vị từ và chạy theo lô.",
+   "why": "Đây là mô tả đúng nhất về thứ mà mọi hệ RAG doanh nghiệp thật sự phải làm, thay vì bức tranh đơn giản kiểu nhúng rồi tìm k láng giềng gần nhất.",
+   "url": "https://arxiv.org/abs/2609.19491",
+   "domain": "arxiv.org",
+   "date": "2026-09-16",
+   "section": "🤖 AI ↔ Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "Fivetran Context Layer vào Private Beta: dựng ontology để chữ doanh thu chỉ có đúng một nghĩa",
+   "title_en": "Fivetran + dbt Labs Announces New Capabilities to Make Enterprise Data Agent-Ready",
+   "summary": "Fivetran Context Layer vào Private Beta, gom dữ liệu và metadata cần thiết để cấp ngữ cảnh cho LLM và agent: nó chạy khám phá ontology trên cả nguồn có cấu trúc lẫn phi cấu trúc, để một thuật ngữ như doanh thu quy về đúng một nghĩa ở mọi nơi. Lớp này xây trên ngữ cảnh có cấu trúc sẵn của dbt rồi bổ sung tri thức phi cấu trúc như tài liệu và luồng thảo luận, phát ra qua chuẩn mở Agents Schema và truy cập được qua MCP hoặc các chợ AI.",
+   "why": "Agent hỏi sai số không phải vì model dốt, mà vì trong doanh nghiệp một khái niệm có năm định nghĩa. Đây là nỗ lực biến lớp ngữ nghĩa thành chuẩn mở thay vì tài sản riêng của từng hãng.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/fivetran-dbt-labs-announces-new-capabilities-to-make-enterprise-data-agent-ready/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-16",
+   "section": "🤖 AI ↔ Data",
+   "hot_rank": 3
+  },
+  {
+   "aid": 16,
+   "title": "Snowflake mở Cortex AI Gateway: một cửa duy nhất để cấp quyền, tính tiền và soi lại mọi lượt agent gọi model",
+   "title_en": "Cortex AI Gateway (Preview)",
+   "summary": "Ngày 15/09, Snowflake đưa Cortex AI Gateway vào Preview: đây là mặt phẳng điều khiển nơi doanh nghiệp quản việc ứng dụng AI và agent bên thứ ba tiếp cận model. Mỗi tài khoản có đúng một đối tượng gateway tên SNOWFLAKE, ACCOUNTADMIN cấp và thu quyền theo role; ứng dụng gọi qua một endpoint chuẩn theo định dạng OpenAI Chat Completions hoặc Anthropic Messages, còn mọi lượt gọi được ghi vào bảng trace theo span và vào view AI_GATEWAY_USAGE_HISTORY.",
+   "why": "Đây là thứ mà đội bảo mật và FinOps đang thiếu nhất: một chỗ duy nhất biết agent nào gọi model nào, tốn bao nhiêu token và tiền đó thuộc về đội nào.",
+   "url": "https://docs.snowflake.com/en/release-notes/2026/other/2026-09-15-cortex-ai-gateway",
+   "domain": "docs.snowflake.com",
+   "date": "2026-09-15",
+   "section": "🤖 AI ↔ Data",
+   "hot_rank": 2
+  },
+  {
+   "aid": 17,
+   "title": "EvoOntology: gói ontology thành MCP server để agent tự hỏi thay vì mò bảng thô",
+   "title_en": "EvoOntology: A Self-Evolving Ontology Layer for Data Agents",
+   "summary": "Nhóm tác giả gọi tên khoảng cách giữa agent và dữ liệu: dữ liệu không đồng nhất nằm bên ngoài agent, còn agent chỉ với tới được qua công cụ chung chung kiểu đọc tên cột và đường dẫn file. EvoOntology gói ontology thành một MCP server gồm ba lớp schema, nội dung và công cụ, để agent chủ động truy vấn ontology lúc chạy, cùng một builder agent tự dựng ontology.",
+   "why": "Hai cách làm phổ biến hiện nay đều bí: thả agent mò dữ liệu thô thì không scale, nhét lớp ngữ nghĩa viết tay vào prompt thì không theo kịp thay đổi.",
+   "url": "https://arxiv.org/abs/2609.15779",
+   "domain": "arxiv.org",
+   "date": "2026-09-14",
+   "section": "🤖 AI ↔ Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 18,
+   "title": "Chronos: gắn thêm khả năng tạo nhánh cho nhiều kho dữ liệu khác loại mà không phải đổi database",
+   "title_en": "Chronos: Efficient Bolt-on Branching Across Data Stores for Stateful Agentic Applications",
+   "summary": "Ứng dụng dữ liệu ngày càng chạy kiểu suy đoán, thử song song nhiều hướng mà mỗi hướng lại sửa trạng thái nằm rải ở các kho khác loại, và xu hướng này mạnh lên vì agent gọi công cụ. Chronos là hệ gắn thêm, cung cấp khả năng tạo nhánh xuyên nhiều kho dữ liệu bằng kỹ thuật đánh phiên bản theo khoảng gọn nhẹ, cho phép tạo nhánh và chia sẻ dữ liệu hiệu quả mà không bắt ứng dụng tự điều phối nhánh và merge.",
+   "why": "Agent thử nhiều phương án là chuyện bình thường, nhưng trạng thái nó sửa lại nằm ở ba hệ khác nhau. Không có nhánh thì mỗi lần thử sai là một lần dọn tay.",
+   "url": "https://arxiv.org/abs/2609.14889",
+   "domain": "arxiv.org",
+   "date": "2026-09-14",
+   "section": "🤖 AI ↔ Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 19,
+   "title": "Gọi tool thành công nhưng quy trình vẫn hỏng: bản danh mục tám kiểu lỗi ở ranh giới agent và công cụ",
+   "title_en": "When Tool Calls Succeed but Workflows Fail: Anomalies at the Agent-Tool Boundary",
+   "summary": "Bài báo xử lý tình huống mọi lượt gọi tool đều trả về thành công nhưng trạng thái bên ngoài lại không khớp với kết quả mà quy trình định đạt: tác động cần có thì thiếu hoặc bị nhân đôi, tác động đã huỷ thì vẫn sống, còn tác động đã chốt lại dựa trên trạng thái tạm sau đó bị rút. Nhóm tác giả đưa ra mô hình lịch sử tác động tách bạch sự kiện ngoài đời với quan sát của runtime, cùng danh mục tám kiểu bất thường hay gặp.",
+   "why": "Mô hình giao dịch nâng cao giả định tầng dưới phơi ra đủ ngữ nghĩa để biết tác động đã xảy ra chưa và bù trừ được không. Giao diện công cụ của agent thường không phơi ra những thứ đó.",
+   "url": "https://arxiv.org/abs/2609.15397",
+   "domain": "arxiv.org",
+   "date": "2026-09-14",
+   "section": "🤖 AI ↔ Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 20,
+   "title": "Khảo sát Collibra: 76% tổ chức tắc khi đưa AI agent từ pilot lên production, 72% nói gốc rễ là nền dữ liệu",
+   "title_en": "Collibra Survey Finds 76% of Organizations Hit Roadblocks Scaling AI Agents",
+   "summary": "Ngày 18/09, Collibra công bố kết quả khảo sát Harris Poll trên hơn 300 người ra quyết định tại Mỹ, đặt tên là báo cáo Thuế ảo giác 2026. Chín trên mười tổ chức đang triển khai AI agent tự trị, nhưng hơn ba phần tư tức 76 phần trăm đã tắc khi chuyển từ pilot sang production trong 12 tháng qua, và 72 phần trăm thừa nhận khi sáng kiến AI hụt thì nguyên nhân gốc gần như luôn quay về một nền dữ liệu kém hoặc không thống nhất.",
+   "why": "Đây là con số đối chiếu cần thiết giữa một tuần đầy công bố GA. Ngành không thiếu công cụ agent, ngành thiếu nền dữ liệu đủ tin để agent đứng lên.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/collibra-survey-finds-76-of-organizations-hit-roadblocks-scaling-ai-agents/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-18",
+   "section": "🔥 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": 4
+  },
+  {
+   "aid": 21,
+   "title": "Parquet cãi nhau cả tuần: gặp file ghi bằng phiên bản tương lai thì nên chặn hay cứ đọc đại",
+   "title_en": "Parquet's forward compatibility question: strict version gate vs best-effort read",
+   "summary": "Ryan Blue đặt ra câu hỏi định hình cả tuần cho cộng đồng Parquet: reader gặp file viết bằng phiên bản format chưa hỗ trợ thì nên báo lỗi thẳng, hay nên cố đọc theo kiểu nỗ lực tối đa. Tranh luận xoay quanh việc một thay đổi phá vỡ trong spec, ví dụ đổi ngữ nghĩa của metadata, có nên chặn reader hoàn toàn hay không; tới cuối tuần phần đông nghiêng về phương án chặn nghiêm theo phiên bản.",
+   "why": "Đây là câu hỏi mà mọi format dữ liệu lâu năm đều phải trả lời. Chọn đọc đại là ưu tiên tiện lợi hôm nay và trả bằng dữ liệu sai âm thầm về sau.",
+   "url": "https://amdatalakehouse.substack.com/p/apache-data-lakehouse-weekly-september-736",
+   "domain": "amdatalakehouse.substack.com",
+   "date": "2026-09-17",
+   "section": "🔥 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 22,
+   "title": "Đề xuất cho Croissant: quyền từ chối phải là thuộc tính của chính bộ dữ liệu, không phải của bên dùng",
+   "title_en": "A Policy Profile for Croissant: Refusal as a Property of the Dataset",
+   "summary": "Croissant là bản mô tả máy đọc được cho dataset machine learning, từ bản 1.1 đã mang theo điều kiện sử dụng dữ liệu, nhưng chưa phiên bản nào quy định cách đánh giá các điều kiện đó: không có thủ tục quyết định, không giới hạn chi phí đánh giá, không có kết quả cho điều kiện mà bên cài đặt không đánh giá nổi, và không lưu lại đã kiểm những gì. Nhóm tác giả bổ sung một profile cộng thêm với đúng năm toán tử có thủ tục quyết định đầy đủ, đo trên một pipeline nf-core thật cho thấy chi phí thêm là 11,7 micro giây so với 119 micro giây của một quyết định.",
+   "why": "Khi AI ăn dữ liệu ở quy mô công nghiệp, giấy phép viết cho người đọc là không đủ. Bài này biến quyền từ chối thành thứ máy kiểm được và ghi lại được.",
+   "url": "https://arxiv.org/abs/2609.19640",
+   "domain": "arxiv.org",
+   "date": "2026-09-17",
+   "section": "🔥 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 23,
+   "title": "Data Engineering Weekly #287: embedding đã thành một workload chính thức của data engineering",
+   "title_en": "Data Engineering Weekly #287",
+   "summary": "Số ra ngày 14/09 xoáy vào một chuyển dịch đang thành hình: embedding không còn là chuyện của đội ML mà đã là workload của data engineering. Pinterest phát triển nền tảng tìm kiếm Manas để quản hàng chục tỷ embedding trong khi vẫn cắt được chi phí hạ tầng, còn Thumbtack cho thấy cách làm vector search bằng cách tái dùng Postgres, pipeline và mô hình truy cập sẵn có, với luận điểm rằng embedding phải được coi là dữ liệu bền và có quản trị.",
+   "why": "Case của Thumbtack là liều thuốc giải cho hội chứng phải mua vector database mới làm được AI. Phần lớn doanh nghiệp Việt đang ở quy mô mà Postgres hoàn toàn gánh nổi.",
+   "url": "https://www.dataengineeringweekly.com/p/data-engineering-weekly-287",
+   "domain": "dataengineeringweekly.com",
+   "date": "2026-09-14",
+   "section": "🔥 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 24,
+   "title": "Gartner: chi tiêu AI toàn cầu 2026 chạm 2.700 tỷ đô, tăng 49,5% so với năm trước",
+   "title_en": "Gartner Forecasts Worldwide AI Spending to Grow 49.5% in 2026",
+   "summary": "Ngày 18/09, Gartner công bố dự báo chi tiêu AI toàn cầu năm 2026 đạt 2.700 tỷ đô la, tăng 49,5 phần trăm so với cùng kỳ. Triển vọng ngắn hạn của nhóm nền tảng phát triển ứng dụng AI được nâng từ mức tăng 28 phần trăm trong dự báo trước lên 39 phần trăm ở quý này, còn nhóm mô hình generative AI được nâng từ 110 lên 117 phần trăm tăng trưởng.",
+   "why": "Con số đáng chú ý không phải tổng chi, mà là việc Gartner nâng dự báo cho nền tảng phát triển ứng dụng AI từ 28 lên 39 phần trăm: tiền đang chảy về phía tự xây.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/gartner-forecasts-worldwide-ai-spending-to-grow-49-5-in-2026/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-18",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 25,
+   "title": "Acceldata ra xFactory: nhà máy AI riêng chạy trên Spark, Trino và Kafka của chính doanh nghiệp",
+   "title_en": "Acceldata Launches xFactory for Building Governed AI Applications From Business Intent, on Federated Data",
+   "summary": "Ngày 18/09, Acceldata công bố xFactory, một nhà máy phần mềm AI dạng riêng tư để xây, kiểm thử và triển khai agent, ứng dụng và phân tích trên môi trường doanh nghiệp lai. Điểm nhấn của hãng là ứng dụng thực thi native trên các engine mở gồm Apache Spark, Trino và Kafka, xuất phát từ mô tả ý định nghiệp vụ và chạy trên dữ liệu liên kết thay vì gom về một chỗ.",
+   "why": "Hướng đi này ngược với phe gom hết dữ liệu về một nền tảng. Với tổ chức bị ràng buộc chủ quyền dữ liệu, chạy tại chỗ trên engine mở là lựa chọn duy nhất khả thi.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/acceldata-launches-xfactory-for-building-governed-ai-applications-from-business-intent-on-federated-data/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-18",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 26,
+   "title": "Mozilla Data Collective gọi 5 triệu đô, kho dữ liệu phủ hơn 450 ngôn ngữ với 350 tổ chức đóng góp",
+   "title_en": "Mozilla Data Collective Raises $5M to Scale a More Equitable Data Ecosystem for AI",
+   "summary": "Ngày 18/09, Mozilla Data Collective công bố gọi được 5 triệu đô la từ Mozilla, đánh dấu chặng tăng trưởng tiếp theo sau khi tách ra thành công ty độc lập tại Anh trong năm nay. Nền tảng kiểm duyệt từng tổ chức đóng góp và từng bộ dữ liệu trước khi đưa lên, hiện phủ hơn 450 ngôn ngữ với 350 tổ chức được duyệt, và đã ra mắt Compensated Datasets để trả tiền cho bên cung cấp dữ liệu.",
+   "why": "Đây là một trong số ít nỗ lực nghiêm túc để dữ liệu huấn luyện có nguồn gốc rõ và người đóng góp được trả tiền, thay vì bị cào miễn phí.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/mozilla-data-collective-raises-5m-to-scale-a-more-equitable-data-ecosystem-for-ai/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-18",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 27,
+   "title": "MIND gọi 72 triệu đô Series B để làm chống thất thoát dữ liệu cho kỷ nguyên AI, tổng vốn chạm 112 triệu",
+   "title_en": "MIND Raises $72M Series B Funding to Bring Complete DLP to the AI Era",
+   "summary": "Ngày 17/09, MIND công bố vòng Series B 72 triệu đô la, nâng tổng vốn huy động lên 112 triệu. Hãng đặt mục tiêu dẫn đầu thị trường chống thất thoát dữ liệu trị giá nhiều tỷ đô, trong bối cảnh AI thay đổi cả quy mô lẫn cách dữ liệu nhạy cảm rời khỏi tổ chức.",
+   "why": "Công cụ DLP cũ được thiết kế cho email và USB. Khi nhân viên dán dữ liệu vào chatbot và agent tự đọc kho nội bộ, bề mặt rò rỉ đã đổi hoàn toàn.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/mind-raises-72m-series-b-funding-to-bring-complete-dlp-to-the-ai-era/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-17",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 28,
+   "title": "Khảo sát Neudata: niềm tin vào ngân sách alternative data cao nhất ba năm, nhưng chất lượng vẫn là nỗi lo",
+   "title_en": "Neudata Survey Highlights Alternative Data Quality Concerns and Budget Optimism",
+   "summary": "Ngày 17/09 tại London, Neudata công bố khảo sát cho thấy niềm tin vào ngân sách dành cho alternative data đã lên mức cao nhất trong ba năm, với 97 phần trăm người trả lời có kỳ vọng tích cực. Đi kèm sự lạc quan đó là mối lo dai dẳng về chất lượng của chính các bộ dữ liệu được mua.",
+   "why": "Alternative data là đầu vào trực tiếp cho mô hình đầu tư và định giá rủi ro. Ngân sách tăng mà chất lượng không tăng là công thức tạo ra quyết định sai với độ tự tin cao.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/neudata-survey-highlights-alternative-data-quality-concerns-and-budget-optimism/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-17",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 10,
+ "weekly_video": {
+  "intro": "Chào anh em, đây là bản tổng kết Data News tuần 38, từ ngày mười bốn đến ngày hai mươi tháng Chín. Tuần này cả ngành dữ liệu hối hả đổ lại phần móng để AI agent đứng lên mà không đổ: engine transform viết lại bằng Rust, cổng quản trị cho mọi lượt gọi model, và một con số khảo sát kéo tất cả về mặt đất.",
+  "outro": "Đó là năm câu chuyện đáng chú ý nhất của tuần 38. Chi tiết đầy đủ cùng hơn hai mươi tin còn lại, anh em xem trong bản tin đầy đủ nhé. Hẹn gặp lại tuần sau.",
+  "segments": [
+   {
+    "aid": 10,
+    "headline": "dbt v2 viết lại bằng Rust, nhanh gấp mười lần",
+    "narration": "Tin lớn nhất tuần 38 đến từ dbt Summit ở Las Vegas ngày mười sáu tháng Chín. Fivetran và dbt Labs đưa dbt v2 lên bản chính thức, và đây không phải một bản nâng cấp bình thường. Toàn bộ engine dbt được viết lại bằng Rust, thay cho bản Python cũ. Con số họ đưa ra là parse một project mười nghìn model nhanh gấp mười lần bản trước, và quan trọng hơn, engine trả phản hồi thời gian thực về lỗi, về kiểm tra cột và về lineage ngay trước khi truy vấn được gửi đi chạy. Đi kèm là dbt State cũng lên chính thức, dùng metadata của warehouse để xác định cái gì thật sự thay đổi, biến pipeline thành có cache. Khách hàng RxBenefits báo giảm năm mươi chín phần trăm chi phí warehouse cho các job theo lịch, tương đương hơn tám nghìn đô chỉ trong sáu mươi ngày đầu, và tái dùng bảy trăm mười sáu nghìn model thay vì build lại. Virgin Media O2 báo tiết kiệm hai mươi lăm phần trăm thời gian chạy job và compute BigQuery. Vì sao chuyện này đáng chú ý. Vì khi parse gần như tức thì và lỗi hiện ra ngay lúc gõ, dbt không còn là cái lịch chạy nữa, nó giống một compiler. Lời khuyên của mình: đừng nâng cấp production vào tuần cuối quý, hãy chạy song song hai bản một thời gian.",
+    "bullets": [
+     "Engine dbt viết lại toàn bộ bằng Rust",
+     "Parse mười nghìn model nhanh gấp mười lần",
+     "RxBenefits giảm 59 phần trăm chi phí warehouse"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "dbt v2 + dbt State",
+     "items": [
+      {
+       "v": "10x",
+       "l": "parse nhanh hơn"
+      },
+      {
+       "v": "10.000",
+       "l": "model mỗi project"
+      },
+      {
+       "v": "59%",
+       "l": "giảm chi phí warehouse"
+      },
+      {
+       "v": "716k",
+       "l": "model được tái dùng"
+      }
+     ]
+    },
+    "images": [
+     "https://cdn.sanity.io/images/wl0ndo6t/main/468a8271886928a738ab3e399f4587039adb7f39-1600x904.png?rect=0,32,1600,840&w=1200&h=630"
+    ]
+   },
+   {
+    "aid": 16,
+    "headline": "Snowflake mở cổng quản trị cho mọi lượt agent gọi model",
+    "narration": "Câu chuyện thứ hai của tuần 38 là Cortex AI Gateway, Snowflake đưa vào bản xem trước ngày mười lăm tháng Chín. Đây là mặt phẳng điều khiển, nơi doanh nghiệp quản việc ứng dụng AI và agent bên thứ ba tiếp cận các model. Cách nó hoạt động khá gọn. Mỗi tài khoản có đúng một đối tượng gateway, quản trị viên cấp và thu quyền theo từng role. Ứng dụng gọi qua một endpoint chuẩn, theo định dạng của OpenAI hoặc của Anthropic, nên code không phải viết lại. Đổi lại, mọi lượt gọi đều được ghi vào một bảng trace theo span, cho biết model nào được gọi, từng bước mất bao lâu, tiêu bao nhiêu token và lỗi ở đâu. Thêm một view trong lược đồ account usage ghi lại gateway, người dùng, model và lượng token cho từng yêu cầu. Vì sao điều này quan trọng. Trong mọi doanh nghiệp mình làm việc cùng năm nay, câu hỏi khó trả lời nhất về AI không phải model nào tốt hơn, mà là tháng rồi chúng ta tiêu bao nhiêu cho AI và ai tiêu. Khi mỗi đội tự cắm khoá API riêng thì câu hỏi đó không có đáp án, và hệ quả là ngân sách AI bị cắt vì không chứng minh được giá trị, chứ không phải vì không có giá trị. Với gateway, bạn trả lời câu hỏi đó bằng một câu lệnh SQL trên chính kho dữ liệu của mình.",
+    "bullets": [
+     "Một cổng duy nhất cho mọi lượt agent gọi model",
+     "Ghi trace theo span: model, thời gian, token, lỗi",
+     "Quy chi phí AI về từng người dùng bằng SQL"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Một lượt gọi đi qua Cortex AI Gateway",
+     "items": [
+      {
+       "t": "Agent gọi",
+       "d": "Endpoint chuẩn OpenAI hoặc Anthropic"
+      },
+      {
+       "t": "Gateway xét quyền",
+       "d": "Cấp theo role, admin quản tập trung"
+      },
+      {
+       "t": "Model chạy",
+       "d": "Inference qua Cortex"
+      },
+      {
+       "t": "Ghi trace",
+       "d": "Span: model, bước, token, lỗi"
+      },
+      {
+       "t": "Quy chi phí",
+       "d": "View usage history trong account usage"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 15,
+    "headline": "Fivetran Context Layer đưa lớp ngữ nghĩa thành chuẩn mở",
+    "narration": "Câu chuyện thứ ba, cũng từ dbt Summit ngày mười sáu tháng Chín, là Fivetran Context Layer, hiện ở bản thử nghiệm riêng. Nó gom dữ liệu và metadata cần thiết để cấp ngữ cảnh cho mô hình ngôn ngữ và cho agent. Cách làm là chạy khám phá ontology trên cả nguồn có cấu trúc lẫn nguồn phi cấu trúc, để một thuật ngữ như doanh thu quy về đúng một nghĩa ở mọi nơi trong doanh nghiệp. Lớp này xây trên phần ngữ cảnh có cấu trúc mà dbt vốn đã giữ sẵn, rồi bổ sung tri thức phi cấu trúc như tài liệu nội bộ và các luồng thảo luận. Điểm mình đánh giá cao nhất là nó được phát hành qua một chuẩn mở tên Agents Schema, và truy cập được qua giao thức MCP hoặc qua các chợ ứng dụng AI. Vì sao chuyện này đáng quan tâm. Mình đi tư vấn Data và BI đủ lâu để khẳng định câu hỏi khó nhất trong mọi dự án không phải kỹ thuật, nó là doanh thu tính theo cái gì. Kế toán một định nghĩa, kinh doanh một định nghĩa, marketing định nghĩa thứ ba, cả ba đều đúng trong bối cảnh của họ. Khi agent bắt đầu tự trả lời câu hỏi của sếp, sự nhập nhằng đó trở thành rủi ro vận hành thật. Lớp ngữ nghĩa vừa chuyển từ thứ dễ bỏ qua thành hạ tầng bắt buộc.",
+    "bullets": [
+     "Khám phá ontology trên nguồn có và không cấu trúc",
+     "Chữ doanh thu chỉ còn đúng một nghĩa",
+     "Phát hành qua chuẩn mở Agents Schema và MCP"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Các tầng của Context Layer",
+     "items": [
+      {
+       "t": "Nguồn dữ liệu",
+       "d": "Bảng, tài liệu, thảo luận nội bộ"
+      },
+      {
+       "t": "Ngữ cảnh dbt",
+       "d": "Model, test, lineage sẵn có"
+      },
+      {
+       "t": "Khám phá ontology",
+       "d": "Gom khái niệm về một nghĩa"
+      },
+      {
+       "t": "Agents Schema",
+       "d": "Chuẩn mở để phát hành ngữ cảnh"
+      },
+      {
+       "t": "Agent tiêu thụ",
+       "d": "Qua MCP hoặc chợ ứng dụng AI"
+      }
+     ]
+    },
+    "images": [
+     "https://www.comparethecloud.net/cdn-cgi/image/width=1200,height=630,fit=cover,format=auto/https://www.comparethecloud.net/_emdash/api/media/file/01KVE04ZE8SWVTM0PTM1HZYGPB.png"
+    ]
+   },
+   {
+    "aid": 20,
+    "headline": "Bảy mươi sáu phần trăm tổ chức tắc khi đưa agent vào thật",
+    "narration": "Sau một tuần đầy tin ra mắt, câu chuyện thứ tư kéo tất cả về mặt đất. Ngày mười tám tháng Chín, Collibra công bố kết quả một khảo sát do Harris Poll thực hiện trên hơn ba trăm người ra quyết định tại Mỹ, đặt tên là báo cáo Thuế ảo giác. Kết quả thế này. Chín trên mười tổ chức đang triển khai AI agent tự trị. Nhưng hơn ba phần tư, cụ thể là bảy mươi sáu phần trăm, đã tắc khi chuyển từ thử nghiệm sang vận hành thật trong mười hai tháng qua. Và bảy mươi hai phần trăm người ra quyết định thừa nhận rằng khi sáng kiến AI hụt, nguyên nhân gốc gần như luôn quay về một nền dữ liệu kém hoặc không thống nhất. Còn hai con số nữa mình thấy đáng suy nghĩ hơn cả. Tám mươi bảy phần trăm nói đội của họ phải thường xuyên xác minh lại xem ngữ cảnh mà agent đang dùng còn chính xác không. Và năm mươi mốt phần trăm tốn nhiều giờ công rà rồi sửa tay đầu ra của agent trước khi phát hành. Nói cách khác, nhiều nơi tự động hoá được phần sinh câu trả lời, nhưng thêm một việc thủ công mới là canh cái nền phía dưới. Đó không phải tiết kiệm, đó là dời việc.",
+    "bullets": [
+     "9 trên 10 tổ chức đang triển khai agent tự trị",
+     "76 phần trăm tắc ở bước lên vận hành thật",
+     "72 phần trăm nói gốc rễ là nền dữ liệu"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Báo cáo Thuế ảo giác 2026",
+     "items": [
+      {
+       "v": "76%",
+       "l": "tắc khi lên production"
+      },
+      {
+       "v": "72%",
+       "l": "lỗi gốc tại nền dữ liệu"
+      },
+      {
+       "v": "87%",
+       "l": "phải xác minh lại ngữ cảnh"
+      },
+      {
+       "v": "51%",
+       "l": "rà tay đầu ra của agent"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 2,
+    "headline": "Parquet có ALP, còn Iceberg Rust trượt vì Java đọc không nổi",
+    "narration": "Câu chuyện cuối của tuần 38 nằm ở tầng định dạng, và nó dạy một bài học rất thực dụng. Tin tốt trước. Ngày mười một tháng Chín, đặc tả Parquet Format hai chấm mười bốn chấm không qua vòng bỏ phiếu, mang theo ALP, một kiểu mã hoá không mất mát dành riêng cho số thực. Bốn ngày sau, Arrow Rust sáu mươi chấm không chấm không ra mắt và trở thành bản cài đặt Parquet production đầu tiên thật sự ship ALP. Với bảng toàn cột số thực, kiểu dữ liệu telemetry, giá chứng khoán hay cảm biến, đây là chỗ chi phí lưu trữ bị đốt nhiều nhất, nên một encoding chuyên dụng có thể cắt rất mạnh. Còn tin xấu. Cùng tuần, Iceberg Rust không chấm mười một chấm không trượt hai vòng phát hành liên tiếp. Bản đầu chết vì một macro crate tạo vòng phụ thuộc khiến lệnh publish không chạy. Bản thứ hai mới là bài học thật sự: nó chết khi kiểm thử mã hoá chéo engine phát hiện ra file do Rust viết thì Java đọc không nổi, dù toàn bộ test phía Rust đều xanh. Bài học cho người làm dữ liệu: nếu nhiều engine cùng chạm một bảng, đừng tin bộ test của từng engine, phải có kiểm tra đọc chéo. Một format chỉ tồn tại khi mọi ngôn ngữ đọc được của nhau.",
+    "bullets": [
+     "Parquet 2.14.0 thông qua, thêm mã hoá ALP",
+     "Arrow Rust 60.0.0 ship ALP bản production đầu tiên",
+     "Iceberg Rust trượt vì Rust ghi Java đọc không được"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Hai kết cục trong cùng một tuần",
+     "left": {
+      "h": "Arrow Rust 60.0.0",
+      "items": [
+       "Ra mắt 15/09",
+       "Parquet spec 2.14.0",
+       "Bản đầu ship ALP",
+       "Kéo theo DataFusion hưởng lợi"
+      ]
+     },
+     "right": {
+      "h": "Iceberg Rust 0.11.0",
+      "items": [
+       "Trượt hai vòng RC",
+       "RC1: vòng phụ thuộc macro",
+       "RC2: Java đọc không nổi",
+       "CI thêm publish dry-run"
+      ]
+     }
+    },
+    "images": [
+     "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.us-east-2.amazonaws.com%2Fuploads%2Farticles%2F3a790my6pcypvf2ex1jg.png"
+    ]
+   }
+  ]
+ },
+ "facebook_post": "𝐃𝐀𝐓𝐀 𝐍𝐄𝐖𝐒 𝐓𝐔𝐀̂̀𝐍 𝟑𝟖 📊 𝐓𝐔𝐀̂̀𝐍 𝐂𝐀̉ 𝐍𝐆𝐀̀𝐍𝐇 𝐃𝐔̛̃ 𝐋𝐈𝐄̣̂𝐔 Đ𝐈 Đ𝐎̂̉ 𝐋𝐀̣𝐈 𝐌𝐎́𝐍𝐆 𝐍𝐇𝐀̀\n\nTuần rồi một anh làm data ở công ty bán lẻ nhắn cho mình: \"Anh ơi, sếp em hỏi tháng vừa rồi công ty tiêu bao nhiêu tiền cho AI. Em ngồi cả buổi chiều mà không trả lời nổi.\"\n\nMình đọc xong thấy quen quá. Đó đúng là câu hỏi mà gần như doanh nghiệp nào mình gặp năm nay cũng bí. Không phải model nào giỏi hơn, mà là ai đang tiêu và tiêu vào đâu. 😅\n\nBuồn cười là tuần này, cả ngành như hẹn nhau trả lời đúng câu hỏi đó.\n\n---\n\n1️⃣ 𝐝𝐛𝐭 𝐯𝟐 𝐯𝐢𝐞̂́𝐭 𝐥𝐚̣𝐢 𝐛𝐚̆̀𝐧𝐠 𝐑𝐮𝐬𝐭, 𝐩𝐚𝐫𝐬𝐞 𝐧𝐡𝐚𝐧𝐡 𝐠𝐚̂́𝐩 𝐦𝐮̛𝐨̛̀𝐢 𝐥𝐚̂̀𝐧\n\nTại dbt Summit ở Las Vegas ngày 16/09, Fivetran và dbt Labs đưa dbt v2 lên bản chính thức. Toàn bộ engine viết lại bằng Rust, thay cho Python. Parse một project 10.000 model nhanh gấp 10 lần bản cũ, và báo lỗi cột, lỗi lineage ngay trước khi chạy.\n\nĐi kèm là dbt State: dùng metadata warehouse để biết cái gì thật sự đổi. Theo dbt Labs, RxBenefits giảm 59% chi phí warehouse cho job theo lịch, hơn 8.000 đô trong 60 ngày đầu. Virgin Media O2 tiết kiệm 25% thời gian chạy job.\n\nNghĩa là gì: dbt thôi đóng vai cái lịch chạy, nó chuyển sang làm compiler. Lỗi hiện lúc bạn gõ, không phải sau nửa tiếng pipeline đỏ.\n\n2️⃣ 𝐒𝐧𝐨𝐰𝐟𝐥𝐚𝐤𝐞 𝐦𝐨̛̉ 𝐂𝐨𝐫𝐭𝐞𝐱 𝐀𝐈 𝐆𝐚𝐭𝐞𝐰𝐚𝐲\n\nNgày 15/09, Snowflake đưa Cortex AI Gateway vào bản xem trước. Một cổng duy nhất cho mọi lượt agent gọi model. Quản trị viên cấp quyền theo role, ứng dụng gọi qua endpoint chuẩn OpenAI hoặc Anthropic nên không phải viết lại code.\n\nĐổi lại: mọi lượt gọi được ghi trace theo span, kèm một view ghi lại ai gọi model nào, tốn bao nhiêu token.\n\nNhớ câu hỏi của anh bạn mình ở đầu bài không? Đây chính là câu trả lời, và nó trả bằng một câu SQL. 😄\n\n3️⃣ 𝐅𝐢𝐯𝐞𝐭𝐫𝐚𝐧 𝐂𝐨𝐧𝐭𝐞𝐱𝐭 𝐋𝐚𝐲𝐞𝐫: 𝐜𝐡𝐮̛̃ 𝐝𝐨𝐚𝐧𝐡 𝐭𝐡𝐮 𝐜𝐡𝐢̉ 𝐜𝐨̀𝐧 𝐦𝐨̣̂𝐭 𝐧𝐠𝐡𝐢̃𝐚\n\nCũng tại dbt Summit, Fivetran Context Layer vào thử nghiệm riêng. Nó chạy khám phá ontology trên cả dữ liệu có cấu trúc lẫn tài liệu, thảo luận nội bộ, để một thuật ngữ như \"doanh thu\" quy về đúng một nghĩa.\n\nĐiểm mình thích nhất: nó phát hành qua chuẩn mở tên Agents Schema, truy cập qua MCP. Không khoá trong một nhà cung cấp.\n\n4️⃣ 𝐊𝐡𝐚̉𝐨 𝐬𝐚́𝐭 𝐂𝐨𝐥𝐥𝐢𝐛𝐫𝐚 𝐤𝐞́𝐨 𝐭𝐚̂́𝐭 𝐜𝐚̉ 𝐯𝐞̂̀ 𝐦𝐚̣̆𝐭 đ𝐚̂́𝐭\n\nNgày 18/09, Collibra công bố khảo sát Harris Poll trên hơn 300 người ra quyết định tại Mỹ. 9/10 tổ chức đang triển khai AI agent. Nhưng 76% tắc khi chuyển từ pilot sang vận hành thật trong 12 tháng qua. Và 72% thừa nhận gốc rễ thất bại là nền dữ liệu kém hoặc không thống nhất.\n\nHai con số mình thấy đau hơn: 87% phải thường xuyên xác minh lại xem ngữ cảnh agent đang dùng còn đúng không, và 51% tốn nhiều giờ công rà tay đầu ra trước khi phát hành.\n\n5️⃣ 𝐏𝐚𝐫𝐪𝐮𝐞𝐭 𝐜𝐨́ 𝐀𝐋𝐏, 𝐜𝐨̀𝐧 𝐈𝐜𝐞𝐛𝐞𝐫𝐠 𝐑𝐮𝐬𝐭 𝐭𝐫𝐮̛𝐨̛̣𝐭 𝐯𝐢̀ 𝐉𝐚𝐯𝐚 đ𝐨̣𝐜 𝐤𝐡𝐨̂𝐧𝐠 𝐧𝐨̂̉𝐢\n\nĐặc tả Parquet 2.14.0 qua vòng bỏ phiếu ngày 11/09, mang theo ALP - kiểu nén chuyên cho số thực. Arrow Rust 60.0.0 ra ngày 15/09 là bản production đầu tiên ship ALP.\n\nNhưng cùng tuần, Iceberg Rust 0.11.0 trượt hai vòng release. Bản hai chết vì: file mã hoá do Rust ghi ra thì Java đọc không nổi - dù toàn bộ test phía Rust đều xanh. 😳\n\n---\n\n💡 𝐆𝐨́𝐜 𝐧𝐡𝐢̀𝐧 𝐜𝐮̉𝐚 𝐦𝐢̀𝐧𝐡 𝐯𝐞̂̀ 𝐭𝐮𝐚̂̀𝐧 𝐧𝐚̀𝐲\n\nĐức chỉ chia sẻ dưới góc nhìn kỹ thuật của một người làm Data & AI, không phải góc nhìn phân tích thị trường nhé.\n\nNhìn cả tuần, mình thấy một điều khá rõ: ngành đã hết thời kỳ khoe model. Toàn bộ tin lớn tuần này đều là tin về phần móng - engine transform, cổng quản trị, lớp ngữ nghĩa, kiểm tra tương thích giữa các bản cài đặt. Không có tin nào kiểu \"model mới thông minh hơn\".\n\nVà con số 72% của Collibra giải thích vì sao. Khi doanh nghiệp đưa agent vào vận hành thật, thứ làm họ vấp không phải model, mà là cái nền bên dưới. Bảng không ai sở hữu, chữ \"doanh thu\" có ba nghĩa, không ai biết tháng rồi AI tiêu bao nhiêu.\n\nMình đợt rồi học và thi chứng chỉ Databricks, làm thực hành RAG trên nền lakehouse. Cái ngấm nhất không phải vector search, mà là phần quản trị: catalog, quyền, lineage. Làm demo thì bỏ qua được hết. Vào doanh nghiệp thật thì đúng mấy thứ đó quyết định sống chết. 📌\n\nTheo mình, tuần này có ba thứ đáng nhớ nhất:\n\n- 𝐂𝐨̂́𝐭 𝐥𝐨̃𝐢 𝐩𝐡𝐚̉𝐢 𝐡𝐢𝐞̂̉𝐮: AI agent không thất bại vì thiếu thông minh, nó thất bại vì đứng trên nền dữ liệu không thống nhất.\n- 𝐓𝐨̂́𝐭 𝐜𝐡𝐨 𝐚𝐢: tốt cho team đã có warehouse gọn và từ điển dữ liệu rõ - họ sắp đi nhanh gấp mấy lần phần còn lại. Khó cho team đang có 800 bảng không ai đặt tên tử tế.\n- 𝐍𝐞̂𝐧 𝐥𝐚̀𝐦 𝐠𝐢̀ 𝐧𝐠𝐚𝐲: chốt định nghĩa cho 10 khái niệm nghiệp vụ quan trọng nhất, có người ký tên. Và dựng một đường duy nhất để gọi model, có ghi nhật ký. Hai việc này không cần mua gì cả.\n\nCái KHÔNG nên làm: mua công cụ trước rồi hy vọng nó tự nghĩ hộ định nghĩa cho doanh nghiệp mình. Kết quả chỉ là ghi lại sự lộn xộn một cách đẹp hơn thôi. 😅\n\n\"Dashboard đẹp không có nghĩa là đang ra quyết định tốt. Và agent chạy trơn cũng không có nghĩa là nó đang trả lời đúng.\"\n\nAnh em nào đang dựng agent trên dữ liệu doanh nghiệp thì comment cho mình biết đang vướng ở khâu nào nhé. 🙌\n\n#DataEngineering #DataNews #dbt #Snowflake #Databricks #ApacheIceberg #AIAgent #DuLieu #HocCungAI #PhanTichDuLieu #DataGovernance #LakeHouse",
+ "facebook_reel": "76% tổ chức đưa AI agent vào chạy thật thì tắc. Lý do không phải model. 😳\n\nKhảo sát Collibra tuần này: 72% nói gốc rễ nằm ở nền dữ liệu. 87% phải liên tục kiểm lại xem ngữ cảnh agent đang dùng còn đúng không.\n\nAgent không dốt. Nó chỉ đang đứng trên nền không chắc thôi.\n\nBạn nghĩ sao? 👇\n\n#DataEngineering #AIAgent #dbt #Snowflake #DuLieu",
+ "bgm": "minimal-tech",
+ "youtube": {
+  "recap": "dlj4N7XkYMQ",
+  "short": "2h0mhfefstc"
+ }
+}
