@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-09-21",
+      "display_date": "21/09/2026",
+      "title": "PostgreSQL 19 trễ hẹn: 53 lần gỡ tính năng khỏi beta",
+      "summary": "PostgreSQL 19 lỡ hẹn mùa thu sau hơn một thập kỷ đều đặn, với năm mươi ba lần gỡ tính năng ra khỏi bản beta.",
+      "source": "postgresql.org",
+      "video_id": "Dn1-h8W_6OE",
+      "short_id": "2zlKI9MBJvU",
+      "published_at": "2026-09-21T19:28:28"
+    },
+    {
       "date": "2026-09-19",
       "display_date": "19/09/2026",
       "title": "DuckDB trong trình duyệt: dữ liệu sống sót sau khi đóng tab",
