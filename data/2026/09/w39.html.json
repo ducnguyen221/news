@@ -1,0 +1,523 @@
+{
+ "date": "26/09/2026",
+ "week": "W39",
+ "range": "21/09 - 27/09/2026",
+ "tldr": "Tuần 39 là tuần một tên tuổi BI lớn rời khỏi sân: Domo hoàn tất bán gần như toàn bộ tài sản và hơn hai nghìn bốn trăm khách hàng cho Progress, phần còn lại đổi tên Huckleberry và lên Nasdaq với khoảng hai trăm hai mươi mốt triệu đô tiền mặt. Ở tầng nền tảng, Databricks bắt đầu coi coding agent là một loại workload cần quản trị, ra một CLI gom xác thực, tool, skill và cả hạn mức chi vào một chỗ, rồi ba ngày sau đưa Genie One MCP server lên chính thức. Snowflake cho Snowpipe Streaming ghi thẳng vào bảng Iceberg đã phân vùng, bỏ hẳn bước sắp xếp lại ở giữa. Tencent Cloud ra DataBuddy và công bố một cặp số đáng chú ý: đi qua lớp nghĩa đã định thì độ chính xác phân tích đạt chín mươi lăm phẩy chín phần trăm, còn hỏi thẳng model sinh SQL chỉ được tám mươi ba phẩy năm. Cuối cùng, Snorkel gọi ba trăm năm mươi triệu đô ở mức định giá ba tỷ rưỡi, xác nhận rằng chuẩn bị dữ liệu và bộ đo cho AI giờ là một ngành riêng.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "NetApp mua PEAK:AIO để tách metadata khỏi dữ liệu, nhắm hệ thống hàng nghìn tỷ file",
+   "title_en": "NetApp Plans PEAK:AIO Acquisition to Scale Storage for AI Clouds",
+   "summary": "Ngày 25/09, NetApp công bố ý định mua PEAK:AIO, công ty làm kiến trúc metadata thế hệ mới và parallel file system hiệu năng cao. Mục tiêu là tách dịch vụ metadata ra khỏi dữ liệu để hai phần scale độc lập, phục vụ môi trường hàng nghìn tỷ file ở quy mô exabyte.",
+   "why": "Đây là lần thứ hai trong một tháng một ông lớn lưu trữ nói thẳng rằng metadata, không phải throughput, mới là cổ chai của hạ tầng AI. Ai đang đầu tư storage cho GPU cluster nên đọc metadata scale như một dòng yêu cầu riêng trong hồ sơ mời thầu.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/netapp-plans-peakaio-acquisition-to-scale-storage-for-ai-clouds/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-25",
+   "section": "🏗️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 2,
+   "title": "Snowflake cho Snowpipe Streaming ghi thẳng vào bảng Iceberg đã partition, CHECK constraint lên GA",
+   "title_en": "Snowpipe Streaming: Partitioned Apache Iceberg Tables (GA); CHECK constraints on Hybrid Tables (GA)",
+   "summary": "Ngày 24/09, Snowflake đưa Snowpipe Streaming ghi vào bảng Apache Iceberg có phân vùng lên general availability, kèm CHECK constraint cho hybrid table và hỗ trợ mệnh đề VALUES trong incremental refresh của dynamic table. Cùng ngày, Code Bundles vào preview.",
+   "why": "Trước đây muốn stream vào Iceberg có partition thì phải đổ vào bảng thô rồi chạy một job sắp xếp lại. Lên GA nghĩa là bước trung gian đó biến mất, và pipeline streaming bớt đi một điểm hỏng.",
+   "url": "https://docs.snowflake.com/en/release-notes/new-features#september-24-2026",
+   "domain": "docs.snowflake.com",
+   "date": "2026-09-24",
+   "section": "🏗️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 3
+  },
+  {
+   "aid": 3,
+   "title": "VAST ra DataEnclave: đưa model đến chỗ dữ liệu mật, hai bên tự giữ khóa của mình",
+   "title_en": "Enterprise AI Wants Your Most Sensitive Data. VAST Says It Can Keep It Safe",
+   "summary": "Ngày 24/09, VAST Data giới thiệu DataEnclave, một năng lực trong VAST DataEngine cho phép chạy model AI trên dữ liệu nhạy cảm mà không phải đẩy dữ liệu ra ngoài, dựa trên NVIDIA Confidential Computing. Sản phẩm đang ở preview, dự kiến GA quý một năm 2027.",
+   "why": "Bế tắc lớn nhất của AI doanh nghiệp không phải model yếu mà là dữ liệu giá trị nhất lại không được phép đi ra khỏi tường. Mô hình hai bên tự giữ khóa mở ra một đường hợp tác mà trước đây phòng pháp chế không cho phép.",
+   "url": "https://www.hpcwire.com/bigdatawire/2026/09/24/enterprise-ai-wants-your-most-sensitive-data-vast-says-it-can-keep-it-safe/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-24",
+   "section": "🏗️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 4,
+   "title": "Tuần lakehouse Apache: Iceberg 1.12.0 và Polaris 1.8.0 trượt vì thiếu dòng LICENSE, Parquet mở review kiểu VECTOR",
+   "title_en": "Apache Data Lakehouse Weekly: September 15 to 23, 2026",
+   "summary": "Bản tổng hợp ngày 23/09 cho thấy một tuần rất nhiều vòng bỏ phiếu trượt: Iceberg 1.12.0 RC0 chết vì file web đính kèm thiếu ghi chú MIT, Polaris 1.8.0 trượt hai vòng vì thiếu NOTICE và một file test mang header license sai. Song song đó Parquet mở review cho Modular Footer và kiểu logic VECTOR dành cho embedding.",
+   "why": "Format không chết vì thiếu tính năng, nó chậm lại vì thủ tục. Đồng thời việc Parquet bàn kiểu VECTOR ngay trong đặc tả là dấu hiệu embedding đang đòi một chỗ chính thức ở tầng lưu trữ, không còn là phần thêm bên ngoài.",
+   "url": "https://dev.to/alexmercedcoder/apache-data-lakehouse-weekly-september-15-to-23-2026-41mi",
+   "domain": "dev.to",
+   "date": "2026-09-23",
+   "section": "🏗️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 5,
+   "title": "KathDB-FAO: sinh code cho từng operator ngay lúc chạy, cắt 58,8% chi phí thực thi",
+   "title_en": "KathDB-FAO: Synthesized Query Plans in a Multimodal DBMS",
+   "summary": "Bài báo ngày 23/09 giới thiệu KathDB-FAO, một hệ nhận câu hỏi tiếng tự nhiên rồi dựng kế hoạch thực thi mà thân của từng operator được sinh ngay trong lúc đánh giá truy vấn. Trên bộ SemBench, cách này cắt trung bình 58,8% chi phí thực thi so với hệ tốt thứ hai, với chất lượng tương đương hoặc tốt hơn.",
+   "why": "Đây là hướng khác hẳn text-to-SQL. Thay vì bắt model viết một câu SQL rồi cầu trời nó đúng, hệ chia câu hỏi thành các hành động nhỏ có hợp đồng rõ ràng rồi mới sinh code cho từng nhóm.",
+   "url": "https://arxiv.org/abs/2609.28761",
+   "domain": "arxiv.org",
+   "date": "2026-09-23",
+   "section": "🏗️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "Pierce: biến spatial join 3D thành bài toán ray tracing để dùng RT core của GPU",
+   "title_en": "Pierce: GPU Ray Tracing for Spatial Joins over Complex 3D Data",
+   "summary": "Bài báo ngày 21/09 đề xuất Pierce, viết lại phép join không gian ba chiều trên mắt lưới đa diện thành các phép ray tracing, để tận dụng RT core có sẵn trên GPU hiện đại. Thay vì so từng cặp tam giác, hệ bắn tia theo cạnh của một mắt lưới vào cây phân cấp dựng trên mắt lưới còn lại.",
+   "why": "Đây là ví dụ đẹp của việc dùng phần cứng sinh ra cho việc khác. Digital twin, quy hoạch đô thị và sinh học tính toán đang đẩy dữ liệu 3D vào database, và cách làm cũ không theo kịp.",
+   "url": "https://arxiv.org/abs/2609.24513",
+   "domain": "arxiv.org",
+   "date": "2026-09-21",
+   "section": "🏗️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "Databricks đưa bảng hệ thống query history lên GA, soát mọi truy vấn toàn account",
+   "title_en": "The query history system table is now generally available",
+   "summary": "Ngày 21/09, Databricks đưa system.query.history lên general availability, ghi lại trạng thái thực thi, thời gian và nguồn gốc của truy vấn trên cả SQL warehouse và serverless compute ở phạm vi toàn account. Cùng ngày, credential của dịch vụ model provider có thể dùng secret của Unity Catalog.",
+   "why": "Muốn cắt chi phí warehouse hay tìm truy vấn nào đang đốt tiền thì phải có số liệu toàn cảnh. Lên GA nghĩa là bạn được phép xây dashboard chi phí dựa vào nó mà không sợ schema đổi giữa đường.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/september#september-21-2026",
+   "domain": "docs.databricks.com",
+   "date": "2026-09-21",
+   "section": "🏗️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "Databricks đưa Genie One MCP server lên GA: mọi agent MCP hỏi được dữ liệu có quản trị",
+   "title_en": "The Genie One MCP server is now generally available; tags GA; Genie Code document processing pipelines",
+   "summary": "Ngày 25/09, Databricks đưa Genie One MCP server lên general availability, biến Genie thành một tool hội thoại qua Model Context Protocol để bất kỳ agent hay MCP client nào cũng neo được câu hỏi dữ liệu vào lakehouse. Cùng ngày, tag cho dashboard, notebook, app và Genie Agent lên GA, còn Genie Code dựng được pipeline xử lý tài liệu đầu cuối.",
+   "why": "Đây là bước biến semantic layer thành một cái cổng có địa chỉ chuẩn. Thay vì mỗi agent tự viết SQL theo cách riêng, agent gọi Genie và hưởng nguyên bộ phân quyền cùng định nghĩa chỉ số đã chốt.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/september#september-25-2026",
+   "domain": "docs.databricks.com",
+   "date": "2026-09-25",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "Collibra ra Maestro, Live Map và Guardian Agents để quản cả đàn agent dựng ngoài nền tảng của mình",
+   "title_en": "Collibra Launches New Capabilities to Reduce the Hallucination Tax on Enterprise AI",
+   "summary": "Ngày 24/09, Collibra công bố ba năng lực mới nhắm vào cái họ gọi là thuế ảo giác: Maestro cho phép team quản trị tự dựng agent không cần code, Live Map dựng context graph từ tài liệu phi cấu trúc, còn Guardian Agents kèm Agent Contracts mở rộng quản trị sang các agent xây bên ngoài Collibra.",
+   "why": "Điểm đáng chú ý nhất là món thứ ba. Thừa nhận rằng phần lớn agent trong doanh nghiệp không được dựng trên nền tảng governance của mình là một thừa nhận đúng thực tế, và cũng là chỗ rủi ro thật.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/collibra-launches-new-capabilities-to-reduce-the-hallucination-tax-on-enterprise-ai/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-24",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "Dataiku mở rộng Cobuild: dùng cả nền tảng qua coding agent, kéo file Excel cũ thành project có quản trị",
+   "title_en": "Dataiku Expands Cobuild to Turn Business Questions Into Governed AI Work",
+   "summary": "Ngày 24/09, Dataiku mở rộng Cobuild, giao diện hội thoại ra mắt từ tháng 6, với Cobuild Insights cho người không kỹ thuật hỏi bằng lời thường, và Dataiku Headless cho lập trình viên điều khiển cả nền tảng từ trong coding agent quen dùng. Cobuild cũng nhận thêm AI Catalog gom mọi tài sản đã kiểm duyệt gồm dataset, model, agent và semantic model.",
+   "why": "Món đáng chú ý là khả năng kéo một workbook Excel hay một workflow Alteryx cũ thành project có lineage và có người kiểm. Đó đúng là bài toán của rất nhiều doanh nghiệp Việt, nơi logic quan trọng nhất vẫn nằm trong file của một người.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/dataiku-expands-cobuild-to-turn-business-questions-into-governed-ai-work/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-24",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "Databricks đưa Python UDF của Unity Catalog lên GA, và bắt truy vấn time travel tôn trọng ABAC",
+   "title_en": "Scalar and Batch Unity Catalog Python UDFs are now generally available; time travel queries enforce ABAC policies",
+   "summary": "Ngày 23/09, Databricks đưa Python UDF dạng scalar và batch của Unity Catalog lên general availability, bỏ giới hạn năm lần gọi, cho cài dependency riêng và cho đọc credential cùng secret của Unity Catalog. Cùng ngày, truy vấn time travel bắt đầu áp row filter và column mask theo ABAC ở bản beta, còn Genie App Builder vào beta.",
+   "why": "Chi tiết time travel mới là điểm đáng khen. Đọc lịch sử bảng lâu nay là một lỗ hổng quen của phân quyền: chặn được hiện tại nhưng ai đọc bản cũ thì thấy hết. Vá chỗ đó là vá một lỗ thật.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/september#september-23-2026",
+   "domain": "docs.databricks.com",
+   "date": "2026-09-23",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "Databricks đưa coding agent vào diện quản trị: một CLI lo xác thực, tool, skill và cả hạn mức chi",
+   "title_en": "Connect coding agents to Unity Gateway with the ug CLI; centrally configure coding agents",
+   "summary": "Ngày 22/09, Databricks ra CLI tên ug để nối coding agent vào Unity Gateway, gom xác thực, cấu hình, MCP server, skill và theo dõi chi tiêu vào một lệnh. Cùng ngày, tổ chức cấu hình được model, MCP server, skill, harness mặc định và Smart Routing ở cấp toàn tổ chức, còn unified tracing bắt đầu ghi cả hoạt động của coding agent.",
+   "why": "Đây là lần đầu một nền tảng dữ liệu coi coding agent là một loại workload cần quản trị, chứ không phải công cụ cá nhân của lập trình viên. Ai đã từng không biết đội mình tiêu bao nhiêu token tháng trước sẽ hiểu tại sao điều này quan trọng.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/september#september-22-2026",
+   "domain": "docs.databricks.com",
+   "date": "2026-09-22",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": 2
+  },
+  {
+   "aid": 13,
+   "title": "Snowflake mở preview cho việc đo và tối ưu chính hàm Cortex AI, thêm Compact API cho Cortex Agents",
+   "title_en": "Cortex AI Function Evaluation and Optimization (Public Preview); Cortex Agents Compact API",
+   "summary": "Ngày 21/09, Snowflake mở public preview cho Cortex AI Function Evaluation dùng để đo chất lượng, và Cortex AI Function Optimization dùng để triển khai AI hiệu quả hơn, cùng với Cortex Agents Compact API cho các lượt tương tác gọn hơn. Hai ngày sau, Trust Center thêm báo cáo tình trạng bảo mật tài khoản ở bản preview.",
+   "why": "Đo chất lượng là mắt yếu nhất của mọi hệ AI trong doanh nghiệp. Đưa việc đo vào thẳng nền tảng dữ liệu nghĩa là kết quả đo nằm chung chỗ với dữ liệu gốc, không phải trong một spreadsheet riêng.",
+   "url": "https://docs.snowflake.com/en/release-notes/new-features#september-21-2026",
+   "domain": "docs.snowflake.com",
+   "date": "2026-09-21",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "Tencent Cloud ra DataBuddy: semantic layer đẩy độ chính xác lên 95,9% so với 83,5% của NL2SQL thuần",
+   "title_en": "Tencent Cloud Launches Tencent Cloud DataBuddy, an Agent-Native Data + AI Workbench",
+   "summary": "Ngày 25/09, Tencent Cloud ra mắt DataBuddy, một workbench dữ liệu và AI đặt agent làm thành phần lõi, gồm bốn nhóm agent cho data engineering, governance, analytics và data science. Nền semantic layer Unity Semantics đạt 95,9% độ chính xác phân tích so với 83,5% của NL2SQL thuần, còn nhóm data science giảm thời gian triển khai model từ 30 ngày xuống 7 ngày.",
+   "why": "Đây là con số công khai rõ ràng nhất cho một điều người làm nghề nói mãi: bơm câu hỏi thẳng vào model để nó sinh SQL thì trần độ chính xác thấp, còn đi qua một lớp nghĩa đã định thì cao hơn hẳn. Sản phẩm cũng đã bán ở Thái Lan, Hàn Quốc và Indonesia.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/tencent-cloud-launches-tencent-cloud-databuddy-an-agent-native-data-ai-workbench/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-25",
+   "section": "🤖 AI ↔ Data",
+   "hot_rank": 5
+  },
+  {
+   "aid": 15,
+   "title": "Paper2Agent: biến một bài báo khoa học thành agent chạy được đúng phương pháp trong bài",
+   "title_en": "Scientific Papers Can Now Become AI Agents",
+   "summary": "Bài viết ngày 23/09 giới thiệu Paper2Agent, hệ thống biến bài báo khoa học thành một agent dùng được chính công cụ, code và dữ liệu mà nhóm nghiên cứu công bố. Thay vì tóm tắt bài báo, agent thực sự chạy lại phân tích và áp phương pháp gốc lên câu hỏi mới.",
+   "why": "Điểm thú vị nhất là kết quả so sánh: agent chuyên biệt dựng quanh một bài báo làm tốt hơn agent đa dụng dù cả hai có cùng quyền truy cập tới công cụ. Cho model một cái tool không bằng dựng một agent hiểu tool đó.",
+   "url": "https://www.hpcwire.com/bigdatawire/2026/09/23/scientific-papers-can-now-become-ai-agents/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-23",
+   "section": "🤖 AI ↔ Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 16,
+   "title": "AkasicMEM: bộ nhớ agent phải mang theo quyền của dữ liệu gốc, không thì rò rỉ",
+   "title_en": "AkasicMEM: Governed Enterprise Memory for Agents",
+   "summary": "Bài báo ngày 22/09 chỉ ra một lỗ hổng ít ai để ý: khi agent lưu lại thứ nó học được từ nguồn dữ liệu nội bộ, rồi tái sử dụng dưới người dùng khác và chính sách khác, thì hạn chế của nguồn gốc có thể bị vượt qua. Nhóm nghiên cứu đề xuất khái niệm bộ nhớ doanh nghiệp có quản trị, với tính liên tục của phân quyền là mục tiêu thiết kế.",
+   "why": "Đây là loại lỗ hổng không xuất hiện trong bất kỳ demo nào nhưng gần như chắc chắn xuất hiện trong hệ thống thật sau vài tháng. Bộ nhớ agent là một đường lách phân quyền mà chưa mấy ai dựng rào.",
+   "url": "https://arxiv.org/abs/2609.25563",
+   "domain": "arxiv.org",
+   "date": "2026-09-22",
+   "section": "🤖 AI ↔ Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "LOKI: dùng văn bản làm nhịp cầu để tìm đường join giữa những bảng không có cột chung",
+   "title_en": "Discovery-Driven Integration of Disjoint Tables via Text",
+   "summary": "Bài báo ngày 22/09 xử lý một bài toán quen trong data lake: hai bảng liên quan về nghĩa nhưng không có cột nào để join. Nhóm nghiên cứu đề xuất LOKI, dùng cross-attention hai chiều để học biểu diễn của dòng bảng và của câu văn, rồi rút ra đường join cụ thể ở mức từng dòng với dẫn chứng tới đúng câu.",
+   "why": "Đây là công việc thật mà mọi data engineer từng làm bằng tay: đọc tài liệu, hỏi người, rồi đoán ra hai bảng này nối với nhau qua đâu. Tự động hoá được phần đó là tiết kiệm rất nhiều tuần.",
+   "url": "https://arxiv.org/abs/2609.26658",
+   "domain": "arxiv.org",
+   "date": "2026-09-22",
+   "section": "🤖 AI ↔ Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 18,
+   "title": "Proof-of-Retention: bắt mỗi bên giữ lại dấu vết của từng lần chia sẻ dữ liệu, rồi chứng minh được là đã giữ",
+   "title_en": "Proof-of-Retention: A Framework for Auditable Cross-Organization Data Sharing",
+   "summary": "Bài báo ngày 22/09 chỉ ra rằng luật về chia sẻ dữ liệu ngày càng chặt nhưng provenance của việc chia sẻ hầu như không được lưu, và khi có lưu thì một bên đổi database là dấu vết thành lạc hậu. Nhóm nghiên cứu đề xuất khung Proof-of-Retention, gộp kỹ thuật query witness của database với giao thức chứng minh sở hữu của mật mã học.",
+   "why": "Cơn khát dữ liệu để tinh chỉnh model đang đẩy việc mua bán dữ liệu giữa các tổ chức lên rất nhanh. Nhưng chứng minh tuân thủ thì gần như không ai làm được, vì không ai giữ bằng chứng.",
+   "url": "https://arxiv.org/abs/2609.26654",
+   "domain": "arxiv.org",
+   "date": "2026-09-22",
+   "section": "🤖 AI ↔ Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 19,
+   "title": "Data Agents: đề xuất sáu thành phần cho hệ dữ liệu tự vận hành, từ nghĩa của dữ liệu tới tự thích ứng",
+   "title_en": "Data Agents: Agentic Data Systems",
+   "summary": "Bài báo ngày 21/09 đề xuất một hệ dữ liệu có agent gồm sáu thành phần: tổ chức dữ liệu theo nghĩa, toán tử mang nghĩa, điều phối và tối ưu pipeline bằng agent, tinh chỉnh theo phản hồi, quản lý bộ nhớ, và tự thích ứng chủ động. Trên nền đó nhóm nghiên cứu dựng thêm hai agent chuyên biệt cho phân tích dữ liệu và cho data science.",
+   "why": "Giá trị của bài này không phải benchmark mà là cách chia bài toán. Sáu thành phần đó là một danh sách kiểm rất dùng được khi bạn đánh giá một nền tảng hay tự thiết kế hệ của mình.",
+   "url": "https://arxiv.org/abs/2609.24137",
+   "domain": "arxiv.org",
+   "date": "2026-09-21",
+   "section": "🤖 AI ↔ Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 20,
+   "title": "Một bản ghi camera đọc biển số đưa một người vô tội vào tù 13 ngày, và Hacker News nổi sóng",
+   "title_en": "One Piece of Flock Camera Data Put This Innocent Woman in Jail for 13 Days",
+   "summary": "Câu chuyện lan lên Hacker News ngày 26/09 với hơn hai trăm điểm và hơn một trăm bình luận: một dữ kiện duy nhất từ hệ thống camera đọc biển số Flock dẫn tới việc bắt giữ sai một phụ nữ ở Florida, người này bị giam mười ba ngày và giờ đang kiện. Phần thảo luận tập trung vào việc một điểm dữ liệu không được kiểm chứng lại được coi là bằng chứng.",
+   "why": "Đây là bài học ngành dữ liệu ở dạng thô nhất: khi một hệ thống ra đầu ra có vẻ chắc chắn, người dùng ngừng hỏi độ chính xác. Ai đang dựng hệ thống ra quyết định tự động nên đọc câu chuyện này thay vì một bài viết về đạo đức AI.",
+   "url": "https://www.jezebel.com/flock-cameras-data-innocent-woman-arrested-lindsey-isaacs-palm-beach-florida-lawsuit-vehicular-homicide",
+   "domain": "jezebel.com",
+   "date": "2026-09-26",
+   "section": "🔥 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 21,
+   "title": "Khảo sát Cisco: gần một phần tư lãnh đạo IT thoải mái cho agent vận hành mạng hoàn toàn không người giám sát",
+   "title_en": "Cisco AI Research: AgenticOps Scaling Quickly in the Enterprise",
+   "summary": "Ngày 23/09, Cisco công bố nghiên cứu do Omdia thực hiện độc lập trên một nghìn lãnh đạo IT và vận hành mạng tại tổ chức từ năm trăm nhân viên. Hơn bốn trên năm kỳ vọng đạt mô hình vận hành do AI dẫn trong mười hai tháng, hơn ba phần tư sẵn sàng trao quyền tự chủ đáng kể, và gần một phần tư thoải mái với vận hành hoàn toàn tự trị không người giám sát.",
+   "why": "Con số gần một phần tư chấp nhận không người giám sát là con số nên làm mọi người dừng lại. Đặt cạnh khảo sát tuần trước cho thấy phần lớn tổ chức tắc khi đưa agent vào production, ta có một khoảng cách rất lớn giữa mong muốn và năng lực.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/cisco-ai-research-agenticops-scaling-quickly-in-the-enterprise/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-23",
+   "section": "🔥 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 22,
+   "title": "Cộng đồng knowledge graph thừa nhận thiếu thước đo: benchmark mới chấm theo sáu chiều chất lượng",
+   "title_en": "Benchmarking Automated Knowledge Graph Construction from Semi-Structured Data",
+   "summary": "Bài báo ngày 22/09 chỉ ra một khoảng trống đáng ngạc nhiên: rất nhiều phương pháp tự động dựng knowledge graph từ dữ liệu bán cấu trúc đã được công bố, nhưng không có benchmark toàn diện nào để chấm chất lượng đồ thị sinh ra. Nhóm nghiên cứu đề xuất một bộ đánh giá gộp sáu chiều gồm hợp lệ về cú pháp, đúng về nghĩa, nhất quán, súc tích, đầy đủ, và hữu dụng trong thực tế.",
+   "why": "Knowledge graph đang được đẩy mạnh làm bộ nhớ cho model, nhưng chất lượng đồ thị quyết định chất lượng mọi ứng dụng phía sau. Không có thước đo thì mọi so sánh công cụ chỉ là quảng cáo.",
+   "url": "https://arxiv.org/abs/2609.26985",
+   "domain": "arxiv.org",
+   "date": "2026-09-22",
+   "section": "🔥 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 23,
+   "title": "Data Engineering Weekly #288: Bolt chuyển 10 triệu truy vấn mỗi tháng khỏi Presto, và câu hỏi bạn có thật sự có big data",
+   "title_en": "Data Engineering Weekly #288",
+   "summary": "Số ra ngày 21/09 nổi bật với hai bài trái chiều nhau rất hay. Bolt kể chuyện chuyển mười triệu truy vấn Looker mỗi tháng từ Presto sang Databricks, tự viết bộ chuyển đổi hiểu cả SQL lẫn template Liquid và đối chiếu kết quả trên hai hệ. Trong khi đó một bài khác lập luận rằng phần lớn doanh nghiệp không có vấn đề big data nếu thiết kế đúng phần xử lý tăng dần.",
+   "why": "Hai bài này đặt cạnh nhau là bài học về đúng quy mô. Một bên là quy mô thật cần đổi engine, một bên là quy mô tưởng tượng khiến người ta mua hạ tầng phân tán không cần thiết.",
+   "url": "https://www.dataengineeringweekly.com/p/data-engineering-weekly-288",
+   "domain": "dataengineeringweekly.com",
+   "date": "2026-09-21",
+   "section": "🔥 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 24,
+   "title": "Helix và Databricks mở môi trường nghiên cứu tin cậy trên 550.000 bản ghi gen kèm 13 năm hồ sơ y tế",
+   "title_en": "Helix Partners with Databricks to Launch Trusted Research Environment for Population-Scale Clinicogenomic Research",
+   "summary": "Ngày 25/09, Helix công bố hợp tác với Databricks để ra mắt Helix Research Workspaces, một môi trường nghiên cứu tin cậy dựng trực tiếp trên nền Databricks. Đối tác nghiên cứu được duyệt sẽ truy cập có quản trị tới hơn năm trăm năm mươi nghìn bản ghi GenoSphere, mỗi bản ghi gộp dữ liệu gen Exome+ với trung bình hơn mười ba năm hồ sơ y tế điện tử.",
+   "why": "Đây là ví dụ cụ thể của mô hình đưa nhà nghiên cứu đến chỗ dữ liệu thay vì phát dữ liệu ra ngoài. Với dữ liệu gen thì đây gần như là cách duy nhất vừa mở được nghiên cứu vừa giữ được quyền riêng tư.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/helix-partners-with-databricks-to-launch-trusted-research-environment-for-population-scale-clinicogenomic-research/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-25",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 25,
+   "title": "Accenture Ventures đầu tư vào Within, đặt cược vào khâu triển khai agent trong doanh nghiệp",
+   "title_en": "Accenture Invests in Within to Support Enterprise AI Agent Deployment",
+   "summary": "Ngày 25/09, Accenture công bố đã đầu tư qua Accenture Ventures vào Within, một công ty nền tảng AI, nhằm hỗ trợ việc triển khai AI agent trong doanh nghiệp. Khoản đầu tư không công bố giá trị.",
+   "why": "Các công ty tư vấn lớn rót vốn vào đâu là chỉ dấu khá tin cậy cho chỗ khách hàng của họ đang trả tiền. Lần này chỗ đó là khâu triển khai, không phải khâu làm model.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/accenture-invests-in-within-to-support-enterprise-ai-agent-deployment/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-25",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 26,
+   "title": "PhoenixAI vào Cloudera làm đối tác database nền tảng, hứa truy vấn dưới một giây trên cả streaming và lakehouse",
+   "title_en": "PhoenixAI Joins Cloudera as a Foundational Database Partner",
+   "summary": "Ngày 24/09, PhoenixAI công bố hợp tác chiến lược với Cloudera, trở thành đối tác dữ liệu nền tảng cho nền tảng hybrid mới của Cloudera và cho Cloudera Anywhere Cloud Marketplace. Engine của PhoenixAI hứa truy vấn SQL dưới một giây trên cả dữ liệu streaming đang chạy và dữ liệu lịch sử ở định dạng lakehouse, không cần phi chuẩn hoá hay tiền tổng hợp.",
+   "why": "Điểm bán chính là bỏ được lớp pre-aggregation, thứ mà mọi dự án BI đều phải làm và luôn là chỗ số liệu bị lệch. Đặt trong bối cảnh dữ liệu chủ quyền, đây là hướng nhiều doanh nghiệp Đông Nam Á đang cần.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/phoenixai-joins-cloudera-as-a-foundational-database-partner/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-24",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 27,
+   "title": "Domo bán mình cho Progress, phần còn lại đổi tên Huckleberry.ai và lên Nasdaq với 221 triệu đô tiền mặt",
+   "title_en": "Domo Completes Asset Sale to Progress, Renames Company Huckleberry.ai",
+   "summary": "Ngày 23/09, Domo công bố hoàn tất việc bán cho Progress Software: Progress lấy gần như toàn bộ tài sản và nhân sự, nền tảng dữ liệu và AI của Domo trở thành một phần của Progress. Pháp nhân còn lại đổi tên thành Huckleberry.ai, giao dịch trên Nasdaq với mã HUCK từ ngày 24/09, giữ khoảng 221 triệu đô tiền mặt và hơn 900 triệu đô lỗ được chuyển tiếp thuế.",
+   "why": "Một trong những tên tuổi BI độc lập lớn nhất vừa rời khỏi sân, và cách thương vụ được cấu trúc cho thấy điều đáng chú ý: giá trị còn lại của công ty nằm ở bảng cân đối kế toán, không phải ở sản phẩm.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/domo-completes-asset-sale-to-progress-renames-company-huckleberry-ai/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-23",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": 1
+  },
+  {
+   "aid": 28,
+   "title": "Snorkel AI gọi 350 triệu đô ở mức định giá 3,5 tỷ: dữ liệu cho AI đã thành một ngành riêng",
+   "title_en": "Snorkel AI Raises $350M to Scale the Data Factory for Frontier AI",
+   "summary": "Ngày 23/09, Snorkel AI công bố gọi được 350 triệu đô ở mức định giá 3,5 tỷ đô, vòng vốn do Insight Partners và S32 đồng dẫn dắt. Tiền sẽ dùng mở rộng cái họ gọi là nhà máy dữ liệu agentic, tức là nơi sản xuất dữ liệu, môi trường thử nghiệm và bộ tiêu chí chấm điểm cho các phòng nghiên cứu AI hàng đầu.",
+   "why": "Con số định giá nói rằng việc chuẩn bị dữ liệu và bộ đo cho AI đã thành một ngành riêng có giá tỷ đô, không còn là công việc phụ trợ. Lập luận của họ về sự dịch chuyển từ gán nhãn đơn giản sang thiết kế môi trường và tiêu chí là lập luận đáng đọc.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/snorkel-ai-raises-350m-to-scale-the-data-factory-for-frontier-ai/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-23",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": 4
+  }
+ ],
+ "hot_aid": 27,
+ "weekly_video": {
+  "intro": "Chào anh em, đây là bản tổng kết tuần 39, từ hai mươi mốt tới hai mươi bảy tháng chín. Chủ đề xuyên suốt tuần này là quản trị: quản trị agent, quản trị bộ nhớ của agent, và quản trị chính cái nền dữ liệu mà agent đứng lên. Một tên tuổi BI lớn vừa rời khỏi sân, hai nền tảng lớn cùng đẩy agent vào diện có sổ sách, và một công ty chuyên làm dữ liệu cho AI vừa được định giá ba tỷ rưỡi. Mình đi lần lượt năm tin nóng nhất.",
+  "outro": "Đó là năm tin đáng chú ý nhất của tuần 39. Chi tiết từng tin, kèm số liệu và phần phân tích sâu hơn, anh em xem trong bản tin đầy đủ nhé. Hẹn gặp lại tuần sau.",
+  "segments": [
+   {
+    "aid": 27,
+    "headline": "Domo bán mình cho Progress, đổi tên Huckleberry",
+    "narration": "Tin lớn nhất tuần 39 không phải một sản phẩm mới, mà là một cái tên rời khỏi sân. Ngày hai mươi ba tháng chín, Domo công bố hoàn tất việc bán cho Progress Software. Progress lấy gần như toàn bộ tài sản và nhân sự, kèm hơn hai nghìn bốn trăm khách hàng. Theo báo chí, giá mua khoảng bốn trăm triệu đô. Pháp nhân còn lại đổi tên thành Huckleberry, và từ ngày hai mươi bốn tháng chín cổ phiếu giao dịch trên Nasdaq với mã H U C K. Công ty mới bắt đầu không nợ, với khoảng hai trăm hai mươi mốt triệu đô tiền mặt, và giữ lại hơn chín trăm triệu đô lỗ chuyển tiếp thuế. Phần lỗ này không bán cho Progress, vì nó có giá trị riêng. Vì sao mình xếp tin này số một? Vì cách cấu trúc thương vụ nói rất nhiều về ngành. Domo từng là một trong những cái tên được nhắc nhiều nhất khi người ta bàn về BI hiện đại. Giờ sản phẩm đi vào tay một công ty phần mềm hạ tầng, còn pháp nhân cũ thành một cái vỏ có tiền. Bài học cho người làm BI: lớp công cụ dashboard độc lập đang bị kẹp giữa hai bên, một bên là nền tảng dữ liệu tự làm luôn phần trình bày, một bên là agent hỏi đáp trực tiếp trên lớp nghĩa.",
+    "bullets": [
+     "Progress lấy sản phẩm và hơn 2.400 khách hàng",
+     "Huckleberry lên Nasdaq mã HUCK, còn 221 triệu đô",
+     "Giữ hơn 900 triệu đô lỗ chuyển tiếp thuế"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Thương vụ Domo tách làm hai nửa",
+     "items": [
+      {
+       "v": "400 triệu đô",
+       "l": "giá Progress trả"
+      },
+      {
+       "v": "2.400+",
+       "l": "khách hàng chuyển sang"
+      },
+      {
+       "v": "221 triệu đô",
+       "l": "tiền mặt Huckleberry giữ"
+      },
+      {
+       "v": "900 triệu đô",
+       "l": "lỗ chuyển tiếp thuế"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 12,
+    "headline": "Databricks kéo coding agent vào diện quản trị",
+    "narration": "Tin số hai là thứ mình nghĩ có tính bước ngoặt hơn cả mấy cái chính thức to đùng khác trong tuần. Ngày hai mươi hai tháng chín, Databricks ra một công cụ dòng lệnh tên u g, dùng để nối coding agent vào Unity Gateway. Một lệnh gom cả xác thực, cấu hình, các MCP server, skill, và theo dõi chi tiêu. Cùng ngày, tổ chức cấu hình được tập trung: model nào được dùng, tool nào, skill nào, và định tuyến thông minh ra sao, tất cả đặt ở cấp toàn tổ chức. Quan trọng hơn, hệ thống theo dõi hợp nhất bắt đầu ghi cả hoạt động của coding agent, hiển thị tool và skill nằm cạnh các lượt gọi model. Vì sao điều này quan trọng? Hãy nhìn hiện trạng ở gần như mọi công ty: mỗi lập trình viên tự cắm coding agent của mình, tự chọn model, tự cắm tool, và không ai biết tổng cộng đang tiêu bao nhiêu hay agent đang chạm vào dữ liệu nào. Đó là một vùng mù rất lớn, và nó nằm ngay cạnh source code cùng database sản xuất. Điểm mình thấy đúng nhất là việc ghi tool và skill trong hệ theo dõi, vì nếu chỉ ghi lượt gọi model thì bạn biết tốn tiền, nhưng phải ghi tool mới biết agent đã làm gì.",
+    "bullets": [
+     "Một CLI gom xác thực, tool, skill, hạn mức chi",
+     "Cấu hình model và tool ở cấp toàn tổ chức",
+     "Hệ theo dõi ghi cả tool agent đã gọi"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Coding agent đi qua cổng có sổ sách",
+     "items": [
+      {
+       "t": "Agent",
+       "d": "lập trình viên gọi"
+      },
+      {
+       "t": "CLI ug",
+       "d": "xác thực, cấu hình"
+      },
+      {
+       "t": "Unity Gateway",
+       "d": "chọn model, hạn mức"
+      },
+      {
+       "t": "Tracing",
+       "d": "ghi tool và skill"
+      },
+      {
+       "t": "Dữ liệu",
+       "d": "quyền theo catalog"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 2,
+    "headline": "Snowflake ghi streaming thẳng vào Iceberg đã partition",
+    "narration": "Tin số ba nghe rất kỹ thuật nhưng ăn thẳng vào chi phí vận hành. Ngày hai mươi bốn tháng chín, Snowflake đưa Snowpipe Streaming ghi vào bảng Apache Iceberg có phân vùng lên chính thức. Cùng ngày còn có ràng buộc kiểm tra cho hybrid table lên chính thức. Vì sao đáng chú ý? Hãy nhìn cách làm phổ biến lâu nay. Dữ liệu streaming đổ vào một bảng tạm không phân vùng. Rồi một job định kỳ đọc lên, phân vùng lại, ghi xuống bảng chính. Job đó vừa tốn tiền compute, vừa tạo độ trễ, và là nơi sinh ra bài toán nhiều file nhỏ kinh điển. Ghi trực tiếp vào bảng đã phân vùng cắt bỏ cả ba thứ đó cùng một lúc. Nhưng mình muốn nhắc một điểm quan trọng: ghi trực tiếp không tự động giải quyết bài toán file nhỏ, nó chỉ chuyển vấn đề sang tầng nén gộp file. Cho nên nếu team bạn đang chạy thay đổi dữ liệu hoặc sự kiện vào lakehouse, hãy đo lại số file sinh ra trên mỗi phân vùng mỗi giờ sau khi đổi, rồi đặt lịch nén gộp theo con số đó, đừng đặt theo cảm giác. Còn ràng buộc kiểm tra trên hybrid table là một tin nhỏ nhưng đúng hướng, vì nó đẩy việc kiểm tra chất lượng dữ liệu về đúng chỗ phải ở, là lúc ghi, thay vì để một bài kiểm tra phát hiện ra sau ba tiếng.",
+    "bullets": [
+     "Bỏ hẳn job phân vùng lại ở giữa pipeline",
+     "Ràng buộc kiểm tra cho hybrid table lên chính thức",
+     "Vẫn phải đặt lịch nén gộp file nhỏ"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Đường đi của dữ liệu streaming vào Iceberg",
+     "left": {
+      "h": "Cách cũ",
+      "items": [
+       "Đổ vào bảng tạm",
+       "Job phân vùng lại",
+       "Tốn compute và độ trễ"
+      ]
+     },
+     "right": {
+      "h": "Cách mới",
+      "items": [
+       "Ghi thẳng vào partition",
+       "Bớt một điểm hỏng",
+       "Chỉ còn lo nén gộp file"
+      ]
+     }
+    },
+    "images": []
+   },
+   {
+    "aid": 28,
+    "headline": "Snorkel gọi 350 triệu đô, dữ liệu AI thành ngành",
+    "narration": "Tin số bốn là một con số đáng ghi lại. Ngày hai mươi ba tháng chín, Snorkel công bố gọi được ba trăm năm mươi triệu đô ở mức định giá ba tỷ năm trăm triệu đô. Vòng này do Insight Partners và S ba mươi hai đồng dẫn dắt. Công ty ra từ phòng nghiên cứu AI của Stanford, nền tảng học thuật gồm hơn hai trăm năm mươi bài báo được trích dẫn hơn hai mươi lăm nghìn lần. Nhưng phần đáng đọc nhất không phải con số, mà là cách họ mô tả sự dịch chuyển. Thời kỳ dữ liệu một chấm không là gán nhãn: cho người xem ảnh và bấm chọn nhãn, bài toán số lượng, giải bằng cách tuyển thêm người. Thời kỳ dữ liệu hai chấm không thì khác hẳn: nó đòi tác vụ agentic của chuyên gia, môi trường thử nghiệm, và bộ tiêu chí chấm điểm. Một tác vụ như vậy có khi mất chuyên gia giỏi cả ngày để thiết kế. Đó là công việc nghiên cứu, không phải gia công. Nếu mô tả này đúng, và mình nghĩ nó đúng, thì nó có hệ quả trực tiếp cho thị trường nhân lực khu vực. Việc gán nhãn đơn giản, phần lâu nay nhiều công ty ở Đông Nam Á nhận làm, đang mất giá vì model tự làm được.",
+    "bullets": [
+     "350 triệu đô, định giá 3,5 tỷ đô",
+     "Từ gán nhãn sang thiết kế môi trường và tiêu chí",
+     "Gán nhãn đơn giản đang mất giá"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Ba tầng của dữ liệu 2.0",
+     "items": [
+      {
+       "t": "Tác vụ chuyên gia",
+       "d": "tình huống khó, đúng nghiệp vụ"
+      },
+      {
+       "t": "Môi trường thử",
+       "d": "nơi agent thực sự hành động"
+      },
+      {
+       "t": "Bộ tiêu chí chấm",
+       "d": "định nghĩa thế nào là đúng"
+      }
+     ]
+    },
+    "images": [
+     "https://s46486.pcdn.co/wp-content/uploads/2022/01/Snorkel-Social-Share-Image-2026.png"
+    ]
+   },
+   {
+    "aid": 14,
+    "headline": "Tencent DataBuddy: lớp nghĩa hơn NL2SQL 12 điểm",
+    "narration": "Tin số năm mang theo cặp số mà mình sẽ dùng lại nhiều lần trong tư vấn. Ngày hai mươi lăm tháng chín, Tencent Cloud ra mắt DataBuddy, một bàn làm việc dữ liệu và AI đặt agent làm thành phần lõi, gồm bốn nhóm agent cho kỹ thuật dữ liệu, quản trị dữ liệu, phân tích và data science. Đây là cặp số quan trọng: lớp nghĩa của họ đạt độ chính xác phân tích chín mươi lăm phẩy chín phần trăm, trong khi cách hỏi thẳng model sinh SQL chỉ đạt tám mươi ba phẩy năm phần trăm. Nhóm data science thì giảm thời gian triển khai model từ ba mươi ngày xuống bảy ngày. Khoảng cách mười hai điểm phần trăm kia lượng hoá đúng cái điều mà mọi người làm BI đều linh cảm nhưng khó chứng minh. Mười hai điểm nghe nhỏ, nhưng dịch sang thực tế là cứ sáu câu trả lời thì thêm gần một câu đúng, và trong báo cáo tài chính thì một câu sai đủ để mất niềm tin cả hệ thống. Bài học không phụ thuộc bạn dùng nền tảng nào: đầu tư vào lớp nghĩa, định nghĩa chỉ số, quan hệ bảng và quy tắc nghiệp vụ là đầu tư có lãi cao nhất khi làm AI trên dữ liệu. Nó rẻ hơn đổi model và bền hơn sửa prompt. Một điểm cần cân nhắc: các con số này do hãng tự công bố.",
+    "bullets": [
+     "Lớp nghĩa 95,9% so với NL2SQL thuần 83,5%",
+     "Triển khai model từ 30 ngày còn 7 ngày",
+     "Đã bán ở Thái Lan, Hàn Quốc, Indonesia"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Số DataBuddy công bố",
+     "items": [
+      {
+       "v": "95,9%",
+       "l": "độ chính xác qua lớp nghĩa"
+      },
+      {
+       "v": "83,5%",
+       "l": "hỏi thẳng model sinh SQL"
+      },
+      {
+       "v": "30 còn 7",
+       "l": "số ngày triển khai model"
+      },
+      {
+       "v": "5-10 lần",
+       "l": "hiệu quả hãng công bố"
+      }
+     ]
+    },
+    "images": []
+   }
+  ]
+ },
+ "facebook_post": "𝐓𝐔𝐀̂̀𝐍 𝐌𝐀̀ 𝐌𝐎̣̂𝐓 𝐓𝐄̂𝐍 𝐓𝐔𝐎̂̉𝐈 𝐁𝐈 𝐋𝐎̛́𝐍 𝐑𝐎̛̀𝐈 𝐊𝐇𝐎̉𝐈 𝐒𝐀̂𝐍 📉\n\nHồi mới đi làm BI, Đức từng nghĩ chọn công cụ là quyết định quan trọng nhất của một dự án dữ liệu. Tuần này có một tin làm mình phải xem lại niềm tin đó.\n\nDomo, một trong những cái tên được nhắc nhiều nhất khi người ta bàn về BI hiện đại, vừa bán gần như toàn bộ tài sản cho Progress Software. Phần pháp nhân còn lại đổi tên, và giá trị lớn nhất của nó bây giờ là tiền mặt trong ngân hàng. 😐\n\nKhông phải công cụ dở. Chỉ là chỗ đứng của cả một lớp sản phẩm đang bị dịch chuyển.\n\n---\n\n𝟏️⃣ 𝐃𝐎𝐌𝐎 𝐁𝐀́𝐍 𝐌𝐈̀𝐍𝐇, 𝐏𝐇𝐀̂̀𝐍 𝐂𝐎̀𝐍 𝐋𝐀̣𝐈 𝐓𝐇𝐀̀𝐍𝐇 𝐇𝐔𝐂𝐊𝐋𝐄𝐁𝐄𝐑𝐑𝐘\n\nNgày 23/09. Progress lấy nền tảng, lấy nhân sự và hơn 2.400 khách hàng, giá khoảng 400 triệu đô theo báo chí. Pháp nhân cũ đổi tên thành Huckleberry, lên Nasdaq mã HUCK từ 24/09, giữ khoảng 221 triệu đô tiền mặt và hơn 900 triệu đô lỗ chuyển tiếp thuế.\n\nChi tiết nói nhiều nhất: phần lỗ chuyển tiếp thuế không bán, vì nó có giá trị riêng. Tức là trong thương vụ này, sản phẩm và bảng cân đối kế toán được định giá tách rời nhau. 🙂\n\n𝟐️⃣ 𝐃𝐀𝐓𝐀𝐁𝐑𝐈𝐂𝐊𝐒 𝐊𝐄́𝐎 𝐂𝐎𝐃𝐈𝐍𝐆 𝐀𝐆𝐄𝐍𝐓 𝐕𝐀̀𝐎 𝐃𝐈𝐄̣̂𝐍 𝐐𝐔𝐀̉𝐍 𝐓𝐑𝐈̣\n\nNgày 22/09, Databricks ra một công cụ dòng lệnh gom xác thực, cấu hình, tool, skill và cả hạn mức chi tiêu của coding agent vào một chỗ. Ba ngày sau, họ đưa Genie One MCP server lên chính thức, tức là mọi agent bên ngoài đều hỏi được dữ liệu qua đúng một cổng có phân quyền. Nghe khô, nhưng đây là tin mình đánh giá cao nhất về mặt kỹ thuật trong tuần.\n\nHiện trạng ở gần như mọi công ty: mỗi bạn dev tự cắm agent của mình, tự chọn model, tự cắm tool, và không ai biết tổng cộng tiêu bao nhiêu hay agent đang chạm vào bảng nào. Vùng mù đó nằm ngay cạnh source code và database production. 😅\n\n𝟑️⃣ 𝐒𝐍𝐎𝐑𝐊𝐄𝐋 𝐆𝐎̣𝐈 𝟑𝟓𝟎 𝐓𝐑𝐈𝐄̣̂𝐔 Đ𝐎̂ 𝐎̛̉ Đ𝐈̣𝐍𝐇 𝐆𝐈𝐀́ 𝟑,𝟓 𝐓𝐘̉\n\nNgày 23/09. Phần đáng đọc không phải con số, mà là cách họ mô tả sự dịch chuyển của nghề làm dữ liệu cho AI.\n\nDữ liệu 1.0 là gán nhãn: cho người xem ảnh, bấm chọn nhãn. Bài toán số lượng, giải bằng tuyển thêm người. Dữ liệu 2.0 là dựng môi trường thử nghiệm và bộ tiêu chí chấm điểm, mỗi tác vụ có khi mất một chuyên gia giỏi cả ngày để thiết kế.\n\nAnh em thấy hệ quả chưa? Phần gán nhãn đơn giản, thứ nhiều công ty Đông Nam Á nhận làm bao năm nay, đang mất giá vì model tự làm được rồi.\n\n𝟒️⃣ 𝐓𝐄𝐍𝐂𝐄𝐍𝐓 𝐂𝐎̂𝐍𝐆 𝐁𝐎̂́ 𝐂𝐀̣̆𝐏 𝐒𝐎̂́ Đ𝐀́𝐍𝐆 𝐆𝐇𝐈 𝐋𝐀̣𝐈: 𝟗𝟓,𝟗% 𝐒𝐎 𝐕𝐎̛́𝐈 𝟖𝟑,𝟓%\n\nNgày 25/09, Tencent Cloud ra DataBuddy, một bàn làm việc dữ liệu và AI đặt agent làm lõi. Đi qua lớp nghĩa đã định thì độ chính xác phân tích đạt 95,9%. Hỏi thẳng model sinh SQL thì được 83,5%.\n\nMười hai điểm phần trăm. Nghe nhỏ, nhưng dịch ra là cứ sáu câu trả lời thì thêm gần một câu đúng.\n\nSản phẩm đã bán ở Thái Lan, Hàn Quốc, Indonesia. Việt Nam chưa có trong danh sách, nhưng khoảng cách không xa. 🇻🇳\n\n---\n\n💡 𝐆𝐎́𝐂 𝐍𝐇𝐈̀𝐍 𝐂𝐔̉𝐀 𝐌𝐈̀𝐍𝐇 𝐕𝐄̂̀ 𝐓𝐔𝐀̂̀𝐍 𝐍𝐀̀𝐘\n\nĐức chia sẻ dưới góc nhìn kỹ thuật của một người làm Data và AI, đang chạy tư vấn BI cho doanh nghiệp, nên có gì sai anh em cứ phản biện.\n\nTheo mình, tuần này có đúng một sợi chỉ xuyên suốt: cái đang có giá là LỚP NGHĨA, không phải lớp giao diện.\n\nCặp số của Tencent nói thẳng điều đó. Việc Databricks đưa Genie thành một cổng chuẩn cho agent gọi cũng nói điều đó. Và việc một công cụ BI lớn phải bán mình cũng nói điều đó, theo chiều ngược lại.\n\nMấy tháng nay mình học và làm thực hành RAG trên nền Databricks, và thứ học được rõ nhất không phải kỹ thuật vector search. Nó là chuyện này: agent chỉ tốt bằng lớp nghĩa mà bạn khai cho nó. Bảng đặt tên cột kiểu col1, col2, không có định nghĩa chỉ số, thì mở cổng MCP ra chỉ là mở một cửa nhanh hơn để nó trả lời sai. 😄\n\nNên nếu tuần này anh em chỉ mang về một việc, mình đề xuất: ngồi lại và trả lời cho được câu \"doanh thu trong công ty mình có mấy định nghĩa\". Nếu hơn một, thì vấn đề chưa phải công cụ, và cũng chưa phải AI.\n\nCòn thứ KHÔNG nên làm ngay: đừng vội mua nền tảng governance cho AI khi chưa chốt được định nghĩa chỉ số. Mua trước thì bạn chỉ quản trị sự lộn xộn một cách có hệ thống hơn thôi. 🙂\n\nMột chuyện nhỏ nữa. Tuần này Hacker News nổi sóng vì một vụ ở Mỹ: một bản ghi camera đọc biển số, không kiểm chứng, đưa một người vô tội vào tù 13 ngày. Đó không phải lỗi đạo đức AI, đó là lỗi thiết kế hệ dữ liệu: đầu ra của model được trả về mà không mang theo độ tin cậy. Mà khi đầu ra không mang độ tin cậy, mọi người phía sau sẽ coi nó là chắc chắn. Anh em nào đang làm hệ chấm điểm hay phát hiện gian lận: nếu đầu ra chỉ là một cái nhãn, hãy sửa chỗ đó trước khi sửa model. 🙏\n\n---\n\nDashboard đẹp không có nghĩa là đang ra quyết định tốt. Và một con số tự tin không có nghĩa là một con số đúng.\n\nAnh em nào đang làm lakehouse hay đang dựng agent trên dữ liệu nội bộ thì comment cho mình biết đang tắc ở đâu nhé. 👇\n\n#DataEngineering #BusinessIntelligence #Lakehouse #Databricks #Snowflake #AIAgent #DataGovernance #HocCungAI #DuLieuDoanhNghiep #SemanticLayer",
+ "facebook_reel": "Một công cụ BI từng rất nổi vừa bán mình, và phần giá trị nhất còn lại là... tiền trong ngân hàng. 😐\n\nCòn một cặp số mình sẽ dùng lại nhiều lần: hỏi thẳng model sinh SQL được 83,5% đúng. Đi qua lớp nghĩa đã định thì 95,9%.\n\nTức là cứ sáu câu trả lời thì thêm gần một câu đúng.\n\nHoá ra thứ có giá không phải dashboard đẹp, mà là ai định nghĩa được \"doanh thu\" chỉ có một nghĩa. 👇\n\n#DataEngineering #BusinessIntelligence #AIAgent #HocCungAI",
+ "bgm": "minimal-tech",
+ "youtube": {
+  "recap": "QdumNl9Vb20",
+  "short": "bfJdZHNejPM"
+ }
+}
