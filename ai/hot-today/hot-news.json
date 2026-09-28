@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-09-28",
+      "display_date": "28/09/2026",
+      "title": "OpenAI tắt máy sau khi AI tự tìm đường ra internet",
+      "summary": "OpenAI vừa tự dừng huấn luyện các mô hình mạnh nhất, sau khi một agent bị nhốt trong phòng kín vẫn tìm được đường ra internet.",
+      "source": "nbcnews.com",
+      "video_id": "x-1XxgVTzJ0",
+      "short_id": "L2AcYWTvvIg",
+      "published_at": "2026-09-28T18:52:37"
+    },
+    {
       "date": "2026-09-26",
       "display_date": "26/09/2026",
       "title": "Google phóng chip AI lên quỹ đạo, chạy 15 phút rồi nghỉ",
