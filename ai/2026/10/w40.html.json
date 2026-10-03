@@ -1,0 +1,364 @@
+{
+  "date": "02/10/2026",
+  "week": "W40",
+  "range": "28/09 - 04/10/2026",
+  "tldr": "Tuần 40 đánh dấu bước chuyển rõ từ chatbot sang hệ thống AI làm việc dài hạn: Google công bố Gemini 4 Argon, OpenAI đưa Dots thành trợ lý luôn hoạt động, còn Anthropic giảm mạnh chi phí và độ trễ với Claude Sonnet 5.5. Song song, NVIDIA tung lớp kiểm soát agent sau chuỗi sự cố an toàn, trong khi AMD chi 8,2 tỷ USD mua World Labs để kéo nghiên cứu spatial intelligence sát hơn với phần cứng. Nghiên cứu tuần này cũng cho thấy hai hướng đáng theo dõi: agent bất đồng bộ và mô hình ra quyết định trong môi trường có thông tin ẩn.",
+  "items": [
+    {
+      "aid": 1,
+      "title": "Gemini 4 Argon nhắm thẳng vào coding, tri thức doanh nghiệp và phòng thủ mạng",
+      "title_en": "Gemini 4 Argon: our next era of frontier intelligence",
+      "summary": "Google công bố Gemini 4 Argon với context 1 triệu token, tập trung vào quy trình dài hạn, software engineering, tài chính, pháp lý và tự động vá lỗ hổng. Model được mở trước cho nhóm phòng thủ mạng tin cậy thay vì phát hành đại trà ngay lập tức.",
+      "why": "Cách phát hành theo tầng cho thấy năng lực cyber đã trở thành yếu tố quyết định quyền truy cập model frontier, không chỉ là một benchmark phụ.",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+      "domain": "blog.google",
+      "date": "2026-09-30",
+      "section": "🚀 Mô hình & Sản phẩm mới",
+      "hot_rank": 1
+    },
+    {
+      "aid": 2,
+      "title": "OpenAI ra Dots: agent luôn hoạt động với máy tính đám mây riêng",
+      "title_en": "OpenAI launches Dots, always-on AI agent coworkers, and ChatGPT Space",
+      "summary": "Dots có thể tiếp tục theo dõi dự án, dùng phần mềm và trả kết quả sau khi người dùng đóng cửa sổ chat. Mỗi agent có máy tính và trình duyệt đám mây riêng, kết nối hơn 4.000 ứng dụng và làm việc trong ChatGPT Space.",
+      "why": "Đây là bước dịch chuyển sản phẩm quan trọng: AI không còn chờ prompt từng lượt mà trở thành một tiến trình có trạng thái, lịch sử và quyền hành động.",
+      "url": "https://venturebeat.com/technology/openai-launches-dots-always-on-ai-agent-coworkers-and-chatgpt-space-where-they-can-collaborate-with-human-teams",
+      "domain": "venturebeat.com",
+      "date": "2026-09-29",
+      "section": "🚀 Mô hình & Sản phẩm mới",
+      "hot_rank": 2
+    },
+    {
+      "aid": 3,
+      "title": "Claude Sonnet 5.5 nhanh hơn 30%, chi phí mỗi tác vụ giảm tới 30%",
+      "title_en": "Introducing Claude Sonnet 5.5",
+      "summary": "Anthropic định vị Sonnet 5.5 cho tác vụ hằng ngày, sửa lỗi và tạo tài liệu, với tốc độ sinh nhanh hơn 30% so với Sonnet 5. Model đạt 70,6% trên Terminal-Bench 4.0 và giữ giá 2 USD input, 10 USD output cho mỗi triệu token.",
+      "why": "Mức nhảy từ 10,3% lên 70,6% trên một benchmark agentic coding cho thấy tối ưu hậu huấn luyện và harness có thể tạo khác biệt lớn mà không tăng giá niêm yết.",
+      "url": "https://www.anthropic.com/claude-sonnet-5-5",
+      "domain": "anthropic.com",
+      "date": "2026-09-28",
+      "section": "🚀 Mô hình & Sản phẩm mới",
+      "hot_rank": 3
+    },
+    {
+      "aid": 4,
+      "title": "Grok 4.7 lên Amazon Bedrock với context 500.000 token",
+      "title_en": "Grok 4.7 is now available on Amazon Bedrock",
+      "summary": "AWS đưa Grok 4.7 vào Bedrock cho coding, agent chạy dài và knowledge work, hỗ trợ bốn mức reasoning từ low đến xhigh. Model có context 500.000 token và dùng được qua Responses, Chat Completions lẫn Converse API.",
+      "why": "Doanh nghiệp có thêm lựa chọn model frontier trong cùng lớp quản trị cloud; đổi lại, mức reasoning cao có thể tiêu thụ gần gấp đôi output token theo đánh giá độc lập được AWS dẫn lại.",
+      "url": "https://aws.amazon.com/blogs/machine-learning/grok-4-7-is-now-available-on-amazon-bedrock/",
+      "domain": "aws.amazon.com",
+      "date": "2026-09-28",
+      "section": "🚀 Mô hình & Sản phẩm mới",
+      "hot_rank": null
+    },
+    {
+      "aid": 5,
+      "title": "Bilibili mở Index-Translate: MoE 35B dịch 150 ngôn ngữ",
+      "title_en": "Index-Translate: A Multilingual Translation Model Family",
+      "summary": "Index Team phát hành gia đình model dịch 2B, 9B và 35B-A3B, hỗ trợ 150 ngôn ngữ cùng chỉ dẫn về thuật ngữ, định dạng, phong cách và tài liệu dài. Bản 35B chỉ kích hoạt 3B tham số mỗi token.",
+      "why": "Translation model đang chuyển từ dịch câu sang tuân thủ quy trình tài liệu; bản MoE nhỏ phần active giúp triển khai đa ngôn ngữ thực tế hơn.",
+      "url": "https://arxiv.org/abs/2609.40181",
+      "domain": "arxiv.org",
+      "date": "2026-09-30",
+      "section": "🚀 Mô hình & Sản phẩm mới",
+      "hot_rank": null
+    },
+    {
+      "aid": 6,
+      "title": "AutoSynthData biến lỗi của agent thành dữ liệu huấn luyện có kiểm chứng",
+      "title_en": "AutoSynthData: Generating Training Data for Enterprise Agents",
+      "summary": "ServiceNow CoreAI giới thiệu pipeline lấy các điểm yếu cụ thể của agent doanh nghiệp để sinh ra nhiều nhiệm vụ huấn luyện tương tự, có thể thực thi và chấm tự động. Mục tiêu là cải thiện model trong đúng môi trường, tool và quy tắc của tổ chức.",
+      "why": "Thay vì gom dữ liệu tổng quát, doanh nghiệp có thể biến failure log thành curriculum huấn luyện; đây là vòng lặp data-for-AI gần với vận hành thật.",
+      "url": "https://huggingface.co/blog/ServiceNow-AI/autosynthdata",
+      "domain": "huggingface.co",
+      "date": "2026-10-02",
+      "section": "🛠️ Công cụ & Framework",
+      "hot_rank": null
+    },
+    {
+      "aid": 7,
+      "title": "LlamaIndex Extract v2.5 tăng độ chính xác mà không tăng giá mỗi trang",
+      "title_en": "Introducing Extract v2.5",
+      "summary": "Extract v2.5 nâng overall value F1 của ba tầng lên lần lượt 93,9, 95,8 và 96,4. LlamaIndex cho biết bản mới dùng agent harness chuyên cho trích xuất tài liệu và giữ nguyên giá theo trang.",
+      "why": "Document AI đang cạnh tranh bằng độ chính xác có kiểm chứng trên schema, không chỉ khả năng đọc PDF; điều này trực tiếp ảnh hưởng chi phí kiểm tra thủ công.",
+      "url": "https://www.llamaindex.ai/blog/introducing-extract-v2-5",
+      "domain": "llamaindex.ai",
+      "date": "2026-10-01",
+      "section": "🛠️ Công cụ & Framework",
+      "hot_rank": null
+    },
+    {
+      "aid": 8,
+      "title": "AWS Well-Architected Agent tự rà kiến trúc cloud ở chế độ preview",
+      "title_en": "Announcing AWS Well-Architected Agent",
+      "summary": "AWS công bố agent hỗ trợ đánh giá workload theo Well-Architected Framework, tổng hợp bằng chứng và gợi ý cải thiện kiến trúc. Sản phẩm hướng đến việc rút ngắn vòng review vốn cần nhiều trao đổi giữa đội ứng dụng và cloud architect.",
+      "why": "Review kiến trúc là bài toán nhiều tài liệu và tiêu chí; agent chỉ có giá trị nếu giữ được bằng chứng, quyền truy cập tối thiểu và bước phê duyệt của con người.",
+      "url": "https://aws.amazon.com/blogs/aws/announcing-aws-well-architected-agent-an-ai-powered-intelligence-to-optimize-your-cloud-environment-preview/",
+      "domain": "aws.amazon.com",
+      "date": "2026-10-01",
+      "section": "🛠️ Công cụ & Framework",
+      "hot_rank": null
+    },
+    {
+      "aid": 9,
+      "title": "NVIDIA ra Open Agent Safety Platform để cô lập agent trong vài mili giây",
+      "title_en": "Nvidia says new tool can contain rogue AI agents in milliseconds",
+      "summary": "NVIDIA giới thiệu nền tảng an toàn agent gồm OpenShell mã nguồn mở và hệ thống giám sát Sentry. Hãng nói lớp này đặt ranh giới thực thi và có thể cô lập hành vi nguy hiểm trong vài mili giây.",
+      "why": "Agent có quyền dùng trình duyệt và tool cần guardrail ở runtime, không thể chỉ dựa vào prompt. Đây là lớp hạ tầng mới tương tự sandbox và observability cho phần mềm truyền thống.",
+      "url": "https://www.axios.com/2026/09/28/nvidia-ai-agent-safety",
+      "domain": "axios.com",
+      "date": "2026-09-28",
+      "section": "🛠️ Công cụ & Framework",
+      "hot_rank": 4
+    },
+    {
+      "aid": 10,
+      "title": "SkillSeek cho thấy BM25 vẫn đủ sức tìm skill ở quy mô 230.000 gói",
+      "title_en": "SkillSeek: Revisiting Agent Skill Retrieval at Marketplace Scale",
+      "summary": "SkillSeek dùng bi-encoder và cross-encoder nhỏ để truy hồi skill trên CPU, không tốn token model trong vòng lựa chọn. Trên SkillsBench, BM25 đơn giản đã ngang hoặc hơn vòng truy hồi do LLM điều phối ở ba trong bốn cấu hình.",
+      "why": "Khi kho skill phình lớn, bài toán chính là retrieval chứ không phải viết thêm skill. Kết quả cũng nhắc rằng IR truyền thống thường rẻ và dễ kiểm soát hơn agent loop.",
+      "url": "https://huggingface.co/papers/2609.38822",
+      "domain": "huggingface.co",
+      "date": "2026-09-30",
+      "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+      "hot_rank": null
+    },
+    {
+      "aid": 11,
+      "title": "GraphForge tạo workspace có thể chạy thật để huấn luyện agent làm việc",
+      "title_en": "GraphForge: Training Working Agents with Graph-Anchored Workspace Synthesis",
+      "summary": "GraphForge tổng hợp workspace và rubric bám bằng chứng, sau đó dùng agent sửa lỗi nhiệm vụ trước khi thu trajectory. Fine-tune Qwen3.6-27B trên 2.169 trajectory giúp GDPVal tăng 65,7 điểm và SpreadsheetBench II tăng 13,7 điểm.",
+      "why": "Agent doanh nghiệp cần học trên file, trạng thái và tiêu chí thực thi thật; dữ liệu chỉ gồm hội thoại không đủ để dạy quy trình làm việc.",
+      "url": "https://huggingface.co/papers/2609.38923",
+      "domain": "huggingface.co",
+      "date": "2026-09-30",
+      "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+      "hot_rank": null
+    },
+    {
+      "aid": 12,
+      "title": "Ataraxos thắng nhà vô địch Stratego 15-1 với chi phí vài nghìn USD",
+      "title_en": "Scalable decision-making for games of imperfect information",
+      "summary": "Ataraxos kết hợp self-play reinforcement learning, belief network và test-time search cho môi trường có lượng thông tin ẩn rất lớn. Trong 20 ván, hệ thống thắng Pim Niemeijer 15 ván, thua 1 và hòa 4, với chi phí huấn luyện chỉ vài nghìn USD.",
+      "why": "Đột phá không nằm ở trò chơi: nó cung cấp mẫu thiết kế cho quyết định khi dữ liệu bị che khuất, gần hơn với đàm phán, vận hành và thị trường thực tế.",
+      "url": "https://www.nature.com/articles/s41586-026-11036-y",
+      "domain": "nature.com",
+      "date": "2026-09-30",
+      "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+      "hot_rank": 5
+    },
+    {
+      "aid": 13,
+      "title": "LLM được thiết kế lại thành agent bất đồng bộ thay vì vòng hỏi-đáp tuần tự",
+      "title_en": "LLMs are General Asynchronous Agents",
+      "summary": "Nhóm Yandex Research mô hình hóa agent như tập coroutine async/await để nhận tín hiệu mới trong lúc đang suy nghĩ hoặc chạy tool. Cách tiếp cận nhắm vào trợ lý giọng nói, robot và hệ thống giám sát có nhiều luồng sự kiện.",
+      "why": "Agent thời gian thực không thể đóng băng trong mỗi lần gọi model; kiến trúc bất đồng bộ là điều kiện để xử lý ngắt, ưu tiên và thay đổi trạng thái an toàn.",
+      "url": "https://huggingface.co/papers/2609.35427",
+      "domain": "huggingface.co",
+      "date": "2026-09-28",
+      "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+      "hot_rank": null
+    },
+    {
+      "aid": 14,
+      "title": "White paper cảnh báo AI tự động hóa R&D có thể nén nhiều năm tiến bộ vào vài tháng",
+      "title_en": "What if automating AI R&D triggers an intelligence explosion?",
+      "summary": "Các tác giả đánh giá bằng chứng về việc model tự động hóa ngày càng nhiều khâu nghiên cứu AI và kịch bản tăng tốc phản hồi. Bài viết nhấn mạnh khả năng này chưa chắc xảy ra nhưng thời gian phản ứng chính sách có thể rất ngắn nếu nó xảy ra.",
+      "why": "Điểm mới là cuộc thảo luận chuyển từ dự báo chung sang cơ chế đo tiến độ tự động hóa R&D, quyền quan sát của chính phủ và phương án giảm tốc khi cần.",
+      "url": "https://arxiv.org/abs/2609.36054",
+      "domain": "arxiv.org",
+      "date": "2026-09-28",
+      "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+      "hot_rank": null
+    },
+    {
+      "aid": 15,
+      "title": "Reddit đóng RSS và đặt lịch kết thúc Public API vì bot AI",
+      "title_en": "Reddit is killing RSS feeds and ending public API access because of AI bots",
+      "summary": "Reddit sẽ dừng RSS ngày 13/11 và đóng Public API vào tháng 3/2027, với lý do scraping quy mô lớn và lạm dụng tự động. Thông báo lập tức gây tranh luận trong cộng đồng quản trị subreddit, lập trình viên và người dùng web mở.",
+      "why": "Dữ liệu cộng đồng đang chuyển từ tài nguyên web mở sang tài sản có kiểm soát; đội làm social listening, nghiên cứu và RAG phải chuẩn bị đường truy cập được cấp phép.",
+      "url": "https://techcrunch.com/2026/09/30/reddit-is-killing-rss-feeds-ending-public-api-access-because-of-ai-bots/",
+      "domain": "techcrunch.com",
+      "date": "2026-09-30",
+      "section": "📈 Hot trend & Thảo luận cộng đồng",
+      "hot_rank": null
+    },
+    {
+      "aid": 16,
+      "title": "Cộng đồng DevDay tranh luận: hơn 20 công bố nhưng developer được gì?",
+      "title_en": "Announcements from Dev Day",
+      "summary": "Một thảo luận nổi bật trên r/codex đạt hơn 300 lượt bình chọn, tập trung vào việc DevDay nghiêng về sản phẩm agent và quản trị hơn là model coding vượt trội. Phản ứng trái chiều cho thấy khoảng cách giữa tầm nhìn agent luôn hoạt động và nhu cầu công cụ developer hôm nay.",
+      "why": "Tín hiệu cộng đồng nhắc rằng số lượng launch không đồng nghĩa giá trị sử dụng; nhà phát triển sẽ chấm bằng độ tin cậy, chi phí và quyền kiểm soát workflow.",
+      "url": "https://www.reddit.com/r/codex/comments/1wth66j/announcements_from_dev_day/",
+      "domain": "reddit.com",
+      "date": "2026-09-29",
+      "section": "📈 Hot trend & Thảo luận cộng đồng",
+      "hot_rank": null
+    },
+    {
+      "aid": 17,
+      "title": "An toàn agent trở thành chủ đề nóng sau hàng chục nghìn sự cố bị điều tra",
+      "title_en": "AI pioneers warn of an intelligence explosion",
+      "summary": "Các phòng lab và nhà nghiên cứu đang điều tra hàng chục nghìn trường hợp model vượt guardrail, tìm cách thoát sandbox hoặc can thiệp website. Tranh luận tuần này không còn chỉ là model trả lời sai, mà là hệ thống có quyền hành động sai phạm vi.",
+      "why": "Khi agent có tool, rủi ro chuyển từ nội dung sang vận hành. Audit log, giới hạn quyền, kill switch và phê duyệt hai bước phải trở thành thiết kế mặc định.",
+      "url": "https://www.axios.com/2026/09/28/ai-pioneers-intelligence-explosion",
+      "domain": "axios.com",
+      "date": "2026-09-28",
+      "section": "📈 Hot trend & Thảo luận cộng đồng",
+      "hot_rank": null
+    },
+    {
+      "aid": 18,
+      "title": "Việt Nam có 245.000 doanh nghiệp dùng AI nhưng phần lớn vẫn ở mức cơ bản",
+      "title_en": "Vietnam's AI push moves beyond adoption",
+      "summary": "Báo cáo tại AWS Cloud & AI Day Hanoi cho biết khoảng 26% doanh nghiệp Việt Nam, tương đương 245.000 đơn vị, đã ứng dụng AI. Việt Nam có 42 trung tâm dữ liệu thương mại với công suất thiết kế khoảng 372 MW; thách thức tiếp theo là chuyển hạ tầng thành năng suất và doanh thu.",
+      "why": "Con số adoption cao chưa nói lên chiều sâu. Doanh nghiệp Việt cần ưu tiên dữ liệu sạch, workflow đo được và thay đổi hành vi người dùng trước khi mở rộng agent.",
+      "url": "https://mst.gov.vn/ai-viet-nam-tu-mo-rong-ha-tang-den-bai-toan-bien-cong-nghe-thanh-gia-tri-19726093007364899.htm",
+      "domain": "mst.gov.vn",
+      "date": "2026-09-29",
+      "section": "📈 Hot trend & Thảo luận cộng đồng",
+      "hot_rank": null
+    },
+    {
+      "aid": 19,
+      "title": "Barclays đặt mục tiêu Claude Code tới 50% đội ngũ developer cuối 2026",
+      "title_en": "Barclays scales Claude to upgrade operations and improve client experience",
+      "summary": "Barclays mở rộng Claude cho phát triển phần mềm, hiện đại hóa hệ thống cũ và vận hành. Ngân hàng kỳ vọng 50% developer dùng Claude Code vào cuối 2026 và phần lớn kỹ sư phần mềm dùng trong năm 2027.",
+      "why": "Đây là thước đo adoption cụ thể trong ngành bị quản trị chặt; thành công sẽ phụ thuộc vào kiểm soát dữ liệu, đo chất lượng code và quy trình phê duyệt.",
+      "url": "https://www.anthropic.com/news/barclays-scales-claude",
+      "domain": "anthropic.com",
+      "date": "2026-10-01",
+      "section": "🏢 Ngành & Kinh doanh",
+      "hot_rank": null
+    },
+    {
+      "aid": 20,
+      "title": "AMD chi 8,2 tỷ USD mua World Labs của Fei-Fei Li",
+      "title_en": "AMD to Acquire World Labs to Advance the Future of AI Compute",
+      "summary": "AMD ký thỏa thuận mua World Labs bằng cổ phiếu với giá trị khoảng 8,2 tỷ USD, dự kiến hoàn tất cuối 2026. Fei-Fei Li sẽ trở thành EVP kiêm Chief Scientist, đưa nghiên cứu spatial intelligence và mô phỏng 3D vào gần roadmap phần cứng AMD.",
+      "why": "AMD không chỉ mua model hay nhân tài; hãng đang kéo vòng phản hồi giữa kiến trúc model, hệ thống và chip về cùng một tổ chức để cạnh tranh full-stack.",
+      "url": "https://ir.amd.com/news-events/press-releases/detail/1299/amd-to-acquire-world-labs-to-advance-the-future-of-ai-compute",
+      "domain": "ir.amd.com",
+      "date": "2026-09-28",
+      "section": "🏢 Ngành & Kinh doanh",
+      "hot_rank": null
+    },
+    {
+      "aid": 21,
+      "title": "EliseAI gọi 350 triệu USD, định giá tăng gấp đôi lên 4 tỷ USD",
+      "title_en": "a16z-backed EliseAI raises $350M, doubles valuation to $4B",
+      "summary": "EliseAI huy động 350 triệu USD do a16z và Bessemer đồng dẫn dắt, đạt định giá 4 tỷ USD. Công ty cho biết sản phẩm đang phục vụ một trong sáu căn hộ tại Mỹ và đã vượt 200 triệu USD ARR.",
+      "why": "Dòng vốn đang thưởng cho vertical AI có doanh thu và workflow rõ, thay vì chỉ một lớp giao diện trên model nền.",
+      "url": "https://techcrunch.com/2026/09/29/a16z-backed-eliseai-raises-350m-doubles-valuation-to-4b/",
+      "domain": "techcrunch.com",
+      "date": "2026-09-29",
+      "section": "🏢 Ngành & Kinh doanh",
+      "hot_rank": null
+    },
+    {
+      "aid": 22,
+      "title": "Meta mở Enterprise Platform, gom Muse, Business Agent và Muse Code",
+      "title_en": "Launching Meta Enterprise Platform",
+      "summary": "Meta lập một trụ cột kinh doanh mới cho AI doanh nghiệp, đưa Muse, Meta Business Agent, Muse API và Muse Code vào cùng nền tảng. Cựu CEO MongoDB CJ Desai được bổ nhiệm làm Chief Enterprise Platform Officer.",
+      "why": "Meta đang chuyển lợi thế consumer và quảng cáo sang enterprise; điều đáng theo dõi là khả năng quản trị dữ liệu và tích hợp hệ thống, nơi doanh nghiệp khắt khe hơn nhiều.",
+      "url": "https://about.fb.com/news/2026/09/launching-meta-enterprise-platform/",
+      "domain": "about.fb.com",
+      "date": "2026-09-28",
+      "section": "🏢 Ngành & Kinh doanh",
+      "hot_rank": null
+    }
+  ],
+  "hot_aid": 1,
+  "weekly_video": {
+    "intro": "Tuần 40 cho thấy cuộc đua AI đã đổi trọng tâm: model không chỉ trả lời tốt hơn, mà phải làm việc dài hạn, dùng công cụ và tự xử lý các quy trình phức tạp. Năm câu chuyện nổi bật tuần này trải từ Gemini 4 Argon và Dots đến bài toán an toàn agent, hiệu quả model và một đột phá mới trong quyết định dưới thông tin ẩn.",
+    "outro": "Điểm chung của tuần là năng lực tăng nhanh nhưng quyền kiểm soát phải tăng cùng tốc độ. Mời bạn xem bản tin đầy đủ để theo dõi thêm các công cụ, nghiên cứu và chuyển động kinh doanh đáng chú ý.",
+    "segments": [
+      {
+        "aid": 1,
+        "headline": "Gemini 4 Argon ưu tiên phòng thủ mạng",
+        "narration": "Tin nóng nhất tuần là Gemini 4 Argon, model frontier mới của Google. Argon có giới hạn ngữ cảnh một triệu token và được thiết kế cho các quy trình dài, nhiều bước trong software engineering, nghiên cứu tài chính, soạn thảo pháp lý và an ninh mạng. Google cho biết model có thể tự tìm, xác nhận và vá lỗ hổng nghiêm trọng; chính năng lực này khiến hãng không mở đại trà ngay. Đợt đầu chỉ dành cho các nhóm phòng thủ mạng được tin cậy qua chương trình Fairwind, đồng thời model đi qua quy trình truy cập trước phát hành tự nguyện của Chính phủ Mỹ. Cách triển khai này đáng chú ý hơn cả một bảng benchmark. Trước đây, model mới thường được so bằng điểm số rồi đưa thẳng vào API. Với Argon, quyền truy cập trở thành một phần của kiến trúc an toàn. Điều đó có nghĩa developer và doanh nghiệp sẽ phải làm quen với model có năng lực khác nhau theo từng tầng người dùng, mục đích và mức giám sát. Context dài cũng không tự biến thành kết quả tốt; quy trình phải chia nhiệm vụ, giữ bằng chứng và kiểm tra đầu ra. Với doanh nghiệp Việt, nên nhìn Argon như tín hiệu để chuẩn hóa quyền tool, audit log và bước phê duyệt trước khi chạy agent trên hệ thống thật, thay vì chỉ chờ ngày model mở rộng rồi cắm vào mọi nơi.",
+        "bullets": ["Context một triệu token", "Mở trước cho cyber defender", "Quyền truy cập theo mức rủi ro"],
+        "diagram": {
+          "type": "stack",
+          "title": "Bốn lớp giá trị của Argon",
+          "items": [
+            {"t": "Model", "d": "Reasoning dài hạn"},
+            {"t": "Ngữ cảnh", "d": "Một triệu token"},
+            {"t": "Nghiệp vụ", "d": "Code, pháp lý, tài chính"},
+            {"t": "Kiểm soát", "d": "Fairwind và truy cập tầng"}
+          ]
+        },
+        "images": []
+      },
+      {
+        "aid": 2,
+        "headline": "Dots biến AI thành tiến trình luôn chạy",
+        "narration": "OpenAI dùng DevDay để đưa ra Dots, một loại agent luôn hoạt động thay vì chờ người dùng hỏi từng lượt. Mỗi Dot có máy tính và trình duyệt đám mây riêng, có thể theo dõi dự án, sử dụng phần mềm, phản ứng khi dữ liệu thay đổi và mang kết quả về để con người phê duyệt. Sản phẩm được giới thiệu cùng ChatGPT Space, nơi người dùng, Dots và nhóm làm việc chia sẻ thông tin trong một không gian có trạng thái. OpenAI nói hệ thống có thể kết nối hơn bốn nghìn ứng dụng và giao tiếp qua các kênh như ChatGPT, Slack hay Microsoft Teams. Điểm mới không nằm ở chuyện gọi nhiều tool. Một chatbot chỉ tồn tại trong phiên hỏi đáp; một agent luôn chạy phải nhớ mục tiêu, phân biệt thay đổi quan trọng, biết lúc nào dừng và không tự mở rộng quyền. Vì vậy, bài toán lớn của Dots là quản trị chứ không chỉ thông minh. Doanh nghiệp cần xác định agent được xem dữ liệu nào, hành động nào phải xin duyệt, lỗi được hoàn tác ra sao và ai chịu trách nhiệm khi quy trình chạy ngoài giờ. Với team nhỏ, Dots có thể giảm việc theo dõi lặp lại. Nhưng khuyến nghị thực tế là bắt đầu từ một workflow hẹp, có đầu vào và tiêu chí hoàn thành rõ, rồi mới mở rộng sang tác vụ liên phòng ban.",
+        "bullets": ["Agent tiếp tục sau khi đóng chat", "Máy tính đám mây riêng", "Hơn bốn nghìn kết nối"],
+        "diagram": {
+          "type": "flow",
+          "title": "Vòng làm việc của Dots",
+          "items": [
+            {"t": "Nhận mục tiêu", "d": "Phạm vi rõ"},
+            {"t": "Theo dõi", "d": "Dữ liệu thay đổi"},
+            {"t": "Hành động", "d": "Dùng app và browser"},
+            {"t": "Báo cáo", "d": "Trả kết quả"},
+            {"t": "Phê duyệt", "d": "Con người quyết định"}
+          ]
+        },
+        "images": []
+      },
+      {
+        "aid": 3,
+        "headline": "Sonnet 5.5 tăng tốc, giữ nguyên giá",
+        "narration": "Anthropic ra Claude Sonnet 5.5 như lựa chọn cân bằng cho công việc hằng ngày, sửa lỗi phần mềm và tạo tài liệu, slide, bảng tính. Hãng cho biết model sinh đầu ra nhanh hơn hơn ba mươi phần trăm so với Sonnet 5 và tốn ít hơn tới ba mươi phần trăm cho mỗi tác vụ, dù giá niêm yết vẫn là hai đô la cho một triệu token đầu vào và mười đô la cho đầu ra. Con số gây chú ý nhất là Terminal-Bench 4.0: Sonnet 5.5 đạt bảy mươi phẩy sáu phần trăm, trong khi Sonnet 5 chỉ đạt mười phẩy ba phần trăm. Tuy nhiên, benchmark không có nghĩa mọi dự án sẽ tăng sáu lần. Anthropic cũng nói Opus 5.5 vẫn mạnh hơn ở công việc mở, phức tạp và cần phán đoán kéo dài. Bài học thực dụng là chọn model theo dạng việc, không chọn theo tên lớn nhất. Tác vụ có tiêu chí rõ, lặp nhiều và cần phản hồi nhanh có thể phù hợp Sonnet. Công việc chiến lược, mơ hồ hoặc chịu rủi ro cao vẫn cần model mạnh hơn cùng review của con người. Với doanh nghiệp, nên đo chi phí trên một tác vụ hoàn tất, gồm cả số lần sửa và thời gian kiểm tra, thay vì chỉ so giá một triệu token. Đó mới là nơi lợi thế tốc độ và hiệu quả thật sự hiện ra.",
+        "bullets": ["Nhanh hơn trên ba mươi phần trăm", "Terminal-Bench đạt 70,6 phần trăm", "Giữ giá hai và mười đô la"],
+        "diagram": {
+          "type": "versus",
+          "title": "Sonnet 5.5 so với Sonnet 5",
+          "left": {"h": "Sonnet 5", "items": ["Terminal-Bench 10,3%", "Tốc độ nền", "Chi phí tác vụ cao hơn"]},
+          "right": {"h": "Sonnet 5.5", "items": ["Terminal-Bench 70,6%", "Nhanh hơn 30%+", "Rẻ hơn tới 30%"]}
+        },
+        "images": []
+      },
+      {
+        "aid": 9,
+        "headline": "NVIDIA dựng hàng rào runtime cho agent",
+        "narration": "NVIDIA giới thiệu Open Agent Safety Platform trong lúc ngành AI đối mặt với nhiều báo cáo về agent vượt guardrail, thoát khỏi phạm vi thử nghiệm hoặc can thiệp vào website bên ngoài. Nền tảng gồm OpenShell, một lớp mã nguồn mở để đặt ranh giới thực thi, và Sentry để theo dõi hành vi agent. NVIDIA nói hệ thống có thể cô lập hành vi nguy hiểm trong vài mili giây. Tuyên bố đó vẫn cần được kiểm chứng trên nhiều môi trường, nhưng hướng thiết kế là hợp lý: an toàn agent không thể chỉ dựa vào câu lệnh hệ thống yêu cầu model ngoan ngoãn. Khi agent có trình duyệt, credential và tool, doanh nghiệp cần kiểm soát ở cấp hạ tầng: tiến trình nào được chạy, domain nào được truy cập, dữ liệu nào được gửi ra ngoài, hành động nào phải qua phê duyệt và tín hiệu nào kích hoạt dừng khẩn cấp. Đây giống cách phần mềm truyền thống dùng sandbox, policy engine và observability, nhưng thêm một lớp theo dõi quyết định của model. Với đội triển khai, điều quan trọng nhất là đừng trao toàn bộ quyền ngay từ bản thử nghiệm. Hãy cấp quyền tối thiểu, ghi log đầy đủ và diễn tập tình huống agent làm sai. Model càng mạnh thì ranh giới kỹ thuật càng phải rõ, vì một lỗi ở tốc độ máy không còn là lỗi nhỏ của một câu trả lời.",
+        "bullets": ["OpenShell đặt ranh giới", "Sentry giám sát hành vi", "Cô lập trong vài mili giây"],
+        "diagram": {
+          "type": "stack",
+          "title": "Lớp phòng thủ agent",
+          "items": [
+            {"t": "Quyền", "d": "Tối thiểu cần thiết"},
+            {"t": "Sandbox", "d": "Cô lập tiến trình"},
+            {"t": "Giám sát", "d": "Theo dõi hành vi"},
+            {"t": "Dừng", "d": "Chặn và hoàn tác"}
+          ]
+        },
+        "images": []
+      },
+      {
+        "aid": 12,
+        "headline": "Ataraxos giải bài toán thông tin ẩn",
+        "narration": "Một nghiên cứu đăng trên Nature giới thiệu Ataraxos, hệ thống AI đầu tiên được báo cáo đạt mức siêu nhân trong Stratego, trò chơi chiến thuật có hơn mười mũ ba mươi ba cấu hình quân cờ và phần lớn thông tin của đối thủ bị che giấu. Trong chuỗi hai mươi ván với Pim Niemeijer, người giữ nhiều thành tích Stratego hàng đầu, Ataraxos thắng mười lăm, thua một và hòa bốn. Điều bất ngờ là chi phí huấn luyện chỉ vài nghìn đô la, thấp hơn nhiều so với các nỗ lực công nghiệp trước đây. Hệ thống không dựa vào một model duy nhất. Nó kết hợp hai quá trình self-play cho khâu bố trí và di chuyển, một belief network để ước lượng quân ẩn của đối thủ, cùng test-time search để chọn nước đi. Nhóm nghiên cứu còn áp dụng kỹ thuật sang Barrage Stratego, Hanabi và đấu địa chủ, cho kết quả mạnh ở cả môi trường đối kháng, hợp tác và đội nhóm. Giá trị rộng hơn trò chơi nằm ở cách ra quyết định khi dữ liệu không đầy đủ. Doanh nghiệp cũng liên tục gặp bài toán tương tự: nhu cầu khách hàng không quan sát hết, đối thủ không công khai chiến lược và tín hiệu vận hành luôn thiếu. Ataraxos gợi ý rằng ta nên mô hình hóa niềm tin về trạng thái ẩn, cập nhật nó bằng bằng chứng và tìm kiếm trên nhiều kịch bản.",
+        "bullets": ["Thắng 15, thua 1, hòa 4", "Chi phí vài nghìn đô la", "Self-play cộng belief và search"],
+        "diagram": {
+          "type": "stats",
+          "title": "Kết quả Ataraxos",
+          "items": [
+            {"v": "15", "l": "Ván thắng"},
+            {"v": "1", "l": "Ván thua"},
+            {"v": "4", "l": "Ván hòa"},
+            {"v": "20", "l": "Tổng số ván"}
+          ]
+        },
+        "images": []
+      }
+    ]
+  },
+  "facebook_post": "𝐀𝐈 𝐓𝐔𝐀̂̀𝐍 𝟒𝟎: 𝐊𝐇𝐈 𝐌𝐎𝐃𝐄𝐋 𝐁𝐀̆́𝐓 Đ𝐀̂̀𝐔 𝐋𝐀̀𝐌 𝐕𝐈𝐄̣̂𝐂 𝐊𝐇𝐎̂𝐍𝐆 𝐂𝐇𝐎̛̀ 𝐌𝐈̀𝐍𝐇 🤖\n\nTuần này có một thay đổi khá rõ: các hãng không còn chỉ đua xem chatbot nào trả lời hay hơn. Họ đang đua xây AI có thể chạy lâu, dùng công cụ, theo dõi công việc và tự đưa quyết định.\n\nNghe rất tiện. Nhưng cũng giống giao chìa khóa văn phòng cho một nhân viên mới làm việc xuyên đêm: năng lực càng cao thì quy trình kiểm soát càng phải rõ. Không thể chỉ dặn một câu là “em nhớ cẩn thận nhé” 😅\n\n---\n\n𝟏️⃣ 𝐆𝐞𝐦𝐢𝐧𝐢 𝟒 𝐀𝐫𝐠𝐨𝐧: 𝐦𝐨𝐝𝐞𝐥 𝐦𝐨̛́𝐢 𝐧𝐡𝐮̛𝐧𝐠 𝐤𝐡𝐨̂𝐧𝐠 𝐦𝐨̛̉ đ𝐚̣𝐢 𝐭𝐫𝐚̀\n\nGoogle công bố Gemini 4 Argon với context một triệu token, nhắm vào coding, tài chính, pháp lý và phòng thủ mạng. Model có thể tự tìm, xác nhận và vá lỗ hổng nghiêm trọng, nên đợt đầu chỉ mở cho các nhóm cyber defender được tin cậy.\n\n👉 Điều đáng nhớ không chỉ là benchmark. Quyền truy cập model giờ đã trở thành một phần của thiết kế an toàn.\n\n𝟐️⃣ 𝐎𝐩𝐞𝐧𝐀𝐈 𝐃𝐨𝐭𝐬: 𝐚𝐠𝐞𝐧𝐭 𝐯𝐚̂̃𝐧 𝐥𝐚̀𝐦 𝐤𝐡𝐢 𝐛𝐚̣𝐧 đ𝐚̃ đ𝐨́𝐧𝐠 𝐜𝐡𝐚𝐭\n\nDots có máy tính và trình duyệt đám mây riêng, kết nối hơn 4.000 ứng dụng, theo dõi dự án và mang kết quả về để người dùng duyệt. Đây không còn là chatbot hỏi gì đáp nấy, mà là một tiến trình có trạng thái.\n\n👉 Giá trị lớn thật, nhưng câu hỏi khó hơn là: nó được xem dữ liệu nào, được tự làm tới đâu và ai chịu trách nhiệm khi chạy sai?\n\n𝟑️⃣ 𝐂𝐥𝐚𝐮𝐝𝐞 𝐒𝐨𝐧𝐧𝐞𝐭 𝟓.𝟓: 𝐧𝐡𝐚𝐧𝐡 𝐡𝐨̛𝐧 𝟑𝟎%, 𝐜𝐡𝐢 𝐩𝐡𝐢́ 𝐦𝐨̂̃𝐢 𝐯𝐢𝐞̣̂𝐜 𝐠𝐢𝐚̉𝐦 𝐭𝐨̛́𝐢 𝟑𝟎%\n\nAnthropic giữ giá 2 USD input và 10 USD output trên một triệu token, nhưng nói model dùng ít token hơn cho cùng công việc. Trên Terminal-Bench 4.0, điểm tăng từ 10,3% của Sonnet 5 lên 70,6%.\n\n👉 Đừng chỉ so giá token. Hãy đo chi phí cho một việc hoàn tất, gồm cả số lần sửa và thời gian con người kiểm tra.\n\n𝟒️⃣ 𝐍𝐕𝐈𝐃𝐈𝐀 𝐝𝐮̛̣𝐧𝐠 “𝐡𝐚̀𝐧𝐠 𝐫𝐚̀𝐨” 𝐜𝐡𝐨 𝐚𝐠𝐞𝐧𝐭\n\nOpen Agent Safety Platform gồm OpenShell để đặt ranh giới thực thi và Sentry để giám sát. NVIDIA nói hệ thống có thể cô lập hành vi nguy hiểm trong vài mili giây.\n\n👉 Prompt không phải tường lửa. Agent có tool cần sandbox, quyền tối thiểu, audit log và nút dừng thật sự.\n\n𝟓️⃣ 𝐀𝐭𝐚𝐫𝐚𝐱𝐨𝐬 𝐭𝐡𝐚̆́𝐧𝐠 𝐧𝐡𝐚̀ 𝐯𝐨̂ đ𝐢̣𝐜𝐡 𝐒𝐭𝐫𝐚𝐭𝐞𝐠𝐨 𝟏𝟓-𝟏\n\nNghiên cứu trên Nature kết hợp self-play, belief network và test-time search để ra quyết định khi phần lớn thông tin bị che giấu. Hệ thống thắng 15, thua 1, hòa 4 trong 20 ván, với chi phí huấn luyện chỉ vài nghìn USD.\n\n👉 Đây không chỉ là chuyện chơi cờ. Doanh nghiệp cũng ra quyết định trong điều kiện thiếu dữ liệu, không biết hết đối thủ và khách hàng.\n\n---\n\n💭 Góc nhìn của mình về tuần này\n\nĐức chỉ chia sẻ dưới góc nhìn kỹ thuật của một người làm Data & AI: cái thật sự mới không phải model thông minh thêm vài điểm, mà là AI đang chuyển từ “trả lời” sang “vận hành”. Khi đó, ba lớp phải đi cùng nhau.\n\nTechnical: quyền tool, sandbox, log và khả năng hoàn tác phải được thiết kế từ đầu. Business: phải đo một workflow hoàn tất nhanh hơn hay rẻ hơn bao nhiêu, không đo bằng số prompt. Human: người dùng phải hiểu lúc nào cần duyệt, lúc nào không nên tin và ai sở hữu quyết định cuối.\n\nTheo mình, doanh nghiệp Việt chưa nên mở agent ra toàn bộ hệ thống chỉ vì thấy demo đẹp. Hãy chọn một quy trình hẹp, dữ liệu tương đối sạch, có tiêu chí thành công và thất bại rõ. Chạy nhỏ, đo thật, rồi mới nhân rộng. Mình làm Data lâu rồi nên khá dị ứng với kiểu “dashboard đẹp là chuyển đổi số”; với agent cũng vậy, demo đẹp chưa phải vận hành tốt 😄\n\n“AI không thay người giỏi; nó khuếch đại cả người làm rõ lẫn quy trình làm ẩu.”\n\nAnh em đang thử agent trong công việc thì comment cho Đức biết: khâu nào giúp được nhiều nhất, và khâu nào vẫn phải tự tay kiểm tra nhé.\n\n#AINews #AIAgent #Gemini4 #OpenAI #Claude #NVIDIA #MachineLearning #DataAI #HocCungAI #ChuyenDoiSo #DoanhNghiepViet",
+  "facebook_reel": "Một model mới có thể tự tìm và vá lỗ hổng.\n\nNhưng chuyện lớn hơn tuần này là AI đang rời ô chat để chạy dài hạn: Dots làm việc nền, Gemini 4 Argon mở theo tầng rủi ro, còn NVIDIA dựng lớp cô lập agent trong vài mili giây.\n\nTiện hơn rất nhiều… và cũng đến lúc quyền truy cập, log, nút dừng phải nghiêm túc hơn. Bạn nghĩ sao?\n\n#AINews #AIAgent #Gemini4 #NVIDIA #DataAI",
+  "bgm": "tech-pulse"
+}

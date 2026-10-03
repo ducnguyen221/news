@@ -1,0 +1,409 @@
+{
+ "date": "03/10/2026",
+ "week": "W40",
+ "range": "28/09 - 04/10/2026",
+ "tldr": "Tuần 40 cho thấy semantic layer và governance đang trở thành hạ tầng bắt buộc để AI làm việc với dữ liệu doanh nghiệp. Microsoft đưa Fabric IQ vào Copilot, AWS hoàn thiện hỗ trợ kiểu dữ liệu Iceberg V3 trong S3 Tables, còn Databricks bắt đầu thực thi ABAC xuyên các query engine bên ngoài. Ở lớp vật lý, NetApp Novus tách metadata khỏi data path để nhắm tới AI factory quy mô hàng chục nghìn GPU. Cùng lúc, Snowflake, Cohere và Dynatrace đều đẩy mạnh khả năng xây, truy xuất và quan sát hệ thống AI dựa trên dữ liệu.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "Amazon S3 Tables hỗ trợ đủ kiểu dữ liệu Apache Iceberg V3",
+   "title_en": "Amazon S3 Tables now support all Apache Iceberg V3 data types",
+   "summary": "S3 Tables đã hỗ trợ toàn bộ kiểu dữ liệu Iceberg V3, gồm variant cho dữ liệu bán cấu trúc và geometry/geography cho không gian. Người dùng có thể tạo bảng V3 mới hoặc nâng cấp bảng V2 tại chỗ.",
+   "why": "S3 Tables tiến gần hơn tới một lớp lakehouse được quản lý ngay trong object storage, giảm phần việc tự ghép catalog, maintenance và schema cho đội data.",
+   "url": "https://aws.amazon.com.cdn.amazon.com/blogs/aws/amazon-s3-tables-now-support-all-apache-iceberg-v3-data-types/",
+   "domain": "aws.amazon.com",
+   "date": "2026-10-02",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 2
+  },
+  {
+   "aid": 2,
+   "title": "Databricks mở kết nối JDBC trong Unity Catalog lên GA",
+   "title_en": "JDBC Unity Catalog connections are now generally available",
+   "summary": "Kết nối JDBC do Unity Catalog quản trị đã GA trên serverless compute, Databricks Runtime 19 trở lên và SQL warehouses 2025.40 trở lên, kèm hỗ trợ chứng thư SSL. OAuth machine-to-machine vẫn ở Beta.",
+   "why": "Đây là cầu nối quản trị trực tiếp tới database ngoài, giúp federation bớt phụ thuộc cấu hình rời rạc theo từng notebook hoặc cluster.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/october#jdbc-unity-catalog-connections-are-now-generally-available",
+   "domain": "docs.databricks.com",
+   "date": "2026-10-02",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 3,
+   "title": "Snowflake giữ incremental refresh cho dynamic table sau failover",
+   "title_en": "Dynamic tables continue incrementally refreshing after failover",
+   "summary": "Dynamic table ở chế độ INCREMENTAL hoặc ADAPTIVE giờ có thể tiếp tục refresh gia tăng sau khi failover group nâng bản secondary thành primary. Trước đây tình huống này dễ buộc hệ thống quay lại refresh đầy đủ.",
+   "why": "Disaster recovery bớt tạo cú sốc compute và thời gian hồi phục cho pipeline dùng dynamic table.",
+   "url": "https://docs.snowflake.com/en/release-notes/all-release-notes?bundle=true",
+   "domain": "docs.snowflake.com",
+   "date": "2026-09-30",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 4,
+   "title": "NetApp Novus tách metadata để nhắm 100 Tbps và 50.000 GPU",
+   "title_en": "NetApp Removes Storage Bottleneck for AI Factories",
+   "summary": "NetApp công bố Novus, kiến trúc file system tách metadata khỏi data path để hiệu năng, dung lượng và concurrency tăng độc lập trong một namespace NFS. Hãng đặt mục tiêu 100 Tbps, phục vụ tới 50.000 GPU và quy mô zettabyte.",
+   "why": "Khi GPU ngày càng nhanh, metadata và luồng nạp dữ liệu trở thành nút thắt đắt đỏ; Novus đánh thẳng vào điểm nghẽn vật lý đó.",
+   "url": "https://investors.netapp.com/news/news-details/2026/NetApp-Removes-Storage-Bottleneck-for-AI-Factories/default.aspx",
+   "domain": "investors.netapp.com",
+   "date": "2026-09-29",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 5
+  },
+  {
+   "aid": 5,
+   "title": "Snowflake Semantic Studio lên GA, quản semantic view bằng Git",
+   "title_en": "Semantic Studio (General availability)",
+   "summary": "Semantic Studio đã GA trong Snowflake Workspaces, kết hợp tạo semantic view bằng hội thoại, chỉnh YAML trực tiếp và triển khai thành object sống. Quy trình còn hỗ trợ version control dựa trên Git.",
+   "why": "Semantic layer đang chuyển từ tài liệu phụ thành tài sản kỹ thuật có thể review, version và deploy như code.",
+   "url": "https://docs.snowflake.com/en/release-notes/all-release-notes?bundle=true",
+   "domain": "docs.snowflake.com",
+   "date": "2026-09-30",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": 4
+  },
+  {
+   "aid": 6,
+   "title": "Databricks Excel Add-in tự lên lịch làm mới dữ liệu",
+   "title_en": "Schedule automatic data refresh in the Databricks Excel Add-in",
+   "summary": "Người dùng Excel có thể đặt lịch theo khoảng thời gian hoặc lịch cố định để làm mới dữ liệu Databricks, chọn SQL warehouse chạy tác vụ và xem lịch sử gần đây ngay trong add-in. Tính năng đang Public Preview.",
+   "why": "Excel trở thành một client vận hành ổn định hơn cho lakehouse, thay vì quy trình tải lại thủ công dễ sai và khó theo dõi.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/october#schedule-automatic-data-refresh-in-the-databricks-excel-add-in-public-preview",
+   "domain": "docs.databricks.com",
+   "date": "2026-10-01",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "Microsoft đưa Database Hub trong Fabric ra Public Preview",
+   "title_en": "New Microsoft data innovations unlock what only your business knows",
+   "summary": "Database Hub trong Fabric bước vào Public Preview như một control plane chung cho SQL Server, Azure SQL, PostgreSQL, Cosmos DB và SQL database trong Fabric. Agent chuyên biệt cho SQL và PostgreSQL cũng được công bố là sắp vào preview.",
+   "why": "Quản trị database đang dịch từ từng sản phẩm rời sang một mặt phẳng chung có khả năng chẩn đoán bằng agent.",
+   "url": "https://blogs.microsoft.com/blog/2026/09/28/new-microsoft-data-innovations-unlock-what-only-your-business-knows/",
+   "domain": "blogs.microsoft.com",
+   "date": "2026-09-28",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "Microsoft SQL bổ sung loạt công cụ mới tại SQLCon Europe",
+   "title_en": "What’s new across Microsoft SQL at SQLCon/FabCon Europe 2026",
+   "summary": "Microsoft gom các cập nhật cho SQL Server, Azure SQL, SQL database trong Fabric và công cụ phát triển tại SQLCon/FabCon Europe. Trọng tâm là quản trị tập trung, trải nghiệm developer và kết nối dữ liệu cho AI.",
+   "why": "SQL truyền thống không biến mất; nó đang được kéo vào cùng control plane và workflow agent của Fabric.",
+   "url": "https://devblogs.microsoft.com/azure-sql/whats-new-across-microsoft-sql-at-sqlcon-fabcon-europe-2026/",
+   "domain": "devblogs.microsoft.com",
+   "date": "2026-09-29",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "Databricks tăng tốc ai_extract 2,3 lần mà không tăng giá",
+   "title_en": "Standard ai_extract now delivers higher-quality extraction",
+   "summary": "Chế độ mặc định của ai_extract chuyển sang checkpoint mới, chạy nhanh hơn 2,3 lần đồng thời tăng chất lượng trích xuất, không tăng chi phí. Hàm này đưa việc bóc dữ liệu từ văn bản và tài liệu vào ngay câu lệnh trên nền tảng.",
+   "why": "AI-assisted ETL bắt đầu có economics đủ thực dụng: nhanh hơn, tốt hơn và không phải dựng riêng một dịch vụ model.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/october#standard-ai_extract-now-delivers-higher-quality-extraction",
+   "domain": "docs.databricks.com",
+   "date": "2026-10-02",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "Fabric IQ đưa dữ liệu Power BI có quản trị vào Microsoft Copilot",
+   "title_en": "FabCon and SQLCon 2026 in Barcelona: Building the data foundation for Microsoft Copilot and agents",
+   "summary": "Fabric IQ trong Copilot Chat và Cowork đã GA, cho phép trả lời câu hỏi dựa trên semantic model, metric, quan hệ và định nghĩa kinh doanh trong Power BI. Microsoft cũng công bố Fabric IQ MCP server và data agents trong Copilot Studio đã GA.",
+   "why": "Đây là bước đưa semantic model từ lớp phục vụ dashboard thành ngữ cảnh dùng chung cho agent trong công việc hằng ngày.",
+   "url": "https://azure.microsoft.com/en-us/blog/fabcon-and-sqlcon-2026-in-barcelona-building-the-data-foundation-for-microsoft-copilot-and-agents/",
+   "domain": "azure.microsoft.com",
+   "date": "2026-09-28",
+   "section": "🤖 AI × Data",
+   "hot_rank": 1
+  },
+  {
+   "aid": 11,
+   "title": "Cohere Embed 5 cho phép index bằng Pro, query bằng Fast",
+   "title_en": "Cohere releases Embed 5 with Pro and Fast tiers for enterprise AI",
+   "summary": "Embed 5 có hai tier Pro và Fast dùng chung một embedding space, nên doanh nghiệp có thể index bằng Pro rồi query bằng một trong hai mà không xây lại chỉ mục. Model nhắm tới retrieval đa phương thức, đa ngôn ngữ, tài chính, code và tài liệu đã parse.",
+   "why": "Tách chất lượng index khỏi chi phí query giúp hệ RAG điều chỉnh latency và ngân sách linh hoạt hơn mà không di trú vector store.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/cohere-releases-embed-5-with-pro-and-fast-tiers-for-enterprise-ai/",
+   "domain": "hpcwire.com",
+   "date": "2026-10-01",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "Snowflake che nội dung orchestrator khi ghi telemetry Cortex Agents",
+   "title_en": "Snowflake Native Apps: Observability for Cortex Agents",
+   "summary": "Observability cho Cortex Agents trong Native Apps giờ tự redaction nội dung do orchestrator tạo trước khi ghi event table phía khách hàng. Telemetry chia sẻ cho provider mặc định ở mức metadata; muốn chia sẻ nội dung phải được consumer phê duyệt.",
+   "why": "Quan sát agent và bảo vệ IP thường xung đột; cơ chế mới tạo ranh giới rõ giữa metadata vận hành và nội dung nhạy cảm.",
+   "url": "https://docs.snowflake.com/en/release-notes/all-release-notes?bundle=true",
+   "domain": "docs.snowflake.com",
+   "date": "2026-10-02",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "Cộng đồng tranh luận: khoảng trống triển khai agent thực ra là khoảng trống metadata",
+   "title_en": "The Execution Gap is a Metadata Gap",
+   "summary": "Một phân tích được thảo luận trong cộng đồng data lập luận rằng agent thất bại trên dữ liệu doanh nghiệp không chỉ vì model yếu, mà vì ý nghĩa, quy ước và điều kiện kiểm tra chưa được viết thành metadata có thể truy vấn. Spider 2.0 được dùng để minh họa độ khó của schema lớn và workflow thật.",
+   "why": "Nó đổi câu hỏi từ mua model nào sang doanh nghiệp đã biến tri thức ngầm của analyst thành dữ liệu vận hành hay chưa.",
+   "url": "https://www.hpcwire.com/aiwire/2026/09/30/the-execution-gap-is-a-metadata-gap/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-30",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "Data Engineering Weekly #289: data architect trở lại tâm điểm",
+   "title_en": "Data Engineering Weekly #289",
+   "summary": "Số 289 của Data Engineering Weekly xuất bản ngày 28/09, tiếp tục gom các bài đọc đáng chú ý về kiến trúc, pipeline và vận hành hệ dữ liệu. Tín hiệu chung là vai trò kiến trúc quay lại khi agent làm tăng số đường truy cập dữ liệu.",
+   "why": "Cộng đồng đang bớt ám ảnh bởi từng tool riêng lẻ và quay lại câu hỏi thiết kế hệ thống, ownership và hợp đồng dữ liệu.",
+   "url": "https://www.dataengineeringweekly.com/p/data-engineering-weekly-289",
+   "domain": "dataengineeringweekly.com",
+   "date": "2026-09-28",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "Reddit Fabric sôi lên vì đợt phát hành FabCon dày hơn thường lệ",
+   "title_en": "Microsoft Fabric Sep 2026 Update",
+   "summary": "Các thảo luận trong cộng đồng Microsoft Fabric ghi nhận lượng tính năng công bố tại FabCon Europe dày hơn những đợt trước, nhưng đồng thời đặt câu hỏi về kênh phản hồi và nhịp rollout theo region. Đây là tín hiệu adoption thực tế hơn lời quảng bá sân khấu.",
+   "why": "Với team triển khai, availability theo tenant và region quan trọng không kém trạng thái GA trên slide.",
+   "url": "https://www.reddit.com/r/MicrosoftFabric/comments/1wt4blr/microsoft_fabric_sep_2026_update/",
+   "domain": "reddit.com",
+   "date": "2026-09-29",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 16,
+   "title": "Apache lakehouse tuần này chờ Iceberg 1.12 và equality delete",
+   "title_en": "Apache Data Lakehouse Weekly: September 23 to 30, 2026",
+   "summary": "Bản tổng hợp khoảng 380 thông điệp từ các mailing list Iceberg, Polaris, Arrow, Parquet, DataFusion và Ossie cho thấy cộng đồng đang chờ thông báo Iceberg 1.12.0, merge đặc tả equality delete và buổi đồng bộ về File/Vector types.",
+   "why": "Những chi tiết tưởng nhỏ ở đặc tả quyết định khả năng tương tác thật giữa engine, catalog và file format.",
+   "url": "https://www.linkedin.com/pulse/apache-data-lakehouse-weekly-september-23-30-2026-alex-merced-tlcsc",
+   "domain": "linkedin.com",
+   "date": "2026-10-02",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "Dynatrace hoàn tất thương vụ Arize trị giá 915 triệu USD",
+   "title_en": "Dynatrace completes acquisition of Arize to advance full-lifecycle AI observability",
+   "summary": "Dynatrace đã hoàn tất mua Arize, sau thỏa thuận tiền mặt và cổ phiếu được định giá 915 triệu USD công bố tháng 8. Hai bên muốn nối evaluation lúc phát triển với observability khi AI chạy production.",
+   "why": "AI observability đang hợp nhất với observability toàn stack; dữ liệu trace, chất lượng model và hạ tầng sẽ không còn là ba bảng điều khiển tách biệt.",
+   "url": "https://www.dynatrace.com/news/blog/dynatrace-completes-acquisition-of-arize/",
+   "domain": "dynatrace.com",
+   "date": "2026-10-01",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": 3
+  },
+  {
+   "aid": 18,
+   "title": "TomTom đưa location intelligence vào Fabric qua IQ Sharing",
+   "title_en": "TomTom Brings Location Intelligence to Microsoft Fabric",
+   "summary": "TomTom mở dữ liệu location intelligence cho agent trên Microsoft Fabric và Foundry qua bản preview IQ Sharing. Dữ liệu được kết nối với OneLake để kết hợp với dữ liệu nội bộ và ngữ cảnh về đường sá, quy định, rủi ro theo vị trí.",
+   "why": "Agent doanh nghiệp cần ngữ cảnh thế giới thật chứ không chỉ bảng nội bộ; IQ Sharing đang thành kênh phân phối knowledge product mới.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/tomtom-brings-location-intelligence-to-microsoft-fabric/",
+   "domain": "hpcwire.com",
+   "date": "2026-10-01",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 19,
+   "title": "NetApp và Supermicro ghép full stack cho AI factory",
+   "title_en": "NetApp and Supermicro Collaborate to Power AI at Any Scale",
+   "summary": "NetApp và Supermicro công bố giải pháp AI infrastructure được kiểm chứng chung, ghép compute, rack, networking, power và liquid cooling với data management, cyber resilience và hybrid cloud của NetApp. Mục tiêu là tăng mức sử dụng GPU và giảm độ phức tạp vận hành.",
+   "why": "Thị trường AI factory đang chuyển từ mua linh kiện sang mua kiến trúc đã ghép sẵn, nơi data path là một phần của thiết kế compute.",
+   "url": "https://www.hpcwire.com/bigdatawire/this-just-in/netapp-and-supermicro-collaborate-to-power-ai-at-any-scale/",
+   "domain": "hpcwire.com",
+   "date": "2026-09-30",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 10,
+ "weekly_video": {
+  "intro": "Tuần 40, thế giới dữ liệu cùng dịch chuyển theo một hướng: AI chỉ thật sự hữu ích khi đứng trên semantic layer rõ nghĩa, quyền truy cập nhất quán và hạ tầng đủ nhanh. Năm câu chuyện nổi bật trải từ Microsoft Fabric, Amazon S3, Databricks và Snowflake tới kiến trúc lưu trữ mới của NetApp.",
+  "outro": "Điểm chung cần nhớ là data platform đang được thiết kế lại cho cả con người lẫn agent. Chi tiết và các tin còn lại có trong bản Data News tuần này; hẹn gặp lại anh em vào tuần sau.",
+  "segments": [
+   {
+    "aid": 10,
+    "headline": "Fabric IQ đưa semantic model vào Copilot",
+    "narration": "Tin quan trọng nhất tuần đến từ FabCon Europe. Microsoft đưa Fabric IQ trong Copilot Chat và Cowork lên trạng thái dùng rộng rãi. Nói đơn giản, Copilot không chỉ nhìn thấy một bảng dữ liệu thô. Nó có thể dựa vào semantic model Power BI, metric, quan hệ giữa bảng và định nghĩa kinh doanh đã được doanh nghiệp quản trị. Đây là phần khác biệt giữa một câu trả lời nghe hợp lý và một câu trả lời dùng đúng khái niệm doanh thu, khách hàng hay biên lợi nhuận của từng công ty. Microsoft cũng đưa Fabric IQ MCP server và Fabric data agents trong Copilot Studio lên trạng thái dùng rộng rãi. Như vậy cùng một lớp ngữ nghĩa có thể phục vụ người dùng trong Copilot, agent dựng trong Copilot Studio và công cụ bên ngoài. Fabric hiện được Microsoft cho biết đã có hơn 40.000 khách hàng; quy mô đó khiến thay đổi này đáng chú ý hơn một bản demo hội nghị. Với đội BI, semantic model giờ không chỉ phục vụ dashboard mà trở thành giao diện dữ liệu cho agent. Với doanh nghiệp Việt, bài học khá rõ: đừng đưa chatbot thẳng vào bảng dữ liệu chưa chuẩn hóa. Hãy làm sạch metric, ownership và quyền truy cập trước. Agent không tự hiểu định nghĩa nội bộ nếu tổ chức chưa từng viết nó xuống.",
+    "bullets": [
+     "Fabric IQ trong Copilot đã GA",
+     "Dùng semantic model Power BI",
+     "Hơn 40.000 khách hàng Fabric"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Ngữ cảnh cho Copilot",
+     "items": [
+      {
+       "t": "Copilot",
+       "d": "Hỏi và hành động"
+      },
+      {
+       "t": "Fabric IQ",
+       "d": "Điều phối ngữ cảnh"
+      },
+      {
+       "t": "Semantic model",
+       "d": "Metric và quan hệ"
+      },
+      {
+       "t": "OneLake",
+       "d": "Dữ liệu có quản trị"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 1,
+    "headline": "S3 Tables hoàn thiện kiểu dữ liệu Iceberg V3",
+    "narration": "Amazon S3 Tables tuần này hỗ trợ đầy đủ các kiểu dữ liệu của Apache Iceberg V3. Điểm đáng chú ý không chỉ là thêm vài kiểu cột. Variant cho phép giữ nhiều hình dạng sự kiện bán cấu trúc trong cùng một bảng mà không phải chốt schema cứng từ đầu. Geometry và geography đưa dữ liệu không gian vào cùng chuẩn bảng mở. Timestamp nanosecond phục vụ những workload cần độ chính xác thời gian cao. Người dùng có thể tạo bảng V3 mới hoặc nâng cấp bảng V2 tại chỗ, và tính năng đã có tại các khu vực hỗ trợ S3 Tables. Bức tranh lớn hơn là object storage đang nhận thêm trách nhiệm vốn trước đây nằm ở một lớp lakehouse do đội data tự ghép: catalog, bảo trì bảng và khả năng tương tác với engine. Với data engineer, lợi ích là bớt phần vận hành nền và có đường rõ hơn cho dữ liệu JSON, sự kiện, bản đồ hay telemetry. Nhưng đừng nâng cấp chỉ vì số phiên bản mới hơn. Cần kiểm tra mọi engine đọc và ghi bảng đã hiểu Iceberg V3, đặc biệt khi hệ thống có Athena, Redshift, Spark hoặc công cụ bên thứ ba cùng truy cập. Chuẩn mở chỉ tạo khả năng tương tác; compatibility thực tế vẫn phụ thuộc từng consumer. Đó là việc phải test trước khi đổi bảng production.",
+    "bullets": [
+     "Đủ kiểu dữ liệu Iceberg V3",
+     "Nâng cấp V2 ngay tại chỗ",
+     "Variant hợp dữ liệu sự kiện"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Đường nâng cấp bảng",
+     "items": [
+      {
+       "t": "Iceberg V2",
+       "d": "Bảng hiện hữu"
+      },
+      {
+       "t": "Nâng cấp",
+       "d": "Không chép lại bảng"
+      },
+      {
+       "t": "Iceberg V3",
+       "d": "Kiểu dữ liệu mới"
+      },
+      {
+       "t": "Nhiều engine",
+       "d": "Đọc qua chuẩn mở"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 17,
+    "headline": "Dynatrace hoàn tất mua Arize 915 triệu USD",
+    "narration": "Dynatrace đã hoàn tất thương vụ mua Arize, sau khi công bố thỏa thuận trị giá 915 triệu USD bằng tiền mặt và cổ phiếu hồi tháng 8. Đây không chỉ là một thương vụ quan sát hệ thống thông thường. Arize tập trung vào evaluation, tracing và chất lượng của ứng dụng AI, còn Dynatrace có thế mạnh quan sát application, hạ tầng và trải nghiệm production. Khi ghép lại, mục tiêu là theo dõi toàn bộ vòng đời: từ lúc team thử model, đánh giá prompt và dữ liệu, đến lúc agent chạy thật rồi gặp lỗi latency, chi phí, hallucination hay phụ thuộc hạ tầng. Với doanh nghiệp, giá trị nằm ở việc nối các tín hiệu vốn bị chia ba nơi: đội machine learning xem chất lượng model, đội platform xem log và trace, còn đội vận hành xem sự cố dịch vụ. Một chuỗi quan sát thống nhất có thể rút ngắn thời gian tìm nguyên nhân. Tuy vậy, thương vụ hoàn tất không đồng nghĩa sản phẩm đã hợp nhất ngay. Khách hàng vẫn cần xem lộ trình tích hợp, cách tính phí, khả năng giữ dữ liệu và mức độ khóa vào một vendor. Tín hiệu ngành thì rất rõ: AI observability không còn là tiện ích nhỏ cạnh hệ thống. Nó đang trở thành một phần của nền observability doanh nghiệp, đủ quan trọng để tạo ra thương vụ gần một tỷ đô.",
+    "bullets": [
+     "Giá trị thương vụ 915 triệu USD",
+     "Nối evaluation với production",
+     "Observability AI hợp nhất toàn stack"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Quy mô thương vụ",
+     "items": [
+      {
+       "v": "915 triệu USD",
+       "l": "Giá trị công bố"
+      },
+      {
+       "v": "2 giai đoạn",
+       "l": "Dev và production"
+      },
+      {
+       "v": "1 chuỗi",
+       "l": "Quan sát toàn vòng đời"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 5,
+    "headline": "Snowflake biến semantic layer thành code",
+    "narration": "Snowflake đưa Semantic Studio lên trạng thái dùng rộng rãi. Công cụ này nằm trong Workspaces và cho phép tạo semantic view theo ba cách kết hợp: trò chuyện để phác thảo, sửa trực tiếp YAML và triển khai thành object sống trong Snowflake. Phần đáng nói nhất là tích hợp version control dựa trên Git. Semantic layer vì vậy có thể đi qua quy trình review, so sánh thay đổi và quay lại phiên bản trước giống code, thay vì nằm trong một giao diện BI chỉ vài người hiểu. Một semantic view có thể chứa bảng, quan hệ, fact, dimension, metric, chỉ dẫn cho AI và verified query. Khi agent hỏi dữ liệu, đây chính là lớp giúp cụm từ kinh doanh ánh xạ về logic có kiểm soát. Với team data nhỏ, lợi ích là analyst và engineer có một artifact chung để bàn; không phải duy trì riêng file mô tả, logic dashboard và prompt cho agent. Nhưng semantic layer không tự sinh ra sự đồng thuận. Nếu hai phòng ban định nghĩa doanh thu khác nhau, công cụ chỉ làm mâu thuẫn đó hiện rõ hơn. Khuyến nghị thực dụng là bắt đầu từ vài metric có owner, test bằng câu hỏi thật và đưa mọi thay đổi qua review. Đừng cố mô hình hóa toàn doanh nghiệp ngay trong vòng đầu. Semantic layer tốt là sản phẩm được vận hành liên tục, không phải một dự án tài liệu làm xong rồi cất.",
+    "bullets": [
+     "Semantic Studio đã GA",
+     "YAML và Git version control",
+     "Metric phục vụ cả BI lẫn agent"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Semantic layer trước và sau",
+     "left": {
+      "h": "Trước",
+      "items": [
+       "Logic trong dashboard",
+       "Khó review thay đổi",
+       "Agent tự đoán nghĩa"
+      ]
+     },
+     "right": {
+      "h": "Sau",
+      "items": [
+       "Semantic view chung",
+       "YAML quản lý bằng Git",
+       "Verified query dẫn đường"
+      ]
+     }
+    },
+    "images": []
+   },
+   {
+    "aid": 4,
+    "headline": "NetApp Novus gỡ nút thắt metadata",
+    "narration": "NetApp công bố Novus, một kiến trúc lưu trữ mới cho AI factory. Ý tưởng cốt lõi là tách metadata khỏi data path để hiệu năng, dung lượng và số truy cập đồng thời có thể tăng độc lập, nhưng người dùng vẫn nhìn thấy một namespace NFS. NetApp đặt mục tiêu thông lượng 100 terabit mỗi giây, phục vụ tới 50.000 GPU và mở rộng tới quy mô zettabyte. Hãng gọi lớp metadata mới là Lattice: protocol service xử lý phiên NFS có thể tăng theo client, còn metadata store dạng key value được sharding để tăng theo số file. Đây là bài toán rất thực tế. Một cụm GPU lớn có thể tiêu tốn hàng chục triệu đô mỗi ngày; chỉ cần storage không cấp dữ liệu đủ nhanh, tài nguyên đắt nhất sẽ ngồi chờ. Novus vì vậy không đơn thuần là ổ lưu trữ nhanh hơn, mà là thiết kế lại cách file system tăng trưởng ở nhiều trục. Với doanh nghiệp, cần nhìn các con số này như mục tiêu kiến trúc và tuyên bố của nhà cung cấp, chưa phải benchmark độc lập cho mọi workload. Điều nên theo dõi là độ trễ metadata khi có hàng tỷ file nhỏ, khả năng phục hồi và chi phí vận hành. Dù vậy, xu hướng đã rõ: sau cuộc đua GPU, data path và metadata đang trở thành chiến trường tiếp theo của hạ tầng AI.",
+    "bullets": [
+     "Mục tiêu 100 Tbps",
+     "Hỗ trợ tới 50.000 GPU",
+     "Metadata tăng độc lập data path"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Kiến trúc Novus",
+     "items": [
+      {
+       "t": "NFS namespace",
+       "d": "Một không gian tên"
+      },
+      {
+       "t": "Protocol service",
+       "d": "Tăng theo client"
+      },
+      {
+       "t": "Lattice metadata",
+       "d": "KV store phân mảnh"
+      },
+      {
+       "t": "Data path",
+       "d": "Tăng độc lập"
+      }
+     ]
+    },
+    "images": []
+   }
+  ]
+ },
+ "facebook_post": "𝐃𝐀𝐓𝐀 𝐍𝐄𝐖𝐒 𝐓𝐔𝐀̂̀𝐍 𝟒𝟎: 𝐀𝐈 đ𝐚𝐧𝐠 𝐛𝐮𝐨̣̂𝐜 𝐧𝐞̂̀𝐧 𝐝𝐮̛̃ 𝐥𝐢𝐞̣̂𝐮 𝐩𝐡𝐚̉𝐢 𝐭𝐫𝐮̛𝐨̛̉𝐧𝐠 𝐭𝐡𝐚̀𝐧𝐡 🧠\n\nCó một câu hỏi Đức nghe rất nhiều khi làm Data & AI: “Gắn agent vào kho dữ liệu rồi cho hỏi tự nhiên là xong đúng không anh?”\n\nNếu dữ liệu chưa có nghĩa thống nhất, quyền truy cập mỗi nơi một kiểu và metadata chỉ nằm trong đầu vài anh analyst kỳ cựu, thì agent cũng chỉ là một bạn thực tập rất nhanh… nhưng chưa được bàn giao công việc 😅\n\n---\n\n𝟏️⃣ 𝐅𝐚𝐛𝐫𝐢𝐜 𝐈𝐐 đ𝐮̛𝐚 𝐬𝐞𝐦𝐚𝐧𝐭𝐢𝐜 𝐦𝐨𝐝𝐞𝐥 𝐏𝐨𝐰𝐞𝐫 𝐁𝐈 𝐯𝐚̀𝐨 𝐂𝐨𝐩𝐢𝐥𝐨𝐭\n\nMicrosoft đưa Fabric IQ trong Copilot Chat và Cowork lên GA. Agent có thể dựa vào metric, quan hệ và định nghĩa kinh doanh đã quản trị trong Power BI, thay vì tự đoán từ bảng thô. Fabric IQ MCP server và data agents trong Copilot Studio cũng đã GA.\n\nMicrosoft cho biết Fabric hiện phục vụ hơn 40.000 khách hàng.\n👉 Semantic model giờ không chỉ nuôi dashboard; nó trở thành giao diện dữ liệu cho cả agent.\n\n𝟐️⃣ 𝐒𝟑 𝐓𝐚𝐛𝐥𝐞𝐬 𝐡𝐨̂̃ 𝐭𝐫𝐨̛̣ đ𝐮̉ 𝐤𝐢𝐞̂̉𝐮 𝐝𝐮̛̃ 𝐥𝐢𝐞̣̂𝐮 𝐈𝐜𝐞𝐛𝐞𝐫𝐠 𝐕𝟑\n\nAWS bổ sung đầy đủ kiểu dữ liệu Iceberg V3, gồm variant cho dữ liệu bán cấu trúc, geometry và geography cho dữ liệu không gian. Bảng V2 có thể nâng cấp tại chỗ.\n\n👉 Object storage đang nhận thêm việc của một lakehouse được quản lý. Nhưng team data vẫn phải kiểm tra từng engine đọc ghi đã tương thích V3 chưa, đừng nâng production chỉ vì thấy số phiên bản mới đẹp hơn.\n\n𝟑️⃣ 𝐃𝐲𝐧𝐚𝐭𝐫𝐚𝐜𝐞 𝐡𝐨𝐚̀𝐧 𝐭𝐚̂́𝐭 𝐦𝐮𝐚 𝐀𝐫𝐢𝐳𝐞 𝐯𝐨̛́𝐢 𝐠𝐢𝐚́ 𝟗𝟏𝟓 𝐭𝐫𝐢𝐞̣̂𝐮 𝐔𝐒𝐃\n\nArize theo dõi evaluation và chất lượng ứng dụng AI; Dynatrace theo dõi application, hạ tầng và production. Thương vụ muốn nối hai phần đó thành observability xuyên suốt vòng đời AI.\n\n👉 Một hệ agent hỏng không chỉ vì model. Nó có thể hỏng ở prompt, retrieval, dữ liệu, latency hoặc hạ tầng. Theo dõi riêng từng mảng thì tới lúc sự cố, ba team nhìn ba dashboard và cùng hỏi “lỗi nhà ai?” 😄\n\n𝟒️⃣ 𝐒𝐧𝐨𝐰𝐟𝐥𝐚𝐤𝐞 𝐛𝐢𝐞̂́𝐧 𝐬𝐞𝐦𝐚𝐧𝐭𝐢𝐜 𝐥𝐚𝐲𝐞𝐫 𝐭𝐡𝐚̀𝐧𝐡 𝐜𝐨𝐝𝐞\n\nSemantic Studio đã GA, cho phép tạo semantic view bằng hội thoại, sửa YAML, triển khai thành object và quản lý phiên bản bằng Git.\n\n👉 Đây là thay đổi mình thích: metric và logic kinh doanh có thể được review, so sánh, rollback. Nhưng công cụ không tự giải quyết chuyện hai phòng ban dùng hai định nghĩa doanh thu. Mâu thuẫn vẫn cần con người chốt.\n\n𝟓️⃣ 𝐍𝐞𝐭𝐀𝐩𝐩 𝐍𝐨𝐯𝐮𝐬 𝐧𝐡𝐚̆́𝐦 𝟏𝟎𝟎 𝐓𝐛𝐩𝐬 𝐯𝐚̀ 𝟓𝟎.𝟎𝟎𝟎 𝐆𝐏𝐔\n\nNovus tách metadata khỏi data path để hai phần tăng độc lập trong một namespace NFS. NetApp đặt mục tiêu 100 Tbps, tới 50.000 GPU và quy mô zettabyte.\n\n👉 Sau GPU, storage và metadata đang thành nút thắt tiếp theo. GPU rất đắt mà ngồi chờ dữ liệu thì giống thuê đội bếp 5 sao rồi để cả đội đứng chờ ship nguyên liệu.\n\n💭 Góc nhìn của mình về tuần này\n\nĐức chỉ chia sẻ dưới góc nhìn kỹ thuật của một người làm Data & AI: cái thật sự mới không phải là thêm một chatbot hỏi dữ liệu. Cái mới là các hãng đang biến semantic layer, policy và metadata thành hạ tầng có thể triển khai, version và quan sát được.\n\nKhi học và làm thực hành RAG trên Databricks, mình thấy rất rõ: model mạnh chỉ là một phần. Nếu nguồn dữ liệu không có quyền rõ ràng, context thiếu và pipeline không truy vết được, câu trả lời đẹp vẫn có thể sai rất tự tin. Với BI cũng vậy, dashboard đẹp không đồng nghĩa doanh nghiệp đang dùng cùng một định nghĩa.\n\nTheo mình, team data Việt Nam nên làm ba việc trước khi lao vào agent: chọn 5-10 metric quan trọng có owner; viết rõ semantic và quyền truy cập; rồi test bằng câu hỏi thật của người dùng. Không nên bắt đầu bằng việc mua thêm một lớp AI rồi hy vọng nó tự sửa nền dữ liệu cũ.\n\n“Agent chạy nhanh đến đâu cũng không vượt được cái bản đồ dữ liệu mà mình chưa từng vẽ.”\n\nAnh em nào đang đưa AI vào BI, lakehouse hoặc data platform thì comment cho Đức biết điểm nghẽn lớn nhất của team nhé.\n\n#DataNews #DataEngineering #BusinessIntelligence #MicrosoftFabric #PowerBI #Lakehouse #ApacheIceberg #Databricks #Snowflake #AIData #HocCungAI",
+ "facebook_reel": "100 Tbps vẫn chưa phải con số đáng nhớ nhất tuần.\n\nĐiều đáng nhớ là semantic model, policy và metadata đang trở thành hạ tầng bắt buộc cho agent: Fabric IQ vào Copilot, Iceberg V3 vào S3 Tables, còn Novus tách nút thắt cho 50.000 GPU.\n\nBạn nghĩ team mình đang thiếu model hay thiếu nền dữ liệu? Chi tiết mình để ở bài viết nhé.\n\n#DataNews #DataEngineering #Lakehouse #AIData",
+ "bgm": "minimal-tech",
+ "youtube": {
+  "recap": "BPcRd6vV6zY",
+  "short": "15n8AMSnn6A"
+ }
+}
