@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-10-03",
+      "display_date": "03/10/2026",
+      "title": "Supabase mua Turso: cấp database riêng cho từng AI agent",
+      "summary": "Supabase vừa gọi 150 triệu đô và mua lại Turso để giải bài toán cấp hàng triệu database tức thì cho các AI agent.",
+      "source": "supabase.com",
+      "video_id": "okAGiHAxD_A",
+      "short_id": "rQn6V1p4YF0",
+      "published_at": "2026-10-03T19:54:35"
+    },
+    {
       "date": "2026-10-01",
       "display_date": "01/10/2026",
       "title": "Iceberg REST Catalog thêm masking và lọc hàng vào chuẩn mở",
