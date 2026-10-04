@@ -39,7 +39,7 @@
     </div>
   </header>
   <div id="recap"></div>
-  <!--HOT_VIDEO-->
+  <div class="hot-video"><div class="hot-label">🎬 Video recap tuần — các tin nóng nhất</div><div style="position:relative;width:100%;padding-top:56.25%;border-radius:12px;overflow:hidden"><iframe src="https://www.youtube.com/embed/ybXLujFqb30" title="Video recap" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><div class="vid-links"><a class="vbtn" href="https://youtu.be/ybXLujFqb30" target="_blank" rel="noopener">▶ Mở Youtube</a><a class="vbtn" href="https://www.youtube.com/shorts/jVSWElWm2xY" target="_blank" rel="noopener">📱 Youtube Short</a></div></div>
   <div class="hero"><div class="eyebrow">AI WEEKLY BRIEF · W40</div><h1>Agent bước ra khỏi ô chat</h1><p>Model frontier mạnh hơn, agent làm việc lâu hơn, và lớp kiểm soát bắt đầu trở thành một phần của sản phẩm thay vì lời hứa đi kèm.</p></div>
   <div class="tldr"><h2>Tổng quan tuần này</h2><p>Tuần 40 đánh dấu bước chuyển rõ từ chatbot sang hệ thống AI làm việc dài hạn: Google công bố Gemini 4 Argon, OpenAI đưa Dots thành trợ lý luôn hoạt động, còn Anthropic giảm mạnh chi phí và độ trễ với Claude Sonnet 5.5. Song song, NVIDIA tung lớp kiểm soát agent sau chuỗi sự cố an toàn, trong khi AMD chi 8,2 tỷ USD mua World Labs để kéo nghiên cứu spatial intelligence sát hơn với phần cứng. Nghiên cứu tuần này cũng cho thấy hai hướng đáng theo dõi: agent bất đồng bộ và mô hình ra quyết định trong môi trường có thông tin ẩn.</p></div>
   <div class="timeline"><div class="day"><span>T2 28/09</span><b>8 tin</b></div><div class="day"><span>T3 29/09</span><b>4 tin</b></div><div class="day"><span>T4 30/09</span><b>6 tin</b></div><div class="day"><span>T5 01/10</span><b>3 tin</b></div><div class="day"><span>T6 02/10</span><b>1 tin</b></div><div class="day dim"><span>T7 03/10</span><b>0 tin</b></div><div class="day dim"><span>CN 04/10</span><b>0 tin</b></div></div>
@@ -83,5 +83,21 @@
   <footer class="footer">Tạo lúc 02/10/2026 · 22 mục · Tuyển chọn &amp; đọc bởi Duc Nguyen · <a href="https://ducnguyen.vn">ducnguyen.vn</a></footer>
 </div>
 <script src="../../assets/bg.js" defer></script>
+<!--MEDIA_INJECTED-->
+<script>
+(function(){
+  var base="../../audio/2026-10-04/";
+  var cur=null;
+  function play(src){ if(cur){cur.pause();} cur=new Audio(src); cur.play().catch(function(){}); }
+  function stop(){ if(cur){cur.pause(); cur=null;} }
+  document.addEventListener("DOMContentLoaded",function(){
+    var ra=document.getElementById("readAll"); if(ra) ra.onclick=function(){ play(base+"all.mp3"); };
+    var rs=document.getElementById("readStop"); if(rs) rs.onclick=stop;
+    document.querySelectorAll(".readbtn").forEach(function(b){
+      b.onclick=function(){ var id=b.getAttribute("data-aid"); if(id) play(base+id+".mp3"); };
+    });
+  });
+})();
+</script>
 </body>
 </html>
