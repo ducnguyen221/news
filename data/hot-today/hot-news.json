@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-10-05",
+      "display_date": "05/10/2026",
+      "title": "Khai tử Vector Database: turbopuffer giáng vector thành index phụ",
+      "summary": "turbopuffer, cỗ máy tìm kiếm đứng sau Cursor và Linear, vừa gây chấn động khi tuyên bố khai tử kiến trúc cơ sở dữ liệu vector.",
+      "source": "turbopuffer.com",
+      "video_id": "f-3cmYRKIxM",
+      "short_id": "2Swzkro4kxg",
+      "published_at": "2026-10-05T18:00:04"
+    },
+    {
       "date": "2026-10-03",
       "display_date": "03/10/2026",
       "title": "Supabase mua Turso: cấp database riêng cho từng AI agent",
