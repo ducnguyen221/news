@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-10-09",
+      "display_date": "09/10/2026",
+      "title": "Polars 2.0: Streaming mặc định, tự tràn ổ đĩa, vượt DuckDB",
+      "summary": "Polars 2.0 vừa chính thức ra mắt, bật sẵn streaming và tự tràn ra ổ đĩa giúp bạn xử lý dữ liệu khổng lồ ngay trên laptop mà không sợ sập RAM!",
+      "source": "pola.rs",
+      "video_id": "EjblXHpgcU0",
+      "short_id": "Zr5An98mxQ4",
+      "published_at": "2026-10-09T16:08:34"
+    },
+    {
       "date": "2026-10-05",
       "display_date": "05/10/2026",
       "title": "Khai tử Vector Database: turbopuffer giáng vector thành index phụ",
