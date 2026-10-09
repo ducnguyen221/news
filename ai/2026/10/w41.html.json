@@ -1,0 +1,429 @@
+{
+ "date": "09/10/2026",
+ "week": "W41",
+ "range": "05/10 - 11/10/2026",
+ "tldr": "Tuần 41 cho thấy AI đang rời khỏi ô chat để trở thành một lớp làm việc có giao diện, bộ nhớ và quyền hành động. OpenAI đưa GPT-6 cùng Intelligent UI tới hơn 1,2 tỷ người dùng ChatGPT mỗi tuần, Mistral trình làng model mở 1 nghìn tỷ tham số, còn Google thử nghiệm agent doanh nghiệp chạy nhiều ngày. Song song, Claude Haiku 5.5 kéo chi phí model nhỏ xuống mạnh và Goodfire đề xuất giám sát agent từ tín hiệu bên trong model. Xu hướng chung rất rõ: năng lực tăng nhanh, nhưng ngân sách, kiểm soát và bằng chứng vận hành mới quyết định AI có vào được production hay không.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "GPT-6 đến toàn bộ ChatGPT cùng giao diện tương tác Intelligent UI",
+   "title_en": "GPT-6 and Intelligent UI for everyone",
+   "summary": "OpenAI đưa GPT-6 tới người dùng ChatGPT toàn cầu: gói trả phí dùng GPT-6 Sol, còn Free và Go dùng GPT-6 Luna. Intelligent UI cho phép câu trả lời biến thành giao diện trực quan, bài học tương tác hoặc công cụ nhỏ ngay trong cuộc trò chuyện.",
+   "why": "Với hơn 1,2 tỷ người dùng ChatGPT mỗi tuần, đây là đợt phổ cập lớn của mô hình trả lời bằng phần mềm tương tác thay vì chỉ bằng văn bản.",
+   "url": "https://openai.com/index/gpt-6-for-everyone/",
+   "domain": "openai.com",
+   "date": "2026-10-07",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 1
+  },
+  {
+   "aid": 2,
+   "title": "Mistral Large 4: model mở 1 nghìn tỷ tham số, context 1 triệu token",
+   "title_en": "Introducing Mistral Large 4",
+   "summary": "Mistral mở public preview cho Large 4, model multimodal MoE 1 nghìn tỷ tham số với 49 tỷ tham số active và context 1 triệu token. API đã có trên Mistral Studio; trọng số dự kiến phát hành cuối tháng.",
+   "why": "Một model frontier do châu Âu tự huấn luyện và vận hành tạo thêm lựa chọn chủ quyền AI ngoài hệ sinh thái đóng của Mỹ và model mở Trung Quốc.",
+   "url": "https://mistral.ai/news/mistral-large-4/",
+   "domain": "mistral.ai",
+   "date": "2026-10-06",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 2
+  },
+  {
+   "aid": 3,
+   "title": "Claude Haiku 5.5 giảm 90% giá API, nhắm tác vụ khối lượng lớn",
+   "title_en": "Introducing Claude Haiku 5.5",
+   "summary": "Anthropic giới thiệu Claude Haiku 5.5 là model nhỏ nhanh nhất và hiệu quả nhất trong dòng 5.5, dành cho tác vụ có lưu lượng lớn và nhạy chi phí. VentureBeat ghi nhận giá API giảm 90% và năng lực tiệm cận GPT-6 Luna.",
+   "why": "Cuộc đua model nhỏ đang kéo bài toán từ ai thông minh nhất sang ai hoàn thành được nhiều tác vụ production nhất trên cùng ngân sách.",
+   "url": "https://www.anthropic.com/news/claude-haiku-5-5",
+   "domain": "anthropic.com",
+   "date": "2026-10-07",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 3
+  },
+  {
+   "aid": 4,
+   "title": "Reflection ra Beam 501B, đưa model mở phương Tây trở lại cuộc đua",
+   "title_en": "Western AI labs challenge China's open-model lead",
+   "summary": "Reflection giới thiệu Beam, model MoE 501 tỷ tham số với 23 tỷ tham số active mỗi lượt. Cùng Mistral Large 4, sản phẩm này tạo làn sóng model mở phương Tây cạnh tranh với Alibaba, Z.ai, Moonshot và DeepSeek.",
+   "why": "Doanh nghiệp có thêm lựa chọn tự triển khai và giữ dữ liệu nội bộ, nhưng quyền kiểm soát cao hơn cũng chuyển trách nhiệm an toàn sang chính đơn vị vận hành.",
+   "url": "https://www.axios.com/2026/10/06/reflection-mistral-open-weight-ai-models-china",
+   "domain": "axios.com",
+   "date": "2026-10-06",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 5,
+   "title": "Google Cloud thử nghiệm Gemini agent chạy việc nhiều ngày",
+   "title_en": "Google Cloud unveils persistent Gemini Agents for long-running tasks",
+   "summary": "Gemini agent mới có thể nghiên cứu, viết tài liệu, code, phối hợp sub-agent và duy trì bộ nhớ qua ứng dụng, thiết bị trong nhiều giờ hoặc nhiều ngày. Bản private preview hỗ trợ Google Workspace, Microsoft 365, Slack, dòng lệnh và cả model Claude.",
+   "why": "Google đang biến agent thành lớp điều phối doanh nghiệp đa ứng dụng và đa model, thay vì một trợ lý chỉ sống trong Workspace.",
+   "url": "https://venturebeat.com/orchestration/google-cloud-unveils-persistent-gemini-agents-for-long-running-tasks-and-they-get-their-own-gmail-calendar-and-drive-storage",
+   "domain": "venturebeat.com",
+   "date": "2026-10-08",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": 4
+  },
+  {
+   "aid": 6,
+   "title": "Goodfire giám sát agent từ bên trong model với chi phí thấp",
+   "title_en": "Goodfire says its new ‘inside-out’ monitors catch rogue AI agents at a fraction of the cost",
+   "summary": "Goodfire dùng các probe đọc activation nội bộ, chỉ gọi model giám sát khi có tín hiệu rủi ro. Thử nghiệm trên khoảng 1.500 phiên Kimi K3 tốn 51 USD, phát hiện 94% phiên tấn công độc hại và tăng độ trễ dưới 2% khi chạy bốn probe.",
+   "why": "Giám sát từ bên trong có thể giảm mạnh chi phí so với bắt một model khác đọc lại toàn bộ trace của agent.",
+   "url": "https://techcrunch.com/2026/10/08/goodfire-says-its-new-inside-out-monitors-catch-rogue-ai-agents-at-a-fraction-of-the-cost/",
+   "domain": "techcrunch.com",
+   "date": "2026-10-08",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": 5
+  },
+  {
+   "aid": 7,
+   "title": "Google AI Edge Foresight ghi chú họp hoàn toàn offline trên Mac",
+   "title_en": "Google releases a new local-first Granola competitor",
+   "summary": "Google phát hành ứng dụng ghi chú họp local-first cho Mac dùng EmbeddingGemma 2 740 triệu tham số. Công cụ có thể chép lời, tạo ghi chú, hỏi đáp trên kho tài liệu và hoạt động hoàn toàn offline trên Apple Silicon.",
+   "why": "Dữ liệu cuộc họp thường nhạy cảm; xử lý tại máy tạo lựa chọn thực tế cho đội không muốn đẩy âm thanh và tài liệu nội bộ lên cloud.",
+   "url": "https://techcrunch.com/2026/10/08/google-releases-a-new-local-first-granola-competitor/",
+   "domain": "techcrunch.com",
+   "date": "2026-10-08",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "Claude vào thẳng Google Docs, Sheets và Slides",
+   "title_en": "Claude now works with Google Docs, Sheets, and Slides",
+   "summary": "Anthropic mở public beta add-on và connector cho mọi gói Claude trả phí. Người dùng có thể gọi Claude ở sidebar của file đang mở, hoặc tạo và chỉnh sửa Docs, Sheets, Slides trực tiếp từ giao diện Claude theo quyền chia sẻ hiện có.",
+   "why": "Giá trị chuyển từ sinh nội dung sang sửa artifact thật tại nơi người dùng đang làm việc, nhưng quyền truy cập file phải được quản trị chặt.",
+   "url": "https://claude.com/resources/articles/claude-now-works-in-google-docs-sheets-and-slides",
+   "domain": "claude.com",
+   "date": "2026-10-06",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "Cohere North 2 thêm bộ nhớ, ngân sách và quyền cho agent doanh nghiệp",
+   "title_en": "Cohere's North 2 puts AI agents on a budget and gives them a memory",
+   "summary": "North 2 bổ sung bộ nhớ qua phiên, thư viện tri thức dùng chung, skill tái sử dụng, quota người dùng, rate limit và trần chi phí toàn tổ chức. Nền tảng chạy được trên cloud, on-premise hoặc môi trường air-gapped.",
+   "why": "Agent doanh nghiệp cần stop button, audit và ngân sách trước khi cần thêm tính tự chủ; North 2 đánh trực tiếp vào khoảng trống vận hành này.",
+   "url": "https://venturebeat.com/orchestration/coheres-north-2-puts-ai-agents-on-a-budget-and-gives-them-a-memory",
+   "domain": "venturebeat.com",
+   "date": "2026-10-05",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "OpenAI công bố loạt kết quả toán học kèm kiểm chứng Lean",
+   "title_en": "Sharing AI progress in mathematics",
+   "summary": "OpenAI phát hành một tập kết quả toán học do model frontier nội bộ tạo ra, kèm repository, quy trình sửa bài và nhiều chứng minh được formalize bằng Lean. Hãng cũng công bố 10 bản tóm tắt suy luận và cho biết mỗi kết quả dùng lượng compute tương đương khoảng ba giờ ChatGPT Pro thinking trung bình.",
+   "why": "Điểm đáng giá không chỉ là số bài toán, mà là nỗ lực đưa bằng chứng máy kiểm tra được và cơ chế sửa đổi vào quy trình công bố khoa học.",
+   "url": "https://openai.com/index/sharing-ai-progress-in-mathematics/",
+   "domain": "openai.com",
+   "date": "2026-10-06",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "Agent Plasticity đo khả năng agent học thật từ kinh nghiệm",
+   "title_en": "Agent Plasticity: Measuring Self-Improvement Through Experience",
+   "summary": "Nhóm tác giả đề xuất chỉ số agent plasticity để đo mức hiệu quả khi agent biến kinh nghiệm thành cải thiện trên tình huống chưa thấy. Thử nghiệm trên Chess, Go, Hex và NetHack cho thấy model có điểm cuối cao chưa chắc học hiệu quả nhất, và tiến bộ thường chỉ chuyển một phần sang phân phối mới.",
+   "why": "Benchmark tĩnh không trả lời được agent có tích lũy kỹ năng hay chỉ lặp lại bài cũ; chỉ số mới tách rõ năng lực hiện tại khỏi tốc độ tự cải thiện.",
+   "url": "https://huggingface.co/papers/2610.08902",
+   "domain": "huggingface.co",
+   "date": "2026-10-06",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "SGF+ sinh video liên tục tới 24 giờ từ dữ liệu huấn luyện 5 giây",
+   "title_en": "SGF+: Decoupling Gradient Flows for Autoregressive Video Generation",
+   "summary": "SGF+ tách tham số dùng để khử nhiễu frame hiện tại khỏi tham số ghi context cho frame tương lai. Mô hình được huấn luyện trên rollout chỉ 5 giây nhưng hỗ trợ sinh liên tục tới 24 giờ mà không fine-tune riêng cho video dài.",
+   "why": "Kết quả chỉ ra xung đột gradient giữa chất lượng từng frame và tính nhất quán dài hạn, rồi xử lý bằng thiết kế vai trò thay vì chỉ tăng dữ liệu.",
+   "url": "https://arxiv.org/abs/2610.10429",
+   "domain": "arxiv.org",
+   "date": "2026-10-07",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "Trace2Env dựng môi trường huấn luyện agent từ lịch sử tương tác",
+   "title_en": "From Traces to Agentic Worlds: Agentic Language World Models for Interactive Environment Simulation",
+   "summary": "Trace2Env biến trace lịch sử thành worldbook gồm schema, bằng chứng và hành vi, rồi dùng world-model agent để mô phỏng trạng thái qua nhiều lượt. Trên chín môi trường, cách này cải thiện độ trung thực quan sát và tính nhất quán dài hạn so với mô phỏng chỉ bằng prompt.",
+   "why": "Doanh nghiệp có thể tạo môi trường thử agent từ log cũ khi hệ thống gốc đắt, nhạy cảm hoặc không thể sao chép đầy đủ.",
+   "url": "https://huggingface.co/papers/2610.06100",
+   "domain": "huggingface.co",
+   "date": "2026-10-05",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "Iris-3B tạo ảnh trực tiếp ở pixel nhưng không thắng latent model",
+   "title_en": "Iris-3B: Going Beyond the Latent with Pixel-Space Diffusion Training, Conversion and Fine-Tuning",
+   "summary": "Iris-3B là transformer text-to-image 3 tỷ tham số được pretrain trực tiếp trong pixel-space và phát hành mở. Dù chất lượng 1024 pixel cạnh tranh với Qwen-Image, thử nghiệm depth và super-resolution không cho thấy lợi thế rõ so với backbone latent tương ứng.",
+   "why": "Một kết quả âm được công bố đầy đủ giúp cộng đồng tránh giả định rằng bỏ VAE tự động mang lại lợi thế cho mọi tác vụ thị giác.",
+   "url": "https://huggingface.co/papers/2610.09450",
+   "domain": "huggingface.co",
+   "date": "2026-10-07",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "Tỷ lệ doanh nghiệp tin agent tự sửa production giảm từ 75% xuống 56%",
+   "title_en": "The share of enterprises trusting AI agents to make production changes on their own has fallen from 75% to 56%",
+   "summary": "Khảo sát VentureBeat Intelligence cho thấy tỷ lệ tổ chức cho phép hoặc đang chuẩn bị cho agent thay đổi production chỉ dựa trên đánh giá tự động giảm từ 75% xuống 56%. Có 61% đơn vị chạy pre-deployment eval từng gặp ít nhất một hệ thống vượt test nhưng vẫn gây lỗi cho khách hàng.",
+   "why": "Doanh nghiệp không ngừng dùng eval; họ đang tách eval khỏi quyền phê duyệt, một dấu hiệu trưởng thành quan trọng của vận hành agent.",
+   "url": "https://venturebeat.com/orchestration/the-share-of-enterprises-trusting-ai-agents-to-make-production-changes-on-their-own-has-fallen-from-75-to-56-vb-intelligence-finds",
+   "domain": "venturebeat.com",
+   "date": "2026-10-08",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 16,
+   "title": "nanoMuse đưa personal agent mã nguồn mở lên nhiều thiết bị",
+   "title_en": "nanoMuse: An Open-Source Personal Agent for Every Device You Own",
+   "summary": "nanoMuse đề xuất một personal agent GPL-3.0 hoạt động trên web, Android và desktop, chia sẻ một cuộc trò chuyện, bộ nhớ dạng file và cơ chế Sentinel hỏi lại trước thao tác khó hoàn tác. Dự án cho phép người dùng chọn model và tự vận hành relay.",
+   "why": "Cộng đồng đang phản ứng với làn sóng agent cá nhân đóng bằng một kiến trúc có bộ nhớ đọc được, quyền rõ và khả năng tự host.",
+   "url": "https://arxiv.org/abs/2610.08699",
+   "domain": "arxiv.org",
+   "date": "2026-10-06",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "Nhân sự cũ các lab AI cảnh báo tại Hội đồng New York",
+   "title_en": "AI industry insiders voice alarms to NYC council as local governments take up safety concerns",
+   "summary": "Cựu nhân viên Anthropic, OpenAI và Google DeepMind nói tại phiên điều trần của Hội đồng thành phố New York rằng cuộc đua model đang vượt khả năng kiểm soát. Đại diện các công ty cũng tham dự và bày tỏ cởi mở với một số đề xuất giám sát.",
+   "why": "Khi cấp liên bang phản ứng chậm, chính quyền địa phương bắt đầu trở thành nơi thử nghiệm quy tắc quản trị AI, dù quyền hạn còn phân mảnh.",
+   "url": "https://apnews.com/article/4be252d137ff1de1006130cdbb42ec24",
+   "domain": "apnews.com",
+   "date": "2026-10-05",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 18,
+   "title": "Manus gọi hơn 500 triệu USD sau khi tách khỏi Meta",
+   "title_en": "China's Manus raises over $500M in first funding round since split with Meta",
+   "summary": "Công ty mẹ Butterfly Effect xác nhận vòng gọi vốn hơn 500 triệu USD do Boyu Capital và IDG Capital dẫn dắt. Manus không công bố định giá; trước đó startup được cho là đàm phán ở mức 4 tỷ USD sau khi thương vụ Meta 2 tỷ USD bị tháo bỏ.",
+   "why": "Dòng vốn cho thấy agent độc lập vẫn có sức hút lớn, đồng thời phản ánh địa chính trị có thể đảo ngược cả thương vụ công nghệ xuyên biên giới.",
+   "url": "https://techcrunch.com/2026/10/08/chinas-manus-raises-over-500m-in-first-funding-round-since-split-with-meta/",
+   "domain": "techcrunch.com",
+   "date": "2026-10-08",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  },
+  {
+   "aid": 19,
+   "title": "Anthropic mở Cyber Mission và quét bảo mật miễn phí cho mã nguồn mở",
+   "title_en": "Introducing the Anthropic Cyber Mission",
+   "summary": "Anthropic lập Cyber Mission tập trung vào hạ tầng trọng yếu và phần mềm mã nguồn mở. Chương trình CIDP đưa model, kỹ sư tại chỗ và nghiên cứu mối đe dọa tới đơn vị vận hành; OSS Scanner cung cấp quét lỗ hổng định kỳ miễn phí cho dự án mở.",
+   "why": "Các lab bắt đầu biến năng lực cyber thành chương trình hạ tầng công cộng có mục tiêu, thay vì chỉ phát hành model và tài liệu an toàn.",
+   "url": "https://www.anthropic.com/news/anthropic-cyber-mission",
+   "domain": "anthropic.com",
+   "date": "2026-10-08",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  },
+  {
+   "aid": 20,
+   "title": "Atlassian mở rộng hợp tác OpenAI, hơn 3.000 developer đã dùng Codex",
+   "title_en": "Atlassian and OpenAI expand partnership to turn enterprise knowledge into action",
+   "summary": "GPT-6 sẽ cấp năng lực cho agent trong nền tảng Atlassian và Rovo, kết hợp với Teamwork Graph để đọc bối cảnh dự án, tài liệu và quyết định. OpenAI cho biết hơn 3.000 developer Atlassian đang dùng Codex trong terminal, IDE và code review.",
+   "why": "Thị trường enterprise đang dịch từ model độc lập sang model được nối với knowledge graph, quyền và artifact công việc thật.",
+   "url": "https://openai.com/index/atlassian-partnership/",
+   "domain": "openai.com",
+   "date": "2026-10-06",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 1,
+ "weekly_video": {
+  "intro": "Tuần 41 là tuần AI rời khỏi ô chat để đi vào giao diện, ứng dụng và quy trình dài ngày. Năm câu chuyện nóng nhất trải từ GPT-6 phổ cập cho hơn 1,2 tỷ người dùng ChatGPT mỗi tuần, model mở nghìn tỷ tham số của Mistral, đến agent doanh nghiệp và lớp giám sát mới cho production.",
+  "outro": "Điểm chung của tuần này rất rõ: model mạnh chỉ là đầu vào, còn giao diện, quyền và kiểm soát mới tạo ra giá trị thật. Hẹn gặp lại tuần sau; bản tin đầy đủ có thêm công cụ, nghiên cứu và góc nhìn triển khai.",
+  "segments": [
+   {
+    "aid": 1,
+    "headline": "GPT-6 biến câu trả lời thành giao diện",
+    "narration": "Tin nóng nhất tuần 41 là việc OpenAI đưa GPT-6 tới toàn bộ người dùng ChatGPT. Người dùng Plus, Pro, Business và Enterprise nhận GPT-6 Sol, còn gói Free và Go dùng GPT-6 Luna. Quy mô được OpenAI nhấn mạnh là hơn 1,2 tỷ người dùng ChatGPT mỗi tuần. Nhưng phần đáng chú ý hơn tên model là Intelligent UI. Thay vì chỉ trả một đoạn chữ, ChatGPT có thể tạo câu trả lời trực quan, bài học tương tác hoặc một công cụ nhỏ để người dùng thao tác. Nói đơn giản, model không chỉ mô tả phần mềm; nó bắt đầu dựng giao diện phù hợp với câu hỏi. Đây là thay đổi có ý nghĩa cho giáo dục, phân tích và các tác vụ cần thử nhiều phương án. Một người học có thể khám phá khái niệm bằng điều khiển trực quan. Một nhân viên có thể nhận bảng, biểu mẫu hoặc công cụ thay vì sao chép câu trả lời sang ứng dụng khác. Tuy vậy, giao diện sinh động không tự bảo đảm kết quả đúng. Doanh nghiệp vẫn phải kiểm tra dữ liệu, quyền truy cập và hành động phía sau mỗi nút bấm. Điều cốt lõi tuần này là giao diện đang trở thành một phần của suy luận. Cuộc cạnh tranh sẽ không chỉ nằm ở câu trả lời hay hơn, mà ở việc biến câu trả lời thành trải nghiệm có thể dùng ngay, an toàn và đo được.",
+    "bullets": [
+     "GPT-6 tới mọi gói ChatGPT",
+     "Hơn 1,2 tỷ người dùng tuần",
+     "Câu trả lời thành công cụ tương tác"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Từ model tới trải nghiệm",
+     "items": [
+      {
+       "t": "GPT-6",
+       "d": "Sol hoặc Luna"
+      },
+      {
+       "t": "Suy luận",
+       "d": "Hiểu mục tiêu người dùng"
+      },
+      {
+       "t": "Intelligent UI",
+       "d": "Tạo giao diện tức thời"
+      },
+      {
+       "t": "Hành động",
+       "d": "Khám phá và thao tác"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 2,
+    "headline": "Mistral Large 4 chạm nghìn tỷ tham số",
+    "narration": "Mistral Large 4 là cú trở lại đáng chú ý của hệ sinh thái model mở châu Âu. Model có tổng cộng 1 nghìn tỷ tham số theo kiến trúc mixture of experts, nhưng chỉ kích hoạt 49 tỷ tham số cho mỗi lượt xử lý. Nó nhận đầu vào multimodal, hỗ trợ context 1 triệu token và đã mở public preview qua Mistral Studio. Trọng số chưa có ngay; Mistral nói sẽ phát hành cuối tháng sau giai đoạn red-team với đối tác an ninh mạng, cơ quan nhà nước và khách hàng được chọn. Hãng cho biết model được huấn luyện trên 3.800 GPU NVIDIA Grace Blackwell trong các data center của chính Mistral tại châu Âu. Giá API công bố là 1,36 đô la cho một triệu token đầu vào và 4,18 đô la cho đầu ra. Ý nghĩa của lần ra mắt không chỉ nằm ở kích thước. Doanh nghiệp và chính phủ muốn quyền kiểm soát model, dữ liệu và nơi chạy đang có thêm một lựa chọn phương Tây bên cạnh các model mở Trung Quốc. Nhưng open-weight không có nghĩa là miễn phí vận hành hay mặc định an toàn. Team triển khai vẫn phải tính hạ tầng, quan sát, guardrail và năng lực fine-tune. Mistral Large 4 cho thấy cuộc đua mở đã quay lại rất mạnh, nhưng lợi thế thật sẽ thuộc về đội biến được trọng số lớn thành hệ thống ổn định và có chi phí hợp lý.",
+    "bullets": [
+     "1 nghìn tỷ tham số tổng",
+     "49 tỷ tham số active",
+     "Trọng số mở cuối tháng"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Quy mô Mistral Large 4",
+     "items": [
+      {
+       "v": "1T",
+       "l": "Tổng tham số"
+      },
+      {
+       "v": "49B",
+       "l": "Active mỗi lượt"
+      },
+      {
+       "v": "1M",
+       "l": "Context token"
+      },
+      {
+       "v": "3.800",
+       "l": "GPU Blackwell"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 3,
+    "headline": "Claude Haiku 5.5 kéo giá API xuống",
+    "narration": "Claude Haiku 5.5 đại diện cho một hướng cạnh tranh khác: thay vì khoe model lớn nhất, Anthropic tối ưu cho khối lượng công việc lớn và chi phí nhạy cảm. Đây là model nhỏ hiệu quả nhất trong dòng Claude 5.5. Theo VentureBeat, giá API giảm 90 phần trăm so với thế hệ trước, trong khi năng lực được đặt cạnh GPT-6 Luna. Điều đó quan trọng vì phần lớn tác vụ doanh nghiệp không cần model đắt nhất ở mọi bước. Phân loại yêu cầu, trích xuất dữ liệu, định tuyến ticket, kiểm tra nội dung và nhiều thao tác agent lặp lại thường bị giới hạn bởi chi phí và độ trễ nhiều hơn là trần thông minh. Một model nhỏ tốt có thể xử lý lớp công việc phổ thông, còn model mạnh chỉ được gọi khi gặp trường hợp khó. Với developer, đây là lúc thiết kế model routing thay vì gắn toàn bộ workflow vào một model duy nhất. Với doanh nghiệp, nên đo chi phí trên một tác vụ hoàn thành, không chỉ nhìn giá trên một triệu token. Model rẻ nhưng phải retry nhiều lần vẫn có thể đắt. Ngược lại, model nhỏ ổn định có thể mở đường cho những ứng dụng trước đây không có biên lợi nhuận. Haiku 5.5 cho thấy cuộc đua năm nay đang chuyển sang hiệu quả vận hành, nơi tốc độ, tỷ lệ thành công và chi phí cuối cùng quan trọng ngang điểm benchmark.",
+    "bullets": [
+     "Giá API giảm 90 phần trăm",
+     "Tối ưu tác vụ khối lượng lớn",
+     "Phù hợp kiến trúc model routing"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Chọn model theo công việc",
+     "left": {
+      "h": "Model nhỏ",
+      "items": [
+       "Lưu lượng lớn",
+       "Độ trễ thấp",
+       "Tác vụ lặp lại"
+      ]
+     },
+     "right": {
+      "h": "Model frontier",
+      "items": [
+       "Bài toán khó",
+       "Suy luận sâu",
+       "Chi phí cao hơn"
+      ]
+     }
+    },
+    "images": []
+   },
+   {
+    "aid": 5,
+    "headline": "Gemini agent làm việc xuyên nhiều ngày",
+    "narration": "Google Cloud đang thử nghiệm một Gemini agent doanh nghiệp có thể nhận cả mục tiêu thay vì từng prompt nhỏ. Agent này nghiên cứu thông tin, tạo tài liệu, viết code, phối hợp nhiều sub-agent và giữ nguyên bộ nhớ cùng bối cảnh qua ứng dụng, thiết bị trong nhiều giờ hoặc nhiều ngày. Bản private preview hoạt động với Google Workspace, Microsoft 365, Slack, ứng dụng desktop, mobile và dòng lệnh. Kiến trúc cũng không khóa cứng vào model của Google: agent có thể dùng model Claude và dự kiến hỗ trợ thêm model đóng lẫn open-weight. Đây là tín hiệu. Lớp cạnh tranh mới không chỉ là model nào thông minh hơn, mà là nền tảng nào giữ được danh tính, quyền, lịch sử và kỹ năng của agent khi đổi model phía dưới. Google còn mô tả khả năng tạo nhóm sub-agent tạm thời cho nhiệm vụ phức tạp và cấu hình coworker có tài khoản Workspace riêng. Tuy nhiên, nhiều chi tiết quản trị vẫn chưa rõ, chẳng hạn cách cấp Gmail, Calendar, Drive hay chi phí license cho từng agent. Với doanh nghiệp Việt, không nên bắt đầu bằng mục tiêu mơ hồ như tự động hóa cả phòng ban. Hãy chọn một workflow dài nhưng đo được, quy định rõ dữ liệu được đọc, hành động được làm và điểm phải chờ người duyệt. Agent chạy nhiều ngày chỉ hữu ích khi tổ chức biết nó đang làm gì ở từng chặng.",
+    "bullets": [
+     "Nhiệm vụ kéo dài nhiều ngày",
+     "Làm việc xuyên nhiều ứng dụng",
+     "Hỗ trợ nhiều model khác nhau"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Vòng làm việc dài hạn",
+     "items": [
+      {
+       "t": "Nhận mục tiêu",
+       "d": "Hiểu kết quả cần giao"
+      },
+      {
+       "t": "Lập nhóm",
+       "d": "Tạo sub-agent tạm thời"
+      },
+      {
+       "t": "Thực thi",
+       "d": "Dùng app và dữ liệu"
+      },
+      {
+       "t": "Duy trì",
+       "d": "Giữ bộ nhớ nhiều ngày"
+      },
+      {
+       "t": "Bàn giao",
+       "d": "Trả artifact hoàn chỉnh"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 6,
+    "headline": "Goodfire đọc tín hiệu bên trong agent",
+    "narration": "Khi agent chạy hàng giờ, cách phổ biến để giám sát là dùng một model thứ hai đọc toàn bộ hành động và đầu ra. Cách này dễ hiểu nhưng chậm và tốn tiền. Goodfire chọn hướng khác: các probe nhỏ đọc activation nội bộ mà model đã tính trong lúc chạy. Chỉ khi probe phát hiện tín hiệu bất thường, một model giám sát riêng mới được gọi để xem kỹ và quyết định ghi log, chuyển cho con người hoặc từ chối. Trong thử nghiệm với khoảng 1.500 phiên của Kimi K3, hệ thống tốn khoảng 51 đô la. Một model rẻ đọc mọi bước sẽ tốn 233 đô la, còn model cao cấp có thể lên khoảng 10 nghìn đô la. Goodfire cho biết probe phát hiện 94 phần trăm phiên tấn công độc hại, đưa 8,7 phần trăm phiên vô hại sang kiểm tra thêm và bốn probe đồng thời chỉ tăng thời gian bắt đầu phản hồi dưới 2 phần trăm. Đây chưa phải lời giải hoàn chỉnh: detector nội bộ cũng có thể bỏ sót hoặc không chuyển tốt giữa model. Nhưng hướng tiếp cận rất thực dụng. Thay vì giám sát mọi thứ bằng một lớp đắt tiền, hệ thống dùng tín hiệu rẻ để lọc trước. Với agent production, bài học là an toàn phải nằm trong đường chạy thực tế, có số đo về chi phí, độ trễ, false positive và hành động khi phát hiện rủi ro.",
+    "bullets": [
+     "94 phần trăm phiên độc hại",
+     "51 đô la cho 1.500 phiên",
+     "Độ trễ tăng dưới 2 phần trăm"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Giám sát trong thử nghiệm",
+     "items": [
+      {
+       "v": "94%",
+       "l": "Phát hiện độc hại"
+      },
+      {
+       "v": "$51",
+       "l": "Khoảng 1.500 phiên"
+      },
+      {
+       "v": "8,7%",
+       "l": "Phiên sạch kiểm tra lại"
+      },
+      {
+       "v": "<2%",
+       "l": "Tăng độ trễ"
+      }
+     ]
+    },
+    "images": []
+   }
+  ]
+ },
+ "facebook_post": "𝐀𝐈 𝐓𝐔𝐀̂̀𝐍 𝟒𝟏: 𝐊𝐇𝐎̂𝐍𝐆 𝐂𝐇𝐈̉ 𝐓𝐑𝐀̉ 𝐋𝐎̛̀𝐈, 𝐀𝐈 𝐁𝐀̆́𝐓 Đ𝐀̂̀𝐔 𝐃𝐔̛̣𝐍𝐆 𝐆𝐈𝐀𝐎 𝐃𝐈𝐄̣̂𝐍 🚀\n\nCó một thay đổi khá rõ trong tuần này: các hãng không còn chỉ khoe model trả lời hay hơn bao nhiêu điểm. Họ đang đẩy AI vào giao diện, file công việc, ứng dụng và những nhiệm vụ kéo dài nhiều ngày.\n\nNghe thì tiện. Nhưng càng cho AI nhiều tay chân, mình càng phải quan tâm nó được phép chạm vào đâu, tiêu bao nhiêu tiền và ai chịu trách nhiệm khi nó làm sai 😅\n\n---\n\n𝟏️⃣ 𝐆𝐏𝐓-𝟔 đ𝐞̂́𝐧 𝐭𝐨𝐚̀𝐧 𝐛𝐨̣̂ 𝐂𝐡𝐚𝐭𝐆𝐏𝐓, 𝐤𝐞̀𝐦 𝐈𝐧𝐭𝐞𝐥𝐥𝐢𝐠𝐞𝐧𝐭 𝐔𝐈\n\nOpenAI đưa GPT-6 tới các gói ChatGPT trên toàn cầu, với GPT-6 Sol cho nhóm trả phí và GPT-6 Luna cho Free, Go. Quy mô họ công bố là hơn 1,2 tỷ người dùng mỗi tuần.\n\nĐiểm Đức thấy thú vị nhất là câu trả lời có thể biến thành giao diện tương tác, bài học trực quan hoặc một công cụ nhỏ dùng ngay trong chat.\n\n👉 Từ trước đến nay mình hỏi AI cách làm. Bây giờ AI bắt đầu dựng luôn cái để mình làm. Khoảng cách giữa câu trả lời và sản phẩm đang ngắn đi rất nhanh.\n\n𝟐️⃣ 𝐌𝐢𝐬𝐭𝐫𝐚𝐥 𝐋𝐚𝐫𝐠𝐞 𝟒: 𝟏 𝐧𝐠𝐡𝐢̀𝐧 𝐭𝐲̉ 𝐭𝐡𝐚𝐦 𝐬𝐨̂́, 𝐧𝐡𝐮̛𝐧𝐠 𝐜𝐡𝐢̉ 𝐤𝐢́𝐜𝐡 𝐡𝐨𝐚̣𝐭 𝟒𝟗 𝐭𝐲̉\n\nMistral mở public preview cho Large 4, model multimodal MoE có context 1 triệu token. Hãng cho biết model được huấn luyện trên 3.800 GPU Grace Blackwell tại data center của mình ở châu Âu; trọng số sẽ phát hành cuối tháng.\n\n👉 Đây không chỉ là cuộc thi model to. Châu Âu đang muốn chứng minh họ có thể tự huấn luyện, tự phục vụ và cung cấp một lựa chọn open-weight đủ mạnh cho doanh nghiệp cần chủ quyền dữ liệu.\n\n𝟑️⃣ 𝐂𝐥𝐚𝐮𝐝𝐞 𝐇𝐚𝐢𝐤𝐮 𝟓.𝟓 𝐤𝐞́𝐨 𝐠𝐢𝐚́ 𝐀𝐏𝐈 𝐱𝐮𝐨̂́𝐧𝐠 𝐦𝐚̣𝐧𝐡\n\nAnthropic định vị Haiku 5.5 cho tác vụ lưu lượng lớn, nhạy chi phí. Theo VentureBeat, giá API giảm 90 phần trăm và năng lực được đặt cạnh GPT-6 Luna.\n\nĐây là thứ doanh nghiệp nên nhìn kỹ hơn benchmark đỉnh. Phần lớn workflow thật không cần model mạnh nhất ở mọi bước.\n\n👉 Dùng model nhỏ cho phân loại, trích xuất, routing; chỉ gọi model lớn khi bài toán khó. Thiết kế đúng luồng thường tiết kiệm hơn rất nhiều so với săn một model làm tất cả.\n\n𝟒️⃣ 𝐆𝐨𝐨𝐠𝐥𝐞 𝐭𝐡𝐮̛̉ 𝐧𝐠𝐡𝐢𝐞̣̂𝐦 𝐚𝐠𝐞𝐧𝐭 𝐜𝐡𝐚̣𝐲 𝐯𝐢𝐞̣̂𝐜 𝐧𝐡𝐢𝐞̂̀𝐮 𝐧𝐠𝐚̀𝐲\n\nGemini agent mới có thể nghiên cứu, tạo tài liệu, code, phối hợp sub-agent và giữ bộ nhớ qua Google Workspace, Microsoft 365, Slack, desktop, mobile và dòng lệnh. Đáng chú ý, nền tảng còn hỗ trợ model Claude.\n\n👉 Model có thể thay đổi, nhưng danh tính, quyền, bộ nhớ và kỹ năng của agent phải giữ được. Lớp điều phối mới là chỗ các nền tảng doanh nghiệp đang tranh nhau.\n\n𝟓️⃣ 𝐆𝐨𝐨𝐝𝐟𝐢𝐫𝐞 đ𝐨̣𝐜 𝐭𝐢́𝐧 𝐡𝐢𝐞̣̂𝐮 𝐛𝐞̂𝐧 𝐭𝐫𝐨𝐧𝐠 𝐦𝐨𝐝𝐞𝐥 đ𝐞̂̉ 𝐛𝐚̆́𝐭 𝐚𝐠𝐞𝐧𝐭 𝐧𝐠𝐮𝐲 𝐡𝐢𝐞̂̉𝐦\n\nThay vì dùng một model khác đọc lại toàn bộ trace, Goodfire cắm các probe vào activation nội bộ. Thử nghiệm khoảng 1.500 phiên Kimi K3 tốn 51 đô la, phát hiện 94 phần trăm phiên tấn công và tăng độ trễ dưới 2 phần trăm khi chạy bốn probe.\n\n👉 An toàn bắt đầu được tính như bài toán hạ tầng: có độ trễ, chi phí, false positive và hành động xử lý cụ thể. Không còn dừng ở câu “chúng tôi có guardrail”.\n\n---\n\n💭 𝐆𝐨́𝐜 𝐧𝐡𝐢̀𝐧 𝐜𝐮̉𝐚 𝐦𝐢̀𝐧𝐡 𝐯𝐞̂̀ 𝐭𝐮𝐚̂̀𝐧 𝐧𝐚̀𝐲\n\nĐức chỉ chia sẻ dưới góc nhìn kỹ thuật của một người làm Data & AI: điều thật sự mới không phải là thêm vài cái tên model. Ba lớp đang nhập vào nhau. Technical là model tạo giao diện và agent chạy dài hơn. Business là chi phí mỗi tác vụ giảm, workflow chạm được nhiều hệ thống hơn. Human là người dùng phải hiểu mình đang giao quyền gì và biết dừng hệ thống ở đâu.\n\nMình đồng ý rằng agent càng chủ động thì giá trị càng lớn. Nhưng nên cẩn trọng với cách triển khai “cho quyền trước, viết quy trình sau”. Khảo sát VentureBeat tuần này cho thấy tỷ lệ doanh nghiệp cho phép hoặc chuẩn bị cho agent sửa production chỉ dựa trên đánh giá tự động đã giảm từ 75 xuống 56 phần trăm. Họ không bỏ eval; họ ngừng coi eval là chữ ký duyệt cuối cùng. Theo mình, đó là trưởng thành chứ không phải thụt lùi.\n\nKhuyến nghị rất thẳng: hãy bắt đầu bằng một workflow hẹp, có đầu ra đo được, ngân sách cứng, log đầy đủ và điểm phê duyệt của con người. Đừng mua “agent platform” rồi mới đi tìm bài toán. Mình từng thấy dashboard đẹp không đồng nghĩa quyết định tốt; agent chạy được cũng không đồng nghĩa quy trình đã tốt đâu anh em 😄\n\n“AI không thay thế một hệ thống vận hành tốt. Nó khuếch đại hệ thống mình đang có.”\n\nAnh em nào đang đưa agent vào production thì comment cho Đức biết: điểm khó nhất hiện tại là dữ liệu, quyền, chi phí hay niềm tin?\n\n#AI #AIAgent #GenAI #DataAI #HocCungAI #Automation #OpenSourceAI #EnterpriseAI #ContextEngineering #ChuyenDoiSo",
+ "facebook_reel": "1 nghìn tỷ tham số vẫn chưa phải chuyện lớn nhất tuần này.\n\nGPT-6 bắt đầu dựng giao diện ngay trong chat, Gemini agent chạy việc nhiều ngày, còn Goodfire giám sát model từ bên trong với chi phí 51 đô la cho khoảng 1.500 phiên. AI có thêm tay chân; doanh nghiệp phải thêm phanh.\n\nBạn sẽ giao agent quyền gì trước tiên? Chi tiết mình để ở bài viết nhé.\n\n#AI #AIAgent #GenAI #EnterpriseAI #HocCungAI",
+ "bgm": "tech-pulse",
+ "youtube": {
+  "recap": "sxlBBtukQ4g",
+  "short": "dd3x6HZdpBA"
+ }
+}
