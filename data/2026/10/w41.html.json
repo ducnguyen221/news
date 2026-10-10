@@ -1,0 +1,479 @@
+{
+ "date": "10/10/2026",
+ "week": "W41",
+ "range": "05/10 - 11/10/2026",
+ "tldr": "Tuần 41 chứng kiến bước nhảy vọt quan trọng của các công cụ xử lý dữ liệu và sự kết hợp sâu sắc giữa AI và hạ tầng lakehouse. Polars 2.0 chính thức ra mắt, đưa Streaming Engine và cơ chế spill-to-disk thành mặc định để vượt qua giới hạn bộ nhớ trên máy đơn. Amazon Redshift mở đường cho Apache Iceberg Materialized Views, biến kết quả tính toán thành bảng mở cho mọi engine ngoài cùng đọc. Google BigQuery tích hợp mô hình TimesFM 3.0 trực tiếp vào các hàm SQL để dự báo chuỗi thời gian, trong khi Snowflake đưa công cụ Code Execution của Cortex Agents lên GA để agent tự viết và chạy Python trong sandbox bảo mật. Ở quy mô doanh nghiệp, Accenture và Dell bắt tay lập nhóm kinh doanh chung thúc đẩy Private AI on-premise, khẳng định xu hướng mang mô hình đến gần dữ liệu nội bộ.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "Snowflake đưa tính năng Backup bảng Iceberg do Snowflake quản lý lên GA",
+   "title_en": "Backups for Snowflake-managed Apache Iceberg tables on Snowflake storage (General availability)",
+   "summary": "Snowflake chính thức đưa tính năng sao lưu cho các bảng Apache Iceberg do hãng quản lý lưu trữ lên GA, cho phép sao lưu point-in-time và khôi phục sau sự cố tương tự bảng nội bộ.",
+   "why": "Người dùng lakehouse giờ có được mức độ bảo vệ dữ liệu cấp doanh nghiệp trên định dạng bảng mở mà không cần tự xây dựng cơ chế snapshot thủ công.",
+   "url": "https://docs.snowflake.com/en/release-notes/all-release-notes?bundle=true",
+   "domain": "docs.snowflake.com",
+   "date": "2026-10-09",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 2,
+   "title": "BigQuery mở rộng Flexible Column Names cho toàn bộ bảng Apache Iceberg",
+   "title_en": "Flexible column names generally available for Apache Iceberg tables in BigQuery",
+   "summary": "Google BigQuery chính thức hỗ trợ Flexible Column Names lên GA cho bảng Iceberg ngoại trú, bảng Iceberg quản lý trong BigQuery và bảng do Lakehouse runtime catalog điều phối.",
+   "why": "Tháo bỏ rào cản đặt tên cột khi tích hợp dữ liệu từ các hệ thống nghiệp vụ đa ngôn ngữ hoặc có ký tự đặc biệt vào lakehouse.",
+   "url": "https://cloud.google.com/bigquery/docs/release-notes#October_08_2026",
+   "domain": "cloud.google.com",
+   "date": "2026-10-08",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 3,
+   "title": "Polars 2.0 chính thức ra mắt: đưa Streaming Engine thành mặc định cho LazyFrame",
+   "title_en": "Polars 2.0 released with default streaming engine and first-class SQL",
+   "summary": "Polars 2.0 phát hành chính thức, thiết lập Streaming Engine làm chế độ thực thi mặc định cho LazyFrame, kích hoạt cơ chế spill-to-disk out-of-core, nâng cấp engine SQL first-class và bổ sung kiểu Map.",
+   "why": "Đánh dấu bước nhảy vọt biến Polars từ một thư viện DataFrame bộ nhớ thành một engine xử lý dữ liệu hoàn chỉnh vượt xa giới hạn RAM máy đơn.",
+   "url": "https://pola.rs/posts/release-of-polars-2-0/",
+   "domain": "pola.rs",
+   "date": "2026-10-06",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 1
+  },
+  {
+   "aid": 4,
+   "title": "Amazon Redshift hỗ trợ tạo và làm mới Apache Iceberg Materialized Views",
+   "title_en": "Amazon Redshift announces support for Apache Iceberg materialized views",
+   "summary": "Amazon Redshift cho phép tạo materialized view lưu kết quả dưới dạng bảng mở Apache Iceberg trên S3 và Glue Catalog bằng lệnh CREATE MATERIALIZED VIEW ... USING ICEBERG, hỗ trợ refresh gia tăng.",
+   "why": "Cầu nối quan trọng xóa bỏ khoảng cách giữa data warehouse và open lakehouse: kết quả pre-compute từ Redshift có thể được truy vấn ngay bởi Athena, Spark hay Trino.",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-redshift-apache-iceberg-materialized-views/",
+   "domain": "aws.amazon.com",
+   "date": "2026-10-05",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 2
+  },
+  {
+   "aid": 5,
+   "title": "Databricks cho phép gán quyền chạy Lakeflow Pipelines theo nhóm tài khoản",
+   "title_en": "Run Lakeflow pipelines as an account group in Databricks",
+   "summary": "Databricks cập nhật tính năng Lakeflow Pipelines cho phép thiết lập định danh thực thi (run-as) thuộc về một nhóm tài khoản (account group) thay vì tài khoản cá nhân hay service principal riêng lẻ.",
+   "why": "Giải quyết dứt điểm rủi ro pipeline bị đình trệ khi kỹ sư rời công ty, tăng cường tính sở hữu chung của đội ngũ dữ liệu.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/october#run-lakeflow-pipelines-as-a-group",
+   "domain": "docs.databricks.com",
+   "date": "2026-10-05",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "Snowflake đưa giao diện Snowsight cho tag và chính sách bảo vệ dữ liệu lên GA",
+   "title_en": "Snowsight interface for tags and data protection policies generally available",
+   "summary": "Snowflake chính thức đưa giao diện quản trị trong Snowsight lên GA, giúp phân loại dữ liệu qua tag và gán các chính sách bảo vệ (masking, row access policy) bằng giao diện trực quan.",
+   "why": "Dân chủ hóa công tác data governance, giúp các data steward và chuyên viên bảo mật cấu hình kiểm soát mà không cần viết lệnh SQL DDL phức tạp.",
+   "url": "https://docs.snowflake.com/en/release-notes/all-release-notes?bundle=true",
+   "domain": "docs.snowflake.com",
+   "date": "2026-10-09",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "Airbyte ra mắt BigQuery Source Connector: đọc 1TB trong chưa đầy 1 giờ",
+   "title_en": "Airbyte announces new BigQuery source connector reading 1TB in under an hour",
+   "summary": "Airbyte ra mắt connector nguồn BigQuery phiên bản 1.0, đạt tốc độ 480 MB/s nhờ tận dụng BigQuery Storage Read API, hỗ trợ giữ nguyên kiểu dữ liệu lồng nhau và tự động resume khi đứt kết nối.",
+   "why": "Tăng tốc luồng truyền tải dữ liệu từ BigQuery sang các đích khác gấp hàng trăm lần so với phương pháp query API thông thường.",
+   "url": "https://airbyte.com/blog/bigquery-source-connector-1tb-in-under-an-hour",
+   "domain": "airbyte.com",
+   "date": "2026-10-06",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "Amazon EMR Serverless nâng trần bộ nhớ Shuffle lên 1TB cho mỗi tác vụ",
+   "title_en": "Amazon EMR Serverless increases shuffle storage limit to 1TB per job",
+   "summary": "AWS tăng giới hạn lưu trữ shuffle disk trên Amazon EMR Serverless từ 200GB lên 1TB cho mỗi tác vụ Spark và Hive, giúp giải quyết các bài toán join và sort quy mô cực lớn mà không bị crash.",
+   "why": "Tháo gỡ giới hạn vật lý lớn nhất của Spark serverless, giúp người dùng không còn phải duy trì cụm EC2 chuyên dụng chỉ vì lượng shuffle lớn.",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-emr-serverless-shuffle-storage-1tb/",
+   "domain": "aws.amazon.com",
+   "date": "2026-10-06",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "Astronomer đưa Durable Execution vào Airflow 3.3: lưu tiến trình và cache lệnh gọi AI",
+   "title_en": "Astronomer announces durable execution with Apache Airflow 3.3",
+   "summary": "Astronomer công bố cơ chế thực thi bền bỉ trong Apache Airflow 3.3, cho phép lưu trạng thái tiến trình để khi task gặp lỗi hoặc timeout, việc retry có thể tiếp tục ngay từ bước dở dang.",
+   "why": "Giảm thiểu lãng phí compute và chi phí gọi API LLM đắt đỏ khi chạy các pipeline AI dài hơi qua cơ chế checkpoint thông minh.",
+   "url": "https://www.astronomer.io/blog/durable-execution-with-apache-airflow/",
+   "domain": "astronomer.io",
+   "date": "2026-10-05",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "WHOOP tự động hóa pipeline CDC: cập nhật bản sao phân tích mỗi 4 giờ và tự propagate schema",
+   "title_en": "Continuous Change Data Capture (CDC) at WHOOP with automatic schema propagation",
+   "summary": "Đội ngũ WHOOP chia sẻ kiến trúc Change Data Capture liên tục, ghi nhận thay đổi từ cơ sở dữ liệu vận hành, cập nhật bản sao phân tích mỗi 4 giờ và tự động đẩy các thay đổi schema xuống downstream.",
+   "why": "Loại bỏ gánh nặng bảo trì thủ công của data engineer khi microservices liên tục đổi cột và bảng, giải phóng thời gian cho các bài toán phân tích giá trị cao.",
+   "url": "https://engineering.prod.whoop.com/cdc-at-whoop/",
+   "domain": "engineering.whoop.com",
+   "date": "2026-10-05",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "ARCS: Nghiên cứu làm rõ câu hỏi có cấu trúc giúp nâng cao độ chính xác Text-to-SQL",
+   "title_en": "ARCS: Towards Precise Text-to-SQL via Structured Disambiguation",
+   "summary": "Bài báo giới thiệu khung làm việc ARCS, chuyển đổi từ hội thoại tự do sang cơ chế làm rõ câu hỏi có cấu trúc để giải quyết triệt để tính mơ hồ của người dùng trước khi sinh mã SQL.",
+   "why": "Khắc phục điểm yếu chí mạng của các chatbot phân tích hiện nay: tự đoán mò ý định người dùng và sinh câu truy vấn sai lệch ngữ nghĩa.",
+   "url": "https://arxiv.org/abs/2610.09396",
+   "domain": "arxiv.org",
+   "date": "2026-10-08",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "Google BigQuery tích hợp mô hình nền tảng TimesFM 3.0 trực tiếp vào SQL",
+   "title_en": "BigQuery introduces built-in TimesFM 3.0 foundation model for time series forecasting",
+   "summary": "Google đưa mô hình TimesFM 3.0 vào BigQuery, cung cấp các hàm SQL tích hợp sẵn gồm AI.FORECAST (hỗ trợ cả đơn biến và đa biến kèm biến phụ trợ), AI.EVALUATE và AI.DETECT_ANOMALIES.",
+   "why": "Đem năng lực foundation model chuyên biệt cho chuỗi thời gian vào ngay câu lệnh SQL thông thường, xóa bỏ nhu cầu dựng pipeline xuất dữ liệu ra hạ tầng training riêng.",
+   "url": "https://cloud.google.com/bigquery/docs/release-notes#October_07_2026",
+   "domain": "cloud.google.com",
+   "date": "2026-10-07",
+   "section": "🤖 AI × Data",
+   "hot_rank": 3
+  },
+  {
+   "aid": 13,
+   "title": "ScyllaDB bổ sung Full-Text Search BM25 trên ScyllaDB X Cloud để phục vụ Hybrid RAG",
+   "title_en": "ScyllaDB introduces Full-Text Search alongside Vector Search for hybrid retrieval",
+   "summary": "ScyllaDB 2026.3 ra mắt tính năng Full-Text Search dựa trên xếp hạng BM25 trên ScyllaDB X Cloud, kết hợp cùng Vector Search sẵn có để tạo nên giải pháp tìm kiếm lai hiệu năng cao cho ứng dụng AI.",
+   "why": "Giải quyết bài toán tìm kiếm chính xác các mã lỗi, tên sản phẩm và từ khóa kỹ thuật mà vector search thuần túy thường bỏ sót trong hệ thống RAG.",
+   "url": "https://www.scylladb.com/2026/10/06/introducing-full-text-search-in-scylladb-cloud/",
+   "domain": "scylladb.com",
+   "date": "2026-10-06",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "PlanPool: Khắc phục rủi ro agent Text-to-SQL tự suy đoán ngầm khi thiếu thông tin",
+   "title_en": "PlanPool: Resolving underspecification in agentic Text-to-SQL systems",
+   "summary": "Nhóm nghiên cứu công bố bài báo và hệ thống PlanPool, chỉ ra thực trạng đáng báo động khi các agent Text-to-SQL hiện đại thường tự đưa ra các giả định ngầm thiếu căn cứ để sinh câu truy vấn thực thi được.",
+   "why": "Cảnh báo về 'cái bẫy đúng cú pháp nhưng sai bản chất', đưa ra cơ chế quản lý câu hỏi làm rõ có thể cập nhật linh hoạt để bảo vệ tính toàn vẹn dữ liệu.",
+   "url": "https://arxiv.org/abs/2610.02739",
+   "domain": "arxiv.org",
+   "date": "2026-10-06",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "Snowflake đưa công cụ Code Execution cho Cortex Agents lên GA",
+   "title_en": "Cortex Agent code execution tool generally available in Snowflake",
+   "summary": "Snowflake chính thức đưa công cụ Code Execution lên GA cho Cortex Agents, cho phép agent tự động tạo và chạy mã Python trong sandbox an toàn để giải các bài toán toán học và phân tích nâng cao.",
+   "why": "Mở rộng năng lực của Cortex Agents vượt ra ngoài các câu lệnh SQL đơn thuần, giúp agent tự lập trình xử lý logic phân tích phức tạp ngay trên dữ liệu có kiểm soát.",
+   "url": "https://docs.snowflake.com/en/release-notes/all-release-notes?bundle=true",
+   "domain": "docs.snowflake.com",
+   "date": "2026-10-05",
+   "section": "🤖 AI × Data",
+   "hot_rank": 4
+  },
+  {
+   "aid": 16,
+   "title": "HakiCC: Dùng multi-agent LLM tự thiết kế và tối ưu giao thức kiểm soát tương tranh database",
+   "title_en": "HakiCC: LLM-Driven Multi-Agent Design and Optimization of Concurrency Control Protocols",
+   "summary": "Các nhà nghiên cứu đề xuất HakiCC, một hệ thống multi-agent LLM tự động thiết kế, chứng minh tính đúng đắn và tối ưu hóa các giao thức kiểm soát tương tranh cho từng ứng dụng cơ sở dữ liệu.",
+   "why": "Đột phá trong việc dùng AI để thiết kế các thành phần lõi sâu nhất của hệ quản trị cơ sở dữ liệu thay vì chỉ viết ứng dụng bề mặt.",
+   "url": "https://arxiv.org/abs/2610.00889",
+   "domain": "arxiv.org",
+   "date": "2026-10-05",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "Hacker News tranh luận: Polars 2.0 có đang biến thành một In-Memory OLAP Database?",
+   "title_en": "Hacker News debate: Is Polars becoming an in-memory OLAP database?",
+   "summary": "Đợt phát hành Polars 2.0 kích hoạt cuộc tranh luận sôi nổi trên Hacker News về việc liệu các thư viện DataFrame hiện đại có đang định nghĩa lại khái niệm database OLAP và cạnh tranh trực tiếp với DuckDB hay không.",
+   "why": "Phản ánh sự hội tụ công nghệ rõ nét trong cộng đồng kỹ sư dữ liệu: ranh giới giữa thư viện phân tích mã nguồn mở và hệ quản trị cơ sở dữ liệu đang dần biến mất.",
+   "url": "https://news.ycombinator.com/item?id=45501823",
+   "domain": "news.ycombinator.com",
+   "date": "2026-10-07",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 18,
+   "title": "ArrowMetal tăng tốc DataFusion trên GPU Apple Silicon gấp 6,9 đến 28,8 lần mà không đổi SQL",
+   "title_en": "ArrowMetal accelerates Apache DataFusion sorts on Apple Silicon GPU up to 28.8x",
+   "summary": "Dự án mã nguồn mở ArrowMetal công bố quy tắc tối ưu cho Apache DataFusion, chuyển tác vụ sắp xếp tập dữ liệu lớn sang GPU của chip Apple Silicon qua Metal API, đạt tốc độ nhanh hơn từ 6,9 đến 28,8 lần.",
+   "why": "Mở ra tiềm năng tận dụng bộ nhớ hợp nhất và GPU mạnh mẽ trên máy trạm Mac để xử lý truy vấn dữ liệu cục bộ với chi phí phần cứng sẵn có.",
+   "url": "https://medium.com/data-arkaive/datafusion-on-the-apple-silicon-gpu-one-optimizer-rule-the-same-sql-sorts-6-9x-to-28-8x-faster-e6777fc5dd9f",
+   "domain": "medium.com",
+   "date": "2026-10-05",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 19,
+   "title": "Data Engineering Weekly #290: Ghi log quyết định phải ghi cả ngữ cảnh, không chỉ kết quả",
+   "title_en": "Data Engineering Weekly #290 on decision modeling context logging and durable execution",
+   "summary": "Bản tin Data Engineering Weekly số 290 tập trung phân tích bài học về mô hình hóa quyết định trong kỷ nguyên AI: việc kiểm toán đòi hỏi ghi lại toàn bộ trạng thái dữ liệu và ngữ cảnh lúc quyết định, thay vì chỉ lưu kết quả.",
+   "why": "Nhắc nhở cộng đồng dữ liệu về một lỗ hổng kiểm toán lớn khi đưa agent và mô hình máy học vào các luồng ra quyết định tự động.",
+   "url": "https://www.dataengineeringweekly.com/p/data-engineering-weekly-290",
+   "domain": "dataengineeringweekly.com",
+   "date": "2026-10-05",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 20,
+   "title": "Uber Eats tái cấu trúc search pipeline: cắt đôi latency và loại bỏ tính toán dư thừa",
+   "title_en": "Rebuilding the Uber Eats search pipeline to halve latency and cut redundant work",
+   "summary": "Đội ngũ Uber công bố chi tiết quá trình tái thiết kế pipeline tìm kiếm của Uber Eats, loại bỏ các tác vụ trùng lặp, xử lý song song các bước tính năng và giảm 50% độ trễ phản hồi cho người dùng.",
+   "why": "Bài học thực chiến quý giá về việc dọn dẹp nợ kỹ thuật và tối ưu luồng dữ liệu thời gian thực quy mô hàng triệu người dùng.",
+   "url": "https://www.uber.com/us/en/blog/uber-eats-search-pipeline/",
+   "domain": "uber.com",
+   "date": "2026-10-05",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 21,
+   "title": "Feature Freshness Budgets: Quản lý ngân sách độ tươi dữ liệu cho ML Inference trước stream lag",
+   "title_en": "Feature Freshness Budgets for Real-Time ML Inference Under Stream Lag",
+   "summary": "Nghiên cứu thiết lập khuôn khổ lý thuyết và thực nghiệm cho 'ngân sách độ tươi tính năng', giúp hệ thống suy luận máy học thời gian thực định lượng và xử lý rủi ro suy giảm độ chính xác do trễ luồng streaming.",
+   "why": "Đặt nền tảng toán học cho việc xây dựng SLA độ tươi dữ liệu trong các nền tảng feature store hiện đại như Kafka, Redis và PostgreSQL.",
+   "url": "https://arxiv.org/abs/2610.02259",
+   "domain": "arxiv.org",
+   "date": "2026-10-05",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 22,
+   "title": "Snowflake đưa Agentic Marketplace Discovery vào Public Preview",
+   "title_en": "Agentic Marketplace Discovery in Public Preview on Snowflake",
+   "summary": "Snowflake giới thiệu Agentic Marketplace Discovery cho phép các tác tử AI tự động tìm kiếm, đánh giá và đề xuất tích hợp các bộ dữ liệu bên thứ ba từ Snowflake Marketplace vào bài toán phân tích.",
+   "why": "Đưa thị trường dữ liệu từ chỗ chỉ phục vụ con người tìm kiếm bằng tay sang mô hình machine-to-machine, nơi agent tự làm phong phú dữ liệu doanh nghiệp.",
+   "url": "https://docs.snowflake.com/en/release-notes/all-release-notes?bundle=true",
+   "domain": "docs.snowflake.com",
+   "date": "2026-10-09",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 23,
+   "title": "Accenture và Dell Technologies thành lập nhóm kinh doanh chung đẩy mạnh Private AI",
+   "title_en": "Accenture and Dell Technologies launch new business group to scale Private AI",
+   "summary": "Accenture và Dell Technologies mở rộng hợp tác 20 năm, thành lập Accenture Dell Business Group để cung cấp giải pháp Private AI trọn gói on-premise và hybrid cloud cho doanh nghiệp lớn, cam kết đào tạo hơn 3.000 chuyên gia.",
+   "why": "Khẳng định xu hướng dịch chuyển mạnh mẽ của các doanh nghiệp quy mô lớn: đưa AI về gần dữ liệu nội bộ trên hạ tầng riêng để kiểm soát chi phí và bảo mật tuyệt đối.",
+   "url": "https://newsroom.accenture.com/news/2026/accenture-and-dell-technologies-launch-new-business-group-to-help-enterprises-scale-private-ai",
+   "domain": "accenture.com",
+   "date": "2026-10-08",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": 5
+  },
+  {
+   "aid": 24,
+   "title": "Scality ra mắt AI Inference Factory: giải pháp On-Premise chuyển KV-Cache sang Object Storage",
+   "title_en": "Scality launches AI Inference Factory to power on-premises enterprise AI",
+   "summary": "Scality ra mắt giải pháp AI Inference Factory mã nguồn mở, tích hợp tầng lưu trữ AI Data Infrastructure cho phép offload bộ nhớ KV-cache từ GPU sang object storage hiệu năng cao, giúp mở rộng ngữ cảnh suy luận mà không bị nghẽn RAM GPU.",
+   "why": "Giải quyết điểm nghẽn chi phí lớn nhất của các ứng dụng agentic AI: bộ nhớ VRAM đắt đỏ khi xử lý chuỗi hội thoại dài và context lớn.",
+   "url": "https://www.globenewswire.com/news-release/2026/10/08/2957138/0/en/Scality-Launches-AI-Inference-Factory-to-Power-On-Premises-Enterprise-AI.html",
+   "domain": "globenewswire.com",
+   "date": "2026-10-08",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 25,
+   "title": "Snowflake mở GA kết nối Zero-Copy với Workday Data Cloud",
+   "title_en": "Zero-copy integration for Workday Data Cloud generally available in Snowflake",
+   "summary": "Snowflake chính thức đưa kết nối chia sẻ dữ liệu không sao chép với Workday Data Cloud lên GA, cho phép doanh nghiệp truy vấn dữ liệu nhân sự và tài chính tức thời mà không cần xây dựng pipeline ETL.",
+   "why": "Giảm thiểu độ trễ dữ liệu và loại bỏ rủi ro bảo mật phát sinh khi sao chép dữ liệu nhân sự nhạy cảm ra nhiều kho trung gian.",
+   "url": "https://docs.snowflake.com/en/release-notes/all-release-notes?bundle=true",
+   "domain": "docs.snowflake.com",
+   "date": "2026-10-07",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 3,
+ "weekly_video": {
+  "intro": "Chào các bạn, đây là bản tin Data News tuần 41. Tuần này ghi nhận nhiều bước ngoặt lớn: Polars 2.0 ra mắt với streaming engine mặc định, Amazon Redshift mở Iceberg materialized view, và AI đi thẳng vào SQL trong BigQuery cùng Snowflake. Hãy cùng điểm qua năm tin nóng nhất của tuần.",
+  "outro": "Đó là năm điểm nhấn nổi bật nhất trong tuần 41. Để theo dõi toàn bộ 25 tin tức cùng các phân tích chuyên sâu, mời bạn xem bản tin chi tiết trên trang tin. Hẹn gặp lại các bạn vào tuần sau.",
+  "segments": [
+   {
+    "aid": 3,
+    "headline": "Polars 2.0 ra mắt với streaming engine mặc định",
+    "narration": "Sự kiện đáng chú ý nhất tuần 41 đối với cộng đồng kỹ sư dữ liệu là việc Polars chính thức phát hành phiên bản 2.0. Đây không đơn thuần là một bản cập nhật thông thường, mà là bước chuyển mình quan trọng của thư viện xử lý dữ liệu viết bằng Rust. Điểm cốt lõi nhất là Polars 2.0 đã chuyển sang dùng streaming engine làm chế độ thực thi mặc định cho các truy vấn LazyFrame. Thay vì phải nạp toàn bộ tập dữ liệu khổng lồ vào RAM như trước đây, hệ thống giờ đây chia nhỏ dữ liệu thành từng khối để xử lý tuần tự, kèm theo khả năng tự động ghi tạm xuống đĩa khi vượt quá dung lượng bộ nhớ. Điều này giúp các kỹ sư dữ liệu có thể thoải mái xử lý những tập file lên tới hàng chục gigabyte ngay trên laptop cá nhân mà không còn lo gặp lỗi tràn bộ nhớ. Bên cạnh đó, phiên bản 2.0 cũng nâng cấp trình tối ưu hóa truy vấn SQL lên chuẩn cao cấp, bổ sung kiểu dữ liệu Map và cam kết tính ổn định API lâu dài. Với các đội ngũ dữ liệu vừa và nhỏ, Polars 2.0 là vũ khí mạnh mẽ giúp tinh gọn hạ tầng, cho phép trì hoãn việc phải vận hành những cụm tính toán phân tán phức tạp và tốn kém.",
+    "bullets": [
+     "Streaming Engine mặc định cho LazyFrame",
+     "Tự động spill-to-disk khi vượt RAM",
+     "Trình tối ưu hóa SQL chuẩn cao cấp"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Polars 1.x vs Polars 2.0",
+     "left": {
+      "h": "Polars 1.x",
+      "items": [
+       "In-Memory mặc định",
+       "Dễ nghẽn RAM với file lớn",
+       "Engine SQL còn sơ khai"
+      ]
+     },
+     "right": {
+      "h": "Polars 2.0",
+      "items": [
+       "Streaming Engine mặc định",
+       "Spill-to-disk out-of-core",
+       "Optimizer SQL first-class"
+      ]
+     }
+    },
+    "images": [
+     "https://www.pola.rs/share.jpg"
+    ]
+   },
+   {
+    "aid": 4,
+    "headline": "Amazon Redshift hỗ trợ Iceberg Materialized Views",
+    "narration": "Amazon Redshift vừa công bố một bước tiến kiến trúc rất đáng chú ý trong tuần 41: cho phép tạo và làm mới các materialized view dưới dạng bảng mở Apache Iceberg lưu trữ trên Amazon S3 và danh mục AWS Glue. Trước đây, một khung nhìn cụ thể hóa trong Redshift chỉ được lưu trong bộ nhớ độc quyền nội bộ, khiến các công cụ bên ngoài không thể chạm tới. Giờ đây, với cú pháp đơn giản, toàn bộ kết quả của những câu lệnh tổng hợp và nối bảng phức tạp do Redshift xử lý sẽ được ghi trực tiếp thành các tệp bảng Iceberg chuẩn mở. Điều đó có nghĩa là các engine phân tích khác như Amazon Athena, Apache Spark trên EMR, hay thậm chí Trino và Snowflake đều có thể đọc ngay kết quả tiền tính toán này mà không cần Redshift phải chạy lại hay tốn thêm chi phí điện toán. Tính năng này cũng hỗ trợ cơ chế làm mới gia tăng, chỉ tính lại những dòng dữ liệu có sự thay đổi. Đây là bước đột phá giúp xóa nhòa ranh giới giữa kho dữ liệu truyền thống và lakehouse mở, giảm thiểu sự trùng lặp tính toán và tiết kiệm chi phí đáng kể cho các hệ thống dữ liệu doanh nghiệp quy mô lớn.",
+    "bullets": [
+     "Materialized view lưu dạng bảng Iceberg mở",
+     "Đa engine Athena, Spark, Trino đọc trực tiếp",
+     "Hỗ trợ làm mới gia tăng tiết kiệm compute"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Quy trình Redshift Iceberg MV",
+     "items": [
+      {
+       "t": "Query phức tạp",
+       "d": "Join và aggregate nặng"
+      },
+      {
+       "t": "Redshift tính toán",
+       "d": "Compute và refresh gia tăng"
+      },
+      {
+       "t": "Lưu bảng Iceberg",
+       "d": "Ghi chuẩn mở trên Amazon S3"
+      },
+      {
+       "t": "Đa engine truy cập",
+       "d": "Athena, Spark, Trino đọc ngay"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 12,
+    "headline": "BigQuery đưa TimesFM 3.0 trực tiếp vào SQL",
+    "narration": "Google BigQuery vừa tạo ra một cú hích lớn cho mảng phân tích chuỗi thời gian khi tích hợp thẳng mô hình nền tảng TimesFM 3.0 vào các hàm SQL gốc trong tuần 41. TimesFM là mô hình học sâu được phát triển bởi Google Research, được huấn luyện trước trên hàng trăm tỷ điểm dữ liệu thời gian thực. Giờ đây, các nhà phân tích dữ liệu không cần phải viết code Python phức tạp hay xuất dữ liệu ra hệ thống máy học bên ngoài, mà có thể gọi trực tiếp các hàm như AI chấm FORECAST hay AI chấm DETECT ANOMALIES ngay trong câu truy vấn SQL quen thuộc. Đáng chú ý, mô hình mới hỗ trợ cả dự báo đa biến với các biến phụ trợ kinh doanh, mở ra khả năng dự đoán doanh số, nhu cầu tồn kho hay phát hiện gian lận chỉ trong vài giây. Việc đưa trí tuệ nhân tạo chuyên biệt vào ngay tầng lưu trữ dữ liệu giúp rút ngắn quy trình từ phân tích đến hành động, đồng thời giảm bớt gánh nặng duy trì các đường ống dữ liệu phức tạp. Dù vậy, doanh nghiệp vẫn cần lưu ý kiểm soát mức độ tiêu thụ tài nguyên truy vấn khi áp dụng mô hình cho hàng triệu chuỗi dữ liệu đồng thời.",
+    "bullets": [
+     "Foundation model TimesFM 3.0 vào hàm SQL",
+     "Hỗ trợ dự báo chuỗi thời gian đa biến",
+     "Phát hiện dị thường trực tiếp không cần GPU"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "TimesFM 3.0 trong BigQuery SQL",
+     "items": [
+      {
+       "v": "3 hàm SQL",
+       "l": "FORECAST, EVALUATE, DETECT"
+      },
+      {
+       "v": "Đa biến",
+       "l": "Hỗ trợ multivariate covariate"
+      },
+      {
+       "v": "0 pipeline",
+       "l": "Không cần hạ tầng ML ngoài"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 15,
+    "headline": "Snowflake đưa Code Execution trong Cortex Agents lên GA",
+    "narration": "Snowflake vừa chính thức phát hành rộng rãi tính năng thực thi mã nguồn cho các tác tử Cortex Agents trong tuần 41. Đây là bước phát triển quan trọng giúp các trợ lý dữ liệu thông minh vượt ra khỏi giới hạn của những câu lệnh SQL thông thường. Trước đây, khi gặp các bài toán đòi hỏi tính toán thống kê nâng cao, phân tích hồi quy hay xử lý chuỗi logic phức tạp, câu lệnh SQL thường trở nên quá cồng kềnh hoặc bất khả thi. Giờ đây, Cortex Agents có thể tự động viết các đoạn mã Python và thực thi chúng trực tiếp trong một môi trường hộp cát an toàn nằm trọn bên trong Snowflake. Agent có thể tự trích xuất dữ liệu, chạy các thuật toán toán học cần thiết và trả về câu trả lời có kèm đồ thị hoặc bảng biểu hoàn chỉnh cho người dùng kinh doanh. Toàn bộ quá trình thực thi này đều tuân thủ nghiêm ngặt các chính sách phân quyền và bảo mật dữ liệu của doanh nghiệp, không để bất kỳ dòng thông tin mật nào bị rò rỉ ra ngoài. Đây là minh chứng rõ nét cho thấy agent phân tích đang tiến hóa thành những trợ lý kỹ thuật toàn diện ngay trên kho dữ liệu.",
+    "bullets": [
+     "Thực thi mã Python trong sandbox an toàn",
+     "Xử lý logic toán học và thống kê phức tạp",
+     "Bảo toàn ranh giới bảo mật nội bộ Snowflake"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Kiến trúc Cortex Agent Code Execution",
+     "items": [
+      {
+       "t": "Intent & Prompt",
+       "d": "Nhận yêu cầu phân tích dữ liệu"
+      },
+      {
+       "t": "Agent Planner",
+       "d": "Quyết định viết code Python"
+      },
+      {
+       "t": "Secure Sandbox",
+       "d": "Thực thi mã trong Snowflake"
+      },
+      {
+       "t": "Data Output",
+       "d": "Trả kết quả tính toán có kiểm toán"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 23,
+    "headline": "Accenture và Dell đẩy mạnh Private AI cho doanh nghiệp",
+    "narration": "Ở mảng doanh nghiệp và hạ tầng, sự kiện nổi bật nhất tuần 41 là việc Accenture và Dell Technologies bắt tay thành lập một nhóm kinh doanh chung nhằm đẩy mạnh giải pháp Private AI. Sau giai đoạn đầu hào hứng thử nghiệm trí tuệ nhân tạo trên đám mây công cộng, rất nhiều tập đoàn lớn trong các lĩnh vực tài chính, y tế và sản xuất đang đối mặt với bài toán chi phí suy luận tăng vọt và nỗi lo rò rỉ dữ liệu nhạy cảm. Liên minh giữa hai ông lớn này cung cấp một giải pháp trọn gói, kết hợp giữa hạ tầng máy chủ AI chuyên dụng của Dell với năng lực tư vấn chiến lược và tích hợp hệ thống của Accenture. Họ cam kết đào tạo hơn ba nghìn chuyên gia để hỗ trợ các tổ chức triển khai những mô hình ngôn ngữ mở ngay trên trung tâm dữ liệu nội bộ. Thông điệp của thương vụ này rất rõ ràng: xu hướng đưa mô hình đến gần nơi dữ liệu đang sinh sống giúp doanh nghiệp vừa kiểm soát được ngân sách, vừa đảm bảo tính tuân thủ pháp lý tối đa. Đây là bước chuyển tất yếu của thị trường khi AI bước từ giai đoạn thử nghiệm sang vận hành thực tế quy mô lớn.",
+    "bullets": [
+     "Thành lập nhóm chung đẩy mạnh Private AI",
+     "Đào tạo hơn 3.000 chuyên gia tư vấn",
+     "Triển khai AI on-premise bảo mật cho doanh nghiệp"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Quy mô Accenture Dell Private AI",
+     "items": [
+      {
+       "v": "3.000+",
+       "l": "Chuyên gia được đào tạo"
+      },
+      {
+       "v": "On-premise",
+       "l": "Kiểm soát dữ liệu và chi phí"
+      },
+      {
+       "v": "20 năm",
+       "l": "Quan hệ đối tác mở rộng"
+      }
+     ]
+    },
+    "images": []
+   }
+  ]
+ },
+ "facebook_post": "𝐃𝐀𝐓𝐀 𝐍𝐄𝐖𝐒 𝐓𝐔Ầ𝐍 𝟒𝟏: 𝐏𝐨𝐥𝐚𝐫𝐬 𝟐.𝟎 𝐥ê𝐧 𝐧𝐠ô𝐢, 𝐥𝐚𝐤𝐞𝐡𝐨𝐮𝐬𝐞 𝐦ở 𝐭𝐡ố𝐧𝐠 𝐧𝐡ấ𝐭 𝐯à 𝐀𝐈 đ𝐢 𝐭𝐡ẳ𝐧𝐠 𝐯à𝐨 𝐜ơ 𝐬ở 𝐝ữ 𝐥𝐢ệ𝐮 🚀\n\nCó một nghịch lý Đức thấy nhiều anh em làm Data & AI hay gặp: khi dữ liệu phình to lên, phản xạ đầu tiên là vội dựng cluster Spark hay nâng cấp instance cloud đắt tiền.\n\nNhưng tuần 41 mang đến thông điệp rất khác: tối ưu kiến trúc, dùng chuẩn mở và đưa tính toán về đúng nơi dữ liệu đang nằm mới là cách bền vững nhất để kiểm soát chi phí 😄\n\n---\n\n𝟏️⃣ 𝐏𝐨𝐥𝐚𝐫𝐬 𝟐.𝟎 𝐫𝐚 𝐦ắ𝐭: 𝐒𝐭𝐫𝐞𝐚𝐦𝐢𝐧𝐠 𝐄𝐧𝐠𝐢𝐧𝐞 𝐯à 𝐬𝐩𝐢𝐥𝐥-𝐭𝐨-𝐝𝐢𝐬𝐤 𝐭𝐡à𝐧𝐡 𝐦ặ𝐜 đị𝐧𝐡\n\nCột mốc lớn nhất tuần này là Polars 2.0 chính thức phát hành. Streaming Engine đã thành mặc định cho LazyFrame, tự động spill-to-disk khi dữ liệu vượt RAM vật lý. Bản 2.0 cũng nâng cấp optimizer cho SQL first-class và thêm kiểu Map.\n\n👉 Anh em làm data giờ xử lý tập dữ liệu hàng chục gigabyte mượt mà ngay trên laptop không sợ lỗi tràn RAM. Ranh giới giữa DataFrame và database OLAP hoàn chỉnh đang dần bị xóa nhòa.\n\n𝟐️⃣ 𝐀𝐦𝐚𝐳𝐨𝐧 𝐑𝐞𝐝𝐬𝐡𝐢𝐟𝐭 𝐦ở 𝐫ộ𝐧𝐠 𝐈𝐜𝐞𝐛𝐞𝐫𝐠 𝐌𝐚𝐭𝐞𝐫𝐢𝐚𝐥𝐢𝐳𝐞𝐝 𝐕𝐢𝐞𝐰𝐬\n\nAWS công bố Redshift Serverless và Graviton cho phép tạo materialized view lưu trữ trực tiếp dưới dạng bảng Apache Iceberg mở trên S3 và AWS Glue Catalog bằng lệnh CREATE MATERIALIZED VIEW ... USING ICEBERG, hỗ trợ refresh gia tăng.\n\n👉 Kết quả tính toán tổng hợp nặng từ Redshift giờ thành tài sản dùng chung cho cả Athena, Spark, Trino và Snowflake đọc trực tiếp. Doanh nghiệp bớt hẳn việc phải chạy query trùng lặp qua nhiều engine khác nhau.\n\n𝟑️⃣ 𝐆𝐨𝐨𝐠𝐥𝐞 𝐁𝐢𝐠𝐐𝐮𝐞𝐫𝐲 đư𝐚 𝐟𝐨𝐮𝐧𝐝𝐚𝐭𝐢𝐨𝐧 𝐦𝐨𝐝𝐞𝐥 𝐓𝐢𝐦𝐞𝐬𝐅𝐌 𝟑.𝟎 𝐭𝐡ẳ𝐧𝐠 𝐯à𝐨 𝐒𝐐𝐋\n\nGoogle tích hợp mô hình chuỗi thời gian TimesFM 3.0 trực tiếp vào BigQuery qua các hàm SQL AI.FORECAST, AI.EVALUATE và AI.DETECT_ANOMALIES, hỗ trợ dự báo đa biến kèm biến phụ trợ kinh doanh.\n\n👉 Dự báo nhu cầu hay phát hiện dị thường không còn cần pipeline export dữ liệu ra ngoài để chạy script Python riêng. Kỹ sư và analyst có thể kích hoạt mô hình nền tảng cấp enterprise ngay trong một câu lệnh SQL.\n\n𝟒️⃣ 𝐒𝐧𝐨𝐰𝐟𝐥𝐚𝐤𝐞 đư𝐚 𝐂𝐨𝐝𝐞 𝐄𝐱𝐞𝐜𝐮𝐭𝐢𝐨𝐧 𝐜𝐡𝐨 𝐂𝐨𝐫𝐭𝐞𝐱 𝐀𝐠𝐞𝐧𝐭𝐬 𝐥ê𝐧 𝐆𝐀\n\nCortex Agents trong Snowflake giờ đây có thể tự động viết và thực thi mã Python an toàn trong môi trường sandbox nội bộ để giải quyết các bài toán toán học, mô phỏng số và phân tích logic phức tạp vượt quá khả năng của SQL.\n\n👉 Agent không chỉ biết trả lời câu hỏi hay lọc bảng, mà đã trở thành trợ lý lập trình phân tích thực thụ chạy ngay trong ranh giới bảo mật của doanh nghiệp.\n\n𝟓️⃣ 𝐀𝐜𝐜𝐞𝐧𝐭𝐮𝐫𝐞 𝐯à 𝐃𝐞𝐥𝐥 𝐛ắ𝐭 𝐭𝐚𝐲 𝐥ậ𝐩 𝐧𝐡ó𝐦 𝐜𝐡𝐮𝐧𝐠 đẩ𝐲 𝐦ạ𝐧𝐡 𝐏𝐫𝐢𝐯𝐚𝐭𝐞 𝐀𝐈\n\nAccenture và Dell Technologies thành lập nhóm chung nhằm cung cấp giải pháp Private AI on-premise cho doanh nghiệp ngành tài chính, y tế, sản xuất; cam kết đào tạo hơn 3.000 chuyên gia.\n\n👉 Sau thời gian thử nghiệm trên public cloud, các tập đoàn lớn đang đưa AI về gần dữ liệu nội bộ để kiểm soát chi phí token và bảo mật. Di chuyển model đến chỗ dữ liệu luôn an toàn và tiết kiệm hơn chiều ngược lại.\n\n💭 Góc nhìn của mình về tuần này\n\nĐức chia sẻ dưới góc nhìn của một người làm nghề: điều thật sự mới mẻ của tuần này không nằm ở những lời hứa hẹn hào nhoáng về agent thông minh hơn, mà nằm ở việc các nền tảng đang đưa năng lực tính toán và AI về đúng nơi dữ liệu đang sinh sống.\n\nThời gian qua khi học và làm thực hành RAG trên Databricks cũng như tư vấn triển khai Power BI và Fabric tại KPIM, mình thấy một nút thắt lớn: doanh nghiệp mất quá nhiều chi phí chỉ để luân chuyển dữ liệu giữa các kho lưu trữ, dịch vụ AI và dashboard. Khi dữ liệu bị sao chép phân tán, quyền truy cập bị xé lẻ và logic ngữ nghĩa bị mất đồng bộ.\n\nNhững diễn biến tuần 41 cho thấy ba chuyển dịch rất rõ ràng:\n- Ở tầng kiến trúc: Sự kết hợp giữa open table format như Iceberg với data warehouse như Redshift đang biến open lakehouse thành tiêu chuẩn thực tế. Tính toán một lần, đa engine cùng hưởng lợi.\n- Ở tầng xử lý: Polars 2.0 chứng minh rằng với engine tối ưu, chúng ta hoàn toàn xử lý được khối lượng công việc lớn trên máy đơn mà chưa cần vội đốt tiền vào hạ tầng phân tán.\n- Ở tầng ứng dụng AI: Việc BigQuery đưa TimesFM vào SQL hay Snowflake cấp quyền chạy Python cho Cortex Agents khẳng định: AI hữu dụng nhất là AI nằm ngay trong lớp bảo mật của database, hiểu đúng ngữ cảnh và phục vụ công việc.\n\nTheo mình, các đội ngũ dữ liệu tại Việt Nam lúc này nên tập trung vào ba việc: rà soát lại các pipeline tốn compute xem có thể tối ưu bằng streaming engine hay bảng materialized view mở không; kiểm soát chặt ranh giới bảo mật trước khi cho agent quyền thực thi mã; và đừng vội mua thêm công cụ mới khi quy trình dữ liệu nội bộ còn chưa chuẩn hóa.\n\n“Hạ tầng dữ liệu tốt không phải là hạ tầng phức tạp nhất, mà là hạ tầng giúp ra quyết định kinh doanh nhanh nhất với chi phí hợp lý nhất.”\n\nAnh em đang tối ưu hóa pipeline của team bằng công cụ hay kiến trúc nào, comment chia sẻ góc nhìn cùng Đức nhé 👌\n\n#DataNews #DataEngineering #Polars #ApacheIceberg #AmazonRedshift #BigQuery #Snowflake #Lakehouse #PrivateAI #AIData #BusinessIntelligence #HocCungAI",
+ "facebook_reel": "Xử lý file 50GB trên laptop không còn sợ tràn RAM.\n\nPolars 2.0 vừa ra mắt với streaming engine mặc định và spill-to-disk tự động. Cùng lúc, Redshift mở Iceberg Materialized View, BigQuery đưa TimesFM 3.0 thẳng vào SQL!\n\nBạn đã thử Polars 2.0 cho dự án của mình chưa? Chi tiết mình để ở bài viết nhé.\n\n#DataNews #DataEngineering #Polars #Lakehouse #AIData",
+ "bgm": "minimal-tech",
+ "youtube": {
+  "recap": "nqpQoVfARCI",
+  "short": "UnHB5ZC-M_g"
+ }
+}
