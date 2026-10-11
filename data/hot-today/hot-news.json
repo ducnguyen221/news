@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-10-11",
+      "display_date": "11/10/2026",
+      "title": "Flink CDC 3.7.0: Nhúng AI vào luồng dữ liệu thời gian thực",
+      "summary": "Flink CDC 3.7.0 vừa chính thức ra mắt, cho phép nhúng thẳng mô hình AI và tạo vector trực tiếp trong pipeline YAML thời gian thực!",
+      "source": "flink.apache.org",
+      "video_id": "ed0Ovat7gvE",
+      "short_id": "hCMj8xZlFsU",
+      "published_at": "2026-10-11T17:55:33"
+    },
+    {
       "date": "2026-10-09",
       "display_date": "09/10/2026",
       "title": "Polars 2.0: Streaming mặc định, tự tràn ổ đĩa, vượt DuckDB",
