@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-10-13",
+      "display_date": "13/10/2026",
+      "title": "Amazon EMR Data Quality: Chặn dữ liệu bẩn tận gốc trên Spark",
+      "summary": "Amazon EMR Data Quality vừa ra mắt, nhúng thẳng bộ kiểm định Glue DQDL vào nhân Apache Spark để chặn dữ liệu bẩn tận gốc!",
+      "source": "aws.amazon.com",
+      "video_id": "FMK4e7fs0Ag",
+      "short_id": "AuWBQZaSL_s",
+      "published_at": "2026-10-13T18:00:37"
+    },
+    {
       "date": "2026-10-11",
       "display_date": "11/10/2026",
       "title": "Flink CDC 3.7.0: Nhúng AI vào luồng dữ liệu thời gian thực",
