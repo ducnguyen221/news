@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-10-15",
+      "display_date": "15/10/2026",
+      "title": "BigQuery khóa trần token: Chặn thảm họa hóa đơn SQL",
+      "summary": "BigQuery vừa chính thức tung tính năng khóa trần token AI, chặn đứng thảm họa hóa đơn bùng nổ khi nhúng LLM vào SQL!",
+      "source": "cloud.google.com",
+      "video_id": "JOGzc-4yA8Y",
+      "short_id": "2dKuVv7GSHI",
+      "published_at": "2026-10-15T17:55:16"
+    },
+    {
       "date": "2026-10-13",
       "display_date": "13/10/2026",
       "title": "Amazon EMR Data Quality: Chặn dữ liệu bẩn tận gốc trên Spark",
