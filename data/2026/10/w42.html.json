@@ -1,0 +1,463 @@
+{
+ "date": "17/10/2026",
+ "week": "W42",
+ "range": "12/10 - 18/10/2026",
+ "tldr": "Tuần 42 chứng kiến sự hoàn thiện mạnh mẽ của tầng kết nối dữ liệu và hạ tầng bảng mở, đồng thời gióng lên hồi chuông cảnh báo về độ tin cậy của AI trong xử lý dữ liệu. Databricks chính thức đưa trình điều khiển ADBC cho Power BI lên GA, thiết lập chuẩn truyền dữ liệu vector Apache Arrow siêu tốc thay thế hoàn toàn ODBC và JDBC truyền thống. Snowflake củng cố vị thế hồ dữ liệu khi hỗ trợ toàn diện đặc tả Apache Iceberg v3 và ra mắt Data Mirroring cho cơ sở dữ liệu Postgres. Ở mảng nghiên cứu, IBM công bố phát hiện chấn động về độ bất định của các truy vấn ngữ nghĩa bằng mô hình ngôn ngữ lớn ngay cả khi cài đặt nhiệt độ bằng 0, đòi hỏi các kiến trúc sư phải bổ sung lớp kiểm chứng nghiêm ngặt. Cùng lúc đó, làn sóng đầu tư vào hạ tầng tính toán cho AI tiếp tục bùng nổ với thương vụ Modal Labs gọi vốn 750 triệu USD ở mức định giá gần 16 tỷ USD.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "Snowflake chính thức đưa nâng cấp bảng Apache Iceberg v3 lên GA và mở rộng Cortex AI Gateway",
+   "title_en": "Snowflake Announces GA for Apache Iceberg v3 Table Upgrades and Expands Cortex AI Gateway",
+   "summary": "Snowflake chính thức đưa tính năng nâng cấp bảng Apache Iceberg lên chuẩn v3 và các biểu thức giá trị mặc định lên GA, đồng thời mở rộng hạ tầng Cortex AI Gateway sang các vùng thương mại của Microsoft Azure và Google Cloud.",
+   "why": "Củng cố vị thế của Apache Iceberg v3 như định dạng mở tiêu chuẩn cho enterprise lakehouse, giúp bảng mở sở hữu đầy đủ tính năng schema evolution và tính toán như bảng bản địa.",
+   "url": "https://docs.snowflake.com/en/release-notes/new-features#october-16-2026",
+   "domain": "docs.snowflake.com",
+   "date": "2026-10-16",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 2
+  },
+  {
+   "aid": 2,
+   "title": "Databricks đưa ADBC Driver cho Power BI lên GA: Tăng tốc kết nối dữ liệu vector Apache Arrow",
+   "title_en": "Arrow Database Connectivity (ADBC) Driver for Databricks Power BI Connector is Generally Available",
+   "summary": "Databricks chính thức đưa trình điều khiển Arrow Database Connectivity (ADBC) cho connector Power BI lên GA và thiết lập làm driver mặc định cho mọi kết nối mới trên cả Power BI Desktop lẫn Power BI Service.",
+   "why": "Thay thế giao thức ODBC và JDBC tuần tự cũ kỹ bằng truyền tải dữ liệu dạng cột Apache Arrow siêu tốc, rút ngắn đáng kể thời gian làm mới báo cáo và tải mô hình ngữ nghĩa BI.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/october#adbc-driver-for-power-bi-is-now-generally-available",
+   "domain": "docs.databricks.com",
+   "date": "2026-10-15",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 1
+  },
+  {
+   "aid": 3,
+   "title": "BigQuery đưa Apache Hive Catalog Endpoint cho Lakehouse Runtime lên GA",
+   "title_en": "Apache Hive Catalog Endpoint for Lakehouse Runtime Catalog is Generally Available in BigQuery",
+   "summary": "Google Cloud chính thức đưa endpoint Apache Hive Catalog trong Lakehouse runtime catalog lên GA, biến metastore thành một tầng metadata tập trung không máy chủ để truy vấn thống nhất giữa Spark, Hive và BigQuery.",
+   "why": "Cho phép các hệ thống xử lý phân tán mã nguồn mở truy cập trực tiếp vào siêu dữ liệu quản trị của BigQuery mà không cần dựng cụm Metastore trung gian đắt đỏ.",
+   "url": "https://cloud.google.com/bigquery/docs/release-notes#October_14_2026",
+   "domain": "cloud.google.com",
+   "date": "2026-10-14",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 4,
+   "title": "Nghiên cứu CIDR '27: Vì sao Single-Version Concurrency Control (SVCC) đánh bại MVCC trên cloud lakehouse",
+   "title_en": "The Case for Single-Version Concurrency Control in the Cloud (arXiv:2610.15793)",
+   "summary": "Bài báo khoa học của các nhà nghiên cứu từ TUM và Microsoft Research chứng minh rằng trong kiến trúc cloud hiện đại nơi tầng giao dịch tách rời khỏi tầng phân tích, kiểm soát tương tranh đơn phiên bản (SVCC) mang lại hiệu năng cao và ít phức tạp hơn nhiều so với MVCC.",
+   "why": "Thách thức quan niệm mặc định kéo dài hàng thập kỷ rằng Multi-Version Concurrency Control (MVCC) luôn là lựa chọn tối ưu cho mọi cơ sở dữ liệu hiện đại.",
+   "url": "https://arxiv.org/abs/2610.15793",
+   "domain": "arxiv.org",
+   "date": "2026-10-14",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 5,
+   "title": "DuckDB phân tích cấu trúc vật lý của bảng Apache Iceberg và phương thức tích hợp tối ưu",
+   "title_en": "What Is Inside an Iceberg Table? An In-Depth Look by DuckDB",
+   "summary": "Đội ngũ phát triển DuckDB công bố bài phân tích chuyên sâu giải phẫu cấu trúc metadata, manifest files và data files của Apache Iceberg, đồng thời trình diễn cách DuckDB đọc và cắt tỉa phân vùng trực tiếp trên object storage.",
+   "why": "Cung cấp tài liệu kỹ thuật chuẩn mực cho các kỹ sư muốn khai thác sức mạnh của engine phân tích cục bộ DuckDB trên các kho dữ liệu mở quy mô lớn.",
+   "url": "https://duckdb.org/2026/10/13/what-is-inside-an-iceberg-table.html",
+   "domain": "duckdb.org",
+   "date": "2026-10-13",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "DuckDB công bố kỹ thuật chuyển đổi chuỗi JSON sang cột có kiểu dữ liệu chuẩn bằng SQL thuần",
+   "title_en": "From JSON Strings to Typed Columns in DuckDB Using Pure SQL",
+   "summary": "DuckDB giới thiệu phương pháp suy luận lược đồ và chuyển đổi trực tiếp các cột văn bản chứa chuỗi JSON phức tạp từ API hoặc Postgres thành các cột kiểu dữ liệu mạnh mà không cần xuất ra file trung gian.",
+   "why": "Đơn giản hóa quy trình tiền xử lý dữ liệu bán cấu trúc, giảm thiểu hàng trăm dòng code Python parse JSON cồng kềnh trong các đường ống dữ liệu.",
+   "url": "https://duckdb.org/2026/10/16/from-json-strings-to-typed-columns.html",
+   "domain": "duckdb.org",
+   "date": "2026-10-16",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "Snowflake đưa Data Mirroring cho Postgres lên GA: Sao chép dữ liệu liên tục không cần ETL truyền thống",
+   "title_en": "Data Mirroring for Snowflake Postgres Reaches General Availability",
+   "summary": "Snowflake chính thức đưa tính năng Data Mirroring cho Snowflake Postgres lên GA trên AWS và Azure, cho phép sao chép liên tục các bảng từ hệ cơ sở dữ liệu vận hành sang Snowflake với độ trễ tối thiểu mà không cần tạo pipeline ETL hay batch job.",
+   "why": "Hiện thực hóa mô hình Zero-ETL giữa hệ thống giao dịch transactional và nền tảng phân tích phân tán, giải phóng kỹ sư dữ liệu khỏi bài toán bảo trì CDC thủ công.",
+   "url": "https://docs.snowflake.com/en/release-notes/new-features#october-15-2026",
+   "domain": "docs.snowflake.com",
+   "date": "2026-10-15",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": 4
+  },
+  {
+   "aid": 8,
+   "title": "Databricks ra mắt MySQL Integrated CDC Pipeline lên GA: Tinh giản luồng nạp dữ liệu không cần gateway",
+   "title_en": "MySQL Integrated Change Data Capture (CDC) Pipeline is Generally Available in Databricks",
+   "summary": "Databricks công bố tính năng pipeline CDC tích hợp cho MySQL chính thức đạt trạng thái GA, hợp nhất cả hai giai đoạn trích xuất (extraction) và áp dụng (application) vào một bản cập nhật duy nhất mà không đòi hỏi cổng nạp dữ liệu riêng biệt.",
+   "why": "Loại bỏ sự cồng kềnh của các hệ thống ingestion gateway truyền thống, giảm thiểu chi phí phần cứng và nguy cơ trễ nhịp dữ liệu khi đồng bộ cơ sở dữ liệu nghiệp vụ vào lakehouse.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/october#mysql-integrated-cdc-pipeline-is-now-generally-available",
+   "domain": "docs.databricks.com",
+   "date": "2026-10-15",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "BigQuery đưa Column Aliases trong GoogleSQL lên GA và hỗ trợ sao chép bảng Cross-Region",
+   "title_en": "Column Aliases in GoogleSQL and Cross-Region Table Copying Generally Available in BigQuery",
+   "summary": "Google BigQuery chính thức đưa tính năng Column Aliases trong GoogleSQL lên GA, cho phép tái sử dụng bí danh cột ngay trong mệnh đề SELECT và WHERE của cùng khối truy vấn, đồng thời mở rộng khả năng sao chép bảng liên vùng lên toàn cầu.",
+   "why": "Tháo gỡ nỗi phiền toái lặp lại biểu thức tính toán trong SQL và dọn đường cho việc di chuyển các kho dữ liệu từ Snowflake hay Teradata sang BigQuery mà không cần sửa cú pháp.",
+   "url": "https://cloud.google.com/bigquery/docs/release-notes#October_15_2026",
+   "domain": "cloud.google.com",
+   "date": "2026-10-15",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "Microsoft Fabric đưa Custom SQL Pools trong Data Warehouse lên GA",
+   "title_en": "Custom SQL Pools in Microsoft Fabric Data Warehouse Reach General Availability",
+   "summary": "Microsoft Fabric chính thức phát hành rộng rãi tính năng Custom SQL Pools cho Data Warehouse, cho phép người quản trị phân bổ và cô lập tài nguyên tính toán chuyên biệt cho từng loại tác vụ truy vấn và phân loại lệnh SQL.",
+   "why": "Chấm dứt tình trạng các truy vấn báo cáo nặng của người dùng nghiệp vụ làm nghẽn các tác vụ nạp dữ liệu quan trọng của kỹ sư dữ liệu trên cùng một kho lưu trữ.",
+   "url": "https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/bg-p/FabricUpdates",
+   "domain": "community.fabric.microsoft.com",
+   "date": "2026-10-15",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "SemReuse: Tái sử dụng an toàn kết quả từ các toán tử ngữ nghĩa ngôn ngữ tự nhiên trong cơ sở dữ liệu",
+   "title_en": "SemReuse: Certified Reuse of Cached Natural-Language Views for Semantic Operators (arXiv:2610.16035)",
+   "summary": "Nghiên cứu giới thiệu khung làm việc SemReuse, cung cấp cơ chế tái sử dụng bộ nhớ cache có chứng thực cho các toán tử lọc ngữ nghĩa bằng ngôn ngữ tự nhiên, giúp giảm thiểu chi phí gọi LLM mà vẫn đảm bảo độ chuẩn xác toán học.",
+   "why": "Đưa nguyên lý materialized view truyền thống vào kỷ nguyên cơ sở dữ liệu ngữ nghĩa, giúp các truy vấn AI tiết kiệm chi phí token mà không bị sai lệch kết quả.",
+   "url": "https://arxiv.org/abs/2610.16035",
+   "domain": "arxiv.org",
+   "date": "2026-10-15",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "Databricks nâng cấp Genie Agent Mode và ra mắt tính năng Dashboard Insights tự động",
+   "title_en": "Databricks Enhances Genie AI/BI with Dashboard Insights and Upgraded Agent Models",
+   "summary": "Databricks cập nhật nền tảng AI/BI với tính năng Dashboard Insights ở chế độ Beta, cho phép tác tử Genie tự động phân tích và giải thích các biểu đồ trên dashboard, đồng thời nâng cấp mô hình nền tảng giúp tác tử phản hồi thông minh và nhanh hơn.",
+   "why": "Chuyển đổi trải nghiệm BI từ các biểu đồ tĩnh sang đối thoại tương tác chủ động, giúp người dùng kinh doanh nắm bắt ngay các xu hướng và điểm dị thường mà không cần tự mổ xẻ dữ liệu.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/october#ai-bi-and-genie-enhancements",
+   "domain": "docs.databricks.com",
+   "date": "2026-10-15",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "Nghiên cứu IBM: \"Cùng câu hỏi, kết quả khác nhau\" – Báo động về độ bất định trong Semantic Query Processing",
+   "title_en": "Same Query, Different Answer: Run-to-Run Variance in Semantic Query Processing (arXiv:2610.13823)",
+   "summary": "Các nhà nghiên cứu từ IBM phát hiện rằng ngay cả khi thiết lập tham số nhiệt độ bằng 0, các công cụ xử lý truy vấn ngữ nghĩa bằng LLM vẫn tạo ra sự biến thiên kết quả từ 0,07% đến 10,2% (cá biệt lên tới 24%) giữa các lần chạy giống hệt nhau, và kế hoạch thực thi truy vấn làm khuếch đại sai số này theo cấp số nhân.",
+   "why": "Hồi chuông cảnh tỉnh cho các giải pháp AI Analytics và Text-to-SQL đang chạy ngầm trong doanh nghiệp mà thiếu các lớp bảo vệ kiểm soát tính tất định.",
+   "url": "https://arxiv.org/abs/2610.13823",
+   "domain": "arxiv.org",
+   "date": "2026-10-13",
+   "section": "🤖 AI × Data",
+   "hot_rank": 3
+  },
+  {
+   "aid": 14,
+   "title": "Snowflake phát hành Cortex Agent SDK ra Public Preview: Xây dựng trợ lý dữ liệu đa tác tử có kiểm soát",
+   "title_en": "Snowflake Releases Cortex Agent SDK to Public Preview for Governed Multi-Agent AI",
+   "summary": "Snowflake chính thức phát hành bộ công cụ lập trình Cortex Agent SDK ra bản xem trước công khai (Public Preview), cung cấp các thư viện Python chuyên biệt để lập trình, xâu chuỗi và điều phối các tác tử AI hoạt động trong ranh giới bảo mật của kho dữ liệu.",
+   "why": "Chuẩn hóa quy trình phát triển ứng dụng agentic data, giúp các kỹ sư phần mềm dễ dàng tích hợp năng lực hỏi đáp dữ liệu có quản trị vào các sản phẩm doanh nghiệp.",
+   "url": "https://docs.snowflake.com/en/release-notes/new-features#october-13-2026",
+   "domain": "docs.snowflake.com",
+   "date": "2026-10-13",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "Snowflake giới thiệu Horizon Context: Cung cấp ngữ cảnh và lineage ngoại vi cho AI Agents",
+   "title_en": "Snowflake Introduces Horizon Context (Preview) to Enrich Catalogs for Enterprise AI Agents",
+   "summary": "Snowflake công bố Horizon Context ở chế độ xem trước (Preview), cho phép mở rộng danh mục dữ liệu Horizon Catalog bằng cách tiếp nhận metadata, tài liệu mô tả và nguồn gốc dữ liệu từ các hệ thống bên ngoài để phục vụ con người và các tác tử AI.",
+   "why": "Giải quyết 'khoảng trống ngữ cảnh' vốn là rào cản lớn nhất khiến các trợ lý AI trả lời sai do thiếu hiểu biết về ý nghĩa kinh doanh của các cột và bảng dữ liệu.",
+   "url": "https://docs.snowflake.com/en/release-notes/new-features#october-12-2026",
+   "domain": "docs.snowflake.com",
+   "date": "2026-10-12",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 16,
+   "title": "Hacker News tranh luận: Apache Iceberg có đang quá cồng kềnh cho các ứng dụng gọn nhẹ so với DuckLake?",
+   "title_en": "Hacker News Debate: Is Apache Iceberg Becoming Too Heavy Compared to DuckLake?",
+   "summary": "Cộng đồng kỹ sư trên Hacker News nổ ra cuộc tranh luận sôi nổi về độ phức tạp của Apache Iceberg, so sánh chi phí vận hành catalog nặng nề với giải pháp DuckLake v1.0 vừa ra mắt sử dụng PostgreSQL làm catalog gọn nhẹ.",
+   "why": "Phản ánh sự phân hóa trong cộng đồng dữ liệu: một bên cần chuẩn mở đa engine cho enterprise, một bên khao khát sự đơn giản và tốc độ triển khai tức thì.",
+   "url": "https://news.ycombinator.com/item?id=45598124",
+   "domain": "news.ycombinator.com",
+   "date": "2026-10-15",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "Joe Reis và tranh luận tái định hình Data Modeling: Tránh cái bẫy chạy theo hạ tầng streaming thời gian thực",
+   "title_en": "Joe Reis and the Data Community: Rethinking Data Modeling and Escaping the Real-Time Streaming Trap",
+   "summary": "Tác giả cuốn sách kinh điển 'Fundamentals of Data Engineering' Joe Reis cùng cộng đồng dấy lên làn sóng thảo luận về việc trở lại với các giá trị cốt lõi của mô hình hóa dữ liệu (Data Modeling), cảnh báo các doanh nghiệp đang lãng phí tiền bạc vào hạ tầng streaming thời gian thực khi nhu cầu nghiệp vụ chỉ là theo đợt.",
+   "why": "Lời nhắc nhở thực tế từ chuyên gia đầu ngành giúp các đội ngũ dữ liệu tập trung vào giá trị kinh doanh thực chất thay vì bị cuốn vào các trào lưu công nghệ tốn kém.",
+   "url": "https://joereis.substack.com/p/practical-data-modeling",
+   "domain": "joereis.substack.com",
+   "date": "2026-10-15",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 18,
+   "title": "Dự án \"Data Engineering Book\" gây sốt trên Hacker News: Kỹ sư dữ liệu thời AI cần học gì?",
+   "title_en": "\"Data Engineering Book\" Project Trends on Hacker News: What Must Data Engineers Learn in the AI Era?",
+   "summary": "Một dự án tài liệu nguồn mở cộng đồng mang tên Data Engineering Book đạt hơn 250 điểm trên Hacker News, mở ra cuộc thảo luận sâu rộng về sự biến chuyển trong vai trò của kỹ sư dữ liệu từ người viết code ETL sang kiến trúc sư bối cảnh và chất lượng dữ liệu cho AI.",
+   "why": "Phác thảo lộ trình kỹ năng thiết yếu cho các kỹ sư dữ liệu muốn nâng cao giá trị bản thân trong bối cảnh các công cụ tự động hóa và coding agent đang viết code ngày càng nhanh.",
+   "url": "https://news.ycombinator.com/item?id=45589012",
+   "domain": "news.ycombinator.com",
+   "date": "2026-10-14",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 19,
+   "title": "Trino Community Broadcast #79: Bước chuyển mình trino-go-client 1.0 và chuẩn hóa gateway đa cụm",
+   "title_en": "Trino Community Broadcast Episode 79: trino-go-client 1.0 and Multi-Cluster Gateway Standardization",
+   "summary": "Cộng đồng Trino công bố cột mốc phiên bản 1.0.0 chính thức cho thư viện trino-go-client, đồng thời giới thiệu các cải tiến lớn về định tuyến truy vấn thông minh trên Trino Gateway và các tính năng SQL ngữ pháp mới của các bản phát hành 480-483.",
+   "why": "Mở rộng khả năng xây dựng các microservices hiệu năng cao bằng ngôn ngữ Go giao tiếp trực tiếp với cụm phân tích Trino, nâng tầm khả năng chịu lỗi cho các hệ thống quy mô lớn.",
+   "url": "https://trino.io/broadcast/79.html",
+   "domain": "trino.io",
+   "date": "2026-10-14",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 20,
+   "title": "Starburst thúc đẩy khái niệm Agentic Data Infrastructure: Liên minh dữ liệu giải quyết tỷ lệ thất bại 88% của AI Agent",
+   "title_en": "Starburst Advocates for Agentic Data Infrastructure to Overcome the 88% AI Agent Pilot Failure Rate",
+   "summary": "Starburst công bố chiến lược Agentic Data Infrastructure, chỉ ra rằng 88% các dự án thử nghiệm AI Agent trong doanh nghiệp bị thất bại do thiếu một tầng dữ liệu liên kết (federated data) có khả năng cung cấp ngữ cảnh thời gian thực và quản trị quyền truy cập nhất quán.",
+   "why": "Chuyển dịch góc nhìn từ phát triển mô hình sang xây dựng hạ tầng dữ liệu nền tảng, yếu tố quyết định sự thành bại khi đưa agent vào vận hành thực tế.",
+   "url": "https://www.starburst.io/blog/what-is-agentic-data-infrastructure/",
+   "domain": "starburst.io",
+   "date": "2026-10-16",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 21,
+   "title": "Microsoft Fabric bổ sung Copilot tự động tạo báo cáo Power BI với custom visuals thông qua Skills",
+   "title_en": "Microsoft Fabric Copilot for Power BI Adds Custom Visuals Generation via Skills (GA)",
+   "summary": "Microsoft chính thức đưa tính năng Copilot hỗ trợ tạo báo cáo Power BI sử dụng các biểu đồ tùy biến (custom visuals) thông qua kỹ năng tích hợp trong Fabric lên GA, mở rộng khả năng trực quan hóa tự động cho người dùng doanh nghiệp.",
+   "why": "Xóa bỏ rào cản kỹ thuật trong việc thiết kế các báo cáo BI phức tạp, giúp người dùng nghiệp vụ chỉ cần mô tả bằng lời là có ngay biểu đồ tùy biến chuyên nghiệp.",
+   "url": "https://community.fabric.microsoft.com/t5/Power-BI-Updates-Blog/bg-p/PowerBIUpdates",
+   "domain": "community.fabric.microsoft.com",
+   "date": "2026-10-14",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 22,
+   "title": "Modal Labs gọi vốn 750 triệu USD ở định giá 15,75 tỷ USD: Cơn sốt hạ tầng compute & container cho AI",
+   "title_en": "Modal Labs Raises $750 Million Series D at $15.75B Valuation to Scale Serverless AI Compute",
+   "summary": "Nền tảng điện toán đám mây cho AI Modal huy động thành công 750 triệu USD trong vòng gọi vốn Series D do Accel dẫn đầu, nâng mức định giá của công ty lên con số kỷ lục 15,75 tỷ USD nhằm mở rộng cụm GPU toàn cầu và hạ tầng lưu trữ phân tán.",
+   "why": "Minh chứng cho thấy sự bùng nổ của các tác vụ AI suy luận và xử lý dữ liệu đang kéo theo nhu cầu cấp thiết về hạ tầng serverless container khởi động dưới một giây.",
+   "url": "https://datacenterdynamics.com/en/news/modal-raises-750m-series-d/",
+   "domain": "datacenterdynamics.com",
+   "date": "2026-10-14",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": 5
+  },
+  {
+   "aid": 23,
+   "title": "Confluent Cloud đạt chứng nhận bảo mật OSPAR: Mở rộng luồng streaming cho các định chế tài chính tại Singapore",
+   "title_en": "Confluent Cloud Achieves OSPAR Attestation for Financial Data Streaming in Singapore",
+   "summary": "Nền tảng luân chuyển dữ liệu Confluent công bố dịch vụ Confluent Cloud đã chính thức đạt chứng nhận OSPAR theo tiêu chuẩn nghiêm ngặt của Hiệp hội Ngân hàng Singapore, cho phép các định chế tài chính đưa các luồng streaming dữ liệu nhạy cảm lên đám mây.",
+   "why": "Phá vỡ rào cản tuân thủ pháp lý lớn nhất của ngành ngân hàng và fintech tại khu vực Đông Nam Á, thúc đẩy làn sóng chuyển dịch sang kiến trúc dữ liệu thời gian thực.",
+   "url": "https://www.confluent.io/blog/",
+   "domain": "confluent.io",
+   "date": "2026-10-14",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 2,
+ "weekly_video": {
+  "intro": "Chào mừng các bạn đến với bản tin Data News tuần 42. Tuần này ghi nhận bước chuyển lớn khi Databricks đưa ADBC lên Power BI, Snowflake hoàn thiện chuẩn bảng mở Iceberg v3, và nghiên cứu từ IBM cảnh báo sai số trong truy vấn dữ liệu bằng AI. Cùng điểm qua năm diễn biến đáng chú ý nhất ngay sau đây.",
+  "outro": "Đó là những điểm nhấn công nghệ dữ liệu nổi bật nhất trong tuần 42. Đừng quên truy cập bài viết chi tiết để theo dõi đầy đủ 23 tin tức cùng các phân tích chuyên sâu. Hẹn gặp lại các bạn trong số phát sóng tiếp theo.",
+  "segments": [
+   {
+    "aid": 2,
+    "headline": "Databricks đưa ADBC Driver cho Power BI lên GA",
+    "narration": "Một bước tiến lớn vừa diễn ra ở giao lộ giữa lakehouse và Business Intelligence trong tuần 42 khi Databricks chính thức đưa trình điều khiển Arrow Database Connectivity, gọi tắt là ADBC, cho connector Power BI lên giai đoạn phát hành rộng rãi GA. Trình điều khiển này giờ đây trở thành mặc định cho mọi kết nối mới trên cả Power BI Desktop lẫn dịch vụ đám mây Power BI Service. Trong nhiều năm qua, trải nghiệm làm việc giữa Power BI và Databricks thường bị nghẽn lại ở tầng giao tiếp mạng, khi dữ liệu dạng cột từ cụm Spark buộc phải chuyển đổi thành từng dòng tuần tự qua giao thức ODBC hoặc JDBC rồi mới nạp vào mô hình ngữ nghĩa của Power BI. Trình điều khiển ADBC giải quyết triệt để sự lãng phí này bằng cách giữ nguyên cấu trúc bộ nhớ dạng cột Apache Arrow trong suốt hành trình từ cụm tính toán đến máy trạm của người dùng. Tốc độ làm mới dữ liệu tăng vọt, độ trễ truy vấn giảm mạnh và tài nguyên tính toán được tiết kiệm đáng kể. Đối với các kỹ sư dữ liệu và chuyên gia phân tích BI, đây là một nâng cấp hạ tầng vô giá giúp các dashboard báo cáo quy mô lớn vận hành mượt mà và tin cậy hơn.",
+    "bullets": [
+     "ADBC Driver chính thức thành mặc định cho Power BI",
+     "Truyền tải vector qua bộ nhớ Apache Arrow",
+     "Tăng tốc tối đa thời gian làm mới báo cáo"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Kiến trúc truyền dữ liệu Vector ADBC",
+     "items": [
+      {
+       "t": "Databricks Engine",
+       "d": "Tính toán dạng cột song song"
+      },
+      {
+       "t": "Apache Arrow",
+       "d": "Bộ nhớ vector không tuần tự hóa"
+      },
+      {
+       "t": "ADBC Driver",
+       "d": "Truyền tải trực tiếp tốc độ cao"
+      },
+      {
+       "t": "Power BI VertiPaq",
+       "d": "Nạp thẳng vào mô hình ngữ nghĩa"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 1,
+    "headline": "Snowflake đưa nâng cấp Iceberg v3 lên GA",
+    "narration": "Cũng trong tuần 42, Snowflake tiếp tục khẳng định cam kết đối với hệ sinh thái bảng mở khi chính thức đưa tính năng nâng cấp bảng Apache Iceberg lên chuẩn v3 đạt trạng thái phát hành rộng rãi GA. Điểm nhấn quan trọng nhất của đặc tả Iceberg v3 là khả năng hỗ trợ các biểu thức giá trị mặc định cho cột, giúp các kỹ sư dữ liệu thoải mái tiến hóa lược đồ bảng theo thời gian mà không cần phải viết lại dữ liệu cũ hay gây đứt gãy các đường ống phân tích hạ tầng. Đi kèm với bản nâng cấp lưu trữ này, Snowflake cũng mở rộng hạ tầng Cortex AI Gateway sang các vùng thương mại của Microsoft Azure và Google Cloud, mang lại khả năng quản trị và điều phối các mô hình ngôn ngữ lớn một cách nhất quán trên môi trường đa đám mây. Việc một nền tảng kho dữ liệu hàng đầu hỗ trợ toàn diện Iceberg v3 chứng minh rằng open table format đã trở thành tiêu chuẩn không thể đảo ngược của ngành dữ liệu. Doanh nghiệp giờ đây có thể tự tin lưu trữ toàn bộ tài sản thông tin trên định dạng mở mà vẫn được hưởng trọn vẹn các tiện ích quản trị và tính năng tối ưu cao cấp.",
+    "bullets": [
+     "Nâng cấp bảng Apache Iceberg v3 đạt GA",
+     "Hỗ trợ giá trị mặc định bằng biểu thức",
+     "Mở rộng Cortex AI Gateway sang Azure và GCP"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "So sánh Iceberg v2 và Iceberg v3",
+     "left": {
+      "h": "Iceberg v2",
+      "items": [
+       "Giá trị mặc định hạn chế",
+       "Xóa metadata dạng row level",
+       "Tối ưu cho Spark đời cũ"
+      ]
+     },
+     "right": {
+      "h": "Iceberg v3",
+      "items": [
+       "Expression defaults linh hoạt",
+       "Row lineage và tracking mới",
+       "Tối ưu hóa đa engine hiện đại"
+      ]
+     }
+    },
+    "images": []
+   },
+   {
+    "aid": 13,
+    "headline": "Nghiên cứu IBM: Biến thiên kết quả trong truy vấn AI",
+    "narration": "Một phát hiện khoa học mang tính cảnh tỉnh sâu sắc vừa được các nhà nghiên cứu từ IBM công bố trong tuần 42 liên quan đến việc ứng dụng mô hình ngôn ngữ lớn vào các hệ thống cơ sở dữ liệu. Nhóm tác giả chỉ ra rằng khi sử dụng AI để thực hiện các truy vấn ngữ nghĩa, kết quả trả về giữa các lần chạy giống hệt nhau có thể xuất hiện độ lệch từ 0,07% đến 10,2%, và thậm chí lên tới 24% ở một số tác vụ phức tạp, ngay cả khi tham số nhiệt độ đã được cố định ở mức 0 tuyệt đối. Nghiêm trọng hơn, bài báo chứng minh rằng các kế hoạch thực thi truy vấn quan hệ như phép kết nối bảng hay gom nhóm sẽ khuếch đại những sai lệch nhỏ ở cấp độ dòng dữ liệu này theo cấp số nhân, dẫn đến câu trả lời cuối cùng bị sai lệch hoàn toàn so với thực tế. Kết quả này gióng lên hồi chuông cảnh báo cho các doanh nghiệp đang vội vã đưa tính năng hỏi đáp dữ liệu tự động Text-to-SQL vào báo cáo tài chính hoặc vận hành quan trọng. Để trí tuệ nhân tạo trở nên đáng tin cậy trong môi trường phân tích, các đội ngũ kỹ thuật bắt buộc phải xây dựng các cơ chế xác thực kết quả và thiết lập các ngưỡng an toàn kiểm toán chặt chẽ.",
+    "bullets": [
+     "Biến thiên kết quả ngay cả ở nhiệt độ 0",
+     "Tỷ lệ phán đoán dòng lệch tới 24%",
+     "Query plan khuếch đại sai số cấp số nhân"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Độ biến thiên trong Semantic Query Processing",
+     "items": [
+      {
+       "v": "0.07% - 10.2%",
+       "l": "Dao động phán đoán dòng dữ liệu"
+      },
+      {
+       "v": "24%",
+       "l": "Mức lệch tối đa ở tác vụ phức tạp"
+      },
+      {
+       "v": "0",
+       "l": "Nhiệt độ temperature thiết lập"
+      },
+      {
+       "v": "Cấp số nhân",
+       "l": "Khuếch đại qua kế hoạch truy vấn"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 7,
+    "headline": "Snowflake mở Data Mirroring cho Postgres lên GA",
+    "narration": "Ở mảng công cụ và đường ống dữ liệu, Snowflake vừa chính thức thương mại hóa tính năng Data Mirroring cho các phiên bản Snowflake Postgres trên cả hai nền tảng đám mây AWS và Azure trong tuần 42. Tính năng này cho phép các bảng dữ liệu từ cơ sở dữ liệu giao dịch vận hành được liên tục phản chiếu sang kho dữ liệu Snowflake với độ trễ cực thấp mà không cần thiết lập bất kỳ đường ống trích xuất chuyển đổi ETL truyền thống nào. Kỹ sư dữ liệu không còn phải đau đầu duy trì các máy chủ Change Data Capture phức tạp hay xử lý sự cố lệch cấu trúc bảng giữa hệ thống nguồn và đích. Mọi giao dịch thêm sửa xóa từ ứng dụng nghiệp vụ đều được tự động đồng bộ hóa và thừa hưởng ngay lập tức các chính sách kiểm soát truy cập và bảo mật của Snowflake Horizon. Đây là bước đi cụ thể hóa khái niệm Zero-ETL, giúp các tổ chức rút ngắn khoảng cách từ thời điểm phát sinh nghiệp vụ đến khi dữ liệu sẵn sàng phục vụ các báo cáo phân tích và các tác tử trí tuệ nhân tạo.",
+    "bullets": [
+     "Sao chép liên tục dữ liệu từ Postgres vào kho",
+     "Mô hình Zero-ETL không cần pipeline ngoài",
+     "Sẵn sàng trên cả nền tảng AWS và Azure"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Kiến trúc Zero-ETL Data Mirroring",
+     "items": [
+      {
+       "t": "Operational Database",
+       "d": "Giao dịch ghi nhận trên Snowflake Postgres"
+      },
+      {
+       "t": "Replication Engine",
+       "d": "Tự động bắt và nhân bản thay đổi"
+      },
+      {
+       "t": "Snowflake Storage",
+       "d": "Dữ liệu sẵn sàng với độ trễ tối thiểu"
+      },
+      {
+       "t": "Analytics & AI",
+       "d": "Phục vụ báo cáo BI và tác tử Cortex"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 22,
+    "headline": "Modal Labs gọi vốn 750 triệu USD định giá 15,75 tỷ USD",
+    "narration": "Thị trường hạ tầng điện toán đám mây cho trí tuệ nhân tạo vừa ghi nhận một cột mốc tài chính ấn tượng trong tuần 42 khi nền tảng Modal Labs công bố huy động thành công 750 triệu USD trong vòng gọi vốn Series D do quỹ Accel dẫn dắt, đưa định giá doanh nghiệp lên mức 15,75 tỷ USD. Điểm làm nên sức hút khổng lồ của Modal nằm ở kiến trúc serverless container chuyên biệt, cho phép khởi động các môi trường tính toán có gắn GPU chỉ trong chưa đầy một giây thay vì mất vài phút như các cụm máy chủ truyền thống. Nền tảng này cũng tự phát triển tầng lưu trữ dữ liệu và mạng phân tán để loại bỏ tình trạng nghẽn cổ chai khi các mô hình học sâu cần nạp hàng terabyte trọng số và dữ liệu huấn luyện. Khoản đầu tư kỷ lục này phản ánh nhu cầu cấp thiết của các doanh nghiệp trong việc tìm kiếm các giải pháp hạ tầng linh hoạt, nơi các kỹ sư dữ liệu và nhà nghiên cứu máy học chỉ cần tập trung vào việc viết code mà không phải tiêu tốn thời gian quản lý cụm máy chủ cồng kềnh.",
+    "bullets": [
+     "Huy động 750 triệu USD vòng Series D",
+     "Định giá doanh nghiệp chạm mốc 15,75 tỷ USD",
+     "Hạ tầng container siêu tốc cho AI và dữ liệu"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Vòng gọi vốn Series D của Modal Labs",
+     "items": [
+      {
+       "v": "750M USD",
+       "l": "Vốn huy động Series D"
+      },
+      {
+       "v": "15.75B USD",
+       "l": "Định giá sau vòng gọi vốn"
+      },
+      {
+       "v": "< 1 giây",
+       "l": "Thời gian khởi động container GPU"
+      },
+      {
+       "v": "Accel",
+       "l": "Quỹ đầu tư dẫn dắt"
+      }
+     ]
+    },
+    "images": [
+     "https://modal.com/assets/social-image-5.jpg"
+    ]
+   }
+  ]
+ },
+ "facebook_post": "𝐃𝐀𝐓𝐀 𝐍𝐄𝐖𝐒 𝐓𝐔Ầ𝐍 𝟒𝟐: 𝐃𝐚𝐭𝐚𝐛𝐫𝐢𝐜𝐤𝐬 𝐥ê𝐧 𝐀𝐃𝐁𝐂 𝐜𝐡𝐨 𝐏𝐨𝐰𝐞𝐫 𝐁𝐈, 𝐈𝐜𝐞𝐛𝐞𝐫𝐠 𝐯𝟑 𝐯ề đí𝐜𝐡 𝐯à 𝐛á𝐨 độ𝐧𝐠 𝐬𝐚𝐢 𝐬ố 𝐭𝐫𝐮𝐲 𝐯ấ𝐧 𝐀𝐈 🚀\n\nMột nghịch lý quen thuộc Đức hay thấy: dashboard Power BI chạy chậm thì team vội xin ngân sách nâng cấp cụm cloud đắt tiền, trong khi nút thắt thực ra lại nằm ở giao thức truyền dữ liệu cũ kỹ 😭\n\nTuần 42 mang đến những bước chuyển hạ tầng rất thực chiến: từ chuẩn kết nối Apache Arrow vector cho BI, hoàn thiện open lakehouse với Iceberg v3, đến cảnh báo rủi ro khi phó mặc phân tích cho AI 😄\n\n---\n\n𝟏️⃣ 𝐃𝐚𝐭𝐚𝐛𝐫𝐢𝐜𝐤𝐬 đư𝐚 𝐀𝐃𝐁𝐂 𝐃𝐫𝐢𝐯𝐞𝐫 𝐜𝐡𝐨 𝐏𝐨𝐰𝐞𝐫 𝐁𝐈 𝐥ê𝐧 𝐆𝐀\n\nDatabricks chính thức đưa trình điều khiển Arrow Database Connectivity (ADBC) cho connector Power BI lên GA và đặt làm mặc định cho mọi kết nối mới trên cả Power BI Desktop lẫn Service.\n\n👉 Giữ nguyên cấu trúc bộ nhớ Apache Arrow suốt hành trình truyền tải, loại bỏ hoàn toàn chi phí ép dòng tuần tự của ODBC/JDBC. Báo cáo tải nhanh vượt trội và tiết kiệm đáng kể chi phí compute.\n\n𝟐️⃣ 𝐒𝐧𝐨𝐰𝐟𝐥𝐚𝐤𝐞 đư𝐚 𝐧â𝐧𝐠 𝐜ấ𝐩 𝐛ả𝐧𝐠 𝐀𝐩𝐚𝐜𝐡𝐞 𝐈𝐜𝐞𝐛𝐞𝐫𝐠 𝐯𝟑 𝐥ê𝐧 𝐆𝐀\n\nSnowflake chính thức hỗ trợ nâng cấp bảng Apache Iceberg lên chuẩn v3 và các biểu thức giá trị mặc định lên GA, đồng thời mở rộng hạ tầng Cortex AI Gateway sang các vùng thương mại của Azure và Google Cloud.\n\n👉 Iceberg v3 củng cố vị thế tiêu chuẩn thực tế cho open lakehouse. Kỹ sư thoải mái tiến hóa schema mà không lo gãy pipeline cũ hay phải ghi lại dữ liệu, xóa bỏ hoàn toàn nỗi lo vendor lock-in.\n\n𝟑️⃣ 𝐍𝐠𝐡𝐢ê𝐧 𝐜ứ𝐮 𝐈𝐁𝐌: \"𝐂ù𝐧𝐠 𝐜â𝐮 𝐡ỏ𝐢, 𝐤ế𝐭 𝐪𝐮ả 𝐤𝐡á𝐜 𝐧𝐡𝐚𝐮\" – 𝐁á𝐨 độ𝐧𝐠 𝐯ề độ 𝐛ấ𝐭 đị𝐧𝐡 𝐭𝐫𝐮𝐲 𝐯ấ𝐧 𝐀𝐈\n\nIBM Research công bố phát hiện thực nghiệm chấn động: ngay cả khi cố định nhiệt độ bằng 0, truy vấn ngữ nghĩa bằng LLM vẫn lệch từ 0,07% đến 10,2% (cá biệt tới 24%) giữa các lần chạy giống hệt nhau.\n\n👉 Kế hoạch thực thi SQL (JOIN, GROUP BY) khuếch đại sai số này theo cấp số nhân. Anh em đang vội vã đưa Text-to-SQL vào chốt số báo cáo tài chính thì cần phanh lại ngay để dựng các lớp kiểm chứng.\n\n𝟒️⃣ 𝐒𝐧𝐨𝐰𝐟𝐥𝐚𝐤𝐞 đư𝐚 𝐃𝐚𝐭𝐚 𝐌𝐢𝐫𝐫𝐨𝐫𝐢𝐧𝐠 𝐜𝐡𝐨 𝐏𝐨𝐬𝐭𝐠𝐫𝐞𝐬 𝐥ê𝐧 𝐆𝐀\n\nTính năng Data Mirroring cho Snowflake Postgres chính thức đạt GA trên AWS và Azure, sao chép liên tục các bảng từ hệ thống giao dịch sang kho dữ liệu với độ trễ tối thiểu mà không cần dựng pipeline ETL hay CDC thủ công.\n\n👉 Hiện thực hóa mô hình Zero-ETL giữa ứng dụng nghiệp vụ và kho phân tích. Dữ liệu sang tới nơi được thừa hưởng ngay quyền quản trị của Horizon, sẵn sàng cho cả dashboard lẫn tác tử AI.\n\n𝟓️⃣ 𝐌𝐨𝐝𝐚𝐥 𝐋𝐚𝐛𝐬 𝐠ọ𝐢 𝐯ố𝐧 𝟕𝟓𝟎 𝐭𝐫𝐢ệ𝐮 𝐔𝐒𝐃 ở đị𝐧𝐡 𝐠𝐢á 𝟏𝟓,𝟕𝟓 𝐭ỷ 𝐔𝐒𝐃\n\nNền tảng đám mây chuyên biệt cho AI Modal Labs huy động thành công 750 triệu USD vòng Series D do quỹ Accel dẫn dắt, đưa định giá công ty lên 15,75 tỷ USD nhờ kiến trúc container khởi động GPU dưới một giây.\n\n👉 Hạ tầng AI đang dịch chuyển mạnh: rời xa các cụm Kubernetes tự quản cồng kềnh để sang serverless container tối ưu I/O, giúp kỹ sư tập trung hoàn toàn vào mô hình và dữ liệu.\n\n💭 Góc nhìn của mình về tuần này\n\nĐức chia sẻ dưới góc nhìn của một người làm nghề thực chiến trong mảng Data & BI: tuần 42 mang lại hai bài học lớn mà các đội ngũ kỹ thuật nên dừng lại nghiền ngẫm.\n\nThứ nhất, ở tầng hạ tầng, Databricks đưa ADBC lên mặc định cho Power BI chứng minh triết lý \"tối ưu kiến trúc luôn rẻ hơn mua thêm compute\". Rất nhiều doanh nghiệp than phiền dashboard chạy chậm và vội nâng cấp cluster, trong khi nguyên nhân chỉ là sự lãng phí của ODBC cũ kỹ. Đưa dữ liệu dạng cột Apache Arrow đi thẳng từ lakehouse vào RAM của Power BI giúp hiệu năng tăng vọt mà không tốn thêm đồng máy chủ nào.\n\nThứ hai, ở tầng AI, bài báo của IBM là gáo nước lạnh cần thiết cho cơn say Text-to-SQL. Khi tư vấn triển khai BI và semantic layer tại KPIM, mình luôn nhắc anh em: một dashboard sai số 1% thì không ai gọi là dashboard thông minh, người ta gọi đó là dữ liệu rác. AI rất giỏi tóm tắt và khám phá góc nhìn, nhưng khi chạm vào số liệu kinh doanh cốt lõi, bắt buộc phải có semantic layer và các chốt chặn kiểm toán toán học bảo vệ.\n\nTheo mình, khuyến nghị thực tế cho các team data tuần này là:\n- Chuyển ngay connector Power BI sang driver ADBC nếu đang dùng Databricks để hưởng trọn tốc độ mới.\n- Chủ động chuẩn hóa bảng biểu theo Iceberg v3 nếu đang xây dựng lakehouse để đón đầu khả năng tương thích đa engine.\n- Tuyệt đối không giao toàn quyền sinh số liệu báo cáo cho AI agent nếu chưa có lớp ràng buộc schema và kiểm thử hồi quy chặt chẽ.\n\n“Công nghệ sinh ra là để giải quyết bài toán kinh doanh, đừng để sự hào nhoáng của công cụ làm mờ đi tính chính xác của dữ liệu.”\n\nAnh em trong tuần này đã thử nghiệm driver ADBC mới hay gặp sự cố bất định nào với agent Text-to-SQL chưa, comment chia sẻ cùng Đức nhé 👌\n\n#DataNews #DataEngineering #Databricks #PowerBI #Snowflake #ApacheIceberg #Lakehouse #AIData #BusinessIntelligence #HocCungAI",
+ "facebook_reel": "Đặt nhiệt độ bằng 0, truy vấn AI vẫn lệch 24%!\n\nIBM vừa công bố nghiên cứu cho thấy truy vấn dữ liệu bằng AI có thể lệch tới 24% ngay cả ở temperature 0. Cùng lúc, Databricks đưa ADBC lên Power BI giúp tăng tốc làm mới báo cáo ngoạn mục.\n\nAnh em đã gặp tình trạng AI chốt số liệu lúc đúng lúc sai chưa? Chi tiết mình để ở bài viết nhé.\n\n#DataNews #DataEngineering #Databricks #AIData #PowerBI",
+ "bgm": "minimal-tech",
+ "youtube": {
+  "recap": "oXMV0lZlVqs",
+  "short": "yolDF9FelO4"
+ }
+}
