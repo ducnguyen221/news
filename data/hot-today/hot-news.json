@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-10-17",
+      "display_date": "17/10/2026",
+      "title": "Snowflake mở Data Mirroring: Khai tử đường ống ETL truyền thống",
+      "summary": "Snowflake vừa mở GA tính năng Data Mirroring cho Postgres, khai tử hoàn toàn các đường ống ETL trung gian cồng kềnh!",
+      "source": "snowflake.com",
+      "video_id": "w2E5ie-ADSo",
+      "short_id": "leFc66ZXkc8",
+      "published_at": "2026-10-17T17:58:21"
+    },
+    {
       "date": "2026-10-15",
       "display_date": "15/10/2026",
       "title": "BigQuery khóa trần token: Chặn thảm họa hóa đơn SQL",
