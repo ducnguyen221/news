@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-10-21",
+      "display_date": "21/10/2026",
+      "title": "DuckDB 2.0: Hóa thân thành Server, lột xác toàn diện",
+      "summary": "DuckDB 2.0 chính thức ra mắt sau hơn 10.000 commit, chuyển mình thành Database Server thực thụ với tốc độ tăng vọt đến 40 lần!",
+      "source": "duckdb.org",
+      "video_id": "EPQ0oijZ940",
+      "short_id": "iJ2ixm-Qynk",
+      "published_at": "2026-10-21T18:06:20"
+    },
+    {
       "date": "2026-10-19",
       "display_date": "19/10/2026",
       "title": "ClickHouse tung CostBench: Đè bẹp Databricks và BigQuery trên 113 tỷ dòng",
