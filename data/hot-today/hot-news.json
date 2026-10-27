@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-10-27",
+      "display_date": "27/10/2026",
+      "title": "Oracle dạy AI agent hiểu KPI bằng lớp ngữ nghĩa lakehouse",
+      "summary": "AI agent trả lời tự tin nhưng tính sai KPI? Oracle vừa gắn lớp ngữ nghĩa kinh doanh vào lakehouse để chặn đúng chuyện đó.",
+      "source": "oracle.com",
+      "video_id": "mTv0iGpkhIg",
+      "short_id": "LZXQ8ZgZJRI",
+      "published_at": "2026-10-27T18:25:50"
+    },
+    {
       "date": "2026-10-25",
       "display_date": "25/10/2026",
       "title": "OpenAI công bố kiến trúc Habitat: 500 Petabyte trên Cosmos DB",
