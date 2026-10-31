@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-10-31",
+      "display_date": "31/10/2026",
+      "title": "Databricks mở Real-Time Mode: Đưa Spark về 5 mili-giây, áp đảo Flink",
+      "summary": "Cơn ác mộng phải nuôi hai cụm Spark và Flink song song đã chính thức kết thúc! Databricks vừa đưa Real-Time Mode lên Spark Declarative Pipelines, ép độ trễ xuống chỉ 5 mili-giây.",
+      "source": "databricks.com",
+      "video_id": "gdjpfyaYF4Q",
+      "short_id": "jDevxndgSDQ",
+      "published_at": "2026-10-31T18:02:14"
+    },
+    {
       "date": "2026-10-29",
       "display_date": "29/10/2026",
       "title": "Monte Carlo tung Bayes: AI tự sửa pipeline cứu AI Agent",
