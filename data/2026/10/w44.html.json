@@ -1,0 +1,457 @@
+{
+ "date": "31/10/2026",
+ "week": "W44",
+ "range": "26/10 - 01/11/2026",
+ "tldr": "Tuần 44 cho thấy cuộc đua dữ liệu đang chuyển từ chuyện gom dữ liệu sang chuyện cung cấp đúng ngữ cảnh có quản trị cho AI. Google nối các semantic model từ nhiều nền tảng vào một context graph, trong khi Microsoft đưa data engineering agent vào Fabric. Ở lớp hạ tầng, Kafka 4.4 bổ sung DLQ cho share groups và Databricks đưa Spark Declarative Pipelines xuống độ trễ mili-giây. Các case SAP, Procore, Virgin Media O2 và Obie Insurance nhắc lại một điều thực dụng: kiến trúc mở chỉ có giá trị khi giảm được pipeline sao chép, chi phí compute và thời gian chờ của đội ngũ.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "Apache Kafka 4.4 ra mắt với DLQ cho Share Groups",
+   "title_en": "Introducing Apache Kafka 4.4.0",
+   "summary": "Kafka 4.4 gồm 25 KIP và 963 commit, nổi bật với dead-letter queue cho Share Groups, transactional StateStores và khả năng quan sát I/O Linux chi tiết hơn.",
+   "why": "Bản phát hành làm mô hình tiêu thụ chia sẻ dễ vận hành hơn, đồng thời giảm chi phí phục hồi state khi chạy exactly-once.",
+   "url": "https://www.confluent.io/blog/introducing-apache-kafka-4-4-0/",
+   "domain": "confluent.io",
+   "date": "2026-10-29",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 2
+  },
+  {
+   "aid": 2,
+   "title": "Databricks đưa Real-Time Mode của Spark Declarative Pipelines lên GA",
+   "title_en": "Announcing General Availability of Real-Time Mode for Spark Declarative Pipelines on Databricks",
+   "summary": "Real-Time Mode chạy trên classic và serverless compute, hướng tới độ trễ đầu-cuối ở mức mili-giây cho fraud detection, cảnh báo và ghi tức thời sang operational stores.",
+   "why": "Spark đang tiến sâu vào vùng trước đây thường dành cho engine streaming chuyên dụng, giúp đội dữ liệu gom batch, ETL và low-latency streaming về một framework.",
+   "url": "https://www.databricks.com/blog/announcing-general-availability-real-time-mode-spark-declarative-pipelines-databricks",
+   "domain": "databricks.com",
+   "date": "2026-10-29",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 3
+  },
+  {
+   "aid": 3,
+   "title": "Sail và LakeSail đưa Spark tương thích Rust vào Microsoft OneLake",
+   "title_en": "Bringing Rust-native Spark compatibility to Microsoft OneLake with Sail and LakeSail",
+   "summary": "Sail và LakeSail Cloud kết nối OneLake để chạy workload Spark/Python trên Delta Lake và Apache Iceberg mà không cần sao chép dữ liệu hoặc thêm connector.",
+   "why": "Một engine Rust tương thích Spark mở thêm lựa chọn compute trên Fabric, nhưng doanh nghiệp vẫn cần kiểm chứng độ phủ API và tính tương thích trước khi thay workload sản xuất.",
+   "url": "https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/bringing-rust-native-spark-compatibility-to-microsoft-onelake-with-sail-and-lake/5377595",
+   "domain": "community.fabric.microsoft.com",
+   "date": "2026-10-29",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 4,
+   "title": "Oracle mở rộng Autonomous AI Lakehouse với semantic layer và Iceberg",
+   "title_en": "Oracle Advances Autonomous AI Lakehouse with Business Semantic Layer and Expanded Support for Iceberg Data",
+   "summary": "Oracle bổ sung AI Data Catalog, Business Semantic Layer, SQL ghi/xóa Iceberg, Data Studio hơn 100 nguồn và Data Lake Accelerator đạt tối đa 3 lần tốc độ trên benchmark 100 TB TPC-DS.",
+   "why": "Oracle đang nối dữ liệu vận hành, lakehouse mở, ngữ nghĩa kinh doanh và mô phỏng what-if trong cùng một mặt phẳng quản trị.",
+   "url": "https://www.oracle.com/apac/news/announcement/ai-world-oracle-advances-autonomous-ai-lakehouse-with-business-semantic-layer-and-expanded-support-for-iceberg-data-2026-10-26/",
+   "domain": "oracle.com",
+   "date": "2026-10-26",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 5,
+   "title": "Sluice tự dịch chuyển xử lý stream giữa edge và cloud",
+   "title_en": "Live Adaptation of Dataflow Stream Processing for Hybrid Edge-Cloud Analytics",
+   "summary": "Sluice mở rộng Apache Flink bằng query rewriter và live routing để chuyển computation giữa edge và cloud không dừng pipeline, vẫn giữ event-time semantics.",
+   "why": "Nghiên cứu giải quyết điểm yếu của cách đặt task tĩnh khi băng thông WAN và tài nguyên edge thay đổi liên tục.",
+   "url": "https://arxiv.org/abs/2610.34658",
+   "domain": "arxiv.org",
+   "date": "2026-10-26",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "Snowflake mở telemetry cho Horizon Iceberg REST Catalog",
+   "title_en": "Horizon Iceberg REST Catalog telemetry (General availability)",
+   "summary": "Snowflake có thể ghi các HTTP request từ engine ngoài gọi Horizon Iceberg REST Catalog API vào account event table.",
+   "why": "Catalog mở cần observability ở điểm commit và truy cập; telemetry giúp audit engine nào đang đọc hoặc thay đổi metadata.",
+   "url": "https://docs.snowflake.com/en/release-notes/all-release-notes?bundle=true",
+   "domain": "docs.snowflake.com",
+   "date": "2026-10-29",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "Databricks bổ sung rate limit để ghìm chi phí serverless",
+   "title_en": "Smarter cost controls for serverless",
+   "summary": "Databricks mở rate limits bên cạnh usage-policy tags, billing system tables, access control và budget alerts; shared budgets được công bố là sắp tới.",
+   "why": "Serverless tăng hơn 3 lần trong một năm tại Databricks, nên FinOps phải chuyển từ xem hóa đơn sang chặn runaway workload ngay trong control plane.",
+   "url": "https://www.databricks.com/blog/smarter-cost-controls-serverless",
+   "domain": "databricks.com",
+   "date": "2026-10-29",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "Airbyte ra mắt MCP Server và Context Layer cho data pipeline",
+   "title_en": "Introducing the Airbyte MCP Server and Context Layer",
+   "summary": "Airbyte cho phép MCP client tạo pipeline, kiểm tra sức khỏe sync, xử lý lỗi và truy vấn context dữ liệu ngay trong môi trường làm việc của agent.",
+   "why": "Đây là bước chuyển từ connector catalog sang giao diện thao tác cho agent, nhưng quyền ghi và phê duyệt thay đổi phải được khóa kỹ.",
+   "url": "https://airbyte.com/blog/airbyte-mcp",
+   "domain": "airbyte.com",
+   "date": "2026-10-27",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "Confluent Gateway đưa kiểm soát data contract tập trung lên GA",
+   "title_en": "Centralized governance enforcement in Confluent Gateway is generally available",
+   "summary": "Gateway 1.4.0 có thể xác thực Avro, JSON Schema và Protobuf, đồng thời mã hóa từng field hoặc toàn payload mà không sửa producer và consumer.",
+   "why": "Data contract được cưỡng chế trên đường truyền giúp giảm khoảng trống quản trị ở các hệ thống Kafka nhiều team và nhiều client.",
+   "url": "https://docs.confluent.io/cloud/current/release-notes/index.html",
+   "domain": "docs.confluent.io",
+   "date": "2026-10-26",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "Google Knowledge Catalog hợp nhất semantic model cho AI agents",
+   "title_en": "Grounding agents in one context graph connecting semantic models you already trust",
+   "summary": "Knowledge Catalog nay ingest LookML, BigQuery Graph, dbt MetricFlow, Snowflake Semantic Views, Databricks Metric Views và SAP CSN vào một context graph, tính năng đã GA.",
+   "why": "Google báo cáo benchmark nội bộ gần 4 lần chính xác hơn, giảm tới 33% latency và 75% token khi agent được grounding bằng ngữ nghĩa tin cậy.",
+   "url": "https://cloud.google.com/blog/products/data-analytics/expanded-semantic-model-support-in-knowledge-catalog",
+   "domain": "cloud.google.com",
+   "date": "2026-10-29",
+   "section": "🤖 AI × Data",
+   "hot_rank": 1
+  },
+  {
+   "aid": 11,
+   "title": "Microsoft giới thiệu data engineering agent Project Osmos cho Fabric",
+   "title_en": "Introducing the data engineering agent for Fabric (Project Osmos)",
+   "summary": "Project Osmos ở Preview, được thiết kế để xử lý transformation lớn, hiểu schema và business rules trong khi duy trì data quality và governance.",
+   "why": "Fabric đang biến tác vụ data engineering từ sinh code đơn lẻ thành agent có ngữ cảnh nền tảng; giá trị thật sẽ nằm ở khả năng kiểm chứng và rollback.",
+   "url": "https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/introducing-the-data-engineering-agent-for-fabric-project-osmos/5377944",
+   "domain": "community.fabric.microsoft.com",
+   "date": "2026-10-29",
+   "section": "🤖 AI × Data",
+   "hot_rank": 4
+  },
+  {
+   "aid": 12,
+   "title": "Confluent Assistant dùng agent chẩn đoán connector lỗi",
+   "title_en": "Confluent Assistant Early Access Program",
+   "summary": "Agent đầu tiên trong Confluent Assistant phân tích fully managed connector bị lỗi, đề xuất cách sửa và chỉ áp dụng sau khi người dùng phê duyệt.",
+   "why": "Mẫu human-in-the-loop này thực dụng hơn tự động sửa mù: agent hành động theo quyền hiện có và giữ bước duyệt trước thay đổi.",
+   "url": "https://docs.confluent.io/cloud/current/release-notes/index.html",
+   "domain": "docs.confluent.io",
+   "date": "2026-10-29",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "GAFL thêm bằng chứng quản trị vào federated learning đa tác tử",
+   "title_en": "Governance-Aware Federated Learning for Multi-Agent AI Systems",
+   "summary": "GAFL xác thực bằng chứng governance trước khi aggregate model update; thử nghiệm 10 bên phát hiện 100% participant làm giả bằng chứng trong kịch bản đánh giá.",
+   "why": "Nghiên cứu cho thấy governance có chi phí rõ ràng: khoảng 174 ms mỗi vòng so với gần 4 ms của FedAvg và có thể can thiệp nhầm khi policy quá nghiêm.",
+   "url": "https://arxiv.org/abs/2610.38411",
+   "domain": "arxiv.org",
+   "date": "2026-10-28",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "dbt thử nghiệm cách đóng gói context cho agent trong warehouse",
+   "title_en": "Showing our work: a controlled experiment in context engineering",
+   "summary": "dbt Labs chạy 80 lượt thử trên bốn cách lấy cùng context; engineered summary qua dbt MCP giảm 48,5% chi phí và 43,2% thời gian chạy so với đọc transcript đầy đủ.",
+   "why": "Context được xử lý một lần trong warehouse giúp tái sử dụng và kiểm thử, nhưng thí nghiệm cũng ghi nhận summary có thể bỏ sót quyết định và chức danh.",
+   "url": "https://www.getdbt.com/blog/context-engineering-experiment-dbt-mcp",
+   "domain": "getdbt.com",
+   "date": "2026-10-26",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "GitHub data engineering: handbook và Kestra tăng sao mạnh",
+   "title_en": "Data-engineering projects on GitHub",
+   "summary": "Ngày 30/10, nhóm repo data engineering ghi nhận 1,1 triệu sao; data-engineer-handbook tăng 63 sao và Kestra tăng 30 sao trong ngày.",
+   "why": "Tín hiệu cho thấy cộng đồng vẫn ưu tiên tài liệu thực chiến và orchestration mở, bên cạnh làn sóng agent.",
+   "url": "https://github.locker/topics/data-engineering",
+   "domain": "github.locker",
+   "date": "2026-10-30",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 16,
+   "title": "Làn sóng code do agent tạo buộc GitHub mở rộng hạ tầng khổng lồ",
+   "title_en": "GitHub says massive influx of AI-generated code required extra 4 million CPU cores and 160 petabytes of storage",
+   "summary": "Báo cáo dẫn số liệu GitHub: thêm 4 triệu CPU core, 160 PB storage và 50 Tb/s network; commit tháng 9 đạt 7,4 tỷ và hơn 40% pull request do agent khởi tạo.",
+   "why": "Agent không chỉ làm tăng code; nó khuếch đại log, CI/CD event, metadata và nhu cầu observability — một bài toán data infrastructure thực thụ.",
+   "url": "https://www.tomshardware.com/software/github-report-highlights-massive-influx-of-ai-generated-code-sixfold-increase-in-activity-over-one-year-required-extra-4-million-cpu-cores-and-160pb-of-storage",
+   "domain": "tomshardware.com",
+   "date": "2026-10-29",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "Data Engineering Weekly #293 tranh luận open catalog và data modeling",
+   "title_en": "Data Engineering Weekly #293",
+   "summary": "Số 293 đặt câu hỏi liệu catalog Iceberg có thật sự mở ở điểm commit và vì sao data modeling vẫn là ngôn ngữ chung khi agent bắt đầu xây hệ thống dữ liệu.",
+   "why": "Tranh luận kéo trọng tâm khỏi format file sang quyền ghi catalog, ownership của metric và khả năng giải thích quyết định của agent.",
+   "url": "https://www.dataengineeringweekly.com/p/data-engineering-weekly-293",
+   "domain": "dataengineeringweekly.com",
+   "date": "2026-10-26",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 18,
+   "title": "dbt đề xuất tận dụng slack của DAG để tiết kiệm Snowflake credits",
+   "title_en": "Why most of your dbt models aren't in a hurry, and what that's worth in Snowflake credits",
+   "summary": "Bài phân tích chỉ ra warehouse không hiểu critical path của dbt DAG; các model có slack có thể được lập lịch khác để giảm peak compute mà không kéo dài job.",
+   "why": "Đây là tối ưu kiến trúc đáng làm trước khi mua thêm warehouse: dùng dependency graph như tài sản FinOps, không chỉ orchestration.",
+   "url": "https://www.getdbt.com/blog/dbt-state-snowflake-warehouse-compute-savings",
+   "domain": "getdbt.com",
+   "date": "2026-10-27",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 19,
+   "title": "SAP và Databricks mở rộng nền dữ liệu doanh nghiệp không sao chép",
+   "title_en": "Databricks and SAP unleash end-to-end data & AI capabilities to level up enterprise AI transformation",
+   "summary": "SAP Application Data Foundation đưa dữ liệu ứng dụng cloud và on-premises vào SAP Business Data Cloud; Genie, Lakeflow, Unity Gateway và Lakebase được lên kế hoạch tích hợp vào SAP Databricks.",
+   "why": "SAF-Holland đã hợp nhất hơn 100 triệu record và báo cáo phân tích nhanh gấp 5 lần; điểm đáng giá là giữ business semantics thay vì chỉ chuyển bảng.",
+   "url": "https://www.databricks.com/blog/databricks-and-sap-unleash-end-end-data-ai-capabilities-level-enterprise-ai-transformation",
+   "domain": "databricks.com",
+   "date": "2026-10-30",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": 5
+  },
+  {
+   "aid": 20,
+   "title": "Procore dùng OpenSharing mở rộng Analytics 2.0 ra hàng trăm bảng",
+   "title_en": "How Procore is powering construction analytics with OpenSharing",
+   "summary": "Procore gom pipeline báo cáo vào kiến trúc bronze-silver-gold đa vùng và chia sẻ gold layer qua OpenSharing tới hàng trăm nghìn data share có phân quyền.",
+   "why": "Case study cho thấy data product tốt cần cùng semantic layer cho UI và extract, CDF cho incremental load và lịch báo trước breaking change rõ ràng.",
+   "url": "https://www.databricks.com/blog/how-procore-powering-construction-analytics-opensharing-0",
+   "domain": "databricks.com",
+   "date": "2026-10-29",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 21,
+   "title": "Virgin Media O2 giảm 30% chi phí compute nhờ dbt State",
+   "title_en": "How Virgin Media O2 cut compute costs 30% by giving dbt a memory",
+   "summary": "Sau khi chuyển sang dbt v2 và dbt State, Virgin Media O2 báo cáo compute giảm khoảng 30%, model run nhanh hơn 35% và job lớn nhất cải thiện 40%.",
+   "why": "Kết quả cho thấy static analysis và bỏ chạy phần không đổi có thể tạo ROI lớn, nhưng phải trả nợ SQL mơ hồ và package cũ trước.",
+   "url": "https://courses.getdbt.com/blog/virgin-media-o2-dbt-state-compute-costs",
+   "domain": "courses.getdbt.com",
+   "date": "2026-10-27",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 22,
+   "title": "Obie Insurance rút month-end close từ 25 giờ xuống 2 giờ",
+   "title_en": "How Obie Insurance cut its month-end close from 25 hours to 2 with dbt State and a lake house rebuild",
+   "summary": "Obie Insurance xây lại lakehouse trên dbt và Apache Iceberg, đưa quy trình khóa sổ cuối tháng từ hơn 25 giờ xuống còn 2 giờ.",
+   "why": "Đây là thước đo business dễ hiểu: kiến trúc dữ liệu thắng khi rút ngắn chu kỳ vận hành, không phải khi có thêm nhiều công nghệ.",
+   "url": "https://courses.getdbt.com/blog/obie-insurance-month-end-close-dbt-state-lakehouse",
+   "domain": "getdbt.com",
+   "date": "2026-10-27",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 10,
+ "weekly_video": {
+  "intro": "Tuần 44 của Data News xoay quanh một chuyển dịch rất rõ: dữ liệu cho AI không còn chỉ là đưa model tới gần bảng dữ liệu, mà phải mang theo semantic model, quyền truy cập và khả năng kiểm chứng. Song song, Kafka và Spark tiếp tục nâng chuẩn streaming, còn SAP cùng Databricks đẩy kiến trúc zero-copy sâu hơn vào dữ liệu vận hành doanh nghiệp.",
+  "outro": "Điểm chốt của tuần 44: đừng bắt đầu từ agent, hãy bắt đầu từ metric, quyền truy cập và workflow có thể kiểm chứng. Hẹn gặp lại trong bản tin tuần sau; phần chi tiết của từng câu chuyện đã có trên Data News.",
+  "segments": [
+   {
+    "aid": 10,
+    "headline": "Google hợp nhất semantic model cho agents",
+    "narration": "Câu chuyện số một tuần này đến từ Google Knowledge Catalog. Thay vì bắt mỗi AI agent tự đoán ý nghĩa của doanh thu, khách hàng hoạt động hay tỷ lệ chuyển đổi, Google gom các semantic model mà doanh nghiệp đã dùng vào một context graph chung. Các nguồn được hỗ trợ gồm Looker LookML, BigQuery Graph, dbt MetricFlow, Snowflake Semantic Views, Databricks Metric Views và SAP Core Schema Notation. Điều quan trọng là không cần di chuyển dữ liệu hay viết lại toàn bộ business logic sang một ngôn ngữ mới. Agent có thể lấy công thức metric, join path đã kiểm chứng, lineage, data quality và quyền truy cập trong cùng một lần truy vấn ngữ cảnh. Theo benchmark nội bộ của Google, cách grounding này giúp agent gần 4 lần chính xác hơn, giảm tới 33% độ trễ và dùng ít hơn tới 75% token. Cần nhớ đây là số liệu của nhà cung cấp, nhưng hướng kiến trúc thì rất đáng chú ý. Vấn đề Text-to-SQL lớn nhất trong doanh nghiệp không chỉ là viết đúng cú pháp. Nó là chọn đúng bảng, đúng định nghĩa và đúng phạm vi quyền. Với team Việt Nam, khuyến nghị thực dụng là chuẩn hóa metric và ownership trước, rồi mới kết nối agent. Nếu semantic layer còn mâu thuẫn, agent chỉ làm câu trả lời sai xuất hiện nhanh hơn và đẹp hơn.",
+    "bullets": [
+     "Hợp nhất 6 hệ semantic model",
+     "Gần 4× chính xác hơn",
+     "Giảm tới 75% token"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Hiệu quả grounding nội bộ",
+     "items": [
+      {
+       "v": "Gần 4×",
+       "l": "độ chính xác"
+      },
+      {
+       "v": "-33%",
+       "l": "độ trễ"
+      },
+      {
+       "v": "-75%",
+       "l": "token"
+      }
+     ]
+    },
+    "images": [
+     "https://storage.googleapis.com/gweb-cloudblog-publish/images/whats_new_data_cloud_fWg4bKK.max-2500x2500.png"
+    ]
+   },
+   {
+    "aid": 1,
+    "headline": "Kafka 4.4 nâng cấp vận hành streaming",
+    "narration": "Apache Kafka 4.4 là bản nâng cấp hạ tầng nổi bật nhất tuần. Bản phát hành gồm 25 KIP và 963 commit kể từ Kafka 4.3. Điểm thực dụng đầu tiên là dead-letter queue cho Share Groups. Khi record bị từ chối hoặc vượt quá số lần giao tối đa, hệ thống có thể chuyển record đó sang hàng đợi lỗi theo cấu hình, thay vì để đội vận hành tự ghép thêm một cơ chế bên ngoài. Điểm thứ hai là transactional StateStores trong Kafka Streams. Khi chạy exactly-once, lỗi không còn buộc state store phải bị xóa và dựng lại toàn bộ; hệ thống chỉ cần phát lại phần ghi kể từ lần commit thành công gần nhất. Kafka 4.4 cũng bổ sung metric I/O Linux qua JMX, công cụ kiểm tra việc dùng API nội bộ và nhiều thay đổi cho controller, Connect và Streams. Tuy nhiên, đây không phải bản nâng cấp cứ cài là xong. Một số metadata bootstrapping và API cũ đã bị deprecate, nên cần đọc kỹ upgrade guide và kiểm tra client. Với doanh nghiệp, giá trị lớn nhất không nằm ở danh sách tính năng dài. Nó nằm ở việc giảm công sức vá lỗi quanh share consumer, tăng khả năng quan sát và rút ngắn thời gian phục hồi state. Đó là ba khoản chi phí thường chỉ lộ ra khi hệ thống streaming đã đủ lớn.",
+    "bullets": [
+     "25 KIP, 963 commit",
+     "DLQ cho Share Groups",
+     "StateStores có transaction"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Kafka 4.4 theo lớp",
+     "items": [
+      {
+       "t": "Consume",
+       "d": "Share Groups có DLQ"
+      },
+      {
+       "t": "Process",
+       "d": "Transactional StateStores"
+      },
+      {
+       "t": "Operate",
+       "d": "Linux I/O qua JMX"
+      },
+      {
+       "t": "Govern",
+       "d": "Kiểm tra API nội bộ"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 2,
+    "headline": "Spark pipeline chạm độ trễ mili-giây",
+    "narration": "Databricks đưa Real-Time Mode của Spark Declarative Pipelines lên trạng thái GA. Mục tiêu là các workload vận hành cần độ trễ đầu-cuối ở mức mili-giây, như chấm điểm gian lận, cảnh báo tức thời, cá nhân hóa trực tiếp hoặc đẩy feature mới sang operational store. Điểm đáng chú ý là chế độ này chạy trên cả classic compute và serverless compute, đồng thời giữ cách khai báo pipeline, dependency, incremental processing, recovery và data quality trong cùng framework. Databricks mô tả độ trễ có thể thấp tới 5 mili-giây cho một số workload. Thông điệp chiến lược khá rõ: Spark muốn bao phủ cả batch, ETL và low-latency streaming, giảm nhu cầu duy trì một engine riêng chỉ cho phần thời gian thực. Nhưng team kỹ thuật không nên hiểu điều đó thành Flink hay các engine chuyên dụng đã hết vai trò. Độ trễ thực tế còn phụ thuộc source, sink, state, checkpoint, network và độ phức tạp của logic. Cách làm đúng là chọn một use case có SLA rõ, đo p50, p95 và p99, rồi so tổng chi phí vận hành chứ không chỉ benchmark throughput. Với team data nhỏ, một framework thống nhất có thể giảm đáng kể gánh nặng skill và on-call. Với hệ thống lớn, sự đơn giản đó chỉ có giá trị nếu không đánh đổi tính ổn định và khả năng debug.",
+    "bullets": [
+     "GA trên classic và serverless",
+     "Độ trễ thấp tới 5 ms",
+     "Một framework cho batch và stream"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Luồng real-time hợp nhất",
+     "items": [
+      {
+       "t": "Source",
+       "d": "Sự kiện liên tục"
+      },
+      {
+       "t": "SDP",
+       "d": "Flow khai báo"
+      },
+      {
+       "t": "RTM",
+       "d": "Xử lý mili-giây"
+      },
+      {
+       "t": "Sink",
+       "d": "Operational store"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 11,
+    "headline": "Fabric thử nghiệm agent data engineering",
+    "narration": "Microsoft giới thiệu Project Osmos, data engineering agent mới cho Fabric ở trạng thái Preview. Agent được định vị để làm việc với transformation phức tạp, dataset lớn, schema context và business rules, đồng thời duy trì data quality và governance. Đây là bước khác với một trợ lý chỉ sinh vài dòng SQL. Khi agent hiểu tài sản trong OneLake, metadata, dependency và quy tắc nghiệp vụ, nó có thể tham gia vào cả vòng đời pipeline: phân tích yêu cầu, đề xuất transformation, kiểm tra chất lượng và hỗ trợ vận hành. Nhưng chính phạm vi rộng đó làm rủi ro tăng lên. Một câu SQL sai còn dễ review; một agent tự thay nhiều bước trong pipeline có thể tạo sai lệch âm thầm ở downstream. Vì vậy, điều cần theo dõi trong giai đoạn Preview không chỉ là agent viết nhanh đến đâu, mà là nó tạo plan có giải thích hay không, test được gì, lineage cập nhật ra sao, quyền ghi được giới hạn thế nào và rollback có rõ ràng không. Với doanh nghiệp Việt đang dùng Fabric, nên bắt đầu từ workload có dữ liệu mẫu, test hồi quy và người sở hữu business rule rõ ràng. Đừng giao thẳng pipeline khóa sổ hoặc báo cáo quản trị cho agent. AI không thay thế governance; nó làm chất lượng governance hiện có lộ ra nhanh hơn.",
+    "bullets": [
+     "Agent hiểu schema và business rules",
+     "Preview trong Microsoft Fabric",
+     "Cần test và rollback rõ"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Agent trong vòng đời pipeline",
+     "items": [
+      {
+       "t": "Yêu cầu",
+       "d": "Hiểu business rule"
+      },
+      {
+       "t": "Thiết kế",
+       "d": "Đề xuất transformation"
+      },
+      {
+       "t": "Kiểm thử",
+       "d": "Rà data quality"
+      },
+      {
+       "t": "Triển khai",
+       "d": "Có phê duyệt"
+      },
+      {
+       "t": "Theo dõi",
+       "d": "Lineage và rollback"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 19,
+    "headline": "SAP và Databricks mở rộng zero-copy",
+    "narration": "SAP và Databricks công bố giai đoạn hợp tác mới xoay quanh SAP Application Data Foundation. Mục tiêu là đưa dữ liệu từ ứng dụng SAP trên cloud và on-premises vào SAP Business Data Cloud để dùng trong SAP Databricks mà không phải duy trì các pipeline trích xuất tùy biến và sao chép dữ liệu qua nhiều silo. Phần đáng chú ý là business semantics của SAP được giữ lại, thay vì chỉ chuyển các bảng thô. Databricks dự kiến đưa Genie, Lakeflow, Unity Gateway và Lakebase vào SAP Databricks, từ phân tích hội thoại, data engineering đến governance model, tool và agent. Case SAF-Holland cho thấy quy mô thực tế: hơn 100 triệu record về khách hàng, giao hàng và vật liệu được hợp nhất; doanh nghiệp cho biết tốc độ phân tích nhanh gấp 5 lần so với cách báo cáo truyền thống. Đây vẫn là số liệu case study của nhà cung cấp, nhưng nó minh họa đúng pain point. Dữ liệu ERP rất giàu ngữ cảnh nhưng thường bị khóa trong quy trình trích xuất chậm và khó quản trị. Với doanh nghiệp Việt dùng SAP, zero-copy không có nghĩa là zero-work. Team vẫn phải xử lý ownership, chất lượng master data, quyền theo vai trò và định nghĩa KPI. Khuyến nghị là chọn một domain như tồn kho hoặc đơn hàng, chứng minh lineage và lợi ích thời gian trước khi mở rộng sang toàn bộ enterprise data estate.",
+    "bullets": [
+     "Hơn 100 triệu record",
+     "Phân tích nhanh gấp 5 lần",
+     "Giữ business semantics SAP"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Nền dữ liệu SAP mới",
+     "items": [
+      {
+       "t": "Ứng dụng",
+       "d": "SAP cloud và on-prem"
+      },
+      {
+       "t": "Data Foundation",
+       "d": "Truy cập không sao chép"
+      },
+      {
+       "t": "SAP Databricks",
+       "d": "Lakeflow và Genie"
+      },
+      {
+       "t": "Governance",
+       "d": "Unity Gateway"
+      },
+      {
+       "t": "Ứng dụng",
+       "d": "Analytics và agents"
+      }
+     ]
+    },
+    "images": []
+   }
+  ]
+ },
+ "facebook_post": "𝐃𝐀𝐓𝐀 𝐍𝐄𝐖𝐒 𝐓𝐔𝐀̂̀𝐍 𝟒𝟒: 𝐀𝐈 𝐊𝐇𝐎̂𝐍𝐆 𝐓𝐇𝐈𝐄̂́𝐔 𝐃𝐔̛̃ 𝐋𝐈𝐄̣̂𝐔, 𝐀𝐈 𝐓𝐇𝐈𝐄̂́𝐔 𝐍𝐆𝐔̛̃ 𝐂𝐀̉𝐍𝐇 🧠\\n\\nCó một cảnh rất quen: dashboard của Finance nói một số, agent trả lời một số khác, rồi cả phòng họp quay sang hỏi team Data xem ai đúng.\\n\\nTuần này các hãng lớn cùng trả lời gần như một ý: đưa AI tới gần dữ liệu chưa đủ. Nó phải hiểu đúng metric, đúng bảng, đúng quyền và đúng business rule. Nếu không, mình chỉ đang tự động hóa việc trả lời sai thôi 😅\\n\\n---\\n\\n1️⃣ 𝐆𝐨𝐨𝐠𝐥𝐞 𝐠𝐨𝐦 𝐬𝐞𝐦𝐚𝐧𝐭𝐢𝐜 𝐦𝐨𝐝𝐞𝐥 𝐯𝐚̀𝐨 𝐦𝐨̣̂𝐭 𝐜𝐨𝐧𝐭𝐞𝐱𝐭 𝐠𝐫𝐚𝐩𝐡\\n\\nKnowledge Catalog đã GA khả năng ingest LookML, BigQuery Graph, dbt MetricFlow, Snowflake Semantic Views, Databricks Metric Views và SAP CSN. Agent lấy được công thức metric, join path, lineage và data quality mà không phải viết lại business logic.\\n\\nGoogle công bố benchmark nội bộ: gần 4 lần chính xác hơn, latency giảm tới 33%, token giảm tới 75%. Đây là số liệu nhà cung cấp nên cần kiểm chứng trên dữ liệu thật.\\n👉 Nhưng hướng đi thì đúng: semantic layer đang trở thành “sổ tay nghiệp vụ” cho agent.\\n\\n2️⃣ 𝐊𝐚𝐟𝐤𝐚 𝟒.𝟒 𝐭𝐡𝐞̂𝐦 𝐃𝐋𝐐 𝐜𝐡𝐨 𝐒𝐡𝐚𝐫𝐞 𝐆𝐫𝐨𝐮𝐩𝐬\\n\\nBản mới có 25 KIP và 963 commit. Đáng chú ý nhất là dead-letter queue cho Share Groups, transactional StateStores và nhiều metric I/O Linux hơn qua JMX.\\n\\nNói đời thường: hàng lỗi có chỗ để đi, state lỗi không phải đập đi xây lại toàn bộ, còn đội vận hành nhìn thấy hệ thống đang nghẽn ở đâu.\\n👉 Những thứ này không “wow” trên slide, nhưng lại cứu rất nhiều giờ on-call ngoài đời.\\n\\n3️⃣ 𝐒𝐩𝐚𝐫𝐤 𝐃𝐞𝐜𝐥𝐚𝐫𝐚𝐭𝐢𝐯𝐞 𝐏𝐢𝐩𝐞𝐥𝐢𝐧𝐞𝐬 𝐱𝐮𝐨̂́𝐧𝐠 đ𝐨̣̂ 𝐭𝐫𝐞̂̃ 𝐦𝐢𝐥𝐢-𝐠𝐢𝐚̂𝐲\\n\\nDatabricks đưa Real-Time Mode lên GA trên classic và serverless compute, công bố độ trễ đầu-cuối thấp tới 5 ms cho một số workload. Mục tiêu là fraud scoring, cảnh báo và ghi tức thời sang operational store.\\n\\nĐức từng học và làm thực hành RAG trên Databricks nên khá hiểu sức hấp dẫn của chuyện gom data, AI và governance về một nền.\\n👉 Tuy nhiên, đừng nghe “5 ms” rồi bê mọi stream sang. Hãy đo p95, p99, state, checkpoint và tổng chi phí vận hành trên use case của mình.\\n\\n4️⃣ 𝐌𝐢𝐜𝐫𝐨𝐬𝐨𝐟𝐭 𝐅𝐚𝐛𝐫𝐢𝐜 𝐜𝐨́ 𝐝𝐚𝐭𝐚 𝐞𝐧𝐠𝐢𝐧𝐞𝐞𝐫𝐢𝐧𝐠 𝐚𝐠𝐞𝐧𝐭\\n\\nProject Osmos đang Preview, nhắm tới transformation lớn, schema context, business rules, data quality và governance. Đây không còn là trợ lý viết vài dòng SQL. Nó muốn tham gia sâu hơn vào vòng đời pipeline.\\n\\n👉 Càng nhiều quyền thì càng cần plan, test, phê duyệt và rollback. Agent làm nhanh mà không có đường kiểm chứng chỉ khiến lỗi downstream đi nhanh hơn.\\n\\n5️⃣ 𝐒𝐀𝐏 𝐯𝐚̀ 𝐃𝐚𝐭𝐚𝐛𝐫𝐢𝐜𝐤𝐬 đ𝐚̂̉𝐲 𝐳𝐞𝐫𝐨-𝐜𝐨𝐩𝐲 𝐯𝐚̀𝐨 𝐝𝐮̛̃ 𝐥𝐢𝐞̣̂𝐮 𝐯𝐚̣̂𝐧 𝐡𝐚̀𝐧𝐡\\n\\nSAP Application Data Foundation mở đường dùng dữ liệu SAP cloud và on-premises trong SAP Databricks mà không duy trì hàng loạt pipeline trích xuất tùy biến. SAF-Holland cho biết họ hợp nhất hơn 100 triệu record và phân tích nhanh gấp 5 lần cách báo cáo cũ.\\n\\n👉 Giá trị không phải chỉ là “không copy”, mà là giữ được business semantics của ERP khi đưa dữ liệu sang analytics và AI.\\n\\n---\\n\\n💭 Góc nhìn của mình về tuần này\\n\\nĐức chỉ chia sẻ dưới góc nhìn kỹ thuật của một người làm Data & AI: tuần này không phải cuộc đua xem agent nào viết SQL nhanh hơn. Cuộc đua thật nằm ở lớp context có quản trị.\\n\\nTechnical: metric, lineage, quality và quyền phải nối được với nhau. Business: câu trả lời phải dẫn tới quyết định nhanh hơn, ít tranh cãi hơn. Human: người sở hữu nghiệp vụ phải xem, sửa và chịu trách nhiệm cho định nghĩa. Thiếu một trong ba lớp, dự án AI analytics rất dễ thành demo đẹp nhưng không ai dám dùng.\\n\\nTheo mình, team Việt Nam nên làm ngược với phong trào: đừng mua agent trước rồi mới đi dọn dữ liệu. Hãy chọn 10 metric quan trọng, chốt owner, công thức, nguồn, SLA và test. Sau đó mới cho agent đọc. Làm ít nhưng dùng được còn hơn nối cả data estate rồi mỗi câu trả lời lại phải hỏi “số này từ đâu ra?”.\\n\\n“AI không cứu được một định nghĩa mơ hồ; nó chỉ nhân bản sự mơ hồ với tốc độ cao hơn.”\\n\\nAnh em đang triển khai semantic layer, Fabric hay lakehouse thì comment chia sẻ chỗ vướng nhất nhé. Đức cũng muốn biết bài toán thật đang nằm ở công nghệ, dữ liệu hay con người 😄\\n\\n#DataNews #DataEngineering #BusinessIntelligence #Lakehouse #ApacheKafka #MicrosoftFabric #Databricks #SemanticLayer #AIAgent #DataGovernance #HocCungAI",
+ "facebook_reel": "Một agent có thể đúng hơn gần 4 lần chỉ nhờ hiểu đúng metric.\\n\\nTuần 44, Google gom semantic model vào context graph; Kafka 4.4 thêm DLQ; Spark pipeline xuống tới 5 ms; Fabric thử nghiệm data engineering agent. Công nghệ chạy nhanh hơn, nhưng business rule vẫn phải do người chịu trách nhiệm.\\n\\nBạn đang thiếu model hay thiếu ngữ cảnh? Chi tiết mình để ở bài viết nhé.\\n\\n#DataNews #DataEngineering #AIAgent #SemanticLayer #Lakehouse",
+ "bgm": "minimal-tech",
+ "youtube": {
+  "recap": "uyRXHvNhV_M",
+  "short": "_0UnKtyAuhc"
+ }
+}
