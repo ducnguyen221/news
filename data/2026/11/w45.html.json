@@ -1,0 +1,495 @@
+{
+ "date": "07/11/2026",
+ "week": "W45",
+ "range": "02/11 - 08/11/2026",
+ "tldr": "Tuần 45 ghi nhận bước chuyển mình mang tính bước ngoặt khi các nền tảng dữ liệu lớn đồng loạt mở rộng kiến trúc để đón đầu làn sóng AI Agent. Snowflake chính thức đưa Cortex AI Gateway lên GA nhằm siết chặt quản trị, truy vết và kiểm soát chi phí suy luận, trong khi Microsoft Fabric biến OneLake thành hệ thống tệp tối ưu cho agent qua máy chủ MCP lưu trữ đám mây. Ở tầng xử lý, Apache Spark 4.3 ra mắt với chế độ streaming thời gian thực có trạng thái đạt độ trễ mili-giây, còn ClickHouse 26.10 bứt phá với hơn 100 tính năng mới và cắt giảm một nửa dung lượng RAM. Thảo luận cộng đồng dậy sóng trước quyết định của PostHog khi rời bỏ DuckDB sang Trino ở ngưỡng một nghìn tỷ dòng dữ liệu, nhắc nhở toàn ngành về tầm quan trọng của việc lựa chọn đúng công cụ theo quy mô thực tế.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "ClickHouse 26.10 ra mắt: Cột mốc vượt 100 tính năng mới và cắt giảm 50% RAM",
+   "title_en": "ClickHouse release 26.10",
+   "summary": "ClickHouse 26.10 mang tới 104 tính năng mới và 225 tối ưu hóa; chuyển đổi bảng băm sang Robin Hood hashing giúp giảm tới một nửa dung lượng RAM cho GROUP BY, DISTINCT và JOIN.",
+   "why": "Bản phát hành giải quyết trực tiếp nút thắt bộ nhớ khi chạy truy vấn phân tích nặng, đồng thời bổ sung toán tử pipe và disk-backed cache tồn tại qua các lần restart máy chủ.",
+   "url": "https://clickhouse.com/blog/clickhouse-release-26-10",
+   "domain": "clickhouse.com",
+   "date": "2026-11-06",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 3
+  },
+  {
+   "aid": 2,
+   "title": "AWS Glue Data Catalog hỗ trợ Catalog-Vended Credentials cho Iceberg REST Catalog",
+   "title_en": "AWS Glue Data Catalog now supports catalog-vended credentials with Apache Iceberg REST catalog federation",
+   "summary": "AWS Glue Data Catalog chính thức cấp quyền truy cập tạm thời theo từng đường dẫn S3 kết hợp AWS Lake Formation khi liên kết qua chuẩn Apache Iceberg REST Catalog.",
+   "why": "Các engine như Athena, Redshift, EMR và Glue có thể truy xuất bảng Iceberg ngoài an toàn mà không phải chia sẻ credential dài hạn hay cấu hình IAM phức tạp.",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/glue-catalog-vended-credentials-iceberg/",
+   "domain": "aws.amazon.com",
+   "date": "2026-11-06",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 3,
+   "title": "Apache Spark 4.3 và Databricks Runtime 19: Stateful Streaming và SCD Type 2 Auto CDC",
+   "title_en": "Introducing Apache Spark 4.3 - Now available in Databricks Runtime 19",
+   "summary": "Spark 4.3 mang tới khả năng xử lý trạng thái cho Real-Time Mode với độ trễ P99 dưới 150 mili-giây, cùng tính năng Auto CDC hỗ trợ SCD Type 2 bảo toàn lịch sử dữ liệu.",
+   "why": "Spark đang thu hẹp khoảng cách với các engine streaming chuyên biệt, giúp doanh nghiệp hợp nhất xử lý lô, ETL và luồng thời gian thực về một khung phát triển duy nhất.",
+   "url": "https://www.databricks.com/blog/introducing-apache-spark-43-now-available-databricks-runtime-19",
+   "domain": "databricks.com",
+   "date": "2026-11-05",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 2
+  },
+  {
+   "aid": 4,
+   "title": "Databricks công bố Push-based CDC vào Unity Catalog với Zerobus Ingest và Debezium",
+   "title_en": "Push-based CDC into Unity Catalog with Zerobus Ingest and Debezium",
+   "summary": "Kiến trúc mới kết hợp Debezium Server và Zerobus Ingest để đẩy thẳng sự kiện thay đổi dữ liệu vào bảng Delta trong Unity Catalog mà không cần cụm Kafka trung gian.",
+   "why": "Loại bỏ hoàn toàn chi phí vận hành và hạ tầng của broker tin nhắn, đồng thời NVIDIA đóng góp chế độ Envelope mode 9 cột bảo toàn LSN và khóa bất biến.",
+   "url": "https://www.databricks.com/blog/push-based-cdc-unity-catalog-zerobus-ingest-and-debezium",
+   "domain": "databricks.com",
+   "date": "2026-11-05",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 5,
+   "title": "Amazon S3 Tables ra mắt tính năng di chuyển tự động từ Apache Hive sang Iceberg",
+   "title_en": "Amazon S3 Tables now provide a simple, cost-effective path for data lake modernization",
+   "summary": "Amazon S3 Tables cung cấp công cụ tự động chuyển đổi các bảng Apache Hive hiện có trong AWS Glue sang định dạng Apache Iceberg tối ưu mà không gây gián đoạn hệ thống.",
+   "why": "Quy trình chuyển đổi tự động thực hiện kiểm tra tính tương thích, nén lại dữ liệu sang chuẩn Zstandard và tạo bảng Iceberg sẵn sàng truy vấn mà không tốn công viết pipeline tùy biến.",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-s3-tables-managed-migration-hive-to-iceberg/",
+   "domain": "aws.amazon.com",
+   "date": "2026-11-04",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "Snowflake đưa Open Data Sharing cho Apache Iceberg lên trạng thái GA",
+   "title_en": "Open Data Sharing (General availability)",
+   "summary": "Snowflake chính thức cho phép chia sẻ dữ liệu bảng Iceberg do Snowflake quản lý ra bên ngoài mà không yêu cầu người nhận phải sở hữu tài khoản Snowflake.",
+   "why": "Dữ liệu được chia sẻ trực tiếp theo thời gian thực qua chuẩn Iceberg REST Catalog API mở, hỗ trợ liên vùng và xác thực thông qua Workload Identity Federation.",
+   "url": "https://docs.snowflake.com/en/release-notes/2026/other/2026-11-02-open-data-sharing-ga",
+   "domain": "docs.snowflake.com",
+   "date": "2026-11-02",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "Google BigQuery đưa BigQuery Graph và truy vấn GQL lên mô hình On-Demand Pricing",
+   "title_en": "BigQuery Graph and GQL on On-Demand Pricing",
+   "summary": "Người dùng BigQuery nay có thể tạo đồ thị và chạy truy vấn bằng ngôn ngữ Graph Query Language (GQL) trên gói giá theo nhu cầu On-Demand mà không bị ép dùng gói Enterprise.",
+   "why": "Phổ cập năng lực phân tích đồ thị quan hệ cho mọi quy mô doanh nghiệp, kết hợp nâng cấp biểu đồ nhiệt execution heatmap hỗ trợ phân cấp hàm người dùng.",
+   "url": "https://cloud.google.com/bigquery/docs/release-notes#November_06_2026",
+   "domain": "cloud.google.com",
+   "date": "2026-11-06",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "Databricks công bố giải pháp thay thế File Feeds bằng OpenSharing (Phần 2)",
+   "title_en": "Read, don't copy: replacing file feeds with OpenSharing - Part 2 (How to Implement)",
+   "summary": "Cẩm nang kỹ thuật hướng dẫn chi tiết cách thay thế hoàn toàn các luồng truyền tập tin tĩnh và API xuất dữ liệu cổ điển bằng giao thức chia sẻ mở OpenSharing có quản trị.",
+   "why": "Cung cấp mẫu triển khai thực tế giúp giảm chi phí lưu trữ trùng lặp, bảo đảm tính nhất quán của dữ liệu và thiết lập quyền truy cập theo thời gian thực giữa các đối tác.",
+   "url": "https://www.databricks.com/blog/read-dont-copy-replacing-file-feeds-opensharing-part-2-how-implement",
+   "domain": "databricks.com",
+   "date": "2026-11-06",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "Polars Cloud đổi tên thành Polars Nanook và mở rộng nền tảng phân tích on-premise",
+   "title_en": "Polars Cloud becomes Polars Nanook",
+   "summary": "Nền tảng Polars Cloud chính thức đổi tên thành Polars Nanook, mở rộng từ tính năng tính toán đám mây sang hỗ trợ toàn diện các môi trường hạ tầng nội bộ và mạng cách ly.",
+   "why": "Người dùng chuyển đổi sang gói thư viện polars-nanook, bổ sung SQL first-class từ xa và công bố lộ trình tích hợp catalog Iceberg cùng warm compute cho agent.",
+   "url": "https://pola.rs/posts/polars-cloud-becomes-polars-nanook/",
+   "domain": "pola.rs",
+   "date": "2026-11-05",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "dbt đưa MCP Server lên Databricks Marketplace và nâng cấp dbt Wizard Desktop",
+   "title_en": "dbt Model Context Protocol server on Databricks Marketplace and dbt Wizard updates",
+   "summary": "dbt công bố máy chủ Model Context Protocol trên chợ ứng dụng Databricks, đồng thời nâng cấp dbt Wizard Desktop cho phép chỉnh sửa tệp trực tiếp và kết nối mô hình Claude 5.5.",
+   "why": "Giúp các nhóm dữ liệu kết nối ngữ cảnh mô hình dbt vào môi trường AI của Databricks chỉ trong vài thao tác, chuẩn bị cho mốc kết thúc hỗ trợ dbt Core 1.11.",
+   "url": "https://docs.getdbt.com/docs/dbt-versions/dbt-cloud-release-notes#november-2026",
+   "domain": "docs.getdbt.com",
+   "date": "2026-11-05",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "MotherDuck ra mắt Agent Chat: Rút ngắn khoảng cách từ dữ liệu phân tích tới hành động",
+   "title_en": "Introducing Agent Chat: The Shortest Path from Data to Action",
+   "summary": "MotherDuck ra mắt giao diện Agent Chat tích hợp ngay trên màn hình chính, cho phép người dùng phân tích dữ liệu, tự động hóa quy trình và tạo ứng dụng dữ liệu từ hội thoại.",
+   "why": "Kết hợp sức mạnh DuckDB trên đám mây với khả năng suy luận của tác tử AI, giúp người dùng biến các phát hiện phân tích thành hành động ngay lập tức mà không phải đổi công cụ.",
+   "url": "https://motherduck.com/blog/agents-in-motherduck/",
+   "domain": "motherduck.com",
+   "date": "2026-11-03",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "Knowledge Graph Lakehouse: Quản lý đồ thị tri thức doanh nghiệp trên kiến trúc Cloud-Native",
+   "title_en": "Knowledge Graph Lakehouse: A Cloud-Native Architecture for Managing Enterprise Knowledge Graphs at Scale",
+   "summary": "Nghiên cứu trên arXiv đề xuất kiến trúc Knowledge Graph Lakehouse, lưu trữ và xử lý trực tiếp đồ thị tri thức trên các định dạng bảng mở như Apache Iceberg và Parquet.",
+   "why": "Khắc phục triệt để sự cô lập giữa cơ sở dữ liệu đồ thị chuyên dụng và hồ dữ liệu lớn, tạo nền tảng cung cấp ngữ cảnh tin cậy cho các tác tử AI doanh nghiệp.",
+   "url": "https://arxiv.org/abs/2611.04899",
+   "domain": "arxiv.org",
+   "date": "2026-11-05",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "Databricks công bố kiến trúc phát hiện gian lận thời gian thực kết hợp Feature Views",
+   "title_en": "Real-time fraud detection with Feature Views",
+   "summary": "Databricks chia sẻ giải pháp kỹ thuật xây dựng hệ thống phát hiện gian lận giao dịch kết hợp giữa tính toán streaming và Feature Views trên Databricks Feature Store.",
+   "why": "Giải quyết bài toán lệch pha giữa môi trường huấn luyện mô hình và môi trường chấm điểm trực tiếp, phục vụ các đặc trưng dữ liệu với độ trễ chỉ vài mili-giây.",
+   "url": "https://www.databricks.com/blog/real-time-fraud-detection-feature-views",
+   "domain": "databricks.com",
+   "date": "2026-11-05",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "Microsoft Fabric mở rộng OneLake thành File System cho Agent-First Data Engineering",
+   "title_en": "OneLake: The file system for agent-first data engineering",
+   "summary": "Microsoft bổ sung máy chủ Model Context Protocol lưu trữ đám mây cho OneLake, trang bị bộ công cụ bảo mật, quản lý lối tắt và API khám phá endpoint tối ưu cho AI Agent.",
+   "why": "Cho phép các tác tử AI tự động tìm kiếm dữ liệu, kết nối đúng engine truy vấn và thao tác trên bảng Delta thông qua các chỉ dẫn ngôn ngữ tự nhiên an toàn.",
+   "url": "https://community.fabric.microsoft.com/blog/fbc_fabricupdatesblogs/onelake-the-file-system-for-agent-first-data-engineering/5383035",
+   "domain": "community.fabric.microsoft.com",
+   "date": "2026-11-04",
+   "section": "🤖 AI × Data",
+   "hot_rank": 4
+  },
+  {
+   "aid": 15,
+   "title": "Snowflake đưa Cortex AI Gateway lên GA: Quản trị, Observability và Kiểm soát chi phí tập trung",
+   "title_en": "Cortex AI Gateway inference, observability, and cost management (General availability)",
+   "summary": "Snowflake chính thức đưa Cortex AI Gateway lên trạng thái GA, cung cấp cổng giao tiếp hợp nhất chuẩn OpenAI/Anthropic, ghi nhận toàn bộ truy vết và kiểm soát ngân sách.",
+   "why": "Giải quyết bài toán nhức nhối nhất của doanh nghiệp khi triển khai AI: ngăn ngừa rò rỉ token, giám sát từng bước gọi qua AGENT_TRACE_TABLE và ấn định hạn mức chi phí cho từng nhóm.",
+   "url": "https://docs.snowflake.com/en/release-notes/2026/other/2026-11-03-cortex-ai-gateway-ga",
+   "domain": "docs.snowflake.com",
+   "date": "2026-11-03",
+   "section": "🤖 AI × Data",
+   "hot_rank": 1
+  },
+  {
+   "aid": 16,
+   "title": "SpBench: Khung đánh giá hiệu năng Lakehouse đa engine thiết kế riêng cho AI Agent",
+   "title_en": "SpBench: An Agent-Native Framework for Cross-Engine Lakehouse Benchmarking",
+   "summary": "Nhóm nghiên cứu công bố SpBench trên arXiv: bộ khung benchmark lakehouse đa engine có hợp đồng telemetry có cấu trúc, cho phép các agent LLM tự động truy vấn và phân tích hiệu năng.",
+   "why": "Thay thế các báo cáo benchmark thủ công dễ thiên vị bằng cơ chế sinh code có kiểm chứng và hợp đồng số liệu rõ ràng giữa Snowpark, Spark Connect và các engine khác.",
+   "url": "https://arxiv.org/abs/2611.00449",
+   "domain": "arxiv.org",
+   "date": "2026-11-02",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "SeattleDataGuy: Kỹ sư dữ liệu cần chuẩn bị điều gì cho bước chuyển năm 2027?",
+   "title_en": "What's Going To Matter In 2027 For Data Engineers?",
+   "summary": "Tác giả Ben Rogojan chia sẻ bài phân tích dự báo các ưu tiên chiến lược của ngành kỹ nghệ dữ liệu, từ vai trò của mô hình hóa dữ liệu tới việc rút ngắn các dự án di chuyển kéo dài.",
+   "why": "Cảnh báo kỹ sư không nên quá tập trung vào công cụ bề nổi mà cần rèn luyện năng lực thiết kế hệ thống, kiểm soát chi phí FinOps và kết nối dữ liệu phục vụ AI thực chiến.",
+   "url": "https://seattledataguy.substack.com/p/whats-going-to-matter-in-2027-for",
+   "domain": "seattledataguy.substack.com",
+   "date": "2026-11-04",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 18,
+   "title": "PostHog quyết định rời bỏ DuckDB: Bài học thực chiến về giới hạn mở rộng 1.000 tỷ dòng dữ liệu",
+   "title_en": "Why we're moving our warehouse product off DuckDB",
+   "summary": "Đội ngũ kỹ thuật PostHog phân tích chi tiết nguyên nhân họ quyết định chuyển sản phẩm kho dữ liệu từ DuckDB sang Trino kết hợp định dạng mở HogLake.",
+   "why": "Chia sẻ kinh nghiệm thực tế về điểm nghẽn bộ nhớ và giới hạn của kiến trúc đơn máy chủ khi chạm ngưỡng 1.000 tỷ sự kiện, tạo nên làn sóng thảo luận lớn trên Hacker News.",
+   "url": "https://posthog.com/blog/moving-off-duckdb",
+   "domain": "posthog.com",
+   "date": "2026-11-02",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": 5
+  },
+  {
+   "aid": 19,
+   "title": "Data Engineering Weekly #294: Xu hướng tái định hình thiết kế hệ thống và rủi ro từ dữ liệu tổng hợp",
+   "title_en": "Data Engineering Weekly #294",
+   "summary": "Bản tin tuần số 294 tập trung thảo luận câu hỏi liệu ngành dữ liệu còn cần data model truyền thống hay không, cùng các kỹ thuật tính toán trước Zepto để cắt giảm chi phí.",
+   "why": "Tổng hợp các góc nhìn đa chiều về việc ứng dụng dữ liệu tổng hợp synthetic data ở quy mô lớn và các cạm bẫy bảo mật đi kèm trong kiến trúc dữ liệu hiện đại.",
+   "url": "https://www.dataengineeringweekly.com/p/data-engineering-weekly-294",
+   "domain": "dataengineeringweekly.com",
+   "date": "2026-11-02",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 20,
+   "title": "Joe Reis cảnh báo hiện tượng 'Great Data Interregnum': Ngành dữ liệu giữa hai kỷ nguyên chuyển đổi",
+   "title_en": "The Pendulums of Data & The Great Data Interregnum",
+   "summary": "Tác giả nổi tiếng Joe Reis phân tích giai đoạn quá độ đầy bất ổn của ngành dữ liệu khi các chuẩn mực cũ đang lung lay còn các giải pháp AI mới vẫn chưa chứng minh được sự ổn định.",
+   "why": "Nhắc nhở các nhà lãnh đạo dữ liệu tránh bẫy chạy theo các giải pháp chắp vá, đồng thời hướng dẫn phương pháp kiểm soát độ chi tiết để tránh lỗi tính toán sai lệch.",
+   "url": "https://joereis.substack.com/p/the-pendulums-of-data",
+   "domain": "joereis.substack.com",
+   "date": "2026-11-02",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 21,
+   "title": "Cộng đồng r/dataengineering thảo luận xu hướng thay thế SSIS và SQL Server bằng PySpark và DuckLake",
+   "title_en": "Monthly General Discussion - Nov 2026 (r/dataengineering)",
+   "summary": "Chủ đề thảo luận tháng 11 trên Reddit thu hút hàng trăm kỹ sư chia sẻ về lộ trình loại bỏ các gói ETL SSIS cổ điển, chuyển dịch sang PySpark và thử nghiệm DuckLake cho tác vụ cục bộ.",
+   "why": "Phản ánh thực tế chuyển đổi số tại các doanh nghiệp vừa và nhỏ, nơi các kỹ sư phải đối mặt với khoảng cách kỹ năng lớn giữa quản trị SQL truyền thống và kỹ nghệ đám mây.",
+   "url": "https://www.reddit.com/r/dataengineering/comments/1gk84yv/monthly_general_discussion_nov_2026/",
+   "domain": "reddit.com",
+   "date": "2026-11-02",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 22,
+   "title": "Databricks công bố cẩm nang mở rộng quy mô Databricks Apps trong môi trường doanh nghiệp",
+   "title_en": "A builder's guide to scaling Databricks Apps",
+   "summary": "Databricks phát hành tài liệu kiến trúc toàn diện hướng dẫn lập trình viên tối ưu hóa hiệu năng, tốc độ phản hồi và độ ổn định khi mở rộng ứng dụng dữ liệu nội bộ.",
+   "why": "Cung cấp các mẫu thiết kế thực tế về quản lý phiên, phân bổ tài nguyên compute và tích hợp bảo mật Unity Catalog khi số lượng người dùng đồng thời tăng mạnh.",
+   "url": "https://www.databricks.com/blog/builders-guide-scaling-databricks-apps",
+   "domain": "databricks.com",
+   "date": "2026-11-05",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 23,
+   "title": "Fivetran được vinh danh Leader trong Gartner Magic Quadrant 2026 cho Data Integration Tools",
+   "title_en": "Fivetran Recognized as a Leader in the 2026 Gartner Magic Quadrant for Data Integration Tools",
+   "summary": "Gartner chính thức xếp hạng Fivetran vào nhóm Dẫn đầu trong Báo cáo Magic Quadrant 2026 cho các công cụ tích hợp dữ liệu, đánh dấu bước ngoặt lớn sau khi sáp nhập dbt Labs.",
+   "why": "Khẳng định sự công nhận của thị trường đối với nền tảng kết hợp giữa khả năng trích xuất tải dữ liệu tự động của Fivetran và khả năng biến đổi quản trị của dbt.",
+   "url": "https://www.fivetran.com/blog/fivetran-recognized-as-a-leader-in-the-2026-gartner-r-magic-quadrant-tm-for-data-integration-tools",
+   "domain": "fivetran.com",
+   "date": "2026-11-04",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 24,
+   "title": "OpenRouter xử lý 740 triệu lượt gọi LLM mỗi ngày nhờ giải pháp ClickHouse Cloud",
+   "title_en": "How OpenRouter observes, understands, and acts on 740 million LLM requests a day with ClickHouse Cloud",
+   "summary": "Nền tảng định tuyến AI OpenRouter công bố kiến trúc sử dụng ClickHouse Cloud làm kho dữ liệu trung tâm, vận hành hệ thống giám sát 740 triệu yêu cầu suy luận mỗi ngày.",
+   "why": "Minh chứng thực tế về quy mô hạ tầng dữ liệu phục vụ ngành AI: lưu trữ bảng xếp hạng 500 mô hình, tối ưu hóa định tuyến và phục vụ hơn 110 nghìn tỷ token mỗi tuần.",
+   "url": "https://clickhouse.com/blog/how-openrouter-observes-understands-and-acts-on-740-million-llm-requests-a-day-with-clickhouse-cloud",
+   "domain": "clickhouse.com",
+   "date": "2026-11-02",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 25,
+   "title": "Microsoft khởi động chiến dịch toàn cầu Data Days: AI @ Work đào tạo kỹ sư dữ liệu Fabric",
+   "title_en": "Data Days: AI @ Work - Global Learning Initiative",
+   "summary": "Microsoft phát động chuỗi sự kiện học tập cộng đồng Data Days kéo dài từ 02/11 đến 15/12/2026, cung cấp các buổi thực hành chuyên sâu và hỗ trợ voucher thi chứng chỉ DP-700.",
+   "why": "Thúc đẩy phổ cập kỹ năng ứng dụng AI trong kỹ nghệ dữ liệu, chuẩn bị lực lượng kỹ sư sẵn sàng cho các bài toán phân tích đàm thoại và xây dựng lakehouse với Fabric.",
+   "url": "https://community.fabric.microsoft.com/t5/Fabric-Community-Events/Data-Days-AI-at-Work/ev-p/5380124",
+   "domain": "community.fabric.microsoft.com",
+   "date": "2026-11-02",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 15,
+ "weekly_video": {
+  "intro": "Chào mừng anh chị em đến với bản tin Data News tuần 45. Tuần này, thế giới dữ liệu chứng kiến bước chuyển dịch mạnh mẽ khi hạ tầng lakehouse và warehouse không còn chỉ phục vụ con người mở báo cáo, mà đang được tái cấu trúc toàn diện để trở thành môi trường hoạt động trực tiếp cho các tác tử AI tự trị.",
+  "outro": "Đó là năm điểm nhấn công nghệ dữ liệu nổi bật nhất trong tuần 45. Chi tiết từng bài viết và phân tích kỹ thuật mời anh em xem tại bản tin. Hẹn gặp lại mọi người tuần sau.",
+  "segments": [
+   {
+    "aid": 15,
+    "headline": "Snowflake đưa Cortex AI Gateway lên trạng thái GA",
+    "narration": "Điểm tin nóng nhất tuần 45 thuộc về Snowflake khi hãng chính thức đưa Cortex AI Gateway lên trạng thái GA. Trước đây, doanh nghiệp gặp khó khăn lớn khi triển khai AI tác tử: mỗi nhóm kỹ thuật lại kết nối trực tiếp đến nhà cung cấp mô hình khác nhau, dẫn đến rủi ro bảo mật, mất dấu vết thực thi và chi phí đám mây tăng vọt ngoài tầm kiểm soát. Cortex AI Gateway giải quyết nút thắt này bằng một cổng định tuyến có quản trị duy nhất, tương thích chuẩn OpenAI Chat Completions và Anthropic Messages, giúp ứng dụng chuyển đổi mượt mà không cần sửa mã nguồn. Điểm giá trị nhất nằm ở lớp quan sát và quản trị chi phí: toàn bộ bước gọi mô hình, độ trễ, token và mã lỗi đều tự động ghi vào bảng AGENT_TRACE_TABLE hoặc xuất sang OpenTelemetry. Quản trị viên có thể áp hạn mức tiêu thụ cho từng người dùng và thiết lập ngân sách chia sẻ theo phòng ban qua view AI_GATEWAY_USAGE_HISTORY. Đây là bước đi chiến lược biến Snowflake thành lớp nền tảng kiểm soát an toàn cho toàn bộ luồng công việc AI tác tử trong doanh nghiệp.",
+    "bullets": [
+     "Endpoint chuẩn OpenAI và Anthropic",
+     "Truy vết chi tiết qua AGENT_TRACE_TABLE",
+     "Kiểm soát ngân sách và quota người dùng"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Kiến trúc Cortex AI Gateway",
+     "items": [
+      {
+       "t": "Cổng kết nối",
+       "d": "Chuẩn OpenAI và Anthropic"
+      },
+      {
+       "t": "Quan sát",
+       "d": "Lưu vết AGENT_TRACE_TABLE"
+      },
+      {
+       "t": "Kiểm soát chi phí",
+       "d": "Quota và shared budget"
+      },
+      {
+       "t": "Bảo mật",
+       "d": "Quản trị token tập trung"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 3,
+    "headline": "Apache Spark 4.3 ra mắt với streaming độ trễ thấp",
+    "narration": "Cộng đồng dữ liệu tuần qua đón nhận bản phát hành lớn Apache Spark 4.3, đồng thời được tích hợp ngay vào Databricks Runtime 19. Nâng cấp quan trọng nhất tập trung vào chế độ Real-Time Mode trong Structured Streaming. Lần đầu tiên, engine luồng của Spark có thể xử lý các phép toán có trạng thái phức tạp như gom nhóm liên tục, khử trùng lặp bản ghi và biến đổi trạng thái tùy biến qua hàm transformWithState, nhưng vẫn duy trì độ trễ đầu cuối ở phân vị P99 dưới 150 mili-giây. Song song đó, tính năng Auto CDC được mở rộng hỗ trợ SCD Type 2, tự động theo dõi và lưu trữ toàn bộ lịch sử biến động dữ liệu qua Python, SQL và Spark Connect mà không đòi hỏi kỹ sư phải tự tay thiết kế các đường ống đồng bộ phức tạp. Bản phát hành này cũng chính thức giới thiệu Project Feather nhằm cắt giảm tối đa chi phí overhead khi thực thi các truy vấn dữ liệu nhỏ, giúp đẩy nhanh tốc độ thử nghiệm cho các quy trình AI lặp đi lặp lại. Spark đang chứng minh nỗ lực thu hẹp khoảng cách với các hệ thống chuyên dụng như Flink, mang lại khả năng xử lý lô, biến đổi dữ liệu và luồng thời gian thực về chung một hệ sinh thái duy nhất.",
+    "bullets": [
+     "Độ trễ P99 dưới 150 ms",
+     "Auto CDC hỗ trợ SCD Type 2",
+     "Project Feather tăng tốc vòng lặp dev"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Thông số nổi bật Spark 4.3",
+     "items": [
+      {
+       "v": "<150 ms",
+       "l": "Độ trễ streaming P99"
+      },
+      {
+       "v": "SCD Type 2",
+       "l": "Lưu lịch sử qua Auto CDC"
+      },
+      {
+       "v": "Feather",
+       "l": "Tối ưu truy vấn dữ liệu nhỏ"
+      },
+      {
+       "v": "3 tháng",
+       "l": "Chu kỳ phát hành phiên bản mới"
+      }
+     ]
+    },
+    "images": [
+     "https://www.databricks.com/sites/default/files/2026-10/2026-09-Blog-Introducing-Apache-Spark-R-4.3-OG-1200x628-2x.png"
+    ]
+   },
+   {
+    "aid": 1,
+    "headline": "ClickHouse 26.10 vượt mốc 100 tính năng mới",
+    "narration": "Cơ sở dữ liệu phân tích ClickHouse vừa phát hành phiên bản 26.10, đánh dấu cột mốc lịch sử khi lần đầu tiên vượt qua một trăm tính năng mới trong một đợt cập nhật duy nhất. Cụ thể, phiên bản này mang tới 104 tính năng mới, 225 cải tiến hiệu năng và giải quyết tới 739 lỗi tồn đọng. Thay đổi mang tính nền tảng nhất là việc chuyển đổi cấu trúc bảng băm kích thước lớn sang giải thuật Robin Hood hashing. Bước tiến thuật toán này giúp cắt giảm tới một nửa dung lượng bộ nhớ RAM tiêu thụ trong các phép toán nặng như GROUP BY, DISTINCT và kết nối bảng JOIN. Bên cạnh đó, ClickHouse 26.10 bổ sung bộ nhớ đệm kết quả truy vấn ghi trực tiếp xuống đĩa có thể tồn tại nguyên vẹn sau khi khởi động lại máy chủ, giúp tối ưu hóa chi phí cho các báo cáo định kỳ. Về mặt cú pháp, việc bổ sung toán tử đường ống ký tự gạch đứng cho phép nối các hàm lồng nhau một cách trực quan, giúp câu lệnh dễ đọc và dễ bảo trì hơn rất nhiều. Với những cải tiến này, ClickHouse tiếp tục khẳng định vị thế dẫn đầu trong các tác vụ phân tích thời gian thực quy mô cực lớn.",
+    "bullets": [
+     "104 tính năng mới và 225 tối ưu",
+     "Giảm 50% RAM cho GROUP BY và JOIN",
+     "Toán tử pipe cho function composition"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Cột mốc ClickHouse 26.10",
+     "items": [
+      {
+       "v": "104",
+       "l": "Tính năng mới trong một bản"
+      },
+      {
+       "v": "-50%",
+       "l": "Dung lượng RAM bảng băm"
+      },
+      {
+       "v": "225",
+       "l": "Tối ưu hóa hiệu năng thực thi"
+      },
+      {
+       "v": "739",
+       "l": "Lỗi hệ thống được xử lý"
+      }
+     ]
+    },
+    "images": [
+     "https://clickhouse.com/_next/image?url=%2Fuploads%2FBlog_Cover_1200x630_14_380a4d0d49.png&w=1200&h=630&q=75"
+    ]
+   },
+   {
+    "aid": 14,
+    "headline": "Fabric biến OneLake thành hệ thống tệp cho Agent",
+    "narration": "Microsoft tiếp tục đẩy nhanh chiến lược đưa AI vào sâu trong kỹ nghệ dữ liệu với bản nâng cấp lớn cho OneLake trong Microsoft Fabric. Thay vì bắt các kỹ sư dữ liệu phải tự vận hành máy chủ Model Context Protocol trên máy trạm cá nhân, Microsoft đã cung cấp máy chủ MCP được lưu trữ trực tiếp trên đám mây Fabric. Giờ đây, các tác tử AI có thể trực tiếp kết nối, khám phá cấu trúc thư mục, đọc siêu dữ liệu và quản lý các lối tắt dữ liệu trong OneLake thông qua các câu lệnh ngôn ngữ tự nhiên thuần túy. Hãng cũng tích hợp bộ API dò tìm endpoint thông minh, cho phép tác tử tự nhận diện xem bảng dữ liệu cần truy vấn nên được định tuyến tới engine tính toán Spark hay SQL để đạt hiệu suất tối ưu và tiết kiệm tài nguyên nhất. Điểm mấu chốt của kiến trúc này là lớp bảo mật tích hợp: mọi thao tác tạo bảng, sao chép hoặc chuyển đổi đều phải tuân thủ nghiêm ngặt chính sách phân quyền hiện hữu trong OneLake. Đây là bước đệm then chốt chuẩn bị cho hội nghị Ignite sắp tới, đưa OneLake trở thành trung tâm kết nối dữ liệu an toàn cho toàn bộ hệ sinh thái trợ lý Copilot và tác tử tự trị.",
+    "bullets": [
+     "Máy chủ MCP lưu trữ đám mây cho OneLake",
+     "Tự động khám phá endpoint và phân quyền",
+     "Thao tác dữ liệu qua ngôn ngữ tự nhiên"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Quy trình Agent thao tác OneLake",
+     "items": [
+      {
+       "t": "Câu lệnh",
+       "d": "Nhận yêu cầu ngôn ngữ tự nhiên"
+      },
+      {
+       "t": "Hosted MCP",
+       "d": "Kết nối trực tiếp dịch vụ OneLake"
+      },
+      {
+       "t": "Dò Endpoint",
+       "d": "Tự chọn engine Spark hoặc SQL"
+      },
+      {
+       "t": "Kiểm soát",
+       "d": "Áp quyền bảo mật và audit log"
+      },
+      {
+       "t": "Bảng Delta",
+       "d": "Đọc ghi dữ liệu chuẩn mở"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 18,
+    "headline": "PostHog chia sẻ lý do rời DuckDB sang Trino",
+    "narration": "Một trong những chủ đề kỹ thuật được bàn luận sôi nổi nhất tuần qua đến từ bài viết của đội ngũ kỹ sư PostHog, giải thích lý do họ quyết định di dời sản phẩm kho dữ liệu khỏi DuckDB để chuyển sang Trino kết hợp định dạng HogLake tự phát triển. DuckDB là một công cụ phân tích nhúng vô cùng xuất sắc cho các tác vụ cục bộ hoặc tập dữ liệu vừa phải nhờ tốc độ khởi động tức thì và cú pháp tiện lợi. Tuy nhiên, khi kho dữ liệu của PostHog chạm mốc một nghìn tỷ sự kiện, kiến trúc đơn tiến trình của DuckDB bắt đầu bộc lộ giới hạn nghiêm trọng về quản lý bộ nhớ và khả năng mở rộng quy mô ngang. Các truy vấn tổng hợp phức tạp trên hàng tỷ dòng liên tục gặp lỗi tràn bộ nhớ hoặc làm nghẽn tiến trình của khách hàng khác. Việc chuyển sang cụm Trino phân tán cùng bảng dữ liệu định dạng mở HogLake đã giúp họ chia nhỏ khối lượng tính toán trên nhiều máy chủ, đảm bảo khả năng cô lập tài nguyên và tính ổn định tuyệt đối. Bài học của PostHog gửi đi một thông điệp đắt giá cho cộng đồng kỹ sư dữ liệu: không có công cụ vạn năng, kiến trúc chỉ thực sự bền vững khi được lựa chọn chính xác theo quy mô dữ liệu và mô hình kinh doanh.",
+    "bullets": [
+     "Nghẽn bộ nhớ ở quy mô một nghìn tỷ dòng",
+     "Chuyển sang Trino và định dạng HogLake",
+     "Bài học chọn công cụ đúng theo quy mô"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "So sánh DuckDB vs Trino tại PostHog",
+     "left": {
+      "h": "DuckDB trên một máy",
+      "items": [
+       "Cực nhanh với dữ liệu nhỏ",
+       "Tràn RAM ở 1.000 tỷ dòng",
+       "Khó cô lập tiến trình đa người dùng"
+      ]
+     },
+     "right": {
+      "h": "Trino phân tán đa cụm",
+      "items": [
+       "Mở rộng ngang nhiều máy chủ",
+       "Xử lý mượt quy mô petabyte",
+       "Cô lập tài nguyên và chịu lỗi cao"
+      ]
+     }
+    },
+    "images": [
+     "https://res.cloudinary.com/dmukukwp6/image/upload/moving_off_duckdb_4c95538aac.png"
+    ]
+   }
+  ]
+ },
+ "facebook_post": "𝐃𝐀𝐓𝐀 𝐍𝐄𝐖𝐒 𝐓𝐔𝐀̂̀𝐍 𝟒𝟓: 𝐇𝐀̣ 𝐓𝐀̂̀𝐍𝐆 𝐃𝐔̛̃ 𝐋𝐈𝐄̣̂𝐔 Đ𝐎́𝐍 Đ𝐀̂̀𝐔 𝐊𝐘̉ 𝐍𝐆𝐔𝐘𝐄̂𝐍 𝐀𝐆𝐄𝐍𝐓 🚀\n\nKhi AI agent bắt đầu tự viết code và chọc thẳng vào kho dữ liệu để phân tích, nỗi sợ lớn nhất của anh em làm data không còn là truy vấn chậm vài giây. Nỗi sợ thật là: agent chạy lặp vô tận đốt sạch ngân sách cloud, hoặc tự ý join những bảng nhạy cảm mà không ai audit được 😅\n\nTuần này, Snowflake, Databricks và Microsoft cùng phát đi một thông điệp: kỷ nguyên người dùng mở dashboard ngắm sắp nhường chỗ cho AI Agent thao tác tự động trên dữ liệu. Và hạ tầng dữ liệu bắt buộc phải tái cấu trúc để thích ứng.\n\n---\n\n𝟏️⃣ 𝐒𝐧𝐨𝐰𝐟𝐥𝐚𝐤𝐞 đ𝐮̛𝐚 𝐂𝐨𝐫𝐭𝐞𝐱 𝐀𝐈 𝐆𝐚𝐭𝐞𝐰𝐚𝐲 𝐥𝐞̂𝐧 𝐆𝐀\n\nSnowflake chính thức đưa Cortex AI Gateway lên GA. Toàn bộ ứng dụng AI trong doanh nghiệp có thể gọi chung qua một cổng duy nhất theo chuẩn OpenAI hoặc Anthropic.\nĐiểm cốt lõi: vết gọi, độ trễ, token và mã lỗi được ghi tự động vào bảng AGENT_TRACE_TABLE; FinOps có thể áp quota cho từng user và shared budget theo phòng ban qua AI_GATEWAY_USAGE_HISTORY.\n👉 Nghĩa là: doanh nghiệp không sợ cảnh dev cắm key cá nhân chạy lung tung; AI được cấp phép nhưng có dây cương an toàn.\n\n𝟐️⃣ 𝐒𝐩𝐚𝐫𝐤 𝟒.𝟑 𝐫𝐚 𝐦𝐚̆́𝐭: 𝐒𝐭𝐫𝐞𝐚𝐦𝐢𝐧𝐠 𝐜𝐨́ 𝐭𝐫𝐚̣𝐧𝐠 𝐭𝐡𝐚́𝐢 đ𝐚̣𝐭 đ𝐨̣̂ 𝐭𝐫𝐞̂̃ 𝐦𝐢𝐥𝐢-𝐠𝐢𝐚̂𝐲\n\nApache Spark 4.3 cập bến Databricks Runtime 19, mở đầu chu kỳ phát hành định kỳ 3 tháng.\nReal-Time Mode trong Structured Streaming nay hỗ trợ tính toán có trạng thái (stateful streaming, aggregation, transformWithState) với độ trễ P99 dưới 150 mili-giây. Auto CDC cũng có sẵn SCD Type 2 giúp tự động lưu lịch sử thay đổi qua Python/SQL.\n👉 Nghĩa là: ranh giới giữa batch và streaming chuyên dụng đang thu hẹp. Doanh nghiệp gom nhiều pipeline về chung một nền mà không phải nuôi stack riêng.\n\n𝟑️⃣ 𝐂𝐥𝐢𝐜𝐤𝐇𝐨𝐮𝐬𝐞 𝟐𝟔.𝟏𝟎 𝐛𝐮̛́𝐭 𝐩𝐡𝐚́: 𝐕𝐮̛𝐨̛̣𝐭 𝟏𝟎𝟎 𝐭𝐢́𝐧𝐡 𝐧𝐚̆𝐧𝐠 𝐦𝐨̛́𝐢 𝐯𝐚̀ 𝐠𝐢𝐚̉𝐦 𝟓𝟎% 𝐑𝐀𝐌\n\nClickHouse lập kỷ lục mới với bản 26.10: 104 tính năng mới, 225 cải tiến hiệu năng và xử lý 739 lỗi.\nĐiểm đột phá là viết lại cấu trúc bảng băm bằng Robin Hood hashing, cắt giảm đúng 50% RAM tiêu thụ cho GROUP BY, DISTINCT và JOIN. Disk-backed cache giúp kết quả truy vấn lưu trên đĩa không bị mất khi restart server.\n👉 Nghĩa là: máy chủ ClickHouse hiện tại của anh em gánh được gấp đôi tải phân tích mà không cần mua thêm RAM.\n\n𝟒️⃣ 𝐌𝐢𝐜𝐫𝐨𝐬𝐨𝐟𝐭 𝐅𝐚𝐛𝐫𝐢𝐜 𝐛𝐢𝐞̂́𝐧 𝐎𝐧𝐞𝐋𝐚𝐤𝐞 𝐭𝐡𝐚̀𝐧𝐡 𝐅𝐢𝐥𝐞 𝐒𝐲𝐬𝐭𝐞𝐦 𝐜𝐡𝐨 𝐀𝐠𝐞𝐧𝐭\n\nMicrosoft biến OneLake thành hệ thống tệp cho agent-first data engineering với hosted MCP server trên đám mây Fabric.\nAgent có thể tự động khám phá cấu trúc OneLake, đọc schema, tạo lối tắt shortcut và tự quyết định nên đẩy truy vấn sang SQL Endpoint hay cụm Spark để tối ưu nhất.\n👉 Nghĩa là: OneLake từ hồ chứa tĩnh trở thành môi trường làm việc sống động, nơi AI Agent cộng tác trực tiếp cùng data engineer.\n\n𝟓️⃣ 𝐏𝐨𝐬𝐭𝐇𝐨𝐠 𝐫𝐨̛̀𝐢 𝐃𝐮𝐜𝐤𝐃𝐁 𝐬𝐚𝐧𝐠 𝐓𝐫𝐢𝐧𝐨 𝐨̛̉ 𝐧𝐠𝐮̛𝐨̛̃𝐧𝐠 𝟏.𝟎𝟎𝟎 𝐭𝐲̉ 𝐝𝐨̀𝐧𝐠\n\nKỹ sư PostHog vừa chia sẻ lý do di dời toàn bộ kho dữ liệu khỏi DuckDB để chuyển sang Trino kết hợp định dạng mở HogLake.\nDuckDB tuyệt vời cho tác vụ cục bộ và dữ liệu vừa. Nhưng khi kho dữ liệu chạm mốc 1.000 tỷ sự kiện, kiến trúc in-process của DuckDB nghẽn bộ nhớ nghiêm trọng và khó cô lập tài nguyên giữa các khách hàng.\n👉 Nghĩa là: không có viên đạn bạc trong kỹ nghệ dữ liệu. Đừng ép một công cụ nhúng gánh vác khối lượng của cụm phân tán petabyte.\n\n---\n\n💭 Góc nhìn của mình về tuần này\n\nĐức chỉ chia sẻ dưới góc nhìn kỹ thuật của một người làm nghề Data & AI: tuần 45 đánh dấu toàn ngành bắt đầu nghiêm túc giải bài toán Agentic Infrastructure.\n\nNhìn vào ba lớp Technical - Business - Human, bức tranh hiện ra rất rõ ràng:\n- Technical: Agent không thể làm việc trên dữ liệu rác. OneLake MCP hay Cortex AI Gateway chính là để tạo hợp đồng giao tiếp an toàn giữa LLM và kho dữ liệu thực.\n- Business value: Giá trị AI nằm ở giảm rủi ro vận hành và kiểm soát chi phí. Một con agent chạy sai có thể đốt sạch tiền server trong một đêm nếu thiếu quota kiểm soát.\n- Human & Adoption: Kỹ sư dữ liệu không bị thay thế, nhưng ai chỉ biết kéo thả ETL thủ công sẽ rất chật vật. Người làm data hiện đại phải chuyển mình thành kiến trúc sư hệ thống: thiết lập luật chơi, phân quyền và thẩm định kết quả từ agent.\n\nKhi học và làm thực hành chuyên sâu về lakehouse và RAG trên Databricks, Đức càng thấm thía: công nghệ xịn đến đâu mà không có kỷ luật quản trị thì cũng chỉ là món đồ chơi đắt đỏ. Nhiều doanh nghiệp Việt đang sốt ruột muốn cắm agent vào database ngay. Lời khuyên của mình: hãy dọn sạch catalog, chốt chuẩn bảo mật và dựng trạm kiểm soát gateway trước đã.\n\n“Đừng vội mua thêm agent khi hạ tầng của bạn chưa đủ kỷ luật để kiểm soát nó.”\n\nAnh em tuần này ấn tượng nhất với nước đi nào? Team của bạn đã bắt đầu thử nghiệm đưa AI agent kết nối trực tiếp vào data warehouse hay lakehouse chưa? Comment chia sẻ góc nhìn với Đức nhé 😄\n\n#DataNews #DataEngineering #BusinessIntelligence #Snowflake #Databricks #ApacheSpark #ClickHouse #MicrosoftFabric #OneLake #DuckDB #AIAgent #Lakehouse #HocCungAI",
+ "facebook_reel": "Một lệnh sai của AI Agent có thể đốt sạch ngân sách.\n\nTuần 45 chứng kiến bước ngoặt lớn: Snowflake ra mắt Cortex AI Gateway để kiểm soát vết gọi và quota; Databricks tung Spark 4.3 với streaming mili-giây; Microsoft biến OneLake thành ổ đĩa cho Agent làm việc trực tiếp.\n\nHạ tầng của bạn đã sẵn sàng cho Agent chưa? Chi tiết Đức để ở bài viết nhé.\n\n#DataNews #DataEngineering #Snowflake #Databricks #AIAgent #Lakehouse",
+ "bgm": "minimal-tech",
+ "youtube": {
+  "recap": "4aNnp-C0isU",
+  "short": "VhejSGRgORk"
+ }
+}
