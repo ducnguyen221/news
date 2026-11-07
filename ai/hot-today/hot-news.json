@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-11-07",
+      "display_date": "07/11/2026",
+      "title": "DeepSeek ra mắt Super-Agent: Phá vỡ nút thắt điều phối AI",
+      "summary": "DeepSeek vừa chính thức công bố nguyên mẫu mã nguồn mở Super-Agent, giải quyết triệt để nút thắt chú ý khi một người phải quản lý cùng lúc quá nhiều AI.",
+      "source": "github.com/deepseek-ai",
+      "video_id": "N-Aic6v4Ctk",
+      "short_id": "2QjYRYK4BMg",
+      "published_at": "2026-11-07T17:43:27"
+    },
+    {
       "date": "2026-11-05",
       "display_date": "05/11/2026",
       "title": "OpenAI tung Images 2.6: Tạo GIF động, render chỉ sáu giây",
