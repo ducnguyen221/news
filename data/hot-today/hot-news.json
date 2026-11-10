@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-11-10",
+      "display_date": "10/11/2026",
+      "title": "ClickHouse mua Xata: Postgres nhân bản 3 giây cho AI agent",
+      "summary": "ClickHouse vừa mua Xata và đưa Postgres lên bản chính thức: giờ mỗi AI agent có thể có riêng một database nhân bản trong khoảng ba giây.",
+      "source": "clickhouse.com",
+      "video_id": "lquQmo-PJF8",
+      "short_id": "GBO1bMU0n7A",
+      "published_at": "2026-11-10T17:59:53"
+    },
+    {
       "date": "2026-11-08",
       "display_date": "08/11/2026",
       "title": "Amazon S3 Tables mở Managed Migration: Đưa Hive lên Iceberg không downtime",
