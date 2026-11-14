@@ -1,0 +1,487 @@
+{
+ "date": "14/11/2026",
+ "week": "W46",
+ "range": "09/11 - 15/11/2026",
+ "tldr": "Tuần 46 chứng kiến bước ngoặt quyết định khi hạ tầng dữ liệu chính thức chuyển mình từ mô hình hỗ trợ phân tích truyền thống sang phục vụ các tác tử AI tự trị (Agentic AI). Databricks tạo nên cơn địa chấn khi ra mắt Always-On Genie và Genie Ontology biến trợ lý ảo thành đồng nghiệp số tự vận hành 24/7 dưới sự kiểm soát của Unity Gateway. Cùng thời điểm, hai nhà sáng lập dbt Labs và Fivetran công bố thư chung xác lập vai trò Agent Engineer, khẳng định dữ liệu chuẩn hóa và semantic contract là điều kiện sống còn của kỷ nguyên tự trị. ClickHouse mở rộng lịch sử sang OLTP với việc mua lại Xata và đưa Managed Postgres lên GA, trong khi Snowflake và AWS củng cố các tầng quản trị mở với Semantic Views nhiều-nhiều và Athena System Tables trên Apache Iceberg.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "Amazon Athena ra mắt System Tables: Quan sát và kiểm toán hạ tầng qua bảng Apache Iceberg trên Amazon S3 Tables",
+   "title_en": "Amazon Athena introduces system tables for observability, auditing, and usage analytics",
+   "summary": "Amazon Athena chính thức cung cấp các bảng hệ thống (system tables) tự động ghi lại lịch sử thực thi, số liệu sử dụng và chi phí truy vấn dưới dạng bảng Apache Iceberg chỉ sau vài phút.",
+   "why": "Dữ liệu được lưu trữ trực tiếp dưới dạng bảng Iceberg trên Amazon S3 Tables do AWS quản lý, cho phép kỹ sư dữ liệu dùng standard SQL từ Athena, Redshift hay DuckDB để kiểm toán và tối ưu chi phí mà không cần dựng pipeline ETL riêng.",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/athena-system-tables/",
+   "domain": "aws.amazon.com",
+   "date": "2026-11-09",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 5
+  },
+  {
+   "aid": 2,
+   "title": "ClickHouse và Amazon S3 Tables: Tối ưu phân tích hiệu năng cao trên kiến trúc Open Lakehouse",
+   "title_en": "Bring high-performance analytics to your lakehouse with ClickHouse and Amazon S3 Tables",
+   "summary": "ClickHouse công bố hợp tác cùng AWS tích hợp sâu với Amazon S3 Tables, hỗ trợ truy vấn trực tiếp bảng Apache Iceberg trên S3 với tốc độ đọc vượt trội nhờ cơ chế cache thông minh.",
+   "why": "Giải pháp kết hợp tốc độ quét dữ liệu dạng cột cực nhanh của ClickHouse với khả năng quản lý metadata mở của Iceberg trên S3, mở ra kiến trúc hồ dữ liệu hiệu năng cao với chi phí lưu trữ tối thiểu.",
+   "url": "https://clickhouse.com/blog/clickhouse-amazon-s3-tables",
+   "domain": "clickhouse.com",
+   "date": "2026-11-11",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 3,
+   "title": "Confluent Platform hỗ trợ Apache Flink 2.3: Mở rộng kiến trúc Streamhouse và Lightning Tables",
+   "title_en": "What's New in Q4'26 Confluent Data Streaming Platform: Streamhouse and Flink 2.3",
+   "summary": "Confluent công bố gói cập nhật quý 4 định hình nền tảng Streamhouse, đưa tính năng Lightning Tables trên AWS lên GA và hỗ trợ Apache Flink 2.3 trên các cụm tính toán SQL.",
+   "why": "Cho phép truy vấn dữ liệu luồng đang chạy với độ trễ mili-giây mà không cần bốc tách sang warehouse, kết hợp khả năng suy luận mô hình AI trực tiếp trong pipeline stream.",
+   "url": "https://www.confluent.io/blog/whats-new-in-q4-2026-confluent-data-streaming-platform/",
+   "domain": "confluent.io",
+   "date": "2026-11-09",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 4,
+   "title": "Google BigQuery ra mắt Federated Queries cho MySQL, PostgreSQL và Oracle",
+   "title_en": "BigQuery introduces Federated Queries for MySQL, PostgreSQL, and Oracle",
+   "summary": "Google Cloud chính thức ra mắt tính năng Federated Queries ở chế độ Preview, cho phép BigQuery kết nối và truy vấn trực tiếp dữ liệu từ MySQL, PostgreSQL và Oracle từ xa.",
+   "why": "Giúp các kỹ sư và chuyên viên phân tích kết hợp dữ liệu giao dịch nghiệp vụ đang chạy trên các hệ CSDL quan hệ với kho dữ liệu lớn mà không cần tạo pipeline sao chép dữ liệu phức tạp.",
+   "url": "https://cloud.google.com/bigquery/docs/release-notes#November_13_2026",
+   "domain": "cloud.google.com",
+   "date": "2026-11-13",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 5,
+   "title": "Amazon S3 Tables hỗ trợ Server Access Logging: Tăng cường kiểm soát an ninh Data Lakehouse",
+   "title_en": "Amazon S3 Tables now support S3 server access logging",
+   "summary": "Amazon S3 Tables bổ sung tính năng Server Access Logging, ghi lại chi tiết mọi yêu cầu truy cập và thao tác đối với table bucket phục vụ nhu cầu kiểm toán và bảo mật.",
+   "why": "Cung cấp bản ghi nhật ký toàn diện về các thực thể truy cập bảng Apache Iceberg trên S3, hỗ trợ doanh nghiệp tuân thủ các quy định bảo mật khắt khe và tối ưu chi phí lưu trữ.",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-s3-tables-server-access-logging/",
+   "domain": "aws.amazon.com",
+   "date": "2026-11-10",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "Snowflake Semantic Views hỗ trợ quan hệ nhiều-nhiều (Many-to-Many) và Materializations GA",
+   "title_en": "Snowflake Semantic views add many-to-many relationships and view materializations GA",
+   "summary": "Snowflake nâng cấp mạnh mẽ tầng ngữ nghĩa (Semantic Layer), cho phép định nghĩa quan hệ Many-to-Many qua bridge table hoặc cột trực tiếp, đồng thời đưa Semantic View Materializations lên GA.",
+   "why": "Giải quyết triệt để bài toán mô hình hóa dữ liệu đa chiều phức tạp mà không cần làm phẳng dữ liệu thủ công, kết hợp lưu trữ materialized giúp tăng tốc độ phản hồi tức thì cho BI và AI Agent.",
+   "url": "https://docs.snowflake.com/en/release-notes/2026/other/2026-11-13-semantic-views-many-to-many-preview",
+   "domain": "docs.snowflake.com",
+   "date": "2026-11-13",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": 4
+  },
+  {
+   "aid": 7,
+   "title": "Snowflake hỗ trợ cấp quyền Account Role tạm thời với mệnh đề FOR INTERVAL và UNTIL",
+   "title_en": "Snowflake introduces temporary role grants with FOR INTERVAL and UNTIL",
+   "summary": "Snowflake công bố tính năng Temporary Role Grants ở chế độ Preview, cho phép quản trị viên cấp quyền role cho người dùng có thời hạn thông qua cú pháp FOR INTERVAL hoặc UNTIL.",
+   "why": "Tự động thu hồi quyền hạn ngay khi hết hạn định trước, loại bỏ rủi ro tồn tại quyền truy cập dư thừa và đơn giản hóa quy trình cấp quyền tức thời (Just-In-Time access) trong kiểm toán bảo mật.",
+   "url": "https://docs.snowflake.com/en/release-notes/2026/other/2026-11-10-temporary-role-grants-preview",
+   "domain": "docs.snowflake.com",
+   "date": "2026-11-10",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "AWS Glue bổ sung tính năng tự động nâng cấp phiên bản cho các tác vụ Apache Spark",
+   "title_en": "AWS Glue announces automatic version upgrades for Apache Spark jobs",
+   "summary": "AWS Glue ra mắt cơ chế tự động nâng cấp phiên bản (Auto Upgrades) cho các tác vụ Apache Spark, giúp các đường ống dữ liệu luôn chạy trên bản cập nhật mới nhất mà không cần can thiệp thủ công.",
+   "why": "Tự động áp dụng các bản vá bảo mật khẩn cấp và cải tiến hiệu năng runtime mà không làm gián đoạn lịch trình chạy định kỳ của các pipeline dữ liệu quy mô lớn.",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/glue-spark-auto-upgrades/",
+   "domain": "aws.amazon.com",
+   "date": "2026-11-12",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "Amazon MWAA Serverless chính thức tích hợp giao diện người dùng Apache Airflow UI",
+   "title_en": "Apache Airflow UI available in Amazon MWAA Serverless",
+   "summary": "Dịch vụ Amazon Managed Workflows for Apache Airflow (MWAA) Serverless chính thức hỗ trợ giao diện Airflow UI gốc, đi kèm phân quyền kiểm soát truy cập chi tiết qua IAM Identity Center.",
+   "why": "Giúp các kỹ sư dữ liệu trực tiếp theo dõi DAGs, kiểm tra log tác vụ và kích hoạt chạy lại pipeline trên môi trường không máy chủ mà không cần duy trì cụm máy chủ webserver tốn kém.",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/airflow-ui-for-mwaa-serverless/",
+   "domain": "aws.amazon.com",
+   "date": "2026-11-12",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "Google BigQuery Knowledge Catalog đưa Data Lineage Tracking lên GA và hàm JSON_FLATTEN",
+   "title_en": "BigQuery Knowledge Catalog brings Data Lineage Tracking to GA and introduces JSON_FLATTEN",
+   "summary": "Google Cloud đưa tính năng theo dõi phả hệ dữ liệu mức bảng (table-level data lineage) lên trạng thái GA trong Knowledge Catalog, đồng thời bổ sung hàm SQL JSON_FLATTEN cho BigQuery.",
+   "why": "Tự động lập bản đồ nguồn gốc dữ liệu xuyên suốt các đường ống BigQuery phục vụ quản trị và khắc phục sự cố, kết hợp hàm giải nén JSON nhanh chóng mà không cần viết lệnh UNNEST phức tạp.",
+   "url": "https://cloud.google.com/bigquery/docs/release-notes#November_12_2026",
+   "domain": "cloud.google.com",
+   "date": "2026-11-12",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "Databricks ra mắt Always-On Genie: Tác tử AI tự trị cho các tác vụ doanh nghiệp phức tạp",
+   "title_en": "The new Genie: autonomous AI for complex enterprise work",
+   "summary": "Databricks công bố thế hệ Genie thứ hai mang tên Always-On Genie, đánh dấu bước chuyển đổi từ trợ lý chat phản hồi thụ động sang tác tử AI tự trị có khả năng nhận mục tiêu dài hạn và chủ động thực thi.",
+   "why": "Always-On Genie có thể tự động chạy ngầm trên cụm compute riêng, theo dõi pipeline, phát hiện sai lệch số liệu kinh doanh và chủ động gửi đề xuất xử lý vào hộp thư ưu tiên dưới sự kiểm soát của Unity Gateway.",
+   "url": "https://www.databricks.com/blog/new-genie-autonomous-ai-complex-enterprise-work",
+   "domain": "databricks.com",
+   "date": "2026-11-11",
+   "section": "🤖 AI × Data",
+   "hot_rank": 1
+  },
+  {
+   "aid": 12,
+   "title": "Databricks công bố Genie Ontology: Tầng ngữ nghĩa tự động hợp nhất tri thức doanh nghiệp cho AI Agent",
+   "title_en": "Genie One: The AI cowork home for everyone and Genie Ontology",
+   "summary": "Databricks giới thiệu Genie Ontology, một tầng bản đồ tri thức tự động trích xuất và kết nối mối quan hệ giữa dữ liệu, chỉ số, quy trình và con người từ các tài sản phân tích sẵn có trong doanh nghiệp.",
+   "why": "Tự động học ngữ cảnh từ dashboard, dbt models và query lịch sử, cung cấp định nghĩa kinh doanh chuẩn xác cho cả Genie lẫn các tác tử bên ngoài như ChatGPT hay Copilot thông qua giao thức MCP.",
+   "url": "https://www.databricks.com/blog/genie-one-ai-cowork-home-everyone",
+   "domain": "databricks.com",
+   "date": "2026-11-11",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "Snowflake ra mắt kỹ năng chuyển đổi dashboard Tableau sang ứng dụng Streamlit bằng Cortex Code",
+   "title_en": "Convert Tableau workbooks to Streamlit in Snowflake apps with CoCo",
+   "summary": "Snowflake bổ sung kỹ năng mới tableau-to-streamlit-in-snowflake cho trợ lý lập trình Cortex Code (CoCo), cho phép tự động chuyển đổi các workbook Tableau thành ứng dụng Streamlit nhiều trang.",
+   "why": "Giúp doanh nghiệp nhanh chóng hiện đại hóa các bảng điều khiển BI cũ kỹ thành các ứng dụng dữ liệu tương tác bằng Python chạy bảo mật và tối ưu chi phí ngay trên nền tảng Snowflake.",
+   "url": "https://docs.snowflake.com/en/release-notes/2026/other/2026-11-12-tableau-to-streamlit-preview",
+   "domain": "docs.snowflake.com",
+   "date": "2026-11-12",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "ClickHouse giới thiệu Loom: Bộ nhớ dùng chung và đánh chỉ mục mã nguồn cho AI Coding Agent",
+   "title_en": "Introducing Loom: agent memory that keeps up with your code",
+   "summary": "ClickHouse ra mắt Loom, hệ thống bộ nhớ dùng chung được thiết kế để liên tục đánh chỉ mục mã nguồn và lưu trữ ngữ cảnh dự án theo thời gian thực cho các tác tử lập trình AI.",
+   "why": "Khắc phục giới hạn cửa sổ ngữ cảnh khi AI Agent làm việc trên các kho mã nguồn dữ liệu khổng lồ, đảm bảo agent luôn nắm bắt được các thay đổi mới nhất của cấu trúc bảng và đường ống dữ liệu.",
+   "url": "https://clickhouse.com/blog/introducing-loom-agent-memory-that-keeps-up-with-your-code",
+   "domain": "clickhouse.com",
+   "date": "2026-11-13",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "Nghiên cứu mới: Khảo sát toàn diện Text-to-SQL và khoảng cách giữa độ chính xác và chi phí thực thi",
+   "title_en": "Reimagining Text-to-SQL: A Survey of Large Language Model Architectures and Strategies",
+   "summary": "Bài báo nghiên cứu trên arXiv khảo sát toàn diện các kiến trúc Text-to-SQL hiện đại, phân loại 5 mô hình tiếp cận từ in-context learning đến agentic orchestration và chỉ ra thách thức về hiệu năng truy vấn.",
+   "why": "Cung cấp góc nhìn thực chứng quan trọng: một câu truy vấn SQL do AI tạo ra có thể đúng về mặt ngữ nghĩa và kết quả nhưng lại có chi phí thực thi (execution cost) đắt gấp hàng chục lần so với câu lệnh do chuyên gia tối ưu.",
+   "url": "https://arxiv.org/abs/2611.00171",
+   "domain": "arxiv.org",
+   "date": "2026-11-10",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 16,
+   "title": "dbt Labs và Fivetran công bố thư chung: Định hình kỷ nguyên của các kỹ sư tác tử (Agent Engineers)",
+   "title_en": "A letter from our founders: The AI agent future",
+   "summary": "Các nhà sáng lập George Fraser, Tristan Handy và Taylor Brown công bố bức thư chung định hình tương lai, khẳng định làn sóng tác tử AI đòi hỏi hạ tầng dữ liệu và bối cảnh được quản trị nghiêm ngặt.",
+   "why": "Đưa ra khái niệm Agent Engineer như một bước tiến hóa tất yếu của Analytics Engineer, phụ trách kỹ thuật quy trình, hệ thống, kiểm thử và quản trị thay đổi khi công việc chuyển từ con người sang tác tử thực thi.",
+   "url": "https://www.getdbt.com/blog/founders-letter",
+   "domain": "getdbt.com",
+   "date": "2026-11-11",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": 2
+  },
+  {
+   "aid": 17,
+   "title": "Data Engineering Weekly #295: Thách thức chuẩn hóa chỉ số khi AI Agent thay thế các câu hỏi ad-hoc",
+   "title_en": "Data Engineering Weekly #295: Analytics Engineering in the Age of AI",
+   "summary": "Bản tin Data Engineering Weekly số 295 tập trung thảo luận về sự chuyển dịch của ngành dữ liệu khi các tác tử AI bắt đầu đảm nhận các câu hỏi phát sinh hàng ngày từ phía nghiệp vụ kinh doanh.",
+   "why": "Cảnh báo rằng các câu trả lời trôi chảy từ chatbot không thể thay thế cho một số liệu được quản trị thực sự nếu thiếu đi các định nghĩa metadata rõ ràng về phạm vi, mốc thời gian và quy tắc loại trừ.",
+   "url": "https://dataengineeringweekly.com/p/data-engineering-weekly-295",
+   "domain": "dataengineeringweekly.com",
+   "date": "2026-11-09",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 18,
+   "title": "Tranh luận kiến trúc Featherweight Lakehouse: Kết hợp DuckDB 2.0, Iceberg và dbt để cắt giảm chi phí",
+   "title_en": "The Featherweight Lakehouse Debate: DuckDB 2.0, Iceberg, and dbt",
+   "summary": "Diễn đàn r/dataengineering bùng nổ tranh luận về xu hướng kiến trúc Featherweight Lakehouse, nơi các nhóm kỹ thuật nhỏ từ bỏ cụm Spark đắt đỏ để dùng DuckDB 2.0 trên file Apache Iceberg.",
+   "why": "Với việc DuckDB 2.0 hỗ trợ async I/O và mở rộng bộ nhớ ảo, các tác vụ tính toán hàng chục Gigabyte có thể chạy mượt mà trên máy chủ đơn lẻ, giúp tiết kiệm tới 80% hóa đơn điện toán đám mây.",
+   "url": "https://www.reddit.com/r/dataengineering/comments/1xl87i7/monthly_general_discussion_nov_2026/",
+   "domain": "reddit.com",
+   "date": "2026-11-11",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 19,
+   "title": "Tranh luận Hacker News: ClickHouse thâu tóm Xata và làn sóng công cụ OLAP mở rộng sang OLTP",
+   "title_en": "Hacker News Discussion: ClickHouse acquires Xata and Managed Postgres GA",
+   "summary": "Diễn đàn Hacker News sôi nổi bàn luận về việc ClickHouse thâu tóm Xata để mở dịch vụ Managed Postgres, đặt ra câu hỏi về ranh giới đang mờ dần giữa các hệ thống cơ sở dữ liệu OLAP và OLTP.",
+   "why": "Khẳng định xu thế các nền tảng dữ liệu hiện đại phải cung cấp cả môi trường giao dịch lẫn phân tích tức thì để đáp ứng vòng lặp ra quyết định nhanh chóng của các AI Agent thế hệ mới.",
+   "url": "https://news.ycombinator.com/item?id=45789120",
+   "domain": "news.ycombinator.com",
+   "date": "2026-11-10",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 20,
+   "title": "Nghiên cứu HVMap: Truy vấn vector liên kết qua các Vector Database không đồng nhất",
+   "title_en": "Federated Vector Retrieval across Heterogeneous VectorDBs with HVMap",
+   "summary": "Nhóm nghiên cứu công bố bài báo giới thiệu HVMap, một tầng tương thích nhẹ cho phép thực hiện truy vấn và chuẩn hóa điểm số tương đồng vector trên nhiều hệ thống VectorDB độc lập.",
+   "why": "Giải quyết bài toán phân mảnh khi doanh nghiệp lưu trữ dữ liệu vector trên nhiều công cụ khác nhau như Milvus, Pinecone hay pgvector mà không cần re-index lại toàn bộ embedding tốn kém.",
+   "url": "https://arxiv.org/abs/2611.01514",
+   "domain": "arxiv.org",
+   "date": "2026-11-12",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 21,
+   "title": "ClickHouse hoàn tất thâu tóm Xata và RunReveal: Công bố mở rộng nền tảng AI Data Stack lớn nhất lịch sử",
+   "title_en": "Announcing the largest expansion of the ClickHouse platform: Managed Postgres, Observability, and Security",
+   "summary": "ClickHouse công bố đợt mở rộng nền tảng quy mô nhất từ trước tới nay, hoàn tất sáp nhập Xata và RunReveal, đưa Managed Postgres lên GA và ra mắt các bộ giải pháp Observability, Security và AI Gateway.",
+   "why": "Tái định hình ClickHouse từ một công cụ cơ sở dữ liệu OLAP thuần túy thành một nền tảng dữ liệu toàn diện cho AI doanh nghiệp, quản lý từ dữ liệu giao dịch, bảo mật cho tới kiểm soát chi phí mô hình LLM.",
+   "url": "https://clickhouse.com/blog/announcing-clickhouse-platform-largest-expansion",
+   "domain": "clickhouse.com",
+   "date": "2026-11-09",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": 3
+  },
+  {
+   "aid": 22,
+   "title": "Databricks cam kết đầu tư 3 tỷ USD tại châu Âu và Trung Đông nhằm đẩy mạnh ứng dụng AI doanh nghiệp",
+   "title_en": "Databricks announces $3B investment across Europe and the Middle East to accelerate enterprise AI",
+   "summary": "Tại hội nghị Data + AI World Tour, Databricks công bố kế hoạch đầu tư 3 tỷ USD trong 3 năm tới tại khu vực EMEA, tập trung mở rộng hạ tầng đám mây cho Genie, Lakebase và cam kết đào tạo 500.000 nhân lực.",
+   "why": "Khẳng định cam kết mở rộng hiện diện quốc tế và đáp ứng các yêu cầu khắt khe về chủ quyền dữ liệu (data sovereignty) của các tổ chức tài chính và chính phủ tại thị trường châu Âu.",
+   "url": "https://www.databricks.com/blog/databricks-investment-europe-middle-east-enterprise-ai",
+   "domain": "databricks.com",
+   "date": "2026-11-11",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 23,
+   "title": "AWS ra mắt AWS Emulator: Cho phép lập trình viên và coding agent chạy kiểm thử dịch vụ dữ liệu offline",
+   "title_en": "AWS Emulator is now available for building and testing AWS applications locally",
+   "summary": "Amazon Web Services chính thức phát hành công cụ AWS Emulator, cho phép lập trình viên và các tác tử AI xây dựng, chạy thử và kiểm tra các lệnh gọi AWS SDK và CLI cục bộ ngoại tuyến.",
+   "why": "Rút ngắn thời gian phản hồi kiểm thử xuống chỉ vài mili-giây mà không cần tài khoản AWS đang hoạt động, loại bỏ hoàn toàn chi phí phát sinh khi các coding agent liên tục thử nghiệm mã nguồn.",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-emulator-now-available/",
+   "domain": "aws.amazon.com",
+   "date": "2026-11-11",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 24,
+   "title": "Amazon Quick chính thức đổi tên thành AWS Quick và AWS QuickSight: Nâng tầm quản trị dữ liệu cho AI",
+   "title_en": "Amazon Quick is now AWS Quick",
+   "summary": "AWS thực hiện tái cấu trúc và đổi tên bộ công cụ phân tích từ Amazon Quick sang AWS Quick và AWS QuickSight, bổ sung các chính sách kiểm soát nguồn dữ liệu có cấu trúc cho AI.",
+   "why": "Nhấn mạnh cam kết bảo mật cấp doanh nghiệp và khả năng quản trị chuyên sâu khi kết nối không gian làm việc AI với các kho dữ liệu quan trọng của tổ chức.",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/amazon-quick-aws-quick/",
+   "domain": "aws.amazon.com",
+   "date": "2026-11-09",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 25,
+   "title": "Case study Bright Machines: Truyền tải dữ liệu nhà máy cách ly an toàn với Debezium, Iceberg và Unity Catalog",
+   "title_en": "Streaming industrial IoT data out of air-gapped factories with Debezium, Iceberg, and Unity Catalog",
+   "summary": "Hãng giải pháp sản xuất tự động Bright Machines chia sẻ kiến trúc CDC thời gian thực kết hợp Debezium, Apache Iceberg và Databricks Unity Catalog trên môi trường nhà máy cách ly (air-gapped).",
+   "why": "Minh chứng thực tế về việc kết hợp các chuẩn dữ liệu mở để giải quyết bài toán đồng bộ dữ liệu IoT sản xuất siêu nhạy cảm ra ngoài đám mây mà vẫn duy trì an ninh mạng tuyệt đối.",
+   "url": "https://www.databricks.com/blog/how-bright-machines-streams-iot-data-iceberg-unity-catalog",
+   "domain": "databricks.com",
+   "date": "2026-11-10",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 11,
+ "weekly_video": {
+  "intro": "Chào mừng các bạn quay trở lại với bản tin Data News tuần 46. Tuần này đánh dấu bước chuyển mình lịch sử khi các nền tảng dữ liệu lớn đồng loạt tái định hình hạ tầng để đón đầu kỷ nguyên tác tử AI tự trị. Sau đây là năm câu chuyện công nghệ nổi bật nhất trong tuần 46.",
+  "outro": "Đó là năm điểm nhấn công nghệ dữ liệu đáng chú ý nhất của tuần 46. Chi tiết và tài liệu nguồn đã được cập nhật đầy đủ tại website. Hẹn gặp lại các bạn trong tuần sau!",
+  "segments": [
+   {
+    "aid": 11,
+    "headline": "Databricks ra mắt Always-On Genie tự trị",
+    "narration": "Tại sự kiện công nghệ tuần này, Databricks đã tạo nên một bước ngoặt lớn khi chính thức công bố Always-On Genie cùng tầng ngữ nghĩa Genie Ontology. Khác biệt hoàn toàn với thế hệ trợ lý chatbot thụ động trước đây vốn chỉ biết chờ người dùng gõ lệnh, Always-On Genie là một tác tử số tự trị hoạt động bền bỉ trên cụm điện toán riêng suốt 24/7. Người dùng giờ đây có thể giao cho Genie những mục tiêu dài hạn, chẳng hạn như liên tục theo dõi các chỉ số kinh doanh, phát hiện sai lệch dòng tiền và tự động truy ngược nguyên nhân gốc rễ. Để làm được điều này một cách chuẩn xác, Genie Ontology tự động quét qua các mô hình dbt, dashboard và mã lệnh SQL có sẵn để xây dựng một bản đồ tri thức nghiệp vụ thống nhất. Quan trọng nhất, mọi hành động của tác tử đều được bảo vệ nghiêm ngặt bởi Unity Gateway và Unity Catalog, đảm bảo an ninh tuyệt đối cho dữ liệu doanh nghiệp trong tuần 46.",
+    "bullets": [
+     "Tác tử tự trị chạy ngầm 24/7",
+     "Genie Ontology chuẩn hóa ngữ nghĩa",
+     "Quản trị an toàn qua Unity Gateway"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Kiến trúc Always-On Genie",
+     "items": [
+      {
+       "t": "Giao diện",
+       "d": "Genie One & Priority Inbox"
+      },
+      {
+       "t": "Tác tử",
+       "d": "Always-On Autonomous Agent"
+      },
+      {
+       "t": "Ngữ cảnh",
+       "d": "Genie Ontology & MCP Server"
+      },
+      {
+       "t": "Quản trị",
+       "d": "Unity Gateway & Catalog"
+      }
+     ]
+    },
+    "images": [
+     "https://www.databricks.com/sites/default/files/2026-11/2026-11-Week-of-Genie-Blog-Week-of-Genie-Launch-Post-OG-1200x628-2x.png"
+    ]
+   },
+   {
+    "aid": 16,
+    "headline": "dbt và Fivetran định hình vị trí Agent Engineer",
+    "narration": "Sau thương vụ sáp nhập lịch sử, các nhà sáng lập của dbt Labs và Fivetran đã gửi một bức thư chung gửi tới toàn thể cộng đồng dữ liệu toàn cầu với thông điệp: tương lai thuộc về các tác tử AI và vai trò mới mang tên Agent Engineer. Hai nhà lãnh đạo George Fraser và Tristan Handy nhấn mạnh rằng làn sóng tác tử AI sẽ tạo ra cuộc chuyển dịch quy mô lớn hơn cả kỷ nguyên đám mây hay internet. Tuy nhiên, các tác tử tự trị không thể làm việc hiệu quả nếu chỉ dựa vào văn bản phi cấu trúc hay tài liệu trôi nổi; chúng cần truy cập vào dữ liệu sạch, có cấu trúc và được quản trị nghiêm ngặt. Vai trò của người làm dữ liệu đang tiến hóa từ việc viết truy vấn thủ công sang thiết kế quy trình, xây dựng hợp đồng dữ liệu và kiểm thử chất lượng cho đội ngũ lao động số. Đây là định hướng nghề nghiệp sống còn cho các kỹ sư dữ liệu trong kỷ nguyên tự trị tuần 46.",
+    "bullets": [
+     "Định hình vai trò kỹ sư tác tử",
+     "AI đòi hỏi dữ liệu chuẩn hóa",
+     "Hạ tầng mở cho tương lai tự trị"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Quy trình làm việc của Agent Engineer",
+     "items": [
+      {
+       "t": "Thu thập",
+       "d": "Tích hợp dữ liệu qua Fivetran"
+      },
+      {
+       "t": "Mô hình",
+       "d": "Định nghĩa data contract trên dbt"
+      },
+      {
+       "t": "Ngữ cảnh",
+       "d": "Cung cấp semantic layer cho AI"
+      },
+      {
+       "t": "Giám sát",
+       "d": "Kiểm thử và vận hành tác tử"
+      }
+     ]
+    },
+    "images": [
+     "https://cdn.sanity.io/images/wl0ndo6t/main/078229e2d49590add65df6a8f263f54c6f0ca308-1920x1280.png?rect=0,136,1920,1008&w=1200&h=630"
+    ]
+   },
+   {
+    "aid": 21,
+    "headline": "ClickHouse mở rộng nền tảng AI Data Stack",
+    "narration": "ClickHouse vừa công bố đợt mở rộng nền tảng lớn nhất trong lịch sử, đánh dấu bước chuyển mình ngoạn mục từ một động cơ phân tích OLAP thuần túy thành nền tảng dữ liệu toàn diện cho AI. Điểm nhấn lớn nhất là việc hoàn tất thâu tóm Xata để chính thức đưa dịch vụ ClickHouse Managed Postgres lên trạng thái sẵn sàng thương mại. Nền tảng mới thừa hưởng khả năng co giãn về 0 và phân nhánh tức thì, cho phép mỗi tác tử AI sở hữu một môi trường dữ liệu giao dịch riêng biệt. Bên cạnh đó, ClickHouse cũng tích hợp sâu giải pháp giám sát an ninh SIEM từ RunReveal và cổng điều phối mô hình Langfuse AI Gateway. Sự hợp nhất này giúp các tổ chức quản lý trọn vẹn vòng đời dữ liệu từ giao dịch nghiệp vụ, phân tích siêu tốc cho tới kiểm soát chi phí gọi mô hình ngôn ngữ lớn ngay trên một nền tảng duy nhất trong tuần 46. Đây là bước đi chiến lược chứng minh rằng các hệ thống dữ liệu hiện đại không thể tiếp tục phân mảnh giữa các kho lưu trữ rời rạc.",
+    "bullets": [
+     "Managed Postgres chính thức lên GA",
+     "Tích hợp sẵn Security và AI Gateway",
+     "Hợp nhất trọn vẹn dữ liệu cho AI"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Kiến trúc cũ vs ClickHouse AI Stack",
+     "left": {
+      "h": "Kiến trúc cũ",
+      "items": [
+       "Phân mảnh kho OLTP và OLAP",
+       "Độ trễ đồng bộ cao",
+       "Quản lý công cụ rời rạc"
+      ]
+     },
+     "right": {
+      "h": "ClickHouse mới",
+      "items": [
+       "Hợp nhất Postgres và ClickHouse",
+       "Truy vấn tức thì không trễ",
+       "Tích hợp sẵn Security và Gateway"
+      ]
+     }
+    },
+    "images": [
+     "https://clickhouse.com/_next/image?url=%2Fuploads%2FClick_House_Managed_Postgres_goes_GA_and_Xata_acquisition_1_d1024d4fc1.png&w=1200&h=630&q=75"
+    ]
+   },
+   {
+    "aid": 6,
+    "headline": "Snowflake nâng cấp tầng ngữ nghĩa Semantic Views",
+    "narration": "Snowflake vừa mang tới một nâng cấp đột phá cho tầng ngữ nghĩa Semantic Views khi chính thức hỗ trợ các mối quan hệ nhiều-nhiều và đưa tính năng View Materializations lên trạng thái sẵn sàng thương mại. Trong thực tế phân tích kinh doanh, các mối quan hệ phức tạp như một khách hàng sở hữu nhiều tài khoản hoặc một chiến dịch tiếp cận nhiều nhóm đối tượng luôn là bài toán đau đầu. Trước đây, kỹ sư thường phải gộp bảng thủ công, dễ dẫn đến hiện tượng trùng lặp số liệu kinh doanh nghiêm trọng. Bản cập nhật mới cho phép khai báo trực tiếp bảng trung gian trong Semantic Views mà không cần can thiệp mã lệnh phức tạp. Đồng thời, cơ chế lưu trữ kết quả tính toán sẵn giúp tăng tốc độ truy vấn lên gấp 10 lần mà vẫn tiết kiệm tín chỉ điện toán. Nâng cấp này đảm bảo các công cụ trực quan hóa và AI Agent trong Snowflake Cortex luôn nhận được câu trả lời chính xác trong tích tắc ở tuần 46, giúp doanh nghiệp an tâm mở rộng quy mô phân tích đa chiều.",
+    "bullets": [
+     "Hỗ trợ quan hệ nhiều nhiều tự nhiên",
+     "Materializations chính thức lên GA",
+     "Tăng tốc độ phản hồi cho BI và AI"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Chỉ số cải tiến Semantic Views",
+     "items": [
+      {
+       "v": "10x",
+       "l": "Tăng tốc độ truy vấn"
+      },
+      {
+       "v": "0 code",
+       "l": "Không cần làm phẳng bảng"
+      },
+      {
+       "v": "100%",
+       "l": "Tương thích Snowflake Cortex"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 1,
+    "headline": "Amazon Athena ra mắt System Tables với Iceberg",
+    "narration": "Khép lại bản tin tuần này là một bước tiến quan trọng từ Amazon Web Services khi Athena chính thức ra mắt các bảng hệ thống tự động ghi lại toàn bộ lịch sử truy vấn và chi phí dưới dạng Apache Iceberg. Điều đáng chú ý là dữ liệu kiểm toán này được dịch vụ tự động lưu trữ trên các thùng chứa Amazon S3 Tables mà người dùng không cần phải xây dựng bất kỳ đường ống dữ liệu trung gian nào. Các chuyên viên quản trị và kỹ sư dữ liệu giờ đây có thể sử dụng câu lệnh SQL tiêu chuẩn trên Athena, Redshift hay DuckDB để phân tích mức độ tiêu hao tài nguyên và phát hiện các truy vấn bất thường chỉ sau vài phút. Thay vì phải vật lộn bóc tách log sự kiện từ CloudWatch hay S3 thô, việc biến telemetry thành các bảng mở chuẩn hóa giúp quy trình quản trị chi phí FinOps trở nên minh bạch và tự động hóa dễ dàng. Động thái này khẳng định vị thế thống trị của định dạng Apache Iceberg như một tiêu chuẩn dữ liệu mở hàng đầu trên đám mây trong tuần 46.",
+    "bullets": [
+     "Ghi log dưới dạng bảng Apache Iceberg",
+     "Lưu trữ tự động trên Amazon S3 Tables",
+     "Truy vấn đa engine không cần ETL"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Quy trình kiểm toán Athena System Tables",
+     "items": [
+      {
+       "t": "Ghi nhận",
+       "d": "Thu thập log thực thi và chi phí"
+      },
+      {
+       "t": "Định dạng",
+       "d": "Tạo bảng Apache Iceberg mở"
+      },
+      {
+       "t": "Lưu trữ",
+       "d": "Lưu tự động trên S3 Tables"
+      },
+      {
+       "t": "Phân tích",
+       "d": "Truy vấn SQL từ Athena và DuckDB"
+      }
+     ]
+    },
+    "images": []
+   }
+  ]
+ },
+ "facebook_post": "𝐃𝐀𝐓𝐀 𝐍𝐄𝐖𝐒 𝐓𝐔Ầ𝐍 𝟒𝟔: 𝐊Ỷ 𝐍𝐆𝐔𝐘Ê𝐍 𝐀𝐈 𝐀𝐆𝐄𝐍𝐓 𝐕À 𝐁ƯỚ𝐂 𝐍𝐆𝐎Ặ𝐓 𝐂Ủ𝐀 𝐇Ạ 𝐓Ầ𝐍𝐆 𝐃Ữ 𝐋𝐈Ệ𝐔 🚀\n\n\"Liệu AI có thay thế kỹ sư dữ liệu không?\" – Đây là câu hỏi mình nhận được nhiều nhất gần đây. \n\nCâu trả lời của tuần này rất rõ: AI không thay thế người làm data, nhưng các nền tảng dữ liệu đang phải tái cấu trúc toàn diện để phục vụ cho các AI Agent tự trị. Tuần này các ông lớn công nghệ đã đồng loạt công bố những bước ngoặt đưa AI từ vai trò trợ lý thụ động sang đồng nghiệp số tự vận hành 24/7.\n\n---\n\nĐiểm nhanh 5 chuyển dịch công nghệ dữ liệu đáng chú ý nhất tuần qua:\n\n1️⃣ 𝐃𝐚𝐭𝐚𝐛𝐫𝐢𝐜𝐤𝐬 𝐫𝐚 𝐦ắ𝐭 𝐀𝐥𝐰𝐚𝐲𝐬-𝐎𝐧 𝐆𝐞𝐧𝐢𝐞 𝐯à 𝐆𝐞𝐧𝐢𝐞 𝐎𝐧𝐭𝐨𝐥𝐨𝐠𝐲\nThế hệ Genie thứ hai có thể chạy ngầm liên tục trên compute riêng, nhận mục tiêu dài hạn (như giám sát KPI kinh doanh, phát hiện biến động) và chủ động gửi đề xuất vào hộp thư ưu tiên. Đi kèm với đó là Genie Ontology – tầng ngữ nghĩa tự động trích xuất tri thức từ dbt, dashboard và SQL để cung cấp bối cảnh chuẩn cho AI dưới sự kiểm soát của Unity Gateway.\n👉 Doanh nghiệp không cần nhân sự trực dashboard 24/7; AI Agent sẽ tự động đào xới và cảnh báo trước khi sự cố phát sinh.\n\n2️⃣ 𝐝𝐛𝐭 𝐋𝐚𝐛𝐬 𝐯à 𝐅𝐢𝐯𝐞𝐭𝐫𝐚𝐧 𝐜ô𝐧𝐠 𝐛ố 𝐭𝐡ư 𝐜𝐡𝐮𝐧𝐠: Đị𝐧𝐡 𝐡ì𝐧𝐡 𝐯ị 𝐭𝐫í '𝐀𝐠𝐞𝐧𝐭 𝐄𝐧𝐠𝐢𝐧𝐞𝐞𝐫'\nHai nhà sáng lập George Fraser và Tristan Handy khẳng định làn sóng tác tử AI sẽ lớn hơn cả kỷ nguyên đám mây và mobile gộp lại. Tuy nhiên, AI tự trị không thể làm việc trên dữ liệu trôi nổi; chúng cần dữ liệu sạch và semantic contract chuẩn mực. Từ đây, vai trò \"Agent Engineer\" chính thức ra đời để thiết kế quy trình, kiểm thử và quản trị hệ thống cho agent.\n👉 Nâng cấp bản thân từ người viết SQL thủ công thành kỹ sư thiết kế và gác cổng chất lượng cho các tác tử số.\n\n3️⃣ 𝐂𝐥𝐢𝐜𝐤𝐇𝐨𝐮𝐬𝐞 𝐭𝐡â𝐮 𝐭ó𝐦 𝐗𝐚𝐭𝐚, đư𝐚 𝐌𝐚𝐧𝐚𝐠𝐞𝐝 𝐏𝐨𝐬𝐭𝐠𝐫𝐞𝐬 𝐥ê𝐧 𝐆𝐀 𝐯à 𝐫𝐚 𝐦ắ𝐭 𝐀𝐈 𝐃𝐚𝐭𝐚 𝐒𝐭𝐚𝐜𝐤\nClickHouse vừa có đợt mở rộng nền tảng lớn nhất lịch sử. Họ hoàn tất sáp nhập Xata để đưa ClickHouse Managed Postgres lên GA với tính năng scale-to-zero và instant branching. Kết hợp cùng ClickHouse Security và Langfuse AI Gateway, họ tạo ra nền tảng khép kín: vừa xử lý giao dịch, vừa phân tích tốc độ cao, vừa kiểm soát chi phí LLM.\n👉 Toàn bộ dữ liệu phục vụ AI Agent có thể vận hành trên một hạ tầng mở duy nhất thay vì ghép 5 công cụ rời rạc.\n\n4️⃣ 𝐒𝐧𝐨𝐰𝐟𝐥𝐚𝐤𝐞 𝐧â𝐧𝐠 𝐜ấ𝐩 𝐒𝐞𝐦𝐚𝐧𝐭𝐢𝐜 𝐕𝐢𝐞𝐰𝐬 𝐡ỗ 𝐭𝐫ợ 𝐪𝐮𝐚𝐧 𝐡ệ 𝐌𝐚𝐧𝐲-𝐭𝐨-𝐌𝐚𝐧𝐲 𝐯à 𝐌𝐚𝐭𝐞𝐫𝐢𝐚𝐥𝐢𝐳𝐚𝐭𝐢𝐨𝐧𝐬 𝐆𝐀\nMối quan hệ nhiều-nhiều vốn là bài toán kinh điển làm đau đầu kỹ sư dữ liệu. Snowflake giải quyết triệt để trong Semantic Views bằng cách hỗ trợ bridge table tự nhiên mà không cần denormalize làm phình to bảng. Đồng thời, tính năng Materializations lên GA giúp tăng tốc truy vấn phân tích lên gấp 10 lần.\n👉 AI Agent hay công cụ BI khi truy vấn mô hình đa chiều phức tạp sẽ không còn bị bẫy trùng lặp số liệu.\n\n5️⃣ 𝐀𝐦𝐚𝐳𝐨𝐧 𝐀𝐭𝐡𝐞𝐧𝐚 𝐫𝐚 𝐦ắ𝐭 𝐒𝐲𝐬𝐭𝐞𝐦 𝐓𝐚𝐛𝐥𝐞𝐬: 𝐐𝐮ả𝐧 𝐭𝐫ị 𝐜𝐡𝐢 𝐩𝐡í 𝐯à 𝐚𝐮𝐝𝐢𝐭 𝐪𝐮𝐚 𝐀𝐩𝐚𝐜𝐡𝐞 𝐈𝐜𝐞𝐛𝐞𝐫𝐠\nAWS chính thức lưu trữ toàn bộ dữ liệu lịch sử thực thi và chi phí truy vấn của Athena thành các bảng Apache Iceberg do dịch vụ quản lý trên Amazon S3 Tables. Kỹ sư dữ liệu có thể dùng SQL tiêu chuẩn từ Athena, Redshift hay DuckDB để truy vấn trực tiếp mà không cần dựng pipeline ETL riêng.\n👉 Dữ liệu vận hành telemetry trở thành dữ liệu phân tích hạng nhất, giúp tối ưu chi phí FinOps minh bạch và dễ tự động hóa.\n\n---\n\n💭 Góc nhìn của mình về tuần này:\n\nDưới góc nhìn của một người làm nghề tư vấn triển khai Data & BI tại KPIM cũng như tham gia đào tạo tại COMPA, mình nhận thấy một sự thật: Hype về AI tạo sinh đã bắt đầu hạ nhiệt để nhường chỗ cho kỹ thuật hạ tầng thực chiến.\n\nCách đây không lâu khi học và thi chứng chỉ Databricks cũng như trực tiếp làm các bài toán RAG trên nền Databricks Lakehouse kết hợp Unity Catalog, mình đã thấy rất rõ tầm nhìn của họ: Đưa data và AI về chung một mối quản trị. Bản nâng cấp Always-On Genie tuần này chính là mảnh ghép hiện thực hóa điều đó. Khi AI có thể tự chạy ngầm và đưa ra hành động, thứ duy nhất ngăn nó gây thảm họa chính là tầng quản trị (governance) và tầng ngữ nghĩa (semantics).\n\nNếu anh em để ý kỹ, cả 5 tin nóng nhất tuần này đều xoay quanh đúng một trục: CHUẨN HÓA DỮ LIỆU ĐỂ PHỤC VỤ AGENT. \n- dbt và Fivetran nói về \"Agent Engineer\" 👉 Cần người định nghĩa semantic contract rõ ràng.\n- Snowflake nâng cấp Many-to-Many trong Semantic Views 👉 Dạy AI hiểu đúng cấu trúc thực tế.\n- Databricks tung ra Genie Ontology 👉 Biến tri thức nghiệp vụ thành bản đồ tri thức số cho máy đọc.\n\nAI không thay thế được người làm dữ liệu có tư duy hệ thống; nó chỉ đào thải những ai làm việc như một cái máy copy-paste query. Việc của chúng ta là trở thành những Agent Engineer: thiết kế luật chơi, tối ưu kiến trúc và đảm bảo tính nhất quán của số liệu kinh doanh.\n\nĐừng biến AI thành phong trào, hãy biến nó thành hạ tầng! 👌\n\nAnh em trong cộng đồng đã bắt đầu xây dựng semantic layer cho hệ thống dữ liệu của mình chưa? Chia sẻ trải nghiệm bên dưới nhé! 😄\n\n#DataNews #DataEngineering #Databricks #ClickHouse #Snowflake #dbt #Fivetran #AgentEngineer #SemanticLayer #Lakehouse #HocCungAI #KienTrucDuLieu",
+ "facebook_reel": "AI không thay thế kỹ sư dữ liệu, nhưng hạ tầng data đang đổi thay chóng mặt!\n\nTuần này, Databricks chính thức tung ra Always-On Genie tự chạy ngầm 24/7. dbt và Fivetran định hình vai trò mới mang tên Agent Engineer.\n\nTương lai thuộc về những ai biết chuẩn hóa ngữ cảnh cho AI tự trị.\n\nBạn đã sẵn sàng nâng cấp kỹ năng cho kỷ nguyên mới chưa? Bàn luận cùng mình nhé!\n\n#DataNews #DataEngineering #Databricks #AIagent #HocCungAI",
+ "bgm": "minimal-tech",
+ "youtube": {
+  "recap": "IZmcljLXxzU",
+  "short": "w316CONQhyI"
+ }
+}
