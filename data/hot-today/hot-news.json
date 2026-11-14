@@ -1,6 +1,16 @@
 {
   "entries": [
     {
+      "date": "2026-11-14",
+      "display_date": "14/11/2026",
+      "title": "Microsoft khai tử Purview Governance, dồn về Fabric OneLake",
+      "summary": "Microsoft vừa chính thức công bố khai tử phân hệ Purview Data Governance, dồn toàn bộ quản trị dữ liệu bản địa vào hồ dữ liệu OneLake bên trong Microsoft Fabric.",
+      "source": "microsoft.com",
+      "video_id": "B5JCoch3fnY",
+      "short_id": "3Mc7fjlh8EE",
+      "published_at": "2026-11-14T18:11:09"
+    },
+    {
       "date": "2026-11-12",
       "display_date": "12/11/2026",
       "title": "Databricks mở Genie Ontology: Dạy AI agent hiểu tường tận doanh nghiệp",
