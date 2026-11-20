@@ -1,0 +1,413 @@
+{
+ "date": "20/11/2026",
+ "week": "W47",
+ "range": "16/11 - 22/11/2026",
+ "tldr": "Tuần 47 chốt tin ngày 20 tháng 11 với phiên giao dịch đầu tiên của Anthropic trên Nasdaq sau đợt chào bán cơ sở 81,34 tỷ USD. OpenAI giảm 20% giá token đầu vào và đầu ra của GPT-6.2 Astra so với đời trước, còn Google bổ sung Gemini 4 Neon với bốn mức suy luận. Google cũng đưa Genie 4 lên API để lập trình viên thử tạo môi trường có thể điều khiển, kèm âm thanh đồng bộ. Ở phía hạ tầng, NVIDIA công bố doanh thu quý 115,8 tỷ USD, trong đó Data Center đóng góp 107,6 tỷ USD.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "Google mở API Genie 4 để tạo thế giới tương tác",
+   "title_en": "Genie 4 is now available on the Gemini API.",
+   "summary": "Sau khi mở Genie 4 trên Project Genie ngày 18/11, Google đưa mô hình lên Gemini API và Google AI Studio ngày 19/11. Thế giới được sinh ở 720p, 24 khung hình mỗi giây, có âm thanh đồng bộ và phản hồi điều khiển trực tiếp.",
+   "why": "Nhóm sản phẩm có thể thử một trải nghiệm tương tác từ mô tả hoặc ảnh trước khi đầu tư dựng cảnh.",
+   "url": "https://blog.google/innovation-and-ai/technology/developers-tools/genie-4-in-gemini-api/",
+   "domain": "blog.google",
+   "date": "2026-11-19",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 4
+  },
+  {
+   "aid": 2,
+   "title": "Google ra mắt Gemini 4 Neon cho quy trình lập trình dài",
+   "title_en": "Introducing Gemini 4 Neon",
+   "summary": "Google giới thiệu Gemini 4 Neon với cửa sổ ngữ cảnh 1 triệu token, bốn mức suy luận và giá API 3 USD đầu vào, 15 USD đầu ra cho mỗi triệu token. Hãng công bố mức chi phí mỗi tác vụ thấp hơn Carbon 32% ở cấu hình high trên phép so sánh được nêu.",
+   "why": "Đội kỹ thuật có thêm lựa chọn khi cần cân chất lượng, độ trễ và ngân sách cho tác vụ nhiều bước.",
+   "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+   "domain": "blog.google",
+   "date": "2026-11-18",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 3
+  },
+  {
+   "aid": 3,
+   "title": "OpenAI ra GPT-6.2 Astra và Sol, hạ giá API Astra 20%",
+   "title_en": "Introducing GPT-6.2 Astra and Sol",
+   "summary": "OpenAI phát hành GPT-6.2 Astra cho công việc phức tạp và GPT-6.2 Sol cho tác vụ thường ngày. Giá token đầu vào và đầu ra của Astra giảm 20% so với GPT-6 Astra, còn Sol giữ giá của GPT-6.1 Sol.",
+   "why": "Chênh lệch giá giữa hai bản khiến việc chọn mô hình theo độ khó có ảnh hưởng rõ đến hóa đơn.",
+   "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+   "domain": "openai.com",
+   "date": "2026-11-17",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": 2
+  },
+  {
+   "aid": 4,
+   "title": "Microsoft đưa MAI-Code-2 và MAI-Code-2-Flash vào GitHub",
+   "title_en": "Ignite 2026: Building the frontier ecosystem",
+   "summary": "Tại Ignite, Microsoft giới thiệu hai mô hình lập trình của riêng hãng. MAI-Code-2 dành cho công việc phức tạp, còn Flash nhắm tới giải thích mã, chỉnh sửa nhỏ và các lượt thử thường xuyên.",
+   "why": "Nhóm dùng GitHub Copilot có thể thử phân tải công việc giữa hai mô hình ngay trong quy trình đang dùng.",
+   "url": "https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem/",
+   "domain": "blogs.microsoft.com",
+   "date": "2026-11-17",
+   "section": "🚀 Mô hình & Sản phẩm mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 5,
+   "title": "Microsoft phát hành Copilot SDK 2.0 với runtime Rust",
+   "title_en": "Microsoft Copilot SDK 2.0 improves security and scale for AI apps",
+   "summary": "Copilot SDK 2.0 đã phát hành rộng rãi, với runtime Rust hỗ trợ sáu ngôn ngữ lập trình. Microsoft định vị SDK cho việc nhúng agent vào ứng dụng, kể cả hệ thống phục vụ nhiều khách hàng.",
+   "why": "Đội sản phẩm có thêm lựa chọn cho phần vận hành agent khi đưa tính năng vào ứng dụng đang chạy.",
+   "url": "https://news.microsoft.com/events/ignite/2026/book-of-news/#microsoft-copilot-sdk-20-improves-security-and-scale-for-ai-apps",
+   "domain": "news.microsoft.com",
+   "date": "2026-11-17",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "Cerebras tách xử lý prompt và sinh token khi phục vụ mô hình",
+   "title_en": "Cerebras launches disaggregated inference",
+   "summary": "Cerebras cho biết đã đưa vào vận hành hệ thống dùng GPU để xử lý prompt và phần cứng Cerebras để sinh token. Theo hãng, cách triển khai này cho lượng token trên mỗi megawatt cao gấp 5 lần trong cấu hình được báo cáo.",
+   "why": "Thiết kế cho phép bên vận hành mở rộng từng khâu theo loại tải thực tế và ngân sách điện.",
+   "url": "https://www.cerebras.ai/blog/cerebras-launches-disaggregated-inference",
+   "domain": "cerebras.ai",
+   "date": "2026-11-17",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "TokenEconomizer giúp agent lập trình bớt lặp việc",
+   "title_en": "TokenEconomizer: Learning from Experience to Make AI Coding Agents More Efficient",
+   "summary": "Microsoft Research và các cộng sự giới thiệu plugin nguồn mở dùng phiên trước để ghi lại quy ước repo, giảm công cụ thừa và gợi ý khi agent mắc vòng lặp. Trong 277 tác vụ SWE-Bench, nhóm báo cáo chi phí trung bình giảm 18,4 đến 30,9% qua các cấu hình thử nghiệm.",
+   "why": "Đội thường xuyên làm việc trên cùng codebase có thể giảm chi phí phát sinh từ việc agent tìm lại thông tin quen thuộc.",
+   "url": "https://www.microsoft.com/en-us/research/blog/tokeneconomizer-learning-from-experience-to-make-ai-coding-agents-more-efficient/",
+   "domain": "microsoft.com",
+   "date": "2026-11-16",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 8,
+   "title": "Databricks hướng dẫn chạy mô hình nền tảng trên dữ liệu bảng",
+   "title_en": "Tabular foundation models on Databricks AI Runtime",
+   "summary": "Databricks trình bày cách dùng GPU được quản lý, MLflow và Unity Catalog để thử nghiệm hoặc tinh chỉnh mô hình nền tảng cho dữ liệu bảng. Mô hình có thể dự đoán trên tập mới từ các hàng mẫu gắn nhãn ngay trong ngữ cảnh.",
+   "why": "Team data có thể thử nhanh một đường cơ sở cho bài toán dự báo, phân loại hoặc chấm điểm.",
+   "url": "https://www.databricks.com/blog/tabular-foundation-models-databricks-ai-runtime",
+   "domain": "databricks.com",
+   "date": "2026-11-16",
+   "section": "🛠️ Công cụ & Framework",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "ALIVE học khi nào nên lên tiếng khi xem video trực tiếp",
+   "title_en": "ALIVE: Making Streaming Video Models Interactive",
+   "summary": "Bản tiền ấn phẩm giới thiệu mô hình video trực tuyến có thể theo dõi, phối hợp tác vụ và hỏi lại để lấy phản hồi. Nhóm tác giả huấn luyện cả quyết định lên tiếng lẫn im lặng và đề xuất FSI-Bench để đo việc hỏi lại rồi hoàn thành nhiệm vụ.",
+   "why": "Ứng dụng hỗ trợ theo video cần đo thời điểm can thiệp bên cạnh độ chính xác của câu trả lời.",
+   "url": "https://arxiv.org/abs/2611.21366",
+   "domain": "arxiv.org",
+   "date": "2026-11-16",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "Nghiên cứu thử dùng trạng thái token trước để giảm tài nguyên huấn luyện",
+   "title_en": "Latent Feedback Is a Compute and Data Amplifier",
+   "summary": "Nhóm tác giả đưa trạng thái tầng trên cùng của token trước vào đầu vào của token kế tiếp rồi so với Transformer được dùng cùng lượng tính toán để lặp dữ liệu. Họ báo cáo đạt cùng mức loss với ít tính toán hoặc ít dữ liệu riêng biệt hơn trong nhiều cấu hình, tùy tỷ lệ dữ liệu trên quy mô mô hình.",
+   "why": "Cách so sánh giúp nhóm huấn luyện cân nhắc đầu tư vào kiến trúc hay thêm vòng lặp trên dữ liệu sẵn có.",
+   "url": "https://arxiv.org/abs/2611.20404",
+   "domain": "arxiv.org",
+   "date": "2026-11-16",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "OpenAI công bố đợt đánh giá an toàn với bốn nhóm độc lập",
+   "title_en": "Our first phase of embedded assessments",
+   "summary": "OpenAI cho biết đã ký thỏa thuận với Apollo Research, Goodfire, METR và Transluce để đánh giá mô hình và biện pháp bảo vệ. Quyền truy cập tùy phạm vi từng đánh giá, có thể gồm checkpoint, dữ liệu đánh giá và hệ thống giám sát.",
+   "why": "Đánh giá có thêm bằng chứng về quá trình phát triển và vận hành bên trong phòng lab.",
+   "url": "https://openai.com/index/our-first-phase-of-embedded-assessments/",
+   "domain": "openai.com",
+   "date": "2026-11-16",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "OpenAI đặt mục tiêu mở quyền dùng ChatGPT cho 200.000 nhà nghiên cứu",
+   "title_en": "Broadening access to AI for scientists",
+   "summary": "OpenAI mở rộng chương trình cho giới học thuật và công bố vòng tiếp theo có 50.000 suất, dự kiến nhận hồ sơ từ 23/11. Mỗi suất gồm ChatGPT Plus cho người nhận và tối đa hai cộng tác viên đủ điều kiện.",
+   "why": "Nhóm nghiên cứu có cơ hội thử nghiệm theo nhóm và xây cách dùng chung cho các tác vụ lặp lại.",
+   "url": "https://openai.com/index/expanding-chatgpt-for-academic-researchers/",
+   "domain": "openai.com",
+   "date": "2026-11-16",
+   "section": "🔬 Nghiên cứu & Kỹ thuật mới",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "Hacker News bàn về trải nghiệm AI chạy tại chỗ",
+   "title_en": "Pete Warden on local AI, open models, voice interfaces, the future of hardware",
+   "summary": "Buổi trò chuyện với Pete Warden về mô hình mở và giao diện giọng nói kéo theo thảo luận trên Hacker News về phần cứng tự vận hành. Người tham gia chia sẻ các cấu hình rất khác nhau, từ thiết bị cục bộ đến máy nhiều GPU.",
+   "why": "Các trường hợp chia sẻ giúp đội kỹ thuật đặt đúng câu hỏi về độ trễ, dữ liệu và chi phí bảo trì.",
+   "url": "https://news.ycombinator.com/item?id=50561508",
+   "domain": "news.ycombinator.com",
+   "date": "2026-11-19",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "Nhóm Mastra giới thiệu Factory, bảng việc nguồn mở cho agent",
+   "title_en": "Show HN: Mastra Factory, the open-source software factory we use to build Mastra",
+   "summary": "Đội Mastra đưa công cụ họ dùng để bảo trì chính dự án lên Show HN. Nhóm cho biết Factory đã mở và merge 238 pull request trong tuần trước bài đăng, bên cạnh 630 pull request do người thực hiện được merge.",
+   "why": "Bản chia sẻ đưa ra một quy trình có thể xem tận nơi để bàn về phân việc, review và trách nhiệm.",
+   "url": "https://news.ycombinator.com/item?id=50548660",
+   "domain": "news.ycombinator.com",
+   "date": "2026-11-18",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 15,
+   "title": "Maritime đưa dịch vụ vận hành agent lên Launch HN",
+   "title_en": "Launch HN: Maritime (YC F26) – A managed cloud for production AI agents",
+   "summary": "Nhóm sáng lập Maritime giới thiệu cloud quản lý môi trường và vòng đời agent, từ đánh thức phiên đến lưu trạng thái và đặt hạn mức. Bài đăng nêu các yêu cầu mà họ gặp khi khảo sát nhóm xây agent, gồm môi trường tùy chỉnh và khôi phục lỗi.",
+   "why": "Cuộc thảo luận cho thấy chi phí kỹ thuật còn nằm ở các việc quanh phiên chạy, ngoài tiền mô hình.",
+   "url": "https://news.ycombinator.com/item?id=50549188",
+   "domain": "news.ycombinator.com",
+   "date": "2026-11-18",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 16,
+   "title": "r/LocalLLaMA thử AMD Loom trên Radeon 9700",
+   "title_en": "AMD Loom Fun: Added Radeon 9700 support over the weekend. Benchmarked 48 models with an average 42% speedup over llama.cpp.",
+   "summary": "Một thành viên công bố kết quả chạy 48 mô hình vừa trong 32 GB VRAM trên Radeon 9700 và báo cáo tăng tốc trung bình 42% so với llama.cpp trong phép thử của họ. Bài đăng kèm bảng kết quả theo mô hình để cộng đồng đối chiếu.",
+   "why": "Có thêm dữ liệu thực nghiệm khi cân nhắc GPU AMD cho suy luận cục bộ, với điều kiện kiểm tra lại trên cùng cấu hình.",
+   "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xxuzgg/amd_loom_fun_added_radeon_9700_support_over_the/",
+   "domain": "reddit.com",
+   "date": "2026-11-16",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "Anthropic lên Nasdaq sau đợt IPO 81,34 tỷ USD",
+   "title_en": "What to know about Anthropic’s massive IPO as it breaks records on Wall Street",
+   "summary": "Anthropic bắt đầu giao dịch với mã ANT ngày 19/11 sau đợt chào bán cơ sở 980 triệu cổ phiếu ở giá 83 USD. Quy mô chào bán gộp là 81,34 tỷ USD trước quyền mua thêm, gồm cổ phiếu do công ty và một số cổ đông hiện hữu bán.",
+   "why": "Lần giao dịch đầu tiên là diễn biến mới sau các bản cập nhật hồ sơ, giúp thị trường định giá công khai một hãng AI lớn.",
+   "url": "https://apnews.com/article/e303343c7f1a1b6a1361e08c1f8eeded",
+   "domain": "apnews.com",
+   "date": "2026-11-19",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": 1
+  },
+  {
+   "aid": 18,
+   "title": "Doanh thu AI Cloud và dịch vụ tính toán của Alibaba tăng 53%",
+   "title_en": "Alibaba Group Announces September Quarter 2026 Results and Interim Results for the Six Months Ended September 30, 2026",
+   "summary": "Alibaba báo mức tăng 53% so với cùng kỳ ở mảng AI Cloud and Compute Services trong quý kết thúc ngày 30/9. Doanh thu định kỳ từ khách hàng bên ngoài, sau khi bỏ phần giải pháp thiết bị tính toán, tăng 67%.",
+   "why": "Doanh thu định kỳ cho thấy lượng sử dụng đã đi vào hợp đồng và hoạt động thường xuyên của khách hàng.",
+   "url": "https://data.alibabagroup.com/ecms-files/1532295521/e676aff4-e76d-489b-960a-47b9cf36485d/Alibaba%20Group%20Announces%20September%20Quarter%202026%20Results%20and%20Interim%20Results%20for%20the%20Six%20Months%20Ended%20September%2030%2C%202026.pdf",
+   "domain": "data.alibabagroup.com",
+   "date": "2026-11-19",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  },
+  {
+   "aid": 19,
+   "title": "NVIDIA báo doanh thu 115,8 tỷ USD, Data Center đạt 107,6 tỷ USD",
+   "title_en": "NVIDIA Announces Financial Results for Third Quarter Fiscal 2027",
+   "summary": "NVIDIA công bố doanh thu quý ba tài khóa 2027 tăng 103% so với cùng kỳ, lên 115,8 tỷ USD. Mảng Data Center đạt 107,6 tỷ USD, tăng 110%.",
+   "why": "Kết quả cho thấy trung tâm dữ liệu chiếm phần lớn doanh thu của nhà cung cấp hạ tầng AI này.",
+   "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx",
+   "domain": "investor.nvidia.com",
+   "date": "2026-11-17",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": 5
+  },
+  {
+   "aid": 20,
+   "title": "Baidu báo doanh thu hạ tầng cloud AI tăng 94%",
+   "title_en": "Baidu Announces Third Quarter 2026 Results",
+   "summary": "Baidu công bố doanh thu AI Cloud Infra đạt 8,2 tỷ nhân dân tệ trong quý ba, tăng 94% so với cùng kỳ. Riêng doanh thu GPU Cloud tăng 191% so với cùng kỳ và 43% so với quý trước.",
+   "why": "Số liệu cho thấy nhu cầu hạ tầng trả phí đang tăng tại một nhà cung cấp lớn ở Trung Quốc.",
+   "url": "https://ir.baidu.com/news-releases/news-release-details/baidu-announces-third-quarter-2026-results",
+   "domain": "ir.baidu.com",
+   "date": "2026-11-16",
+   "section": "🏢 Ngành & Kinh doanh",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 17,
+ "weekly_video": {
+  "intro": "Chào anh em, Đức đây. Bản tin tuần 47 chốt ngày 20 tháng 11, với năm câu chuyện về tiền vốn, giá mô hình và cách đưa AI vào việc thật. Anthropic bắt đầu giao dịch trên Nasdaq, OpenAI và Google có các bản phát hành mới, còn báo cáo của NVIDIA cho thấy quy mô của hạ tầng đứng sau những dịch vụ đó.",
+  "outro": "Đó là năm tin nổi bật của tuần 47. Anh em có thể xem số liệu và nguồn gốc từng tin trong bản tin đầy đủ, rồi hẹn gặp lại ở số tuần sau.",
+  "segments": [
+   {
+    "aid": 17,
+    "headline": "Anthropic chào sàn Nasdaq",
+    "narration": "Ngày 19 tháng 11, cổ phiếu Anthropic bắt đầu giao dịch trên Nasdaq với mã ANT. Đây là mốc mới sau những tuần thị trường đọc hồ sơ và theo dõi quá trình chuẩn bị. Theo hồ sơ định giá gửi cơ quan chứng khoán Mỹ, đợt chào bán cơ sở có 980 triệu cổ phiếu, mỗi cổ phiếu giá 83 đô la. Nhân hai con số này, ta có quy mô chào bán gộp 81,34 tỷ đô la, trước quyền mua thêm của các bên bảo lãnh. Một phần số cổ phiếu do cổ đông hiện hữu bán, nên tiền thực tế vào công ty phải được đọc riêng. Giá chào bán cũng là một mốc riêng với giá mà người mua và người bán thống nhất khi cổ phiếu đã giao dịch. Vì sao Đức đặt tin này đầu tuần? Từ đây, người theo dõi Anthropic có thêm dữ liệu định kỳ để xem công ty biến nhu cầu AI thành doanh thu ra sao, trong khi vẫn phải chi cho năng lực tính toán. Với doanh nghiệp Việt đang mua dịch vụ AI, những con số đáng theo dõi là chi phí để phục vụ khách hàng, mức ổn định của dịch vụ và cách hãng thay đổi giá khi khối lượng sử dụng tăng.",
+    "bullets": [
+     "IPO cơ sở 81,34 tỷ USD",
+     "980 triệu cổ phiếu chào bán",
+     "Giao dịch với mã ANT"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Quy mô chào bán cơ sở",
+     "items": [
+      {
+       "v": "81,34 tỷ USD",
+       "l": "Tổng giá trị chào bán"
+      },
+      {
+       "v": "980 triệu",
+       "l": "Cổ phiếu chào bán"
+      },
+      {
+       "v": "83 USD",
+       "l": "Giá mỗi cổ phiếu"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 3,
+    "headline": "OpenAI hạ giá Astra",
+    "narration": "OpenAI phát hành GPT-6.2 Astra và GPT-6.2 Sol ngày 17 tháng 11. Astra hướng đến việc khó, như phân tích nhiều tài liệu, sửa mã qua nhiều tệp hoặc theo một quy trình có nhiều bước. Sol là lựa chọn cho các tác vụ thường ngày. Giá Astra trên API là 8 đô la cho mỗi triệu token đầu vào và 40 đô la cho mỗi triệu token đầu ra. Cả hai mức đều giảm 20 phần trăm so với GPT-6 Astra. Sol giữ giá đời trước, ở mức 2 đô la đầu vào và 10 đô la đầu ra. Với một nhóm kỹ thuật, con số mình muốn xem là tổng chi phí để giải quyết xong một yêu cầu. Một bản sửa rẻ ở lần gọi đầu có thể tốn thêm nhiều lượt nếu test liên tục thất bại, hoặc người duyệt phải làm lại. Ngược lại, yêu cầu tóm tắt một tài liệu quen thuộc có thể hoàn thành ngay với bản nhẹ. Đức sẽ lấy một nhóm việc đã có tiêu chí đạt, chạy cùng đầu vào với cả hai bản và ghi thêm thời gian review. Số đo đó cho biết phần việc nào nên đưa lên Astra, phần nào cứ để Sol xử lý.",
+    "bullets": [
+     "Astra giảm giá token 20%",
+     "Sol giữ giá bản trước",
+     "Hai mức giá cho hai loại việc"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Giá API mỗi triệu token",
+     "left": {
+      "h": "GPT-6.2 Astra",
+      "items": [
+       "Việc phức tạp",
+       "Đầu vào 8 USD",
+       "Đầu ra 40 USD"
+      ]
+     },
+     "right": {
+      "h": "GPT-6.2 Sol",
+      "items": [
+       "Việc thường ngày",
+       "Đầu vào 2 USD",
+       "Đầu ra 10 USD"
+      ]
+     }
+    },
+    "images": []
+   },
+   {
+    "aid": 2,
+    "headline": "Gemini 4 Neon cho việc dài",
+    "narration": "Google giới thiệu Gemini 4 Neon ngày 18 tháng 11, với mục tiêu xử lý công việc lập trình và phân tích kéo dài. Neon có cửa sổ ngữ cảnh 1 triệu token, bốn mức suy luận và giá API 3 đô la đầu vào, 15 đô la đầu ra cho mỗi triệu token. Đầu vào đã lưu cache có mức riêng là 0,15 đô la cho mỗi triệu. Google cũng báo cáo Neon ở mức suy luận high có chi phí trên mỗi tác vụ thấp hơn Carbon 32 phần trăm trong phép so sánh của hãng. Mình quan tâm đến bốn mức suy luận vì chúng cho đội kỹ thuật một cách điều chỉnh theo từng việc. Ví dụ, đọc quy ước trong một repo và sửa lỗi đi qua nhiều dịch vụ sẽ cần lượng công sức khác nhau, ngay cả khi dùng cùng mô hình. Context dài cũng giúp giữ nhiều tài liệu trong một phiên, nhưng chất lượng còn phụ thuộc vào khả năng tìm đúng đoạn và làm theo yêu cầu. Khi thử, anh em nên giữ nguyên bộ tác vụ, đổi từng mức và đo tỷ lệ qua test, số lần cần can thiệp và thời gian chờ. Đó là cách đặt mặc định theo công việc của team mình.",
+    "bullets": [
+     "Ngữ cảnh 1 triệu token",
+     "Bốn mức suy luận",
+     "Đầu vào 3 USD mỗi triệu token"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Cách cấu hình Gemini 4 Neon",
+     "items": [
+      {
+       "t": "Ngữ cảnh",
+       "d": "Tối đa 1 triệu token"
+      },
+      {
+       "t": "Suy luận",
+       "d": "Bốn mức điều chỉnh"
+      },
+      {
+       "t": "Đơn giá",
+       "d": "Tính riêng đầu vào, đầu ra"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 1,
+    "headline": "Genie 4 mở API",
+    "narration": "Ngày 18 tháng 11, Google bắt đầu mở Genie 4 trên Project Genie cho người dùng Google AI Ultra đủ điều kiện. Hôm sau, hãng đưa mô hình lên Gemini API và Google AI Studio. Từ một câu mô tả, một ảnh tham chiếu hoặc cả hai, mô hình có thể sinh một môi trường ở độ phân giải 720p, với 24 khung hình mỗi giây và âm thanh đồng bộ. Người dùng có thể di chuyển bằng bàn phím rồi dùng câu lệnh để đổi ánh sáng, thời tiết hoặc vật thể khi cảnh đang chạy. Hãy hình dung một bài thực hành làm quen với không gian mới. Người học có thể thử chọn đường, quay lại và quan sát điều gì xảy ra khi điều kiện thay đổi. Người dạy có thể dùng bản thử đó để xem hướng dẫn có dễ hiểu trước khi làm học liệu hoàn chỉnh. Mình sẽ thử hai việc rất cụ thể. Thứ nhất, quay lại khu vực vừa đi qua để xem vật thể có còn ở đúng chỗ. Thứ hai, đổi điều kiện giữa chừng và đo xem người dùng phải chờ bao lâu. Vẻ ngoài của bản demo gây ấn tượng, còn hai phép thử này cho biết bản mẫu đã đủ dùng cho một buổi học hay chưa.",
+    "bullets": [
+     "Tạo cảnh từ mô tả hoặc ảnh",
+     "Điều khiển trong lúc chạy",
+     "Video 720p có âm thanh đồng bộ"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Từ mô tả đến cảnh tương tác",
+     "items": [
+      {
+       "t": "Nhập ý tưởng",
+       "d": "Văn bản hoặc ảnh"
+      },
+      {
+       "t": "Tạo môi trường",
+       "d": "720p, 24 khung hình mỗi giây"
+      },
+      {
+       "t": "Điều khiển",
+       "d": "Di chuyển bằng bàn phím"
+      },
+      {
+       "t": "Đổi cảnh",
+       "d": "Điều chỉnh bằng câu lệnh"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 19,
+    "headline": "NVIDIA báo doanh thu 115,8 tỷ USD",
+    "narration": "Ngày 17 tháng 11, NVIDIA công bố kết quả quý ba tài khóa 2027, tức quý đã kết thúc ngày 25 tháng 10. Doanh thu toàn hãng đạt 115,8 tỷ đô la, tăng 103 phần trăm so với cùng kỳ năm trước. Riêng Data Center đạt 107,6 tỷ đô la, tăng 110 phần trăm. Tính ra mảng này chiếm khoảng 93 phần trăm doanh thu quý. Đây là một góc nhìn về AI ở phía hạ tầng. Mỗi khi một đội tăng số phiên làm việc đồng thời hay đưa thêm khách hàng vào hệ thống, phía sau phải có đủ máy, bộ nhớ và công suất để phục vụ. Kết quả của NVIDIA cho biết doanh thu đang tập trung ở đâu trong chuỗi đó. Với đội nhỏ ở Việt Nam, câu hỏi thực tế hơn là mình cần bao nhiêu năng lực tính toán trong giờ cao điểm và máy sẽ rảnh bao lâu trong phần còn lại. Một dịch vụ theo tháng dễ dự trù nếu tải ổn định, còn tải theo đợt cần được tính theo thời gian dùng thật. Đức sẽ nhìn cả chi phí giữ chỗ và thời gian chờ khi tải tăng. Hai số đó ảnh hưởng trực tiếp đến trải nghiệm của người dùng và ngân sách đội vận hành.",
+    "bullets": [
+     "Data Center đạt 107,6 tỷ USD",
+     "Doanh thu toàn hãng tăng 103%",
+     "Số liệu quý ba tài khóa 2027"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "Quý ba tài khóa 2027",
+     "items": [
+      {
+       "v": "115,8 tỷ USD",
+       "l": "Doanh thu toàn hãng"
+      },
+      {
+       "v": "107,6 tỷ USD",
+       "l": "Doanh thu Data Center"
+      },
+      {
+       "v": "+110%",
+       "l": "Data Center so cùng kỳ"
+      }
+     ]
+    },
+    "images": []
+   }
+  ]
+ },
+ "facebook_post": "𝐓𝐔𝐀̂̀𝐍 𝟒𝟕: 𝐓𝐔̛̀ 𝐆𝐈𝐀́ 𝐓𝐎𝐊𝐄𝐍 Đ𝐄̂́𝐍 𝐓𝐈𝐄̂̀𝐍 𝐇𝐀̣ 𝐓𝐀̂̀𝐍𝐆 🚀\nMột triệu token thì dễ đưa vào bảng giá. Còn một ticket sửa xong, qua test, người duyệt mở ra hiểu ngay thì tính bao nhiêu?\nĐức đọc tin tuần này với câu hỏi đó. Cùng lúc một hãng AI lên Nasdaq, hai hãng đưa ra thêm cách tính tiền cho công việc của anh em dev, còn NVIDIA công bố quy mô doanh thu từ phần hạ tầng.\n\n---\n\n1️⃣ 𝐀𝐧𝐭𝐡𝐫𝐨𝐩𝐢𝐜 𝐛𝐚̆́𝐭 đ𝐚̂̀𝐮 𝐠𝐢𝐚𝐨 𝐝𝐢̣𝐜𝐡 𝐭𝐫𝐞̂𝐧 𝐍𝐚𝐬𝐝𝐚𝐪\nTheo hồ sơ định giá, đợt chào bán cơ sở gồm 980 triệu cổ phiếu ở mức 83 USD mỗi cổ phiếu. Tổng quy mô là 81,34 tỷ USD, gồm cả phần do cổ đông hiện hữu bán. Mã ANT bắt đầu giao dịch ngày 19/11.\n👉 Sau các bản cập nhật hồ sơ, tuần này đã có giá chào bán và phiên giao dịch đầu tiên. Từ đây mình sẽ để ý doanh thu và chi phí hạ tầng qua các kỳ công bố.\n\n2️⃣ 𝐎𝐩𝐞𝐧𝐀𝐈 𝐠𝐢𝐚̉𝐦 𝐠𝐢𝐚́ 𝐭𝐨𝐤𝐞𝐧 𝐜𝐮̉𝐚 𝐀𝐬𝐭𝐫𝐚\nGPT-6.2 Astra có giá 8 USD đầu vào và 40 USD đầu ra cho mỗi triệu token, giảm 20% so với GPT-6 Astra. GPT-6.2 Sol giữ mức 2 USD đầu vào và 10 USD đầu ra.\n👉 Một lần gọi rẻ là chuyện của bảng giá. Một yêu cầu hoàn thành còn tính thêm lượt chạy lại và công của người review. Mấy khoản đó hay biến mất khi mình làm demo 😅\n\n3️⃣ 𝐆𝐞𝐦𝐢𝐧𝐢 𝟒 𝐍𝐞𝐨𝐧 𝐜𝐨́ 𝐛𝐨̂́𝐧 𝐦𝐮̛́𝐜 𝐬𝐮𝐲 𝐥𝐮𝐚̣̂𝐧\nGoogle công bố ngữ cảnh 1 triệu token và giá API 3 USD đầu vào, 15 USD đầu ra cho mỗi triệu token. Hãng báo chi phí mỗi tác vụ ở mức high thấp hơn Carbon 32% trong phép so sánh được nêu.\n👉 Anh em có thể dùng cùng một nhóm ticket để thử các mức suy luận. Nhìn tỷ lệ qua test và thời gian chờ sẽ dễ chọn cấu hình hơn nhìn mỗi bảng xếp hạng.\n\n4️⃣ 𝐆𝐨𝐨𝐠𝐥𝐞 đ𝐮̛𝐚 𝐆𝐞𝐧𝐢𝐞 𝟒 𝐥𝐞̂𝐧 𝐀𝐏𝐈\nGenie 4 tạo cảnh 720p ở 24 khung hình mỗi giây, có âm thanh đồng bộ. Sau khi mở trên Project Genie, Google đưa mô hình lên Gemini API và AI Studio ngày 19/11.\n👉 Với nội dung đào tạo, phép thử mình thích là cho học viên đi một vòng, quay lại chỗ cũ rồi xem cảnh có còn giữ đúng những gì họ vừa thấy.\n\n5️⃣ 𝐃𝐚𝐭𝐚 𝐂𝐞𝐧𝐭𝐞𝐫 đ𝐞𝐦 𝐯𝐞̂̀ 𝟏𝟎𝟕,𝟔 𝐭𝐲̉ 𝐔𝐒𝐃 𝐜𝐡𝐨 𝐍𝐕𝐈𝐃𝐈𝐀\nNVIDIA báo doanh thu quý ba tài khóa 2027 là 115,8 tỷ USD, trong đó Data Center đạt 107,6 tỷ USD và tăng 110% so với cùng kỳ.\n👉 Phần hạ tầng có quy mô rất lớn. Với team đang đi thuê, câu hỏi gần hơn là dùng bao nhiêu giờ mỗi ngày và lúc đông khách có phải chờ lâu không.\n\n---\n\n💭 𝐆𝐨́𝐜 𝐧𝐡𝐢̀𝐧 𝐜𝐮̉𝐚 𝐦𝐢̀𝐧𝐡 𝐯𝐞̂̀ 𝐭𝐮𝐚̂̀𝐧 𝐧𝐚̀𝐲\nĐức chia sẻ dưới góc nhìn của người làm Data & AI. Điều mình thấy mới là đội kỹ thuật có thêm quyền chọn mức suy luận cho từng việc, trong khi phía cung ứng phải tiếp tục bỏ tiền cho máy và điện để phục vụ những lựa chọn ấy. Team lớn có đủ lượt để chia tải khá chi tiết. Team nhỏ mà dựng bộ điều phối quá sớm thì lại có thêm một thứ để nuôi.\n\nNếu đang thử AI cho báo cáo hoặc đội support, mình sẽ lấy một việc lặp lại mà người dùng đã biết thế nào là đạt. Ví dụ, tóm tắt biến động doanh số và dẫn đúng bảng số liệu để người phụ trách bấm vào kiểm tra. Cho hai cấu hình chạy cùng bộ đầu vào, rồi ghi ba thứ: bao nhiêu kết quả được dùng ngay, sửa lại mất mấy phút, và ai sẽ chịu trách nhiệm khi câu trả lời sai. Đến lúc đó mới quyết định có tăng ngân sách hay không. Người nhận báo cáo còn cần biết dùng số liệu này để quyết việc gì, bằng không mình chỉ vừa sản xuất thêm một tab để họ đóng 😄\n\nHóa đơn ghi số token. Người dùng nhớ việc họ đã giải quyết được.\n\nAnh em đang dùng AI cho việc lặp lại nào thì kể Đức nghe xem phần tốn công nhất nằm ở đâu nhé.\n\n#AINews #HocCungAI #DataAI #AIAgent #GenAI #LapTrinh #HaTangAI #DoanhNghiepViet #CongNghe",
+ "facebook_reel": "81,34 tỷ USD để chào sàn.\n\nĐó là quy mô IPO cơ sở của Anthropic. Còn ở phía dev, OpenAI giảm giá token Astra 20% và Google mở API cho một thế giới có thể đi lại được.\n\nBa tin trong cùng một tuần, từ chuyện gọi mô hình đến chuyện gọi vốn. Xem recap rồi nói Đức nghe tin nào anh em muốn đào sâu nhé.\n\n#AINews #HocCungAI #GenAI #DataAI",
+ "bgm": "tech-pulse",
+ "youtube": {
+  "recap": "kwwzm1lqMGA",
+  "short": "GRZQSWVe3wU"
+ }
+}

@@ -18,6 +18,15 @@
                          "desc":  "Data Engineering, BI, Data Science, lakehouse và AI×Data — bản tin tuần kèm audio \u0026 video, và tin Data nóng nhất mỗi ngày.",
                          "hot":  true,
                          "order":  2
+                     },
+                     {
+                         "slug":  "opc",
+                         "name":  "OPC News",
+                         "tag":  "OPC",
+                         "accent":  "purple",
+                         "desc":  "Tin tức, xu hướng, case study và quy trình One-Person Company & AI Solopreneur trên toàn thế giới.",
+                         "hot":  true,
+                         "order":  3
                      }
                  ]
 }
