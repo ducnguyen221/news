@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Data News – Tuần W47: Dữ liệu vận hành gặp phân tích thời gian thực</title>
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data News – Tuần W47: Dữ liệu vận hành gặp phân tích thời gian thực">
+<meta property="og:description" content="PostgreSQL 19 cải tiến bảo trì, MongoDB mua Firebolt, còn Microsoft và AWS mở thêm cách kết nối và kiểm soát dữ liệu.">
+<meta property="og:image" content="https://ducnguyen.vn/news/data/assets/og-banner.png">
+<meta property="og:url" content="https://ducnguyen.vn/news/data/2026/11/w47.html">
+<!-- Meta Pixel (ID 1717041732866196) - do tuong tac tu Facebook. Cong bo tai /privacy/ -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1717041732866196');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1717041732866196&amp;ev=PageView&amp;noscript=1"/></noscript>
+<!-- End Meta Pixel -->
+<style>
+:root{--bg:#04060a;--text:#f8fafc;--muted:#94a3b8;--acc:#34f5a4;--cyan:#38bdf8;--panel:rgba(10,15,26,.95);--line:rgba(255,255,255,.08)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#04060a;color:var(--text);font:15px/1.62 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:inherit}.wrap{width:min(1080px,calc(100% - 24px));margin:auto;padding-bottom:36px}.hdr{position:sticky;top:8px;z-index:60;background:rgba(6,9,16,.92);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:12px;margin:10px 0 4px;padding:10px 14px;box-shadow:0 12px 36px rgba(0,0,0,.34)}.hdr-row{display:flex;align-items:center}.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none}.brand-mark{width:42px;height:42px;display:grid;place-items:center;flex:0 0 auto;border:1px solid rgba(52,245,164,.4);border-radius:50%;background:radial-gradient(circle,rgba(52,245,164,.22),rgba(56,189,248,.06) 55%,rgba(4,6,10,.95) 78%);box-shadow:0 0 18px rgba(52,245,164,.35);animation:brandPulse 3.2s ease-in-out infinite;transition:transform .45s cubic-bezier(.175,.885,.32,1.275)}.brand:hover .brand-mark{transform:rotate(180deg) scale(1.06);border-color:#34f5a4}@keyframes brandPulse{0%,100%{box-shadow:0 0 10px rgba(52,245,164,.22)}50%{box-shadow:0 0 26px rgba(52,245,164,.55)}}.brand-name{font-size:1.15rem;letter-spacing:.02em}.brand-name b{color:var(--acc)}.brand-sub{display:inline;color:#94a3b8;font-size:.78rem;margin-left:4px}.hdr-row2{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-top:8px;position:relative}.hdr-row2 .toc{flex:1 1 auto;display:flex;gap:6px;flex-wrap:wrap}.toc a{color:#cbd5e1;text-decoration:none;border:1px solid var(--line);background:rgba(10,15,26,.94);border-radius:999px;padding:5px 9px;font-size:.76rem}.toc a:hover{color:var(--acc);border-color:rgba(52,245,164,.4)}.vdiv{width:1px;height:22px;background:rgba(255,255,255,.16)}.hdr-ctrls{display:flex;gap:7px;align-items:center}.ctrl{border:1px solid rgba(255,255,255,.14);background:rgba(12,18,30,.96);color:#e2e8f0;border-radius:8px;padding:7px 10px;cursor:pointer;text-decoration:none;font:inherit;font-size:.78rem}.ctrl-acc{color:#04110b;background:linear-gradient(90deg,#34f5a4,#38bdf8);border-color:transparent;font-weight:750}.ctrl-ic{width:34px;height:34px;padding:0;display:grid;place-items:center}.navpop-btn{display:none}.navpop{display:none}.navpop-t:checked~.navpop{display:flex;flex-direction:column;gap:2px;position:absolute;top:calc(100% + 10px);left:0;right:0;z-index:80;background:rgba(8,12,20,.98);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:8px;backdrop-filter:blur(16px)}.navpop a{padding:11px 14px;border-radius:8px;color:#cbd5e1;text-decoration:none}.navpop a:hover{background:rgba(52,245,164,.1);color:#34f5a4}.navpop-t:checked~.hdr-ctrls .navpop-btn{color:#04060a;background:linear-gradient(90deg,#34f5a4,#38bdf8);border-color:transparent}#recap,.sec{scroll-margin-top:120px}.hot-video{margin-top:26px;width:100%;background:#0a0f1a;border-radius:12px}.hot-video video,.hot-video iframe{display:block;width:100%}.hot-video .hot-label{font-weight:700;margin-bottom:12px}.vid-links{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}.vbtn{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border:1px solid rgba(52,245,164,.35);border-radius:9px;color:#34f5a4;text-decoration:none;font-size:.88rem;font-weight:600;background:rgba(52,245,164,.07)}.vbtn:hover{background:rgba(52,245,164,.16)}.tldr{margin-top:24px;background:rgba(10,15,26,.96);border:1px solid rgba(52,245,164,.22);border-radius:12px;padding:18px 20px;box-shadow:0 16px 46px rgba(0,0,0,.3)}.tldr h1{font-size:1.12rem;margin:0 0 7px;color:var(--acc)}.tldr p{margin:0;color:#dbe5ef}.timeline{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;margin:12px 0 28px;background:rgba(8,12,20,.94);border:1px solid var(--line);padding:9px;border-radius:12px}.day{display:flex;flex-direction:column;text-align:center;padding:7px 3px;background:rgba(18,27,43,.96);border:1px solid var(--line);border-radius:8px}.day b{font-size:.75rem}.day small{color:var(--acc);font-size:.68rem}.day.dim{background:#0c1220;color:#94a3b8}.day.dim small{color:#94a3b8}.sec{margin-top:30px}.sec h2{background:#0a0f1a;border-radius:8px;padding-block:6px;font-size:1.28rem;margin:0 0 12px;padding-left:10px;border-left:3px solid var(--acc)}.card{display:flex;gap:15px;margin:10px 0;background:rgba(10,15,26,.93);border:1px solid var(--line);border-radius:12px;padding:14px;box-shadow:0 12px 30px rgba(0,0,0,.25)}.card[data-hot="1"]{border-color:rgba(52,245,164,.55);box-shadow:0 0 0 1px rgba(52,245,164,.1),0 18px 46px rgba(0,0,0,.4)}.thumb{width:96px;height:72px;object-fit:cover;flex:0 0 auto;border-radius:9px;background:#111827;border:1px solid var(--line)}.thumb-fallback{object-fit:contain;padding:18px}.body{min-width:0;flex:1}.rank{display:table;margin:0 0 5px;padding:3px 8px;border:1px solid rgba(251,191,36,.35);border-radius:999px;background:rgba(120,53,15,.92);color:#fde68a;font-size:.68rem;font-weight:800}.title{display:block;color:#f8fafc;text-decoration:none;font-size:1.02rem;font-weight:760;line-height:1.35}.title:hover{color:var(--acc)}.sum,.why{margin:7px 0;color:#cbd5e1}.why{color:#a7f3d0;font-size:.88rem}.meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:10px}.when,.metabtn,.readbtn{font-size:.72rem}.when{color:var(--muted)}.metabtn,.readbtn{padding:4px 8px;border:1px solid rgba(255,255,255,.12);border-radius:7px;background:rgba(15,23,42,.98);color:#cbd5e1;text-decoration:none;cursor:pointer}.readbtn{font:inherit;font-size:.72rem}.more{display:none}.xt:checked~.more{display:block;margin-top:14px;border-top:1px dashed rgba(255,255,255,.12);padding-top:14px}.xt:checked~.meta .xbtn{color:#04060a;background:var(--acc);border-color:var(--acc)}.kb{list-style:none;padding:0;margin:0 0 12px;display:grid;gap:5px}.kb li{color:#dbeafe}.kb li:before{content:"▸";color:var(--cyan);margin-right:8px}.facts{display:flex;gap:7px;flex-wrap:wrap}.fact{display:inline-flex;flex-direction:column;padding:6px 9px;border:1px solid rgba(56,189,248,.2);border-radius:8px;background:rgba(5,13,23,.98);font:12px/1.35 ui-monospace,SFMono-Regular,Menlo,monospace}.fact b{color:var(--cyan);font-size:9px;letter-spacing:.08em}.deep{color:#aebdce;margin:12px 0 0}.footer{margin-top:34px;padding:18px;text-align:center;color:var(--muted);background:rgba(8,12,20,.94);border:1px solid var(--line);border-radius:12px}.footer a{color:var(--acc)}@media(max-width:767px){.wrap{width:min(100% - 14px,1080px)}.hdr{top:4px;padding:8px 9px}.brand{gap:8px}.brand-mark{width:36px;height:36px}.brand-name{font-size:1rem}.brand-sub{font-size:.67rem;margin-left:0}.hdr-row2{gap:6px}.hdr-row2 .toc,.vdiv{display:none}.hdr-ctrls{width:100%}.hdr-ctrls .ctrl{flex:1 1 auto;font-size:.78rem;padding:8px 6px;text-align:center}.navpop-btn{display:grid}.hdr-ctrls .ctrl-ic{flex:0 0 38px;width:38px;height:36px;padding:0}.timeline{grid-template-columns:repeat(4,1fr)}.card{gap:10px;padding:11px}.thumb{width:86px;height:68px}.title{font-size:.94rem}.sum{font-size:.88rem}.why{font-size:.82rem}.vid-links .vbtn{flex:1 1 auto;justify-content:center}}@media(max-width:440px){.brand-sub{max-width:142px;line-height:1.15}.thumb{width:72px;height:60px}.card{align-items:flex-start}.sum,.why{margin-left:-82px}.meta,.more{margin-left:-82px;margin-top:10px}}
+
+@media(min-width:768px) and (max-width:900px){.hdr-row2{gap:8px}.hdr-row2 .toc{flex-wrap:nowrap;gap:4px}.toc a{white-space:nowrap;padding-inline:6px}.hdr-ctrls{gap:5px}}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.brand-mark{animation:none;transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hdr" id="top">
+<div class="hdr-row"><a class="brand" href="../../index.html" title="Về trang chính Data News"><span class="brand-mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34f5a4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/><path d="M4.5 11.5v6c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-6"/></svg></span><span class="brand-name">Data <b>News</b></span><span class="brand-sub">Tuần W47 · 16/11 - 22/11/2026</span></a></div>
+<div class="hdr-row2">
+<input type="checkbox" id="navpop" class="navpop-t" hidden>
+<nav class="toc"><a href="#recap">🎬 Recap</a><a href="#sec-1">🗄️ Hạ tầng</a><a href="#sec-2">🛠️ Công cụ</a><a href="#sec-3">🤖 AI × Data</a><a href="#sec-4">📈 Trend</a><a href="#sec-5">🏢 Ngành</a></nav>
+<span class="vdiv"></span>
+<div class="hdr-ctrls"><button id="readAll" class="ctrl ctrl-acc">🔊<span class="btxt"> Đọc tóm tắt</span></button> <button id="readStop" class="ctrl">⏹<span class="btxt"> Dừng</span></button> <label class="ctrl ctrl-ic navpop-btn" for="navpop" title="Mục lục">☰</label> <a class="ctrl ctrl-ic" href="../../index.html" title="Quay lại Data News">←</a></div>
+<div class="navpop"><a href="#recap" onclick="document.getElementById('navpop').checked=false">🎬 Recap</a><a href="#sec-1" onclick="document.getElementById('navpop').checked=false">🗄️ Hạ tầng</a><a href="#sec-2" onclick="document.getElementById('navpop').checked=false">🛠️ Công cụ</a><a href="#sec-3" onclick="document.getElementById('navpop').checked=false">🤖 AI × Data</a><a href="#sec-4" onclick="document.getElementById('navpop').checked=false">📈 Trend</a><a href="#sec-5" onclick="document.getElementById('navpop').checked=false">🏢 Ngành</a></div>
+</div>
+</header>
+<div id="recap"></div>
+<div class="hot-video"><div class="hot-label">🎬 Video recap tuần — các tin nóng nhất</div><div style="position:relative;width:100%;padding-top:56.25%;border-radius:12px;overflow:hidden"><iframe src="https://www.youtube.com/embed/_DYpVCjROnU" title="Video recap" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><div class="vid-links"><a class="vbtn" href="https://youtu.be/_DYpVCjROnU" target="_blank" rel="noopener">▶ Mở Youtube</a><a class="vbtn" href="https://www.youtube.com/shorts/iUtN78NjgdY" target="_blank" rel="noopener">📱 Youtube Short</a></div></div>
+<div class="tldr"><h1>⚡ Tổng quan tuần này</h1><p>Tuần 47 nổi bật với các cách đưa dữ liệu mới đến nơi cần ra quyết định. PostgreSQL 19 thêm tùy chọn thu gọn bảng khi ứng dụng vẫn đọc ghi, MongoDB mua Firebolt, còn Microsoft giới thiệu PostgreSQL serverless trong Fabric ở bản xem trước. AWS Glue mở kiểm tra chất lượng đến cấp catalog, còn MoL-SQL cho thấy trợ lý viết SQL có thể mất tới 23 điểm trong thử nghiệm khi ngôn ngữ của giá trị lưu trong bảng thay đổi. Bản tin chốt theo các công bố đã kiểm chứng đến tối ngày 21 tháng 11.</p></div>
+<div class="timeline"><span class="day"><b>T2 16/11</b><small>2 tin</small></span><span class="day"><b>T3 17/11</b><small>7 tin</small></span><span class="day"><b>T4 18/11</b><small>5 tin</small></span><span class="day"><b>T5 19/11</b><small>4 tin</small></span><span class="day"><b>T6 20/11</b><small>3 tin</small></span><span class="day dim"><b>T7 21/11</b><small>0 tin</small></span><span class="day dim"><b>CN 22/11</b><small>0 tin</small></span></div>
+<section class="sec" id="sec-1"><h2>🗄️ Hạ tầng &amp; Kiến trúc dữ liệu</h2>
+<article class="card" data-aid="1">
+<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.duckdb.org/images/blog/thumbs/duckdb-release-2-0-1.svg" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=duckdb.org&amp;sz=128';this.classList.add('thumb-fallback')" alt="">
+<div class="body">
+<input type="checkbox" id="x-1" class="xt" hidden>
+<a class="title" href="https://www.duckdb.org/2026/11/20/announcing-duckdb-201" target="_blank" rel="noopener">DuckDB 2.0.1 LTS ra mắt cùng extension AWS Glue thử nghiệm</a>
+<p class="sum">DuckDB phát hành bản vá 2.0.1 LTS và giới thiệu extension thử nghiệm để đọc, ghi bảng Hive trong AWS Glue Data Catalog trên S3. Nhánh 1.4 LTS hết hỗ trợ cộng đồng từ ngày 17 tháng 11.</p>
+<p class="why">💡 Đội đang dùng DuckDB cho xử lý dữ liệu cục bộ có lý do để lên lịch nâng cấp và kiểm lại các extension.</p>
+<div class="meta"><span class="when">📅 20/11</span><a class="metabtn" href="https://www.duckdb.org/2026/11/20/announcing-duckdb-201" target="_blank" rel="noopener">🔗 Website</a><label class="metabtn xbtn" for="x-1">📖 Mở rộng</label><button class="readbtn" type="button" data-aid="1">▶ Audio</button></div>
+<div class="more"><ul class="kb"><li>Nhánh 1.4 hết hỗ trợ ngày 17 tháng 11</li><li>Extension Glue đọc và ghi bảng Hive</li><li>Extension Iceberg sửa lỗi tương thích</li></ul><div class="facts"><span class="fact"><b>Phiên bản</b>2.0.1 LTS</span><span class="fact"><b>Định dạng Hive</b>Parquet, CSV, JSON, Avro</span><span class="fact"><b>Glue</b>Thử nghiệm</span></div><p class="deep">Tách kiểm thử engine khỏi kiểm thử extension vì hai phần có thay đổi khác nhau. Với Glue, hãy xác nhận quyền truy cập catalog và S3 trên bộ dữ liệu nhỏ. Nếu pipeline vừa đọc Iceberg vừa ghi Hive, kiểm thử từng đường vì hai định dạng có cách quản lý metadata riêng. Dự án cho biết nhánh 2.0 được hỗ trợ ít nhất đến tháng 10 năm 2027.</p></div>
+</div>
+</article>
+<article class="card" data-aid="2">
+<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.snowflake.com&amp;sz=128';this.classList.add('thumb-fallback')" alt="">
+<div class="body">
+<input type="checkbox" id="x-2" class="xt" hidden>
+<a class="title" href="https://docs.snowflake.com/en/release-notes/2026/other/2026-11-20-dynamic-tables-auto-resolves-to-adaptive" target="_blank" rel="noopener">Snowflake đổi cách chọn chế độ làm mới mặc định cho dynamic table</a>
+<p class="sum">Snowflake chuyển lựa chọn mặc định AUTO sang ADAPTIVE cho dynamic table mới có định nghĩa tương thích với làm mới gia tăng. Với định nghĩa không tương thích, AUTO tiếp tục chọn FULL.</p>
+<p class="why">💡 Một lần dựng lại môi trường có thể tạo bảng với chế độ làm mới khác dù mã khai báo giữ nguyên.</p>
+<div class="meta"><span class="when">📅 20/11</span><a class="metabtn" href="https://docs.snowflake.com/en/release-notes/2026/other/2026-11-20-dynamic-tables-auto-resolves-to-adaptive" target="_blank" rel="noopener">🔗 Website</a><label class="metabtn xbtn" for="x-2">📖 Mở rộng</label><button class="readbtn" type="button" data-aid="2">▶ Audio</button></div>
+<div class="more"><ul class="kb"><li>AUTO đổi cách chọn cho bảng mới</li><li>Bảng cũ giữ chế độ đã chọn</li><li>Có thể chỉ định INCREMENTAL rõ ràng</li></ul><div class="facts"><span class="fact"><b>Mặc định</b>AUTO</span><span class="fact"><b>Tương thích gia tăng</b>ADAPTIVE</span><span class="fact"><b>Trường hợp còn lại</b>FULL</span></div><p class="deep">Đọc chế độ đã được hệ thống chọn sau khi triển khai ở từng môi trường. Nếu thử nghiệm yêu cầu hành vi gia tăng cố định, khai báo INCREMENTAL ngay trong mã. So sánh thời gian và chi phí làm mới trên cùng lịch nạp dữ liệu. Điều này đặc biệt hữu ích khi đội thường xuyên tạo lại bảng qua pipeline triển khai.</p></div>
+</div>
+</article>
+<article class="card" data-aid="3" data-hot="1">
+<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=postgresql.org&amp;sz=128';this.classList.add('thumb-fallback')" alt="">
+<div class="body">
+<input type="checkbox" id="x-3" class="xt" hidden>
+<span class="rank">🔥 TOP 1 TUẦN NÀY</span>
+<a class="title" href="https://www.postgresql.org/about/press/presskit19/" target="_blank" rel="noopener">PostgreSQL 19 ra mắt, hỗ trợ thu gọn bảng trong lúc hệ thống hoạt động</a>
+<p class="sum">PostgreSQL 19 bổ sung REPACK với tùy chọn chạy đồng thời để thu hồi chỗ trống trong bảng mà vẫn cho phép đọc và ghi. Bản phát hành cũng thêm pg_plan_advice và mở rộng khả năng xử lý song song của autovacuum.</p>
+<p class="why">💡 Đội vận hành có thêm cách xử lý bảng phình to và kế hoạch truy vấn thiếu ổn định trên hệ thống đang phục vụ.</p>
+<div class="meta"><span class="when">📅 19/11</span><a class="metabtn" href="https://www.postgresql.org/about/press/presskit19/" target="_blank" rel="noopener">🔗 Website</a><label class="metabtn xbtn" for="x-3">📖 Mở rộng</label><button class="readbtn" type="button" data-aid="3">▶ Audio</button></div>
+<div class="more"><ul class="kb"><li>REPACK thu hồi không gian trống</li><li>pg_plan_advice hỗ trợ ổn định kế hoạch truy vấn</li><li>Autovacuum có thể xử lý index song song</li></ul><div class="facts"><span class="fact"><b>Phiên bản</b>19</span><span class="fact"><b>Bảo trì</b>REPACK CONCURRENTLY</span><span class="fact"><b>Kế hoạch</b>pg_plan_advice</span></div><p class="deep">Một bảng nhận nhiều cập nhật hoặc xóa có thể chiếm chỗ vì còn phiên bản dòng cũ. REPACK thu hồi phần chỗ trống đó và có thể sắp lại bảng theo index. Với tùy chọn chạy đồng thời, đội vận hành có thêm cách bảo trì bảng đang phục vụ. Trước khi lên phiên bản mới, hãy đo thời gian bảo trì và độ trễ ứng dụng trên một bản sao có tải đại diện.</p></div>
+</div>
+</article>
+<article class="card" data-aid="4">
+<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://azure.microsoft.com/en-us/blog/wp-content/uploads/2026/11/Azure-Blog-Image-Ignite_Blog-Hero-6A_3840x2160-scaled.jpg" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=azure.microsoft.com&amp;sz=128';this.classList.add('thumb-fallback')" alt="">
+<div class="body">
+<input type="checkbox" id="x-4" class="xt" hidden>
+<span class="rank">🔥 TOP 3 TUẦN NÀY</span>
+<a class="title" href="https://azure.microsoft.com/en-us/blog/microsoft-ignite-2026-whats-new-in-azure-the-platform-purpose-built-for-ai/" target="_blank" rel="noopener">Microsoft đưa PostgreSQL serverless vào Fabric với HorizonDB</a>
+<p class="sum">Tại Ignite, Microsoft giới thiệu bản preview Fabric HorizonDB. Thiết kế cho phép kết hợp dữ liệu giao dịch trong PostgreSQL với dữ liệu phân tích trong OneLake, đồng thời hỗ trợ mirroring và reverse ETL.</p>
+<p class="why">💡 Đội dùng Fabric có thêm cách đưa kết quả phân tích vào ứng dụng nghiệp vụ mà giảm số pipeline tự dựng.</p>
+<div class="meta"><span class="when">📅 17/11</span><a class="metabtn" href="https://azure.microsoft.com/en-us/blog/microsoft-ignite-2026-whats-new-in-azure-the-platform-purpose-built-for-ai/" target="_blank" rel="noopener">🔗 Website</a><label class="metabtn xbtn" for="x-4">📖 Mở rộng</label><button class="readbtn" type="button" data-aid="4">▶ Audio</button></div>
+<div class="more"><ul class="kb"><li>Fabric HorizonDB ở trạng thái preview</li><li>Truy vấn có thể kết hợp dữ liệu vận hành và OneLake</li><li>Reverse ETL đưa dữ liệu đã làm giàu về ứng dụng</li></ul><div class="facts"><span class="fact"><b>Trạng thái</b>Preview</span><span class="fact"><b>Vận hành</b>PostgreSQL serverless</span><span class="fact"><b>Phân tích</b>OneLake và Fabric Data Warehouse</span></div><p class="deep">Hãy lấy một màn hình nghiệp vụ cụ thể để thử, chẳng hạn màn hình hỗ trợ cần cả trạng thái đơn hàng và lịch sử khách. Đo độ trễ khi database thức dậy sau thời gian nhàn rỗi. Kiểm tra độ tươi của phần dữ liệu đi qua mirroring và quyền đọc khi truy vấn kết hợp. Kết quả đó sẽ cho biết mô hình có phù hợp với trải nghiệm người dùng đang cần hay chưa.</p></div>
+</div>
+</article>
+<article class="card" data-aid="5">
+<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.databricks.com&amp;sz=128';this.classList.add('thumb-fallback')" alt="">
+<div class="body">
+<input type="checkbox" id="x-5" class="xt" hidden>
+<a class="title" href="https://docs.databricks.com/aws/en/release-notes/product/2026/november#lakebase-streaming-sink-is-generally-available" target="_blank" rel="noopener">Databricks đưa đầu ghi streaming vào Lakebase lên GA</a>
+<p class="sum">Databricks đưa Lakebase streaming sink vào sử dụng chính thức, hỗ trợ Trigger.AvailableNow trên job và notebook serverless. Từ Databricks Runtime 19, đầu ghi hỗ trợ chiến lược merge và bổ sung cột qua mergeSchema.</p>
+<p class="why">💡 Đội có thể đưa kết quả từ pipeline Spark sang PostgreSQL để ứng dụng đọc, với lựa chọn chạy theo từng đợt dữ liệu.</p>
+<div class="meta"><span class="when">📅 17/11</span><a class="metabtn" href="https://docs.databricks.com/aws/en/release-notes/product/2026/november#lakebase-streaming-sink-is-generally-available" target="_blank" rel="noopener">🔗 Website</a><label class="metabtn xbtn" for="x-5">📖 Mở rộng</label><button class="readbtn" type="button" data-aid="5">▶ Audio</button></div>
+<div class="more"><ul class="kb"><li>Trigger.AvailableNow hỗ trợ trên serverless</li><li>Runtime 19 trở lên hỗ trợ mergeSchema</li><li>Ghi PostgreSQL ngoài qua Unity Catalog vẫn preview</li></ul><div class="facts"><span class="fact"><b>Đích</b>Lakebase</span><span class="fact"><b>Trạng thái</b>GA</span><span class="fact"><b>Merge</b>Runtime 19 trở lên</span></div><p class="deep">Một bảng phục vụ ứng dụng thường cần khóa nghiệp vụ và cách cập nhật rõ ràng. Đội nên chạy lại cùng một batch để đo hành vi ghi trùng và thử thay đổi schema theo hướng bổ sung cột. Khi dữ liệu được đọc trực tiếp từ ứng dụng, đặt mục tiêu độ tươi riêng cho bảng đó. Theo tài liệu, đường ghi ra PostgreSQL bên ngoài vẫn ở bản xem trước công khai.</p></div>
+</div>
+</article>
+<article class="card" data-aid="6">
+<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.snowflake.com&amp;sz=128';this.classList.add('thumb-fallback')" alt="">
+<div class="body">
+<input type="checkbox" id="x-6" class="xt" hidden>
+<a class="title" href="https://docs.snowflake.com/en/release-notes/2026/other/2026-11-16-iceberg-table-properties-ga" target="_blank" rel="noopener">Snowflake cho cấu hình thuộc tính bảng Iceberg ngay trong SQL</a>
+<p class="sum">Snowflake đưa TABLE_PROPERTIES lên GA cho bảng Iceberg do Snowflake quản lý và bảng do bên ngoài quản lý có quyền ghi. Câu lệnh CREATE hoặc ALTER có thể đặt thuộc tính, còn hàm hệ thống đọc lại giá trị đã lưu trong metadata.</p>
+<p class="why">💡 Quy tắc kích thước file và lưu giữ dữ liệu có thể đi cùng phần khai báo bảng để đội dễ kiểm tra khi triển khai.</p>
+<div class="meta"><span class="when">📅 16/11</span><a class="metabtn" href="https://docs.snowflake.com/en/release-notes/2026/other/2026-11-16-iceberg-table-properties-ga" target="_blank" rel="noopener">🔗 Website</a><label class="metabtn xbtn" for="x-6">📖 Mở rộng</label><button class="readbtn" type="button" data-aid="6">▶ Audio</button></div>
+<div class="more"><ul class="kb"><li>CREATE và ALTER hỗ trợ TABLE_PROPERTIES</li><li>Áp dụng cả bảng ngoài có quyền ghi</li><li>Hàm hệ thống đọc metadata đã lưu</li></ul><div class="facts"><span class="fact"><b>Trạng thái</b>GA</span><span class="fact"><b>Định dạng</b>Apache Iceberg</span><span class="fact"><b>Ví dụ</b>TARGET_FILE_SIZE</span></div><p class="deep">Ghi thuộc tính cùng phần định nghĩa bảng giúp người review thấy chính sách ngay khi đọc thay đổi. Sau khi triển khai, dùng hàm hệ thống để đối chiếu với metadata thật. Nếu nhiều engine cùng ghi một bảng, hãy chạy thử cách chúng đọc và xử lý thuộc tính liên quan. Với chính sách lưu giữ, xác nhận thời gian thực tế trước khi áp dụng đại trà.</p></div>
+</div>
+</article>
+</section>
+<section class="sec" id="sec-2"><h2>🛠️ Công cụ &amp; Nền tảng</h2>
+<article class="card" data-aid="7">
+<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=aws.amazon.com&amp;sz=128';this.classList.add('thumb-fallback')" alt="">
+<div class="body">
+<input type="checkbox" id="x-7" class="xt" hidden>
+<span class="rank">🔥 TOP 4 TUẦN NÀY</span>
+<a class="title" href="https://aws.amazon.com/about-aws/whats-new/2026/11/glue-catalog-data-quality-monitoring/" target="_blank" rel="noopener">AWS Glue mở giám sát chất lượng dữ liệu cho cả catalog</a>
+<p class="sum">AWS Glue Data Catalog cho phép cấu hình kiểm tra ở cấp catalog, database hoặc từng bảng, kể cả bảng mới bổ sung vào phạm vi. Kiểm tra có thể chạy theo lịch hoặc khi metadata đổi, bao gồm mỗi lần commit Iceberg.</p>
+<p class="why">💡 Đội quản lý nhiều bảng có thể áp dụng cùng một chuẩn dữ liệu và phát hiện lệch phân bố sớm hơn.</p>
+<div class="meta"><span class="when">📅 20/11</span><a class="metabtn" href="https://aws.amazon.com/about-aws/whats-new/2026/11/glue-catalog-data-quality-monitoring/" target="_blank" rel="noopener">🔗 Website</a><label class="metabtn xbtn" for="x-7">📖 Mở rộng</label><button class="readbtn" type="button" data-aid="7">▶ Audio</button></div>
+<div class="more"><ul class="kb"><li>Cấu hình cấp catalog, database hoặc bảng</li><li>Có thể kích hoạt theo commit Iceberg</li><li>Phát hiện lệch thống kê sau ba lần chạy</li></ul><div class="facts"><span class="fact"><b>Luật tùy chỉnh</b>DQDL</span><span class="fact"><b>Đầu ra</b>API, Iceberg hoặc S3</span><span class="fact"><b>Phạm vi</b>Catalog, database hoặc bảng</span></div><p class="deep">Trước tiên hãy chọn một database có người chịu trách nhiệm xử lý cảnh báo. Dùng profiling để hiểu đường cơ sở và dùng DQDL cho quy tắc nghiệp vụ cụ thể. Với bảng có nhiều commit, cân nhắc lịch chạy theo độ tươi thực sự cần và theo dõi chi phí. Khi có cảnh báo, cần biết ai sẽ sửa và dữ liệu nào phía sau đang chịu ảnh hưởng.</p></div>
+</div>
+</article>
+<article class="card" data-aid="8">
+<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.snowflake.com&amp;sz=128';this.classList.add('thumb-fallback')" alt="">
+<div class="body">
+<input type="checkbox" id="x-8" class="xt" hidden>
+<a class="title" href="https://docs.snowflake.com/en/release-notes/2026/other/2026-11-19-copy-snowpipe-error-logging-check-constraints-ga" target="_blank" rel="noopener">Snowflake ghi lại dòng lỗi và áp dụng CHECK khi nạp dữ liệu</a>
+<p class="sum">COPY INTO và Snowpipe có thể loại các dòng vi phạm CHECK trên bảng đích và ghi dòng bị loại vào bảng lỗi. Tính năng đã lên GA và hỗ trợ sửa rồi nạp lại bằng SQL.</p>
+<p class="why">💡 Đội dữ liệu có thể truy tìm dòng sai theo quy tắc nghiệp vụ và đối soát phần đã nạp với phần bị loại.</p>
+<div class="meta"><span class="when">📅 19/11</span><a class="metabtn" href="https://docs.snowflake.com/en/release-notes/2026/other/2026-11-19-copy-snowpipe-error-logging-check-constraints-ga" target="_blank" rel="noopener">🔗 Website</a><label class="metabtn xbtn" for="x-8">📖 Mở rộng</label><button class="readbtn" type="button" data-aid="8">▶ Audio</button></div>
+<div class="more"><ul class="kb"><li>CHECK kiểm tra dòng ở bảng đích</li><li>Bảng lỗi hỗ trợ CSV, JSON và Parquet</li><li>Có thể sửa và nạp lại bằng SQL</li></ul><div class="facts"><span class="fact"><b>Trạng thái</b>GA</span><span class="fact"><b>Đường nạp</b>COPY INTO và Snowpipe</span><span class="fact"><b>Chế độ ghi lỗi</b>ON_ERROR CONTINUE</span></div><p class="deep">Đặt ràng buộc cho điều kiện nghiệp vụ chắc chắn, chẳng hạn số lượng phải dương. Khi cho phép nạp tiếp, theo dõi cả số dòng thành công lẫn số dòng bị loại để phát hiện dữ liệu thiếu. Việc nạp bù cần quy tắc chống trùng và người duyệt rõ ràng. Với pipe sẵn có, kiểm tra quy trình cập nhật riêng mà Snowflake hướng dẫn.</p></div>
+</div>
+</article>
+<article class="card" data-aid="9">
+<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.snowflake.com&amp;sz=128';this.classList.add('thumb-fallback')" alt="">
+<div class="body">
+<input type="checkbox" id="x-9" class="xt" hidden>
+<a class="title" href="https://docs.snowflake.com/en/release-notes/2026/other/2026-11-18-spark-monitoring-ui-ga" target="_blank" rel="noopener">Snowflake đưa giao diện giám sát Spark lên GA</a>
+<p class="sum">Snowsight có giao diện chính thức để theo dõi batch job và phiên Snowpark Connect for Spark. Màn hình phân nhóm tác vụ gửi qua snowpark-submit hoặc EXECUTE CODE BUNDLE và các phiên Spark.</p>
+<p class="why">💡 Kỹ sư có điểm bắt đầu chung để khoanh vùng sự cố Spark khi chạy workload trên Snowflake.</p>
+<div class="meta"><span class="when">📅 18/11</span><a class="metabtn" href="https://docs.snowflake.com/en/release-notes/2026/other/2026-11-18-spark-monitoring-ui-ga" target="_blank" rel="noopener">🔗 Website</a><label class="metabtn xbtn" for="x-9">📖 Mở rộng</label><button class="readbtn" type="button" data-aid="9">▶ Audio</button></div>
+<div class="more"><ul class="kb"><li>Batch Jobs liệt kê hai đường thực thi</li><li>Spark Sessions tập trung phiên Snowpark Connect</li><li>Giao diện nằm trong Snowsight</li></ul><div class="facts"><span class="fact"><b>Trạng thái</b>GA</span><span class="fact"><b>Giao diện</b>Snowsight</span><span class="fact"><b>Phạm vi</b>Snowpark Connect for Spark</span></div><p class="deep">Trong buổi diễn tập sự cố, chọn một batch thất bại và một phiên Spark đang chạy để xem người trực tìm được thông tin gì. Ghi lại đường dẫn từ job bên điều phối tới lượt chạy trong Snowsight. Dùng cùng mã đối chiếu trong hướng dẫn trực ca. Làm được vậy thì người nhận ca tiếp theo có thể tiếp tục điều tra ngay.</p></div>
+</div>
+</article>
+<article class="card" data-aid="10">
+<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=news.microsoft.com&amp;sz=128';this.classList.add('thumb-fallback')" alt="">
+<div class="body">
+<input type="checkbox" id="x-10" class="xt" hidden>
+<a class="title" href="https://news.microsoft.com/events/ignite/2026/book-of-news#power-bi-introduces-custom-data-app-creation-in-preview" target="_blank" rel="noopener">Power BI Desktop thử nghiệm tạo ứng dụng dữ liệu cho người dùng Pro</a>
+<p class="sum">Microsoft mở preview ứng dụng dữ liệu tùy chỉnh trong Power BI Desktop cho khách hàng Power BI Pro. Người dùng có thể mô tả ứng dụng bằng ngôn ngữ tự nhiên từ semantic model và xây trải nghiệm có ghi ngược dữ liệu.</p>
+<p class="why">💡 Đội BI có thể thử xử lý bước nhập liệu hoặc phê duyệt ngay nơi người dùng xem số.</p>
+<div class="meta"><span class="when">📅 17/11</span><a class="metabtn" href="https://news.microsoft.com/events/ignite/2026/book-of-news#power-bi-introduces-custom-data-app-creation-in-preview" target="_blank" rel="noopener">🔗 Website</a><label class="metabtn xbtn" for="x-10">📖 Mở rộng</label><button class="readbtn" type="button" data-aid="10">▶ Audio</button></div>
+<div class="more"><ul class="kb"><li>Power BI Pro được tham gia preview</li><li>Dùng lại semantic model đã quản trị</li><li>Ứng dụng có thể cập nhật bản ghi</li></ul><div class="facts"><span class="fact"><b>Trạng thái</b>Preview</span><span class="fact"><b>Đối tượng</b>Power BI Pro</span><span class="fact"><b>Giao diện</b>Power BI Desktop</span></div><p class="deep">Một dashboard theo dõi ngân sách có thể đi cùng biểu mẫu giải trình chênh lệch. Đội BI cần làm rõ ai được nhập, ai được duyệt và lịch sử thay đổi lưu ở đâu. Thử một quy trình hẹp để đo số lần người dùng phải đổi công cụ. Đối chiếu số liệu sau ghi ngược với nguồn nghiệp vụ trước khi mở rộng.</p></div>
+</div>
+</article>
+</section>
+<section class="sec" id="sec-3"><h2>🤖 AI × Data</h2>
+<article class="card" data-aid="11">
+<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.cloud.google.com&amp;sz=128';this.classList.add('thumb-fallback')" alt="">
+<div class="body">
+<input type="checkbox" id="x-11" class="xt" hidden>
+<a class="title" href="https://docs.cloud.google.com/bigquery/docs/release-notes#November_19_2026" target="_blank" rel="noopener">BigQuery thử nghiệm AI Index và mở giám sát Data Engineering Agent</a>
+<p class="sum">Google đưa AI Index vào preview để tìm kiếm bằng ngôn ngữ tự nhiên trên cột BigQuery qua AI.SEARCH mà không cần tự tạo embedding. Quan sát Data Engineering Agent qua Cloud Monitoring và Cloud Trace đã lên GA.</p>
+<p class="why">💡 Một bên giảm việc tự dựng chỉ mục, bên kia bổ sung số liệu và dấu vết để đội vận hành agent.</p>
+<div class="meta"><span class="when">📅 19/11</span><a class="metabtn" href="https://docs.cloud.google.com/bigquery/docs/release-notes#November_19_2026" target="_blank" rel="noopener">🔗 Website</a><label class="metabtn xbtn" for="x-11">📖 Mở rộng</label><button class="readbtn" type="button" data-aid="11">▶ Audio</button></div>
+<div class="more"><ul class="kb"><li>CREATE AI INDEX tạo chỉ mục tìm kiếm</li><li>Cloud Monitoring theo dõi token, yêu cầu và độ trễ</li><li>Cloud Trace hiển thị lượt thực thi và gọi công cụ</li></ul><div class="facts"><span class="fact"><b>AI Index</b>Preview</span><span class="fact"><b>Quan sát agent</b>GA</span><span class="fact"><b>Truy vấn</b>AI.SEARCH</span></div><p class="deep">Chọn một nhóm cột văn bản và chuẩn bị câu hỏi mẫu để đo độ liên quan của kết quả tìm kiếm. Với agent kỹ thuật dữ liệu, xem trace để hiểu lần chạy đã gọi những công cụ nào. Đặt ngưỡng cảnh báo cho mức dùng token theo công việc thực tế. Hai cập nhật có mức độ sẵn sàng khác nhau, nên đưa vào kế hoạch thử nghiệm riêng.</p></div>
+</div>
+</article>
+<article class="card" data-aid="12">
+<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.snowflake.com&amp;sz=128';this.classList.add('thumb-fallback')" alt="">
+<div class="body">
+<input type="checkbox" id="x-12" class="xt" hidden>
+<a class="title" href="https://docs.snowflake.com/en/release-notes/2026/other/2026-11-18-ai-extract-citations" target="_blank" rel="noopener">Snowflake AI_EXTRACT thêm dẫn chứng cho giá trị trích xuất</a>
+<p class="sum">AI_EXTRACT trong Snowflake Cortex thử nghiệm đính kèm số trang và vùng trên tài liệu, hoặc vị trí bắt đầu và kết thúc trong văn bản. Dẫn chứng có thể trả về cùng điểm trích xuất và giá trị.</p>
+<p class="why">💡 Đội nhập liệu có thể cho người duyệt mở đúng vùng chứng từ khi đối chiếu kết quả AI.</p>
+<div class="meta"><span class="when">📅 18/11</span><a class="metabtn" href="https://docs.snowflake.com/en/release-notes/2026/other/2026-11-18-ai-extract-citations" target="_blank" rel="noopener">🔗 Website</a><label class="metabtn xbtn" for="x-12">📖 Mở rộng</label><button class="readbtn" type="button" data-aid="12">▶ Audio</button></div>
+<div class="more"><ul class="kb"><li>Tài liệu có số trang và vùng</li><li>Văn bản có vị trí đầu và cuối</li><li>Có thể trả thêm điểm trích xuất</li></ul><div class="facts"><span class="fact"><b>Trạng thái</b>Preview</span><span class="fact"><b>Hàm</b>AI_EXTRACT</span><span class="fact"><b>Bật dẫn chứng</b>citation</span></div><p class="deep">Với hóa đơn nhiều trang, số tiền trích xuất cần gắn với đúng vị trí trong chứng từ. Hiển thị vùng gốc bên cạnh giá trị để người duyệt kiểm tra nhanh. Dùng mẫu có nhiều con số gần nhau để đo tỷ lệ dẫn đúng vị trí và tỷ lệ lấy đúng giá trị. Hai chỉ số đó phục vụ hai loại lỗi khác nhau trong quy trình đối soát.</p></div>
+</div>
+</article>
+<article class="card" data-aid="13">
+<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=docs.databricks.com&amp;sz=128';this.classList.add('thumb-fallback')" alt="">
+<div class="body">
+<input type="checkbox" id="x-13" class="xt" hidden>
+<a class="title" href="https://docs.databricks.com/aws/en/release-notes/product/2026/november#ai_forecast-version-2-is-now-generally-available" target="_blank" rel="noopener">Databricks đưa ai_forecast phiên bản 2 lên GA</a>
+<p class="sum">Hàm dự báo chuỗi thời gian trong Databricks SQL bổ sung hỗ trợ ngày lễ, biến giải thích bên ngoài và đầu ra không âm. Phiên bản 2 dùng mô hình nền tảng dành cho chuỗi thời gian.</p>
+<p class="why">💡 Kỹ sư phân tích có thể đưa thêm tín hiệu nghiệp vụ vào dự báo ngay tại lớp SQL.</p>
+<div class="meta"><span class="when">📅 18/11</span><a class="metabtn" href="https://docs.databricks.com/aws/en/release-notes/product/2026/november#ai_forecast-version-2-is-now-generally-available" target="_blank" rel="noopener">🔗 Website</a><label class="metabtn xbtn" for="x-13">📖 Mở rộng</label><button class="readbtn" type="button" data-aid="13">▶ Audio</button></div>
+<div class="more"><ul class="kb"><li>Ngày lễ được hỗ trợ sẵn</li><li>Có thể dùng biến giải thích ngoài</li><li>Đầu ra hỗ trợ ràng buộc không âm</li></ul><div class="facts"><span class="fact"><b>Phiên bản</b>2</span><span class="fact"><b>Trạng thái</b>GA</span><span class="fact"><b>Giao diện</b>Databricks SQL</span></div><p class="deep">Dự báo bán lẻ dịp Tết là bài thử rõ ràng cho lịch ngày lễ và biến khuyến mại. Kiểm tra xem các biến đầu vào có sẵn tại thời điểm dự báo hay chỉ xuất hiện sau đó. So với dự báo mùa vụ đơn giản trên từng nhóm hàng để biết phần cải thiện đến từ đâu. Sai số ở nhóm bán chạy cần được nhìn riêng vì ảnh hưởng trực tiếp đến kế hoạch tồn kho.</p></div>
+</div>
+</article>
+<article class="card" data-aid="14">
+<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=arxiv.org&amp;sz=128';this.classList.add('thumb-fallback')" alt="">
+<div class="body">
+<input type="checkbox" id="x-14" class="xt" hidden>
+<span class="rank">🔥 TOP 5 TUẦN NÀY</span>
+<a class="title" href="https://arxiv.org/abs/2611.22333" target="_blank" rel="noopener">MoL-SQL đo điểm yếu của Text-to-SQL khi dữ liệu trộn ngôn ngữ</a>
+<p class="sum">MoL-SQL thay đổi độc lập ngôn ngữ câu hỏi, schema và giá trị lưu trong bảng. Trong thử nghiệm của nhóm tác giả, khác biệt ngôn ngữ ở giá trị có thể làm kết quả giảm tới 23 điểm.</p>
+<p class="why">💡 Đội triển khai trợ lý phân tích tiếng Việt có thêm cách kiểm thử ánh xạ giữa câu hỏi và giá trị thực lưu trong hệ thống.</p>
+<div class="meta"><span class="when">📅 18/11</span><a class="metabtn" href="https://arxiv.org/abs/2611.22333" target="_blank" rel="noopener">🔗 Website</a><label class="metabtn xbtn" for="x-14">📖 Mở rộng</label><button class="readbtn" type="button" data-aid="14">▶ Audio</button></div>
+<div class="more"><ul class="kb"><li>MoL-Full có 16.892 mẫu</li><li>MoL-Cube có 3.840 mẫu</li><li>Nhóm thử tám mô hình ngôn ngữ</li></ul><div class="facts"><span class="fact"><b>Loại</b>Bản tiền ấn phẩm</span><span class="fact"><b>Mức giảm tối đa</b>23 điểm</span><span class="fact"><b>Biến kiểm soát</b>Câu hỏi, schema, giá trị</span></div><p class="deep">Người dùng có thể hỏi về một tỉnh bằng tên đầy đủ, trong khi bảng lưu mã hoặc tên theo cách khác. Câu SQL vẫn có thể chạy thành công và trả về số sai vì điều kiện lọc trỏ nhầm giá trị. Dựng bộ câu hỏi có cả tên địa phương, bí danh và mã nghiệp vụ. Chỉ cấp cho trợ lý ngữ cảnh giá trị đã được phép dùng và đo lại kết quả trên các trường hợp khó.</p></div>
+</div>
+</article>
+</section>
+<section class="sec" id="sec-4"><h2>📈 Hot trend &amp; Thảo luận cộng đồng</h2>
+<article class="card" data-aid="15">
+<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=arxiv.org&amp;sz=128';this.classList.add('thumb-fallback')" alt="">
+<div class="body">
+<input type="checkbox" id="x-15" class="xt" hidden>
+<a class="title" href="https://arxiv.org/abs/2611.22474" target="_blank" rel="noopener">Errpedia phát hiện sai lệch số học cả ở chế độ tìm kiếm vector exact</a>
+<p class="sum">Bộ thử Errpedia gồm 1.616 truy vấn trên 21 nhóm lỗi được thiết kế để kiểm tra tìm kiếm vector chính xác. Cả 20 cấu hình trong thí nghiệm đều trả tập top 10 sai ở ít nhất một truy vấn áp dụng được.</p>
+<p class="why">💡 Đội xây RAG có thể kiểm thử cả trường hợp vector gần như đồng khoảng cách thay vì chỉ đo độ trễ và recall trung bình.</p>
+<div class="meta"><span class="when">📅 18/11</span><a class="metabtn" href="https://arxiv.org/abs/2611.22474" target="_blank" rel="noopener">🔗 Website</a><label class="metabtn xbtn" for="x-15">📖 Mở rộng</label><button class="readbtn" type="button" data-aid="15">▶ Audio</button></div>
+<div class="more"><ul class="kb"><li>Bộ thử có 1.616 truy vấn</li><li>Đáp án chuẩn dùng số học hữu tỉ chính xác</li><li>20 cấu hình đều có ít nhất một lỗi</li></ul><div class="facts"><span class="fact"><b>Loại</b>Bản tiền ấn phẩm</span><span class="fact"><b>Nhóm lỗi</b>21</span><span class="fact"><b>Độ sâu đối chiếu</b>Top 10</span></div><p class="deep">Con số của bài báo nói về các truy vấn được thiết kế để kích hoạt lỗi số học. Muốn biết ảnh hưởng trong hệ thống của mình, hãy đối chiếu một tập nhỏ với kết quả chuẩn. Kiểm tra riêng tình huống trùng vector hoặc khoảng cách gần bằng nhau. Với ứng dụng có thể nhận ít hơn số hàng yêu cầu, cần đo khả năng xử lý ở bước xếp hạng sau truy xuất.</p></div>
+</div>
+</article>
+<article class="card" data-aid="16">
+<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=news.ycombinator.com&amp;sz=128';this.classList.add('thumb-fallback')" alt="">
+<div class="body">
+<input type="checkbox" id="x-16" class="xt" hidden>
+<a class="title" href="https://news.ycombinator.com/item?id=50525052" target="_blank" rel="noopener">Cộng đồng bàn về Sutra-OS và tầng ontology tự quản</a>
+<p class="sum">Trên Hacker News, tác giả Sutra-OS giới thiệu một lớp tự lưu trữ để mô hình hóa đối tượng, quan hệ và hành động trên nhiều nguồn dữ liệu. Cuộc thảo luận đặt câu hỏi về chi phí duy trì ontology và phạm vi nên mô hình hóa.</p>
+<p class="why">💡 Tầng dùng chung có thể giảm công tích hợp, với điều kiện đội dữ liệu có người chịu trách nhiệm cho từng định nghĩa nghiệp vụ.</p>
+<div class="meta"><span class="when">📅 17/11</span><a class="metabtn" href="https://news.ycombinator.com/item?id=50525052" target="_blank" rel="noopener">🔗 Website</a><label class="metabtn xbtn" for="x-16">📖 Mở rộng</label><button class="readbtn" type="button" data-aid="16">▶ Audio</button></div>
+<div class="more"><ul class="kb"><li>Dự án trình bày đối tượng, quan hệ và hành động</li><li>Tác giả mô tả khả năng truy vấn và ghi ngược</li><li>Cộng đồng bàn về phạm vi và công duy trì</li></ul><div class="facts"><span class="fact"><b>Kênh</b>Show HN</span><span class="fact"><b>Triển khai</b>Tự lưu trữ</span><span class="fact"><b>Khái niệm</b>Ontology có kiểu hành động</span></div><p class="deep">Thử mô hình trên một quy trình nhỏ, chẳng hạn cập nhật trạng thái một yêu cầu hỗ trợ. Chỉ đưa vào những đối tượng và quan hệ có người sở hữu rõ. Đo số chỗ cần sửa khi quy trình đổi tên trường hoặc thêm trạng thái. Chi phí giữ mô hình đúng theo thời gian thường quan trọng hơn số connector trong bản demo.</p></div>
+</div>
+</article>
+<article class="card" data-aid="17">
+<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=antfly.io&amp;sz=128';this.classList.add('thumb-fallback')" alt="">
+<div class="body">
+<input type="checkbox" id="x-17" class="xt" hidden>
+<a class="title" href="https://antfly.io/thoughts/how-antfly-learned-to-stop-worrying-and-love-apache-2" target="_blank" rel="noopener">Antfly 0.3 phát hành dưới Apache 2.0, mở truy vấn Iceberg và Parquet</a>
+<p class="sum">Antfly 0.3 là bản phát hành đầu tiên sau khi dự án chuyển giấy phép sang Apache 2.0 vào tháng 10. Bản mới hỗ trợ SQL qua giao thức PostgreSQL và truy vấn Iceberg, Parquet trực tiếp trên object storage.</p>
+<p class="why">💡 Tin được thảo luận trên Hacker News và cho thấy một hướng kết hợp truy vấn bảng mở với tìm kiếm và đồ thị tri thức.</p>
+<div class="meta"><span class="when">📅 16/11</span><a class="metabtn" href="https://antfly.io/thoughts/how-antfly-learned-to-stop-worrying-and-love-apache-2" target="_blank" rel="noopener">🔗 Website</a><label class="metabtn xbtn" for="x-17">📖 Mở rộng</label><button class="readbtn" type="button" data-aid="17">▶ Audio</button></div>
+<div class="more"><ul class="kb"><li>Đây là bản đầu tiên sau đổi giấy phép</li><li>Có thể kết nối bằng psql</li><li>Truy vấn Iceberg và Parquet tại nguồn</li></ul><div class="facts"><span class="fact"><b>Phiên bản</b>0.3</span><span class="fact"><b>Giấy phép</b>Apache 2.0</span><span class="fact"><b>Giao thức SQL</b>PostgreSQL</span></div><p class="deep">Thay đổi trong tuần là bản 0.3 đi kèm bộ tính năng mới, còn quyết định giấy phép diễn ra vào tháng 10. Thử truy vấn trên một bảng Iceberg nhỏ rồi đo lượng dữ liệu phải đọc. Nếu dùng chung cho truy vấn và tìm kiếm, tách số đo độ trễ của hai loại tải. Với đội nhỏ, tính cả công vận hành khi cân nhắc tự chạy.</p></div>
+</div>
+</article>
+</section>
+<section class="sec" id="sec-5"><h2>🏢 Ngành &amp; Doanh nghiệp</h2>
+<article class="card" data-aid="18">
+<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=mongodb.gcs-web.com&amp;sz=128';this.classList.add('thumb-fallback')" alt="">
+<div class="body">
+<input type="checkbox" id="x-18" class="xt" hidden>
+<a class="title" href="https://mongodb.gcs-web.com/node/14801/pdf" target="_blank" rel="noopener">MongoDB Atlas mở rộng triển khai chính phủ sang Azure Government</a>
+<p class="sum">MongoDB công bố Atlas for Government đạt chứng nhận FedRAMP Class D ở mức High và thêm hỗ trợ Microsoft Azure Government. Theo hãng, môi trường đạt mức này hiện có trên AWS, Azure Government và Google Cloud.</p>
+<p class="why">💡 Khách hàng chính phủ Mỹ có thêm lựa chọn cloud cho hệ thống dữ liệu có yêu cầu bảo đảm cao.</p>
+<div class="meta"><span class="when">📅 19/11</span><a class="metabtn" href="https://mongodb.gcs-web.com/node/14801/pdf" target="_blank" rel="noopener">🔗 Website</a><label class="metabtn xbtn" for="x-18">📖 Mở rộng</label><button class="readbtn" type="button" data-aid="18">▶ Audio</button></div>
+<div class="more"><ul class="kb"><li>Bổ sung Microsoft Azure Government</li><li>FedRAMP Class D ở mức High</li><li>Thông cáo liệt kê ba nền tảng cloud</li></ul><div class="facts"><span class="fact"><b>Sản phẩm</b>Atlas for Government</span><span class="fact"><b>Chứng nhận</b>FedRAMP Class D (High)</span><span class="fact"><b>Thị trường</b>Khu vực công Mỹ</span></div><p class="deep">Đây là diễn biến riêng về triển khai khu vực công, với phạm vi chứng nhận được mô tả trong thông cáo của MongoDB. Điểm đáng theo dõi là khả năng giữ cùng API khi chuyển giữa các cloud được hỗ trợ. Đội kiến trúc vẫn phải đối chiếu dịch vụ, cấu hình và kiểm soát với yêu cầu dự án cụ thể. Với doanh nghiệp Việt, ví dụ này hữu ích khi lập danh sách câu hỏi về vị trí dữ liệu và phạm vi kiểm toán.</p></div>
+</div>
+</article>
+<article class="card" data-aid="19">
+<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=mongodb.com&amp;sz=128';this.classList.add('thumb-fallback')" alt="">
+<div class="body">
+<input type="checkbox" id="x-19" class="xt" hidden>
+<span class="rank">🔥 TOP 2 TUẦN NÀY</span>
+<a class="title" href="https://www.mongodb.com/company/blog/news/mongodb-acquires-firebolt" target="_blank" rel="noopener">MongoDB mua Firebolt để đưa phân tích thời gian thực đến gần dữ liệu giao dịch</a>
+<p class="sum">MongoDB công bố đã mua Firebolt và lên kế hoạch tích hợp engine phân tích vào nền tảng dữ liệu của mình. Hãng dự kiến engine chạy cạnh cơ sở dữ liệu và được đồng bộ tự động, đồng thời đã mở danh sách chờ.</p>
+<p class="why">💡 Ứng dụng có thể hưởng lợi từ dữ liệu mới hơn và ít pipeline phải tự vận hành nếu tích hợp đạt mục tiêu công bố.</p>
+<div class="meta"><span class="when">📅 17/11</span><a class="metabtn" href="https://www.mongodb.com/company/blog/news/mongodb-acquires-firebolt" target="_blank" rel="noopener">🔗 Website</a><label class="metabtn xbtn" for="x-19">📖 Mở rộng</label><button class="readbtn" type="button" data-aid="19">▶ Audio</button></div>
+<div class="more"><ul class="kb"><li>MongoDB công bố đã mua Firebolt</li><li>Engine sẽ chạy cạnh cơ sở dữ liệu</li><li>Tích hợp hiện mở danh sách chờ</li></ul><div class="facts"><span class="fact"><b>Bên mua</b>MongoDB</span><span class="fact"><b>Engine</b>Firebolt</span><span class="fact"><b>Tích hợp</b>Danh sách chờ</span></div><p class="deep">Phân tích ngay trên màn hình đang giao dịch đòi hỏi dữ liệu mới và phản hồi nhanh khi nhiều người dùng đồng thời. MongoDB muốn gánh phần đồng bộ mà đội ứng dụng vẫn phải tự dựng. Khi có thể thử sản phẩm, cần đo độ trễ cập nhật và tác động đến tải ghi. Giữ warehouse cho các luồng báo cáo đã ổn định và đánh giá Firebolt bằng một tính năng cần phản hồi nhanh.</p></div>
+</div>
+</article>
+<article class="card" data-aid="20">
+<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="https://www.databricks.com/sites/default/files/2026-11/2026-11-canadian-business-pr-og-1200x628-2x.png" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=databricks.com&amp;sz=128';this.classList.add('thumb-fallback')" alt="">
+<div class="body">
+<input type="checkbox" id="x-20" class="xt" hidden>
+<a class="title" href="https://www.databricks.com/company/newsroom/press-releases/databricks-grows-canadian-business-more-125-commits-training-data-ai" target="_blank" rel="noopener">Databricks cam kết đào tạo hơn 50.000 người tại Canada</a>
+<p class="sum">Databricks cho biết hoạt động kinh doanh tại Canada tăng hơn 125 phần trăm trong hai năm và đặt mục tiêu đào tạo hơn 50.000 sinh viên, người đi làm trong ba năm. Chương trình gồm thực hành, học theo tiến độ riêng và lộ trình chứng chỉ.</p>
+<p class="why">💡 Cam kết này cho thấy nhà cung cấp nền tảng coi năng lực sử dụng dữ liệu và AI là một phần của kế hoạch mở rộng thị trường.</p>
+<div class="meta"><span class="when">📅 17/11</span><a class="metabtn" href="https://www.databricks.com/company/newsroom/press-releases/databricks-grows-canadian-business-more-125-commits-training-data-ai" target="_blank" rel="noopener">🔗 Website</a><label class="metabtn xbtn" for="x-20">📖 Mở rộng</label><button class="readbtn" type="button" data-aid="20">▶ Audio</button></div>
+<div class="more"><ul class="kb"><li>Hơn 50.000 người là mục tiêu đào tạo</li><li>Kế hoạch kéo dài ba năm</li><li>Free Edition đã có mặt tại hơn 70 trường</li></ul><div class="facts"><span class="fact"><b>Thị trường</b>Canada</span><span class="fact"><b>Tăng trưởng công bố</b>Hơn 125% trong hai năm</span><span class="fact"><b>Đào tạo</b>Trên 50.000 người</span></div><p class="deep">Cần đọc riêng tăng trưởng kinh doanh đã công bố và mục tiêu đào tạo trong tương lai. Một chương trình có môi trường thực hành giúp người học hiểu cả lúc pipeline chạy tốt lẫn lúc dữ liệu lỗi. Với đội đào tạo nội bộ ở Việt Nam, có thể dùng một bài tập xuyên suốt từ nạp dữ liệu đến giải thích kết quả. Đánh giá bằng khả năng xử lý một ca nghiệp vụ thật và bằng cách người học giải thích các quyết định kỹ thuật.</p></div>
+</div>
+</article>
+<article class="card" data-aid="21">
+<img class="thumb" loading="lazy" referrerpolicy="no-referrer" src="" onerror="this.onerror=null;this.src='https://www.google.com/s2/favicons?domain=news.microsoft.com&amp;sz=128';this.classList.add('thumb-fallback')" alt="">
+<div class="body">
+<input type="checkbox" id="x-21" class="xt" hidden>
+<a class="title" href="https://news.microsoft.com/source/2026/11/17/microsoft-and-salesforce-announce-copilotforce-bringing-trusted-customer-context-and-action-into-microsoft-ai-experiences/" target="_blank" rel="noopener">Salesforce đưa truy vấn zero-copy vào dữ liệu Fabric lên GA</a>
+<p class="sum">Data Federation đã lên GA cho chiều truy vấn dữ liệu OneLake từ Salesforce Data 360. Chiều đưa dữ liệu Data 360 vào OneLake qua shortcut ở trạng thái public preview.</p>
+<p class="why">💡 Đội CRM có thể dùng thêm dữ liệu vận hành và tài chính mà giảm việc duy trì bản sao riêng cho các luồng được hỗ trợ.</p>
+<div class="meta"><span class="when">📅 17/11</span><a class="metabtn" href="https://news.microsoft.com/source/2026/11/17/microsoft-and-salesforce-announce-copilotforce-bringing-trusted-customer-context-and-action-into-microsoft-ai-experiences/" target="_blank" rel="noopener">🔗 Website</a><label class="metabtn xbtn" for="x-21">📖 Mở rộng</label><button class="readbtn" type="button" data-aid="21">▶ Audio</button></div>
+<div class="more"><ul class="kb"><li>Data Federation vào OneLake đã GA</li><li>Chiều ngược qua shortcut ở public preview</li><li>Dữ liệu nguồn giữ ở hệ thống cung cấp</li></ul><div class="facts"><span class="fact"><b>Trạng thái</b>GA</span><span class="fact"><b>Nguồn</b>Microsoft Fabric OneLake</span><span class="fact"><b>Đích phân tích</b>Salesforce Data 360</span></div><p class="deep">Bắt đầu bằng một trường hợp CRM cần đối chiếu dữ liệu với một bảng tài chính đã quản trị. Kiểm tra quyền ở cả bên cung cấp nguồn lẫn nơi tiêu thụ. Đo độ trễ và chi phí của truy vấn liên nền tảng trước khi dùng cho luồng tương tác trực tiếp. Chốt ai chịu trách nhiệm nếu hai bên hiển thị kết quả khác nhau.</p></div>
+</div>
+</article>
+</section>
+<footer class="footer">
+<p>Biên soạn 21/11/2026 · 19:09 (giờ Việt Nam) · 21 tin</p>
+<p>Tuyển chọn &amp; đọc bởi Duc Nguyen · <a href="https://ducnguyen.vn" target="_blank" rel="noopener">ducnguyen.vn</a></p>
+</footer>
+</div>
+<script src="../../assets/bg.js" defer></script>
+<!--MEDIA_INJECTED-->
+<script>
+(function(){
+  var base="../../audio/2026-11-21/";
+  var cur=null;
+  function play(src){ if(cur){cur.pause();} cur=new Audio(src); cur.play().catch(function(){}); }
+  function stop(){ if(cur){cur.pause(); cur=null;} }
+  document.addEventListener("DOMContentLoaded",function(){
+    var ra=document.getElementById("readAll"); if(ra) ra.onclick=function(){ play(base+"all.mp3"); };
+    var rs=document.getElementById("readStop"); if(rs) rs.onclick=stop;
+    document.querySelectorAll(".readbtn").forEach(function(b){
+      b.onclick=function(){ var id=b.getAttribute("data-aid"); if(id) play(base+id+".mp3"); };
+    });
+  });
+})();
+</script>
+</body>
+</html>

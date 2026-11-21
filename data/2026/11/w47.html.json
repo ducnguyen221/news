@@ -1,0 +1,437 @@
+{
+ "date": "21/11/2026",
+ "week": "W47",
+ "range": "16/11 - 22/11/2026",
+ "tldr": "Tuần 47 nổi bật với các cách đưa dữ liệu mới đến nơi cần ra quyết định. PostgreSQL 19 thêm tùy chọn thu gọn bảng khi ứng dụng vẫn đọc ghi, MongoDB mua Firebolt, còn Microsoft giới thiệu PostgreSQL serverless trong Fabric ở bản xem trước. AWS Glue mở kiểm tra chất lượng đến cấp catalog, còn MoL-SQL cho thấy trợ lý viết SQL có thể mất tới 23 điểm trong thử nghiệm khi ngôn ngữ của giá trị lưu trong bảng thay đổi. Bản tin chốt theo các công bố đã kiểm chứng đến tối ngày 21 tháng 11.",
+ "items": [
+  {
+   "aid": 1,
+   "title": "DuckDB 2.0.1 LTS ra mắt cùng extension AWS Glue thử nghiệm",
+   "title_en": "Announcing DuckDB 2.0.1 LTS",
+   "summary": "DuckDB phát hành bản vá 2.0.1 LTS và giới thiệu extension thử nghiệm để đọc, ghi bảng Hive trong AWS Glue Data Catalog trên S3. Nhánh 1.4 LTS hết hỗ trợ cộng đồng từ ngày 17 tháng 11.",
+   "why": "Đội đang dùng DuckDB cho xử lý dữ liệu cục bộ có lý do để lên lịch nâng cấp và kiểm lại các extension.",
+   "url": "https://www.duckdb.org/2026/11/20/announcing-duckdb-201",
+   "domain": "duckdb.org",
+   "date": "2026-11-20",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 2,
+   "title": "Snowflake đổi cách chọn chế độ làm mới mặc định cho dynamic table",
+   "title_en": "AUTO refresh mode for dynamic tables resolves to ADAPTIVE",
+   "summary": "Snowflake chuyển lựa chọn mặc định AUTO sang ADAPTIVE cho dynamic table mới có định nghĩa tương thích với làm mới gia tăng. Với định nghĩa không tương thích, AUTO tiếp tục chọn FULL.",
+   "why": "Một lần dựng lại môi trường có thể tạo bảng với chế độ làm mới khác dù mã khai báo giữ nguyên.",
+   "url": "https://docs.snowflake.com/en/release-notes/2026/other/2026-11-20-dynamic-tables-auto-resolves-to-adaptive",
+   "domain": "docs.snowflake.com",
+   "date": "2026-11-20",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 3,
+   "title": "PostgreSQL 19 ra mắt, hỗ trợ thu gọn bảng trong lúc hệ thống hoạt động",
+   "title_en": "PostgreSQL 19 Released!",
+   "summary": "PostgreSQL 19 bổ sung REPACK với tùy chọn chạy đồng thời để thu hồi chỗ trống trong bảng mà vẫn cho phép đọc và ghi. Bản phát hành cũng thêm pg_plan_advice và mở rộng khả năng xử lý song song của autovacuum.",
+   "why": "Đội vận hành có thêm cách xử lý bảng phình to và kế hoạch truy vấn thiếu ổn định trên hệ thống đang phục vụ.",
+   "url": "https://www.postgresql.org/about/press/presskit19/",
+   "domain": "postgresql.org",
+   "date": "2026-11-19",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 1
+  },
+  {
+   "aid": 4,
+   "title": "Microsoft đưa PostgreSQL serverless vào Fabric với HorizonDB",
+   "title_en": "Microsoft Ignite 2026: What’s new in Azure, the platform purpose-built for AI",
+   "summary": "Tại Ignite, Microsoft giới thiệu bản preview Fabric HorizonDB. Thiết kế cho phép kết hợp dữ liệu giao dịch trong PostgreSQL với dữ liệu phân tích trong OneLake, đồng thời hỗ trợ mirroring và reverse ETL.",
+   "why": "Đội dùng Fabric có thêm cách đưa kết quả phân tích vào ứng dụng nghiệp vụ mà giảm số pipeline tự dựng.",
+   "url": "https://azure.microsoft.com/en-us/blog/microsoft-ignite-2026-whats-new-in-azure-the-platform-purpose-built-for-ai/",
+   "domain": "azure.microsoft.com",
+   "date": "2026-11-17",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": 3
+  },
+  {
+   "aid": 5,
+   "title": "Databricks đưa đầu ghi streaming vào Lakebase lên GA",
+   "title_en": "Lakebase streaming sink is generally available",
+   "summary": "Databricks đưa Lakebase streaming sink vào sử dụng chính thức, hỗ trợ Trigger.AvailableNow trên job và notebook serverless. Từ Databricks Runtime 19, đầu ghi hỗ trợ chiến lược merge và bổ sung cột qua mergeSchema.",
+   "why": "Đội có thể đưa kết quả từ pipeline Spark sang PostgreSQL để ứng dụng đọc, với lựa chọn chạy theo từng đợt dữ liệu.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/november#lakebase-streaming-sink-is-generally-available",
+   "domain": "docs.databricks.com",
+   "date": "2026-11-17",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 6,
+   "title": "Snowflake cho cấu hình thuộc tính bảng Iceberg ngay trong SQL",
+   "title_en": "Iceberg table properties in SQL (General availability)",
+   "summary": "Snowflake đưa TABLE_PROPERTIES lên GA cho bảng Iceberg do Snowflake quản lý và bảng do bên ngoài quản lý có quyền ghi. Câu lệnh CREATE hoặc ALTER có thể đặt thuộc tính, còn hàm hệ thống đọc lại giá trị đã lưu trong metadata.",
+   "why": "Quy tắc kích thước file và lưu giữ dữ liệu có thể đi cùng phần khai báo bảng để đội dễ kiểm tra khi triển khai.",
+   "url": "https://docs.snowflake.com/en/release-notes/2026/other/2026-11-16-iceberg-table-properties-ga",
+   "domain": "docs.snowflake.com",
+   "date": "2026-11-16",
+   "section": "🗄️ Hạ tầng & Kiến trúc dữ liệu",
+   "hot_rank": null
+  },
+  {
+   "aid": 7,
+   "title": "AWS Glue mở giám sát chất lượng dữ liệu cho cả catalog",
+   "title_en": "AWS Glue Data Catalog introduces data quality monitoring for catalogs and databases",
+   "summary": "AWS Glue Data Catalog cho phép cấu hình kiểm tra ở cấp catalog, database hoặc từng bảng, kể cả bảng mới bổ sung vào phạm vi. Kiểm tra có thể chạy theo lịch hoặc khi metadata đổi, bao gồm mỗi lần commit Iceberg.",
+   "why": "Đội quản lý nhiều bảng có thể áp dụng cùng một chuẩn dữ liệu và phát hiện lệch phân bố sớm hơn.",
+   "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/glue-catalog-data-quality-monitoring/",
+   "domain": "aws.amazon.com",
+   "date": "2026-11-20",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": 4
+  },
+  {
+   "aid": 8,
+   "title": "Snowflake ghi lại dòng lỗi và áp dụng CHECK khi nạp dữ liệu",
+   "title_en": "Error logging and CHECK constraint enforcement for COPY INTO and Snowpipe (General availability)",
+   "summary": "COPY INTO và Snowpipe có thể loại các dòng vi phạm CHECK trên bảng đích và ghi dòng bị loại vào bảng lỗi. Tính năng đã lên GA và hỗ trợ sửa rồi nạp lại bằng SQL.",
+   "why": "Đội dữ liệu có thể truy tìm dòng sai theo quy tắc nghiệp vụ và đối soát phần đã nạp với phần bị loại.",
+   "url": "https://docs.snowflake.com/en/release-notes/2026/other/2026-11-19-copy-snowpipe-error-logging-check-constraints-ga",
+   "domain": "docs.snowflake.com",
+   "date": "2026-11-19",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 9,
+   "title": "Snowflake đưa giao diện giám sát Spark lên GA",
+   "title_en": "Spark Monitoring UI (General availability)",
+   "summary": "Snowsight có giao diện chính thức để theo dõi batch job và phiên Snowpark Connect for Spark. Màn hình phân nhóm tác vụ gửi qua snowpark-submit hoặc EXECUTE CODE BUNDLE và các phiên Spark.",
+   "why": "Kỹ sư có điểm bắt đầu chung để khoanh vùng sự cố Spark khi chạy workload trên Snowflake.",
+   "url": "https://docs.snowflake.com/en/release-notes/2026/other/2026-11-18-spark-monitoring-ui-ga",
+   "domain": "docs.snowflake.com",
+   "date": "2026-11-18",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 10,
+   "title": "Power BI Desktop thử nghiệm tạo ứng dụng dữ liệu cho người dùng Pro",
+   "title_en": "Power BI introduces custom data app creation in preview",
+   "summary": "Microsoft mở preview ứng dụng dữ liệu tùy chỉnh trong Power BI Desktop cho khách hàng Power BI Pro. Người dùng có thể mô tả ứng dụng bằng ngôn ngữ tự nhiên từ semantic model và xây trải nghiệm có ghi ngược dữ liệu.",
+   "why": "Đội BI có thể thử xử lý bước nhập liệu hoặc phê duyệt ngay nơi người dùng xem số.",
+   "url": "https://news.microsoft.com/events/ignite/2026/book-of-news#power-bi-introduces-custom-data-app-creation-in-preview",
+   "domain": "news.microsoft.com",
+   "date": "2026-11-17",
+   "section": "🛠️ Công cụ & Nền tảng",
+   "hot_rank": null
+  },
+  {
+   "aid": 11,
+   "title": "BigQuery thử nghiệm AI Index và mở giám sát Data Engineering Agent",
+   "title_en": "BigQuery release notes: November 19, 2026",
+   "summary": "Google đưa AI Index vào preview để tìm kiếm bằng ngôn ngữ tự nhiên trên cột BigQuery qua AI.SEARCH mà không cần tự tạo embedding. Quan sát Data Engineering Agent qua Cloud Monitoring và Cloud Trace đã lên GA.",
+   "why": "Một bên giảm việc tự dựng chỉ mục, bên kia bổ sung số liệu và dấu vết để đội vận hành agent.",
+   "url": "https://docs.cloud.google.com/bigquery/docs/release-notes#November_19_2026",
+   "domain": "docs.cloud.google.com",
+   "date": "2026-11-19",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 12,
+   "title": "Snowflake AI_EXTRACT thêm dẫn chứng cho giá trị trích xuất",
+   "title_en": "AI_EXTRACT citations (Preview)",
+   "summary": "AI_EXTRACT trong Snowflake Cortex thử nghiệm đính kèm số trang và vùng trên tài liệu, hoặc vị trí bắt đầu và kết thúc trong văn bản. Dẫn chứng có thể trả về cùng điểm trích xuất và giá trị.",
+   "why": "Đội nhập liệu có thể cho người duyệt mở đúng vùng chứng từ khi đối chiếu kết quả AI.",
+   "url": "https://docs.snowflake.com/en/release-notes/2026/other/2026-11-18-ai-extract-citations",
+   "domain": "docs.snowflake.com",
+   "date": "2026-11-18",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 13,
+   "title": "Databricks đưa ai_forecast phiên bản 2 lên GA",
+   "title_en": "ai_forecast version 2 is now generally available",
+   "summary": "Hàm dự báo chuỗi thời gian trong Databricks SQL bổ sung hỗ trợ ngày lễ, biến giải thích bên ngoài và đầu ra không âm. Phiên bản 2 dùng mô hình nền tảng dành cho chuỗi thời gian.",
+   "why": "Kỹ sư phân tích có thể đưa thêm tín hiệu nghiệp vụ vào dự báo ngay tại lớp SQL.",
+   "url": "https://docs.databricks.com/aws/en/release-notes/product/2026/november#ai_forecast-version-2-is-now-generally-available",
+   "domain": "docs.databricks.com",
+   "date": "2026-11-18",
+   "section": "🤖 AI × Data",
+   "hot_rank": null
+  },
+  {
+   "aid": 14,
+   "title": "MoL-SQL đo điểm yếu của Text-to-SQL khi dữ liệu trộn ngôn ngữ",
+   "title_en": "MoL-SQL: A Controlled Benchmark for Mixture-of-Language Text-to-SQL",
+   "summary": "MoL-SQL thay đổi độc lập ngôn ngữ câu hỏi, schema và giá trị lưu trong bảng. Trong thử nghiệm của nhóm tác giả, khác biệt ngôn ngữ ở giá trị có thể làm kết quả giảm tới 23 điểm.",
+   "why": "Đội triển khai trợ lý phân tích tiếng Việt có thêm cách kiểm thử ánh xạ giữa câu hỏi và giá trị thực lưu trong hệ thống.",
+   "url": "https://arxiv.org/abs/2611.22333",
+   "domain": "arxiv.org",
+   "date": "2026-11-18",
+   "section": "🤖 AI × Data",
+   "hot_rank": 5
+  },
+  {
+   "aid": 15,
+   "title": "Errpedia phát hiện sai lệch số học cả ở chế độ tìm kiếm vector exact",
+   "title_en": "Errpedia: Is Your Exact k-NN Vector Search Really Exact?",
+   "summary": "Bộ thử Errpedia gồm 1.616 truy vấn trên 21 nhóm lỗi được thiết kế để kiểm tra tìm kiếm vector chính xác. Cả 20 cấu hình trong thí nghiệm đều trả tập top 10 sai ở ít nhất một truy vấn áp dụng được.",
+   "why": "Đội xây RAG có thể kiểm thử cả trường hợp vector gần như đồng khoảng cách thay vì chỉ đo độ trễ và recall trung bình.",
+   "url": "https://arxiv.org/abs/2611.22474",
+   "domain": "arxiv.org",
+   "date": "2026-11-18",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 16,
+   "title": "Cộng đồng bàn về Sutra-OS và tầng ontology tự quản",
+   "title_en": "Show HN: Sutra-OS – A self-hosted ontology platform",
+   "summary": "Trên Hacker News, tác giả Sutra-OS giới thiệu một lớp tự lưu trữ để mô hình hóa đối tượng, quan hệ và hành động trên nhiều nguồn dữ liệu. Cuộc thảo luận đặt câu hỏi về chi phí duy trì ontology và phạm vi nên mô hình hóa.",
+   "why": "Tầng dùng chung có thể giảm công tích hợp, với điều kiện đội dữ liệu có người chịu trách nhiệm cho từng định nghĩa nghiệp vụ.",
+   "url": "https://news.ycombinator.com/item?id=50525052",
+   "domain": "news.ycombinator.com",
+   "date": "2026-11-17",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 17,
+   "title": "Antfly 0.3 phát hành dưới Apache 2.0, mở truy vấn Iceberg và Parquet",
+   "title_en": "How Antfly learned to stop worrying and love Apache 2.0",
+   "summary": "Antfly 0.3 là bản phát hành đầu tiên sau khi dự án chuyển giấy phép sang Apache 2.0 vào tháng 10. Bản mới hỗ trợ SQL qua giao thức PostgreSQL và truy vấn Iceberg, Parquet trực tiếp trên object storage.",
+   "why": "Tin được thảo luận trên Hacker News và cho thấy một hướng kết hợp truy vấn bảng mở với tìm kiếm và đồ thị tri thức.",
+   "url": "https://antfly.io/thoughts/how-antfly-learned-to-stop-worrying-and-love-apache-2",
+   "domain": "antfly.io",
+   "date": "2026-11-16",
+   "section": "📈 Hot trend & Thảo luận cộng đồng",
+   "hot_rank": null
+  },
+  {
+   "aid": 18,
+   "title": "MongoDB Atlas mở rộng triển khai chính phủ sang Azure Government",
+   "title_en": "MongoDB Atlas for Government Achieves FedRAMP Class D (High) Certification, Adds Support for Microsoft Azure Government",
+   "summary": "MongoDB công bố Atlas for Government đạt chứng nhận FedRAMP Class D ở mức High và thêm hỗ trợ Microsoft Azure Government. Theo hãng, môi trường đạt mức này hiện có trên AWS, Azure Government và Google Cloud.",
+   "why": "Khách hàng chính phủ Mỹ có thêm lựa chọn cloud cho hệ thống dữ liệu có yêu cầu bảo đảm cao.",
+   "url": "https://mongodb.gcs-web.com/node/14801/pdf",
+   "domain": "mongodb.gcs-web.com",
+   "date": "2026-11-19",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 19,
+   "title": "MongoDB mua Firebolt để đưa phân tích thời gian thực đến gần dữ liệu giao dịch",
+   "title_en": "MongoDB Acquires Firebolt to Bring Lightning-Fast Real-Time Analytics Into Its Intelligent Data Platform",
+   "summary": "MongoDB công bố đã mua Firebolt và lên kế hoạch tích hợp engine phân tích vào nền tảng dữ liệu của mình. Hãng dự kiến engine chạy cạnh cơ sở dữ liệu và được đồng bộ tự động, đồng thời đã mở danh sách chờ.",
+   "why": "Ứng dụng có thể hưởng lợi từ dữ liệu mới hơn và ít pipeline phải tự vận hành nếu tích hợp đạt mục tiêu công bố.",
+   "url": "https://www.mongodb.com/company/blog/news/mongodb-acquires-firebolt",
+   "domain": "mongodb.com",
+   "date": "2026-11-17",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": 2
+  },
+  {
+   "aid": 20,
+   "title": "Databricks cam kết đào tạo hơn 50.000 người tại Canada",
+   "title_en": "Databricks Grows Canadian Business More Than 125%, Commits to Training More Than 50,000 People in Data and AI",
+   "summary": "Databricks cho biết hoạt động kinh doanh tại Canada tăng hơn 125 phần trăm trong hai năm và đặt mục tiêu đào tạo hơn 50.000 sinh viên, người đi làm trong ba năm. Chương trình gồm thực hành, học theo tiến độ riêng và lộ trình chứng chỉ.",
+   "why": "Cam kết này cho thấy nhà cung cấp nền tảng coi năng lực sử dụng dữ liệu và AI là một phần của kế hoạch mở rộng thị trường.",
+   "url": "https://www.databricks.com/company/newsroom/press-releases/databricks-grows-canadian-business-more-125-commits-training-data-ai",
+   "domain": "databricks.com",
+   "date": "2026-11-17",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  },
+  {
+   "aid": 21,
+   "title": "Salesforce đưa truy vấn zero-copy vào dữ liệu Fabric lên GA",
+   "title_en": "Microsoft and Salesforce Announce Copilotforce, Bringing Trusted Customer Context and Action into Microsoft AI Experiences",
+   "summary": "Data Federation đã lên GA cho chiều truy vấn dữ liệu OneLake từ Salesforce Data 360. Chiều đưa dữ liệu Data 360 vào OneLake qua shortcut ở trạng thái public preview.",
+   "why": "Đội CRM có thể dùng thêm dữ liệu vận hành và tài chính mà giảm việc duy trì bản sao riêng cho các luồng được hỗ trợ.",
+   "url": "https://news.microsoft.com/source/2026/11/17/microsoft-and-salesforce-announce-copilotforce-bringing-trusted-customer-context-and-action-into-microsoft-ai-experiences/",
+   "domain": "news.microsoft.com",
+   "date": "2026-11-17",
+   "section": "🏢 Ngành & Doanh nghiệp",
+   "hot_rank": null
+  }
+ ],
+ "hot_aid": 3,
+ "weekly_video": {
+  "intro": "Tuần 47 có một câu hỏi chung. Làm sao đưa dữ liệu mới vào đúng chỗ cần ra quyết định, rồi kiểm tra được nó đến từ đâu và có đáng tin hay không? Mình sẽ đi qua năm tin, từ PostgreSQL và các nền tảng phân tích thời gian thực đến giám sát dữ liệu và bài thử dành cho trợ lý viết SQL.",
+  "outro": "Đó là năm diễn biến mình chọn cho tuần 47. Anh em có thể mở bản tin để xem nguồn và phần phân tích từng mục. Hẹn gặp lại tuần sau.",
+  "segments": [
+   {
+    "aid": 3,
+    "headline": "PostgreSQL 19 bảo trì bảng khi hệ thống chạy",
+    "narration": "Ngày 19 tháng 11, PostgreSQL phát hành phiên bản 19. Mình muốn bắt đầu với một việc rất đời thường trong vận hành. Một bảng đơn hàng bị sửa trạng thái liên tục. Dữ liệu đang dùng có thể ít hơn nhiều so với chỗ mà bảng chiếm trên đĩa, vì các lần cập nhật và xóa để lại những phiên bản dòng cũ. Khi cần thu gọn bảng, đội vận hành thường phải tính trước thời điểm bảo trì và tác động tới ứng dụng. Bản mới có lệnh REPACK tích hợp sẵn. Lệnh có thể thu hồi chỗ trống và sắp lại bảng theo một chỉ mục. Với tùy chọn chạy đồng thời, lưu lượng đọc và ghi thông thường vẫn có thể tiếp tục trong lúc xử lý. PostgreSQL 19 cũng cho autovacuum dọn chỉ mục bằng nhiều tiến trình song song và đưa thêm tiện ích pg_plan_advice để đội kỹ thuật thử hoặc ổn định lựa chọn kế hoạch truy vấn. Với đội đang chạy hệ thống bán hàng hay nền tảng dịch vụ, mình sẽ thử trên một bản sao gần với tải thật. Đo dung lượng thu hồi, độ trễ của ứng dụng và thời gian hoàn thành. Ba con số đó giúp chọn được cửa sổ vận hành phù hợp và có cơ sở thảo luận chuyện nâng cấp.",
+    "bullets": [
+     "REPACK thu hồi chỗ trống",
+     "Autovacuum xử lý index song song",
+     "Có thêm công cụ ổn định kế hoạch truy vấn"
+    ],
+    "diagram": {
+     "type": "versus",
+     "title": "Thu gọn bảng PostgreSQL",
+     "left": {
+      "h": "VACUUM FULL",
+      "items": [
+       "Thu hồi chỗ trống",
+       "Chặn truy cập trong lúc chạy"
+      ]
+     },
+     "right": {
+      "h": "REPACK CONCURRENTLY",
+      "items": [
+       "Thu hồi chỗ trống",
+       "Đọc ghi thông thường tiếp tục"
+      ]
+     }
+    },
+    "images": []
+   },
+   {
+    "aid": 19,
+    "headline": "MongoDB mua Firebolt để phân tích thời gian thực",
+    "narration": "Ngày 17 tháng 11, MongoDB xác nhận đã mua Firebolt. Hãy hình dung một ứng dụng giao hàng muốn ước lượng đơn nào sắp trễ. Ứng dụng cần xem trạng thái hiện tại rồi so với lịch sử của tuyến đó. Nếu dữ liệu lịch sử và dữ liệu đang chạy nằm ở hai hệ thống, đội kỹ thuật phải lo cả đường đồng bộ lẫn độ trễ của nó. Kế hoạch MongoDB công bố là cho engine Firebolt chạy bên cạnh cơ sở dữ liệu và tự đồng bộ dữ liệu giữa hai phần. Firebolt được xây cho truy vấn phân tích có nhiều yêu cầu đồng thời. MongoDB dẫn ví dụ Similarweb phân tích hơn một nghìn tỷ dòng ở quy mô petabyte, với truy vấn động có phản hồi dưới một giây. Đó là số liệu hãng nêu cho ca sử dụng Firebolt. Phần tích hợp với MongoDB hiện đang nhận đăng ký vào danh sách chờ. Nếu app của anh em chỉ cần báo cáo giao ban mỗi sáng, lợi ích từ dữ liệu cập nhật liên tục có thể khá nhỏ. Nếu khách dùng số liệu để quyết định ngay trên màn hình, cơ hội rõ hơn nhiều. Khi có bản dùng thử, Đức sẽ đo thời gian từ lúc một giao dịch thay đổi đến lúc dữ liệu mới xuất hiện trong kết quả, đồng thời theo dõi độ trễ ghi của ứng dụng.",
+    "bullets": [
+     "Firebolt xử lý truy vấn phân tích",
+     "MongoDB dự kiến đồng bộ tự động",
+     "Tích hợp đang nhận đăng ký"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Tích hợp MongoDB dự kiến",
+     "items": [
+      {
+       "t": "MongoDB",
+       "d": "Lưu dữ liệu giao dịch"
+      },
+      {
+       "t": "Đồng bộ",
+       "d": "MongoDB dự kiến tự quản"
+      },
+      {
+       "t": "Firebolt",
+       "d": "Chạy truy vấn phân tích"
+      },
+      {
+       "t": "Ứng dụng",
+       "d": "Đọc kết quả cập nhật"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 4,
+    "headline": "Microsoft đưa PostgreSQL serverless vào Fabric",
+    "narration": "Tại Ignite ngày 17 tháng 11, Microsoft giới thiệu Fabric HorizonDB ở trạng thái xem trước. Đây là PostgreSQL serverless nằm trong Fabric. Theo thiết kế công bố, cơ sở dữ liệu có thể được cấp phát trong vài giây, tự điều chỉnh theo nhu cầu, tạm dừng khi rảnh rồi hoạt động lại khi có truy vấn. Phần thú vị với người làm Data là cách nó nối ứng dụng với phân tích. Microsoft mô tả một truy vấn PostgreSQL có thể kết hợp dữ liệu vận hành trong HorizonDB và dữ liệu phân tích trên OneLake, với xử lý mở rộng ở Fabric Data Warehouse. Mirroring đưa dữ liệu giao dịch sang phía phân tích. Reverse ETL đưa dữ liệu đã làm giàu trở về cơ sở dữ liệu để ứng dụng đọc nhanh. Ví dụ, màn hình chăm sóc khách hàng có thể cần vừa xem đơn đang giao, vừa xem một điểm rủi ro đã được tính ở warehouse. Mình sẽ thử với một màn hình mà nhân viên đang phải mở hai hệ thống để ra quyết định. Cần đo độ trễ khi cơ sở dữ liệu vừa thức dậy, độ tươi của điểm rủi ro, và người nào được xem kết quả kết hợp. Nếu người dùng xử lý được hồ sơ nhanh hơn và số liệu vẫn đối chiếu được, dự án mới có lý do để mở rộng.",
+    "bullets": [
+     "Fabric HorizonDB đang preview",
+     "Truy vấn kết hợp dữ liệu OneLake",
+     "Reverse ETL đưa dữ liệu về ứng dụng"
+    ],
+    "diagram": {
+     "type": "stack",
+     "title": "Dữ liệu phục vụ ứng dụng",
+     "items": [
+      {
+       "t": "Ứng dụng",
+       "d": "Đọc dữ liệu nghiệp vụ"
+      },
+      {
+       "t": "Fabric HorizonDB",
+       "d": "Chạy PostgreSQL serverless"
+      },
+      {
+       "t": "Fabric Data Warehouse",
+       "d": "Xử lý truy vấn kết hợp"
+      },
+      {
+       "t": "OneLake",
+       "d": "Lưu dữ liệu phân tích"
+      }
+     ]
+    },
+    "images": [
+     "https://azure.microsoft.com/en-us/blog/wp-content/uploads/2026/11/Azure-Blog-Image-Ignite_Blog-Hero-6A_3840x2160-scaled.jpg"
+    ]
+   },
+   {
+    "aid": 7,
+    "headline": "AWS Glue giám sát chất lượng cấp catalog",
+    "narration": "Ngày 20 tháng 11, AWS bổ sung giám sát chất lượng dữ liệu ở cấp catalog và database cho Glue Data Catalog. Bài toán khá quen. Mỗi đội tạo thêm vài bảng, rồi ít lâu sau người trực ca phải nhớ bảng nào có kiểm tra, bảng nào chưa. Với cập nhật này, một cấu hình có thể áp dụng cho các bảng trong phạm vi, kể cả bảng mới được thêm sau đó. AWS cho phép dùng profiling để lấy thống kê cơ bản hoặc viết quy tắc nghiệp vụ bằng ngôn ngữ DQDL. Kiểm tra có thể chạy theo lịch hay khi metadata thay đổi, ví dụ sau mỗi commit Iceberg. Sau ba lượt chạy trên một bảng, Glue có thể đánh dấu thống kê lệch khỏi vùng dự kiến. Đội có thể lấy kết quả bằng API hoặc chọn ghi ra Iceberg hay Amazon S3. Theo mình, bài thử tốt nhất là bắt đầu ở một database mà cả người tạo bảng và người dùng báo cáo đều rõ trách nhiệm. Chọn vài điều kiện liên quan trực tiếp tới chỉ số đang dùng, như mã cửa hàng bắt buộc có giá trị. Sau đó đo xem từ lúc có cảnh báo tới lúc có người nhận và sửa mất bao lâu. Với bảng ghi liên tục, xem thêm tần suất kiểm tra và chi phí phát sinh.",
+    "bullets": [
+     "Một cấu hình cho nhiều bảng",
+     "Chạy theo lịch hoặc commit Iceberg",
+     "Thống kê bất thường sau ba lượt"
+    ],
+    "diagram": {
+     "type": "flow",
+     "title": "Kiểm tra chất lượng với Glue",
+     "items": [
+      {
+       "t": "Chọn phạm vi",
+       "d": "Catalog, database hoặc bảng"
+      },
+      {
+       "t": "Đặt kiểm tra",
+       "d": "Profiling hoặc luật DQDL"
+      },
+      {
+       "t": "Kích hoạt",
+       "d": "Lịch hoặc thay đổi metadata"
+      },
+      {
+       "t": "Đọc kết quả",
+       "d": "API, Iceberg hoặc S3"
+      }
+     ]
+    },
+    "images": []
+   },
+   {
+    "aid": 14,
+    "headline": "MoL-SQL thử trợ lý SQL với dữ liệu đa ngữ",
+    "narration": "Ngày 18 tháng 11, arXiv đưa bản tiền ấn phẩm MoL-SQL vào danh sách công bố. Bài thử bắt đầu từ tình huống quen thuộc ở Việt Nam. Người dùng hỏi bằng tiếng Việt, tên bảng được đặt bằng tiếng Anh, còn giá trị trong cột có thể là tên nội bộ hoặc mã ngắn. Trợ lý hiểu yêu cầu và viết được câu SQL chạy thành công, nhưng điều kiện lọc vẫn có thể trỏ nhầm giá trị. MoL-SQL thay đổi độc lập ba phần là ngôn ngữ câu hỏi, cấu trúc đặt tên trong cơ sở dữ liệu và giá trị lưu thật. Bộ đánh giá chung có 16.892 mẫu, còn bộ dùng để đối chiếu các tổ hợp có 3.840 mẫu. Trong thí nghiệm với tám mô hình, tác động từ ngôn ngữ của giá trị có thể lên tới 23 điểm. Nhóm tác giả thấy rằng cung cấp ngữ cảnh về giá trị ở cơ sở dữ liệu đích giúp thu hẹp khoảng cách. Ví dụ, người dùng gọi tên một cửa hàng theo biển hiệu, còn hệ thống lưu mã chi nhánh. Đức sẽ thêm những câu như vậy vào bộ đánh giá và cấp một bảng ánh xạ được phép đọc. Khi chấm kết quả, đối chiếu cả số trả về lẫn giá trị thực tế được chọn trong điều kiện lọc.",
+    "bullets": [
+     "Đổi riêng ngôn ngữ câu hỏi và dữ liệu",
+     "Giá trị lưu khác ngôn ngữ gây hụt điểm",
+     "Ngữ cảnh giá trị giúp thu hẹp chênh lệch"
+    ],
+    "diagram": {
+     "type": "stats",
+     "title": "MoL-SQL qua các con số",
+     "items": [
+      {
+       "v": "16.892",
+       "l": "Mẫu đánh giá chung"
+      },
+      {
+       "v": "3.840",
+       "l": "Mẫu đối chiếu tổ hợp"
+      },
+      {
+       "v": "8",
+       "l": "Mô hình được thử"
+      },
+      {
+       "v": "23 điểm",
+       "l": "Mức giảm tối đa"
+      }
+     ]
+    },
+    "images": []
+   }
+  ]
+ },
+ "facebook_post": "𝐃𝐔̛̃ 𝐋𝐈𝐄̣̂𝐔 𝐂𝐀̂̀𝐍 𝐌𝐎̛́𝐈 Đ𝐄̂́𝐍 𝐌𝐔̛́𝐂 𝐍𝐀̀𝐎? | 𝐃𝐀𝐓𝐀 𝐍𝐄𝐖𝐒 𝐖𝟒𝟕 🗄️\nMột màn hình theo dõi đơn hàng hiện số rất đẹp. Vấn đề là lúc nhân viên nhìn thấy đơn sắp trễ thì xe đã đi rồi.\nNhưng cũng có báo cáo chỉ để họp sáng thứ Hai. Chạy nó sau mỗi giao dịch thì đội data lại có thêm thứ để trực. 😅\nTuần này có mấy tin giúp mình nhìn rõ nên đầu tư vào chỗ nào.\n\n---\n1️⃣ 𝐏𝐨𝐬𝐭𝐠𝐫𝐞𝐒𝐐𝐋 𝟏𝟗 𝐭𝐡𝐞̂𝐦 𝐑𝐄𝐏𝐀𝐂𝐊 𝐜𝐡𝐚̣𝐲 đ𝐨̂̀𝐧𝐠 𝐭𝐡𝐨̛̀𝐢\nNgày 19/11, nhóm PostgreSQL phát hành phiên bản 19. REPACK có thể thu hồi chỗ trống và sắp lại dữ liệu theo index. Tùy chọn chạy đồng thời cho phép ứng dụng tiếp tục đọc và ghi trong lúc bảo trì. Bản này cũng cho autovacuum xử lý index song song.\n👉 Nếu bảng đơn hàng phình lên vì đổi trạng thái nhiều, chọn một bản sao đủ giống tải thật rồi đo dung lượng thu hồi và độ trễ ứng dụng. Số đo này có ích hơn nhiều so với câu “lên bản mới cho yên tâm”.\n\n2️⃣ 𝐌𝐨𝐧𝐠𝐨𝐃𝐁 𝐦𝐮𝐚 𝐅𝐢𝐫𝐞𝐛𝐨𝐥𝐭\nTheo MongoDB, hãng dự kiến đặt engine phân tích Firebolt cạnh database và tự đồng bộ dữ liệu. Hãng dẫn trường hợp Similarweb dùng Firebolt phân tích hơn một nghìn tỷ dòng. Phần tích hợp với MongoDB hiện mở danh sách chờ.\n👉 Với tính năng đang phục vụ khách, câu hỏi hay là mất bao lâu từ lúc giao dịch đổi đến khi màn hình phân tích thấy số mới. Đo thêm độ trễ ghi ở giờ cao điểm, vì người dùng cảm nhận cả hai.\n\n3️⃣ 𝐅𝐚𝐛𝐫𝐢𝐜 𝐇𝐨𝐫𝐢𝐳𝐨𝐧𝐃𝐁 đ𝐮̛𝐚 𝐏𝐨𝐬𝐭𝐠𝐫𝐞𝐒𝐐𝐋 𝐯𝐚̀𝐨 𝐅𝐚𝐛𝐫𝐢𝐜\nMicrosoft công bố preview tại Ignite. Thiết kế nối dữ liệu giao dịch trong PostgreSQL với dữ liệu phân tích trên OneLake, có mirroring và đường đưa dữ liệu đã làm giàu về lại ứng dụng.\n👉 Thử lấy một màn hình chăm sóc khách hàng cần xem cả đơn đang giao và lịch sử mua. Nếu nhân viên xử lý được việc trong cùng màn hình, đội mới có căn cứ để tính tiếp độ trễ, quyền truy cập và chi phí.\n\n4️⃣ 𝐀𝐖𝐒 𝐆𝐥𝐮𝐞 𝐤𝐢𝐞̂̉𝐦 𝐭𝐫𝐚 𝐜𝐚̉ 𝐜𝐚𝐭𝐚𝐥𝐨𝐠\nTheo AWS, một cấu hình có thể áp dụng cho cả bảng mới được thêm vào phạm vi. Kiểm tra chạy theo lịch hoặc khi metadata đổi, kể cả lúc commit Iceberg. Sau ba lần chạy trên bảng, Glue có thể báo khi thống kê lệch khỏi vùng dự kiến.\n👉 Có chung một chuẩn kiểm tra giúp đỡ sót bảng. Chọn sẵn người nhận xử lý từ đầu, kẻo cảnh báo tới đều đặn mà ai cũng tưởng người khác đang xem. 😄\n\n5️⃣ 𝐌𝐨𝐋-𝐒𝐐𝐋 𝐭𝐡𝐮̛̉ 𝐭𝐫𝐨̛̣ 𝐥𝐲́ 𝐒𝐐𝐋 𝐤𝐡𝐢 𝐝𝐮̛̃ 𝐥𝐢𝐞̣̂𝐮 𝐭𝐫𝐨̣̂𝐧 𝐧𝐠𝐨̂𝐧 𝐧𝐠𝐮̛̃\nNhóm nghiên cứu tách ngôn ngữ câu hỏi, tên trường và giá trị trong dữ liệu để kiểm thử. Trong thí nghiệm của họ, khác biệt ngôn ngữ ở giá trị làm kết quả giảm tới 23 điểm. Cung cấp ngữ cảnh về giá trị lưu ở hệ thống đích giúp thu hẹp khoảng cách.\n👉 Hỏi “chi nhánh Hà Nội” nghe đơn giản, nhưng câu SQL cần tìm đúng mã chi nhánh. Trong bộ kiểm thử, mình sẽ cho cả bí danh và cách gọi thường ngày của người dùng vào.\n\n---\n💭 𝐆𝐨́𝐜 𝐧𝐡𝐢̀𝐧 𝐜𝐮̉𝐚 𝐦𝐢̀𝐧𝐡 𝐯𝐞̂̀ 𝐭𝐮𝐚̂̀𝐧 𝐧𝐚̀𝐲\nĐức chia sẻ dưới góc nhìn của một người làm Data và BI cho doanh nghiệp. Khi học Databricks và làm bài thực hành RAG trên lakehouse, mình thấy việc đưa dữ liệu và quyền truy cập về chung một nền giúp bớt công nối hệ thống. Phần cần hiểu nghiệp vụ vẫn nằm ở cái bảng trước mặt. Trường nào thể hiện trạng thái thật, giá trị nào vừa đổi và ai có quyền xem? Cài thêm công cụ cũng chưa trả lời hộ mình được.\n\nTheo mình, đội nhỏ nên lấy đúng một quyết định đang bị chậm để thử. Hỏi người đứng ca xem họ đợi dữ liệu bao lâu, họ làm được gì nếu biết sớm hơn, và trường hợp nào họ phải kiểm tra lại bằng tay. Nếu dữ liệu cập nhật nhanh hơn mà người phụ trách vẫn phải gọi điện xác nhận từng đơn, hãy tìm nguyên nhân ở bước đối soát trước khi xây thêm pipeline. Còn nếu chỉ cần báo cáo sáng thứ Hai, đặt lịch chạy ổn định và có người xử lý khi lỗi đã là một cải thiện đáng kể.\n\nSố đến đúng lúc và có người dám dùng mới giúp công việc chạy tiếp.\nAnh em đang làm một màn hình cần số liệu gần thời gian thực thì kể mình nghe xem người dùng cần quyết định gì nhé. Mình tò mò nhất đoạn đó.\n\n#DataNews #DataEngineering #PowerBI #PostgreSQL #Lakehouse #DataQuality #TextToSQL #HocCungAI #AIAgent",
+ "facebook_reel": "SQL chạy đúng mà lọc nhầm chi nhánh?\n\nBản tiền ấn phẩm MoL-SQL ghi nhận mức giảm tới 23 điểm khi ngôn ngữ của giá trị lưu khác nhau. Một tên gọi quen miệng và một mã nội bộ đủ làm trợ lý trả về số lệch.\n\nXem recap để biết Đức sẽ đưa ca này vào bộ kiểm thử thế nào.\n\n#DataNews #TextToSQL #DataEngineering #HocCungAI",
+ "bgm": "minimal-tech",
+ "youtube": {
+  "recap": "_DYpVCjROnU",
+  "short": "iUtN78NjgdY"
+ }
+}
